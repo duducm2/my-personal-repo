@@ -40,14 +40,16 @@
   // 3. Left Column (Sidebar)
   // -------------------------------------------------------------------------
   [
-    // Photo placeholder
+    // Photo (2× size, centered in column)
     #block(below: 1em)[
-      #box(
-        radius: 50%,
-        fill: rgb("#e0e0e0"),
-        width: 4em,
-        height: 4em
-      )[#align(center + horizon)[#text(size: 7pt, fill: gray)[Photo]]]
+      #align(center)[
+        #box(
+          radius: 50%,
+          width: 9em,
+          height: 9em,
+          clip: true
+        )[#image("pictures/my-photo.png", width: 9em, height: 9em)]
+      ]
     ]
     // Contact
     #sidebar-heading[Contact]
