@@ -10,23 +10,31 @@
 // -----------------------------------------------------------------------------
 #set page(
   paper: "a4",
-  margin: (left: 1.5cm, right: 1.5cm, top: 1.5cm, bottom: 1.5cm)
+  margin: (left: 1.2cm, right: 1.2cm, top: 1.2cm, bottom: 1.2cm)
 )
-#set text(font: "Times New Roman", size: 10pt)
-#set par(leading: 0.7em, spacing: 0.45em)
+#set text(font: "Arial", size: 10pt)
+#set par(leading: 0.72em, spacing: 0.42em)
 
-#let accent = rgb("#6A0DAD")
+// Palette (reference resume: grey + brownish-beige accents)
+// Use explicit stroke paint so PDF shows color; slightly stronger brown for visibility
+#let sidebar-header-bg = rgb("#E0E0E0")
+#let accent-line = rgb("#7A5C3A")
+#let footer-bg = rgb("#333333")
+#let heading-color = rgb("#2D2D2D")
 
-// Section title: uppercase, bold, accent (for main column)
+// Section title: uppercase, bold, dark grey; accent line below (main column)
+// Explicit stroke paint so accent color renders in PDF
 #let section-title(body) = {
-  set text(size: 9pt, weight: "bold", fill: accent)
-  block(above: 0.7em, below: 0.4em)[#block(body)]
+  set text(size: 9pt, weight: "bold", fill: heading-color)
+  block(above: 0.6em, below: 0.25em)[#block(body)]
+  block(below: 0.25em)[#line(length: 2.5em, stroke: (paint: accent-line, thickness: 0.6pt))]
 }
 
-// Sidebar subsection (smaller, bold, no accent)
+// Sidebar subsection: bold, dark grey; short accent line below
 #let sidebar-heading(body) = {
-  set text(size: 9pt, weight: "bold")
-  block(above: 0.5em, below: 0.25em)[#block(body)]
+  set text(size: 9pt, weight: "bold", fill: heading-color)
+  block(above: 0.5em, below: 0.2em)[#block(body)]
+  block(below: 0.15em)[#line(length: 1.5em, stroke: (paint: accent-line, thickness: 0.5pt))]
 }
 
 // -----------------------------------------------------------------------------
@@ -34,45 +42,44 @@
 // -----------------------------------------------------------------------------
 #grid(
   columns: (32%, 1fr),
-  gutter: 2em,
+  gutter: 1.75em,
   align: (left, left),
   // -------------------------------------------------------------------------
   // 3. Left Column (Sidebar)
   // -------------------------------------------------------------------------
   [
-    // Photo (2× size, centered in column)
-    #block(below: 1em)[
+    // Grey header block: photo only (square, border, centered)
+    #block(fill: sidebar-header-bg, inset: 0.75em, below: 0.9em)[
       #align(center)[
         #box(
-          radius: 50%,
-          width: 9em,
-          height: 9em,
-          clip: true
-        )[#image("pictures/my-photo.png", width: 9em, height: 9em)]
+          width: 8.5em,
+          height: 8.5em,
+          stroke: (paint: gray, thickness: 0.5pt)
+        )[#image("pictures/my-photo.png", width: 8.5em, height: 8.5em)]
       ]
     ]
-    // Contact
+    // Contact (short labels before each line)
     #sidebar-heading[Contact]
-    #block(below: 0.5em)[#phone]
-    #block(below: 0.25em)[#email]
-    #block(below: 0.25em)[#link(linkedin-url)[#linkedin]]
-    #block(below: 1em)[#location]
+    #block(below: 0.45em)[#text(weight: "bold", size: 9pt)[Ph.] \quad #phone]
+    #block(below: 0.25em)[#text(weight: "bold", size: 9pt)[E-mail] \quad #email]
+    #block(below: 0.25em)[#text(weight: "bold", size: 9pt)[LinkedIn] \quad #link(linkedin-url)[#linkedin]]
+    #block(below: 0.9em)[#text(weight: "bold", size: 9pt)[Location] \quad #location]
     // Profile & Strengths
     #sidebar-heading[Profile]
     #block(width: 100%, below: 0.5em)[#profile]
     #sidebar-heading[Strengths]
-    #block(width: 100%, below: 1em)[#strengths]
+    #block(width: 100%, below: 0.9em)[#strengths]
     // Languages
     #sidebar-heading[Languages]
     #block(below: 0.25em)[
       #for lang in languages [#lang #linebreak()]
     ]
-    #block(below: 1em)[]
+    #block(below: 0.9em)[]
     // Skills (category + bulleted items)
     #sidebar-heading[Skills]
     #for (cat, sub) in skills [
       #block(above: 0.35em)[
-        #text(weight: "bold", fill: accent)[#cat]
+        #text(weight: "bold", fill: heading-color)[#cat]
         #linebreak()
         #for item in sub [#block(inset: (left: 0.75em))[• #item]]
       ]
@@ -82,36 +89,39 @@
   // 4. Right Column (Main Content)
   // -------------------------------------------------------------------------
   [
-    // Header: name + tagline
-    #block(below: 0.5em)[
-      #text(size: 20pt, weight: "bold")[#name]
+    // Header: name (uppercase) + accent line + tagline (smaller, uppercase, dark)
+    #block(below: 0.35em)[
+      #text(size: 18pt, weight: "bold", fill: heading-color)[#upper(name)]
     ]
-    #block(below: 0.4em)[
-      #text(size: 12pt, fill: accent)[#tagline]
+    #block(below: 0.25em)[
+      #line(length: 2.5em, stroke: (paint: accent-line, thickness: 0.6pt))
     ]
-    #block(below: 1em)[
-      #line(length: 100%, stroke: 0.5pt + gray)
+    #block(below: 0.45em)[
+      #text(size: 9.5pt, fill: heading-color)[#upper(tagline)]
+    ]
+    #block(below: 0.9em)[
+      #line(length: 100%, stroke: (paint: accent-line, thickness: 0.5pt))
     ]
     // Experience
     #section-title[EXPERIENCE]
     #for (date, company, title, bullets) in experience [
-      #block(above: 0.5em, below: 0.35em)[
+      #block(above: 0.45em, below: 0.35em)[
         #grid(columns: (1fr, auto), gutter: 1em, align: (left, right))[
-          #text(weight: "bold")[#company]
-          #text(weight: "bold")[#date]
+          #text(weight: "bold", fill: heading-color)[#company]
+          #text(weight: "bold", fill: gray)[#date]
         ]
-        #text(style: "italic", fill: accent)[#title]
+        #text(style: "italic", fill: heading-color)[#title]
         #block(above: 0.25em)[
-          #for b in bullets [#block(inset: (left: 1em))[• #b]]
+          #for b in bullets [#block(inset: (left: 1em), above: 0.1em)[#text(fill: heading-color)[• #b]]]
         ]
       ]
     ]
     // Education
     #section-title[EDUCATION]
     #for (degree, inst, thesis) in education [
-      #block(above: 0.35em)[
+      #block(above: 0.3em)[
         #strong[#degree] #inst
-        #if thesis != "" [#block(inset: (left: 0.5em), above: 0.15em)[#text(size: 9pt, style: "italic")[#thesis]]]
+        #if thesis != "" [#block(inset: (left: 0.5em), above: 0.12em)[#text(size: 9pt, style: "italic", fill: gray)[#thesis]]]
       ]
     ]
     // Publications
@@ -121,6 +131,9 @@
     ]
     // Additional
     #section-title[ADDITIONAL]
-    #for a in additional [#block(above: 0.2em)[#a]]
+    #for a in additional [#block(above: 0.15em)[#a]]
   ]
 )
+
+// Full-width dark footer bar (reduced top space to help fit one page)
+#block(above: 1em, width: 100%, height: 0.45em, fill: footer-bg)[]
