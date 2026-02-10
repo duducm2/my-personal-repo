@@ -6,7 +6,7 @@
 #import "content.typ": name, tagline, phone, email, linkedin, linkedin-url, location, profile, strengths, languages, skills, experience, education, publications, additional
 
 #set page(paper: "a4", margin: (left: 0.6in, right: 0.6in, top: 0.5in, bottom: 0.5in))
-#set text(font: "Linux Libertine", size: 9pt)
+#set text(font: "Times New Roman", size: 9pt)
 #set par(leading: 0.65em, spacing: 0.4em)
 
 // Section title style (uppercase, bold, small caps feel)
@@ -26,23 +26,23 @@
   align: (left, left),
   // Row 1: header spanning both columns
   grid.cell(colspan: 2)[
-    #block(bottom: 0.4em)[
+    #block(below: 0.4em)[
       #text(size: 18pt, weight: "bold")[#name]
     ]
-    #block(bottom: 0.2em)[
-      #text(size: 8pt)[#phone \quad #email \quad #link(url: linkedin-url)[#linkedin] \quad #location]
+    #block(below: 0.2em)[
+      #text(size: 8pt)[#phone \quad #email \quad #link(linkedin-url)[#linkedin] \quad #location]
     ]
     #text(size: 8pt, weight: "bold")[#tagline]
-    #block(bottom: 0.5em)[
+    #block(below: 0.5em)[
       #line(length: 100%, stroke: 0.5pt + gray)
     ]
   ],
   // Left column: Profile, Strengths, Languages, Skills
   [
     #section-title[Profile]
-    #block(width: 100%)[#profile.at(0)]
+    #block(width: 100%)[#profile]
     #section-title[Strengths]
-    #block(width: 100%)[#strengths.at(0)]
+    #block(width: 100%)[#strengths]
     #section-title[Languages]
     #for lang in languages [#lang \quad]
     #section-title[Skills]

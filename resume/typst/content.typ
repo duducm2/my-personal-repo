@@ -19,10 +19,10 @@
   Proactive, self-reliant, organized. UX research, design, front-end development; agile (Scrum, Kanban); project management.
 ]
 
-#let languages = [
-  Portuguese (Native).,
-  English (Fluent).,
-]
+#let languages = (
+  "Portuguese (Native).",
+  "English (Fluent).",
+)
 
 // Nested structure: each item is (category, array of sub-items or empty)
 #let skills = (
