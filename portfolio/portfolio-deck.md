@@ -388,20 +388,6 @@ style: |
 
 ---
 
-<!-- Slide 4 – Past (Experience Timeline) -->
-
-<!-- _class: art-top-right dense-content -->
-
-## Past – Experience Timeline (Condensed)
-
-<p><img src="../pictures/work/budapest-2019.jpg" alt="Bosch Magyarország - Budapest 2019" /></p>
-
-- **Intern – Bosch Brasil (2017–2018):** VBA (Excel) solutions for Continuous Improvement and internal communication.  
-- **Digitization Support Analyst – Bosch Magyarország (Budapest, 2019):** Business Excellence digitization using VS Code, SQL Server, and Windows Server (IIS).  
-- **Web Developer – Bosch Brasil (2021–2023):** Web solutions with front-end focus; React and Scrum. Worked from **user pain points → prototypes → production** with cross-functional teams.  
-
----
-
 <!-- Slide 5 – Present (Role & Strategic Impact) -->
 
 <!-- _class: art-top-right -->
@@ -457,63 +443,7 @@ style: |
 
 ---
 
-<!-- Slide 7 – Present (Power BI Dashboards at Work) -->
-
-<!-- _class: dense-content work-pbi-images -->
-
-## Present – Power BI Dashboards at Work
-
-- **Bosch UXGS Americas:** Power BI dashboards developed in role for project and resource oversight and for training tracking—supporting data-driven decision-making and governance.
-
-<p><img src="../pictures/work/pbi-allocation.png" alt="Power BI – LA Allocation Dashboard" /></p>
-<p><img src="../pictures/work/pbi-training-evolution.png" alt="Power BI – SMTs Evolution training dashboard" /></p>
-
----
-
-<!-- Slide 7b – Present (CSI & NPS Performance 2024–2025) -->
-<!-- Mermaid diagram source: csi-nps-performance.mmd - render to csi-nps-performance.png -->
-
-## Present – CSI & NPS Performance (2024–2025)
-
-- **High customer satisfaction** across eight UX projects delivered in 2024–2025. **Averages: CSI 4.86 / 5, NPS 9.94 / 10.**
-- **Projects:** GS_R2S_TET2-LA UI Design for Financial Portal (CSI 5) · EXT_PS_CCC Telemetry for light vehicles (CSI 5, NPS 10) · EXT_M-PUR36 Tooling Management (CSI 5, NPS 10) · EXT_M-PMQ PPAP Application (CSI 5, NPS 10) · GS_P2P_MovDiv_Improvement part 1 (CSI 5, NPS 10) · GS_P2P_Financial_Portal (CSI 5, NPS 10) · GS_UX Bootcamp 2024 Joinville—95 people (CSI 4.9, NPS 9.6) · GS_B2R_AA CF Automation (CSI 4, NPS 10).
-
-<p><img src="csi-nps-performance.png" alt="CSI and NPS performance metrics 2024–2025 – project table" style="max-width: 95%; height: auto; margin: 0.5rem auto; display: block;" /></p>
-
----
-
-<!-- Slide 8 – Present (Proposal Generator – Excel VBA) -->
-
-<!-- _class: art-top-right -->
-
-## Present – Proposal Generator (Excel VBA)
-
-<p><img src="../pictures/work/proposal-generator.png" alt="Proposal Generator – Excel-based UX proposal tool" /></p>
-
-- **Definition:** Excel-based application for **automated proposal creation**—project proposals for UX activities: define activities, estimate hours, Gantt-style timeline, and generate PowerPoint.
-- **Generation logic:** Uses **predefined criteria and historical project data**; outputs (activities, hours, timeline) are driven by that logic.
-- **UX complexity:** Outputs are **categorized by UX complexity** (phases: Planning, Understand, Synthesize, Ideate, Test); the tool supports activity definition and visualization by these categories.
-- **Technical proficiency:** Developed in **Excel VBA (Visual Basic for Applications)**—macros for automation, calculations, and presentation generation.
-
----
-
-<!-- Slide 9 – Present (Tooling Project for PT) -->
-
-<!-- _class: dense-content tooling-project-images -->
-
-## Present – Tooling Project for PT
-
-- **Tooling project for PT:** A key development in **design proficiency**—from wireframe to high-fidelity prototype, with collaborative **customer progress review meetings** throughout.
-- **Design workflow:** **Wireframe** → **low-fidelity prototype** → **high-fidelity prototype**; iterative refinement with stakeholder feedback.
-- **Collaboration:** Customer progress review meetings used to align on scope, validate flows, and sign off on deliverables at each stage.
-
-<p><img src="../pictures/work/tooling-project/tooling-1.png" alt="Tooling project for PT – wireframe or early concept" /></p>
-<p><img src="../pictures/work/tooling-project/tooling-2.png" alt="Tooling project for PT – low-fidelity prototype" /></p>
-<p><img src="../pictures/work/tooling-project/tooling-3.png" alt="Tooling project for PT – high-fidelity prototype" /></p>
-
----
-
-<!-- Slide 10 – Present (Academic Research & TrustMate) -->
+<!-- Slide 8 – Present (Academic Research & TrustMate) -->
 
 <!-- _class: art-top-right -->
 
@@ -530,77 +460,11 @@ style: |
 
 ---
 
-<!-- Slide 11 – Present (Dissertation: Technical Implementation & Impact) -->
-
-<!-- _class: dense-content dissertation-tech-images -->
-
-## Present – Dissertation: Technical Implementation & Impact
-
-- **AI agents as survey respondents**, **full-stack development** (frontend, backend, database), and **Figma low-fidelity prototyping** – illustrated below.
-
-<p><img src="../pictures/academia/disseratation-tech-1-agents-1.png" alt="AI agent survey – e-commerce evaluation" /></p>
-<p><img src="../pictures/academia/disseratation-tech-1-agents-2.png" alt="AI agent survey – TrustMate dashboard" /></p>
-<p><img src="../pictures/academia/disseratation-tech-2-web-1.png" alt="E-commerce evaluation – product page" /></p>
-<p><img src="../pictures/academia/disseratation-tech-2-web-2.png" alt="Evaluation metrics – trust and UX scores" /></p>
-<p><img src="../pictures/academia/disseratation-tech-2-web-3.png" alt="TrustMate – hierarchy of attributes" /></p>
-<p><img src="../pictures/academia/disseratation-tech-3-prototype-1.png" alt="TrustMate tool evaluation – prototype" /></p>
-
-<!-- Mermaid diagram source: dissertation-database-architecture.mmd -->
-
-<p><img src="dissertation-database-architecture.png" alt="Dissertation / TrustMate database architecture" style="max-width: 70%; height: auto; margin: 0.5rem auto; display: block;" /></p>
-
----
-
-<!-- Slide 12 – Present (Dissertation: Power BI Visualizations) -->
-
-<!-- _class: dense-content dissertation-pbi-images -->
-
-## Present – Dissertation: Power BI Visualizations
-
-- **Dissertation InfoVis (Power BI):** Dashboards and charts for trust-metrics analysis—variability of human scores across websites (Americanas, MadeiraMadeira, Kabum), AI × human homogeneity by attribute, and line comparisons (human vs AI scores per website). Supports validation of trust perception models and consolidation of research findings.
-
-<p><img src="../pictures/academia/dissertation/dissertation-pbi-1.png" alt="Power BI – variability of human scores between websites" /></p>
-<p><img src="../pictures/academia/dissertation/dissertation-pbi-2.png" alt="Power BI – AI × human homogeneity by attribute" /></p>
-<p><img src="../pictures/academia/dissertation/dissertation-pbi-3.png" alt="Power BI – AI × humans comparison lines per website" /></p>
-
----
-
-<!-- Slide 13 – Present (InfoVis Project – PhraseNets Web Visualization) -->
-
-<!-- _class: dense-content phrase-net-images -->
-
-## Present – InfoVis Project – PhraseNets Web Visualization
-
-- **Course project – Information Visualization (InfoVis):** Developed a web-based PhraseNets visualization to explore relationships in text.\
-- **Technique:** Implements PhraseNets pattern-based networks (e.g. subject–verb, verb–object) to reveal co-occurrence structures that standard charts miss.\
-- **Why it matters:** Demonstrates proficiency in **web development** (interactive browser-based interface) and **advanced visual structures** beyond standard Power BI capabilities.
-
-<p><img src="../pictures/academia/infovis/infovis-phrase-netproject-1.png" alt="PhraseNets web visualization – interface and controls" /></p>
-<p><img src="../pictures/academia/infovis/infovis-phrase-netproject-2.png" alt="PhraseNets visualization – example network 1" /></p>
-<p><img src="../pictures/academia/infovis/infovis-phrase-netproject-3.png" alt="PhraseNets visualization – example network 2" /></p>
-
----
-
-<!-- Slide 14 – Present (InfoVis Project – Power BI & PNAD Contínua) -->
-
-<!-- _class: dense-content infovis-pbi-images -->
-
-## Present – InfoVis Project – Power BI & PNAD Contínua
-
-- **InfoVis class project – Power BI:** Built multi-page reports with advanced visual structures using **PNAD Contínua** (Pesquisa Nacional por Amostra de Domicílios Contínua), Brazil’s National Household Sample Survey.
-- **Visual structures:** Sankey diagrams (education–employment trajectories; education, household size, and income flows), choropleth map (nuclear vs non-nuclear income by state), and faceted bar charts (monthly income by education, household type, and area). Processed and modeled complex national survey data for insight.
-- **Impact:** Demonstrates **Power BI** proficiency and the ability to **process complex national research datasets** into clear, actionable visual insights for socioeconomic analysis.
-
-<p><img src="../pictures/academia/infovis/pbi-infovis-1.png" alt="Power BI – Education-employment trajectories Sankey" /></p>
-<p><img src="../pictures/academia/infovis/pbi-infovis-2.png" alt="Power BI – Family structure and socioeconomic patterns" /></p>
-
----
-
-<!-- Slide 15 – Present (Scientific Publications – Snapshot) -->
+<!-- Slide 9 – Present (Scientific Publications – Snapshot) -->
 
 <!-- _class: dense-content article-images -->
 
-## Present – Scientific Publications
+## Present – Scientific Publications (Visual Evidence)
 
 <p><img src="../pictures/academia/articles/article-1-1.png" alt="Article 1 page 1" /></p>
 <p><img src="../pictures/academia/articles/article-1-2.png" alt="Article 1 page 2" /></p>
@@ -613,11 +477,152 @@ style: |
 
 ---
 
-<!-- Slide 16 – Present (Innovation & Awards) -->
+<!-- Slide 10 – Present (CSI & NPS Performance 2024–2025) -->
+<!-- Mermaid diagram source: csi-nps-performance.mmd - render to csi-nps-performance.png -->
+
+## Present – CSI & NPS Performance (2024–2025)
+
+- **High customer satisfaction** across eight UX projects delivered in 2024–2025. **Averages: CSI 4.86 / 5, NPS 9.94 / 10.**
+- **Projects:** GS_R2S_TET2-LA UI Design for Financial Portal (CSI 5) · EXT_PS_CCC Telemetry for light vehicles (CSI 5, NPS 10) · EXT_M-PUR36 Tooling Management (CSI 5, NPS 10) · EXT_M-PMQ PPAP Application (CSI 5, NPS 10) · GS_P2P_MovDiv_Improvement part 1 (CSI 5, NPS 10) · GS_P2P_Financial_Portal (CSI 5, NPS 10) · GS_UX Bootcamp 2024 Joinville—95 people (CSI 4.9, NPS 9.6) · GS_B2R_AA CF Automation (CSI 4, NPS 10).
+
+<p><img src="csi-nps-performance.png" alt="CSI and NPS performance metrics 2024–2025 – project table" style="max-width: 95%; height: auto; margin: 0.5rem auto; display: block;" /></p>
+
+---
+
+<!-- Slide 11 – Present (Power BI Dashboards at Work) -->
+
+<!-- _class: dense-content work-pbi-images -->
+
+## Theme: Data Visualization – Power BI Dashboards at Work
+
+- **Bosch UXGS Americas:** Power BI dashboards developed in role for project and resource oversight and for training tracking—supporting data-driven decision-making and governance.
+
+<p><img src="../pictures/work/pbi-allocation.png" alt="Power BI – LA Allocation Dashboard" /></p>
+<p><img src="../pictures/work/pbi-training-evolution.png" alt="Power BI – SMTs Evolution training dashboard" /></p>
+
+---
+
+<!-- Slide 12 – Present (Dissertation: Power BI Visualizations) -->
+
+<!-- _class: dense-content dissertation-pbi-images -->
+
+## Theme: Data Visualization – Dissertation Power BI
+
+- **Dissertation InfoVis (Power BI):** Dashboards and charts for trust-metrics analysis—variability of human scores across websites (Americanas, MadeiraMadeira, Kabum), AI × human homogeneity by attribute, and line comparisons (human vs AI scores per website). Supports validation of trust perception models and consolidation of research findings.
+
+<p><img src="../pictures/academia/dissertation/dissertation-pbi-1.png" alt="Power BI – variability of human scores between websites" /></p>
+<p><img src="../pictures/academia/dissertation/dissertation-pbi-2.png" alt="Power BI – AI × human homogeneity by attribute" /></p>
+<p><img src="../pictures/academia/dissertation/dissertation-pbi-3.png" alt="Power BI – AI × humans comparison lines per website" /></p>
+
+---
+
+<!-- Slide 13 – Present (InfoVis Project – Power BI & PNAD Contínua) -->
+
+<!-- _class: dense-content infovis-pbi-images -->
+
+## Theme: Data Visualization – InfoVis Project (PNAD Contínua)
+
+- **InfoVis class project – Power BI:** Built multi-page reports with advanced visual structures using **PNAD Contínua** (Pesquisa Nacional por Amostra de Domicílios Contínua), Brazil’s National Household Sample Survey.
+- **Visual structures:** Sankey diagrams (education–employment trajectories; education, household size, and income flows), choropleth map (nuclear vs non-nuclear income by state), and faceted bar charts (monthly income by education, household type, and area). Processed and modeled complex national survey data for insight.
+- **Impact:** Demonstrates **Power BI** proficiency and the ability to **process complex national research datasets** into clear, actionable visual insights for socioeconomic analysis.
+
+<p><img src="../pictures/academia/infovis/pbi-infovis-1.png" alt="Power BI – Education-employment trajectories Sankey" /></p>
+<p><img src="../pictures/academia/infovis/pbi-infovis-2.png" alt="Power BI – Family structure and socioeconomic patterns" /></p>
+
+---
+
+<!-- Slide 14 – Present (Dissertation: Technical Implementation & Impact) -->
+
+## Theme: Technical Implementation – Dissertation (AI & Full Stack)
+
+- **AI agents as survey respondents**, **full-stack development** (frontend, backend, database), and **Figma low-fidelity prototyping**.
+- **Architecture:** Database design supporting projects, experiments, attributes, scores, and agent runs.
+
+<!-- Mermaid diagram source: dissertation-database-architecture.mmd -->
+
+<p><img src="dissertation-database-architecture.png" alt="Dissertation / TrustMate database architecture" style="max-width: 70%; height: auto; margin: 0.5rem auto; display: block;" /></p>
+
+---
+
+<!-- Slide 15 – Present (Dissertation: Technical Visuals) -->
+
+<!-- _class: dense-content dissertation-tech-images -->
+
+## Theme: Technical Implementation – Visual Evidence
+
+<p><img src="../pictures/academia/dissertation-tech-1-agents-1.png" alt="AI agent survey – e-commerce evaluation" /></p>
+<p><img src="../pictures/academia/dissertation-tech-1-agents-2.png" alt="AI agent survey – TrustMate dashboard" /></p>
+<p><img src="../pictures/academia/dissertation-tech-2-web-1.png" alt="E-commerce evaluation – product page" /></p>
+<p><img src="../pictures/academia/dissertation-tech-2-web-2.png" alt="Evaluation metrics – trust and UX scores" /></p>
+<p><img src="../pictures/academia/dissertation-tech-2-web-3.png" alt="TrustMate – hierarchy of attributes" /></p>
+<p><img src="../pictures/academia/dissertation-tech-3-prototype-1.png" alt="TrustMate tool evaluation – prototype" /></p>
+
+---
+
+<!-- Slide 16 – Present (Tooling Project for PT) -->
+
+<!-- _class: dense-content tooling-project-images -->
+
+## Theme: Technical Implementation – Tooling Project for PT
+
+- **Tooling project for PT:** A key development in **design proficiency**—from wireframe to high-fidelity prototype, with collaborative **customer progress review meetings** throughout.
+- **Design workflow:** **Wireframe** → **low-fidelity prototype** → **high-fidelity prototype**; iterative refinement with stakeholder feedback.
+- **Collaboration:** Customer progress review meetings used to align on scope, validate flows, and sign off on deliverables at each stage.
+
+<p><img src="../pictures/work/tooling-project/tooling-1.png" alt="Tooling project for PT – wireframe or early concept" /></p>
+<p><img src="../pictures/work/tooling-project/tooling-2.png" alt="Tooling project for PT – low-fidelity prototype" /></p>
+<p><img src="../pictures/work/tooling-project/tooling-3.png" alt="Tooling project for PT – high-fidelity prototype" /></p>
+
+---
+
+<!-- Slide 17 – Present (Proposal Generator – Excel VBA) -->
+
+<!-- _class: art-top-right -->
+
+## Theme: Technical Implementation – Proposal Generator (Excel VBA)
+
+<p><img src="../pictures/work/proposal-generator.png" alt="Proposal Generator – Excel-based UX proposal tool" /></p>
+
+- **Definition:** Excel-based application for **automated proposal creation**—project proposals for UX activities: define activities, estimate hours, Gantt-style timeline, and generate PowerPoint.
+- **Generation logic:** Uses **predefined criteria and historical project data**; outputs (activities, hours, timeline) are driven by that logic.
+- **UX complexity:** Outputs are **categorized by UX complexity** (phases: Planning, Understand, Synthesize, Ideate, Test); the tool supports activity definition and visualization by these categories.
+- **Technical proficiency:** Developed in **Excel VBA (Visual Basic for Applications)**—macros for automation, calculations, and presentation generation.
+
+---
+
+<!-- Slide 18 – Present (InfoVis Project – PhraseNets Web Visualization) -->
+
+<!-- _class: dense-content phrase-net-images -->
+
+## Theme: Technical Implementation – PhraseNets Web Visualization
+
+- **Course project – Information Visualization (InfoVis):** Developed a web-based PhraseNets visualization to explore relationships in text.\
+- **Technique:** Implements PhraseNets pattern-based networks (e.g. subject–verb, verb–object) to reveal co-occurrence structures that standard charts miss.\
+- **Why it matters:** Demonstrates proficiency in **web development** (interactive browser-based interface) and **advanced visual structures** beyond standard Power BI capabilities.
+
+<p><img src="../pictures/academia/infovis/infovis-phrase-netproject-1.png" alt="PhraseNets web visualization – interface and controls" /></p>
+<p><img src="../pictures/academia/infovis/infovis-phrase-netproject-2.png" alt="PhraseNets visualization – example network 1" /></p>
+<p><img src="../pictures/academia/infovis/infovis-phrase-netproject-3.png" alt="PhraseNets visualization – example network 2" /></p>
+
+---
+
+<!-- Slide 19 – Future (AI & Agile in Research) -->
+<!-- Mermaid flowchart source: slide-9-diagram.mmd -->
+
+## Theme: Process & Future – AI & Agile in Research
+
+- **Motivation:** Research projects often lack repeatable, quality-focused processes and clear accountability.  
+- **Proposal:** Combine **AI assistance** with **Scrum practices** to improve throughput, transparency, and quality.  
+- **Approach:** Roles: Research Product Owner, Research Scrum Master (me), Research Team (collaborators + AI tools). Ceremonies: sprint planning, backlog refinement, daily check-ins, reviews, retrospectives. Artifacts: research backlog, experiment cards, dashboards/tools, AI-generated drafts (human-reviewed).  
+- **Guardrails:** AI outputs treated as drafts; strong focus on reproducibility, data privacy, and explicit quality criteria.  
+
+---
+
+<!-- Slide 20 – Present (Innovation & Awards) -->
 
 <!-- _class: art-top-right compact-list -->
 
-## Present – Innovation & Awards
+## Theme: Process & Innovation – Awards
 
 <p><img src="../pictures/work/bosch-2018.jpg" alt="Bosch Talent Forum 2018 - 3rd Place Award" /></p>
 
@@ -628,7 +633,21 @@ style: |
 
 ---
 
-<!-- Slide 17 – Future (Career Aspirations, Vacancy Types & Strategic Views) -->
+<!-- Slide 21 – Past (Experience Timeline) -->
+
+<!-- _class: art-top-right dense-content -->
+
+## Theme: Process – Experience Timeline (Condensed)
+
+<p><img src="../pictures/work/budapest-2019.jpg" alt="Bosch Magyarország - Budapest 2019" /></p>
+
+- **Intern – Bosch Brasil (2017–2018):** VBA (Excel) solutions for Continuous Improvement and internal communication.  
+- **Digitization Support Analyst – Bosch Magyarország (Budapest, 2019):** Business Excellence digitization using VS Code, SQL Server, and Windows Server (IIS).  
+- **Web Developer – Bosch Brasil (2021–2023):** Web solutions with front-end focus; React and Scrum. Worked from **user pain points → prototypes → production** with cross-functional teams.  
+
+---
+
+<!-- Slide 22 – Future (Career Aspirations, Vacancy Types & Strategic Views) -->
 
 ## Future – Career Aspirations, Vacancy Types & Strategic Views
 
@@ -655,19 +674,7 @@ style: |
 
 ---
 
-<!-- Slide 18 – Future (AI & Agile in Research) -->
-<!-- Mermaid flowchart source: slide-9-diagram.mmd -->
-
-## Future – AI & Agile in Research
-
-- **Motivation:** Research projects often lack repeatable, quality-focused processes and clear accountability.  
-- **Proposal:** Combine **AI assistance** with **Scrum practices** to improve throughput, transparency, and quality.  
-- **Approach:** Roles: Research Product Owner, Research Scrum Master (me), Research Team (collaborators + AI tools). Ceremonies: sprint planning, backlog refinement, daily check-ins, reviews, retrospectives. Artifacts: research backlog, experiment cards, dashboards/tools, AI-generated drafts (human-reviewed).  
-- **Guardrails:** AI outputs treated as drafts; strong focus on reproducibility, data privacy, and explicit quality criteria.  
-
----
-
-<!-- Slide 19 – Future (Personal Interests as Career Enablers) -->
+<!-- Slide 23 – Future (Personal Interests as Career Enablers) -->
 
 <!-- _class: dense-content personal-images -->
 
@@ -688,7 +695,7 @@ style: |
 
 ---
 
-<!-- Slide 20 – Appendix (Academic Visuals Gallery) -->
+<!-- Slide 24 – Appendix (Academic Visuals Gallery) -->
 
 <!-- _class: dense-content academic-images -->
 
@@ -706,7 +713,7 @@ style: |
 
 ---
 
-<!-- Slide 21 – Appendix (Workshops & Teams Gallery) -->
+<!-- Slide 25 – Appendix (Workshops & Teams Gallery) -->
 
 <!-- _class: dense-content workshop-images -->
 
@@ -721,7 +728,7 @@ style: |
 
 ---
 
-<!-- Slide 22 – Closing & Contact -->
+<!-- Slide 26 – Closing & Contact -->
 
 ## Closing & Contact
 
@@ -737,6 +744,6 @@ style: |
 
 ---
 
-<!-- Slide 23 – Blank Conclusion Page -->
+<!-- Slide 27 – Blank Conclusion Page -->
 
 <!-- _class: blank-midnight-blue -->
