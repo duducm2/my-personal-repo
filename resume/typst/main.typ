@@ -52,13 +52,14 @@
   [
     #block(fill: sidebar-bg, width: 100%, height: 98%, inset: (left: 0.6em, right: 0.6em, top: 0.6em, bottom: 0.6em))[
       // Photo: width 90% of container, rectangular, margins, container visible
-      #block(width: 90%, inset: 0.75em, below: 0.9em)[
+      #block(width: 100%, inset: 0.75em, below: 0.9em)[
         #align(center)[
           #box(
             width: 100%,
             height: 7.7em,
-            stroke: (paint: rgb("#2c3e50"), thickness: 10pt)
-          )[#image("pictures/my-photo.png", width: 100%, height: 7.7em)]
+            stroke: (paint: rgb("#2c3e50"), thickness: 4pt),
+            clip: true
+          )[#align(bottom)[#image("pictures/my-photo-rectangle.png", width: 100%, height: 8.2em)]]
         ]
       ]
       // Contact (short labels before each line)
