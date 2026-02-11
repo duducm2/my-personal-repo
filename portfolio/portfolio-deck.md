@@ -379,8 +379,8 @@ style: |
 
 - **Master's in Technology – Information & Communication Systems (UX)** – Unicamp (2023–2025).  
   - Thesis: **Benchmark to assess software trustworthiness** via Usability, Accessibility, and UX.  
-  - A-grade average across all classes.  
-  - **Master's courses:** Academic Writing (*Escrita Acadêmica*); Innovation and Technology Transfer (*Inovação e Transferência de Tecnologias*); Scientific Research (*Pesquisa Científica*); Information Visualization (*Visualização de Informação*).  
+  - **Grade 'A' in all Master's coursework** — Official Unicamp transcript (Histórico Escolar) confirms top evaluation "Aprovado por Conceito e Frequência" in every completed discipline.  
+  - **Master's courses:** Academic Writing (*Escrita Acadêmica*); Directed Studies I (*Estudos Dirigidos I*); Innovation and Technology Transfer (*Inovação e Transferência de Tecnologias*); Scientific Research (*Pesquisa Científica*); Information Visualization (*Visualização de Informação*).  
 - **English proficiency (UFSC):** Reading comprehension for postgraduate programs – **10/10** (Apr 2024). Certificate in Appendix.  
 - **Systems Analysis and Development** – Unicamp (2015–2020).  
 - **Technical Degree in Computer Science** – ETEC Bento Quirino (2012–2014).  
@@ -694,8 +694,9 @@ style: |
 
 ## Appendix – Academic Visuals Gallery
 
-- Including **UFSC English Proficiency** (reading comprehension for postgraduate programs, 10/10, 2024).
+- Including **Unicamp Histórico Escolar** (Master's transcript: grade 'A' in all coursework); **UFSC English Proficiency** (reading comprehension for postgraduate programs, 10/10, 2024).
 
+<p><img src="../pictures/academia/docs/historico-escolar.png" alt="Unicamp Histórico Escolar – Master's transcript, grade A in all disciplines" /></p>
 <p><img src="../pictures/academia/academic-writing.jpg" alt="Academic writing course - academia" /></p>
 <p><img src="../pictures/academia/english-proficiency.png" alt="English proficiency certificate – UFSC 10/10" /></p>
 <p><img src="../pictures/academia/hfsd-workshop-1.jpg" alt="HFSD workshop 1 - academia" /></p>
