@@ -299,6 +299,12 @@ style: |
     border: none;
     box-shadow: none;
   }
+  section:not(.lead) img[alt*="ETEC logo"],
+  section:not(.lead) img[alt*="Unicamp logo"] {
+    border: none;
+    box-shadow: none;
+    transform: none;
+  }
 
   /* Dissertation Power BI – three visualization placeholders */
   section.dissertation-pbi-images p {
@@ -416,10 +422,14 @@ flowchart LR
 
 ## Past – Academic Foundations & Professional Profile
 
+<p><img src="../pictures/academia/logos/ETEC.png" alt="ETEC logo – Bento Quirino" style="height: 48px; width: auto; vertical-align: middle;" /></p>
+<p><img src="../pictures/academia/logos/UNICAMP.png" alt="Unicamp logo" style="height: 48px; width: auto; vertical-align: middle;" /></p>
 <p><img src="../pictures/academia/academic-writing.jpg" alt="Academic Writing Course - Unicamp" /></p>
 
 [INSERT DIAGRAM HERE: Academic timeline]
 
+- **Technical school (ETEC):** Technical Degree in Computer Science – ETEC Bento Quirino (2012–2014).
+- **Undergraduate & Master's (Unicamp):** Systems Analysis and Development (2015–2020); Master's in Technology – Information and Communication Systems UX (2023–2025).
 - **Master's thesis:** Benchmark to assess software trustworthiness via Usability, Accessibility, and UX. Grade 'A' in all Master's coursework (Unicamp transcript available on request).
 - **Professional profile:** Proactive, self-reliant, organized; combines **in-depth research**, **technology**, and **project management** with agile practices (Scrum, Kanban) and delivery leadership.
 
