@@ -291,6 +291,7 @@ style: |
 <p><img src="../pictures/digital-ws.jpg" alt="UX Strategy Workshop" /></p>
 
 - **CIP & UX integration:** Connects Continuous Improvement practices with UX research and design activities. Ensures UX is a **mandatory gate**, not an optional step.  
+- **Research methodology & Cursor IDE workflows:** Applied structured research methodology using **Cursor IDE** for the CIP and UX integration project. Workflow includes: iterative code-based documentation, AI-assisted analysis of UX maturity data, automated report generation, and version-controlled research artifacts. Cursor IDE enabled rapid prototyping of UX quality gate frameworks, collaborative documentation with AI pair-programming, and systematic tracking of research hypotheses and findings.  
 - **Methodology & tools:** Uses AI and automation to enforce UX quality gates within service lines. Supports decision-making with **Power BI dashboards** and structured reports.  
 - **Results:** Aligned CAP (Continuous Improvement) and UX into a unified solution. Created a reusable framework for UX governance across projects.  
 
@@ -304,9 +305,10 @@ style: |
 
 <p><img src="../pictures/hfsd-workshop-1.jpg" alt="ISSRE 2025 HFSD Workshop" /></p>
 
-- **Research focus:** Quantifying perceived trust in e-commerce and software interfaces.  
-- **Publications:** **ISSRE 2025 (HFSD Workshop):** *"Measuring Perceived Trust in Websites: A digital tool providing a score for evaluation"* – explores how Agentic AI can emulate trust perception. **IHC 2025:** *"Interface Trustworthiness Score Definition Platform"* (with Regina Moraes, Andreia Casare) – published in **SOL (SBC Open Lib)**.  
-- **Tooling:** **TrustMate** – digital tool to evaluate perceived trust in interfaces.  
+- **Master's research focus:** Creating a **benchmark to assess software trustworthiness** across three parameters: **Usability, Accessibility, and User Experience**. Thesis explores quantitative methods for evaluating perceived trust in e-commerce and software interfaces.  
+- **Published articles:** **ISSRE 2025 (HFSD Workshop – IEEE):** *"Measuring Perceived Trust in Websites: A digital tool providing a score for evaluation"* – explores how Agentic AI can emulate trust perception and provides a digital scoring mechanism. **IHC 2025 (SBC SOL):** *"Interface Trustworthiness Score Definition Platform"* (co-authored with Regina Moraes, Andreia Casare) – published in **SOL (SBC Open Lib)**, presents a platform for defining and calculating interface trustworthiness scores.  
+- **PowerBI in master's research:** **PowerBI dashboards** used extensively for data visualization and analysis of trust metrics. Dashboards aggregate usability, accessibility, and UX data to generate comprehensive trustworthiness scores. Enables interactive exploration of research findings, trend analysis across different interface types, and validation of trust perception models.  
+- **Tooling:** **TrustMate** – digital tool to evaluate perceived trust in interfaces, integrated with PowerBI for real-time score visualization.  
 - **Industry connection:** Methods and tools are reusable for UX audits, maturity assessments, and CIP + UX work.  
 
 ---
