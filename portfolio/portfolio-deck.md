@@ -11,13 +11,14 @@ style: |
     --accent-color: #2c3e50;  /* Midnight Blue */
     --text-color: #333333;
     --bg-dot: #e5e5e5;
+    --slide-padding: 40pt;
     font-size: 16pt;
     line-height: 1.3;
     color: var(--text-color);
   }
   section {
     background-color: #fff;
-    padding: 0.3rem 0.5rem;
+    padding: var(--slide-padding);
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -119,6 +120,8 @@ style: |
   section:not(.lead) img[alt*="Friends"] { transform: rotate(-1.6deg); }
   section:not(.lead) img[alt*="Germany 2025"] { transform: rotate(2.4deg); }
   section:not(.lead) img[alt*="Budapest 2019"] { transform: rotate(-2.3deg); }
+  section:not(.lead) img[alt*="Cat on piano"] { transform: rotate(1.5deg); }
+  section:not(.lead) img[alt*="Cat on split keyboard"] { transform: rotate(-2deg); }
   section:not(.lead) img[alt*="In front of Bosch building"] { transform: rotate(1.9deg); }
   section:not(.lead) img[alt*="Future Career Path"] { transform: rotate(0deg); border: none; box-shadow: none; }
 
@@ -211,6 +214,8 @@ style: |
   section.personal-images p:nth-of-type(2) img { width: 160px; }
   section.personal-images p:nth-of-type(3) img { width: 170px; }
   section.personal-images p:nth-of-type(4) img { width: 165px; }
+  section.personal-images p:nth-of-type(5) img { width: 165px; }
+  section.personal-images p:nth-of-type(6) img { width: 165px; }
   
   /* Article images layout - scattered group (scientific publications) */
   section.article-images p {
@@ -815,10 +820,14 @@ timeline
 
 ## Future – Personal Interests that Power My Work
 
+- **At home:** Two cats, beginner piano practice, and a split keyboard for macro creation and productivity.
+
 <p><img src="../pictures/personal/my-family.jpg" alt="Family" /></p>
 <p><img src="../pictures/personal/friends.jpg" alt="Friends" /></p>
 <p><img src="../pictures/personal/germany-2025.jpg" alt="Germany 2025" /></p>
 <p><img src="../pictures/personal/budapes-2019-2.jpg" alt="Budapest 2019" /></p>
+<p><img src="../pictures/personal/cat-piano.jpg" alt="Cat on piano – beginner piano practice" /></p>
+<p><img src="../pictures/personal/cat-slipt-keyboard.jpg" alt="Cat on split keyboard – macro creation and productivity" /></p>
 
 [INSERT TABLE HERE: Personal interests and career enablers]
 
