@@ -207,6 +207,25 @@ style: |
   section.personal-images p:nth-of-type(2) img { width: 160px; }
   section.personal-images p:nth-of-type(3) img { width: 170px; }
   section.personal-images p:nth-of-type(4) img { width: 165px; }
+  
+  /* Article images layout - scattered group (scientific publications) */
+  section.article-images p {
+    display: inline-block;
+    margin: 0.25rem;
+    vertical-align: top;
+  }
+  section.article-images p:nth-of-type(1) img { width: 140px; }
+  section.article-images p:nth-of-type(2) img { width: 130px; }
+  section.article-images p:nth-of-type(3) img { width: 145px; }
+  section.article-images p:nth-of-type(4) img { width: 135px; }
+  section.article-images p:nth-of-type(5) img { width: 138px; }
+  section.article-images p:nth-of-type(6) img { width: 142px; }
+  section:not(.lead) img[alt*="Article 1 page 1"] { transform: rotate(-1.2deg); }
+  section:not(.lead) img[alt*="Article 1 page 2"] { transform: rotate(2deg); }
+  section:not(.lead) img[alt*="Article 2 page 1"] { transform: rotate(-2.1deg); }
+  section:not(.lead) img[alt*="Article 2 page 2"] { transform: rotate(1.4deg); }
+  section:not(.lead) img[alt*="Dissertation page 1"] { transform: rotate(-1.6deg); }
+  section:not(.lead) img[alt*="Dissertation page 2"] { transform: rotate(2.3deg); }
 ---
 
 <!-- _class: lead -->
@@ -316,7 +335,24 @@ style: |
 
 ---
 
-<!-- Slide 8 – Present (Innovation & Awards) -->
+<!-- Slide 8 – Present (Scientific Publications – Snapshot) -->
+
+<!-- _class: dense-content article-images -->
+
+## Present – Scientific Publications
+
+<p><img src="../pictures/articles/article-1-1.png" alt="Article 1 page 1" /></p>
+<p><img src="../pictures/articles/article-1-2.png" alt="Article 1 page 2" /></p>
+<p><img src="../pictures/articles/article-2-1.png" alt="Article 2 page 1" /></p>
+<p><img src="../pictures/articles/article-2-2.png" alt="Article 2 page 2" /></p>
+<p><img src="../pictures/articles/dissertation-page-1.png" alt="Dissertation page 1" /></p>
+<p><img src="../pictures/articles/dissertation-page-2.png" alt="Dissertation page 2" /></p>
+
+- Published work in **ISSRE 2025 (HFSD Workshop)** and **IHC 2025 (SBC SOL)**; master's dissertation on software trustworthiness.
+
+---
+
+<!-- Slide 9 – Present (Innovation & Awards) -->
 
 <!-- _class: art-top-right compact-list -->
 
@@ -331,7 +367,7 @@ style: |
 
 ---
 
-<!-- Slide 9 – Future (Career Aspirations, Vacancy Types & Strategic Views) -->
+<!-- Slide 10 – Future (Career Aspirations, Vacancy Types & Strategic Views) -->
 
 ## Future – Career Aspirations, Vacancy Types & Strategic Views
 
@@ -358,7 +394,7 @@ style: |
 
 ---
 
-<!-- Slide 10 – Future (AI & Agile in Research) -->
+<!-- Slide 11 – Future (AI & Agile in Research) -->
 <!-- Mermaid flowchart source: slide-9-diagram.mmd -->
 
 ## Future – AI & Agile in Research
@@ -370,7 +406,7 @@ style: |
 
 ---
 
-<!-- Slide 11 – Future (Personal Interests as Career Enablers) -->
+<!-- Slide 12 – Future (Personal Interests as Career Enablers) -->
 
 <!-- _class: dense-content personal-images -->
 
@@ -391,7 +427,7 @@ style: |
 
 ---
 
-<!-- Slide 12 – Closing & Contact -->
+<!-- Slide 13 – Closing & Contact -->
 
 ## Closing & Contact
 
@@ -407,6 +443,6 @@ style: |
 
 ---
 
-<!-- Slide 13 – Blank Conclusion Page -->
+<!-- Slide 14 – Blank Conclusion Page -->
 
 <!-- _class: blank-midnight-blue -->
