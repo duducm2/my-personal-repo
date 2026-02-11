@@ -11,7 +11,7 @@ style: |
     --accent-color: #2c3e50;  /* Midnight Blue */
     --text-color: #333333;
     --bg-dot: #e5e5e5;
-    font-size: 14pt;
+    font-size: 16pt;
     line-height: 1.3;
     color: var(--text-color);
   }
@@ -19,6 +19,10 @@ style: |
     background-color: #fff;
     padding: 0.3rem 0.5rem;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
   }
   section > * {
     margin-top: 0.2rem;
@@ -42,17 +46,17 @@ style: |
     line-height: 1.2;
   }
   h1 {
-    font-size: 2.2rem;
+    font-size: 2.05rem;
     border-bottom: 3px solid var(--accent-color);
     display: inline-block;
     padding-bottom: 0.1rem;
   }
   h2 {
-    font-size: 1.6rem;
+    font-size: 1.525rem;
     border-left: 5px solid var(--accent-color);
     padding-left: 0.4rem;
   }
-  h3 { font-size: 1.3rem; color: var(--accent-color); }
+  h3 { font-size: 1.2625rem; color: var(--accent-color); }
   p {
     margin-top: 0.15rem;
     margin-bottom: 0.15rem;
