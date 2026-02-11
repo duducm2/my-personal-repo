@@ -92,16 +92,24 @@ style: |
     border-top: 6px solid var(--primary-color);
   }
 
-  /* Image Styling - Scattered Photo Effect */
+  /* Image Styling - Scattered Photo Effect with Unique Rotations */
   section:not(.lead) img {
-    border: 6px solid white;
+    border: 4px solid white;
     box-shadow: 2px 3px 8px rgba(0,0,0,0.15);
-    transform: rotate(-1.5deg);
     transition: transform 0.3s ease;
   }
   section:not(.lead) img:hover { transform: scale(1.05) rotate(0deg); z-index: 10; }
-  /* Alternate rotation for variety */
-  section:not(.lead) img:nth-of-type(even) { transform: rotate(1.5deg); }
+  
+  /* Unique rotation angles for each image - varied degrees for visual interest */
+  section:not(.lead) img[alt*="Eduardo Figueiredo"] { transform: rotate(-2.5deg); }
+  section:not(.lead) img[alt*="Academic Writing"] { transform: rotate(3.2deg); }
+  section:not(.lead) img[alt*="Budapest"] { transform: rotate(-1.8deg); }
+  section:not(.lead) img[alt*="Americas Team"] { transform: rotate(2.1deg); }
+  section:not(.lead) img[alt*="UX Strategy Workshop"] { transform: rotate(-3.5deg); }
+  section:not(.lead) img[alt*="ISSRE 2025"] { transform: rotate(1.7deg); }
+  section:not(.lead) img[alt*="Bosch Talent Forum"] { transform: rotate(-2.8deg); }
+  section:not(.lead) img[alt*="Family"] { transform: rotate(2.9deg); }
+  section:not(.lead) img[alt*="Future Professional Goals"] { transform: rotate(0deg); border: none; }
 
   section.art-top-right {
     position: relative;
@@ -118,6 +126,8 @@ style: |
   section.art-top-right > p:first-of-type img {
     width: var(--art-size);
     height: auto;
+    border: 4px solid white;
+    box-shadow: 2px 3px 8px rgba(0,0,0,0.15);
   }
   section.art-bottom-right-overflow {
     position: relative;
