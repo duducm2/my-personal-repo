@@ -245,6 +245,9 @@ style: |
 
 ## Future – Professional Goals & Strategic Views
 
+<p><img src="slide_9_diagram.png" alt="Future Professional Goals and Strategic Views Diagram" style="max-width: 90%; height: auto; margin: 0.5rem auto; display: block;" /></p>
+
+- **Future objective:** Work in **technology-focused roles** that integrate **UX research skills with AI implementation and development** as a core professional interest.  
 - **Target roles:** UX Researcher, UX Lead, Scrum Master, or Researcher in advanced tech contexts.  
 - **Strategic View A – "Paradise" (Quantum Computing):**  
   - Deep technical research and experimentation in quantum computing and advanced R&D.  
@@ -252,7 +255,11 @@ style: |
 - **Strategic View B – "Modest" (Scrum / Agile Leadership):**  
   - Scrum Master or agile leader enabling teams to deliver high-quality products.  
   - Builds on CIP & UX experience, facilitation, and coaching.  
-- **Shared assets:** UX research, CIP + UX integration, AI + agile methodology, and data-driven decision-making.  
+- **Shared assets:** UX research, CIP + UX integration, AI + agile methodology, and data-driven decision-making.
+
+---
+
+<!-- Mermaid diagram source: slide-9-diagram.mmd -->
 
 ---
 
