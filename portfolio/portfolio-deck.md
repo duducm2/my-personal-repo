@@ -226,6 +226,77 @@ style: |
   section:not(.lead) img[alt*="Article 2 page 2"] { transform: rotate(1.4deg); }
   section:not(.lead) img[alt*="Dissertation page 1"] { transform: rotate(-1.6deg); }
   section:not(.lead) img[alt*="Dissertation page 2"] { transform: rotate(2.3deg); }
+
+  /* Academic gallery layout - scattered group */
+  section.academic-images p {
+    display: inline-block;
+    margin: 0.25rem;
+    vertical-align: top;
+  }
+  section.academic-images img {
+    max-width: 30%;
+    height: auto;
+  }
+
+  /* Workshop & teams gallery layout - scattered group */
+  section.workshop-images p {
+    display: inline-block;
+    margin: 0.25rem;
+    vertical-align: top;
+  }
+  section.workshop-images img {
+    max-width: 30%;
+    height: auto;
+  }
+
+  /* Dissertation technical implementation – six images + diagram placeholder */
+  section.dissertation-tech-images p {
+    display: inline-block;
+    margin: 0.25rem;
+    vertical-align: top;
+  }
+  section.dissertation-tech-images img {
+    max-width: 30%;
+    height: auto;
+  }
+  section:not(.lead) img[alt*="database architecture"] {
+    transform: none;
+    border: none;
+    box-shadow: none;
+  }
+
+  /* Dissertation Power BI – three visualization placeholders */
+  section.dissertation-pbi-images p {
+    display: inline-block;
+    margin: 0.3rem;
+    vertical-align: top;
+  }
+  section.dissertation-pbi-images img {
+    max-width: 32%;
+    height: auto;
+  }
+
+  /* InfoVis course – PhraseNets visualizations (three images) */
+  section.phrase-net-images p {
+    display: inline-block;
+    margin: 0.3rem;
+    vertical-align: top;
+  }
+  section.phrase-net-images img {
+    max-width: 32%;
+    height: auto;
+  }
+
+  /* InfoVis Power BI (PNAD) – two visualization images */
+  section.infovis-pbi-images p {
+    display: inline-block;
+    margin: 0.3rem;
+    vertical-align: top;
+  }
+  section.infovis-pbi-images img {
+    max-width: 48%;
+    height: auto;
+  }
 ---
 
 <!-- _class: lead -->
@@ -268,6 +339,8 @@ style: |
 - **Master's in Technology – Information & Communication Systems (UX)** – Unicamp (2023–2025).  
   - Thesis: **Benchmark to assess software trustworthiness** via Usability, Accessibility, and UX.  
   - A-grade average across all classes.  
+  - **Master's courses:** Academic Writing (*Escrita Acadêmica*); Innovation and Technology Transfer (*Inovação e Transferência de Tecnologias*); Scientific Research (*Pesquisa Científica*); Information Visualization (*Visualização de Informação*).  
+- **English proficiency (UFSC):** Reading comprehension for postgraduate programs – **10/10** (Apr 2024). Certificate in Appendix.  
 - **Systems Analysis and Development** – Unicamp (2015–2020).  
 - **Technical Degree in Computer Science** – ETEC Bento Quirino (2012–2014).  
 - **Professional profile:** Proactive, self-reliant, organized; combines UX research, design, and front-end development with agile practices (Scrum, Kanban) and project management.  
@@ -331,11 +404,78 @@ style: |
 - **Published articles:** **ISSRE 2025 (HFSD Workshop – IEEE):** *"Measuring Perceived Trust in Websites: A digital tool providing a score for evaluation"* – explores how Agentic AI can emulate trust perception and provides a digital scoring mechanism. **IHC 2025 (SBC SOL):** *"Interface Trustworthiness Score Definition Platform"* (co-authored with Regina Moraes, Andreia Casare) – published in **SOL (SBC Open Lib)**, presents a platform for defining and calculating interface trustworthiness scores.  
 - **PowerBI in master's research:** **PowerBI dashboards** used extensively for data visualization and analysis of trust metrics. Dashboards aggregate usability, accessibility, and UX data to generate comprehensive trustworthiness scores. Enables interactive exploration of research findings, trend analysis across different interface types, and validation of trust perception models.  
 - **Tooling:** **TrustMate** – digital tool to evaluate perceived trust in interfaces, integrated with PowerBI for real-time score visualization.  
+- **Dissertation technologies:** **AI agents as survey respondents** – agentic AI completes trust/usability surveys (e.g. e-commerce evaluation), enabling scalable data collection for the benchmark and TrustMate. **Full-stack development** – frontend (TrustMate UI, survey and dashboard), backend (evaluation pipeline, score calculation), and database architecture for projects, experiments, attributes, scores, and agent runs. **Low-fidelity prototyping (Figma)** – iterative design of survey flows, evaluation screens, and TrustMate interface before implementation.  
 - **Industry connection:** Methods and tools are reusable for UX audits, maturity assessments, and CIP + UX work.  
 
 ---
 
-<!-- Slide 8 – Present (Scientific Publications – Snapshot) -->
+<!-- Slide 8 – Present (Dissertation: Technical Implementation & Impact) -->
+
+<!-- _class: dense-content dissertation-tech-images -->
+
+## Present – Dissertation: Technical Implementation & Impact
+
+- **AI agents as survey respondents**, **full-stack development** (frontend, backend, database), and **Figma low-fidelity prototyping** – illustrated below.
+
+<p><img src="../pictures/academia/disseratation-tech-1-agents-1.png" alt="AI agent survey – e-commerce evaluation" /></p>
+<p><img src="../pictures/academia/disseratation-tech-1-agents-2.png" alt="AI agent survey – TrustMate dashboard" /></p>
+<p><img src="../pictures/academia/disseratation-tech-2-web-1.png" alt="E-commerce evaluation – product page" /></p>
+<p><img src="../pictures/academia/disseratation-tech-2-web-2.png" alt="Evaluation metrics – trust and UX scores" /></p>
+<p><img src="../pictures/academia/disseratation-tech-2-web-3.png" alt="TrustMate – hierarchy of attributes" /></p>
+<p><img src="../pictures/academia/disseratation-tech-3-prototype-1.png" alt="TrustMate tool evaluation – prototype" /></p>
+
+<!-- Mermaid diagram source: dissertation-database-architecture.mmd -->
+
+<p><img src="dissertation-database-architecture.png" alt="Dissertation / TrustMate database architecture" style="max-width: 90%; height: auto; margin: 0.5rem auto; display: block;" /></p>
+
+---
+
+<!-- Slide 9 – Present (Dissertation: Power BI Visualizations) -->
+
+<!-- _class: dense-content dissertation-pbi-images -->
+
+## Present – Dissertation: Power BI Visualizations
+
+- **Dissertation InfoVis (Power BI):** Dashboards and charts for trust-metrics analysis—variability of human scores across websites (Americanas, MadeiraMadeira, Kabum), AI × human homogeneity by attribute, and line comparisons (human vs AI scores per website). Supports validation of trust perception models and consolidation of research findings.
+
+<p><img src="../pictures/academia/dissertation/dissertation-pbi-1.png" alt="Power BI – variability of human scores between websites" /></p>
+<p><img src="../pictures/academia/dissertation/dissertation-pbi-2.png" alt="Power BI – AI × human homogeneity by attribute" /></p>
+<p><img src="../pictures/academia/dissertation/dissertation-pbi-3.png" alt="Power BI – AI × humans comparison lines per website" /></p>
+
+---
+
+<!-- Slide 10 – Present (InfoVis Project – PhraseNets Web Visualization) -->
+
+<!-- _class: dense-content phrase-net-images -->
+
+## Present – InfoVis Project – PhraseNets Web Visualization
+
+- **Course project – Information Visualization (InfoVis):** Developed a web-based PhraseNets visualization to explore relationships in text.\
+- **Technique:** Implements PhraseNets pattern-based networks (e.g. subject–verb, verb–object) to reveal co-occurrence structures that standard charts miss.\
+- **Why it matters:** Demonstrates proficiency in **web development** (interactive browser-based interface) and **advanced visual structures** beyond standard Power BI capabilities.
+
+<p><img src="../pictures/academia/infovis/infovis-phrase-netproject-1.png" alt="PhraseNets web visualization – interface and controls" /></p>
+<p><img src="../pictures/academia/infovis/infovis-phrase-netproject-2.png" alt="PhraseNets visualization – example network 1" /></p>
+<p><img src="../pictures/academia/infovis/infovis-phrase-netproject-3.png" alt="PhraseNets visualization – example network 2" /></p>
+
+---
+
+<!-- Slide 11 – Present (InfoVis Project – Power BI & PNAD Contínua) -->
+
+<!-- _class: dense-content infovis-pbi-images -->
+
+## Present – InfoVis Project – Power BI & PNAD Contínua
+
+- **InfoVis class project – Power BI:** Built multi-page reports with advanced visual structures using **PNAD Contínua** (Pesquisa Nacional por Amostra de Domicílios Contínua), Brazil’s National Household Sample Survey.
+- **Visual structures:** Sankey diagrams (education–employment trajectories; education, household size, and income flows), choropleth map (nuclear vs non-nuclear income by state), and faceted bar charts (monthly income by education, household type, and area). Processed and modeled complex national survey data for insight.
+- **Impact:** Demonstrates **Power BI** proficiency and the ability to **process complex national research datasets** into clear, actionable visual insights for socioeconomic analysis.
+
+<p><img src="../pictures/academia/infovis/pbi-infovis-1.png" alt="Power BI – Education-employment trajectories Sankey" /></p>
+<p><img src="../pictures/academia/infovis/pbi-infovis-2.png" alt="Power BI – Family structure and socioeconomic patterns" /></p>
+
+---
+
+<!-- Slide 12 – Present (Scientific Publications – Snapshot) -->
 
 <!-- _class: dense-content article-images -->
 
@@ -352,7 +492,7 @@ style: |
 
 ---
 
-<!-- Slide 9 – Present (Innovation & Awards) -->
+<!-- Slide 13 – Present (Innovation & Awards) -->
 
 <!-- _class: art-top-right compact-list -->
 
@@ -367,7 +507,7 @@ style: |
 
 ---
 
-<!-- Slide 10 – Future (Career Aspirations, Vacancy Types & Strategic Views) -->
+<!-- Slide 14 – Future (Career Aspirations, Vacancy Types & Strategic Views) -->
 
 ## Future – Career Aspirations, Vacancy Types & Strategic Views
 
@@ -394,7 +534,7 @@ style: |
 
 ---
 
-<!-- Slide 11 – Future (AI & Agile in Research) -->
+<!-- Slide 15 – Future (AI & Agile in Research) -->
 <!-- Mermaid flowchart source: slide-9-diagram.mmd -->
 
 ## Future – AI & Agile in Research
@@ -406,7 +546,7 @@ style: |
 
 ---
 
-<!-- Slide 12 – Future (Personal Interests as Career Enablers) -->
+<!-- Slide 16 – Future (Personal Interests as Career Enablers) -->
 
 <!-- _class: dense-content personal-images -->
 
@@ -427,7 +567,39 @@ style: |
 
 ---
 
-<!-- Slide 13 – Closing & Contact -->
+<!-- Slide 17 – Appendix (Academic Visuals Gallery) -->
+
+<!-- _class: dense-content academic-images -->
+
+## Appendix – Academic Visuals Gallery
+
+- Including **UFSC English Proficiency** (reading comprehension for postgraduate programs, 10/10, 2024).
+
+<p><img src="../pictures/academia/academic-writing.jpg" alt="Academic writing course - academia" /></p>
+<p><img src="../pictures/academia/english-proficiency.png" alt="English proficiency certificate – UFSC 10/10" /></p>
+<p><img src="../pictures/academia/hfsd-workshop-1.jpg" alt="HFSD workshop 1 - academia" /></p>
+<p><img src="../pictures/academia/hfsd-workshop-2.jpg" alt="HFSD workshop 2 - academia" /></p>
+<p><img src="../pictures/academia/ihc-2025-1.jpg" alt="IHC 2025 article 1 page - academia" /></p>
+<p><img src="../pictures/academia/ihc-2025-2.jpg" alt="IHC 2025 article 2 page - academia" /></p>
+
+---
+
+<!-- Slide 18 – Appendix (Workshops & Teams Gallery) -->
+
+<!-- _class: dense-content workshop-images -->
+
+## Appendix – Workshops & Teams Gallery
+
+<p><img src="../pictures/work/bosch-argentina.jpg" alt="Bosch Argentina workshop" /></p>
+<p><img src="../pictures/work/budapest-2019-2.jpg" alt="Budapest 2019 workshop photo 2" /></p>
+<p><img src="../pictures/work/germany-ws-2024.jpg" alt="Germany workshop 2024" /></p>
+<p><img src="../pictures/work/joinville-ws-2024.jpg" alt="Joinville workshop 2024" /></p>
+<p><img src="../pictures/general/my-photo-rectangle.png" alt="Portrait rectangle general" /></p>
+<p><img src="../pictures/general/my-photo.png" alt="Portrait square general" /></p>
+
+---
+
+<!-- Slide 19 – Closing & Contact -->
 
 ## Closing & Contact
 
@@ -443,6 +615,6 @@ style: |
 
 ---
 
-<!-- Slide 14 – Blank Conclusion Page -->
+<!-- Slide 20 – Blank Conclusion Page -->
 
 <!-- _class: blank-midnight-blue -->

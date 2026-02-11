@@ -1,0 +1,71 @@
+erDiagram
+  Projects {
+    string id PK
+    string name
+    string category
+    string url
+  }
+
+  Experiments {
+    string id PK
+    string project_id FK
+    string name
+    datetime created_at
+  }
+
+  SurveyDefinitions {
+    string id PK
+    string name
+    string section
+    string question_text
+    int scale_min
+    int scale_max
+  }
+
+  SurveyResponses {
+    string id PK
+    string experiment_id FK
+    string survey_definition_id FK
+    string respondent_type
+    int value
+    datetime responded_at
+  }
+
+  AgentSessions {
+    string id PK
+    string experiment_id FK
+    string agent_id
+    datetime started_at
+    datetime completed_at
+  }
+
+  Attributes {
+    string id PK
+    string parent_id FK
+    string name
+    string category
+    float weight
+  }
+
+  Scores {
+    string id PK
+    string experiment_id FK
+    string attribute_id FK
+    float value
+    string source
+  }
+
+  Emulations {
+    string id PK
+    string experiment_id FK
+    string config_key
+    string config_value
+  }
+
+  Projects ||--o{ Experiments : has
+  Experiments ||--o{ SurveyResponses : contains
+  Experiments ||--o{ AgentSessions : uses
+  Experiments ||--o{ Scores : produces
+  Experiments ||--o{ Emulations : has
+  SurveyDefinitions ||--o{ SurveyResponses : defines
+  Attributes ||--o{ Scores : measured_by
