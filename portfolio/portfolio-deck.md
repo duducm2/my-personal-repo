@@ -242,7 +242,7 @@ style: |
     vertical-align: top;
   }
   section.academic-images img {
-    max-width: 30%;
+    max-width: 18%;
     height: auto;
   }
 
@@ -253,7 +253,7 @@ style: |
     vertical-align: top;
   }
   section.workshop-images img {
-    max-width: 30%;
+    max-width: 22%;
     height: auto;
   }
 
@@ -264,7 +264,7 @@ style: |
     vertical-align: top;
   }
   section.dissertation-tech-images img {
-    max-width: 30%;
+    max-width: 20%;
     height: auto;
   }
   section:not(.lead) img[alt*="database architecture"] {
@@ -335,7 +335,7 @@ style: |
     vertical-align: top;
   }
   section.cip-ux-images img {
-    max-width: 23%;
+    max-width: 18%;
     height: auto;
   }
 ---
@@ -410,7 +410,7 @@ style: |
 
 <p style="position: absolute; top: 0.5rem; left: 0.5rem; margin: 0;"><img src="../pictures/work/bdu/UXGS%20Logo_verticle.svg" alt="UXGS area logo" style="height: 56px; width: auto;" /></p>
 <p><img src="../pictures/work/americas-team-2025.jpg" alt="Americas Team 2025 - UX Maturity Level 4" /></p>
-<p style="position: absolute; top: 0.5rem; right: 12rem; margin: 0;"><img src="../pictures/work/in-front-of-the-bosch-building.jpg" alt="In front of Bosch building" style="width: 150px; height: auto;" /></p>
+<p style="position: absolute; top: 0.5rem; right: 2rem; margin: 0;"><img src="../pictures/work/in-front-of-the-bosch-building.jpg" alt="In front of Bosch building" style="width: 150px; height: auto;" /></p>
 
 - **Role:** UX Research & Design Analyst – Bosch Brasil (May 2023 – present).  
 - **UX Project Champion (GS/BDU):** Project Manager for the region.  
@@ -547,7 +547,7 @@ style: |
 
 <!-- Mermaid diagram source: dissertation-database-architecture.mmd -->
 
-<p><img src="dissertation-database-architecture.png" alt="Dissertation / TrustMate database architecture" style="max-width: 90%; height: auto; margin: 0.5rem auto; display: block;" /></p>
+<p><img src="dissertation-database-architecture.png" alt="Dissertation / TrustMate database architecture" style="max-width: 70%; height: auto; margin: 0.5rem auto; display: block;" /></p>
 
 ---
 
