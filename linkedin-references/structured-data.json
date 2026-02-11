@@ -1,0 +1,587 @@
+{
+  "profile_summary": {
+    "raw": "I work within Bosch's main service unit, cultivating User Experience and empowering colleagues to apply this methodology in their business activities. Additionally, I collaborate on projects from around the globe, utilizing scientific methods to identify issues within the service unit and subsequently design appropriate solutions.",
+    "themes": [
+      "UX",
+      "continuous_improvement",
+      "scientific_methods",
+      "global_projects",
+      "internal_enablement"
+    ]
+  },
+  "experience": [
+    {
+      "company_name": "Bosch Brasil",
+      "company_display_name": "Bosch Brasil",
+      "location": "Campinas, São Paulo, Brasil · Híbrida",
+      "role_title": "User Experience Research and Design Analyst",
+      "employment_type": "Tempo integral",
+      "is_current_role": true,
+      "start_date": "2023-05",
+      "end_date": "present",
+      "tenure_text": "mai de 2023 - o momento · 2 anos 10 meses",
+      "description_raw": "I work within Bosch's main service unit, cultivating User Experience and empowering colleagues to apply this methodology in their business activities. Additionally, I collaborate on projects from around the globe, utilizing scientific methods to identify issues within the service unit and subsequently design appropriate solutions.",
+      "description_bullets": [
+        "Cultivate User Experience within Bosch's main service unit.",
+        "Empower colleagues to apply UX methodology in their business activities.",
+        "Collaborate on global projects to identify issues within the service unit using scientific methods.",
+        "Design appropriate solutions based on identified issues."
+      ],
+      "skills_mentioned": [
+        "User Experience (UX)",
+        "Pesquisa",
+        "Gestão de projetos"
+      ],
+      "tools_technologies": [],
+      "source_section": "Experiência"
+    },
+    {
+      "company_name": "Bosch Brasil",
+      "company_display_name": "Bosch Brasil",
+      "location": "Campinas, São Paulo, Brasil",
+      "role_title": "Web Developer",
+      "employment_type": null,
+      "is_current_role": false,
+      "start_date": "2021-05",
+      "end_date": "2023-11",
+      "tenure_text": "mai de 2021 - nov de 2023 · 2 anos 7 meses",
+      "description_raw": null,
+      "description_bullets": [],
+      "skills_mentioned": [
+        "GIMP",
+        "Team work (trabalho em equipe)"
+      ],
+      "tools_technologies": [
+        "GIMP"
+      ],
+      "source_section": "Experiência"
+    },
+    {
+      "company_name": "Bosch Brasil",
+      "company_display_name": "Bosch Brasil",
+      "location": "Sorocaba, São Paulo",
+      "role_title": "Continuous Improvement Analyst",
+      "employment_type": null,
+      "is_current_role": false,
+      "start_date": "2020-01",
+      "end_date": "2021-07",
+      "tenure_text": "jan de 2020 - jul de 2021 · 1 ano 7 meses",
+      "description_raw": "I work providing training, coaching, and managing activities related to Continuous Improvement and Organizational Development methodologies such as: 5S; PDCA; Project Management; Process Management; Agile/Agility Concepts; Personal organization; among others.",
+      "description_bullets": [
+        "Provide training related to Continuous Improvement methodologies.",
+        "Provide coaching on Organizational Development methodologies.",
+        "Manage activities related to the following methodologies: 5S, PDCA, Project Management, Process Management, Agile/Agility Concepts, Personal organization."
+      ],
+      "skills_mentioned": [
+        "5S",
+        "PDCA",
+        "Project Management",
+        "Process Management",
+        "Agile/Agility Concepts",
+        "Personal organization"
+      ],
+      "tools_technologies": [],
+      "source_section": "Experiência"
+    },
+    {
+      "company_name": "Bosch Magyarország",
+      "company_display_name": "Bosch Magyarország",
+      "location": "Budapeste, Hungria",
+      "role_title": "Digitization Support Analyst (Systems Analysis and Development)",
+      "employment_type": "Tempo integral",
+      "is_current_role": false,
+      "start_date": "2019-01",
+      "end_date": "2019-12",
+      "tenure_text": "jan de 2019 - dez de 2019 · 1 ano",
+      "description_raw": "Supporting the Business Excellence Development team at Bosch Hungary through the digitization of their systems. Over this past year, I primarily worked on developing web systems, using VS Code as a code editor, SQL Server as the database, Windows Server (IIS) as the web server, and GIT for repository creation. VBA (Excel) was also used for creating dynamic spreadsheets.",
+      "description_bullets": [
+        "Support the Business Excellence Development team at Bosch Hungary through system digitization.",
+        "Develop web systems using VS Code as code editor.",
+        "Use SQL Server as the database backend.",
+        "Deploy applications on Windows Server (IIS).",
+        "Use Git for repository creation and version control.",
+        "Create dynamic spreadsheets using VBA (Excel)."
+      ],
+      "skills_mentioned": [
+        "Business Excellence",
+        "Web development"
+      ],
+      "tools_technologies": [
+        "VS Code",
+        "SQL Server",
+        "Windows Server (IIS)",
+        "Git",
+        "VBA (Excel)"
+      ],
+      "source_section": "Experiência"
+    },
+    {
+      "company_name": "Bosch",
+      "company_display_name": "Bosch",
+      "location": "Campinas e Região, Brasil",
+      "role_title": "Intern",
+      "employment_type": "Meio período",
+      "is_current_role": false,
+      "start_date": "2017-01",
+      "end_date": "2018-10",
+      "tenure_text": "jan de 2017 - out de 2018 · 1 ano 10 meses",
+      "description_raw": "Intern in the areas of Continuous Improvement and Internal Communication, providing IT support for both departments. Dynamic Excel spreadsheets were developed using VBA (Visual Basic for Applications), often connected to the Access database. For the Continuous Improvement area, these spreadsheets were used to develop digital systems for the employed methodologies. In the Internal Communication department, these spreadsheets were created for registering participants in various internally organized events.",
+      "description_bullets": [
+        "Provide IT support for Continuous Improvement and Internal Communication areas.",
+        "Develop dynamic Excel spreadsheets using VBA, often connected to Access databases.",
+        "Build digital systems for Continuous Improvement methodologies using Excel/VBA.",
+        "Create spreadsheets for registration of participants in internal communication events."
+      ],
+      "skills_mentioned": [
+        "Continuous Improvement",
+        "Internal Communication",
+        "IT support"
+      ],
+      "tools_technologies": [
+        "Excel",
+        "VBA (Excel)",
+        "Access"
+      ],
+      "source_section": "Experiência"
+    },
+    {
+      "company_name": "Universidade Estadual de Campinas",
+      "company_display_name": "Universidade Estadual de Campinas",
+      "location": "Limeira e Região, Brasil",
+      "role_title": "Scholarship recipient",
+      "employment_type": "Meio período",
+      "is_current_role": false,
+      "start_date": "2015-03",
+      "end_date": "2015-12",
+      "tenure_text": "mar de 2015 - dez de 2015 · 10 meses",
+      "description_raw": "Computational assistance for research development for Dr. André Franceschi de Angelis. Also involved in editing academic videos for use as teaching materials in the professor's classes. The Sony Vegas tool was used for the editing.",
+      "description_bullets": [
+        "Provide computational assistance for research development for Dr. André Franceschi de Angelis.",
+        "Edit academic videos for use as teaching materials.",
+        "Use Sony Vegas for video editing."
+      ],
+      "skills_mentioned": [
+        "Computational research assistance",
+        "Video editing"
+      ],
+      "tools_technologies": [
+        "Sony Vegas"
+      ],
+      "source_section": "Experiência"
+    },
+    {
+      "company_name": "Café Forte Academic Channel",
+      "company_display_name": "Café Forte Academic Channel",
+      "location": null,
+      "role_title": "Content creator (didactic programming videos)",
+      "employment_type": null,
+      "is_current_role": null,
+      "start_date": null,
+      "end_date": null,
+      "tenure_text": null,
+      "description_raw": "Vídeos didáticos em Português sobre Programação Orientada a Objetos, especialmente em C++ e Java, para suporte às aulas na Unicamp.",
+      "description_bullets": [
+        "Produce didactic videos in Portuguese about Object-Oriented Programming, especially in C++ and Java.",
+        "Support university-level teaching at Unicamp through video content."
+      ],
+      "skills_mentioned": [
+        "Programação Orientada a Objetos",
+        "C++",
+        "Java",
+        "Teaching"
+      ],
+      "tools_technologies": [],
+      "source_section": "Experiência"
+    }
+  ],
+  "education": [
+    {
+      "institution": "Universidade Estadual de Campinas",
+      "degree": "Master's in Technology: Information and Communication Systems, User Experience",
+      "field_of_study": "Information and Communication Systems, User Experience",
+      "level": "master",
+      "start_year": 2023,
+      "end_year": 2025,
+      "description_raw": "The main topic of my thesis concerns creating a benchmark to assess software trustworthiness across three parameters: Usability, Accessibility, and User Experience.",
+      "keywords": [
+        "Experiência do usuário (UX)",
+        "Software Development",
+        "Software trustworthiness",
+        "Usability",
+        "Accessibility",
+        "User Experience"
+      ]
+    },
+    {
+      "institution": "Universidade Estadual de Campinas",
+      "degree": "Systems Analysis and Development",
+      "field_of_study": "Tecnologia da Informação",
+      "level": "bachelor",
+      "start_year": 2015,
+      "end_year": 2020,
+      "description_raw": "Atividades e grupos: Project developed using the Project Management methodology (waterfall). Also participation on the Academic Center and Student Union. Computational support for research and development, and other activities within the disciplines. One of the largest universities in the country, Unicamp offers the course in Analysis and Systems Development, which encompasses disciplines in entrepreneurship, software engineering, governance, administration, structured programming, object-oriented programming, etc.",
+      "keywords": [
+        "Project Management (waterfall)",
+        "Academic Center",
+        "Student Union",
+        "Software engineering",
+        "Governance",
+        "Structured programming",
+        "Object-oriented programming",
+        "Entrepreneurship"
+      ]
+    },
+    {
+      "institution": null,
+      "degree": "Técnico em Informática",
+      "field_of_study": "Informática",
+      "level": "technical",
+      "start_year": null,
+      "end_year": null,
+      "description_raw": "Técnico em Informática (details not fully present in source snippet).",
+      "keywords": [
+        "Informática"
+      ]
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Measuring Perceived Trust in Websites: A digital tool providing a score for evaluation",
+      "issuing_organization": "IEEE",
+      "issue_date": "2025-10",
+      "expiration_date": "2025-10",
+      "credential_id": "Certificates_FigueiredoHF_BS.pdf",
+      "area_tags": [
+        "Inteligência artificial",
+        "Software trustworthiness",
+        "Human Factors",
+        "Web usability"
+      ]
+    },
+    {
+      "name": "Participação no XXIV Simpósio Brasileiro sobre Fatores Humanos em Sistemas Computacionais (IHC 2025)",
+      "issuing_organization": "Sociedade Brasileira de Computação - SBC",
+      "issue_date": "2025-09",
+      "expiration_date": null,
+      "credential_id": null,
+      "area_tags": [
+        "Fatores Humanos",
+        "IHC 2025",
+        "HCI"
+      ]
+    },
+    {
+      "name": "A Escrita Científica de Alto Impacto na Era da Inteligência Artificial",
+      "issuing_organization": "Universidade Estadual de Campinas",
+      "issue_date": "2023-09",
+      "expiration_date": "2023-09",
+      "credential_id": "18670549.83197816.736471.8.8670549831978167364718",
+      "area_tags": [
+        "Scientific writing",
+        "Inteligência artificial"
+      ]
+    },
+    {
+      "name": "React - The Complete Guide (incl Hooks, React Router, Redux)",
+      "issuing_organization": "Udemy",
+      "issue_date": "2021-08",
+      "expiration_date": null,
+      "credential_id": null,
+      "area_tags": [
+        "React",
+        "Front-end development",
+        "JavaScript",
+        "Redux"
+      ]
+    },
+    {
+      "name": "Tecnnólogo em Análise e Desenvolvimento de Sistemas",
+      "issuing_organization": "Universidade Estadual de Campinas",
+      "issue_date": "2020-11",
+      "expiration_date": null,
+      "credential_id": null,
+      "area_tags": [
+        "Analysis and Development of Systems",
+        "Tecnologia da Informação"
+      ]
+    },
+    {
+      "name": "Técnico em Informática",
+      "issuing_organization": null,
+      "issue_date": null,
+      "expiration_date": null,
+      "credential_id": null,
+      "area_tags": [
+        "Informática"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "name": "User Experience (UX)",
+      "source_sections": [
+        "profile_summary",
+        "experience",
+        "education"
+      ],
+      "associated_roles": [
+        "User Experience Research and Design Analyst"
+      ],
+      "associated_certifications": []
+    },
+    {
+      "name": "Continuous Improvement",
+      "source_sections": [
+        "experience"
+      ],
+      "associated_roles": [
+        "Continuous Improvement Analyst",
+        "Intern"
+      ],
+      "associated_certifications": []
+    },
+    {
+      "name": "Project Management",
+      "source_sections": [
+        "experience",
+        "education"
+      ],
+      "associated_roles": [
+        "Continuous Improvement Analyst"
+      ],
+      "associated_certifications": [],
+      "notes": "Also appears as methodology (waterfall) in education."
+    },
+    {
+      "name": "Process Management",
+      "source_sections": [
+        "experience"
+      ],
+      "associated_roles": [
+        "Continuous Improvement Analyst"
+      ],
+      "associated_certifications": []
+    },
+    {
+      "name": "Agile / Agility Concepts",
+      "source_sections": [
+        "experience"
+      ],
+      "associated_roles": [
+        "Continuous Improvement Analyst"
+      ],
+      "associated_certifications": []
+    },
+    {
+      "name": "Personal organization",
+      "source_sections": [
+        "experience"
+      ],
+      "associated_roles": [
+        "Continuous Improvement Analyst"
+      ],
+      "associated_certifications": []
+    },
+    {
+      "name": "Pesquisa (Research)",
+      "source_sections": [
+        "experience",
+        "profile_summary"
+      ],
+      "associated_roles": [
+        "User Experience Research and Design Analyst"
+      ],
+      "associated_certifications": []
+    },
+    {
+      "name": "Gestão de projetos (Project Management)",
+      "source_sections": [
+        "experience"
+      ],
+      "associated_roles": [
+        "User Experience Research and Design Analyst"
+      ],
+      "associated_certifications": []
+    },
+    {
+      "name": "Web development",
+      "source_sections": [
+        "experience"
+      ],
+      "associated_roles": [
+        "Web Developer",
+        "Digitization Support Analyst (Systems Analysis and Development)"
+      ],
+      "associated_certifications": [
+        "React - The Complete Guide (incl Hooks, React Router, Redux)"
+      ]
+    },
+    {
+      "name": "GIMP",
+      "source_sections": [
+        "experience"
+      ],
+      "associated_roles": [
+        "Web Developer"
+      ],
+      "associated_certifications": []
+    },
+    {
+      "name": "Team work (trabalho em equipe)",
+      "source_sections": [
+        "experience"
+      ],
+      "associated_roles": [
+        "Web Developer"
+      ],
+      "associated_certifications": []
+    },
+    {
+      "name": "VS Code",
+      "source_sections": [
+        "experience"
+      ],
+      "associated_roles": [
+        "Digitization Support Analyst (Systems Analysis and Development)"
+      ],
+      "associated_certifications": []
+    },
+    {
+      "name": "SQL Server",
+      "source_sections": [
+        "experience"
+      ],
+      "associated_roles": [
+        "Digitization Support Analyst (Systems Analysis and Development)"
+      ],
+      "associated_certifications": []
+    },
+    {
+      "name": "Windows Server (IIS)",
+      "source_sections": [
+        "experience"
+      ],
+      "associated_roles": [
+        "Digitization Support Analyst (Systems Analysis and Development)"
+      ],
+      "associated_certifications": []
+    },
+    {
+      "name": "Git",
+      "source_sections": [
+        "experience"
+      ],
+      "associated_roles": [
+        "Digitization Support Analyst (Systems Analysis and Development)"
+      ],
+      "associated_certifications": []
+    },
+    {
+      "name": "VBA (Excel)",
+      "source_sections": [
+        "experience"
+      ],
+      "associated_roles": [
+        "Digitization Support Analyst (Systems Analysis and Development)",
+        "Intern"
+      ],
+      "associated_certifications": []
+    },
+    {
+      "name": "Access (database)",
+      "source_sections": [
+        "experience"
+      ],
+      "associated_roles": [
+        "Intern"
+      ],
+      "associated_certifications": []
+    },
+    {
+      "name": "Video editing",
+      "source_sections": [
+        "experience"
+      ],
+      "associated_roles": [
+        "Scholarship recipient"
+      ],
+      "associated_certifications": []
+    },
+    {
+      "name": "Sony Vegas",
+      "source_sections": [
+        "experience"
+      ],
+      "associated_roles": [
+        "Scholarship recipient"
+      ],
+      "associated_certifications": []
+    },
+    {
+      "name": "Object-Oriented Programming (OOP)",
+      "source_sections": [
+        "experience",
+        "education"
+      ],
+      "associated_roles": [
+        "Content creator (didactic programming videos)"
+      ],
+      "associated_certifications": []
+    },
+    {
+      "name": "C++",
+      "source_sections": [
+        "experience"
+      ],
+      "associated_roles": [
+        "Content creator (didactic programming videos)"
+      ],
+      "associated_certifications": []
+    },
+    {
+      "name": "Java",
+      "source_sections": [
+        "experience"
+      ],
+      "associated_roles": [
+        "Content creator (didactic programming videos)"
+      ],
+      "associated_certifications": []
+    },
+    {
+      "name": "Inteligência artificial",
+      "source_sections": [
+        "certifications"
+      ],
+      "associated_roles": [],
+      "associated_certifications": [
+        "Measuring Perceived Trust in Websites: A digital tool providing a score for evaluation",
+        "A Escrita Científica de Alto Impacto na Era da Inteligência Artificial"
+      ]
+    },
+    {
+      "name": "React",
+      "source_sections": [
+        "certifications"
+      ],
+      "associated_roles": [
+        "Web Developer"
+      ],
+      "associated_certifications": [
+        "React - The Complete Guide (incl Hooks, React Router, Redux)"
+      ]
+    }
+  ],
+  "meta": {
+    "source_file": "linkedin-references/unstructured-data.txt",
+    "language_primary": "pt-BR",
+    "generated_at": "2026-02-11",
+    "parse_notes": [
+      "Some competencies are referenced as 'mais X competências' without explicit names; these were not expanded.",
+      "Employment type is not always explicitly stated; null is used where missing.",
+      "The 'Café Forte Academic Channel' entry lacks explicit dates; start_date and end_date are null.",
+      "The 'Técnico em Informática' education/certification entries are incomplete in the snippet; institution and dates are left null.",
+      "Date normalization uses Portuguese month abbreviations mapped to YYYY-MM; 'o momento' is represented as 'present' in end_date."
+    ]
+  }
+}

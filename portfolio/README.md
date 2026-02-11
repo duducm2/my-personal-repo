@@ -4,7 +4,7 @@ This folder contains a **code-based portfolio slide deck** built with **MARP** (
 
 - **Deck file**: `portfolio-deck.md`
 - **Technology**: [MARP](https://marp.app/) via Markdown (works well with VS Code + the Marp / Markdown Preview Enhanced extensions)
-- **Assets**: artwork and charts under `./arts/`
+- **Assets**: artwork and charts under `../arts/`
 - **Extra styling**: global PDF/preview tweaks under `.mume/style.less`
 
 The deck is intentionally **more detailed than a resume**. It is structured into chapters (cover & stats, profile & strengths, professional experience & impact, CIP + UX quality gates, academic research & trust in AI/UI, tools & dashboards, innovation & awards, professional goals, personal interests, AI + agile proposal, and closing).
@@ -34,7 +34,7 @@ style: |
 ---
 ```
 
-These CSS rules are adapted from `references/ChampionLeads.md` and point to local images in `./arts/`. Slides opt into layouts using MARP’s `_class` comment:
+These CSS rules are adapted from `references/ChampionLeads.md` and point to local images in `../arts/`. Slides opt into layouts using MARP’s `_class` comment:
 
 ```markdown
 <!-- _class: lead -->
@@ -66,7 +66,7 @@ With the Marp extension installed in VS Code:
 
 1. Open `portfolio-deck.md`.
 2. Run the command **“Marp: Export slide deck”** and choose **PDF**.
-3. Ensure “include background images” / “print backgrounds” is enabled so art from `./arts/` appears.
+3. Ensure “include background images” / “print backgrounds” is enabled so art from `../arts/` appears.
 
 If you use Markdown Preview Enhanced + Puppeteer instead, `.mume/style.less` provides footer and heading tweaks for consistent print layout; keep that file as-is unless you deliberately change the PDF styling.
 
@@ -74,11 +74,11 @@ If you use Markdown Preview Enhanced + Puppeteer instead, `.mume/style.less` pro
 
 ### Adding or changing visuals
 
-- Put new images in `./arts/` (or a subfolder).
+- Put new images in `../arts/` (or a subfolder).
 - Reference them from slides using relative paths such as:
 
 ```markdown
-<p><img src="./arts/art-5.png" alt="Hero art" /></p>
+<p><img src="../arts/art-5.png" alt="Hero art" /></p>
 ```
 
 - If you need a new layout, either:

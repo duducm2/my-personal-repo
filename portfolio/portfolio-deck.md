@@ -6,7 +6,7 @@ title: "Eduardo Figueiredo – Portfolio"
 author: "Eduardo Figueiredo"
 style: |
   section.lead {
-    background-image: url("./arts/art-5.png");
+    background-image: url("../arts/art-5.png");
     background-size: 55% auto;
     background-position: center 58%;
     background-repeat: no-repeat;
@@ -255,8 +255,7 @@ style: |
 
 - Screenshots of dashboard views.  
 - Explanation of metrics and how they support decision-making.  
-
-<p><img src="./arts/stack-chart-summary.png" alt="Example summary dashboard for UX and CIP metrics" /></p>
+<p><img src="../arts/stack-chart-summary.png" alt="Example summary dashboard for UX and CIP metrics" /></p>
 
 ---
 
@@ -270,8 +269,8 @@ style: |
 
 ## Innovation & Awards
 
-<p><img src="./arts/art-7/art-7-3.png" alt="Innovation and awards doodle" /></p>
-
+<p><img src="../arts/art-7/art-7-3.png" alt="Innovation and awards doodle" /></p>
+88888888
 - **1st Place** – X-Games Brazil 2018 (New Business Creation / Consultancy).  
 - **3rd Place** – Bosch Talent Forum 2018 (Project Management Software).  
 - **3rd Place** – Bosch Intern Talent Forum 2018.  
