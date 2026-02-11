@@ -7,6 +7,7 @@ Open this file in an editor or viewer that supports Mermaid (e.g. VS Code with M
 ## 1. Why story flow (Slide 1)
 
 ```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%
 flowchart LR
   Past["Past Foundations"]
   Present["Present Impact"]
@@ -19,6 +20,7 @@ flowchart LR
 ## 2. Academic timeline (Slide 3)
 
 ```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'cScale0': '#2c3e50', 'cScale1': '#2c3e50', 'cScale2': '#2c3e50', 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'fontFamily': 'Lato'}}}%%
 timeline
     title Academic Foundations
     2012-2014 : Technical Degree in Computer Science – ETEC Bento Quirino
@@ -32,6 +34,7 @@ timeline
 ## 3. CIP-UX methodology pipeline (Slide 6)
 
 ```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%
 flowchart LR
   A["(1) Iterative code-based documentation\nMarkdown, method.md v2.8"]
   B["(2) AI-assisted analysis\nN=214 records, UX maturity data"]
@@ -45,6 +48,7 @@ flowchart LR
 ## 4. Academic research flow (Slide 8)
 
 ```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%
 flowchart TD
   Focus["Benchmark: Trustworthiness\nUsability, Accessibility, UX"]
   Pub["Publications\nISSRE 2025 HFSD, IHC 2025 SOL"]
@@ -61,6 +65,7 @@ flowchart TD
 ## 5. CSI and NPS performance (Slide 10)
 
 ```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%
 block-beta
     columns 3
     "Project" "CSI" "NPS"
@@ -80,6 +85,7 @@ block-beta
 ## 6. Dissertation database architecture (Slide 14)
 
 ```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%
 erDiagram
   Projects {
     string id PK
@@ -158,6 +164,7 @@ erDiagram
 ## 7. Dissertation tech pillars (Slide 14, optional)
 
 ```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%
 flowchart LR
   A["AI agents as\nsurvey respondents"]
   B["Full-stack\ndevelopment"]
@@ -170,6 +177,7 @@ flowchart LR
 ## 8. InfoVis PNAD visual structures (Slide 13)
 
 ```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%
 flowchart LR
   PNAD["PNAD Continua\nNational Survey Data"]
   Sankey["Sankey\nEducation-employment\nIncome flows"]
@@ -185,6 +193,7 @@ flowchart LR
 ## 9. Tooling PT delivery workflow (Slide 16)
 
 ```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%
 flowchart LR
   W["Wireframe"]
   L["Low-fidelity\nprototype"]
@@ -199,6 +208,7 @@ flowchart LR
 ## 10. Proposal Generator UX phases (Slide 17)
 
 ```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%
 flowchart LR
   P["Planning"]
   U["Understand"]
@@ -213,6 +223,7 @@ flowchart LR
 ## 11. AI and Agile in Research (Slide 19)
 
 ```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%
 flowchart TD
   subgraph roles [Roles]
     RPO["Research Product Owner"]
@@ -236,6 +247,7 @@ flowchart TD
 ## 12. Experience timeline (Slide 21)
 
 ```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'cScale0': '#2c3e50', 'cScale1': '#2c3e50', 'cScale2': '#2c3e50', 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'fontFamily': 'Lato'}}}%%
 timeline
     title Experience Timeline
     2017-2018 : Intern – Bosch Brasil : VBA, Continuous Improvement, internal communication
@@ -248,6 +260,7 @@ timeline
 ## 13. Future career path (Slide 22)
 
 ```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'cScale0': '#2c3e50', 'cScale1': '#2c3e50', 'cScale2': '#2c3e50', 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'fontFamily': 'Lato'}}}%%
 timeline
     title Future Career Path
     2026-2027 : "Deepen UX research leadership at Bosch (UX researcher / UX lead focus)"
@@ -263,6 +276,7 @@ timeline
 ## 14. Future career – strategic views (Slide 22)
 
 ```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%
 flowchart TD
     Objective["Future Objective:<br/>Technology-Focused Roles<br/>Integrating UX Research<br/>with AI Implementation<br/>& Development"]
     
@@ -291,9 +305,9 @@ flowchart TD
     Assets -.-> ViewA
     Assets -.-> ViewB
     
-    style Objective fill:#e1f5ff,stroke:#01579b,stroke-width:3px
-    style ViewA fill:#fff3e0,stroke:#e65100,stroke-width:2px
-    style ViewB fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
-    style Assets fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px
-    style Roles fill:#fce4ec,stroke:#880e4f,stroke-width:2px
+    style Objective fill:#2c3e50,stroke:#bdc3c7,stroke-width:3px,color:#fff
+    style ViewA fill:#2c3e50,stroke:#bdc3c7,stroke-width:2px,color:#fff
+    style ViewB fill:#2c3e50,stroke:#bdc3c7,stroke-width:2px,color:#fff
+    style Assets fill:#2c3e50,stroke:#bdc3c7,stroke-width:2px,color:#fff
+    style Roles fill:#2c3e50,stroke:#bdc3c7,stroke-width:2px,color:#fff
 ```
