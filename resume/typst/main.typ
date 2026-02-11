@@ -16,10 +16,10 @@
 #set par(leading: 0.88em, spacing: 0.52em)
 
 // Palette: grey + brownish-beige (Alfredo-style); accent for optional highlight
-#let sidebar-header-bg = rgb("#E0E0E0")
+#let sidebar-header-bg = rgb("#fff")
 #let accent-line = rgb("#7A5C3A")
 #let accent-color = rgb("#6A0DAD")
-#let footer-bg = rgb("#004170")
+#let footer-bg = rgb("#b36a5e")
 #let heading-color = rgb("#2D2D2D")
 #let sidebar-bg = rgb("#F5F5F5")
 
@@ -56,7 +56,7 @@
           #box(
             width: 8.5em,
             height: 8.5em,
-            stroke: (paint: rgb("#004170"), thickness: 10pt)
+            stroke: (paint: rgb("#b36a5e"), thickness: 10pt)
           )[#image("pictures/my-photo.png", width: 8.5em, height: 8.5em)]
         ]
       ]
