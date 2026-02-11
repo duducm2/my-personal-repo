@@ -414,7 +414,7 @@ timeline
 ## Present – UX Research & Design Analyst (Bosch Brasil)
 
 <p style="position: absolute; top: 0.5rem; left: 0.5rem; margin: 0;"><img src="../pictures/work/bdu/UXGS%20Logo_verticle.svg" alt="UXGS area logo" style="height: 56px; width: auto;" /></p>
-<p><img src="../pictures/work/americas-team-2025.jpg" alt="Americas Team 2025 - UX Maturity Level 4" /></p>
+<p><img src="../pictures/work/americas-team-2025.jpg" alt="Americas Team 2025 - UX Maturity Level 4" style="max-width: 280px; width: 100%; height: auto;" /></p>
 <p style="position: absolute; top: 0.5rem; right: 2rem; margin: 0;"><img src="../pictures/work/in-front-of-the-bosch-building.jpg" alt="In front of Bosch building" style="width: 150px; height: auto;" /></p>
 
 [INSERT TABLE HERE: Present role achievements]
@@ -624,12 +624,12 @@ flowchart LR
 
 ## Theme: Technical Implementation – Visual Evidence
 
-<p><img src="../pictures/academia/dissertation-tech-1-agents-1.png" alt="AI agent survey – e-commerce evaluation" /></p>
-<p><img src="../pictures/academia/dissertation-tech-1-agents-2.png" alt="AI agent survey – TrustMate dashboard" /></p>
-<p><img src="../pictures/academia/dissertation-tech-2-web-1.png" alt="E-commerce evaluation – product page" /></p>
-<p><img src="../pictures/academia/dissertation-tech-2-web-2.png" alt="Evaluation metrics – trust and UX scores" /></p>
-<p><img src="../pictures/academia/dissertation-tech-2-web-3.png" alt="TrustMate – hierarchy of attributes" /></p>
-<p><img src="../pictures/academia/dissertation-tech-3-prototype-1.png" alt="TrustMate tool evaluation – prototype" /></p>
+<p><img src="../pictures/academia/disseratation-tech-1-agents-1.png" alt="AI agent survey – e-commerce evaluation" /></p>
+<p><img src="../pictures/academia/disseratation-tech-1-agents-2.png" alt="AI agent survey – TrustMate dashboard" /></p>
+<p><img src="../pictures/academia/disseratation-tech-2-web-1.png" alt="E-commerce evaluation – product page" /></p>
+<p><img src="../pictures/academia/disseratation-tech-2-web-2.png" alt="Evaluation metrics – trust and UX scores" /></p>
+<p><img src="../pictures/academia/disseratation-tech-2-web-3.png" alt="TrustMate – hierarchy of attributes" /></p>
+<p><img src="../pictures/academia/disseratation-tech-3-prototype-1.png" alt="TrustMate tool evaluation – prototype" /></p>
 
 ---
 
