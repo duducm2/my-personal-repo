@@ -183,13 +183,12 @@ flowchart TD
 ## 10. [experience-timeline] Experience timeline (Slide 12)
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'cScale0': '#2c3e50', 'cScale1': '#2c3e50', 'cScale2': '#2c3e50', 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'fontFamily': 'Lato'}}}%%
-timeline
-    title Experience Timeline
-    2017-2018 : Intern – Bosch Brasil : VBA, Continuous Improvement, internal communication
-    2019 : Digitization Support Analyst – Bosch Magyarország Budapest : Business Excellence, VS Code, SQL Server, IIS
-    2021-2023 : Web Developer – Bosch Brasil : Front-end, React, Scrum; user pain points to production
-    2023-2026 : UX Researcher, Designer, and Project Manager
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%
+flowchart TD
+  D1["2017-2018"] -.-> E1["Intern – Bosch Brasil<br/>VBA, Continuous Improvement, internal communication"]
+  D2["2019"] -.-> E2["Digitization Support Analyst – Bosch Magyarország Budapest<br/>Business Excellence, VS Code, SQL Server, IIS"]
+  D3["2020-2023"] -.-> E3["Web Developer – Bosch Brasil<br/>Front-end, React, Scrum; user pain points to production"]
+  D4["2023-2026"] -.-> E4["UX Researcher, Designer, and Project Manager"]
 ```
 
 ---
@@ -197,15 +196,14 @@ timeline
 ## 11. [future-career-path] Future career path (Slide 13)
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'cScale0': '#2c3e50', 'cScale1': '#2c3e50', 'cScale2': '#2c3e50', 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'fontFamily': 'Lato'}}}%%
-timeline
-    title Future Career Path
-    2026-2027 : "Deepen UX research leadership at Bosch (UX researcher / UX lead focus)"
-    2026-2027 : "Grow Scrum master experience in technology-focused product teams"
-    2028-2030 : "Assume regional UX leadership or research lead roles"
-    2028-2030 : "Move into UX researcher roles at global product companies in AI / data-intensive domains"
-    2031+ : "Specialize in advanced tech research (quantum computing, AI & UX trustworthiness)"
-    2031+ : "Hybrid leadership across UX research, AI implementation, and agile governance"
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%
+flowchart TD
+  D1["2026-2027"] -.-> E1["Deepen UX research leadership at Bosch (UX researcher / UX lead focus)"]
+  D2["2026-2027"] -.-> E2["Grow Scrum master experience in technology-focused product teams"]
+  D3["2028-2030"] -.-> E3["Assume regional UX leadership or research lead roles"]
+  D4["2028-2030"] -.-> E4["Move into UX researcher roles at global product companies in AI / data-intensive domains"]
+  D5["2031+"] -.-> E5["Specialize in advanced tech research (quantum computing, AI & UX trustworthiness)"]
+  D6["2031+"] -.-> E6["Hybrid leadership across UX research, AI implementation, and agile governance"]
 ```
 
 ---
