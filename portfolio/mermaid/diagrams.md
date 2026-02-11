@@ -157,22 +157,21 @@ flowchart LR
 
 ## 9. [ai-agile-research] AI and Agile in Research (Slide 11)
 
-*Narrative for slide:* The **Research Scrum Master** facilitates the process (sprint planning, backlog refinement, daily check-ins, reviews, retrospectives). The **ResearchOps Lead** guarantees the team is equipped with and correctly using the necessary AI tools (evaluation, procurement, and governance of AI technologies).
+*Narrative for slide:* The **Research Scrum Master** facilitates the process (sprint planning, backlog refinement, daily check-ins, reviews, retrospectives) and evaluates whether the team is using tools and tech correctly (e.g. AI, AR). The research team works with AI tools and participates in ceremonies; outcomes include research backlog, experiment cards, dashboards, and human-reviewed AI drafts.
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato', 'subgraphBg': 'transparent', 'subgraphBorder': '#bdc3c7'}}}%%
 flowchart TD
   RSM["Research Scrum Master"]
-  ROL["ResearchOps Lead"]
   RT["Research Team + AI tools"]
   C1["Sprint planning, Backlog refinement"]
   C2["Daily check-ins, Reviews, Retrospectives"]
-  C3["AI tool evaluation, procurement, governance"]
+  C3["Tool & tech usage evaluation (AI, AR, etc.)"]
   A1["Research backlog, Experiment cards"]
   A2["Dashboards, AI drafts, human-reviewed"]
   RSM --> C1
   RSM --> C2
-  ROL --> C3
+  RSM --> C3
   C3 --> RT
   RT --> C2
   C1 --> A1
