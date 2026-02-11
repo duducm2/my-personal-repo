@@ -53,7 +53,7 @@ flowchart LR
 ## 3. [cip-ux-pipeline] CIP-UX methodology pipeline (Slide 6)
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato', 'subgraphBg': '#ffffff', 'subgraphBorder': '#2c3e50'}}}%%
 flowchart TB
   subgraph methodologies [Methodologies]
     M1["Iterative code-based documentation"]
@@ -68,6 +68,8 @@ flowchart TB
     T4["CSV"]
     T5["Power BI"]
   end
+  style methodologies fill:#ffffff,stroke:#2c3e50,stroke-width:2px
+  style tools fill:#ffffff,stroke:#2c3e50,stroke-width:2px
 ```
 
 ---
