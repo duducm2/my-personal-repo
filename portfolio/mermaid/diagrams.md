@@ -166,7 +166,7 @@ flowchart TD
   RT["Research Team + AI tools"]
   C1["Sprint planning, Backlog refinement"]
   C2["Daily check-ins, Reviews, Retrospectives"]
-  C3["Tool & tech usage evaluation (AI, AR, etc.)"]
+  C3["Tool & tech usage evaluation (AI, etc.)"]
   A1["Research backlog, Experiment cards"]
   A2["Dashboards, AI drafts, human-reviewed"]
   RSM --> C1
