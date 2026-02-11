@@ -98,6 +98,8 @@ style: |
     color: white;
   }
   section.midnight-blue-slide h2 { color: white; border-color: rgba(255,255,255,0.5); }
+  section.midnight-blue-slide p, section.midnight-blue-slide strong { color: white; }
+  section.midnight-blue-slide a { color: #a8d4ff; }
   section.midnight-blue-slide table, section.midnight-blue-slide th, section.midnight-blue-slide td { color: white; border-color: rgba(255,255,255,0.3); }
   section.midnight-blue-slide ul, section.midnight-blue-slide li { color: white; }
   section.midnight-blue-slide img { border: 4px solid rgba(255,255,255,0.4); box-shadow: 2px 3px 12px rgba(0,0,0,0.3); }
@@ -211,15 +213,30 @@ style: |
   section.relevance-summary-with-doodle p.doodle-right { position: absolute; right: 5rem; top: 50%; transform: translateY(-50%); margin: 0; line-height: 0; }
   section.relevance-summary-with-doodle p.doodle-right img { width: 220px; height: auto; display: block; }
   
-  /* Blank midnight blue conclusion page */
+  /* Final slide – cover background (art-background.png) */
   section.blank-midnight-blue {
+    position: relative;
     background-color: #fff;
     background-image: url("../arts/art-background.png");
-    background-size: 110%;
-    background-position: center;
+    background-size: cover;
+    background-position: center center;
     background-repeat: no-repeat;
+    background-attachment: scroll;
     border-top: none;
     overflow: visible;
+    min-height: 100vh;
+  }
+  /* Ensure background extends with overflow */
+  section.blank-midnight-blue::before {
+    content: "";
+    position: absolute;
+    inset: -15%;
+    background-image: url("../arts/art-background.png");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    pointer-events: none;
   }
   
   /* Personal images layout - scattered photo effect */
@@ -403,8 +420,6 @@ flowchart LR
 ## Who I Am – Snapshot
 
 <p><img src="../pictures/personal/my-photo-rectangle.png" alt="Eduardo Figueiredo" /></p>
-
-[INSERT TABLE HERE: Who I Am snapshot]
 
 | Attribute | Value |
 | --------- | ----- |
@@ -877,9 +892,9 @@ timeline
 
 <!-- Slide 26 – Closing & Contact -->
 
-## Closing & Contact
+<!-- _class: midnight-blue-slide -->
 
-[INSERT TABLE HERE: Closing – What I bring and contact]
+## Closing & Contact
 
 **What I bring**
 
