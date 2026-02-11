@@ -64,7 +64,7 @@ style: |
     line-height: 1.3;
   }
   section.dense-content {
-    padding: 0.25rem 0.4rem;
+    padding: var(--slide-padding);
   }
   section.dense-content ul, section.dense-content ol {
     margin-top: 0.1rem;
@@ -214,25 +214,20 @@ style: |
   section.relevance-summary-with-doodle p.doodle-right { position: absolute; right: 5rem; top: 50%; transform: translateY(-50%); margin: 0; line-height: 0; }
   section.relevance-summary-with-doodle p.doodle-right img { width: 220px; height: auto; display: block; }
   
-  /* Final slide – art-background.png as content so it always shows (overflow allowed) */
+  /* Final slide – art-background.png, same padding as all slides */
   section.blank-midnight-blue {
     position: relative;
-    padding: 0 !important;
-    overflow: visible !important;
+    padding: var(--slide-padding);
+    overflow: visible;
     border-top: none;
-    background-color: #000;
+    background-color: #fff;
   }
   section.blank-midnight-blue .slide-bg-img {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    min-width: 120%;
-    min-height: 120%;
-    width: auto;
-    height: auto;
-    max-width: none;
-    max-height: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     object-position: center;
     z-index: 0;
