@@ -226,6 +226,14 @@ style: |
   section:not(.lead) img[alt*="Article 2 page 2"] { transform: rotate(1.4deg); }
   section:not(.lead) img[alt*="Dissertation page 1"] { transform: rotate(-1.6deg); }
   section:not(.lead) img[alt*="Dissertation page 2"] { transform: rotate(2.3deg); }
+  section:not(.lead) img[alt*="CIP-UX 1"] { transform: rotate(-2deg); }
+  section:not(.lead) img[alt*="CIP-UX 2"] { transform: rotate(1.5deg); }
+  section:not(.lead) img[alt*="CIP-UX 3"] { transform: rotate(-1.2deg); }
+  section:not(.lead) img[alt*="CIP-UX 4"] { transform: rotate(2deg); }
+  section:not(.lead) img[alt*="CIP-UX 5"] { transform: rotate(-1.8deg); }
+  section:not(.lead) img[alt*="CIP-UX 6"] { transform: rotate(1.3deg); }
+  section:not(.lead) img[alt*="CIP-UX 7"] { transform: rotate(-2.2deg); }
+  section:not(.lead) img[alt*="CIP-UX 8"] { transform: rotate(1.7deg); }
 
   /* Academic gallery layout - scattered group */
   section.academic-images p {
@@ -308,6 +316,28 @@ style: |
     max-width: 48%;
     height: auto;
   }
+
+  /* Tooling project for PT – three images */
+  section.tooling-project-images p {
+    display: inline-block;
+    margin: 0.3rem;
+    vertical-align: top;
+  }
+  section.tooling-project-images img {
+    max-width: 32%;
+    height: auto;
+  }
+
+  /* CIP and UX Integration – eight images */
+  section.cip-ux-images p {
+    display: inline-block;
+    margin: 0.25rem;
+    vertical-align: top;
+  }
+  section.cip-ux-images img {
+    max-width: 23%;
+    height: auto;
+  }
 ---
 
 <!-- _class: lead -->
@@ -378,28 +408,52 @@ style: |
 
 ## Present – UX Research & Design Analyst (Bosch Brasil)
 
+<p style="position: absolute; top: 0.5rem; left: 0.5rem; margin: 0;"><img src="../pictures/work/bdu/UXGS%20Logo_verticle.svg" alt="UXGS area logo" style="height: 56px; width: auto;" /></p>
 <p><img src="../pictures/work/americas-team-2025.jpg" alt="Americas Team 2025 - UX Maturity Level 4" /></p>
 <p style="position: absolute; top: 0.5rem; right: 12rem; margin: 0;"><img src="../pictures/work/in-front-of-the-bosch-building.jpg" alt="In front of Bosch building" style="width: 150px; height: auto;" /></p>
 
 - **Role:** UX Research & Design Analyst – Bosch Brasil (May 2023 – present).  
+- **UX Project Champion (GS/BDU):** Project Manager for the region.  
+- **International assignments:** Two trips to Germany (2024 and 2025) to perform role-related responsibilities.  
+- **CO2 Tracking (GS/UX):** First project completed within the UX department at GS. Scope: **marketing scouting for CO2 tracking telemetry**. Primary finding: research indicated a **lack of market demand**; conclusion that continued sales of the telemetry solution would be unsuccessful.  
 - **UX Maturity Level 4 (Americas):** Led the region to **Level 4** by setting governance, templates, and training for service lines. Demonstrated systematic UX application to auditors.  
-- **CIP + UX integration:** Managed **"Integrating UX Quality Gates"** – embedding UX checks into CIP using AI and automation. Impact: stronger customer retention and revenue via user-centric service design.  
+- **CIP + UX integration:** Led **"CIP and UX Integration"** as a critical career milestone—embedding UX checks into the Continuous Improvement workflow in ServiceNow CIM. Impact: stronger customer retention and revenue via user-centric service design; marked evolution toward Senior Researcher capabilities.  
 - **Collaboration & teaching:** Applied scientific methods to identify service issues and design solutions. Tutor at **SENAI Digital Talent Academy**.  
 
 ---
 
-<!-- Slide 6 – Present (CIP, UX & Tooling) -->
+<!-- Slide 6 – Present (CIP and UX Integration: Critical Career Milestone) -->
 
 <!-- _class: art-top-right -->
 
-## Present – CIP, UX & Tooling
+## Present – CIP and UX Integration: A Critical Career Milestone
 
 <p><img src="../pictures/work/digital-ws.jpg" alt="UX Strategy Workshop" /></p>
 
-- **CIP & UX integration:** Connects Continuous Improvement practices with UX research and design activities. Ensures UX is a **mandatory gate**, not an optional step.  
-- **Research methodology & Cursor IDE workflows:** Applied structured research methodology using **Cursor IDE** for the CIP and UX integration project. Workflow includes: iterative code-based documentation, AI-assisted analysis of UX maturity data, automated report generation, and version-controlled research artifacts. Cursor IDE enabled rapid prototyping of UX quality gate frameworks, collaborative documentation with AI pair-programming, and systematic tracking of research hypotheses and findings.  
-- **Methodology & tools:** Uses AI and automation to enforce UX quality gates within service lines. Supports decision-making with **Power BI dashboards** and structured reports.  
-- **Results:** Aligned CAP (Continuous Improvement) and UX into a unified solution. Created a reusable framework for UX governance across projects.  
+- **Career significance:** This project marks a pivotal evolution into **Senior Researcher** capabilities—combining deep, data-oriented investigation with technical execution and governance design.  
+- **Project scope:** Integrated **UX relevance assessment** into the **Continuous Improvement Process (CIP)** in ServiceNow CIM. A **UX gate** sits between Assess and Approve; the method runs at that gate to triage improvement initiatives (Low / Medium / High UX relevance).  
+- **Methodology—developer skills for research:** Utilized **Cursor IDE**, **AI-assisted coding**, and version-controlled Python pipelines to conduct research. Workflow: (1) **iterative code-based documentation** (Markdown, method.md v2.8); (2) **AI-assisted analysis** of N=214 research records and UX maturity data; (3) **automated pipeline** (extract → aggregate → calculate scores) producing `ux_relevance_results.csv` (N=35 projects); (4) **high-quality, data-oriented reports** in Markdown with executive summaries, Criticality Index (Severity × Frequency), and validation hypotheses.  
+- **Deliverables:** **UX Relevance Quick Method** (10 system-calculated questions from 11 CIM fields; thresholds Low &lt;60, Medium 60–70, High ≥70); **1st Research Report** (January 2026) consolidating stakeholder inputs; **standalone pipeline** (`extract_cim_data.py`, `calculate_ux_scores.py`, `aggregate_to_csv.py`) with reproducible validation.  
+- **Impact:** Governance clarity, reduced perceived delay, and reusable UX governance framework. Aligned CAP and UX into a unified, defensible solution.  
+
+---
+
+<!-- Slide 6b – Present (CIP and UX Integration: Research Artifacts & Visuals) -->
+
+<!-- _class: dense-content cip-ux-images -->
+
+## Present – CIP and UX Integration: Research Artifacts & Visuals
+
+- **High-quality, data-oriented deliverables** produced using Markdown, Python pipelines, and Cursor IDE: (1) **1st Research Report** (January 2026)—"Make governance clear. Keep improvements moving."—consolidating N=214 records, executive summary, literature benchmark, methodology, findings, and strategic opportunities; (2) **UX Relevance Quick Method** (method.md v2.8)—CIM-to-Q1–Q10 mapping, scoring algorithm, post-evaluation workflow; (3) **Pipeline** (`tests/standalone-tests/pipeline/`)—extraction, aggregation, score calculation, validation. Distribution (N=35): Low 57.1%, Medium 20.0%, High 22.9%.
+
+<p><img src="../pictures/work/cip-ux/cip-ux-1.png" alt="CIP-UX 1 – Report cover: Make governance clear. Keep improvements moving." /></p>
+<p><img src="../pictures/work/cip-ux/cip-ux-2.png" alt="CIP-UX 2 – Summary and executive findings" /></p>
+<p><img src="../pictures/work/cip-ux/cip-ux-3.png" alt="CIP-UX 3 – Context and methodology" /></p>
+<p><img src="../pictures/work/cip-ux/cip-ux-4.png" alt="CIP-UX 4 – Literature review and benchmark" /></p>
+<p><img src="../pictures/work/cip-ux/cip-ux-5.png" alt="CIP-UX 5 – Findings and Criticality Index" /></p>
+<p><img src="../pictures/work/cip-ux/cip-ux-6.png" alt="CIP-UX 6 – Pipeline and data processing" /></p>
+<p><img src="../pictures/work/cip-ux/cip-ux-7.png" alt="CIP-UX 7 – Conclusions and strategic opportunities" /></p>
+<p><img src="../pictures/work/cip-ux/cip-ux-8.png" alt="CIP-UX 8 – Additional research visuals" /></p>
 
 ---
 
@@ -416,7 +470,38 @@ style: |
 
 ---
 
-<!-- Slide 8 – Present (Academic Research & TrustMate) -->
+<!-- Slide 8 – Present (Proposal Generator – Excel VBA) -->
+
+<!-- _class: art-top-right -->
+
+## Present – Proposal Generator (Excel VBA)
+
+<p><img src="../pictures/work/proposal-generator.png" alt="Proposal Generator – Excel-based UX proposal tool" /></p>
+
+- **Definition:** Excel-based application for **automated proposal creation**—project proposals for UX activities: define activities, estimate hours, Gantt-style timeline, and generate PowerPoint.
+- **Generation logic:** Uses **predefined criteria and historical project data**; outputs (activities, hours, timeline) are driven by that logic.
+- **UX complexity:** Outputs are **categorized by UX complexity** (phases: Planning, Understand, Synthesize, Ideate, Test); the tool supports activity definition and visualization by these categories.
+- **Technical proficiency:** Developed in **Excel VBA (Visual Basic for Applications)**—macros for automation, calculations, and presentation generation.
+
+---
+
+<!-- Slide 9 – Present (Tooling Project for PT) -->
+
+<!-- _class: dense-content tooling-project-images -->
+
+## Present – Tooling Project for PT
+
+- **Tooling project for PT:** A key development in **design proficiency**—from wireframe to high-fidelity prototype, with collaborative **customer progress review meetings** throughout.
+- **Design workflow:** **Wireframe** → **low-fidelity prototype** → **high-fidelity prototype**; iterative refinement with stakeholder feedback.
+- **Collaboration:** Customer progress review meetings used to align on scope, validate flows, and sign off on deliverables at each stage.
+
+<p><img src="../pictures/work/tooling-project/tooling-1.png" alt="Tooling project for PT – wireframe or early concept" /></p>
+<p><img src="../pictures/work/tooling-project/tooling-2.png" alt="Tooling project for PT – low-fidelity prototype" /></p>
+<p><img src="../pictures/work/tooling-project/tooling-3.png" alt="Tooling project for PT – high-fidelity prototype" /></p>
+
+---
+
+<!-- Slide 10 – Present (Academic Research & TrustMate) -->
 
 <!-- _class: art-top-right -->
 
@@ -433,7 +518,7 @@ style: |
 
 ---
 
-<!-- Slide 9 – Present (Dissertation: Technical Implementation & Impact) -->
+<!-- Slide 11 – Present (Dissertation: Technical Implementation & Impact) -->
 
 <!-- _class: dense-content dissertation-tech-images -->
 
@@ -454,7 +539,7 @@ style: |
 
 ---
 
-<!-- Slide 10 – Present (Dissertation: Power BI Visualizations) -->
+<!-- Slide 12 – Present (Dissertation: Power BI Visualizations) -->
 
 <!-- _class: dense-content dissertation-pbi-images -->
 
@@ -468,7 +553,7 @@ style: |
 
 ---
 
-<!-- Slide 11 – Present (InfoVis Project – PhraseNets Web Visualization) -->
+<!-- Slide 13 – Present (InfoVis Project – PhraseNets Web Visualization) -->
 
 <!-- _class: dense-content phrase-net-images -->
 
@@ -484,7 +569,7 @@ style: |
 
 ---
 
-<!-- Slide 12 – Present (InfoVis Project – Power BI & PNAD Contínua) -->
+<!-- Slide 14 – Present (InfoVis Project – Power BI & PNAD Contínua) -->
 
 <!-- _class: dense-content infovis-pbi-images -->
 
@@ -499,7 +584,7 @@ style: |
 
 ---
 
-<!-- Slide 13 – Present (Scientific Publications – Snapshot) -->
+<!-- Slide 15 – Present (Scientific Publications – Snapshot) -->
 
 <!-- _class: dense-content article-images -->
 
@@ -516,7 +601,7 @@ style: |
 
 ---
 
-<!-- Slide 14 – Present (Innovation & Awards) -->
+<!-- Slide 16 – Present (Innovation & Awards) -->
 
 <!-- _class: art-top-right compact-list -->
 
@@ -531,7 +616,7 @@ style: |
 
 ---
 
-<!-- Slide 15 – Future (Career Aspirations, Vacancy Types & Strategic Views) -->
+<!-- Slide 17 – Future (Career Aspirations, Vacancy Types & Strategic Views) -->
 
 ## Future – Career Aspirations, Vacancy Types & Strategic Views
 
@@ -558,7 +643,7 @@ style: |
 
 ---
 
-<!-- Slide 16 – Future (AI & Agile in Research) -->
+<!-- Slide 18 – Future (AI & Agile in Research) -->
 <!-- Mermaid flowchart source: slide-9-diagram.mmd -->
 
 ## Future – AI & Agile in Research
@@ -570,7 +655,7 @@ style: |
 
 ---
 
-<!-- Slide 17 – Future (Personal Interests as Career Enablers) -->
+<!-- Slide 19 – Future (Personal Interests as Career Enablers) -->
 
 <!-- _class: dense-content personal-images -->
 
@@ -591,7 +676,7 @@ style: |
 
 ---
 
-<!-- Slide 18 – Appendix (Academic Visuals Gallery) -->
+<!-- Slide 20 – Appendix (Academic Visuals Gallery) -->
 
 <!-- _class: dense-content academic-images -->
 
@@ -608,7 +693,7 @@ style: |
 
 ---
 
-<!-- Slide 19 – Appendix (Workshops & Teams Gallery) -->
+<!-- Slide 21 – Appendix (Workshops & Teams Gallery) -->
 
 <!-- _class: dense-content workshop-images -->
 
@@ -623,14 +708,14 @@ style: |
 
 ---
 
-<!-- Slide 20 – Closing & Contact -->
+<!-- Slide 22 – Closing & Contact -->
 
 ## Closing & Contact
 
 - **What I bring:**  
   - UX Research & Front-End Development  
   - UX Maturity Level 4 leadership across the Americas  
-  - CIP + UX integration and AI-assisted processes  
+  - **CIP and UX Integration** (critical milestone): deep, data-oriented research using Cursor IDE, AI, and coding; high-quality Markdown reports; Senior Researcher evolution  
   - Academic research on **trust in interfaces** and data-driven decision-making  
 - **Let’s connect:**  
   - Email: `edu.evangelista.figueiredo@gmail.com`  
@@ -639,6 +724,6 @@ style: |
 
 ---
 
-<!-- Slide 21 – Blank Conclusion Page -->
+<!-- Slide 23 – Blank Conclusion Page -->
 
 <!-- _class: blank-midnight-blue -->
