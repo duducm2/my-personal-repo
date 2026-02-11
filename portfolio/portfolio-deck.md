@@ -1,7 +1,7 @@
 ---
 marp: true
 theme: default
-paginate: true
+paginate: false
 title: "Eduardo Figueiredo – Portfolio"
 author: "Eduardo Figueiredo"
 style: |
@@ -467,6 +467,18 @@ style: |
 
 <p><img src="../pictures/work/pbi-allocation.png" alt="Power BI – LA Allocation Dashboard" /></p>
 <p><img src="../pictures/work/pbi-training-evolution.png" alt="Power BI – SMTs Evolution training dashboard" /></p>
+
+---
+
+<!-- Slide 7b – Present (CSI & NPS Performance 2024–2025) -->
+<!-- Mermaid diagram source: csi-nps-performance.mmd - render to csi-nps-performance.png -->
+
+## Present – CSI & NPS Performance (2024–2025)
+
+- **High customer satisfaction** across eight UX projects delivered in 2024–2025. **Averages: CSI 4.86 / 5, NPS 9.94 / 10.**
+- **Projects:** GS_R2S_TET2-LA UI Design for Financial Portal (CSI 5) · EXT_PS_CCC Telemetry for light vehicles (CSI 5, NPS 10) · EXT_M-PUR36 Tooling Management (CSI 5, NPS 10) · EXT_M-PMQ PPAP Application (CSI 5, NPS 10) · GS_P2P_MovDiv_Improvement part 1 (CSI 5, NPS 10) · GS_P2P_Financial_Portal (CSI 5, NPS 10) · GS_UX Bootcamp 2024 Joinville—95 people (CSI 4.9, NPS 9.6) · GS_B2R_AA CF Automation (CSI 4, NPS 10).
+
+<p><img src="csi-nps-performance.png" alt="CSI and NPS performance metrics 2024–2025 – project table" style="max-width: 95%; height: auto; margin: 0.5rem auto; display: block;" /></p>
 
 ---
 
