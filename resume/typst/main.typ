@@ -10,7 +10,7 @@
 // -----------------------------------------------------------------------------
 #set page(
   paper: "a4",
-  margin: (left: 1.5cm, right: 1.5cm, top: 1.5cm, bottom: 0.1cm)
+  margin: (left: 0.1cm, right: 0.1cm, top: 0.1cm, bottom: 3.6cm)
 )
 #set text(font: "Times New Roman", size: 10pt)
 #set par(leading: 0.88em, spacing: 0.52em)
