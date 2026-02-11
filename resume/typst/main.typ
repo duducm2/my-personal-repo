@@ -14,13 +14,13 @@
 )
 // Lato: put Lato *.ttf (e.g. Lato-Regular, Lato-Bold, Lato-Italic) in typst/fonts/ and compile with --font-path
 #set text(font: "Lato", size: 10pt)
-#set par(leading: 1.05em, spacing: 0.6em)
+#set par(leading: 1.12em, spacing: 0.65em)
 
 // Palette: grey + brownish-beige (Alfredo-style); accent for optional highlight
 #let sidebar-header-bg = rgb("#fff")
 #let accent-line = rgb("#7A5C3A")
 #let accent-color = rgb("#6A0DAD")
-#let footer-bg = rgb("#b36a5e")
+#let footer-bg = rgb("#2c3e50")
 #let heading-color = rgb("#2D2D2D")
 #let sidebar-bg = rgb("#F5F5F5")
 
@@ -57,7 +57,7 @@
           #box(
             width: 8.5em,
             height: 8.5em,
-            stroke: (paint: rgb("#b36a5e"), thickness: 10pt)
+            stroke: (paint: rgb("#2c3e50"), thickness: 10pt)
           )[#image("pictures/my-photo.png", width: 8.5em, height: 8.5em)]
         ]
       ]
@@ -69,9 +69,9 @@
     #block(below: 1em)[#text(weight: "bold", size: 9pt)[Location] \quad #location]
       // Profile & Strengths
       #sidebar-heading[Profile]
-      #block(width: 100%, below: 0.75em)[#profile]
+      #block(width: 100%, below: 0.85em)[#profile]
     #sidebar-heading[Strengths]
-    #block(width: 100%, below: 1em)[#strengths]
+    #block(width: 100%, below: 1.1em)[#strengths]
     // Languages
     #sidebar-heading[Languages]
     #block(below: 0.4em)[
@@ -84,7 +84,7 @@
       #block(above: 0.5em)[
         #text(weight: "bold", fill: heading-color)[#cat]
         #linebreak()
-        #for item in sub [#block(inset: (left: 0.75em), above: 0.2em)[• #item]]
+        #for item in sub [#block(inset: (left: 0.75em), above: 0.26em)[• #item]]
       ]
     ]
     ]
@@ -93,14 +93,15 @@
   // 4. Right Column (Main Content)
   // -------------------------------------------------------------------------
   [
-    // Header (Plan §4): name 20pt, tagline 12pt; accent line under name
-    #block(below: 0.35em)[
+    // Header: name (tighter line spacing), then accent line, tagline
+    #block(above: 0em, below: 0.15em)[
+      #set par(leading: 0.72em)
       #text(size: 20pt, weight: "bold", fill: heading-color)[#upper(name)]
     ]
-    #block(below: 0.25em)[
+    #block(below: 0.2em)[
       #line(length: 2.5em, stroke: (paint: accent-line, thickness: 0.6pt))
     ]
-    #block(below: 0.5em)[
+    #block(below: 0.4em)[
       #text(size: 12pt, fill: heading-color)[#upper(tagline)]
     ]
     #block(below: 0.9em)[
@@ -109,14 +110,14 @@
     // Experience
     #section-title[EXPERIENCE]
     #for (date, company, title, bullets) in experience [
-      #block(above: 0.8em, below: 0.7em)[
+      #block(above: 0.9em, below: 0.8em)[
         #grid(columns: (1fr, auto), gutter: 1em, align: (left, right))[
           #text(weight: "bold", fill: heading-color)[#company]
           #text(weight: "bold", fill: gray)[#date]
         ]
         #block(above: 0.2em)[#text(style: "italic", fill: heading-color)[#title]]
         #block(above: 0.5em)[
-          #for b in bullets [#block(inset: (left: 1em), above: 0.32em)[#text(fill: heading-color)[• #b]]]
+          #for b in bullets [#block(inset: (left: 1em), above: 0.38em)[#text(fill: heading-color)[• #b]]]
         ]
       ]
     ]
@@ -124,21 +125,21 @@
     // Education
     #section-title[EDUCATION]
     #for (degree, inst, thesis) in education [
-      #block(above: 0.55em)[
+      #block(above: 0.65em)[
         #strong[#degree] #inst
-        #if thesis != "" [#block(inset: (left: 0.5em), above: 0.28em)[#text(size: 9pt, style: "italic", fill: gray)[#thesis]]]
+        #if thesis != "" [#block(inset: (left: 0.5em), above: 0.32em)[#text(size: 9pt, style: "italic", fill: gray)[#thesis]]]
       ]
     ]
     #block(above: 0.4em, below: 0.2em)[#line(length: 100%, stroke: (paint: gray, thickness: 0.35pt))]
     // Publications
     #section-title[SELECTED PUBLICATIONS]
     #for (venue, desc) in publications [
-      #block(above: 0.5em)[#strong[#venue] #desc]
+      #block(above: 0.58em)[#strong[#venue] #desc]
     ]
     #block(above: 0.4em, below: 0.2em)[#line(length: 100%, stroke: (paint: gray, thickness: 0.35pt))]
     // Additional
     #section-title[ADDITIONAL]
-    #for a in additional [#block(above: 0.45em)[#a]]
+    #for a in additional [#block(above: 0.52em)[#a]]
   ]
 )
 
