@@ -297,6 +297,17 @@ style: |
     max-width: 48%;
     height: auto;
   }
+
+  /* Work Power BI – two dashboard images */
+  section.work-pbi-images p {
+    display: inline-block;
+    margin: 0.3rem;
+    vertical-align: top;
+  }
+  section.work-pbi-images img {
+    max-width: 48%;
+    height: auto;
+  }
 ---
 
 <!-- _class: lead -->
@@ -318,7 +329,7 @@ style: |
 
 ## Who I Am – Snapshot
 
-<p><img src="../pictures/my-photo-rectangle.png" alt="Eduardo Figueiredo" /></p>
+<p><img src="../pictures/personal/my-photo-rectangle.png" alt="Eduardo Figueiredo" /></p>
 
 - **Name:** Eduardo M. de A. Figueiredo  
 - **Role:** UX Researcher & Front-End Developer (Master's in Technology, Unicamp).  
@@ -334,7 +345,7 @@ style: |
 
 ## Past – Academic Foundations & Professional Profile
 
-<p><img src="../pictures/academic-writing.jpg" alt="Academic Writing Course - Unicamp" /></p>
+<p><img src="../pictures/academia/academic-writing.jpg" alt="Academic Writing Course - Unicamp" /></p>
 
 - **Master's in Technology – Information & Communication Systems (UX)** – Unicamp (2023–2025).  
   - Thesis: **Benchmark to assess software trustworthiness** via Usability, Accessibility, and UX.  
@@ -383,7 +394,7 @@ style: |
 
 ## Present – CIP, UX & Tooling
 
-<p><img src="../pictures/digital-ws.jpg" alt="UX Strategy Workshop" /></p>
+<p><img src="../pictures/work/digital-ws.jpg" alt="UX Strategy Workshop" /></p>
 
 - **CIP & UX integration:** Connects Continuous Improvement practices with UX research and design activities. Ensures UX is a **mandatory gate**, not an optional step.  
 - **Research methodology & Cursor IDE workflows:** Applied structured research methodology using **Cursor IDE** for the CIP and UX integration project. Workflow includes: iterative code-based documentation, AI-assisted analysis of UX maturity data, automated report generation, and version-controlled research artifacts. Cursor IDE enabled rapid prototyping of UX quality gate frameworks, collaborative documentation with AI pair-programming, and systematic tracking of research hypotheses and findings.  
@@ -392,13 +403,26 @@ style: |
 
 ---
 
-<!-- Slide 7 – Present (Academic Research & TrustMate) -->
+<!-- Slide 7 – Present (Power BI Dashboards at Work) -->
+
+<!-- _class: dense-content work-pbi-images -->
+
+## Present – Power BI Dashboards at Work
+
+- **Bosch UXGS Americas:** Power BI dashboards developed in role for project and resource oversight and for training tracking—supporting data-driven decision-making and governance.
+
+<p><img src="../pictures/work/pbi-allocation.png" alt="Power BI – LA Allocation Dashboard" /></p>
+<p><img src="../pictures/work/pbi-training-evolution.png" alt="Power BI – SMTs Evolution training dashboard" /></p>
+
+---
+
+<!-- Slide 8 – Present (Academic Research & TrustMate) -->
 
 <!-- _class: art-top-right -->
 
 ## Present – Academic Research (Trust in AI & UI)
 
-<p><img src="../pictures/hfsd-workshop-1.jpg" alt="ISSRE 2025 HFSD Workshop" /></p>
+<p><img src="../pictures/academia/hfsd-workshop-1.jpg" alt="ISSRE 2025 HFSD Workshop" /></p>
 
 - **Master's research focus:** Creating a **benchmark to assess software trustworthiness** across three parameters: **Usability, Accessibility, and User Experience**. Thesis explores quantitative methods for evaluating perceived trust in e-commerce and software interfaces.  
 - **Published articles:** **ISSRE 2025 (HFSD Workshop – IEEE):** *"Measuring Perceived Trust in Websites: A digital tool providing a score for evaluation"* – explores how Agentic AI can emulate trust perception and provides a digital scoring mechanism. **IHC 2025 (SBC SOL):** *"Interface Trustworthiness Score Definition Platform"* (co-authored with Regina Moraes, Andreia Casare) – published in **SOL (SBC Open Lib)**, presents a platform for defining and calculating interface trustworthiness scores.  
@@ -409,7 +433,7 @@ style: |
 
 ---
 
-<!-- Slide 8 – Present (Dissertation: Technical Implementation & Impact) -->
+<!-- Slide 9 – Present (Dissertation: Technical Implementation & Impact) -->
 
 <!-- _class: dense-content dissertation-tech-images -->
 
@@ -430,7 +454,7 @@ style: |
 
 ---
 
-<!-- Slide 9 – Present (Dissertation: Power BI Visualizations) -->
+<!-- Slide 10 – Present (Dissertation: Power BI Visualizations) -->
 
 <!-- _class: dense-content dissertation-pbi-images -->
 
@@ -444,7 +468,7 @@ style: |
 
 ---
 
-<!-- Slide 10 – Present (InfoVis Project – PhraseNets Web Visualization) -->
+<!-- Slide 11 – Present (InfoVis Project – PhraseNets Web Visualization) -->
 
 <!-- _class: dense-content phrase-net-images -->
 
@@ -460,7 +484,7 @@ style: |
 
 ---
 
-<!-- Slide 11 – Present (InfoVis Project – Power BI & PNAD Contínua) -->
+<!-- Slide 12 – Present (InfoVis Project – Power BI & PNAD Contínua) -->
 
 <!-- _class: dense-content infovis-pbi-images -->
 
@@ -475,30 +499,30 @@ style: |
 
 ---
 
-<!-- Slide 12 – Present (Scientific Publications – Snapshot) -->
+<!-- Slide 13 – Present (Scientific Publications – Snapshot) -->
 
 <!-- _class: dense-content article-images -->
 
 ## Present – Scientific Publications
 
-<p><img src="../pictures/articles/article-1-1.png" alt="Article 1 page 1" /></p>
-<p><img src="../pictures/articles/article-1-2.png" alt="Article 1 page 2" /></p>
-<p><img src="../pictures/articles/article-2-1.png" alt="Article 2 page 1" /></p>
-<p><img src="../pictures/articles/article-2-2.png" alt="Article 2 page 2" /></p>
-<p><img src="../pictures/articles/dissertation-page-1.png" alt="Dissertation page 1" /></p>
-<p><img src="../pictures/articles/dissertation-page-2.png" alt="Dissertation page 2" /></p>
+<p><img src="../pictures/academia/articles/article-1-1.png" alt="Article 1 page 1" /></p>
+<p><img src="../pictures/academia/articles/article-1-2.png" alt="Article 1 page 2" /></p>
+<p><img src="../pictures/academia/articles/article-2-1.png" alt="Article 2 page 1" /></p>
+<p><img src="../pictures/academia/articles/article-2-2.png" alt="Article 2 page 2" /></p>
+<p><img src="../pictures/academia/articles/dissertation-page-1.png" alt="Dissertation page 1" /></p>
+<p><img src="../pictures/academia/articles/dissertation-page-2.png" alt="Dissertation page 2" /></p>
 
 - Published work in **ISSRE 2025 (HFSD Workshop)** and **IHC 2025 (SBC SOL)**; master's dissertation on software trustworthiness.
 
 ---
 
-<!-- Slide 13 – Present (Innovation & Awards) -->
+<!-- Slide 14 – Present (Innovation & Awards) -->
 
 <!-- _class: art-top-right compact-list -->
 
 ## Present – Innovation & Awards
 
-<p><img src="../pictures/bosch-2018.jpg" alt="Bosch Talent Forum 2018 - 3rd Place Award" /></p>
+<p><img src="../pictures/work/bosch-2018.jpg" alt="Bosch Talent Forum 2018 - 3rd Place Award" /></p>
 
 - **1st Place – X-Games Brazil 2018** – New Business Creation / Consultancy.  
 - **3rd Place – Bosch Talent Forum 2018** – Project Management Software.  
@@ -507,7 +531,7 @@ style: |
 
 ---
 
-<!-- Slide 14 – Future (Career Aspirations, Vacancy Types & Strategic Views) -->
+<!-- Slide 15 – Future (Career Aspirations, Vacancy Types & Strategic Views) -->
 
 ## Future – Career Aspirations, Vacancy Types & Strategic Views
 
@@ -534,7 +558,7 @@ style: |
 
 ---
 
-<!-- Slide 15 – Future (AI & Agile in Research) -->
+<!-- Slide 16 – Future (AI & Agile in Research) -->
 <!-- Mermaid flowchart source: slide-9-diagram.mmd -->
 
 ## Future – AI & Agile in Research
@@ -546,7 +570,7 @@ style: |
 
 ---
 
-<!-- Slide 16 – Future (Personal Interests as Career Enablers) -->
+<!-- Slide 17 – Future (Personal Interests as Career Enablers) -->
 
 <!-- _class: dense-content personal-images -->
 
@@ -567,7 +591,7 @@ style: |
 
 ---
 
-<!-- Slide 17 – Appendix (Academic Visuals Gallery) -->
+<!-- Slide 18 – Appendix (Academic Visuals Gallery) -->
 
 <!-- _class: dense-content academic-images -->
 
@@ -584,7 +608,7 @@ style: |
 
 ---
 
-<!-- Slide 18 – Appendix (Workshops & Teams Gallery) -->
+<!-- Slide 19 – Appendix (Workshops & Teams Gallery) -->
 
 <!-- _class: dense-content workshop-images -->
 
@@ -594,12 +618,12 @@ style: |
 <p><img src="../pictures/work/budapest-2019-2.jpg" alt="Budapest 2019 workshop photo 2" /></p>
 <p><img src="../pictures/work/germany-ws-2024.jpg" alt="Germany workshop 2024" /></p>
 <p><img src="../pictures/work/joinville-ws-2024.jpg" alt="Joinville workshop 2024" /></p>
-<p><img src="../pictures/general/my-photo-rectangle.png" alt="Portrait rectangle general" /></p>
-<p><img src="../pictures/general/my-photo.png" alt="Portrait square general" /></p>
+<p><img src="../pictures/personal/my-photo-rectangle.png" alt="Portrait rectangle general" /></p>
+<p><img src="../pictures/personal/my-photo.png" alt="Portrait square general" /></p>
 
 ---
 
-<!-- Slide 19 – Closing & Contact -->
+<!-- Slide 20 – Closing & Contact -->
 
 ## Closing & Contact
 
@@ -615,6 +639,6 @@ style: |
 
 ---
 
-<!-- Slide 20 – Blank Conclusion Page -->
+<!-- Slide 21 – Blank Conclusion Page -->
 
 <!-- _class: blank-midnight-blue -->
