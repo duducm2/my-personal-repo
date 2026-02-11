@@ -187,7 +187,7 @@ flowchart TD
 flowchart TD
   D1["2017-2018"] -.-> E1["Intern – Bosch Brasil<br/>VBA, Continuous Improvement, internal communication"]
   D2["2019 - Bosch Magyarország Budapest"] -.-> E2["Digitization Support Analyst<br/>Business Excellence, VS Code, SQL Server, IIS"]
-  D3["2020-2023"] -.-> E3["Web Developer – Bosch Brasil<br/>Front-end, React, Scrum; user pain points to production"]
+  D3["2020-2023"] -.-> E3["Web Developer – Bosch Brasil<br/>Front-end, React, Scrum, UX"]
   D4["2023-2026"] -.-> E4["UX Researcher, Designer, and Project Manager"]
 ```
 
