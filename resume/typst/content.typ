@@ -3,7 +3,7 @@
 // Layout and grid are defined in main.typ.
 // =============================================================================
 
-#let name = "Eduardo Matos de Assis Figueiredo"
+#let name = "Eduardo M. de A. Figueiredo"
 #let tagline = "UX Researcher | Front-end Developer | Master in Technology"
 #let phone = "+55 (19) 98176-6583"
 #let email = "edu.evangelista.figueiredo@gmail.com"
