@@ -42,7 +42,7 @@ flowchart LR
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%
 flowchart LR
-  A["2012–2014<br/>Technical Degree<br/>Computer Science<br/>(ETEC Bento Quirino)"]
+  A["2012–2014<br/>Technical Degree<br/>Informatics<br/>(ETEC Bento Quirino)"]
   B["2015–2020<br/>Systems Analysis<br/>and Development<br/>(Unicamp)"]
   C["2023–2025<br/>Master's in Information Systems and Communication<br/> (Unicamp)"]
   A --> B --> C
@@ -54,12 +54,20 @@ flowchart LR
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%
-flowchart LR
-  A["Markdown"]
-  B["Python"]
-  C["Cursor IDE"]
-  D["CSV"]
-  A --> B --> C --> D
+flowchart TB
+  subgraph methodologies [Methodologies]
+    M1["Iterative code-based documentation"]
+    M2["AI-assisted analysis"]
+    M3["Automated pipeline"]
+    M4["Data-driven reports"]
+  end
+  subgraph tools [Technical tools]
+    T1["Markdown"]
+    T2["Python"]
+    T3["Cursor IDE"]
+    T4["CSV"]
+    T5["Power BI"]
+  end
 ```
 
 ---
