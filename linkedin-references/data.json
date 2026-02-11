@@ -583,5 +583,162 @@
       "The 'Técnico em Informática' education/certification entries are incomplete in the snippet; institution and dates are left null.",
       "Date normalization uses Portuguese month abbreviations mapped to YYYY-MM; 'o momento' is represented as 'present' in end_date."
     ]
-  }
+  },
+  "profile": {
+    "name": "Eduardo Matos de Assis Figueiredo",
+    "headline": "User Experience Research and Design Analyst | Front-end Developer",
+    "status": "Online",
+    "languages": [
+      "Portuguese",
+      "English"
+    ]
+  },
+  "featured_highlights": [
+    {
+      "category": "Research & Conferences",
+      "title": "ISSRE 2025 - HFSD Workshop Participation",
+      "description": "Participated in the HFSD workshop at ISSRE 2025. Shared research on aggregating the perception of trust into a score and exploring how Agentic AI can emulate this perception. Discussed human factors in software dependability and trust modeling in the era of autonomous agents.",
+      "metrics": {
+        "reactions": 37,
+        "comments": 7,
+        "shares": 1
+      },
+      "source_ids": [
+        19,
+        112,
+        113
+      ]
+    },
+    {
+      "category": "Global Collaboration",
+      "title": "International Project Collaboration",
+      "description": "Project focused on overcoming timezone and cultural differences between the Americas, Europe, and Asia. Highlighted the value of Research and Design for customers. Mentioned upcoming visit to colleagues in Germany.",
+      "metrics": {
+        "reactions": 49
+      },
+      "source_ids": [
+        38,
+        39,
+        113,
+        114,
+        115
+      ]
+    },
+    {
+      "category": "Research & Conferences",
+      "title": "IHC 2025 Presentation",
+      "description": "Presented work on an 'Interface Trustworthiness Score Definition Platform' at IHC 2025 (SBC and UFMG). Article written with Regina Moraes and Andreia Casare, to be published in SOL conference proceedings.",
+      "metrics": {
+        "reactions": 53,
+        "comments": 5
+      },
+      "source_ids": [
+        40,
+        116
+      ]
+    },
+    {
+      "category": "Workshops",
+      "title": "UX Strategy Workshop",
+      "description": "Conducted a workshop aimed at helping shape UX throughout the organization.",
+      "metrics": {
+        "reactions": 35,
+        "comments": 4
+      },
+      "source_ids": [
+        42,
+        117,
+        118
+      ]
+    },
+    {
+      "category": "Education",
+      "title": "Academic Writing Course - Unicamp",
+      "description": "Completion of 'Academic Writing' course with professors Vitor Coluci and Regina Moraes, noting significant improvement in writing skills.",
+      "metrics": {
+        "reactions": 6
+      },
+      "source_ids": [
+        44,
+        45,
+        119,
+        120
+      ]
+    },
+    {
+      "category": "Teaching & Mentorship",
+      "title": "Digital Talent Academy",
+      "description": "Teaching wireframing to Digital Talent Academy students.",
+      "source_ids": [
+        46,
+        122,
+        123
+      ]
+    },
+    {
+      "category": "Career",
+      "title": "New Role at GS UX Team",
+      "description": "Welcome post regarding joining the UX team at GS. 'Navegando em direção a experiências incríveis' (Sailing towards incredible experiences).",
+      "metrics": {
+        "reactions": 37,
+        "comments": 6
+      },
+      "source_ids": [
+        47,
+        48,
+        125,
+        126
+      ]
+    },
+    {
+      "category": "Presentations",
+      "title": "Digital Journey Presentation (GS/TET-LA)",
+      "description": "Presentation of the GS/TET-LA digital journey for the Purchasing team (time de Compras).",
+      "source_ids": [
+        56
+      ]
+    },
+    {
+      "category": "Presentations",
+      "title": "Digital Solutions Presentation (Campinas)",
+      "description": "Presentation on the Digital Innovation Journey and Software Development.",
+      "source_ids": [
+        57,
+        58,
+        128
+      ]
+    },
+    {
+      "category": "Presentations",
+      "title": "Digital Solutions Presentation (Buenos Aires)",
+      "description": "Presentation on software development to colleagues in Buenos Aires.",
+      "source_ids": [
+        59,
+        60,
+        129
+      ]
+    },
+    {
+      "category": "Awards",
+      "title": "3rd Place - Talent Forum 2018 (Bosch Campinas)",
+      "description": "Awarded 3rd place in the interns' Talent Forum. The winning project was an internal tool developed in VBA for Excel for waterfall project management.",
+      "source_ids": [
+        62,
+        63,
+        131,
+        132
+      ]
+    },
+    {
+      "category": "Training",
+      "title": "Continuous Improvement Fundamentals Training",
+      "description": "Delivered training on 'Fundamentos da Melhoria Contínua' (CIP Fundamentals) to the HR team at Bosch Sorocaba.",
+      "source_ids": [
+        72,
+        73,
+        74,
+        136
+      ]
+    }
+  ]
 }
