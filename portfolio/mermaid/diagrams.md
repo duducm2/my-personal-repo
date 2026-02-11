@@ -157,18 +157,23 @@ flowchart LR
 
 ## 9. [ai-agile-research] AI and Agile in Research (Slide 11)
 
+*Narrative for slide:* The **Research Scrum Master** facilitates the process (sprint planning, backlog refinement, daily check-ins, reviews, retrospectives). The **ResearchOps Lead** guarantees the team is equipped with and correctly using the necessary AI tools (evaluation, procurement, and governance of AI technologies).
+
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato', 'subgraphBg': 'transparent', 'subgraphBorder': '#bdc3c7'}}}%%
 flowchart TD
-  RPO["Research Product Owner"]
   RSM["Research Scrum Master"]
+  ROL["ResearchOps Lead"]
   RT["Research Team + AI tools"]
   C1["Sprint planning, Backlog refinement"]
   C2["Daily check-ins, Reviews, Retrospectives"]
+  C3["AI tool evaluation, procurement, governance"]
   A1["Research backlog, Experiment cards"]
   A2["Dashboards, AI drafts, human-reviewed"]
-  RPO --> C1
   RSM --> C1
+  RSM --> C2
+  ROL --> C3
+  C3 --> RT
   RT --> C2
   C1 --> A1
   C2 --> A2
@@ -185,7 +190,7 @@ timeline
     2017-2018 : Intern – Bosch Brasil : VBA, Continuous Improvement, internal communication
     2019 : Digitization Support Analyst – Bosch Magyarország Budapest : Business Excellence, VS Code, SQL Server, IIS
     2021-2023 : Web Developer – Bosch Brasil : Front-end, React, Scrum; user pain points to production
-    2023-2026 : UX Researcher, Designer, and Project Manager – Bosch
+    2023-2026 : UX Researcher, Designer, and Project Manager
 ```
 
 ---
