@@ -2,6 +2,8 @@
 
 All diagram sources for the portfolio deck live in this folder.
 
+**View all diagrams (twin screens):** Open [diagrams.md](diagrams.md) in VS Code (or any Markdown viewer with Mermaid support) to see every diagram rendered. Use one screen for the deck and one for `diagrams.md` while presenting.
+
 **Render to PNG** (output in parent folder so `portfolio-deck.md` image links work):
 
 ```bash

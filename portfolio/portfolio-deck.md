@@ -75,10 +75,10 @@ style: |
     margin-bottom: 0.08rem;
   }
   section.lead {
-    background-color: var(--primary-color);
-    color: white;
+    background-color: #fff;
+    color: var(--text-color);
   }
-  section.lead h1, section.lead h2 { color: white; border-color: var(--accent-color); }
+  section.lead h1, section.lead h2 { color: var(--primary-color); border-color: var(--accent-color); }
   section.lead {
     background-image: url("../arts/art-5.png");
     background-size: 28% auto;
@@ -89,10 +89,23 @@ style: |
   section.lead::after {
     display: none;
   }
+
+  /* Second slide: midnight blue */
+  section.midnight-blue-slide {
+    background-color: #2c3e50;
+    background-image: none;
+    border-top: none;
+    color: white;
+  }
+  section.midnight-blue-slide h2 { color: white; border-color: rgba(255,255,255,0.5); }
+  section.midnight-blue-slide table, section.midnight-blue-slide th, section.midnight-blue-slide td { color: white; border-color: rgba(255,255,255,0.3); }
+  section.midnight-blue-slide ul, section.midnight-blue-slide li { color: white; }
+  section.midnight-blue-slide img { border: 4px solid rgba(255,255,255,0.4); box-shadow: 2px 3px 12px rgba(0,0,0,0.3); }
+
   section.persona-slide img[alt*="Persona 2"] { display: block; margin-left: auto; margin-right: auto; margin-top: -1rem; }
   
   /* Global Decorative Elements */
-  section:not(.lead) {
+  section:not(.lead):not(.midnight-blue-slide) {
     /* Subtle dot grid to fill whitespace */
     background-image: radial-gradient(var(--bg-dot) 1px, transparent 1px);
     background-size: 20px 20px;
@@ -101,7 +114,7 @@ style: |
   }
 
   /* Image Styling - Scattered Photo Effect with Unique Rotations */
-  section:not(.lead) img {
+  section:not(.lead):not(.midnight-blue-slide) img {
     border: 4px solid white;
     box-shadow: 2px 3px 8px rgba(0,0,0,0.15);
     transition: transform 0.3s ease;
@@ -120,6 +133,7 @@ style: |
   section:not(.lead) img[alt*="Friends"] { transform: rotate(-1.6deg); }
   section:not(.lead) img[alt*="Germany 2025"] { transform: rotate(2.4deg); }
   section:not(.lead) img[alt*="Budapest 2019"] { transform: rotate(-2.3deg); }
+  section:not(.lead) img[alt*="Bosch Argentina"] { transform: rotate(1.8deg); }
   section:not(.lead) img[alt*="Cat on piano"] { transform: rotate(1.5deg); }
   section:not(.lead) img[alt*="Cat on split keyboard"] { transform: rotate(-2deg); }
   section:not(.lead) img[alt*="In front of Bosch building"] { transform: rotate(1.9deg); }
@@ -199,7 +213,7 @@ style: |
   
   /* Blank midnight blue conclusion page */
   section.blank-midnight-blue {
-    background-color: #000;
+    background-color: #fff;
     background-image: url("../arts/art-background.png");
     background-size: 110%;
     background-position: center;
@@ -378,7 +392,7 @@ flowchart LR
 
 <!-- Slide 2 – Who I Am (Golden Circle: Who/What) -->
 
-<!-- _class: art-top-right -->
+<!-- _class: art-top-right midnight-blue-slide -->
 
 ## Who I Am – Snapshot
 
@@ -406,7 +420,7 @@ flowchart LR
 
 [INSERT DIAGRAM HERE: Academic timeline]
 
-- **Master's thesis:** Benchmark to assess software trustworthiness via Usability, Accessibility, and UX. Grade 'A' in all Master's coursework (Unicamp transcript in Appendix).
+- **Master's thesis:** Benchmark to assess software trustworthiness via Usability, Accessibility, and UX. Grade 'A' in all Master's coursework (Unicamp transcript available on request).
 - **Professional profile:** Proactive, self-reliant, organized; combines **in-depth research**, **technology**, and **project management** with agile practices (Scrum, Kanban) and delivery leadership.
 
 <!-- Mermaid source: academic-timeline.mmd - render to academic-timeline.png
@@ -774,7 +788,11 @@ flowchart TD
 
 ## Theme: Process – Experience Timeline (Condensed)
 
+- **Trajectory across Bosch locations:** Brazil, Hungary (Budapest), Germany, Argentina.
+
 <p><img src="../pictures/work/budapest-2019.jpg" alt="Bosch Magyarország - Budapest 2019" /></p>
+<p><img src="../pictures/work/budapest-2019-2.jpg" alt="Budapest team 2019 – farewell book" style="max-width: 200px; height: auto;" /></p>
+<p><img src="../pictures/work/bosch-argentina.jpg" alt="Bosch Argentina – We are Bosch" style="max-width: 200px; height: auto;" /></p>
 
 [INSERT DIAGRAM HERE: Experience timeline]
 
@@ -844,39 +862,6 @@ timeline
 | Impressionist art | Nuanced perception and diverse perspectives in research |
 | Macro creation | Automation and workflow optimization |
 | Specialized keyboards | Ergonomics, productivity, technology and accessibility |  
-
----
-
-<!-- Slide 24 – Appendix (Academic Visuals Gallery) -->
-
-<!-- _class: dense-content academic-images -->
-
-## Appendix – Academic Visuals Gallery
-
-- Including **Unicamp Histórico Escolar** (Master's transcript: grade 'A' in all coursework); **UFSC English Proficiency** (reading comprehension for postgraduate programs, 10/10, 2024).
-
-<p><img src="../pictures/academia/docs/historico-escolar.png" alt="Unicamp Histórico Escolar – Master's transcript, grade A in all disciplines" /></p>
-<p><img src="../pictures/academia/academic-writing.jpg" alt="Academic writing course - academia" /></p>
-<p><img src="../pictures/academia/english-proficiency.png" alt="English proficiency certificate – UFSC 10/10" /></p>
-<p><img src="../pictures/academia/hfsd-workshop-1.jpg" alt="HFSD workshop 1 - academia" /></p>
-<p><img src="../pictures/academia/hfsd-workshop-2.jpg" alt="HFSD workshop 2 - academia" /></p>
-<p><img src="../pictures/academia/ihc-2025-1.jpg" alt="IHC 2025 article 1 page - academia" /></p>
-<p><img src="../pictures/academia/ihc-2025-2.jpg" alt="IHC 2025 article 2 page - academia" /></p>
-
----
-
-<!-- Slide 25 – Appendix (Workshops & Teams Gallery) -->
-
-<!-- _class: dense-content workshop-images -->
-
-## Appendix – Workshops & Teams Gallery
-
-<p><img src="../pictures/work/bosch-argentina.jpg" alt="Bosch Argentina workshop" /></p>
-<p><img src="../pictures/work/budapest-2019-2.jpg" alt="Budapest 2019 workshop photo 2" /></p>
-<p><img src="../pictures/work/germany-ws-2024.jpg" alt="Germany workshop 2024" /></p>
-<p><img src="../pictures/work/joinville-ws-2024.jpg" alt="Joinville workshop 2024" /></p>
-<p><img src="../pictures/personal/my-photo-rectangle.png" alt="Portrait rectangle general" /></p>
-<p><img src="../pictures/personal/my-photo.png" alt="Portrait square general" /></p>
 
 ---
 
