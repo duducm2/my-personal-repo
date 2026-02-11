@@ -50,7 +50,7 @@
   // 3. Left Column (Sidebar) — full-height light grey background to remove empty gap
   // -------------------------------------------------------------------------
   [
-    #block(fill: sidebar-bg, width: 100%, height: 98%, inset: (left: 0.6em, right: 0.6em, top: 0.6em, bottom: 0.6em))[
+    #block(fill: sidebar-bg, width: 100%, height: 98%, inset: (left: 0.6em, right: 0.6em, top: 0.6em, bottom: 0.6em), stroke: (paint: rgb("#D3D3D3"), thickness: 1pt))[
       // Photo: width 90% of container, rectangular, margins, container visible
       #block(width: 100%, inset: 0.75em, below: 0.9em)[
         #align(center)[
