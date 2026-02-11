@@ -12,8 +12,9 @@
   paper: "a4",
   margin: (left: 0.4cm, right: 0.4cm, top: 0.4cm, bottom: 0.4cm)
 )
-#set text(font: "Times New Roman", size: 10pt)
-#set par(leading: 0.88em, spacing: 0.52em)
+// Lato: put Lato *.ttf (e.g. Lato-Regular, Lato-Bold, Lato-Italic) in typst/fonts/ and compile with --font-path
+#set text(font: "Lato", size: 10pt)
+#set par(leading: 1.05em, spacing: 0.6em)
 
 // Palette: grey + brownish-beige (Alfredo-style); accent for optional highlight
 #let sidebar-header-bg = rgb("#fff")
@@ -62,30 +63,30 @@
       ]
       // Contact (short labels before each line)
       #sidebar-heading[Contact]
-      #block(below: 0.45em)[#text(weight: "bold", size: 9pt)[Ph.] \quad #phone]
-      #block(below: 0.3em)[#text(weight: "bold", size: 9pt)[E-mail] \quad #email]
-      #block(below: 0.3em)[#text(weight: "bold", size: 9pt)[LinkedIn] \quad #link(linkedin-url)[#linkedin]]
-      #block(below: 0.9em)[#text(weight: "bold", size: 9pt)[Location] \quad #location]
+      #block(below: 0.5em)[#text(weight: "bold", size: 9pt)[Ph.] \quad #phone]
+    #block(below: 0.4em)[#text(weight: "bold", size: 9pt)[E-mail] \quad #email]
+    #block(below: 0.4em)[#text(weight: "bold", size: 9pt)[LinkedIn] \quad #link(linkedin-url)[#linkedin]]
+    #block(below: 1em)[#text(weight: "bold", size: 9pt)[Location] \quad #location]
       // Profile & Strengths
       #sidebar-heading[Profile]
-      #block(width: 100%, below: 0.6em)[#profile]
-      #sidebar-heading[Strengths]
-      #block(width: 100%, below: 0.9em)[#strengths]
-      // Languages
-      #sidebar-heading[Languages]
-      #block(below: 0.3em)[
-        #for lang in languages [#lang #linebreak()]
+      #block(width: 100%, below: 0.75em)[#profile]
+    #sidebar-heading[Strengths]
+    #block(width: 100%, below: 1em)[#strengths]
+    // Languages
+    #sidebar-heading[Languages]
+    #block(below: 0.4em)[
+      #for lang in languages [#lang #linebreak()]
+    ]
+    #block(below: 1em)[]
+    // Skills (category + bulleted items)
+    #sidebar-heading[Skills]
+    #for (cat, sub) in skills [
+      #block(above: 0.5em)[
+        #text(weight: "bold", fill: heading-color)[#cat]
+        #linebreak()
+        #for item in sub [#block(inset: (left: 0.75em), above: 0.2em)[• #item]]
       ]
-      #block(below: 0.9em)[]
-      // Skills (category + bulleted items)
-      #sidebar-heading[Skills]
-      #for (cat, sub) in skills [
-        #block(above: 0.4em)[
-          #text(weight: "bold", fill: heading-color)[#cat]
-          #linebreak()
-          #for item in sub [#block(inset: (left: 0.75em), above: 0.12em)[• #item]]
-        ]
-      ]
+    ]
     ]
   ],
   // -------------------------------------------------------------------------
@@ -108,14 +109,14 @@
     // Experience
     #section-title[EXPERIENCE]
     #for (date, company, title, bullets) in experience [
-      #block(above: 0.65em, below: 0.55em)[
+      #block(above: 0.8em, below: 0.7em)[
         #grid(columns: (1fr, auto), gutter: 1em, align: (left, right))[
           #text(weight: "bold", fill: heading-color)[#company]
           #text(weight: "bold", fill: gray)[#date]
         ]
-        #block(above: 0.15em)[#text(style: "italic", fill: heading-color)[#title]]
-        #block(above: 0.4em)[
-          #for b in bullets [#block(inset: (left: 1em), above: 0.22em)[#text(fill: heading-color)[• #b]]]
+        #block(above: 0.2em)[#text(style: "italic", fill: heading-color)[#title]]
+        #block(above: 0.5em)[
+          #for b in bullets [#block(inset: (left: 1em), above: 0.32em)[#text(fill: heading-color)[• #b]]]
         ]
       ]
     ]
@@ -123,21 +124,21 @@
     // Education
     #section-title[EDUCATION]
     #for (degree, inst, thesis) in education [
-      #block(above: 0.45em)[
+      #block(above: 0.55em)[
         #strong[#degree] #inst
-        #if thesis != "" [#block(inset: (left: 0.5em), above: 0.2em)[#text(size: 9pt, style: "italic", fill: gray)[#thesis]]]
+        #if thesis != "" [#block(inset: (left: 0.5em), above: 0.28em)[#text(size: 9pt, style: "italic", fill: gray)[#thesis]]]
       ]
     ]
     #block(above: 0.4em, below: 0.2em)[#line(length: 100%, stroke: (paint: gray, thickness: 0.35pt))]
     // Publications
     #section-title[SELECTED PUBLICATIONS]
     #for (venue, desc) in publications [
-      #block(above: 0.4em)[#strong[#venue] #desc]
+      #block(above: 0.5em)[#strong[#venue] #desc]
     ]
     #block(above: 0.4em, below: 0.2em)[#line(length: 100%, stroke: (paint: gray, thickness: 0.35pt))]
     // Additional
     #section-title[ADDITIONAL]
-    #for a in additional [#block(above: 0.35em)[#a]]
+    #for a in additional [#block(above: 0.45em)[#a]]
   ]
 )
 

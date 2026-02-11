@@ -63,6 +63,12 @@ From the repo root or from `resume/`:
 typst compile resume/typst/main.typ resume/CV-Eduardo-Figueiredo-EN-typst.pdf
 ```
 
+**If using the Lato font:** Put Lato `.ttf` files in `resume/typst/fonts/` (see that folder’s README), then compile with:
+
+```bash
+typst compile --font-path resume/typst/fonts resume/typst/main.typ resume/CV-Eduardo-Figueiredo-EN-typst.pdf
+```
+
 Watch mode (recompile on save):
 
 ```bash
