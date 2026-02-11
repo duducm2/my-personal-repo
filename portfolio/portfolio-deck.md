@@ -81,8 +81,8 @@ style: |
   section.lead h1, section.lead h2 { color: white; border-color: var(--accent-color); }
   section.lead {
     background-image: url("../arts/art-5.png");
-    background-size: 55% auto;
-    background-position: center 58%;
+    background-size: 28% auto;
+    background-position: right bottom;
     background-repeat: no-repeat;
   }
   section.lead img { display: block; margin-left: auto; margin-right: auto; }
@@ -353,11 +353,11 @@ style: |
 
 <!-- Slide 1 – Why (Golden Circle: Why) -->
 
-# Why I Work With UX & Research
+# Why I Work in Technology, Project Management & Research
 ## Trustworthy, human-centered software for complex services
 
 - I believe that software used in service organizations must be **trustworthy, usable, and inclusive**—especially when decisions affect people and businesses at scale.
-- My work connects **UX research**, **front-end development**, and **Continuous Improvement (CIP)** so that user needs are built into processes, not added at the end.
+- My work centers **technology**, **project management**, and **in-depth research**—integrating evidence and user needs into processes via **Continuous Improvement (CIP)** and systematic delivery.
 - This portfolio tells that story:
 
 [INSERT DIAGRAM HERE: Why story flow]
@@ -385,8 +385,8 @@ flowchart LR
 | Attribute | Value |
 | --------- | ----- |
 | Name | Eduardo M. de A. Figueiredo |
-| Role | UX Researcher & Front-End Developer (Master's, Unicamp) |
-| Focus | UX in CIP, measuring software trustworthiness |
+| Role | Research, Technology & Project Management (Master's, Unicamp) |
+| Focus | Technology, CIP governance, in-depth research, and measuring software trustworthiness |
 | Impact | Americas UX Maturity Level 4; AI-driven UX quality gates; international projects |
 | Contact | Nova Odessa, SP – Brazil · edu.evangelista.figueiredo@gmail.com · LinkedIn / phone on request |  
 
@@ -403,7 +403,7 @@ flowchart LR
 [INSERT DIAGRAM HERE: Academic timeline]
 
 - **Master's thesis:** Benchmark to assess software trustworthiness via Usability, Accessibility, and UX. Grade 'A' in all Master's coursework (Unicamp transcript in Appendix).
-- **Professional profile:** Proactive, self-reliant, organized; combines UX research, design, and front-end development with agile practices (Scrum, Kanban) and project management.
+- **Professional profile:** Proactive, self-reliant, organized; combines **in-depth research**, **technology**, and **project management** with agile practices (Scrum, Kanban) and delivery leadership.
 
 <!-- Mermaid source: academic-timeline.mmd - render to academic-timeline.png
 timeline
@@ -420,7 +420,7 @@ timeline
 
 <!-- _class: art-top-right -->
 
-## Present – UX Research & Design Analyst (Bosch Brasil)
+## Present – Research & Technology (Bosch Brasil)
 
 <p style="position: absolute; top: 0.5rem; left: 0.5rem; margin: 0;"><img src="../pictures/work/bdu/UXGS%20Logo_verticle.svg" alt="UXGS area logo" style="height: 56px; width: auto;" /></p>
 <p><img src="../pictures/work/americas-team-2025.jpg" alt="Americas Team 2025 - UX Maturity Level 4" style="max-width: 280px; width: 100%; height: auto;" /></p>
@@ -430,12 +430,12 @@ timeline
 
 | Area | Achievement |
 | ---- | ----------- |
-| Role | UX Research & Design Analyst – Bosch Brasil (May 2023 – present); UX Project Champion GS/BDU |
+| Role | Research & Technology – Bosch Brasil (May 2023 – present); UX Project Champion GS/BDU |
 | International | Two trips to Germany (2024, 2025) for role-related work |
 | CO2 Tracking (GS/UX) | Marketing scouting for CO2 telemetry; finding: lack of market demand |
 | UX Maturity | Led Americas to Level 4 – governance, templates, training |
 | CIP + UX | Led integration into ServiceNow CIM; UX gate in CIP workflow |
-| Collaboration | Tutor at SENAI Digital Talent Academy; scientific methods in service design |  
+| Collaboration | Tutor at SENAI Digital Talent Academy; scientific methods and project delivery |  
 
 ---
 
@@ -447,7 +447,7 @@ timeline
 
 <p><img src="../pictures/work/digital-ws.jpg" alt="UX Strategy Workshop" /></p>
 
-- **Career significance:** This project marks a pivotal evolution into **Senior Researcher** capabilities—combining deep, data-oriented investigation with technical execution and governance design.  
+- **Career significance:** This project marks a pivotal evolution into **Senior Researcher** capabilities—combining in-depth, data-oriented investigation with technical execution, project management, and governance.  
 - **Project scope:** Integrated **UX relevance assessment** into the **Continuous Improvement Process (CIP)** in ServiceNow CIM. A **UX gate** sits between Assess and Approve; the method runs at that gate to triage improvement initiatives (Low / Medium / High UX relevance).  
 - **Methodology—developer skills for research:** Utilized **Cursor IDE**, **AI-assisted coding**, and version-controlled Python pipelines. Workflow:
 
@@ -648,9 +648,9 @@ flowchart LR
 
 ## Theme: Technical Implementation – Tooling Project for PT
 
-- **Tooling project for PT:** Key development in **design proficiency**—from wireframe to high-fidelity prototype, with **customer progress review meetings** throughout.
+- **Tooling project for PT:** Key development in **technical delivery and project management**—from requirements to high-fidelity deliverable, with **customer progress review meetings** throughout.
 
-[INSERT DIAGRAM HERE: Tooling PT design workflow]
+[INSERT DIAGRAM HERE: Tooling PT delivery workflow]
 
 <!-- Mermaid source: tooling-pt-workflow.mmd - render to tooling-pt-workflow.png
 flowchart LR
@@ -674,9 +674,9 @@ flowchart LR
 
 ## Theme: Technical Implementation – Proposal Generator (Excel VBA)
 
-<p><img src="../pictures/work/proposal-generator.png" alt="Proposal Generator – Excel-based UX proposal tool" /></p>
+<p><img src="../pictures/work/proposal-generator.png" alt="Proposal Generator – Excel-based project proposal tool" /></p>
 
-- **Definition:** Excel-based application for **automated proposal creation**—project proposals for UX activities: define activities, estimate hours, Gantt-style timeline, and generate PowerPoint.
+- **Definition:** Excel-based application for **automated proposal creation**—project proposals: define activities, estimate hours, Gantt-style timeline, and generate PowerPoint.
 - **Generation logic:** Uses **predefined criteria and historical project data**; outputs (activities, hours, timeline) are driven by that logic.
 
 [INSERT DIAGRAM HERE: Proposal Generator UX phases]
@@ -779,7 +779,7 @@ timeline
     title Experience Timeline
     2017-2018 : Intern – Bosch Brasil : VBA, Continuous Improvement, internal communication
     2019 : Digitization Support Analyst – Bosch Magyarország Budapest : Business Excellence, VS Code, SQL Server, IIS
-    2021-2023 : Web Developer – Bosch Brasil : Front-end, React, Scrum; user pain points to production
+    2021-2023 : Web Developer – Bosch Brasil : Technology, React, Scrum; requirements to production
 -->  
 
 ---
@@ -792,25 +792,25 @@ timeline
 
 <p><img src="future-career-timeline.png" alt="Future Career Path Timeline" style="max-width: 90%; height: auto; margin: 0.5rem auto; display: block;" /></p>
 
-- **Future objective:** Work in **technology-focused roles** that integrate **UX research skills with AI implementation and development** as a core professional interest.  
+- **Future objective:** Work in **technology-focused roles** that integrate **in-depth research, project management, and AI implementation** as a core professional interest.  
 - **Desired vacancy types (Bosch & external):**
 
 [INSERT TABLE HERE: Future vacancy types and examples]
 
 | Type | Bosch examples | External examples |
 | ---- | -------------- | ----------------- |
-| UX Researcher / Senior | Global Service Solutions – service platforms, internal tools | Trust & Safety – trust, safety, fairness at scale |
-| UX Lead / Manager | Digital / Enterprise Applications – B2B tools for service teams | — |
+| Researcher / Senior | Global Service Solutions – service platforms, internal tools | Trust & Safety – trust, safety, fairness at scale |
+| Technology / PM Lead | Digital / Enterprise Applications – B2B tools for service teams | — |
 | Scrum Master / Agile Coach | — | Data-informed, research-oriented facilitation |
-| Researcher advanced tech | — | Quantum & AI – human factors, interface design |  
-- **Target roles:** UX Researcher, UX Lead, Scrum Master, or Researcher in advanced tech contexts.  
-- **Scrum Master role – focus:** Data-informed, research-oriented agile facilitation for UX, AI, and trustworthiness projects, ensuring delivery quality and learning.  
+| Researcher advanced tech | — | Quantum & AI – technology and human factors |  
+- **Target roles:** Researcher, Technology / Project Management Lead, Scrum Master, or Researcher in advanced tech contexts.  
+- **Scrum Master role – focus:** Data-informed, research-oriented agile facilitation for technology, AI, and trustworthiness projects; project management and delivery quality.  
 - **Core Scrum Master responsibilities:** Maintain **data integrity** and ensure **statistical relevance** across experiments and project lifecycles; oversee the **rigorous application of scientific methods** and the **adequate use of AI** to accelerate deliverables (never replacing human judgment); manage project timelines to **prevent stagnation and perpetual postponement**.  
 - **Proactive strategies for communication blockers:** If appointment requests are not answered, deploy short, targeted surveys to collect decisions and unblock work; if surveys are not completed, schedule **mandatory 10-minute sessions** to secure answers and align expectations.  
 - **Stakeholder engagement protocols:** Maintain **direct customer contact** to guarantee delivery of agreed outcomes; ensure customers are held **accountable for supporting project deliverables**, including providing data, approvals, and access needed to move forward.  
 - **Strategic View A – "Paradise" (Quantum Computing):** Deep technical research and experimentation in quantum computing and advanced R&D. Leverages analytical skills, experimentation mindset, and physics background.  
-- **Strategic View B – "Modest" (Scrum / Agile Leadership):** Scrum Master or agile leader enabling teams to deliver high-quality products. Builds on CIP & UX experience, facilitation, and coaching.  
-- **Shared assets:** UX research, CIP + UX integration, AI + agile methodology, and data-driven decision-making.
+- **Strategic View B – "Modest" (Scrum / Agile Leadership):** Scrum Master or agile leader enabling teams to deliver high-quality products. Builds on CIP, project management, facilitation, and coaching.  
+- **Shared assets:** In-depth research, technology, project management, CIP integration, AI + agile methodology, and data-driven decision-making.
 
 ---
 
@@ -839,7 +839,7 @@ timeline
 | Acting | Empathy, storytelling, presence in interviews and workshops |
 | Impressionist art | Nuanced perception and diverse perspectives in research |
 | Macro creation | Automation and workflow optimization |
-| Specialized keyboards | Ergonomics, accessibility, user-centered design |  
+| Specialized keyboards | Ergonomics, productivity, technology and accessibility |  
 
 ---
 
@@ -886,7 +886,7 @@ timeline
 
 | Area | Summary |
 | ---- | ------- |
-| Core | UX Research & Front-End Development |
+| Core | In-depth Research, Technology & Project Management |
 | Leadership | UX Maturity Level 4 – Americas |
 | Milestone | CIP and UX Integration – Cursor IDE, AI, coding; Senior Researcher evolution |
 | Research | Trust in interfaces; data-driven decision-making |
