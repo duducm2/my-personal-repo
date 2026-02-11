@@ -19,7 +19,7 @@
 #let sidebar-header-bg = rgb("#E0E0E0")
 #let accent-line = rgb("#7A5C3A")
 #let accent-color = rgb("#6A0DAD")
-#let footer-bg = rgb("#333333")
+#let footer-bg = rgb("#004170")
 #let heading-color = rgb("#2D2D2D")
 #let sidebar-bg = rgb("#F5F5F5")
 
