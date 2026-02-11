@@ -121,7 +121,11 @@ style: |
 
 <!-- Slide 2 – Who I Am (Golden Circle: Who/What) -->
 
+<!-- _class: art-top-right -->
+
 ## Who I Am – Snapshot
+
+<p><img src="../pictures/my-photo-rectangle.png" alt="Eduardo Figueiredo" /></p>
 
 - **Name:** Eduardo M. de A. Figueiredo  
 - **Role:** UX Researcher & Front-End Developer (Master's in Technology, Unicamp).  
@@ -133,7 +137,11 @@ style: |
 
 <!-- Slide 3 – Past (Foundations: Education & Profile) -->
 
+<!-- _class: art-top-right -->
+
 ## Past – Academic Foundations & Professional Profile
+
+<p><img src="../pictures/academic-writing.jpg" alt="Academic Writing Course - Unicamp" /></p>
 
 - **Master's in Technology – Information & Communication Systems (UX)** – Unicamp (2023–2025).  
   - Thesis: **Benchmark to assess software trustworthiness** via Usability, Accessibility, and UX.  
@@ -160,7 +168,11 @@ style: |
 
 <!-- Slide 5 – Present (Role & Strategic Impact) -->
 
+<!-- _class: art-top-right -->
+
 ## Present – UX Research & Design Analyst (Bosch Brasil)
+
+<p><img src="../pictures/germany-ws-2024.jpg" alt="Germany Workshop 2024 - International Collaboration" /></p>
 
 - **Role:** UX Research & Design Analyst – Bosch Brasil (May 2023 – present).  
 - **UX Maturity Level 4 (Americas):**  
@@ -177,7 +189,11 @@ style: |
 
 <!-- Slide 6 – Present (CIP, UX & Tooling) -->
 
+<!-- _class: art-top-right -->
+
 ## Present – CIP, UX & Tooling
+
+<p><img src="../pictures/digital-ws.jpg" alt="UX Strategy Workshop" /></p>
 
 - **CIP & UX integration:**  
   - Connects Continuous Improvement practices with UX research and design activities.  
@@ -193,7 +209,11 @@ style: |
 
 <!-- Slide 7 – Present (Academic Research & TrustMate) -->
 
+<!-- _class: art-top-right -->
+
 ## Present – Academic Research (Trust in AI & UI)
+
+<p><img src="../pictures/hfsd-workshop-1.jpg" alt="ISSRE 2025 HFSD Workshop" /></p>
 
 - **Research focus:** Quantifying perceived trust in e-commerce and software interfaces.  
 - **Publications & venues:**  
@@ -212,7 +232,7 @@ style: |
 
 ## Present – Innovation & Awards
 
-<p><img src="../arts/art-7/art-7-3.png" alt="Innovation and awards doodle" /></p>
+<p><img src="../pictures/bosch-2018.jpg" alt="Bosch Talent Forum 2018 - 3rd Place Award" /></p>
 
 - **1st Place – X-Games Brazil 2018** – New Business Creation / Consultancy.  
 - **3rd Place – Bosch Talent Forum 2018** – Project Management Software.  
