@@ -20,13 +20,12 @@ flowchart LR
 ## 2. Academic timeline (Slide 3)
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'cScale0': '#2c3e50', 'cScale1': '#2c3e50', 'cScale2': '#2c3e50', 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'fontFamily': 'Lato'}}}%%
-timeline
-    title Academic Foundations
-    2012-2014 : Technical Degree in Computer Science – ETEC Bento Quirino
-    2015-2020 : Systems Analysis and Development – Unicamp
-    2023-2025 : Master's in Technology – Information and Communication Systems UX – Unicamp
-    2024 : English proficiency UFSC – Reading 10/10
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%
+flowchart LR
+  A["2012–2014<br/>Technical Degree<br/>Computer Science<br/>ETEC Bento Quirino"]
+  B["2015–2020<br/>Systems Analysis<br/>and Development<br/>Unicamp"]
+  C["2023–2025<br/>Master's in Technology<br/>ICS UX – Unicamp"]
+  A --> B --> C
 ```
 
 ---
@@ -36,153 +35,78 @@ timeline
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%
 flowchart LR
-  A["(1) Iterative code-based documentation\nMarkdown, method.md v2.8"]
-  B["(2) AI-assisted analysis\nN=214 records, UX maturity data"]
-  C["(3) Automated pipeline\nextract to aggregate to calculate\nux_relevance_results.csv N=35"]
-  D["(4) High-quality reports\nMarkdown, executive summaries\nCriticality Index"]
+  A["Markdown"]
+  B["Python"]
+  C["Cursor IDE"]
+  D["CSV"]
   A --> B --> C --> D
 ```
 
 ---
 
-## 4. Academic research flow (Slide 8)
+## 4. Academic research flow (Slide 4)
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%
 flowchart TD
-  Focus["Benchmark: Trustworthiness\nUsability, Accessibility, UX"]
-  Pub["Publications\nISSRE 2025 HFSD, IHC 2025 SOL"]
-  Tool["TrustMate + Power BI\nAI agents, full-stack, Figma"]
-  Industry["Industry reuse\nUX audits, maturity, CIP+UX"]
+  Focus["Benchmark: Trustworthiness, Usability, Accessibility, UX"]
+  Tech["Technologies Used: Power BI, Figma, Python"]
+  Soft["Soft Skills Learned: Critical Thinking, Scientific Method"]
+  Pub["Publications: ISSRE 2025 HFSD, IHC 2025 SOL"]
+  Industry["Industry reuse: UX audits, maturity, CIP+UX"]
+  Focus --> Tech
+  Focus --> Soft
   Focus --> Pub
-  Focus --> Tool
+  Tech --> Industry
+  Soft --> Industry
   Pub --> Industry
-  Tool --> Industry
 ```
 
 ---
 
-## 5. CSI and NPS performance (Slide 10)
+## 5. CSI and NPS performance (Slide 5)
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%
-block-beta
-    columns 3
-    "Project" "CSI" "NPS"
-    "GS_R2S_TET2-LA UI Design Financial Portal" "5" "-"
-    "EXT_PS_CCC Telemetry light vehicles" "5" "10"
-    "EXT_M-PUR36 Tooling Management" "5" "10"
-    "EXT_M-PMQ PPAP Application" "5" "10"
-    "GS_P2P_MovDiv_Improvement part 1" "5" "10"
-    "GS_P2P_Financial_Portal" "5" "10"
-    "GS_UX Bootcamp 2024 Joinville 95 people" "4.9" "9.6"
-    "GS_B2R_AA CF Automation" "4" "10"
-    "Averages" "4.86" "9.94"
+flowchart TD
+  H["Project | CSI | NPS"]
+  R1["GS_R2S Financial Portal | 5 | —"]
+  R2["EXT_PS_CCC Telemetry | 5 | 10"]
+  R3["EXT_M-PUR36 Tooling | 5 | 10"]
+  R4["EXT_M-PMQ PPAP | 5 | 10"]
+  R5["GS_P2P_MovDiv | 5 | 10"]
+  R6["GS_P2P_Financial_Portal | 5 | 10"]
+  R7["GS_UX Bootcamp 2024 | 4.9 | 9.6"]
+  R8["GS_B2R_AA CF Automation | 4 | 10"]
+  AVG["Averages | 4.86 | 9.94"]
+  H --> R1 --> R2 --> R3 --> R4 --> R5 --> R6 --> R7 --> R8 --> AVG
 ```
 
 ---
 
-## 6. Dissertation database architecture (Slide 14)
-
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%
-erDiagram
-  Projects {
-    string id PK
-    string name
-    string category
-    string url
-  }
-
-  Experiments {
-    string id PK
-    string project_id FK
-    string name
-    datetime created_at
-  }
-
-  SurveyDefinitions {
-    string id PK
-    string name
-    string section
-    string question_text
-    int scale_min
-    int scale_max
-  }
-
-  SurveyResponses {
-    string id PK
-    string experiment_id FK
-    string survey_definition_id FK
-    string respondent_type
-    int value
-    datetime responded_at
-  }
-
-  AgentSessions {
-    string id PK
-    string experiment_id FK
-    string agent_id
-    datetime started_at
-    datetime completed_at
-  }
-
-  Attributes {
-    string id PK
-    string parent_id FK
-    string name
-    string category
-    float weight
-  }
-
-  Scores {
-    string id PK
-    string experiment_id FK
-    string attribute_id FK
-    float value
-    string source
-  }
-
-  Emulations {
-    string id PK
-    string experiment_id FK
-    string config_key
-    string config_value
-  }
-
-  Projects ||--o{ Experiments : has
-  Experiments ||--o{ SurveyResponses : contains
-  Experiments ||--o{ AgentSessions : uses
-  Experiments ||--o{ Scores : produces
-  Experiments ||--o{ Emulations : has
-  SurveyDefinitions ||--o{ SurveyResponses : defines
-  Attributes ||--o{ Scores : measured_by
-```
-
----
-
-## 7. Dissertation tech pillars (Slide 14, optional)
+## 6. Dissertation & research – technologies (Slides 6 & 7)
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%
 flowchart LR
-  A["AI agents as\nsurvey respondents"]
-  B["Full-stack\ndevelopment"]
-  C["Figma\nlow-fidelity prototyping"]
-  A --- B --- C
+  A["AI Agents"]
+  B["Full-stack"]
+  C["Figma"]
+  D["Database"]
+  A --- B --- C --- D
 ```
 
 ---
 
-## 8. InfoVis PNAD visual structures (Slide 13)
+## 7. InfoVis PNAD visual structures (Slide 8)
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%
 flowchart LR
-  PNAD["PNAD Continua\nNational Survey Data"]
-  Sankey["Sankey\nEducation-employment\nIncome flows"]
-  Choropleth["Choropleth\nIncome by state"]
-  Faceted["Faceted bar charts\nIncome by education\nhousehold, area"]
+  PNAD["PNAD Continua"]
+  Sankey["Sankey Diagram"]
+  Choropleth["Choropleth Map"]
+  Faceted["Faceted Bar Chart"]
   PNAD --> Sankey
   PNAD --> Choropleth
   PNAD --> Faceted
@@ -190,7 +114,7 @@ flowchart LR
 
 ---
 
-## 9. Tooling PT delivery workflow (Slide 16)
+## 8. Tooling PT delivery workflow (Slide 9)
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%
@@ -205,7 +129,7 @@ flowchart LR
 
 ---
 
-## 10. Proposal Generator UX phases (Slide 17)
+## 9. Proposal Generator UX phases (Slide 10)
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%
@@ -220,31 +144,28 @@ flowchart LR
 
 ---
 
-## 11. AI and Agile in Research (Slide 19)
+## 10. AI and Agile in Research (Slide 11)
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato', 'subgraphBg': 'transparent', 'subgraphBorder': '#bdc3c7'}}}%%
 flowchart TD
-  subgraph roles [Roles]
-    RPO["Research Product Owner"]
-    RSM["Research Scrum Master"]
-    RT["Research Team\ncollaborators + AI tools"]
-  end
-  subgraph ceremonies [Ceremonies]
-    C1["Sprint planning\nBacklog refinement"]
-    C2["Daily check-ins\nReviews\nRetrospectives"]
-  end
-  subgraph artifacts [Artifacts]
-    A1["Research backlog\nExperiment cards"]
-    A2["Dashboards and tools\nAI-generated drafts\nhuman-reviewed"]
-  end
-  roles --> ceremonies
-  ceremonies --> artifacts
+  RPO["Research Product Owner"]
+  RSM["Research Scrum Master"]
+  RT["Research Team + AI tools"]
+  C1["Sprint planning, Backlog refinement"]
+  C2["Daily check-ins, Reviews, Retrospectives"]
+  A1["Research backlog, Experiment cards"]
+  A2["Dashboards, AI drafts, human-reviewed"]
+  RPO --> C1
+  RSM --> C1
+  RT --> C2
+  C1 --> A1
+  C2 --> A2
 ```
 
 ---
 
-## 12. Experience timeline (Slide 21)
+## 11. Experience timeline (Slide 12)
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'cScale0': '#2c3e50', 'cScale1': '#2c3e50', 'cScale2': '#2c3e50', 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'fontFamily': 'Lato'}}}%%
@@ -253,11 +174,12 @@ timeline
     2017-2018 : Intern – Bosch Brasil : VBA, Continuous Improvement, internal communication
     2019 : Digitization Support Analyst – Bosch Magyarország Budapest : Business Excellence, VS Code, SQL Server, IIS
     2021-2023 : Web Developer – Bosch Brasil : Front-end, React, Scrum; user pain points to production
+    2023-2026 : UX Researcher, Designer, and Project Manager – Bosch
 ```
 
 ---
 
-## 13. Future career path (Slide 22)
+## 12. Future career path (Slide 13)
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'cScale0': '#2c3e50', 'cScale1': '#2c3e50', 'cScale2': '#2c3e50', 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'fontFamily': 'Lato'}}}%%
@@ -273,7 +195,7 @@ timeline
 
 ---
 
-## 14. Future career – strategic views (Slide 22)
+## 13. Future career – strategic views (Slide 14)
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%

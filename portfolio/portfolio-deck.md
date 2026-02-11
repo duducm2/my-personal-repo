@@ -214,29 +214,28 @@ style: |
   section.relevance-summary-with-doodle p.doodle-right { position: absolute; right: 5rem; top: 50%; transform: translateY(-50%); margin: 0; line-height: 0; }
   section.relevance-summary-with-doodle p.doodle-right img { width: 220px; height: auto; display: block; }
   
-  /* Final slide – cover background (art-background.png) */
+  /* Final slide – art-background.png as content so it always shows (overflow allowed) */
   section.blank-midnight-blue {
     position: relative;
-    background-color: transparent;
-    background-image: url("../arts/art-background.png");
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
+    padding: 0 !important;
+    overflow: visible !important;
     border-top: none;
-    overflow: visible;
-    min-height: 100vh;
+    background-color: #000;
   }
-  /* Ensure background extends with overflow */
-  section.blank-midnight-blue::before {
-    content: "";
+  section.blank-midnight-blue .slide-bg-img {
     position: absolute;
-    inset: -15%;
-    background-image: url("../arts/art-background.png");
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 120%;
+    min-height: 120%;
+    width: auto;
+    height: auto;
+    max-width: none;
+    max-height: none;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
     pointer-events: none;
   }
   
@@ -913,3 +912,5 @@ timeline
 <!-- Slide 27 – Blank Conclusion Page -->
 
 <!-- _class: blank-midnight-blue -->
+
+<img src="../arts/art-background.png" alt="" class="slide-bg-img">
