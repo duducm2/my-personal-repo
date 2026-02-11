@@ -199,9 +199,13 @@ style: |
   
   /* Blank midnight blue conclusion page */
   section.blank-midnight-blue {
-    background-color: #2c3e50;
-    background-image: none;
+    background-color: #000;
+    background-image: url("../arts/art-background.png");
+    background-size: 110%;
+    background-position: center;
+    background-repeat: no-repeat;
     border-top: none;
+    overflow: visible;
   }
   
   /* Personal images layout - scattered photo effect */
