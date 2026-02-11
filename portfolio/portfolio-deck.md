@@ -92,11 +92,12 @@ style: |
 
   /* Second slide: midnight blue */
   section.midnight-blue-slide {
-    background-color: #2c3e50;
+    background-color: #101820; /* Midnight Blue-Black */
     background-image: none;
     border-top: none;
     color: white;
   }
+  section.midnight-blue-slide table tr { background-color: transparent !important; }
   section.midnight-blue-slide h2 { color: white; border-color: rgba(255,255,255,0.5); }
   section.midnight-blue-slide p, section.midnight-blue-slide strong { color: white; }
   section.midnight-blue-slide a { color: #a8d4ff; }
@@ -216,7 +217,7 @@ style: |
   /* Final slide – cover background (art-background.png) */
   section.blank-midnight-blue {
     position: relative;
-    background-color: #fff;
+    background-color: transparent;
     background-image: url("../arts/art-background.png");
     background-size: cover;
     background-position: center center;
