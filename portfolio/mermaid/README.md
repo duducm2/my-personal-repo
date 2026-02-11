@@ -1,21 +1,13 @@
-# Mermaid diagram sources
+# Mermaid diagrams
 
-All diagram sources for the portfolio deck live in this folder.
+**[diagrams.md](diagrams.md)** is the single source for all portfolio diagrams.
 
-**View all diagrams (twin screens):** Open [diagrams.md](diagrams.md) in VS Code (or any Markdown viewer with Mermaid support) to see every diagram rendered. Use one screen for the deck and one for `diagrams.md` while presenting.
+- **View:** Open `diagrams.md` in VS Code (with Mermaid preview), GitHub, or [Mermaid Live](https://mermaid.live) to see every diagram. Use a second screen while presenting the deck.
+- **Edit:** Change diagrams only in `diagrams.md`; each diagram is in a ` ```mermaid ` block with a section heading and slide number.
 
-**Render to PNG** (output in parent folder so `portfolio-deck.md` image links work):
+**When you need a PNG** (e.g. for the deck or export):
 
-```bash
-cd mermaid
-npx @mermaid-js/mermaid-cli -i filename.mmd -o ../filename.png
-```
-
-Or render all:
-
-```bash
-cd mermaid
-for %f in (*.mmd) do npx @mermaid-js/mermaid-cli -i "%f" -o "../%~nf.png"
-```
-
-(PowerShell: `Get-ChildItem *.mmd | ForEach-Object { npx @mermaid-js/mermaid-cli -i $_.Name -o "../$($_.BaseName).png" }`)
+1. Open [Mermaid Live](https://mermaid.live).
+2. Copy the diagram’s code from the matching section in `diagrams.md`.
+3. Paste into the editor, then use **Actions → PNG** (or SVG) and save.
+4. Put the file in the **portfolio** folder (parent of `mermaid/`) with the name the deck expects (e.g. `why-story-flow.png`, `csi-nps-performance.png`, `future-career-timeline.png`). See comments in `portfolio-deck.md` for the exact filename per slide.
