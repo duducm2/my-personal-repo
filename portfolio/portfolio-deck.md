@@ -289,6 +289,12 @@ style: |
   - Comfort with complex systems and abstractions; aligns with research in **quantum computing** and advanced tech.  
 - **Acting:**  
   - Empathy, storytelling, and presence in interviews, workshops, demos, and Scrum ceremonies.  
+- **Impressionist art:**  
+  - Appreciation for nuanced perception and subjective experience – informs user research and understanding diverse perspectives.  
+- **Macro creation:**  
+  - Expertise in automation and efficiency optimization – translates to workflow improvements and tool development in UX and development contexts.  
+- **Specialized keyboard configurations:**  
+  - Interest in ergonomic design and personalized interfaces – connects to accessibility research and user-centered design thinking.  
 
 ---
 
