@@ -549,13 +549,22 @@ style: |
 ---
 
 <!-- Slide 10 – Present (CSI & NPS Performance 2024–2025) -->
-<!-- Diagram: csi-nps-performance (mermaid/diagrams.md). Export to csi-nps-performance.png -->
 
 ## Present – CSI & NPS Performance (2024–2025)
 
-- **High customer satisfaction** across eight UX projects delivered in 2024–2025. **Averages: CSI 4.86 / 5, NPS 9.94 / 10.** (Details in table below.)
+- **High customer satisfaction** across eight UX projects delivered in 2024–2025. **Averages: CSI 4.86 / 5, NPS 9.94 / 10.**
 
-<p><img src="csi-nps-performance.png" alt="Diagram csi-nps-performance: CSI and NPS performance metrics 2024–2025" style="max-width: 95%; height: auto; margin: 0.5rem auto; display: block;" /></p>
+| Project | CSI | NPS |
+| ------- | --- | --- |
+| GS_R2S Financial Portal | 5 | — |
+| EXT_PS_CCC Telemetry | 5 | 10 |
+| EXT_M-PUR36 Tooling | 5 | 10 |
+| EXT_M-PMQ PPAP | 5 | 10 |
+| GS_P2P_MovDiv | 5 | 10 |
+| GS_P2P_Financial_Portal | 5 | 10 |
+| GS_UX Bootcamp 2024 | 4.9 | 9.6 |
+| GS_B2R_AA CF Automation | 4 | 10 |
+| **Averages** | **4.86** | **9.94** |
 
 ---
 
