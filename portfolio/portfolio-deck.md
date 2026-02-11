@@ -7,8 +7,8 @@ author: "Eduardo Figueiredo"
 style: |
   :root {
     font-family: "Lato", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    --primary-color: #003B6A; /* Deep Navy - Trust */
-    --accent-color: #008ECF;  /* Vibrant Blue - Innovation */
+    --primary-color: #2c3e50; /* Midnight Blue */
+    --accent-color: #2c3e50;  /* Midnight Blue */
     --text-color: #333333;
     --bg-dot: #e5e5e5;
     font-size: 14pt;
@@ -109,6 +109,10 @@ style: |
   section:not(.lead) img[alt*="ISSRE 2025"] { transform: rotate(1.7deg); }
   section:not(.lead) img[alt*="Bosch Talent Forum"] { transform: rotate(-2.8deg); }
   section:not(.lead) img[alt*="Family"] { transform: rotate(2.9deg); }
+  section:not(.lead) img[alt*="Friends"] { transform: rotate(-1.6deg); }
+  section:not(.lead) img[alt*="Germany 2025"] { transform: rotate(2.4deg); }
+  section:not(.lead) img[alt*="Budapest 2019"] { transform: rotate(-2.3deg); }
+  section:not(.lead) img[alt*="In front of Bosch building"] { transform: rotate(1.9deg); }
   section:not(.lead) img[alt*="Future Professional Goals"] { transform: rotate(0deg); border: none; }
 
   section.art-top-right {
@@ -182,6 +186,24 @@ style: |
   section.relevance-summary-with-doodle { position: relative; }
   section.relevance-summary-with-doodle p.doodle-right { position: absolute; right: 5rem; top: 50%; transform: translateY(-50%); margin: 0; line-height: 0; }
   section.relevance-summary-with-doodle p.doodle-right img { width: 220px; height: auto; display: block; }
+  
+  /* Blank midnight blue conclusion page */
+  section.blank-midnight-blue {
+    background-color: #2c3e50;
+    background-image: none;
+    border-top: none;
+  }
+  
+  /* Personal images layout - scattered photo effect */
+  section.personal-images p {
+    display: inline-block;
+    margin: 0.3rem;
+    vertical-align: top;
+  }
+  section.personal-images p:nth-of-type(1) img { width: 180px; }
+  section.personal-images p:nth-of-type(2) img { width: 160px; }
+  section.personal-images p:nth-of-type(3) img { width: 170px; }
+  section.personal-images p:nth-of-type(4) img { width: 165px; }
 ---
 
 <!-- _class: lead -->
@@ -251,6 +273,7 @@ style: |
 ## Present – UX Research & Design Analyst (Bosch Brasil)
 
 <p><img src="../pictures/work/americas-team-2025.jpg" alt="Americas Team 2025 - UX Maturity Level 4" /></p>
+<p style="position: absolute; top: 0.5rem; right: 12rem; margin: 0;"><img src="../pictures/work/in-front-of-the-bosch-building.jpg" alt="In front of Bosch building" style="width: 150px; height: auto;" /></p>
 
 - **Role:** UX Research & Design Analyst – Bosch Brasil (May 2023 – present).  
 - **UX Maturity Level 4 (Americas):** Led the region to **Level 4** by setting governance, templates, and training for service lines. Demonstrated systematic UX application to auditors.  
@@ -331,11 +354,14 @@ style: |
 
 <!-- Slide 11 – Future (Personal Interests as Career Enablers) -->
 
-<!-- _class: art-top-right dense-content -->
+<!-- _class: dense-content personal-images -->
 
 ## Future – Personal Interests that Power My Work
 
 <p><img src="../pictures/personal/my-family.jpg" alt="Family" /></p>
+<p><img src="../pictures/personal/friends.jpg" alt="Friends" /></p>
+<p><img src="../pictures/personal/germany-2025.jpg" alt="Germany 2025" /></p>
+<p><img src="../pictures/personal/budapes-2019-2.jpg" alt="Budapest 2019" /></p>
 
 - **Piano:** Discipline, structured practice, and performance under pressure – mirrors iterative design and delivery.  
 - **Linguistics (phonology & phonetics):** Clarity in communication, better UX copy, and insights into speech interfaces and accessibility.  
@@ -360,3 +386,9 @@ style: |
   - Email: `edu.evangelista.figueiredo@gmail.com`  
   - LinkedIn: `https://www.linkedin.com/in/eduardo-figueiredo`  
   - Resume PDF and this portfolio deck available on request.
+
+---
+
+<!-- Slide 13 – Blank Conclusion Page -->
+
+<!-- _class: blank-midnight-blue -->
