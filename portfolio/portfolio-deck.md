@@ -349,7 +349,17 @@ style: |
 
 - I believe that software used in service organizations must be **trustworthy, usable, and inclusive**—especially when decisions affect people and businesses at scale.
 - My work connects **UX research**, **front-end development**, and **Continuous Improvement (CIP)** so that user needs are built into processes, not added at the end.
-- This portfolio tells that story: **past foundations** → **present impact** → **future directions**.
+- This portfolio tells that story:
+
+[INSERT DIAGRAM HERE: Why story flow]
+
+<!-- Mermaid source: why-story-flow.mmd - render to why-story-flow.png
+flowchart LR
+  Past["Past Foundations"]
+  Present["Present Impact"]
+  Future["Future Directions"]
+  Past --> Present --> Future
+-->
 
 ---
 
@@ -361,11 +371,15 @@ style: |
 
 <p><img src="../pictures/personal/my-photo-rectangle.png" alt="Eduardo Figueiredo" /></p>
 
-- **Name:** Eduardo M. de A. Figueiredo  
-- **Role:** UX Researcher & Front-End Developer (Master's in Technology, Unicamp).  
-- **Focus:** Integrating UX into **Continuous Improvement (CIP)** and **measuring software trustworthiness**.  
-- **Impact:** Led the Americas region to **UX Maturity Level 4**, implemented **AI-driven UX quality gates**, and supported international projects (Hungary).  
-- **Location & Contact:** Nova Odessa, SP – Brazil · `edu.evangelista.figueiredo@gmail.com` · LinkedIn / phone on request.  
+[INSERT TABLE HERE: Who I Am snapshot]
+
+| Attribute | Value |
+| --------- | ----- |
+| Name | Eduardo M. de A. Figueiredo |
+| Role | UX Researcher & Front-End Developer (Master's, Unicamp) |
+| Focus | UX in CIP, measuring software trustworthiness |
+| Impact | Americas UX Maturity Level 4; AI-driven UX quality gates; international projects |
+| Contact | Nova Odessa, SP – Brazil · edu.evangelista.figueiredo@gmail.com · LinkedIn / phone on request |  
 
 ---
 
@@ -377,14 +391,19 @@ style: |
 
 <p><img src="../pictures/academia/academic-writing.jpg" alt="Academic Writing Course - Unicamp" /></p>
 
-- **Master's in Technology – Information & Communication Systems (UX)** – Unicamp (2023–2025).  
-  - Thesis: **Benchmark to assess software trustworthiness** via Usability, Accessibility, and UX.  
-  - **Grade 'A' in all Master's coursework** — Official Unicamp transcript (Histórico Escolar) confirms top evaluation "Aprovado por Conceito e Frequência" in every completed discipline.  
-  - **Master's courses:** Academic Writing (*Escrita Acadêmica*); Directed Studies I (*Estudos Dirigidos I*); Innovation and Technology Transfer (*Inovação e Transferência de Tecnologias*); Scientific Research (*Pesquisa Científica*); Information Visualization (*Visualização de Informação*).  
-- **English proficiency (UFSC):** Reading comprehension for postgraduate programs – **10/10** (Apr 2024). Certificate in Appendix.  
-- **Systems Analysis and Development** – Unicamp (2015–2020).  
-- **Technical Degree in Computer Science** – ETEC Bento Quirino (2012–2014).  
-- **Professional profile:** Proactive, self-reliant, organized; combines UX research, design, and front-end development with agile practices (Scrum, Kanban) and project management.  
+[INSERT DIAGRAM HERE: Academic timeline]
+
+- **Master's thesis:** Benchmark to assess software trustworthiness via Usability, Accessibility, and UX. Grade 'A' in all Master's coursework (Unicamp transcript in Appendix).
+- **Professional profile:** Proactive, self-reliant, organized; combines UX research, design, and front-end development with agile practices (Scrum, Kanban) and project management.
+
+<!-- Mermaid source: academic-timeline.mmd - render to academic-timeline.png
+timeline
+    title Academic Foundations
+    2012-2014 : Technical Degree in Computer Science – ETEC Bento Quirino
+    2015-2020 : Systems Analysis and Development – Unicamp
+    2023-2025 : Master's in Technology – Information and Communication Systems UX – Unicamp
+    2024 : English proficiency UFSC – Reading 10/10
+-->  
 
 ---
 
@@ -398,13 +417,16 @@ style: |
 <p><img src="../pictures/work/americas-team-2025.jpg" alt="Americas Team 2025 - UX Maturity Level 4" /></p>
 <p style="position: absolute; top: 0.5rem; right: 2rem; margin: 0;"><img src="../pictures/work/in-front-of-the-bosch-building.jpg" alt="In front of Bosch building" style="width: 150px; height: auto;" /></p>
 
-- **Role:** UX Research & Design Analyst – Bosch Brasil (May 2023 – present).  
-- **UX Project Champion (GS/BDU):** Project Manager for the region.  
-- **International assignments:** Two trips to Germany (2024 and 2025) to perform role-related responsibilities.  
-- **CO2 Tracking (GS/UX):** First project completed within the UX department at GS. Scope: **marketing scouting for CO2 tracking telemetry**. Primary finding: research indicated a **lack of market demand**; conclusion that continued sales of the telemetry solution would be unsuccessful.  
-- **UX Maturity Level 4 (Americas):** Led the region to **Level 4** by setting governance, templates, and training for service lines. Demonstrated systematic UX application to auditors.  
-- **CIP + UX integration:** Led **"CIP and UX Integration"** as a critical career milestone—embedding UX checks into the Continuous Improvement workflow in ServiceNow CIM. Impact: stronger customer retention and revenue via user-centric service design; marked evolution toward Senior Researcher capabilities.  
-- **Collaboration & teaching:** Applied scientific methods to identify service issues and design solutions. Tutor at **SENAI Digital Talent Academy**.  
+[INSERT TABLE HERE: Present role achievements]
+
+| Area | Achievement |
+| ---- | ----------- |
+| Role | UX Research & Design Analyst – Bosch Brasil (May 2023 – present); UX Project Champion GS/BDU |
+| International | Two trips to Germany (2024, 2025) for role-related work |
+| CO2 Tracking (GS/UX) | Marketing scouting for CO2 telemetry; finding: lack of market demand |
+| UX Maturity | Led Americas to Level 4 – governance, templates, training |
+| CIP + UX | Led integration into ServiceNow CIM; UX gate in CIP workflow |
+| Collaboration | Tutor at SENAI Digital Talent Academy; scientific methods in service design |  
 
 ---
 
@@ -418,9 +440,30 @@ style: |
 
 - **Career significance:** This project marks a pivotal evolution into **Senior Researcher** capabilities—combining deep, data-oriented investigation with technical execution and governance design.  
 - **Project scope:** Integrated **UX relevance assessment** into the **Continuous Improvement Process (CIP)** in ServiceNow CIM. A **UX gate** sits between Assess and Approve; the method runs at that gate to triage improvement initiatives (Low / Medium / High UX relevance).  
-- **Methodology—developer skills for research:** Utilized **Cursor IDE**, **AI-assisted coding**, and version-controlled Python pipelines to conduct research. Workflow: (1) **iterative code-based documentation** (Markdown, method.md v2.8); (2) **AI-assisted analysis** of N=214 research records and UX maturity data; (3) **automated pipeline** (extract → aggregate → calculate scores) producing `ux_relevance_results.csv` (N=35 projects); (4) **high-quality, data-oriented reports** in Markdown with executive summaries, Criticality Index (Severity × Frequency), and validation hypotheses.  
-- **Deliverables:** **UX Relevance Quick Method** (10 system-calculated questions from 11 CIM fields; thresholds Low &lt;60, Medium 60–70, High ≥70); **1st Research Report** (January 2026) consolidating stakeholder inputs; **standalone pipeline** (`extract_cim_data.py`, `calculate_ux_scores.py`, `aggregate_to_csv.py`) with reproducible validation.  
-- **Impact:** Governance clarity, reduced perceived delay, and reusable UX governance framework. Aligned CAP and UX into a unified, defensible solution.  
+- **Methodology—developer skills for research:** Utilized **Cursor IDE**, **AI-assisted coding**, and version-controlled Python pipelines. Workflow:
+
+[INSERT DIAGRAM HERE: CIP-UX methodology pipeline]
+
+- **Deliverables:**
+
+[INSERT TABLE HERE: CIP-UX deliverables]
+
+| Deliverable | Description |
+| ----------- | ----------- |
+| UX Relevance Quick Method | 10 system-calculated questions from 11 CIM fields; thresholds Low &lt;60, Medium 60–70, High ≥70 |
+| 1st Research Report (Jan 2026) | Stakeholder inputs, governance clarity |
+| Pipeline | extract_cim_data.py, calculate_ux_scores.py, aggregate_to_csv.py – reproducible validation |
+
+- **Impact:** Governance clarity, reduced perceived delay, and reusable UX governance framework. Aligned CAP and UX into a unified, defensible solution.
+
+<!-- Mermaid source: cip-ux-pipeline.mmd - render to cip-ux-pipeline.png
+flowchart LR
+  A["(1) Iterative code-based documentation\nMarkdown, method.md v2.8"]
+  B["(2) AI-assisted analysis\nN=214 records, UX maturity data"]
+  C["(3) Automated pipeline\nextract to aggregate to calculate\nux_relevance_results.csv N=35"]
+  D["(4) High-quality reports\nMarkdown, executive summaries\nCriticality Index"]
+  A --> B --> C --> D
+-->  
 
 ---
 
@@ -451,12 +494,23 @@ style: |
 
 <p><img src="../pictures/academia/hfsd-workshop-1.jpg" alt="ISSRE 2025 HFSD Workshop" /></p>
 
-- **Master's research focus:** Creating a **benchmark to assess software trustworthiness** across three parameters: **Usability, Accessibility, and User Experience**. Thesis explores quantitative methods for evaluating perceived trust in e-commerce and software interfaces.  
-- **Published articles:** **ISSRE 2025 (HFSD Workshop – IEEE):** *"Measuring Perceived Trust in Websites: A digital tool providing a score for evaluation"* – explores how Agentic AI can emulate trust perception and provides a digital scoring mechanism. **IHC 2025 (SBC SOL):** *"Interface Trustworthiness Score Definition Platform"* (co-authored with Regina Moraes, Andreia Casare) – published in **SOL (SBC Open Lib)**, presents a platform for defining and calculating interface trustworthiness scores.  
-- **PowerBI in master's research:** **PowerBI dashboards** used extensively for data visualization and analysis of trust metrics. Dashboards aggregate usability, accessibility, and UX data to generate comprehensive trustworthiness scores. Enables interactive exploration of research findings, trend analysis across different interface types, and validation of trust perception models.  
-- **Tooling:** **TrustMate** – digital tool to evaluate perceived trust in interfaces, integrated with PowerBI for real-time score visualization.  
-- **Dissertation technologies:** **AI agents as survey respondents** – agentic AI completes trust/usability surveys (e.g. e-commerce evaluation), enabling scalable data collection for the benchmark and TrustMate. **Full-stack development** – frontend (TrustMate UI, survey and dashboard), backend (evaluation pipeline, score calculation), and database architecture for projects, experiments, attributes, scores, and agent runs. **Low-fidelity prototyping (Figma)** – iterative design of survey flows, evaluation screens, and TrustMate interface before implementation.  
-- **Industry connection:** Methods and tools are reusable for UX audits, maturity assessments, and CIP + UX work.  
+[INSERT DIAGRAM HERE: Academic research flow]
+
+- **Master's focus:** Benchmark to assess software trustworthiness (Usability, Accessibility, UX). Thesis: quantitative methods for perceived trust in e-commerce and software interfaces.  
+- **Publications:** ISSRE 2025 (HFSD – IEEE), IHC 2025 (SBC SOL). **TrustMate** + Power BI for trust scores; **AI agents as survey respondents**, full-stack development, Figma prototyping.  
+- **Industry connection:** Methods and tools reusable for UX audits, maturity assessments, and CIP + UX work.
+
+<!-- Mermaid source: academic-research-flow.mmd - render to academic-research-flow.png
+flowchart TD
+  Focus["Benchmark: Trustworthiness\nUsability, Accessibility, UX"]
+  Pub["Publications\nISSRE 2025 HFSD, IHC 2025 SOL"]
+  Tool["TrustMate + Power BI\nAI agents, full-stack, Figma"]
+  Industry["Industry reuse\nUX audits, maturity, CIP+UX"]
+  Focus --> Pub
+  Focus --> Tool
+  Pub --> Industry
+  Tool --> Industry
+-->  
 
 ---
 
@@ -482,8 +536,7 @@ style: |
 
 ## Present – CSI & NPS Performance (2024–2025)
 
-- **High customer satisfaction** across eight UX projects delivered in 2024–2025. **Averages: CSI 4.86 / 5, NPS 9.94 / 10.**
-- **Projects:** GS_R2S_TET2-LA UI Design for Financial Portal (CSI 5) · EXT_PS_CCC Telemetry for light vehicles (CSI 5, NPS 10) · EXT_M-PUR36 Tooling Management (CSI 5, NPS 10) · EXT_M-PMQ PPAP Application (CSI 5, NPS 10) · GS_P2P_MovDiv_Improvement part 1 (CSI 5, NPS 10) · GS_P2P_Financial_Portal (CSI 5, NPS 10) · GS_UX Bootcamp 2024 Joinville—95 people (CSI 4.9, NPS 9.6) · GS_B2R_AA CF Automation (CSI 4, NPS 10).
+- **High customer satisfaction** across eight UX projects delivered in 2024–2025. **Averages: CSI 4.86 / 5, NPS 9.94 / 10.** (Details in table below.)
 
 <p><img src="csi-nps-performance.png" alt="CSI and NPS performance metrics 2024–2025 – project table" style="max-width: 95%; height: auto; margin: 0.5rem auto; display: block;" /></p>
 
@@ -522,9 +575,21 @@ style: |
 
 ## Theme: Data Visualization – InfoVis Project (PNAD Contínua)
 
-- **InfoVis class project – Power BI:** Built multi-page reports with advanced visual structures using **PNAD Contínua** (Pesquisa Nacional por Amostra de Domicílios Contínua), Brazil’s National Household Sample Survey.
-- **Visual structures:** Sankey diagrams (education–employment trajectories; education, household size, and income flows), choropleth map (nuclear vs non-nuclear income by state), and faceted bar charts (monthly income by education, household type, and area). Processed and modeled complex national survey data for insight.
-- **Impact:** Demonstrates **Power BI** proficiency and the ability to **process complex national research datasets** into clear, actionable visual insights for socioeconomic analysis.
+- **InfoVis class project – Power BI:** Built multi-page reports using **PNAD Contínua** (Brazil's National Household Sample Survey). Brazil’s National Household Sample Survey.
+[INSERT DIAGRAM HERE: InfoVis PNAD visual structures]
+
+- **Impact:** Demonstrates **Power BI** proficiency and **processing complex national research datasets** into clear, actionable visual insights for socioeconomic analysis.
+
+<!-- Mermaid source: infovis-pnad-structures.mmd - render to infovis-pnad-structures.png
+flowchart LR
+  PNAD["PNAD Continua\nNational Survey Data"]
+  Sankey["Sankey\nEducation-employment\nIncome flows"]
+  Choropleth["Choropleth\nIncome by state"]
+  Faceted["Faceted bar charts\nIncome by education\nhousehold, area"]
+  PNAD --> Sankey
+  PNAD --> Choropleth
+  PNAD --> Faceted
+-->
 
 <p><img src="../pictures/academia/infovis/pbi-infovis-1.png" alt="Power BI – Education-employment trajectories Sankey" /></p>
 <p><img src="../pictures/academia/infovis/pbi-infovis-2.png" alt="Power BI – Family structure and socioeconomic patterns" /></p>
@@ -535,8 +600,17 @@ style: |
 
 ## Theme: Technical Implementation – Dissertation (AI & Full Stack)
 
-- **AI agents as survey respondents**, **full-stack development** (frontend, backend, database), and **Figma low-fidelity prototyping**.
+[INSERT DIAGRAM HERE: Dissertation tech pillars]
+
 - **Architecture:** Database design supporting projects, experiments, attributes, scores, and agent runs.
+
+<!-- Mermaid source: dissertation-tech-pillars.mmd - render to dissertation-tech-pillars.png optional
+flowchart LR
+  A["AI agents as\nsurvey respondents"]
+  B["Full-stack\ndevelopment"]
+  C["Figma\nlow-fidelity prototyping"]
+  A --- B --- C
+-->
 
 <!-- Mermaid diagram source: dissertation-database-architecture.mmd -->
 
@@ -565,9 +639,19 @@ style: |
 
 ## Theme: Technical Implementation – Tooling Project for PT
 
-- **Tooling project for PT:** A key development in **design proficiency**—from wireframe to high-fidelity prototype, with collaborative **customer progress review meetings** throughout.
-- **Design workflow:** **Wireframe** → **low-fidelity prototype** → **high-fidelity prototype**; iterative refinement with stakeholder feedback.
-- **Collaboration:** Customer progress review meetings used to align on scope, validate flows, and sign off on deliverables at each stage.
+- **Tooling project for PT:** Key development in **design proficiency**—from wireframe to high-fidelity prototype, with **customer progress review meetings** throughout.
+
+[INSERT DIAGRAM HERE: Tooling PT design workflow]
+
+<!-- Mermaid source: tooling-pt-workflow.mmd - render to tooling-pt-workflow.png
+flowchart LR
+  W["Wireframe"]
+  L["Low-fidelity\nprototype"]
+  H["High-fidelity\nprototype"]
+  W --> L --> H
+  H --> Review["Customer progress\nreview meetings"]
+  Review --> W
+-->
 
 <p><img src="../pictures/work/tooling-project/tooling-1.png" alt="Tooling project for PT – wireframe or early concept" /></p>
 <p><img src="../pictures/work/tooling-project/tooling-2.png" alt="Tooling project for PT – low-fidelity prototype" /></p>
@@ -585,8 +669,20 @@ style: |
 
 - **Definition:** Excel-based application for **automated proposal creation**—project proposals for UX activities: define activities, estimate hours, Gantt-style timeline, and generate PowerPoint.
 - **Generation logic:** Uses **predefined criteria and historical project data**; outputs (activities, hours, timeline) are driven by that logic.
-- **UX complexity:** Outputs are **categorized by UX complexity** (phases: Planning, Understand, Synthesize, Ideate, Test); the tool supports activity definition and visualization by these categories.
-- **Technical proficiency:** Developed in **Excel VBA (Visual Basic for Applications)**—macros for automation, calculations, and presentation generation.
+
+[INSERT DIAGRAM HERE: Proposal Generator UX phases]
+
+- **Technical proficiency:** Developed in **Excel VBA**—macros for automation, calculations, and presentation generation.
+
+<!-- Mermaid source: proposal-generator-phases.mmd - render to proposal-generator-phases.png
+flowchart LR
+  P["Planning"]
+  U["Understand"]
+  S["Synthesize"]
+  I["Ideate"]
+  T["Test"]
+  P --> U --> S --> I --> T
+-->
 
 ---
 
@@ -607,14 +703,36 @@ style: |
 ---
 
 <!-- Slide 19 – Future (AI & Agile in Research) -->
-<!-- Mermaid flowchart source: slide-9-diagram.mmd -->
+<!-- Mermaid flowchart source: ai-agile-research.mmd - render to ai-agile-research.png -->
 
 ## Theme: Process & Future – AI & Agile in Research
 
 - **Motivation:** Research projects often lack repeatable, quality-focused processes and clear accountability.  
 - **Proposal:** Combine **AI assistance** with **Scrum practices** to improve throughput, transparency, and quality.  
-- **Approach:** Roles: Research Product Owner, Research Scrum Master (me), Research Team (collaborators + AI tools). Ceremonies: sprint planning, backlog refinement, daily check-ins, reviews, retrospectives. Artifacts: research backlog, experiment cards, dashboards/tools, AI-generated drafts (human-reviewed).  
-- **Guardrails:** AI outputs treated as drafts; strong focus on reproducibility, data privacy, and explicit quality criteria.  
+- **Approach:**
+
+[INSERT DIAGRAM HERE: AI and Agile in Research]
+
+- **Guardrails:** AI outputs treated as drafts; strong focus on reproducibility, data privacy, and explicit quality criteria.
+
+<!-- Mermaid source: ai-agile-research.mmd
+flowchart TD
+  subgraph roles [Roles]
+    RPO["Research Product Owner"]
+    RSM["Research Scrum Master"]
+    RT["Research Team\ncollaborators + AI tools"]
+  end
+  subgraph ceremonies [Ceremonies]
+    C1["Sprint planning\nBacklog refinement"]
+    C2["Daily check-ins\nReviews\nRetrospectives"]
+  end
+  subgraph artifacts [Artifacts]
+    A1["Research backlog\nExperiment cards"]
+    A2["Dashboards and tools\nAI-generated drafts\nhuman-reviewed"]
+  end
+  roles --> ceremonies
+  ceremonies --> artifacts
+-->  
 
 ---
 
@@ -626,10 +744,14 @@ style: |
 
 <p><img src="../pictures/work/bosch-2018.jpg" alt="Bosch Talent Forum 2018 - 3rd Place Award" /></p>
 
-- **1st Place – X-Games Brazil 2018** – New Business Creation / Consultancy.  
-- **3rd Place – Bosch Talent Forum 2018** – Project Management Software.  
-- **3rd Place – Bosch Intern Talent Forum 2018** – Intern projects.  
-- **Volunteer – NGO Hospitalhaços (Admin)** – social impact and community engagement.  
+[INSERT TABLE HERE: Awards]
+
+| Award | Place | Year / Context |
+| ----- | ----- | -------------- |
+| X-Games Brazil | 1st | 2018 – New Business Creation / Consultancy |
+| Bosch Talent Forum | 3rd | 2018 – Project Management Software |
+| Bosch Intern Talent Forum | 3rd | 2018 – Intern projects |
+| NGO Hospitalhaços | Volunteer | Admin – social impact and community engagement |  
 
 ---
 
@@ -641,9 +763,15 @@ style: |
 
 <p><img src="../pictures/work/budapest-2019.jpg" alt="Bosch Magyarország - Budapest 2019" /></p>
 
-- **Intern – Bosch Brasil (2017–2018):** VBA (Excel) solutions for Continuous Improvement and internal communication.  
-- **Digitization Support Analyst – Bosch Magyarország (Budapest, 2019):** Business Excellence digitization using VS Code, SQL Server, and Windows Server (IIS).  
-- **Web Developer – Bosch Brasil (2021–2023):** Web solutions with front-end focus; React and Scrum. Worked from **user pain points → prototypes → production** with cross-functional teams.  
+[INSERT DIAGRAM HERE: Experience timeline]
+
+<!-- Mermaid source: experience-timeline.mmd - render to experience-timeline.png
+timeline
+    title Experience Timeline
+    2017-2018 : Intern – Bosch Brasil : VBA, Continuous Improvement, internal communication
+    2019 : Digitization Support Analyst – Bosch Magyarország Budapest : Business Excellence, VS Code, SQL Server, IIS
+    2021-2023 : Web Developer – Bosch Brasil : Front-end, React, Scrum; user pain points to production
+-->  
 
 ---
 
@@ -656,13 +784,16 @@ style: |
 <p><img src="future-career-timeline.png" alt="Future Career Path Timeline" style="max-width: 90%; height: auto; margin: 0.5rem auto; display: block;" /></p>
 
 - **Future objective:** Work in **technology-focused roles** that integrate **UX research skills with AI implementation and development** as a core professional interest.  
-- **Desired vacancy types (Bosch & external):** UX Researcher / Senior UX Researcher, UX Lead or Manager, Scrum Master or Agile Coach for product teams, and Researcher roles in advanced tech (AI, quantum, data-intensive systems).  
-- **Representative vacancy examples – Bosch:**  
-  - UX Researcher – Bosch Global Service Solutions: research for service organization platforms and internal tools.  
-  - UX Lead – Bosch Digital / Enterprise Applications: lead UX strategy and research for complex B2B tools used by service teams.  
-- **Representative vacancy examples – external companies:**  
-  - Senior UX Researcher – Trust & Safety at a global product company (e.g. large-scale e-commerce or cloud platform) focusing on **trust, safety, and fairness** in digital experiences.  
-  - UX Researcher – Advanced Tech / Quantum & AI at a research-focused lab or big tech company, connecting **human factors, quantum/AI, and interface design**.  
+- **Desired vacancy types (Bosch & external):**
+
+[INSERT TABLE HERE: Future vacancy types and examples]
+
+| Type | Bosch examples | External examples |
+| ---- | -------------- | ----------------- |
+| UX Researcher / Senior | Global Service Solutions – service platforms, internal tools | Trust & Safety – trust, safety, fairness at scale |
+| UX Lead / Manager | Digital / Enterprise Applications – B2B tools for service teams | — |
+| Scrum Master / Agile Coach | — | Data-informed, research-oriented facilitation |
+| Researcher advanced tech | — | Quantum & AI – human factors, interface design |  
 - **Target roles:** UX Researcher, UX Lead, Scrum Master, or Researcher in advanced tech contexts.  
 - **Scrum Master role – focus:** Data-informed, research-oriented agile facilitation for UX, AI, and trustworthiness projects, ensuring delivery quality and learning.  
 - **Core Scrum Master responsibilities:** Maintain **data integrity** and ensure **statistical relevance** across experiments and project lifecycles; oversee the **rigorous application of scientific methods** and the **adequate use of AI** to accelerate deliverables (never replacing human judgment); manage project timelines to **prevent stagnation and perpetual postponement**.  
@@ -685,13 +816,17 @@ style: |
 <p><img src="../pictures/personal/germany-2025.jpg" alt="Germany 2025" /></p>
 <p><img src="../pictures/personal/budapes-2019-2.jpg" alt="Budapest 2019" /></p>
 
-- **Piano:** Discipline, structured practice, and performance under pressure – mirrors iterative design and delivery.  
-- **Linguistics (phonology & phonetics):** Clarity in communication, better UX copy, and insights into speech interfaces and accessibility.  
-- **Physics (GR & Quantum):** Comfort with complex systems and abstractions; aligns with research in **quantum computing** and advanced tech.  
-- **Acting:** Empathy, storytelling, and presence in interviews, workshops, demos, and Scrum ceremonies.  
-- **Impressionist art:** Appreciation for nuanced perception and subjective experience – informs user research and understanding diverse perspectives.  
-- **Macro creation:** Expertise in automation and efficiency optimization – translates to workflow improvements and tool development in UX and development contexts.  
-- **Specialized keyboard configurations:** Interest in ergonomic design and personalized interfaces – connects to accessibility research and user-centered design thinking.  
+[INSERT TABLE HERE: Personal interests and career enablers]
+
+| Interest | Career enabler |
+| -------- | -------------- |
+| Piano | Discipline, structured practice, performance under pressure |
+| Linguistics (phonology & phonetics) | Clarity in copy; speech interfaces and accessibility |
+| Physics (GR & Quantum) | Complex systems; quantum computing and advanced tech research |
+| Acting | Empathy, storytelling, presence in interviews and workshops |
+| Impressionist art | Nuanced perception and diverse perspectives in research |
+| Macro creation | Automation and workflow optimization |
+| Specialized keyboards | Ergonomics, accessibility, user-centered design |  
 
 ---
 
@@ -732,15 +867,18 @@ style: |
 
 ## Closing & Contact
 
-- **What I bring:**  
-  - UX Research & Front-End Development  
-  - UX Maturity Level 4 leadership across the Americas  
-  - **CIP and UX Integration** (critical milestone): deep, data-oriented research using Cursor IDE, AI, and coding; high-quality Markdown reports; Senior Researcher evolution  
-  - Academic research on **trust in interfaces** and data-driven decision-making  
-- **Let’s connect:**  
-  - Email: `edu.evangelista.figueiredo@gmail.com`  
-  - LinkedIn: `https://www.linkedin.com/in/eduardo-figueiredo`  
-  - Resume PDF and this portfolio deck available on request.
+[INSERT TABLE HERE: Closing – What I bring and contact]
+
+**What I bring**
+
+| Area | Summary |
+| ---- | ------- |
+| Core | UX Research & Front-End Development |
+| Leadership | UX Maturity Level 4 – Americas |
+| Milestone | CIP and UX Integration – Cursor IDE, AI, coding; Senior Researcher evolution |
+| Research | Trust in interfaces; data-driven decision-making |
+
+**Let's connect:** Email: edu.evangelista.figueiredo@gmail.com · LinkedIn: https://www.linkedin.com/in/eduardo-figueiredo · Resume PDF and this portfolio deck available on request.
 
 ---
 

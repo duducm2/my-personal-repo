@@ -1,0 +1,19 @@
+%% AI and Agile in Research – Slide 19
+%% Render: npx @mermaid-js/mermaid-cli -i ai-agile-research.mmd -o ai-agile-research.png
+
+flowchart TD
+  subgraph roles [Roles]
+    RPO["Research Product Owner"]
+    RSM["Research Scrum Master"]
+    RT["Research Team\ncollaborators + AI tools"]
+  end
+  subgraph ceremonies [Ceremonies]
+    C1["Sprint planning\nBacklog refinement"]
+    C2["Daily check-ins\nReviews\nRetrospectives"]
+  end
+  subgraph artifacts [Artifacts]
+    A1["Research backlog\nExperiment cards"]
+    A2["Dashboards and tools\nAI-generated drafts\nhuman-reviewed"]
+  end
+  roles --> ceremonies
+  ceremonies --> artifacts
