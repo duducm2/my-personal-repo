@@ -81,6 +81,9 @@ style: |
     background-repeat: no-repeat;
   }
   section.lead img { display: block; margin-left: auto; margin-right: auto; }
+  section.lead::after {
+    display: none;
+  }
   section.persona-slide img[alt*="Persona 2"] { display: block; margin-left: auto; margin-right: auto; margin-top: -1rem; }
   
   /* Global Decorative Elements */
@@ -113,7 +116,7 @@ style: |
   section:not(.lead) img[alt*="Germany 2025"] { transform: rotate(2.4deg); }
   section:not(.lead) img[alt*="Budapest 2019"] { transform: rotate(-2.3deg); }
   section:not(.lead) img[alt*="In front of Bosch building"] { transform: rotate(1.9deg); }
-  section:not(.lead) img[alt*="Future Professional Goals"] { transform: rotate(0deg); border: none; }
+  section:not(.lead) img[alt*="Future Career Path"] { transform: rotate(0deg); border: none; box-shadow: none; }
 
   section.art-top-right {
     position: relative;
@@ -328,14 +331,27 @@ style: |
 
 ---
 
-<!-- Slide 9 – Future (Professional Goals & Strategic Views) -->
+<!-- Slide 9 – Future (Career Aspirations, Vacancy Types & Strategic Views) -->
 
-## Future – Professional Goals & Strategic Views
+## Future – Career Aspirations, Vacancy Types & Strategic Views
 
-<p><img src="slide_9_diagram.png" alt="Future Professional Goals and Strategic Views Diagram" style="max-width: 90%; height: auto; margin: 0.5rem auto; display: block;" /></p>
+<!-- Mermaid timeline source: future-career-timeline.mmd -->
+
+<p><img src="future-career-timeline.png" alt="Future Career Path Timeline" style="max-width: 90%; height: auto; margin: 0.5rem auto; display: block;" /></p>
 
 - **Future objective:** Work in **technology-focused roles** that integrate **UX research skills with AI implementation and development** as a core professional interest.  
+- **Desired vacancy types (Bosch & external):** UX Researcher / Senior UX Researcher, UX Lead or Manager, Scrum Master or Agile Coach for product teams, and Researcher roles in advanced tech (AI, quantum, data-intensive systems).  
+- **Representative vacancy examples – Bosch:**  
+  - UX Researcher – Bosch Global Service Solutions: research for service organization platforms and internal tools.  
+  - UX Lead – Bosch Digital / Enterprise Applications: lead UX strategy and research for complex B2B tools used by service teams.  
+- **Representative vacancy examples – external companies:**  
+  - Senior UX Researcher – Trust & Safety at a global product company (e.g. large-scale e-commerce or cloud platform) focusing on **trust, safety, and fairness** in digital experiences.  
+  - UX Researcher – Advanced Tech / Quantum & AI at a research-focused lab or big tech company, connecting **human factors, quantum/AI, and interface design**.  
 - **Target roles:** UX Researcher, UX Lead, Scrum Master, or Researcher in advanced tech contexts.  
+- **Scrum Master role – focus:** Data-informed, research-oriented agile facilitation for UX, AI, and trustworthiness projects, ensuring delivery quality and learning.  
+- **Core Scrum Master responsibilities:** Maintain **data integrity** and ensure **statistical relevance** across experiments and project lifecycles; oversee the **rigorous application of scientific methods** and the **adequate use of AI** to accelerate deliverables (never replacing human judgment); manage project timelines to **prevent stagnation and perpetual postponement**.  
+- **Proactive strategies for communication blockers:** If appointment requests are not answered, deploy short, targeted surveys to collect decisions and unblock work; if surveys are not completed, schedule **mandatory 10-minute sessions** to secure answers and align expectations.  
+- **Stakeholder engagement protocols:** Maintain **direct customer contact** to guarantee delivery of agreed outcomes; ensure customers are held **accountable for supporting project deliverables**, including providing data, approvals, and access needed to move forward.  
 - **Strategic View A – "Paradise" (Quantum Computing):** Deep technical research and experimentation in quantum computing and advanced R&D. Leverages analytical skills, experimentation mindset, and physics background.  
 - **Strategic View B – "Modest" (Scrum / Agile Leadership):** Scrum Master or agile leader enabling teams to deliver high-quality products. Builds on CIP & UX experience, facilitation, and coaching.  
 - **Shared assets:** UX research, CIP + UX integration, AI + agile methodology, and data-driven decision-making.
@@ -343,7 +359,7 @@ style: |
 ---
 
 <!-- Slide 10 – Future (AI & Agile in Research) -->
-<!-- Mermaid diagram source: slide-9-diagram.mmd -->
+<!-- Mermaid flowchart source: slide-9-diagram.mmd -->
 
 ## Future – AI & Agile in Research
 
