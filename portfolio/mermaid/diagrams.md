@@ -2,9 +2,29 @@
 
 Open this file in an editor or viewer that supports Mermaid (e.g. VS Code with Mermaid preview, GitHub, or [Mermaid Live](https://mermaid.live)) to see all diagrams. Use a second screen to view diagrams while presenting the deck.
 
+## Diagram ID reference (file-naming safe)
+
+| ID | Title | Deck slide(s) |
+|----|-------|----------------|
+| `story-flow` | Why story flow | 1 |
+| `academic-timeline` | Academic timeline | 3 |
+| `cip-ux-pipeline` | CIP-UX methodology pipeline | 6 |
+| `academic-research-flow` | Academic research flow | 4 |
+| `csi-nps-performance` | CSI and NPS performance | 5 |
+| `dissertation-tech` | Dissertation & research – technologies | 6 & 7 |
+| `infovis-pnad-structures` | InfoVis PNAD visual structures | 8 |
+| `tooling-pt-workflow` | Tooling PT delivery workflow | 9 |
+| `proposal-generator-phases` | Proposal Generator UX phases | 10 |
+| `ai-agile-research` | AI and Agile in Research | 11 |
+| `experience-timeline` | Experience timeline | 12 |
+| `future-career-path` | Future career path | 13 |
+| `future-career-strategic-views` | Future career – strategic views | 14 |
+
+**File naming:** Use the ID for sources and exports (e.g. `story-flow.mmd`, `story-flow.png`). All deck references use these IDs.
+
 ---
 
-## 1. Why story flow (Slide 1)
+## 1. [story-flow] Why story flow (Slide 1)
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%
@@ -17,7 +37,7 @@ flowchart LR
 
 ---
 
-## 2. Academic timeline (Slide 3)
+## 2. [academic-timeline] Academic timeline (Slide 3)
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%
@@ -30,7 +50,7 @@ flowchart LR
 
 ---
 
-## 3. CIP-UX methodology pipeline (Slide 6)
+## 3. [cip-ux-pipeline] CIP-UX methodology pipeline (Slide 6)
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%
@@ -44,7 +64,7 @@ flowchart LR
 
 ---
 
-## 4. Academic research flow (Slide 4)
+## 4. [academic-research-flow] Academic research flow (Slide 4)
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%
@@ -64,7 +84,7 @@ flowchart TD
 
 ---
 
-## 5. CSI and NPS performance (Slide 5)
+## 5. [csi-nps-performance] CSI and NPS performance (Slide 5)
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%
@@ -84,7 +104,7 @@ flowchart TD
 
 ---
 
-## 6. Dissertation & research – technologies (Slides 6 & 7)
+## 6. [dissertation-tech] Dissertation & research – technologies (Slides 6 & 7)
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%
@@ -98,7 +118,7 @@ flowchart LR
 
 ---
 
-## 7. InfoVis PNAD visual structures (Slide 8)
+## 7. [infovis-pnad-structures] InfoVis PNAD visual structures (Slide 8)
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%
@@ -114,7 +134,7 @@ flowchart LR
 
 ---
 
-## 8. Tooling PT delivery workflow (Slide 9)
+## 8. [tooling-pt-workflow] Tooling PT delivery workflow (Slide 9)
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%
@@ -129,7 +149,7 @@ flowchart LR
 
 ---
 
-## 9. Proposal Generator UX phases (Slide 10)
+## 9. [proposal-generator-phases] Proposal Generator UX phases (Slide 10)
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%
@@ -144,7 +164,7 @@ flowchart LR
 
 ---
 
-## 10. AI and Agile in Research (Slide 11)
+## 10. [ai-agile-research] AI and Agile in Research (Slide 11)
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato', 'subgraphBg': 'transparent', 'subgraphBorder': '#bdc3c7'}}}%%
@@ -165,7 +185,7 @@ flowchart TD
 
 ---
 
-## 11. Experience timeline (Slide 12)
+## 11. [experience-timeline] Experience timeline (Slide 12)
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'cScale0': '#2c3e50', 'cScale1': '#2c3e50', 'cScale2': '#2c3e50', 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'fontFamily': 'Lato'}}}%%
@@ -179,7 +199,7 @@ timeline
 
 ---
 
-## 12. Future career path (Slide 13)
+## 12. [future-career-path] Future career path (Slide 13)
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'cScale0': '#2c3e50', 'cScale1': '#2c3e50', 'cScale2': '#2c3e50', 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'fontFamily': 'Lato'}}}%%
@@ -195,7 +215,7 @@ timeline
 
 ---
 
-## 13. Future career – strategic views (Slide 14)
+## 13. [future-career-strategic-views] Future career – strategic views (Slide 14)
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%

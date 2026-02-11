@@ -396,15 +396,9 @@ style: |
 - My work centers **technology**, **project management**, and **in-depth research**—integrating evidence and user needs into processes via **Continuous Improvement (CIP)** and systematic delivery.
 - This portfolio tells that story:
 
-[INSERT DIAGRAM HERE: Why story flow]
+[INSERT DIAGRAM HERE: story-flow]
 
-<!-- Mermaid source: why-story-flow.mmd - render to why-story-flow.png
-flowchart LR
-  Past["Past Foundations"]
-  Present["Present Impact"]
-  Future["Future Directions"]
-  Past --> Present --> Future
--->
+<!-- Diagram: story-flow (mermaid/diagrams.md). Export to story-flow.png -->
 
 ---
 
@@ -436,21 +430,14 @@ flowchart LR
 <p><img src="../pictures/academia/logos/UNICAMP.png" alt="Unicamp logo" style="height: 48px; width: auto; vertical-align: middle;" /></p>
 <p><img src="../pictures/academia/academic-writing.jpg" alt="Academic Writing Course - Unicamp" /></p>
 
-[INSERT DIAGRAM HERE: Academic timeline]
+[INSERT DIAGRAM HERE: academic-timeline]
 
 - **Technical school (ETEC):** Technical Degree in Computer Science – ETEC Bento Quirino (2012–2014).
 - **Undergraduate & Master's (Unicamp):** Systems Analysis and Development (2015–2020); Master's in Technology – Information and Communication Systems UX (2023–2025).
 - **Master's thesis:** Benchmark to assess software trustworthiness via Usability, Accessibility, and UX. Grade 'A' in all Master's coursework (Unicamp transcript available on request).
 - **Professional profile:** Proactive, self-reliant, organized; combines **in-depth research**, **technology**, and **project management** with agile practices (Scrum, Kanban) and delivery leadership.
 
-<!-- Mermaid source: academic-timeline.mmd - render to academic-timeline.png
-timeline
-    title Academic Foundations
-    2012-2014 : Technical Degree in Computer Science – ETEC Bento Quirino
-    2015-2020 : Systems Analysis and Development – Unicamp
-    2023-2025 : Master's in Technology – Information and Communication Systems UX – Unicamp
-    2024 : English proficiency UFSC – Reading 10/10
--->  
+<!-- Diagram: academic-timeline (mermaid/diagrams.md). Export to academic-timeline.png -->  
 
 ---
 
@@ -489,7 +476,7 @@ timeline
 - **Project scope:** Integrated **UX relevance assessment** into the **Continuous Improvement Process (CIP)** in ServiceNow CIM. A **UX gate** sits between Assess and Approve; the method runs at that gate to triage improvement initiatives (Low / Medium / High UX relevance).  
 - **Methodology—developer skills for research:** Utilized **Cursor IDE**, **AI-assisted coding**, and version-controlled Python pipelines. Workflow:
 
-[INSERT DIAGRAM HERE: CIP-UX methodology pipeline]
+[INSERT DIAGRAM HERE: cip-ux-pipeline]
 
 - **Deliverables:**
 
@@ -503,14 +490,7 @@ timeline
 
 - **Impact:** Governance clarity, reduced perceived delay, and reusable UX governance framework. Aligned CAP and UX into a unified, defensible solution.
 
-<!-- Mermaid source: cip-ux-pipeline.mmd - render to cip-ux-pipeline.png
-flowchart LR
-  A["(1) Iterative code-based documentation\nMarkdown, method.md v2.8"]
-  B["(2) AI-assisted analysis\nN=214 records, UX maturity data"]
-  C["(3) Automated pipeline\nextract to aggregate to calculate\nux_relevance_results.csv N=35"]
-  D["(4) High-quality reports\nMarkdown, executive summaries\nCriticality Index"]
-  A --> B --> C --> D
--->  
+<!-- Diagram: cip-ux-pipeline (mermaid/diagrams.md). Export to cip-ux-pipeline.png -->  
 
 ---
 
@@ -541,23 +521,13 @@ flowchart LR
 
 <p><img src="../pictures/academia/hfsd-workshop-1.jpg" alt="ISSRE 2025 HFSD Workshop" /></p>
 
-[INSERT DIAGRAM HERE: Academic research flow]
+[INSERT DIAGRAM HERE: academic-research-flow]
 
 - **Master's focus:** Benchmark to assess software trustworthiness (Usability, Accessibility, UX). Thesis: quantitative methods for perceived trust in e-commerce and software interfaces.  
 - **Publications:** ISSRE 2025 (HFSD – IEEE), IHC 2025 (SBC SOL). **TrustMate** + Power BI for trust scores; **AI agents as survey respondents**, full-stack development, Figma prototyping.  
 - **Industry connection:** Methods and tools reusable for UX audits, maturity assessments, and CIP + UX work.
 
-<!-- Mermaid source: academic-research-flow.mmd - render to academic-research-flow.png
-flowchart TD
-  Focus["Benchmark: Trustworthiness\nUsability, Accessibility, UX"]
-  Pub["Publications\nISSRE 2025 HFSD, IHC 2025 SOL"]
-  Tool["TrustMate + Power BI\nAI agents, full-stack, Figma"]
-  Industry["Industry reuse\nUX audits, maturity, CIP+UX"]
-  Focus --> Pub
-  Focus --> Tool
-  Pub --> Industry
-  Tool --> Industry
--->  
+<!-- Diagram: academic-research-flow (mermaid/diagrams.md). Export to academic-research-flow.png -->  
 
 ---
 
@@ -579,13 +549,13 @@ flowchart TD
 ---
 
 <!-- Slide 10 – Present (CSI & NPS Performance 2024–2025) -->
-<!-- Mermaid diagram source: csi-nps-performance.mmd - render to csi-nps-performance.png -->
+<!-- Diagram: csi-nps-performance (mermaid/diagrams.md). Export to csi-nps-performance.png -->
 
 ## Present – CSI & NPS Performance (2024–2025)
 
 - **High customer satisfaction** across eight UX projects delivered in 2024–2025. **Averages: CSI 4.86 / 5, NPS 9.94 / 10.** (Details in table below.)
 
-<p><img src="csi-nps-performance.png" alt="CSI and NPS performance metrics 2024–2025 – project table" style="max-width: 95%; height: auto; margin: 0.5rem auto; display: block;" /></p>
+<p><img src="csi-nps-performance.png" alt="Diagram csi-nps-performance: CSI and NPS performance metrics 2024–2025" style="max-width: 95%; height: auto; margin: 0.5rem auto; display: block;" /></p>
 
 ---
 
@@ -623,20 +593,11 @@ flowchart TD
 ## Theme: Data Visualization – InfoVis Project (PNAD Contínua)
 
 - **InfoVis class project – Power BI:** Built multi-page reports using **PNAD Contínua** (Brazil's National Household Sample Survey). Brazil’s National Household Sample Survey.
-[INSERT DIAGRAM HERE: InfoVis PNAD visual structures]
+[INSERT DIAGRAM HERE: infovis-pnad-structures]
 
 - **Impact:** Demonstrates **Power BI** proficiency and **processing complex national research datasets** into clear, actionable visual insights for socioeconomic analysis.
 
-<!-- Mermaid source: infovis-pnad-structures.mmd - render to infovis-pnad-structures.png
-flowchart LR
-  PNAD["PNAD Continua\nNational Survey Data"]
-  Sankey["Sankey\nEducation-employment\nIncome flows"]
-  Choropleth["Choropleth\nIncome by state"]
-  Faceted["Faceted bar charts\nIncome by education\nhousehold, area"]
-  PNAD --> Sankey
-  PNAD --> Choropleth
-  PNAD --> Faceted
--->
+<!-- Diagram: infovis-pnad-structures (mermaid/diagrams.md). Export to infovis-pnad-structures.png -->
 
 <p><img src="../pictures/academia/infovis/pbi-infovis-1.png" alt="Power BI – Education-employment trajectories Sankey" /></p>
 <p><img src="../pictures/academia/infovis/pbi-infovis-2.png" alt="Power BI – Family structure and socioeconomic patterns" /></p>
@@ -647,21 +608,13 @@ flowchart LR
 
 ## Theme: Technical Implementation – Dissertation (AI & Full Stack)
 
-[INSERT DIAGRAM HERE: Dissertation tech pillars]
+[INSERT DIAGRAM HERE: dissertation-tech]
 
 - **Architecture:** Database design supporting projects, experiments, attributes, scores, and agent runs.
 
-<!-- Mermaid source: dissertation-tech-pillars.mmd - render to dissertation-tech-pillars.png optional
-flowchart LR
-  A["AI agents as\nsurvey respondents"]
-  B["Full-stack\ndevelopment"]
-  C["Figma\nlow-fidelity prototyping"]
-  A --- B --- C
--->
+<!-- Diagram: dissertation-tech (mermaid/diagrams.md). Export to dissertation-tech.png -->
 
-<!-- Mermaid diagram source: dissertation-database-architecture.mmd -->
-
-<p><img src="dissertation-database-architecture.png" alt="Dissertation / TrustMate database architecture" style="max-width: 70%; height: auto; margin: 0.5rem auto; display: block;" /></p>
+<p><img src="dissertation-tech.png" alt="Diagram dissertation-tech: Dissertation & research technologies" style="max-width: 70%; height: auto; margin: 0.5rem auto; display: block;" /></p>
 
 ---
 
@@ -688,17 +641,9 @@ flowchart LR
 
 - **Tooling project for PT:** Key development in **technical delivery and project management**—from requirements to high-fidelity deliverable, with **customer progress review meetings** throughout.
 
-[INSERT DIAGRAM HERE: Tooling PT delivery workflow]
+[INSERT DIAGRAM HERE: tooling-pt-workflow]
 
-<!-- Mermaid source: tooling-pt-workflow.mmd - render to tooling-pt-workflow.png
-flowchart LR
-  W["Wireframe"]
-  L["Low-fidelity\nprototype"]
-  H["High-fidelity\nprototype"]
-  W --> L --> H
-  H --> Review["Customer progress\nreview meetings"]
-  Review --> W
--->
+<!-- Diagram: tooling-pt-workflow (mermaid/diagrams.md). Export to tooling-pt-workflow.png -->
 
 <p><img src="../pictures/work/tooling-project/tooling-1.png" alt="Tooling project for PT – wireframe or early concept" /></p>
 <p><img src="../pictures/work/tooling-project/tooling-2.png" alt="Tooling project for PT – low-fidelity prototype" /></p>
@@ -717,19 +662,11 @@ flowchart LR
 - **Definition:** Excel-based application for **automated proposal creation**—project proposals: define activities, estimate hours, Gantt-style timeline, and generate PowerPoint.
 - **Generation logic:** Uses **predefined criteria and historical project data**; outputs (activities, hours, timeline) are driven by that logic.
 
-[INSERT DIAGRAM HERE: Proposal Generator UX phases]
+[INSERT DIAGRAM HERE: proposal-generator-phases]
 
 - **Technical proficiency:** Developed in **Excel VBA**—macros for automation, calculations, and presentation generation.
 
-<!-- Mermaid source: proposal-generator-phases.mmd - render to proposal-generator-phases.png
-flowchart LR
-  P["Planning"]
-  U["Understand"]
-  S["Synthesize"]
-  I["Ideate"]
-  T["Test"]
-  P --> U --> S --> I --> T
--->
+<!-- Diagram: proposal-generator-phases (mermaid/diagrams.md). Export to proposal-generator-phases.png -->
 
 ---
 
@@ -750,7 +687,7 @@ flowchart LR
 ---
 
 <!-- Slide 19 – Future (AI & Agile in Research) -->
-<!-- Mermaid flowchart source: ai-agile-research.mmd - render to ai-agile-research.png -->
+<!-- Diagram: ai-agile-research (mermaid/diagrams.md). Export to ai-agile-research.png -->
 
 ## Theme: Process & Future – AI & Agile in Research
 
@@ -758,28 +695,9 @@ flowchart LR
 - **Proposal:** Combine **AI assistance** with **Scrum practices** to improve throughput, transparency, and quality.  
 - **Approach:**
 
-[INSERT DIAGRAM HERE: AI and Agile in Research]
+[INSERT DIAGRAM HERE: ai-agile-research]
 
-- **Guardrails:** AI outputs treated as drafts; strong focus on reproducibility, data privacy, and explicit quality criteria.
-
-<!-- Mermaid source: ai-agile-research.mmd
-flowchart TD
-  subgraph roles [Roles]
-    RPO["Research Product Owner"]
-    RSM["Research Scrum Master"]
-    RT["Research Team\ncollaborators + AI tools"]
-  end
-  subgraph ceremonies [Ceremonies]
-    C1["Sprint planning\nBacklog refinement"]
-    C2["Daily check-ins\nReviews\nRetrospectives"]
-  end
-  subgraph artifacts [Artifacts]
-    A1["Research backlog\nExperiment cards"]
-    A2["Dashboards and tools\nAI-generated drafts\nhuman-reviewed"]
-  end
-  roles --> ceremonies
-  ceremonies --> artifacts
--->  
+- **Guardrails:** AI outputs treated as drafts; strong focus on reproducibility, data privacy, and explicit quality criteria.  
 
 ---
 
@@ -814,15 +732,9 @@ flowchart TD
 <p><img src="../pictures/work/budapest-2019-2.jpg" alt="Budapest team 2019 – farewell book" style="max-width: 200px; height: auto;" /></p>
 <p><img src="../pictures/work/bosch-argentina.jpg" alt="Bosch Argentina – We are Bosch" style="max-width: 200px; height: auto;" /></p>
 
-[INSERT DIAGRAM HERE: Experience timeline]
+[INSERT DIAGRAM HERE: experience-timeline]
 
-<!-- Mermaid source: experience-timeline.mmd - render to experience-timeline.png
-timeline
-    title Experience Timeline
-    2017-2018 : Intern – Bosch Brasil : VBA, Continuous Improvement, internal communication
-    2019 : Digitization Support Analyst – Bosch Magyarország Budapest : Business Excellence, VS Code, SQL Server, IIS
-    2021-2023 : Web Developer – Bosch Brasil : Technology, React, Scrum; requirements to production
--->  
+<!-- Diagram: experience-timeline (mermaid/diagrams.md). Export to experience-timeline.png -->  
 
 ---
 
@@ -830,9 +742,9 @@ timeline
 
 ## Future – Career Aspirations, Vacancy Types & Strategic Views
 
-<!-- Mermaid timeline source: future-career-timeline.mmd -->
+<!-- Diagram: future-career-path (mermaid/diagrams.md). Export to future-career-path.png -->
 
-<p><img src="future-career-timeline.png" alt="Future Career Path Timeline" style="max-width: 90%; height: auto; margin: 0.5rem auto; display: block;" /></p>
+<p><img src="future-career-path.png" alt="Diagram future-career-path: Future Career Path Timeline" style="max-width: 90%; height: auto; margin: 0.5rem auto; display: block;" /></p>
 
 - **Future objective:** Work in **technology-focused roles** that integrate **in-depth research, project management, and AI implementation** as a core professional interest.  
 - **Desired vacancy types (Bosch & external):**
