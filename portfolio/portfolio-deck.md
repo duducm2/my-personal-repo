@@ -154,7 +154,11 @@ style: |
 
 <!-- Slide 4 – Past (Experience Timeline) -->
 
+<!-- _class: art-top-right -->
+
 ## Past – Experience Timeline (Condensed)
+
+<p><img src="../pictures/work/budapest-2019.jpg" alt="Bosch Magyarország - Budapest 2019" /></p>
 
 - **Intern – Bosch Brasil (2017–2018)**  
   - VBA (Excel) solutions for Continuous Improvement and internal communication.  
@@ -172,7 +176,7 @@ style: |
 
 ## Present – UX Research & Design Analyst (Bosch Brasil)
 
-<p><img src="../pictures/germany-ws-2024.jpg" alt="Germany Workshop 2024 - International Collaboration" /></p>
+<p><img src="../pictures/work/americas-team-2025.jpg" alt="Americas Team 2025 - UX Maturity Level 4" /></p>
 
 - **Role:** UX Research & Design Analyst – Bosch Brasil (May 2023 – present).  
 - **UX Maturity Level 4 (Americas):**  
@@ -259,11 +263,8 @@ style: |
 
 ---
 
-<!-- Mermaid diagram source: slide-9-diagram.mmd -->
-
----
-
 <!-- Slide 10 – Future (AI & Agile in Research) -->
+<!-- Mermaid diagram source: slide-9-diagram.mmd -->
 
 ## Future – AI & Agile in Research
 
@@ -280,6 +281,10 @@ style: |
 <!-- Slide 11 – Future (Personal Interests as Career Enablers) -->
 
 ## Future – Personal Interests that Power My Work
+
+<!-- _class: art-top-right -->
+
+<p><img src="../pictures/personal/my-family.jpg" alt="Family" /></p>
 
 - **Piano:**  
   - Discipline, structured practice, and performance under pressure – mirrors iterative design and delivery.  

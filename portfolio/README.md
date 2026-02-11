@@ -6,6 +6,7 @@ This folder contains a **code-based portfolio slide deck** built with **MARP** (
 - **Technology**: [MARP](https://marp.app/) via Markdown (works well with VS Code + the Marp / Markdown Preview Enhanced extensions)
 - **Assets**: artwork and charts under `../arts/`
 - **Extra styling**: global PDF/preview tweaks under `.mume/style.less`
+- **Page constraint**: The portfolio is **limited to exactly 12 slides/pages**. When updating the deck, maintain this constraint by consolidating content rather than adding new slides.
 
 The deck is intentionally **more detailed than a resume**. It is structured into chapters (cover & stats, profile & strengths, professional experience & impact, CIP + UX quality gates, academic research & trust in AI/UI, tools & dashboards, innovation & awards, professional goals, personal interests, AI + agile proposal, and closing).
 
