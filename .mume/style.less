@@ -1,0 +1,147 @@
+/* Global footer rules (apply even if MPE changes wrapper structure) */
+.globalFooter {
+  position: fixed !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  height: 22mm !important;
+  box-sizing: border-box !important;
+  padding-bottom: 2mm !important;
+  display: flex !important;
+  align-items: flex-end !important;
+  justify-content: flex-end !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  background: #ffffff !important;
+  text-align: center !important;
+  z-index: 1000 !important;
+  visibility: visible !important;
+  pointer-events: none !important; /* container doesn't block content */
+}
+
+.globalFooterLink {
+  color: #6f2dbd !important;
+  text-decoration: none !important;
+  font-weight: 500 !important;
+  opacity: 0.55 !important;
+  display: inline-block !important;
+  min-width: 240px !important;
+  padding: 6px 0 6px 12px !important;
+  text-align: right !important;
+  font-size: 9pt !important;
+  line-height: 1.1 !important;
+  background: transparent !important;
+  border-radius: 8px !important;
+  pointer-events: auto !important;
+}
+
+@media print {
+  .globalFooter {
+    /* Push the footer strip into the reserved bottom margin (Puppeteer) */
+    bottom: -24mm !important;
+    z-index: 1000 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Maximize content area: rely on Puppeteer margin + @page margin */
+  body { padding-bottom: 0 !important; }
+}
+
+
+.markdown-preview.markdown-preview {
+  /* Footer (visible in preview; exported PDF uses @media print below) */
+  .globalFooter {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: right;
+    z-index: 9999;
+    pointer-events: none;
+  }
+
+  .globalFooterLink {
+    color: #6f2dbd !important;
+    text-decoration: none !important;
+    font-weight: 500;
+    opacity: 0.65;
+    display: inline-block;
+    min-width: 240px;
+    padding: 6px 12px;
+    text-align: center;
+    font-size: 9pt;
+    line-height: 1.1;
+    background: transparent;
+    border-radius: 8px;
+    pointer-events: auto;
+  }
+
+  /* Screen preview (optional but helpful for WYSIWYG) */
+  .reportBody h2 {
+    background: #6f2dbd !important;
+    color: #ffffff !important;
+    padding: 0.7rem 1rem !important;
+    margin: 1.6rem 0 1rem 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    line-height: 1.25 !important;
+  }
+
+  .reportBody h2 a {
+    color: #ffffff !important;
+    text-decoration: none !important;
+  }
+
+  /* Puppeteer PDF export */
+  @media print {
+    /* Do not reduce content height via padding; margins handle it */
+    padding-bottom: 0 !important;
+
+    .reportBody h2 {
+      background: #6f2dbd !important;
+      color: #ffffff !important;
+      padding: 0.7rem 1rem !important;
+      margin: 1.6rem 0 1rem 0 !important;
+      border: 0 !important;
+      border-radius: 0 !important;
+      line-height: 1.25 !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .reportBody h2 a {
+      color: #ffffff !important;
+      text-decoration: none !important;
+    }
+
+    .globalFooter {
+      position: fixed;
+      left: 0;
+      right: 0;
+      /* Push the footer strip into the reserved bottom margin (Puppeteer) */
+      bottom: -24mm;
+      text-align: center;
+      z-index: 1000;
+      pointer-events: none;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .globalFooterLink {
+      color: #6f2dbd !important;
+      text-decoration: none !important;
+      font-weight: 500;
+      opacity: 0.55;
+      display: inline-block;
+      min-width: 240px;
+      padding: 6px 12px;
+      text-align: center;
+      font-size: 9pt;
+      line-height: 1.1;
+      background: transparent;
+      border-radius: 8px;
+    }
+  }
+}
+

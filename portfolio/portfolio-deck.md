@@ -4,7 +4,83 @@ theme: default
 paginate: true
 title: "Eduardo Figueiredo – Portfolio"
 author: "Eduardo Figueiredo"
+style: |
+  section.lead {
+    background-image: url("./arts/art-5.png");
+    background-size: 55% auto;
+    background-position: center 58%;
+    background-repeat: no-repeat;
+  }
+  section.lead img { display: block; margin-left: auto; margin-right: auto; }
+  section.persona-slide img[alt*="Persona 2"] { display: block; margin-left: auto; margin-right: auto; margin-top: -1rem; }
+  section.art-top-right {
+    position: relative;
+    --art-top: 1rem;        /* margin from top (e.g. 0, 0.5rem, 1rem) */
+    --art-right: 1rem;     /* margin from right (e.g. 0, 0.5rem, 1rem) */
+    --art-size: 200px;  /* image width */
+  }
+  section.art-top-right > p:first-of-type {
+    position: absolute;
+    top: var(--art-top);
+    right: var(--art-right);
+    margin: 0;
+  }
+  section.art-top-right > p:first-of-type img {
+    width: var(--art-size);
+    height: auto;
+  }
+  section.art-bottom-right-overflow {
+    position: relative;
+    overflow: visible !important;
+  }
+  section.art-bottom-right-overflow > p:first-of-type {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 0;
+    line-height: 0;
+  }
+  section.art-bottom-right-overflow > p:first-of-type img {
+    width: 85vw;
+    max-width: 900px;
+    height: auto;
+    display: block;
+    transform: translate(25%, 25%);
+    opacity: 0.85;
+  }
+  /* Overflow slide: image extends past bottom of page */
+  section.art-bottom-right-overflow.art-push-down {
+    overflow: visible !important;
+  }
+  section.art-bottom-right-overflow.art-push-down > p:first-of-type {
+    position: absolute;
+    bottom: -180px;
+    right: 0;
+    top: auto;
+    margin: 0;
+    line-height: 0;
+  }
+  section.art-bottom-right-overflow.art-push-down > p:first-of-type img {
+    transform: translate(25%, 25%) translateY(80px);
+    width: 85vw !important;
+    max-width: 1200px !important;
+    min-width: 600px !important;
+    opacity: 0.92;
+  }
+  section.compact-list ul { font-size: 0.82em; line-height: 1.35; }
+  /* Let this slide show content that overflows (image past bottom) */
+  section.allow-overflow { overflow: visible !important; }
+  /* Parent container (e.g. Marp viewer) must not clip */
+  div:has(> section.allow-overflow) { overflow: visible !important; }
+  section.quick-recall img { display: block; margin-left: auto; margin-right: auto; max-width: 90%; height: auto; border: 2px solid black; }
+  section.flow-diagram-fit { display: flex; align-items: center; justify-content: center; }
+  section.flow-diagram-fit img { display: block; margin: 0 auto; height: auto; object-fit: contain; }
+  section.relevance-summary-with-doodle { position: relative; }
+  section.relevance-summary-with-doodle p.doodle-right { position: absolute; right: 5rem; top: 50%; transform: translateY(-50%); margin: 0; line-height: 0; }
+  section.relevance-summary-with-doodle p.doodle-right img { width: 220px; height: auto; display: block; }
 ---
+
+<!-- _class: lead -->
 
 <!-- Section 1 – Cover & Overview -->
 
@@ -39,6 +115,8 @@ author: "Eduardo Figueiredo"
 - **Personal:** I bring the same curiosity and discipline to life outside work: linguistics (phonology, phonetics, IPA), piano and music theory, and deep dives into General Relativity, Quantum Physics, and Taoism. That mix supports attention to detail, structured creativity, and abstract thinking—all of which I apply to complex product and research challenges.  
 
 ---
+
+<!-- _class: compact-list -->
 
 ## Professional Strengths (The "Hybrid" Advantage)
 
@@ -171,10 +249,14 @@ author: "Eduardo Figueiredo"
 
 ---
 
+<!-- _class: quick-recall -->
+
 ## Power BI Dashboard
 
 - Screenshots of dashboard views.  
 - Explanation of metrics and how they support decision-making.  
+
+<p><img src="./arts/stack-chart-summary.png" alt="Example summary dashboard for UX and CIP metrics" /></p>
 
 ---
 
@@ -184,7 +266,11 @@ author: "Eduardo Figueiredo"
 
 ---
 
+<!-- _class: art-top-right compact-list -->
+
 ## Innovation & Awards
+
+<p><img src="./arts/art-7/art-7-3.png" alt="Innovation and awards doodle" /></p>
 
 - **1st Place** – X-Games Brazil 2018 (New Business Creation / Consultancy).  
 - **3rd Place** – Bosch Talent Forum 2018 (Project Management Software).  
