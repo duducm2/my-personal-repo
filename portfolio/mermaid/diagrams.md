@@ -42,9 +42,9 @@ flowchart LR
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%
 flowchart LR
-  A["2012–2014<br/>Technical Degree<br/>Computer Science<br/>ETEC Bento Quirino"]
-  B["2015–2020<br/>Systems Analysis<br/>and Development<br/>Unicamp"]
-  C["2023–2025<br/>Master's in Technology<br/>ICS UX – Unicamp"]
+  A["2012–2014<br/>Technical Degree<br/>Computer Science<br/>(ETEC Bento Quirino)"]
+  B["2015–2020<br/>Systems Analysis<br/>and Development<br/>(Unicamp)"]
+  C["2023–2025<br/>Master's in Information Systems and Communication<br/> (Unicamp)"]
   A --> B --> C
 ```
 
