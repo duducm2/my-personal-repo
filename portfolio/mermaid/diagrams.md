@@ -102,7 +102,9 @@ flowchart LR
   B["Full-stack"]
   C["Figma"]
   D["Database"]
-  A --- B --- C --- D
+  E["Tests (Python)"]
+  F["Azure Cloud Infrastructure"]
+  A --- B --- C --- D --- E --- F
 ```
 
 ---
@@ -115,7 +117,7 @@ flowchart LR
   PNAD["PNAD Continua"]
   Sankey["Sankey Diagram"]
   Choropleth["Choropleth Map"]
-  Faceted["Faceted Bar Chart"]
+  Faceted["Bar Chart"]
   PNAD --> Sankey
   PNAD --> Choropleth
   PNAD --> Faceted
@@ -129,10 +131,10 @@ flowchart LR
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%
 flowchart LR
   W["Wireframe"]
-  L["Low-fidelity\nprototype"]
-  H["High-fidelity\nprototype"]
+  L["Low-fidelity prototype"]
+  H["High-fidelity prototype"]
   W --> L --> H
-  H --> Review["Customer progress\nreview meetings"]
+  H --> Review["Customer progress review meetings"]
   Review --> W
 ```
 
