@@ -56,7 +56,7 @@
           #box(
             width: 8.5em,
             height: 8.5em,
-            stroke: (paint: gray, thickness: 0.5pt)
+            stroke: (paint: rgb("#004170"), thickness: 10pt)
           )[#image("pictures/my-photo.png", width: 8.5em, height: 8.5em)]
         ]
       ]
