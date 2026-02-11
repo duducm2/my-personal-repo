@@ -186,7 +186,7 @@ flowchart TD
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%
 flowchart TD
   D1["2017-2018"] -.-> E1["Intern – Bosch Brasil<br/>VBA, Continuous Improvement, internal communication"]
-  D2["2019"] -.-> E2["Digitization Support Analyst – Bosch Magyarország Budapest<br/>Business Excellence, VS Code, SQL Server, IIS"]
+  D2["2019 - Bosch Magyarország Budapest"] -.-> E2["Digitization Support Analyst<br/>Business Excellence, VS Code, SQL Server, IIS"]
   D3["2020-2023"] -.-> E3["Web Developer – Bosch Brasil<br/>Front-end, React, Scrum; user pain points to production"]
   D4["2023-2026"] -.-> E4["UX Researcher, Designer, and Project Manager"]
 ```
