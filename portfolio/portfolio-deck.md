@@ -828,7 +828,7 @@ section { position: relative; }
 }
 </style>
 
-## Theme: Data Visualization – Power BI Dashboards at Work
+## Data Visualization – Power BI Dashboards at Work
 
 - **Bosch Research Americas (GS):** Power BI dashboards developed in role for project and resource oversight and for training tracking—supporting data-driven decision-making and governance.
 
@@ -864,7 +864,7 @@ section { position: relative; }
 }
 </style>
 
-## Theme: Data Visualization – Dissertation Power BI
+## Data Visualization – Dissertation Power BI
 
 <p class="dissertation-pbi-intro">Dissertation focused on comparing whether AI agents behave similarly to humans.</p>
 
@@ -915,7 +915,7 @@ section { position: relative; }
 }
 </style>
 
-## Theme: Data Visualization – InfoVis Project (PNAD Contínua)
+## Data Visualization – InfoVis Project (PNAD Contínua)
 
 <div class="infovis-split">
 <div class="infovis-left">
@@ -954,7 +954,7 @@ section { position: relative; }
 }
 </style>
 
-## Theme: Technical Implementation – Dissertation (AI & Full Stack)
+## Technical Implementation – Dissertation (AI & Full Stack)
 
 - **Architecture:** Database design supporting projects, experiments, attributes, scores, and agent runs.
 
@@ -975,7 +975,7 @@ section { position: relative; }
   display: grid !important;
   grid-template-columns: 0.9fr 0.9fr 1.2fr !important;
   grid-template-rows: 1fr 1fr !important;
-  gap: 0.5rem 1rem !important;
+  gap: 0.4rem 1rem !important;
   max-width: 95% !important;
   margin: 0.2rem auto 0 !important;
   justify-items: center !important;
@@ -988,10 +988,10 @@ section { position: relative; }
   max-height: 32vh !important; display: block !important; object-fit: contain !important;
   border-radius: 4px !important;
 }
-.tech-evidence-grid p:nth-child(n+4) img { max-height: 30vh !important; }
+.tech-evidence-grid p:nth-child(n+4) img { max-height: 60vh !important; }
 </style>
 
-## Theme: Technical Implementation – Visual Evidence
+## Technical Implementation – Visual Evidence
 
 <div class="tech-evidence-grid">
 <p><img src="../pictures/academia/disseratation-tech-1-agents-1.png" alt="AI agent survey – e-commerce evaluation" /></p>
@@ -1012,32 +1012,36 @@ section { position: relative; }
 <style scoped>
 .tooling-pt-layout {
   display: flex !important; flex-direction: column !important;
-  gap: 0.5rem !important; margin-top: 0.35rem !important;
-  max-width: 100% !important;
+  gap: 0.4rem !important; margin-top: 0.35rem !important;
+  max-width: 100% !important; position: relative !important;
+  padding: 0 !important; padding-bottom: 0.5rem !important;
 }
 .tooling-pt-main {
   display: flex !important; flex-direction: row !important;
-  align-items: stretch !important; justify-content: flex-start !important;
-  gap: 1.25rem !important; min-height: 0 !important; flex: 1 1 auto !important;
+  align-items: flex-start !important; justify-content: flex-start !important;
+  gap: 1rem !important; min-height: 0 !important; flex: 1 1 auto !important;
+  padding: 0 !important; margin: 0 !important;
 }
 .tooling-pt-prototypes {
-  flex: 0 0 50% !important; min-width: 0 !important;
+  flex: 0 0 42% !important; min-width: 0 !important;
   display: flex !important; flex-direction: column !important;
   gap: 0.5rem !important; justify-content: flex-start !important;
+  padding: 0 !important; margin: 0 !important;
 }
-.tooling-pt-prototypes p { margin: 0 !important; }
+.tooling-pt-prototypes p { margin: 0 !important; padding: 0 !important; }
 .tooling-pt-prototypes img {
   width: 100% !important; max-width: 100% !important; height: auto !important;
-  max-height: 24vh !important; object-fit: contain !important;
+  max-height: 24vh !important; object-fit: cover !important;
   display: block !important; border-radius: 4px !important;
+  margin: 0 !important; padding: 0 !important;
 }
 .tooling-pt-right {
   flex: 1 1 auto !important; min-width: 0 !important;
   display: flex !important; flex-direction: column !important;
-  align-items: center !important; justify-content: space-between !important;
-  gap: 0.5rem !important;
+  align-items: flex-start !important; justify-content: space-between !important;
+  gap: 0.5rem !important; min-height: 50vh !important;
 }
-.tooling-pt-diagram { flex: 0 0 auto !important; text-align: center !important; margin: 0 !important; }
+.tooling-pt-diagram { flex: 0 0 auto !important; text-align: left !important; margin: 0 !important; }
 .tooling-pt-diagram p { margin: 0 !important; }
 .tooling-pt-diagram img {
   width: 100% !important; max-width: 100% !important; height: auto !important;
@@ -1045,19 +1049,19 @@ section { position: relative; }
   display: block !important; border: none !important; box-shadow: none !important;
 }
 .tooling-pt-workshops {
+  flex: 0 0 auto !important; margin-top: auto !important;
   display: flex !important; flex-direction: row !important;
-  gap: 0.4rem !important; align-items: center !important; justify-content: center !important;
-  flex-wrap: wrap !important;
+  gap: 0.5rem !important; align-items: center !important;
 }
 .tooling-pt-workshops p { margin: 0 !important; }
 .tooling-pt-workshops img {
-  width: auto !important; height: 56px !important; max-height: 56px !important;
+  width: auto !important; height: 200px !important; max-height: 200px !important;
   object-fit: cover !important; display: block !important;
   border-radius: 4px !important; border: 1px solid rgba(0,0,0,0.08) !important;
 }
 </style>
 
-## Theme: Technical Implementation – Tooling Project for PT
+## Technical Implementation – Tooling Project for PT
 
 - **Tooling project for PT:** Key development in **technical delivery and project management**—from requirements to high-fidelity deliverable, with **customer progress review meetings** throughout.
 - **Workshop facilitation:** Strategy and team workshops with many participants (e.g. Digital WS, Joinville 2024).
@@ -1110,7 +1114,7 @@ section { position: relative; }
 }
 </style>
 
-## Theme: Technical Implementation – Proposal Generator (Excel VBA)
+## Technical Implementation – Proposal Generator (Excel VBA)
 
 <div class="proposal-gen-wrap">
 <p class="proposal-gen-diagram"><img src="../pictures/diagrams/proposal-generator-phases.png" alt="Diagram proposal-generator-phases: Proposal Generator research phases" /></p>
@@ -1139,7 +1143,7 @@ section { position: relative; }
 }
 </style>
 
-## Theme: Technical Implementation – PhraseNets Web Visualization
+## Technical Implementation – PhraseNets Web Visualization
 
 - **Course project – Information Visualization (InfoVis):** Developed a web-based PhraseNets visualization to explore relationships in text.\
 - **Technique:** Implements PhraseNets pattern-based networks (e.g. subject–verb, verb–object) to reveal co-occurrence structures that standard charts miss.\
@@ -1169,7 +1173,7 @@ section { position: relative; }
 }
 </style>
 
-## Theme: Process & Future – AI & Agile in Research
+## Future
 
 <div class="ai-agile-wrap">
 <p><img src="../pictures/diagrams/ai-agile-research.png" alt="Diagram ai-agile-research: AI and Agile in Research" /></p>
@@ -1181,20 +1185,24 @@ section { position: relative; }
 
 <style scoped>
 .experience-timeline-slide {
-  position: relative !important; min-height: 60vh !important;
+  display: flex !important; flex-direction: column !important;
+  justify-content: flex-start !important; align-items: center !important;
+  gap: 0.75rem !important; min-height: 60vh !important;
+  margin-top: 0.75rem !important;
 }
 .experience-timeline-photos {
-  position: absolute !important; top: 0.25rem !important; right: 0.25rem !important;
-  display: flex !important; flex-direction: row !important; gap: 0.35rem !important;
+  display: flex !important; flex-direction: row !important; gap: 0.6rem !important;
+  justify-content: center !important; align-items: center !important;
+  margin-top: auto !important; flex-shrink: 0 !important;
 }
 .experience-timeline-photos p { margin: 0 !important; }
 .experience-timeline-photos img {
-  width: 72px !important; height: auto !important; max-height: 52px !important;
-  object-fit: cover !important; display: block !important; border-radius: 3px !important;
+  width: 200px !important; height: auto !important; max-height: 200px !important;
+  object-fit: cover !important; display: block !important; border-radius: 4px !important;
 }
 .experience-timeline-diagram-wrap {
+  flex: 0 0 auto !important;
   display: flex !important; justify-content: center !important; align-items: center !important;
-  min-height: 58vh !important; margin-top: -0.25rem !important;
 }
 .experience-timeline-diagram-wrap p { margin: 0 !important; text-align: center !important; }
 .experience-timeline-diagram-wrap img {
@@ -1204,18 +1212,18 @@ section { position: relative; }
 }
 </style>
 
-## Theme: Process – Experience Timeline (Condensed)
+## Process – Experience Timeline (Condensed)
 
 - **Trajectory across Bosch locations:** Campinas, Hungary, Sorocaba, and Campinas.
 
 <div class="experience-timeline-slide">
+<div class="experience-timeline-diagram-wrap">
+<p><img src="../pictures/diagrams/experience-timeline.png" alt="Diagram experience-timeline: Experience timeline" /></p>
+</div>
 <div class="experience-timeline-photos">
 <p><img src="../pictures/work/budapest-2019.jpg" alt="Bosch Magyarország - Budapest 2019" /></p>
 <p><img src="../pictures/work/budapest-2019-2.jpg" alt="Budapest team 2019 – farewell book" /></p>
 <p><img src="../pictures/work/bosch-argentina.jpg" alt="Bosch Argentina – We are Bosch" /></p>
-</div>
-<div class="experience-timeline-diagram-wrap">
-<p><img src="../pictures/diagrams/experience-timeline.png" alt="Diagram experience-timeline: Experience timeline" /></p>
 </div>
 </div>
 
@@ -1228,11 +1236,11 @@ section { position: relative; }
 <style scoped>
 .future-career-wrap {
   display: flex !important; justify-content: center !important; align-items: center !important;
-  min-height: 62vh !important; width: 100% !important; margin-top: -0.25rem !important;
+  min-height: 62vh !important; width: 100% !important; margin-top: 0.75rem !important;
 }
 .future-career-wrap p { margin: 0 !important; text-align: center !important; }
 .future-career-wrap img {
-  width: 72% !important; max-width: 72% !important; height: auto !important;
+  width: 43% !important; max-width: 43% !important; height: auto !important;
   display: block !important; margin: 0 auto !important;
   border: none !important; box-shadow: none !important;
 }
@@ -1250,32 +1258,61 @@ section { position: relative; }
 
 <!-- Slide 23 – Future (Personal Interests as Career Enablers) -->
 
-<!-- _class: dense-content personal-images -->
+<!-- _class: dense-content -->
 
 <style scoped>
-img[src*="personal/"] { width: 165px !important; height: auto !important; max-width: 180px !important; }
+.personal-interests-layout {
+  display: flex !important; flex-direction: row !important;
+  align-items: center !important; justify-content: center !important;
+  gap: 1.5rem !important; margin: 0.4rem auto 0.5rem !important;
+  max-width: 98% !important; min-height: 48vh !important;
+}
+.personal-interests-left { flex: 0 1 auto !important; min-width: 0 !important; }
+.personal-interests-left table { font-size: 0.92em !important; margin: 0 !important; }
+.personal-interests-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 0.5rem 1rem !important;
+  flex: 1 1 auto !important; max-width: 62% !important;
+  justify-items: center !important; align-items: center !important;
+}
+.personal-interests-grid p { margin: 0 !important; }
+.personal-interests-grid img {
+  width: 100% !important; max-width: 100% !important; height: auto !important;
+  max-height: 36vh !important; object-fit: contain !important;
+  display: block !important; border-radius: 4px !important;
+}
+.personal-interests-grid p:nth-child(n+4) img { max-height: 32vh !important; }
 </style>
 
 ## Future – Personal Interests that Power My Work
 
 - **At home:** Two cats, beginner piano practice, and a split keyboard for macro creation and productivity.
 
+<div class="personal-interests-layout">
+<div class="personal-interests-left">
+<table>
+<thead><tr><th>Interest</th></tr></thead>
+<tbody>
+<tr><td>Piano</td></tr>
+<tr><td>Linguistics (phonology & phonetics)</td></tr>
+<tr><td>Physics (GR & Quantum)</td></tr>
+<tr><td>Acting</td></tr>
+<tr><td>Impressionist art</td></tr>
+<tr><td>Macro creation</td></tr>
+<tr><td>Specialized keyboards</td></tr>
+</tbody>
+</table>
+</div>
+<div class="personal-interests-grid">
 <p><img src="../pictures/personal/my-family.jpg" alt="Family" /></p>
 <p><img src="../pictures/personal/friends.jpg" alt="Friends" /></p>
 <p><img src="../pictures/personal/germany-2025.jpg" alt="Germany 2025" /></p>
 <p><img src="../pictures/personal/budapes-2019-2.jpg" alt="Budapest 2019" /></p>
 <p><img src="../pictures/personal/cat-piano.jpg" alt="Cat on piano – beginner piano practice" /></p>
 <p><img src="../pictures/personal/cat-slipt-keyboard.jpg" alt="Cat on split keyboard – macro creation and productivity" /></p>
-
-| Interest | Career enabler |
-| -------- | -------------- |
-| Piano | Discipline, structured practice, performance under pressure |
-| Linguistics (phonology & phonetics) | Clarity in copy; speech interfaces and accessibility |
-| Physics (GR & Quantum) | Complex systems; quantum computing and advanced tech research |
-| Acting | Empathy, storytelling, presence in interviews and workshops |
-| Impressionist art | Nuanced perception and diverse perspectives in research |
-| Macro creation | Automation and workflow optimization |
-| Specialized keyboards | Ergonomics, productivity, technology and accessibility |  
+</div>
+</div>  
 
 ---
 
