@@ -168,7 +168,7 @@ style: |
   section:not(.lead) img[alt*="Academic Writing"] { transform: rotate(3.2deg); }
   section:not(.lead) img[alt*="Budapest"] { transform: rotate(-1.8deg); }
   section:not(.lead) img[alt*="Americas Team"] { transform: rotate(2.1deg); }
-  section:not(.lead) img[alt*="UX Strategy Workshop"] { transform: rotate(-3.5deg); }
+  section:not(.lead) img[alt*="Research Strategy Workshop"] { transform: rotate(-3.5deg); }
   section:not(.lead) img[alt*="ISSRE 2025"] { transform: rotate(1.7deg); }
   section:not(.lead) img[alt*="Bosch Talent Forum"] { transform: rotate(-2.8deg); }
   section:not(.lead) img[alt*="Family"] { transform: rotate(2.9deg); }
@@ -304,14 +304,14 @@ style: |
   section:not(.lead) img[alt*="Article 2 page 2"] { transform: rotate(1.4deg); }
   section:not(.lead) img[alt*="Dissertation page 1"] { transform: rotate(-1.6deg); }
   section:not(.lead) img[alt*="Dissertation page 2"] { transform: rotate(2.3deg); }
-  section:not(.lead) img[alt*="CIP-UX 1"] { transform: rotate(-2deg); }
-  section:not(.lead) img[alt*="CIP-UX 2"] { transform: rotate(1.5deg); }
-  section:not(.lead) img[alt*="CIP-UX 3"] { transform: rotate(-1.2deg); }
-  section:not(.lead) img[alt*="CIP-UX 4"] { transform: rotate(2deg); }
-  section:not(.lead) img[alt*="CIP-UX 5"] { transform: rotate(-1.8deg); }
-  section:not(.lead) img[alt*="CIP-UX 6"] { transform: rotate(1.3deg); }
-  section:not(.lead) img[alt*="CIP-UX 7"] { transform: rotate(-2.2deg); }
-  section:not(.lead) img[alt*="CIP-UX 8"] { transform: rotate(1.7deg); }
+  section:not(.lead) img[alt*="CIP-Research 1"] { transform: rotate(-2deg); }
+  section:not(.lead) img[alt*="CIP-Research 2"] { transform: rotate(1.5deg); }
+  section:not(.lead) img[alt*="CIP-Research 3"] { transform: rotate(-1.2deg); }
+  section:not(.lead) img[alt*="CIP-Research 4"] { transform: rotate(2deg); }
+  section:not(.lead) img[alt*="CIP-Research 5"] { transform: rotate(-1.8deg); }
+  section:not(.lead) img[alt*="CIP-Research 6"] { transform: rotate(1.3deg); }
+  section:not(.lead) img[alt*="CIP-Research 7"] { transform: rotate(-2.2deg); }
+  section:not(.lead) img[alt*="CIP-Research 8"] { transform: rotate(1.7deg); }
 
   /* Academic gallery layout - scattered group */
   section.academic-images p {
@@ -484,7 +484,7 @@ table thead { display: none !important; }
 | --------- | ----- |
 | Name | Eduardo M. de A. Figueiredo |
 | Role | Research, Technology & Project Management |
-| Impact | Clearer governance and faster improvement flow; builds scalable UX maturity and evidence-based prioritization; uses research to support solid product and service decisions; delivers with data, accountability, and measurable results. |
+| Impact | Clearer governance and faster improvement flow; builds scalable research maturity and evidence-based prioritization; uses research to support solid product and service decisions; delivers with data, accountability, and measurable results. |
 | Contact | Nova Odessa, SP – Brazil · edu.evangelista.figueiredo@gmail.com · LinkedIn / +55 19 98176-658 |
 
 <p class="photo-at-bottom"><img src="../pictures/personal/my-photo-rectangle.png" alt="Eduardo Figueiredo" /></p>  
@@ -515,8 +515,8 @@ img[src*="academic-timeline"] {
 <p><img src="../pictures/diagrams/academic-timeline.png" alt="Diagram academic-timeline: Academic timeline" /></p>
 
 - **Technical school (ETEC):** Technical Degree in Computer Science – ETEC Bento Quirino (2012–2014).
-- **Undergraduate & Master's (Unicamp):** Systems Analysis and Development (2015–2020); Master's in Technology – Information and Communication Systems UX (2023–2025).
-- **Master's thesis:** Benchmark to assess software trustworthiness via Usability, Accessibility, and UX. Grade 'A' in all Master's coursework (Unicamp transcript available on request).
+- **Undergraduate & Master's (Unicamp):** Systems Analysis and Development (2015–2020); Master's in Technology – Information and Communication Systems, research focus (2023–2025).
+- **Master's thesis:** Benchmark to assess software trustworthiness via usability, accessibility, and user-centred research. Grade 'A' in all Master's coursework (Unicamp transcript available on request).
 - **Professional profile:** Proactive, self-reliant, organized; combines **in-depth research**, **technology**, and **project management** with agile practices (Scrum, Kanban) and delivery leadership.
 
 <!-- Diagram: academic-timeline (mermaid/diagrams.md). Export to academic-timeline.png -->  
@@ -535,22 +535,22 @@ img[src*="in-front-of-the-bosch-building"] { width: 150px !important; height: au
 
 ## Present – Research & Technology (Bosch Brasil)
 
-<p style="position: absolute; top: 0.5rem; left: 0.5rem; margin: 0;"><img src="../pictures/work/bdu/UXGS%20Logo_verticle.svg" alt="UXGS area logo" /></p>
-<p><img src="../pictures/work/americas-team-2025.jpg" alt="Americas Team 2025 - UX Maturity Level 4" /></p>
+<p style="position: absolute; top: 0.5rem; left: 0.5rem; margin: 0;"><img src="../pictures/work/bdu/UXGS%20Logo_verticle.svg" alt="Research area logo" /></p>
+<p><img src="../pictures/work/americas-team-2025.jpg" alt="Americas Team 2025 - Research Maturity Level 4" /></p>
 <p style="position: absolute; top: 0.5rem; right: 2rem; margin: 0;"><img src="../pictures/work/in-front-of-the-bosch-building.jpg" alt="In front of Bosch building" /></p>
 
 | Area | Achievement |
 | ---- | ----------- |
-| Role | Research & Technology – Bosch Brasil (May 2023 – present); UX Project Champion GS/BDU |
+| Role | Research & Technology – Bosch Brasil (May 2023 – present); Research Project Champion GS/BDU |
 | International | Two trips to Germany (2024, 2025) for role-related work |
-| CO2 Tracking (GS/UX) | Marketing scouting for CO2 telemetry; finding: lack of market demand |
-| UX Maturity | Led Americas to Level 4 – governance, templates, training |
-| CIP + UX | Led integration into ServiceNow CIM; UX gate in CIP workflow |
+| CO2 Tracking (GS/Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand |
+| Research Maturity | Led Americas to Level 4 – governance, templates, training |
+| CIP + Research | Led integration into ServiceNow CIM; research gate in CIP workflow |
 | Collaboration | Tutor at SENAI Digital Talent Academy; scientific methods and project delivery |  
 
 ---
 
-<!-- Slide 6 – Present (CIP and UX Integration: Critical Career Milestone) -->
+<!-- Slide 6 – Present (CIP and Research Integration: Critical Career Milestone) -->
 
 <!-- _class: art-top-right -->
 
@@ -563,31 +563,31 @@ img[src*="cip-ux-pipeline"] {
 }
 </style>
 
-## Present – CIP and UX Integration: A Critical Career Milestone
+## Present – CIP and Research Integration: A Critical Career Milestone
 
-<p><img src="../pictures/work/digital-ws.jpg" alt="UX Strategy Workshop" /></p>
+<p><img src="../pictures/work/digital-ws.jpg" alt="Research Strategy Workshop" /></p>
 
 - **Career significance:** This project marks a pivotal evolution into **Senior Researcher** capabilities—combining in-depth, data-oriented investigation with technical execution, project management, and governance.  
-- **Project scope:** Integrated **UX relevance assessment** into the **Continuous Improvement Process (CIP)** in ServiceNow CIM. A **UX gate** sits between Assess and Approve; the method runs at that gate to triage improvement initiatives (Low / Medium / High UX relevance).  
+- **Project scope:** Integrated **research relevance assessment** into the **Continuous Improvement Process (CIP)** in ServiceNow CIM. A **research gate** sits between Assess and Approve; the method runs at that gate to triage improvement initiatives (Low / Medium / High research relevance).  
 - **Methodology—developer skills for research:** Utilized **Cursor IDE**, **AI-assisted coding**, and version-controlled Python pipelines. Workflow:
 
-<p><img src="../pictures/diagrams/cip-ux-pipeline.png" alt="Diagram cip-ux-pipeline: CIP-UX methodology pipeline" /></p>
+<p><img src="../pictures/diagrams/cip-ux-pipeline.png" alt="Diagram cip-ux-pipeline: CIP-Research methodology pipeline" /></p>
 
 - **Deliverables:**
 
 | Deliverable | Description |
 | ----------- | ----------- |
-| UX Relevance Quick Method | 10 system-calculated questions from 11 CIM fields; thresholds Low &lt;60, Medium 60–70, High ≥70 |
+| Research Relevance Quick Method | 10 system-calculated questions from 11 CIM fields; thresholds Low &lt;60, Medium 60–70, High ≥70 |
 | 1st Research Report (Jan 2026) | Stakeholder inputs, governance clarity |
-| Pipeline | extract_cim_data.py, calculate_ux_scores.py, aggregate_to_csv.py – reproducible validation |
+| Pipeline | extract_cim_data.py, calculate_relevance_scores.py, aggregate_to_csv.py – reproducible validation |
 
-- **Impact:** Governance clarity, reduced perceived delay, and reusable UX governance framework. Aligned CAP and UX into a unified, defensible solution.
+- **Impact:** Governance clarity, reduced perceived delay, and reusable research governance framework. Aligned CAP and research into a unified, defensible solution.
 
 <!-- Diagram: cip-ux-pipeline (mermaid/diagrams.md). Export to cip-ux-pipeline.png -->  
 
 ---
 
-<!-- Slide 6b – Present (CIP and UX Integration: Research Artifacts & Visuals) -->
+<!-- Slide 6b – Present (CIP and Research Integration: Research Artifacts & Visuals) -->
 
 <!-- _class: dense-content cip-ux-images -->
 
@@ -595,18 +595,18 @@ img[src*="cip-ux-pipeline"] {
 img[src*="cip-ux/"] { width: 18% !important; height: auto !important; max-width: 18% !important; }
 </style>
 
-## Present – CIP and UX Integration: Research Artifacts & Visuals
+## Present – CIP and Research Integration: Research Artifacts & Visuals
 
-- **High-quality, data-oriented deliverables** produced using Markdown, Python pipelines, and Cursor IDE: (1) **1st Research Report** (January 2026)—"Make governance clear. Keep improvements moving."—consolidating N=214 records, executive summary, literature benchmark, methodology, findings, and strategic opportunities; (2) **UX Relevance Quick Method** (method.md v2.8)—CIM-to-Q1–Q10 mapping, scoring algorithm, post-evaluation workflow; (3) **Pipeline** (`tests/standalone-tests/pipeline/`)—extraction, aggregation, score calculation, validation. Distribution (N=35): Low 57.1%, Medium 20.0%, High 22.9%.
+- **High-quality, data-oriented deliverables** produced using Markdown, Python pipelines, and Cursor IDE: (1) **1st Research Report** (January 2026)—"Make governance clear. Keep improvements moving."—consolidating N=214 records, executive summary, literature benchmark, methodology, findings, and strategic opportunities; (2) **Research Relevance Quick Method** (method.md v2.8)—CIM-to-Q1–Q10 mapping, scoring algorithm, post-evaluation workflow; (3) **Pipeline** (`tests/standalone-tests/pipeline/`)—extraction, aggregation, score calculation, validation. Distribution (N=35): Low 57.1%, Medium 20.0%, High 22.9%.
 
-<p><img src="../pictures/work/cip-ux/cip-ux-1.png" alt="CIP-UX 1 – Report cover: Make governance clear. Keep improvements moving." /></p>
-<p><img src="../pictures/work/cip-ux/cip-ux-2.png" alt="CIP-UX 2 – Summary and executive findings" /></p>
-<p><img src="../pictures/work/cip-ux/cip-ux-3.png" alt="CIP-UX 3 – Context and methodology" /></p>
-<p><img src="../pictures/work/cip-ux/cip-ux-4.png" alt="CIP-UX 4 – Literature review and benchmark" /></p>
-<p><img src="../pictures/work/cip-ux/cip-ux-5.png" alt="CIP-UX 5 – Findings and Criticality Index" /></p>
-<p><img src="../pictures/work/cip-ux/cip-ux-6.png" alt="CIP-UX 6 – Pipeline and data processing" /></p>
-<p><img src="../pictures/work/cip-ux/cip-ux-7.png" alt="CIP-UX 7 – Conclusions and strategic opportunities" /></p>
-<p><img src="../pictures/work/cip-ux/cip-ux-8.png" alt="CIP-UX 8 – Additional research visuals" /></p>
+<p><img src="../pictures/work/cip-ux/cip-ux-1.png" alt="CIP-Research 1 – Report cover: Make governance clear. Keep improvements moving." /></p>
+<p><img src="../pictures/work/cip-ux/cip-ux-2.png" alt="CIP-Research 2 – Summary and executive findings" /></p>
+<p><img src="../pictures/work/cip-ux/cip-ux-3.png" alt="CIP-Research 3 – Context and methodology" /></p>
+<p><img src="../pictures/work/cip-ux/cip-ux-4.png" alt="CIP-Research 4 – Literature review and benchmark" /></p>
+<p><img src="../pictures/work/cip-ux/cip-ux-5.png" alt="CIP-Research 5 – Findings and Criticality Index" /></p>
+<p><img src="../pictures/work/cip-ux/cip-ux-6.png" alt="CIP-Research 6 – Pipeline and data processing" /></p>
+<p><img src="../pictures/work/cip-ux/cip-ux-7.png" alt="CIP-Research 7 – Conclusions and strategic opportunities" /></p>
+<p><img src="../pictures/work/cip-ux/cip-ux-8.png" alt="CIP-Research 8 – Additional research visuals" /></p>
 
 ---
 
