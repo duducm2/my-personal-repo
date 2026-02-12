@@ -16,7 +16,7 @@
 ]
 
 #let strengths = [
-  Proactive, self-reliant, organized. UX research, design, front-end development; agile (Scrum, Kanban); project management.
+  Proactive, self-reliant, organized. UX research, design, front-end development; data visualization (Power BI, Python); agile (Scrum, Kanban); project management; scientific method.
 ]
 
 #let languages = (
@@ -27,40 +27,46 @@
 // Nested structure: each item is (category, array of sub-items or empty)
 #let skills = (
   ("Core:", ("UX Research", "Project Management", "Continuous Improvement (CIP)", "AI Systems")),
-  ("Tech:", ("Front-end Development", "React", "Python", "SQL", "Power BI", "Cursor IDE", "Mermaid", "Git", "GitHub", "Azure", "Bitbucket", "Figma", "Adobe XD")),
+  ("Tech:", ("Front-end Development", "React", "Python", "SQL", "Power BI", "Matplotlib", "Seaborn", "Cursor IDE", "Mermaid", "Git", "GitHub", "Azure", "Bitbucket", "Figma", "Adobe XD")),
 )
 
 #let experience = (
   ("May 2023 – Present", "Bosch Brasil", "UX Research & Design Analyst (Research Expert, GS/BDU)", (
-    [Led Americas to #strong[UX Maturity Level 4]: governance, templates, training. CSI 4.86 / NPS 9.94 avg. (2024–2025).],
-    [CIP+Research integration into ServiceNow CIM; research gate in CIP workflow; AI-driven quality gates.],
+    [Led Americas to #strong[UX Maturity Level 4]: governance, templates, training. #strong[CSI 4.86 / NPS 9.94] avg. (2024–2025).],
+    [CIP+Research integration into #strong[ServiceNow CIM]; research gate in CIP workflow; #strong[AI-driven] quality gates.],
+    [#strong[Tooling project (PT):] led technical delivery and project management from requirements through high-fidelity prototypes; regular customer check-ins.],
     [Power BI dashboards for project/resource oversight and training tracking.],
-    [Two trips to Germany (2024, 2025); tutor at SENAI Digital Talent Academy.],
+    [#strong[Two trips to Germany] (2024, 2025); tutor at SENAI Digital Talent Academy.],
   )),
   ("2020 – Nov 2023", "Bosch Brasil", "Web Developer", (
-    [Web solutions, front-end technologies, teamwork-driven development; React, Scrum.],
+    [Front-end development, React, Scrum, UX; web solutions and teamwork-driven delivery.],
+    [Collaborated on customer-facing applications and internal tools.],
   )),
   ("Jan 2019 – Dec 2019", "Bosch Magyarország (Hungary)", "Digitization Support Analyst", (
-    [Business Excellence digitization – VS Code, SQL Server, Windows Server (IIS).],
+    [Business Excellence digitization; internal tools and workflows.],
+    [VS Code, SQL Server, Windows Server (IIS).],
   )),
   ("01/2017 – 11/2018", "Bosch Brasil (Campinas)", "Intern", (
     [VBA (Excel) for Continuous Improvement and internal communication.],
+    [Recognition: Compartilhando Sucessos RH (HR excellence program).],
   )),
 )
 
 #let education = (
-  ("Master's in Technology:", "Info & Comm Systems, UX. Unicamp (2023–2025).", "Dissertation: Benchmark for software trustworthiness (Usability, Accessibility, UX) using Agentic AI and TrustMate evaluation tool."),
+  ("Master's in Technology:", "Info & Comm Systems, UX. Unicamp (2023–2025).", "Dissertation: Benchmark for software trustworthiness using #strong[Agentic AI] and #strong[TrustMate] evaluation tool."),
   ("Systems Analysis and Development.", "Unicamp (2015–2020).", ""),
   ("Technical Degree in Informatics.", "ETEC Bento Quirino (2012–2014).", ""),
 )
 
 #let publications = (
-  ("IHC 2025:", "\"Interface Trustworthiness Score Definition Platform\" (SOL / SBC Open Lib). Co-authors: Regina Moraes, Andreia Casare."),
-  ("ISSRE 2025 (HFSD Workshop):", "\"Measuring Perceived Trust in Websites: A digital tool providing a score for evaluation.\""),
+  ("#strong[IHC 2025]:", "\"Interface Trustworthiness Score Definition Platform\" (SOL / SBC Open Lib). Co-authors: Regina Moraes, Andreia Casare."),
+  ("#strong[ISSRE 2025] (HFSD Workshop):", "\"Measuring Perceived Trust in Websites: A digital tool providing a score for evaluation.\""),
 )
 
 #let additional = (
-  [1st Place – X-Games Brazil 2018 (New Business Creation / Consultancy).],
+  [#strong[1st Place] – X-Games Brazil 2018 (New Business Creation / Consultancy).],
   [3rd Place – Bosch Talent Forum 2018; 3rd Place – Bosch Intern Talent Forum 2018.],
+  [Proposal Generator: Excel VBA tool for research project proposals (Planning, Understand, Synthesize, Ideate, Test).],
+  [InfoVis: PhraseNets web visualization for text co-occurrence analysis (course project).],
   [Volunteer – NGO Hospitalhaços (Admin).],
 )
