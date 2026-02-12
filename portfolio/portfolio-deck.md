@@ -469,10 +469,13 @@ img[src*="story-flow"] {
 
 <style scoped>
 img[src*="my-photo-rectangle"] {
-  width: 320px !important;
+  width: 360px !important;
   height: auto !important;
   display: block !important;
+  margin-left: 820px !important;
+  margin-bottom: 80px !important;
 }
+table thead { display: none !important; }
 </style>
 
 ## Who I Am – Snapshot
@@ -480,10 +483,9 @@ img[src*="my-photo-rectangle"] {
 | Attribute | Value |
 | --------- | ----- |
 | Name | Eduardo M. de A. Figueiredo |
-| Role | Research, Technology & Project Management (Master's, Unicamp) |
-| Focus | Technology, CIP governance, in-depth research, and measuring software trustworthiness |
-| Impact | Americas UX Maturity Level 4; AI-driven UX quality gates; international projects |
-| Contact | Nova Odessa, SP – Brazil · edu.evangelista.figueiredo@gmail.com · LinkedIn / phone on request |
+| Role | Research, Technology & Project Management |
+| Impact | Clearer governance and faster improvement flow; builds scalable UX maturity and evidence-based prioritization; uses research to support solid product and service decisions; delivers with data, accountability, and measurable results. |
+| Contact | Nova Odessa, SP – Brazil · edu.evangelista.figueiredo@gmail.com · LinkedIn / +55 19 98176-658 |
 
 <p class="photo-at-bottom"><img src="../pictures/personal/my-photo-rectangle.png" alt="Eduardo Figueiredo" /></p>  
 
