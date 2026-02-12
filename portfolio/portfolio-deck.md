@@ -518,6 +518,35 @@ img[src*="academic-timeline"] {
   margin-left: auto !important; margin-right: auto !important; display: block !important;
   border: none !important; box-shadow: none !important;
 }
+section { position: relative; }
+p.english-proficiency-wrap {
+  position: absolute !important;
+  bottom: 0 !important;
+  right: 0 !important;
+  margin: 0 !important;
+  margin-right: 2.5rem !important;
+  margin-bottom: 2.5rem;
+  line-height: 0;
+}
+p.english-proficiency-wrap img {
+  width: 140px !important;
+  height: auto !important;
+  display: block !important;
+  margin-bottom: 1.5rem !important;
+}
+p.historico-wrap {
+  position: absolute !important;
+  bottom: 0 !important;
+  right: 12rem !important;
+  margin: 0 !important;
+  line-height: 0;
+}
+p.historico-wrap img {
+  margin-bottom: 1.5rem !important;
+  width: 140px !important;
+  height: auto !important;
+  display: block !important;
+}
 </style>
 
 ## Past – Academic Foundations & Professional Profile
@@ -527,8 +556,8 @@ img[src*="academic-timeline"] {
 
 <p><img src="../pictures/diagrams/academic-timeline.png" alt="Diagram academic-timeline: Academic timeline" /></p>
 
-<p><img src="../pictures/academia/english-proficiency.png" alt="English proficiency – academic credentials" /></p>
-<p><img src="../pictures/academia/docs/historico-escolar.png" alt="Academic record – Unicamp" /></p>
+<p class="english-proficiency-wrap"><img src="../pictures/academia/english-proficiency.png" alt="English proficiency – academic credentials" /></p>
+<p class="historico-wrap"><img src="../pictures/academia/docs/historico-escolar.png" alt="Academic record – Unicamp" /></p>
 
 - **Professional profile:** Proactive, self-reliant, organized; combines **in-depth research**, **technology**, and **project management** with agile practices (Scrum, Kanban) and delivery leadership.
 
