@@ -429,9 +429,9 @@ style: |
 <!-- _class: lead -->
 
 <!--
-  HOW TO CALIBRATE IMAGES (Marp/PDF): Inline styles on <img> are often overridden by the theme.
-  Use a <style scoped> block ON THE SLIDE and target the image (e.g. by img[src*="filename"]).
-  Set width, margin-top, margin-left there. Scoped CSS is merged by Marp and works in PDF export.
+  HOW TO CALIBRATE IMAGES (Marp/PDF): Every slide with images has a <style scoped> block at the top.
+  Edit that block: change width, margin-top, margin-left for the img[src*="..."] selectors.
+  Scoped CSS is merged by Marp and applies in PDF export. One place per slide to tune size and position.
 -->
 
 <!-- Slide 1 – Why (Golden Circle: Why) -->
@@ -467,6 +467,14 @@ img[src*="story-flow"] {
 
 <!-- _class: midnight-blue-slide photo-at-bottom -->
 
+<style scoped>
+img[src*="my-photo-rectangle"] {
+  width: 320px !important;
+  height: auto !important;
+  display: block !important;
+}
+</style>
+
 ## Who I Am – Snapshot
 
 | Attribute | Value |
@@ -477,7 +485,7 @@ img[src*="story-flow"] {
 | Impact | Americas UX Maturity Level 4; AI-driven UX quality gates; international projects |
 | Contact | Nova Odessa, SP – Brazil · edu.evangelista.figueiredo@gmail.com · LinkedIn / phone on request |
 
-<p class="photo-at-bottom"><img class="img-tune" src="../pictures/personal/my-photo-rectangle.png" alt="Eduardo Figueiredo" style="width: 320px;" /></p>  
+<p class="photo-at-bottom"><img src="../pictures/personal/my-photo-rectangle.png" alt="Eduardo Figueiredo" /></p>  
 
 ---
 
@@ -485,13 +493,24 @@ img[src*="story-flow"] {
 
 <!-- _class: art-top-right -->
 
+<style scoped>
+img[src*="ETEC.png"] { width: 48px !important; height: auto !important; vertical-align: middle !important; }
+img[src*="UNICAMP.png"] { width: 48px !important; height: auto !important; vertical-align: middle !important; }
+img[src*="academic-writing"] { width: 100px !important; height: auto !important; }
+img[src*="academic-timeline"] {
+  width: 72% !important; height: auto !important; margin-top: 0.5rem !important;
+  margin-left: auto !important; margin-right: auto !important; display: block !important;
+  border: none !important; box-shadow: none !important;
+}
+</style>
+
 ## Past – Academic Foundations & Professional Profile
 
-<p><img class="img-tune" src="../pictures/academia/logos/ETEC.png" alt="ETEC logo – Bento Quirino" style="width: 48px; vertical-align: middle;" /></p>
-<p><img class="img-tune" src="../pictures/academia/logos/UNICAMP.png" alt="Unicamp logo" style="width: 48px; vertical-align: middle;" /></p>
-<p><img class="img-tune" src="../pictures/academia/academic-writing.jpg" alt="Academic Writing Course - Unicamp" style="width: 100px;" /></p>
+<p><img src="../pictures/academia/logos/ETEC.png" alt="ETEC logo – Bento Quirino" /></p>
+<p><img src="../pictures/academia/logos/UNICAMP.png" alt="Unicamp logo" /></p>
+<p><img src="../pictures/academia/academic-writing.jpg" alt="Academic Writing Course - Unicamp" /></p>
 
-<p><img class="img-tune" src="../pictures/diagrams/academic-timeline.png" alt="Diagram academic-timeline: Academic timeline" style="width: 72%; margin-top: 0.5rem; margin-left: auto; margin-right: auto; display: block; border: none; box-shadow: none;" /></p>
+<p><img src="../pictures/diagrams/academic-timeline.png" alt="Diagram academic-timeline: Academic timeline" /></p>
 
 - **Technical school (ETEC):** Technical Degree in Computer Science – ETEC Bento Quirino (2012–2014).
 - **Undergraduate & Master's (Unicamp):** Systems Analysis and Development (2015–2020); Master's in Technology – Information and Communication Systems UX (2023–2025).
@@ -506,11 +525,17 @@ img[src*="story-flow"] {
 
 <!-- _class: art-top-right -->
 
+<style scoped>
+img[src*="UXGS"] { width: 56px !important; height: auto !important; }
+img[src*="americas-team-2025"] { width: 280px !important; height: auto !important; }
+img[src*="in-front-of-the-bosch-building"] { width: 150px !important; height: auto !important; }
+</style>
+
 ## Present – Research & Technology (Bosch Brasil)
 
-<p style="position: absolute; top: 0.5rem; left: 0.5rem; margin: 0;"><img class="img-tune" src="../pictures/work/bdu/UXGS%20Logo_verticle.svg" alt="UXGS area logo" style="width: 56px;" /></p>
-<p><img class="img-tune" src="../pictures/work/americas-team-2025.jpg" alt="Americas Team 2025 - UX Maturity Level 4" style="width: 280px;" /></p>
-<p style="position: absolute; top: 0.5rem; right: 2rem; margin: 0;"><img class="img-tune" src="../pictures/work/in-front-of-the-bosch-building.jpg" alt="In front of Bosch building" style="width: 150px;" /></p>
+<p style="position: absolute; top: 0.5rem; left: 0.5rem; margin: 0;"><img src="../pictures/work/bdu/UXGS%20Logo_verticle.svg" alt="UXGS area logo" /></p>
+<p><img src="../pictures/work/americas-team-2025.jpg" alt="Americas Team 2025 - UX Maturity Level 4" /></p>
+<p style="position: absolute; top: 0.5rem; right: 2rem; margin: 0;"><img src="../pictures/work/in-front-of-the-bosch-building.jpg" alt="In front of Bosch building" /></p>
 
 | Area | Achievement |
 | ---- | ----------- |
@@ -527,15 +552,24 @@ img[src*="story-flow"] {
 
 <!-- _class: art-top-right -->
 
+<style scoped>
+img[src*="digital-ws"] { width: 250px !important; height: auto !important; }
+img[src*="cip-ux-pipeline"] {
+  width: 72% !important; height: auto !important; margin-top: 0.5rem !important;
+  margin-left: auto !important; margin-right: auto !important; display: block !important;
+  border: none !important; box-shadow: none !important;
+}
+</style>
+
 ## Present – CIP and UX Integration: A Critical Career Milestone
 
-<p><img class="img-tune" src="../pictures/work/digital-ws.jpg" alt="UX Strategy Workshop" style="width: 250px;" /></p>
+<p><img src="../pictures/work/digital-ws.jpg" alt="UX Strategy Workshop" /></p>
 
 - **Career significance:** This project marks a pivotal evolution into **Senior Researcher** capabilities—combining in-depth, data-oriented investigation with technical execution, project management, and governance.  
 - **Project scope:** Integrated **UX relevance assessment** into the **Continuous Improvement Process (CIP)** in ServiceNow CIM. A **UX gate** sits between Assess and Approve; the method runs at that gate to triage improvement initiatives (Low / Medium / High UX relevance).  
 - **Methodology—developer skills for research:** Utilized **Cursor IDE**, **AI-assisted coding**, and version-controlled Python pipelines. Workflow:
 
-<p><img class="img-tune" src="../pictures/diagrams/cip-ux-pipeline.png" alt="Diagram cip-ux-pipeline: CIP-UX methodology pipeline" style="width: 72%; margin-top: 0.5rem; margin-left: auto; margin-right: auto; display: block; border: none; box-shadow: none;" /></p>
+<p><img src="../pictures/diagrams/cip-ux-pipeline.png" alt="Diagram cip-ux-pipeline: CIP-UX methodology pipeline" /></p>
 
 - **Deliverables:**
 
@@ -555,18 +589,22 @@ img[src*="story-flow"] {
 
 <!-- _class: dense-content cip-ux-images -->
 
+<style scoped>
+img[src*="cip-ux/"] { width: 18% !important; height: auto !important; max-width: 18% !important; }
+</style>
+
 ## Present – CIP and UX Integration: Research Artifacts & Visuals
 
 - **High-quality, data-oriented deliverables** produced using Markdown, Python pipelines, and Cursor IDE: (1) **1st Research Report** (January 2026)—"Make governance clear. Keep improvements moving."—consolidating N=214 records, executive summary, literature benchmark, methodology, findings, and strategic opportunities; (2) **UX Relevance Quick Method** (method.md v2.8)—CIM-to-Q1–Q10 mapping, scoring algorithm, post-evaluation workflow; (3) **Pipeline** (`tests/standalone-tests/pipeline/`)—extraction, aggregation, score calculation, validation. Distribution (N=35): Low 57.1%, Medium 20.0%, High 22.9%.
 
-<p><img class="img-tune" src="../pictures/work/cip-ux/cip-ux-1.png" alt="CIP-UX 1 – Report cover: Make governance clear. Keep improvements moving." /></p>
-<p><img class="img-tune" src="../pictures/work/cip-ux/cip-ux-2.png" alt="CIP-UX 2 – Summary and executive findings" /></p>
-<p><img class="img-tune" src="../pictures/work/cip-ux/cip-ux-3.png" alt="CIP-UX 3 – Context and methodology" /></p>
-<p><img class="img-tune" src="../pictures/work/cip-ux/cip-ux-4.png" alt="CIP-UX 4 – Literature review and benchmark" /></p>
-<p><img class="img-tune" src="../pictures/work/cip-ux/cip-ux-5.png" alt="CIP-UX 5 – Findings and Criticality Index" /></p>
-<p><img class="img-tune" src="../pictures/work/cip-ux/cip-ux-6.png" alt="CIP-UX 6 – Pipeline and data processing" /></p>
-<p><img class="img-tune" src="../pictures/work/cip-ux/cip-ux-7.png" alt="CIP-UX 7 – Conclusions and strategic opportunities" /></p>
-<p><img class="img-tune" src="../pictures/work/cip-ux/cip-ux-8.png" alt="CIP-UX 8 – Additional research visuals" /></p>
+<p><img src="../pictures/work/cip-ux/cip-ux-1.png" alt="CIP-UX 1 – Report cover: Make governance clear. Keep improvements moving." /></p>
+<p><img src="../pictures/work/cip-ux/cip-ux-2.png" alt="CIP-UX 2 – Summary and executive findings" /></p>
+<p><img src="../pictures/work/cip-ux/cip-ux-3.png" alt="CIP-UX 3 – Context and methodology" /></p>
+<p><img src="../pictures/work/cip-ux/cip-ux-4.png" alt="CIP-UX 4 – Literature review and benchmark" /></p>
+<p><img src="../pictures/work/cip-ux/cip-ux-5.png" alt="CIP-UX 5 – Findings and Criticality Index" /></p>
+<p><img src="../pictures/work/cip-ux/cip-ux-6.png" alt="CIP-UX 6 – Pipeline and data processing" /></p>
+<p><img src="../pictures/work/cip-ux/cip-ux-7.png" alt="CIP-UX 7 – Conclusions and strategic opportunities" /></p>
+<p><img src="../pictures/work/cip-ux/cip-ux-8.png" alt="CIP-UX 8 – Additional research visuals" /></p>
 
 ---
 
@@ -574,11 +612,20 @@ img[src*="story-flow"] {
 
 <!-- _class: art-top-right -->
 
+<style scoped>
+img[src*="hfsd-workshop-1"] { width: 250px !important; height: auto !important; }
+img[src*="academic-research-flow"] {
+  width: 72% !important; height: auto !important; margin-top: 0.5rem !important;
+  margin-left: auto !important; margin-right: auto !important; display: block !important;
+  border: none !important; box-shadow: none !important;
+}
+</style>
+
 ## Present – Academic Research (Trust in AI & UI)
 
-<p><img class="img-tune" src="../pictures/academia/hfsd-workshop-1.jpg" alt="ISSRE 2025 HFSD Workshop" style="width: 250px;" /></p>
+<p><img src="../pictures/academia/hfsd-workshop-1.jpg" alt="ISSRE 2025 HFSD Workshop" /></p>
 
-<p><img class="img-tune" src="../pictures/diagrams/academic-research-flow.png" alt="Diagram academic-research-flow: Academic research flow" style="width: 72%; margin-top: 0.5rem; margin-left: auto; margin-right: auto; display: block; border: none; box-shadow: none;" /></p>
+<p><img src="../pictures/diagrams/academic-research-flow.png" alt="Diagram academic-research-flow: Academic research flow" /></p>
 
 - **Master's focus:** Benchmark to assess software trustworthiness (Usability, Accessibility, UX). Thesis: quantitative methods for perceived trust in e-commerce and software interfaces.  
 - **Publications:** ISSRE 2025 (HFSD – IEEE), IHC 2025 (SBC SOL). **TrustMate** + Power BI for trust scores; **AI agents as survey respondents**, full-stack development, Figma prototyping.  
@@ -592,14 +639,18 @@ img[src*="story-flow"] {
 
 <!-- _class: dense-content article-images -->
 
+<style scoped>
+img[src*="academia/articles"] { width: 140px !important; height: auto !important; max-width: 145px !important; }
+</style>
+
 ## Present – Scientific Publications (Visual Evidence)
 
-<p><img class="img-tune" src="../pictures/academia/articles/article-1-1.png" alt="Article 1 page 1" /></p>
-<p><img class="img-tune" src="../pictures/academia/articles/article-1-2.png" alt="Article 1 page 2" /></p>
-<p><img class="img-tune" src="../pictures/academia/articles/article-2-1.png" alt="Article 2 page 1" /></p>
-<p><img class="img-tune" src="../pictures/academia/articles/article-2-2.png" alt="Article 2 page 2" /></p>
-<p><img class="img-tune" src="../pictures/academia/articles/dissertation-page-1.png" alt="Dissertation page 1" /></p>
-<p><img class="img-tune" src="../pictures/academia/articles/dissertation-page-2.png" alt="Dissertation page 2" /></p>
+<p><img src="../pictures/academia/articles/article-1-1.png" alt="Article 1 page 1" /></p>
+<p><img src="../pictures/academia/articles/article-1-2.png" alt="Article 1 page 2" /></p>
+<p><img src="../pictures/academia/articles/article-2-1.png" alt="Article 2 page 1" /></p>
+<p><img src="../pictures/academia/articles/article-2-2.png" alt="Article 2 page 2" /></p>
+<p><img src="../pictures/academia/articles/dissertation-page-1.png" alt="Dissertation page 1" /></p>
+<p><img src="../pictures/academia/articles/dissertation-page-2.png" alt="Dissertation page 2" /></p>
 
 - Published work in **ISSRE 2025 (HFSD Workshop)** and **IHC 2025 (SBC SOL)**; master's dissertation on software trustworthiness.
 
@@ -629,12 +680,16 @@ img[src*="story-flow"] {
 
 <!-- _class: dense-content work-pbi-images -->
 
+<style scoped>
+img[src*="pbi-allocation"], img[src*="pbi-training-evolution"] { width: 48% !important; height: auto !important; max-width: 48% !important; }
+</style>
+
 ## Theme: Data Visualization – Power BI Dashboards at Work
 
 - **Bosch UXGS Americas:** Power BI dashboards developed in role for project and resource oversight and for training tracking—supporting data-driven decision-making and governance.
 
-<p><img class="img-tune" src="../pictures/work/pbi-allocation.png" alt="Power BI – LA Allocation Dashboard" /></p>
-<p><img class="img-tune" src="../pictures/work/pbi-training-evolution.png" alt="Power BI – SMTs Evolution training dashboard" /></p>
+<p><img src="../pictures/work/pbi-allocation.png" alt="Power BI – LA Allocation Dashboard" /></p>
+<p><img src="../pictures/work/pbi-training-evolution.png" alt="Power BI – SMTs Evolution training dashboard" /></p>
 
 ---
 
@@ -642,13 +697,17 @@ img[src*="story-flow"] {
 
 <!-- _class: dense-content dissertation-pbi-images -->
 
+<style scoped>
+img[src*="dissertation/dissertation-pbi"] { width: 32% !important; height: auto !important; max-width: 32% !important; }
+</style>
+
 ## Theme: Data Visualization – Dissertation Power BI
 
 - **Dissertation InfoVis (Power BI):** Dashboards and charts for trust-metrics analysis—variability of human scores across websites (Americanas, MadeiraMadeira, Kabum), AI × human homogeneity by attribute, and line comparisons (human vs AI scores per website). Supports validation of trust perception models and consolidation of research findings.
 
-<p><img class="img-tune" src="../pictures/academia/dissertation/dissertation-pbi-1.png" alt="Power BI – variability of human scores between websites" /></p>
-<p><img class="img-tune" src="../pictures/academia/dissertation/dissertation-pbi-2.png" alt="Power BI – AI × human homogeneity by attribute" /></p>
-<p><img class="img-tune" src="../pictures/academia/dissertation/dissertation-pbi-3.png" alt="Power BI – AI × humans comparison lines per website" /></p>
+<p><img src="../pictures/academia/dissertation/dissertation-pbi-1.png" alt="Power BI – variability of human scores between websites" /></p>
+<p><img src="../pictures/academia/dissertation/dissertation-pbi-2.png" alt="Power BI – AI × human homogeneity by attribute" /></p>
+<p><img src="../pictures/academia/dissertation/dissertation-pbi-3.png" alt="Power BI – AI × humans comparison lines per website" /></p>
 
 ---
 
@@ -656,21 +715,38 @@ img[src*="story-flow"] {
 
 <!-- _class: dense-content infovis-pbi-images -->
 
+<style scoped>
+img[src*="infovis-pnad-structures"] {
+  width: 72% !important; height: auto !important; margin-top: 0.5rem !important;
+  margin-left: auto !important; margin-right: auto !important; display: block !important;
+  border: none !important; box-shadow: none !important;
+}
+img[src*="pbi-infovis"] { width: 48% !important; height: auto !important; max-width: 48% !important; }
+</style>
+
 ## Theme: Data Visualization – InfoVis Project (PNAD Contínua)
 
 - **InfoVis class project – Power BI:** Built multi-page reports using **PNAD Contínua** (Brazil's National Household Sample Survey). Brazil’s National Household Sample Survey.
-<p><img class="img-tune" src="../pictures/diagrams/infovis-pnad-structures.png" alt="Diagram infovis-pnad-structures: InfoVis PNAD visual structures" style="width: 72%; margin-top: 0.5rem; margin-left: auto; margin-right: auto; display: block; border: none; box-shadow: none;" /></p>
+<p><img src="../pictures/diagrams/infovis-pnad-structures.png" alt="Diagram infovis-pnad-structures: InfoVis PNAD visual structures" /></p>
 
 - **Impact:** Demonstrates **Power BI** proficiency and **processing complex national research datasets** into clear, actionable visual insights for socioeconomic analysis.
 
 <!-- Diagram: infovis-pnad-structures (mermaid/diagrams.md). Export to infovis-pnad-structures.png -->
 
-<p><img class="img-tune" src="../pictures/academia/infovis/pbi-infovis-1.png" alt="Power BI – Education-employment trajectories Sankey" /></p>
-<p><img class="img-tune" src="../pictures/academia/infovis/pbi-infovis-2.png" alt="Power BI – Family structure and socioeconomic patterns" /></p>
+<p><img src="../pictures/academia/infovis/pbi-infovis-1.png" alt="Power BI – Education-employment trajectories Sankey" /></p>
+<p><img src="../pictures/academia/infovis/pbi-infovis-2.png" alt="Power BI – Family structure and socioeconomic patterns" /></p>
 
 ---
 
 <!-- Slide 14 – Present (Dissertation: Technical Implementation & Impact) -->
+
+<style scoped>
+img[src*="dissertation-tech.png"] {
+  width: 72% !important; height: auto !important; margin-top: 0.5rem !important;
+  margin-left: auto !important; margin-right: auto !important; display: block !important;
+  border: none !important; box-shadow: none !important;
+}
+</style>
 
 ## Theme: Technical Implementation – Dissertation (AI & Full Stack)
 
@@ -678,7 +754,7 @@ img[src*="story-flow"] {
 
 <!-- Diagram: dissertation-tech (mermaid/diagrams.md). Export to dissertation-tech.png -->
 
-<p><img class="img-tune" src="../pictures/diagrams/dissertation-tech.png" alt="Diagram dissertation-tech: Dissertation & research technologies" style="width: 72%; margin-top: 0.5rem; margin-left: auto; margin-right: auto; display: block; border: none; box-shadow: none;" /></p>
+<p><img src="../pictures/diagrams/dissertation-tech.png" alt="Diagram dissertation-tech: Dissertation & research technologies" /></p>
 
 ---
 
@@ -686,14 +762,18 @@ img[src*="story-flow"] {
 
 <!-- _class: dense-content dissertation-tech-images -->
 
+<style scoped>
+img[src*="disseratation-tech"] { width: 20% !important; height: auto !important; max-width: 20% !important; }
+</style>
+
 ## Theme: Technical Implementation – Visual Evidence
 
-<p><img class="img-tune" src="../pictures/academia/disseratation-tech-1-agents-1.png" alt="AI agent survey – e-commerce evaluation" /></p>
-<p><img class="img-tune" src="../pictures/academia/disseratation-tech-1-agents-2.png" alt="AI agent survey – TrustMate dashboard" /></p>
-<p><img class="img-tune" src="../pictures/academia/disseratation-tech-2-web-1.png" alt="E-commerce evaluation – product page" /></p>
-<p><img class="img-tune" src="../pictures/academia/disseratation-tech-2-web-2.png" alt="Evaluation metrics – trust and UX scores" /></p>
-<p><img class="img-tune" src="../pictures/academia/disseratation-tech-2-web-3.png" alt="TrustMate – hierarchy of attributes" /></p>
-<p><img class="img-tune" src="../pictures/academia/disseratation-tech-3-prototype-1.png" alt="TrustMate tool evaluation – prototype" /></p>
+<p><img src="../pictures/academia/disseratation-tech-1-agents-1.png" alt="AI agent survey – e-commerce evaluation" /></p>
+<p><img src="../pictures/academia/disseratation-tech-1-agents-2.png" alt="AI agent survey – TrustMate dashboard" /></p>
+<p><img src="../pictures/academia/disseratation-tech-2-web-1.png" alt="E-commerce evaluation – product page" /></p>
+<p><img src="../pictures/academia/disseratation-tech-2-web-2.png" alt="Evaluation metrics – trust and UX scores" /></p>
+<p><img src="../pictures/academia/disseratation-tech-2-web-3.png" alt="TrustMate – hierarchy of attributes" /></p>
+<p><img src="../pictures/academia/disseratation-tech-3-prototype-1.png" alt="TrustMate tool evaluation – prototype" /></p>
 
 ---
 
@@ -701,17 +781,26 @@ img[src*="story-flow"] {
 
 <!-- _class: dense-content tooling-project-images -->
 
+<style scoped>
+img[src*="tooling-pt-workflow"] {
+  width: 72% !important; height: auto !important; margin-top: 0.5rem !important;
+  margin-left: auto !important; margin-right: auto !important; display: block !important;
+  border: none !important; box-shadow: none !important;
+}
+img[src*="tooling-project/"] { width: 32% !important; height: auto !important; max-width: 32% !important; }
+</style>
+
 ## Theme: Technical Implementation – Tooling Project for PT
 
 - **Tooling project for PT:** Key development in **technical delivery and project management**—from requirements to high-fidelity deliverable, with **customer progress review meetings** throughout.
 
-<p><img class="img-tune" src="../pictures/diagrams/tooling-pt-workflow.png" alt="Diagram tooling-pt-workflow: Tooling PT delivery workflow" style="width: 72%; margin-top: 0.5rem; margin-left: auto; margin-right: auto; display: block; border: none; box-shadow: none;" /></p>
+<p><img src="../pictures/diagrams/tooling-pt-workflow.png" alt="Diagram tooling-pt-workflow: Tooling PT delivery workflow" /></p>
 
 <!-- Diagram: tooling-pt-workflow (mermaid/diagrams.md). Export to tooling-pt-workflow.png -->
 
-<p><img class="img-tune" src="../pictures/work/tooling-project/tooling-1.png" alt="Tooling project for PT – wireframe or early concept" /></p>
-<p><img class="img-tune" src="../pictures/work/tooling-project/tooling-2.png" alt="Tooling project for PT – low-fidelity prototype" /></p>
-<p><img class="img-tune" src="../pictures/work/tooling-project/tooling-3.png" alt="Tooling project for PT – high-fidelity prototype" /></p>
+<p><img src="../pictures/work/tooling-project/tooling-1.png" alt="Tooling project for PT – wireframe or early concept" /></p>
+<p><img src="../pictures/work/tooling-project/tooling-2.png" alt="Tooling project for PT – low-fidelity prototype" /></p>
+<p><img src="../pictures/work/tooling-project/tooling-3.png" alt="Tooling project for PT – high-fidelity prototype" /></p>
 
 ---
 
@@ -719,14 +808,23 @@ img[src*="story-flow"] {
 
 <!-- _class: art-top-right -->
 
+<style scoped>
+img[src*="proposal-generator.png"] { width: 280px !important; height: auto !important; }
+img[src*="proposal-generator-phases"] {
+  width: 72% !important; height: auto !important; margin-top: 0.5rem !important;
+  margin-left: auto !important; margin-right: auto !important; display: block !important;
+  border: none !important; box-shadow: none !important;
+}
+</style>
+
 ## Theme: Technical Implementation – Proposal Generator (Excel VBA)
 
-<p><img class="img-tune" src="../pictures/work/proposal-generator.png" alt="Proposal Generator – Excel-based project proposal tool" /></p>
+<p><img src="../pictures/work/proposal-generator.png" alt="Proposal Generator – Excel-based project proposal tool" /></p>
 
 - **Definition:** Excel-based application for **automated proposal creation**—project proposals: define activities, estimate hours, Gantt-style timeline, and generate PowerPoint.
 - **Generation logic:** Uses **predefined criteria and historical project data**; outputs (activities, hours, timeline) are driven by that logic.
 
-<p><img class="img-tune" src="../pictures/diagrams/proposal-generator-phases.png" alt="Diagram proposal-generator-phases: Proposal Generator UX phases" style="width: 72%; margin-top: 0.5rem; margin-left: auto; margin-right: auto; display: block; border: none; box-shadow: none;" /></p>
+<p><img src="../pictures/diagrams/proposal-generator-phases.png" alt="Diagram proposal-generator-phases: Proposal Generator UX phases" /></p>
 
 - **Technical proficiency:** Developed in **Excel VBA**—macros for automation, calculations, and presentation generation.
 
@@ -738,20 +836,32 @@ img[src*="story-flow"] {
 
 <!-- _class: dense-content phrase-net-images -->
 
+<style scoped>
+img[src*="infovis-phrase-netproject"] { width: 32% !important; height: auto !important; max-width: 32% !important; }
+</style>
+
 ## Theme: Technical Implementation – PhraseNets Web Visualization
 
 - **Course project – Information Visualization (InfoVis):** Developed a web-based PhraseNets visualization to explore relationships in text.\
 - **Technique:** Implements PhraseNets pattern-based networks (e.g. subject–verb, verb–object) to reveal co-occurrence structures that standard charts miss.\
 - **Why it matters:** Demonstrates proficiency in **web development** (interactive browser-based interface) and **advanced visual structures** beyond standard Power BI capabilities.
 
-<p><img class="img-tune" src="../pictures/academia/infovis/infovis-phrase-netproject-1.png" alt="PhraseNets web visualization – interface and controls" /></p>
-<p><img class="img-tune" src="../pictures/academia/infovis/infovis-phrase-netproject-2.png" alt="PhraseNets visualization – example network 1" /></p>
-<p><img class="img-tune" src="../pictures/academia/infovis/infovis-phrase-netproject-3.png" alt="PhraseNets visualization – example network 2" /></p>
+<p><img src="../pictures/academia/infovis/infovis-phrase-netproject-1.png" alt="PhraseNets web visualization – interface and controls" /></p>
+<p><img src="../pictures/academia/infovis/infovis-phrase-netproject-2.png" alt="PhraseNets visualization – example network 1" /></p>
+<p><img src="../pictures/academia/infovis/infovis-phrase-netproject-3.png" alt="PhraseNets visualization – example network 2" /></p>
 
 ---
 
 <!-- Slide 19 – Future (AI & Agile in Research) -->
 <!-- Diagram: ai-agile-research (mermaid/diagrams.md). Export to ai-agile-research.png -->
+
+<style scoped>
+img[src*="ai-agile-research"] {
+  width: 72% !important; height: auto !important; margin-top: 0.5rem !important;
+  margin-left: auto !important; margin-right: auto !important; display: block !important;
+  border: none !important; box-shadow: none !important;
+}
+</style>
 
 ## Theme: Process & Future – AI & Agile in Research
 
@@ -759,7 +869,7 @@ img[src*="story-flow"] {
 - **Proposal:** Combine **AI assistance** with **Scrum practices** to improve throughput, transparency, and quality.  
 - **Approach:**
 
-<p><img class="img-tune" src="../pictures/diagrams/ai-agile-research.png" alt="Diagram ai-agile-research: AI and Agile in Research" style="width: 72%; margin-top: 0.5rem; margin-left: auto; margin-right: auto; display: block; border: none; box-shadow: none;" /></p>
+<p><img src="../pictures/diagrams/ai-agile-research.png" alt="Diagram ai-agile-research: AI and Agile in Research" /></p>
 
 - **Guardrails:** AI outputs treated as drafts; strong focus on reproducibility, data privacy, and explicit quality criteria.  
 
@@ -769,9 +879,13 @@ img[src*="story-flow"] {
 
 <!-- _class: art-top-right compact-list -->
 
+<style scoped>
+img[src*="bosch-2018"] { width: 280px !important; height: auto !important; }
+</style>
+
 ## Theme: Process & Innovation – Awards
 
-<p><img class="img-tune" src="../pictures/work/bosch-2018.jpg" alt="Bosch Talent Forum 2018 - 3rd Place Award" /></p>
+<p><img src="../pictures/work/bosch-2018.jpg" alt="Bosch Talent Forum 2018 - 3rd Place Award" /></p>
 
 | Award | Place | Year / Context |
 | ----- | ----- | -------------- |
@@ -786,17 +900,26 @@ img[src*="story-flow"] {
 
 <!-- _class: art-top-right dense-content -->
 
+<style scoped>
+img[src*="budapest-2019"], img[src*="bosch-argentina"] { width: 140px !important; height: auto !important; }
+img[src*="experience-timeline"] {
+  width: 72% !important; height: auto !important; margin-top: 0.5rem !important;
+  margin-left: auto !important; margin-right: auto !important; display: block !important;
+  border: none !important; box-shadow: none !important;
+}
+</style>
+
 ## Theme: Process – Experience Timeline (Condensed)
 
 - **Trajectory across Bosch locations:** Brazil, Hungary (Budapest), Germany, Argentina.
 
 <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
-<p><img class="img-tune" src="../pictures/work/budapest-2019.jpg" alt="Bosch Magyarország - Budapest 2019" style="width: 140px;" /></p>
-<p><img class="img-tune" src="../pictures/work/budapest-2019-2.jpg" alt="Budapest team 2019 – farewell book" style="width: 140px;" /></p>
-<p><img class="img-tune" src="../pictures/work/bosch-argentina.jpg" alt="Bosch Argentina – We are Bosch" style="width: 140px;" /></p>
+<p><img src="../pictures/work/budapest-2019.jpg" alt="Bosch Magyarország - Budapest 2019" /></p>
+<p><img src="../pictures/work/budapest-2019-2.jpg" alt="Budapest team 2019 – farewell book" /></p>
+<p><img src="../pictures/work/bosch-argentina.jpg" alt="Bosch Argentina – We are Bosch" /></p>
 </div>
 
-<p><img class="img-tune" src="../pictures/diagrams/experience-timeline.png" alt="Diagram experience-timeline: Experience timeline" style="width: 72%; margin-top: 0.5rem; margin-left: auto; margin-right: auto; display: block; border: none; box-shadow: none;" /></p>
+<p><img src="../pictures/diagrams/experience-timeline.png" alt="Diagram experience-timeline: Experience timeline" /></p>
 
 <!-- Diagram: experience-timeline (mermaid/diagrams.md). Export to experience-timeline.png -->  
 
@@ -804,11 +927,19 @@ img[src*="story-flow"] {
 
 <!-- Slide 22 – Future (Career Aspirations, Vacancy Types & Prioritized Paths to Leadership) -->
 
+<style scoped>
+img[src*="future-career-path"] {
+  width: 72% !important; height: auto !important; margin-top: 0.5rem !important;
+  margin-left: auto !important; margin-right: auto !important; display: block !important;
+  border: none !important; box-shadow: none !important;
+}
+</style>
+
 ## Future – Career Aspirations, Vacancy Types & Prioritized Paths to Leadership
 
 <!-- Diagram: future-career-path (mermaid/diagrams.md). Export to future-career-path.png -->
 
-<p><img class="img-tune" src="../pictures/diagrams/future-career-path.png" alt="Diagram future-career-path: Prioritized paths to leadership" style="width: 72%; margin-top: 0.5rem; margin-left: auto; margin-right: auto; display: block; border: none; box-shadow: none;" /></p>
+<p><img src="../pictures/diagrams/future-career-path.png" alt="Diagram future-career-path: Prioritized paths to leadership" /></p>
 
 - **Prioritized career paths (all leading to a Lead position):** (1) **Priority 1 – Ideal:** PhD within Bosch supporting the company with Quantum or AI technology; (2) **Priority 2:** Research Scrum Master who also provides technical support; (3) **Priority 3:** UX Researcher.
 - **Future objective:** Work in **technology-focused roles** that integrate **in-depth research, project management, and AI implementation** as a core professional interest.
@@ -830,16 +961,20 @@ img[src*="story-flow"] {
 
 <!-- _class: dense-content personal-images -->
 
+<style scoped>
+img[src*="personal/"] { width: 165px !important; height: auto !important; max-width: 180px !important; }
+</style>
+
 ## Future – Personal Interests that Power My Work
 
 - **At home:** Two cats, beginner piano practice, and a split keyboard for macro creation and productivity.
 
-<p><img class="img-tune" src="../pictures/personal/my-family.jpg" alt="Family" /></p>
-<p><img class="img-tune" src="../pictures/personal/friends.jpg" alt="Friends" /></p>
-<p><img class="img-tune" src="../pictures/personal/germany-2025.jpg" alt="Germany 2025" /></p>
-<p><img class="img-tune" src="../pictures/personal/budapes-2019-2.jpg" alt="Budapest 2019" /></p>
-<p><img class="img-tune" src="../pictures/personal/cat-piano.jpg" alt="Cat on piano – beginner piano practice" /></p>
-<p><img class="img-tune" src="../pictures/personal/cat-slipt-keyboard.jpg" alt="Cat on split keyboard – macro creation and productivity" /></p>
+<p><img src="../pictures/personal/my-family.jpg" alt="Family" /></p>
+<p><img src="../pictures/personal/friends.jpg" alt="Friends" /></p>
+<p><img src="../pictures/personal/germany-2025.jpg" alt="Germany 2025" /></p>
+<p><img src="../pictures/personal/budapes-2019-2.jpg" alt="Budapest 2019" /></p>
+<p><img src="../pictures/personal/cat-piano.jpg" alt="Cat on piano – beginner piano practice" /></p>
+<p><img src="../pictures/personal/cat-slipt-keyboard.jpg" alt="Cat on split keyboard – macro creation and productivity" /></p>
 
 | Interest | Career enabler |
 | -------- | -------------- |
