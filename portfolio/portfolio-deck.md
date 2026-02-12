@@ -561,8 +561,7 @@ p.historico-wrap img {
 
 - I feel proactive, self-reliant and organized.
 
-<p style="text-align: center; margin-top: 1rem;"><strong>Grade 'A' in all Master's coursework</strong>; English proficiency test (Unicamp transcript available on request).</p>
-<p style="text-align: center; margin-top: 1rem;"><strong>Grade 'A' in all Master's coursework</strong>; English proficiency test (Unicamp transcript available on request).</p>
+<p style="text-align: center; margin-top: 1rem;"><strong>Grade 'A' in all Master's coursework</strong>; English proficiency test verification.</p>
 
 <!-- Diagram: academic-timeline (mermaid/diagrams.md). Export to academic-timeline.png -->  
 
