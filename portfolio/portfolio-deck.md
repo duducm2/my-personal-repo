@@ -150,7 +150,7 @@ style: |
     vertical-align: middle;
   }
 
-  /* Image Styling - Scattered Photo Effect with Unique Rotations */
+  /* Image Styling - Scattered Photo Effect */
   section:not(.lead):not(.midnight-blue-slide) img {
     border: 4px solid white;
     box-shadow: 2px 3px 8px rgba(0,0,0,0.15);
@@ -161,25 +161,8 @@ style: |
     border: none !important;
     box-shadow: none !important;
   }
-  section:not(.lead) img:hover { transform: scale(1.05) rotate(0deg); z-index: 10; }
-  
-  /* Unique rotation angles for each image - varied degrees for visual interest */
-  section:not(.lead) img[alt*="Eduardo Figueiredo"] { transform: rotate(-2.5deg); }
-  section:not(.lead) img[alt*="Academic Writing"] { transform: rotate(3.2deg); }
-  section:not(.lead) img[alt*="Budapest"] { transform: rotate(-1.8deg); }
-  section:not(.lead) img[alt*="Americas Team"] { transform: rotate(2.1deg); }
-  section:not(.lead) img[alt*="Research Strategy Workshop"] { transform: rotate(-3.5deg); }
-  section:not(.lead) img[alt*="ISSRE 2025"] { transform: rotate(1.7deg); }
-  section:not(.lead) img[alt*="Bosch Talent Forum"] { transform: rotate(-2.8deg); }
-  section:not(.lead) img[alt*="Family"] { transform: rotate(2.9deg); }
-  section:not(.lead) img[alt*="Friends"] { transform: rotate(-1.6deg); }
-  section:not(.lead) img[alt*="Germany 2025"] { transform: rotate(2.4deg); }
-  section:not(.lead) img[alt*="Budapest 2019"] { transform: rotate(-2.3deg); }
-  section:not(.lead) img[alt*="Bosch Argentina"] { transform: rotate(1.8deg); }
-  section:not(.lead) img[alt*="Cat on piano"] { transform: rotate(1.5deg); }
-  section:not(.lead) img[alt*="Cat on split keyboard"] { transform: rotate(-2deg); }
-  section:not(.lead) img[alt*="In front of Bosch building"] { transform: rotate(1.9deg); }
-  section:not(.lead) img[alt*="Future Career Path"] { transform: rotate(0deg); border: none; box-shadow: none; }
+  section:not(.lead) img:hover { transform: scale(1.05); z-index: 10; }
+  section:not(.lead) img[alt*="Future Career Path"] { border: none; box-shadow: none; }
 
   section.art-top-right {
     position: relative;
@@ -313,21 +296,6 @@ style: |
   section.article-images p:nth-of-type(4) img { width: 135px; }
   section.article-images p:nth-of-type(5) img { width: 138px; }
   section.article-images p:nth-of-type(6) img { width: 142px; }
-  section:not(.lead) img[alt*="Article 1 page 1"] { transform: rotate(-1.2deg); }
-  section:not(.lead) img[alt*="Article 1 page 2"] { transform: rotate(2deg); }
-  section:not(.lead) img[alt*="Article 2 page 1"] { transform: rotate(-2.1deg); }
-  section:not(.lead) img[alt*="Article 2 page 2"] { transform: rotate(1.4deg); }
-  section:not(.lead) img[alt*="Dissertation page 1"] { transform: rotate(-1.6deg); }
-  section:not(.lead) img[alt*="Dissertation page 2"] { transform: rotate(2.3deg); }
-  section:not(.lead) img[alt*="CIP-Research 1"] { transform: rotate(-2deg); }
-  section:not(.lead) img[alt*="CIP-Research 2"] { transform: rotate(1.5deg); }
-  section:not(.lead) img[alt*="CIP-Research 3"] { transform: rotate(-1.2deg); }
-  section:not(.lead) img[alt*="CIP-Research 4"] { transform: rotate(2deg); }
-  section:not(.lead) img[alt*="CIP-Research 5"] { transform: rotate(-1.8deg); }
-  section:not(.lead) img[alt*="CIP-Research 6"] { transform: rotate(1.3deg); }
-  section:not(.lead) img[alt*="CIP-Research 7"] { transform: rotate(-2.2deg); }
-  section:not(.lead) img[alt*="CIP-Research 8"] { transform: rotate(1.7deg); }
-
   /* Academic gallery layout - scattered group */
   section.academic-images p {
     display: inline-block;
@@ -524,11 +492,9 @@ p.logos-together {
 }
 p.logos-together img[src*="ETEC.png"] {
   width: 96px !important; height: auto !important;
-  transform: rotate(-2.5deg);
 }
 p.logos-together img[src*="UNICAMP.png"] {
   width: 96px !important; height: auto !important;
-  transform: rotate(2deg);
 }
 p.academic-writing-wrap {
   position: absolute !important;
@@ -822,10 +788,6 @@ section { position: relative; }
   border: 3px solid #f0f0f0 !important;
   box-shadow: 2px 3px 10px rgba(0,0,0,0.15) !important;
 }
-.academic-research-images-bottom p:nth-child(1) img { transform: rotate(-2.5deg); }
-.academic-research-images-bottom p:nth-child(2) img { transform: rotate(1.8deg); }
-.academic-research-images-bottom p:nth-child(3) img { transform: rotate(-1.2deg); }
-.academic-research-images-bottom p:nth-child(4) img { transform: rotate(2.2deg); }
 </style>
 
 ## Present – Academic Research (Trust in AI & UI)
@@ -1463,5 +1425,3 @@ section.closing-redesign h2 {
 <!-- Slide 27 – Blank Conclusion Page -->
 
 <!-- _class: blank-midnight-blue -->
-
-<img src="../arts/art-background.png" alt="" class="slide-bg-img">
