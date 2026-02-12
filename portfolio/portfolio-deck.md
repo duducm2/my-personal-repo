@@ -418,7 +418,7 @@ style: |
     margin: 0.25rem;
     vertical-align: top;
   }
-  section.cip-ux-images img {
+  section.cip-research-images img {
     max-width: 18%;
     height: auto;
   }
@@ -571,7 +571,7 @@ img[src*="cip-ux-pipeline"] {
 - **Project scope:** Integrated **research relevance assessment** into the **Continuous Improvement Process (CIP)** in ServiceNow CIM. A **research gate** sits between Assess and Approve; the method runs at that gate to triage improvement initiatives (Low / Medium / High research relevance).  
 - **Methodology—developer skills for research:** Utilized **Cursor IDE**, **AI-assisted coding**, and version-controlled Python pipelines. Workflow:
 
-<p><img src="../pictures/diagrams/cip-ux-pipeline.png" alt="Diagram cip-ux-pipeline: CIP-Research methodology pipeline" /></p>
+<p><img src="../pictures/diagrams/cip-ux-pipeline.png" alt="Diagram: CIP-Research methodology pipeline" /></p>
 
 - **Deliverables:**
 
@@ -583,13 +583,13 @@ img[src*="cip-ux-pipeline"] {
 
 - **Impact:** Governance clarity, reduced perceived delay, and reusable research governance framework. Aligned CAP and research into a unified, defensible solution.
 
-<!-- Diagram: cip-ux-pipeline (mermaid/diagrams.md). Export to cip-ux-pipeline.png -->  
+<!-- Diagram: CIP-Research pipeline (mermaid/diagrams.md). Export to cip-ux-pipeline.png -->  
 
 ---
 
 <!-- Slide 6b – Present (CIP and Research Integration: Research Artifacts & Visuals) -->
 
-<!-- _class: dense-content cip-ux-images -->
+<!-- _class: dense-content cip-research-images -->
 
 <style scoped>
 img[src*="cip-ux/"] { width: 18% !important; height: auto !important; max-width: 18% !important; }
