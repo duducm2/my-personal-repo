@@ -648,19 +648,42 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 
 <!-- Slide 6 – Present (CIP and Research Integration: diagram only) -->
 
-<!-- _class: center -->
+<!-- _class: diagram-slide-top-title -->
 
 <style scoped>
-img[src*="cip-ux-pipeline"] {
-  width: 51% !important; max-width: 55% !important; height: auto !important;
-  margin: 0 auto !important; display: block !important;
-  border: none !important; box-shadow: none !important;
+section.diagram-slide-top-title {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  align-items: stretch !important;
+}
+section.diagram-slide-top-title h2 {
+  margin-top: 0 !important;
+  flex-shrink: 0;
+}
+section.diagram-slide-top-title .diagram-wrapper {
+  flex: 1;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 0;
+}
+section.diagram-slide-top-title .diagram-wrapper img {
+  width: 85% !important;
+  max-width: 90% !important;
+  height: auto !important;
+  margin: 0 auto !important;
+  display: block !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 </style>
 
 ## Present – CIP and Research Integration: Methodology Pipeline
 
+<div class="diagram-wrapper">
 <p><img src="../pictures/diagrams/cip-ux-pipeline.png" alt="Diagram: CIP-Research methodology pipeline" /></p>
+</div>
 
 <!-- Diagram: CIP-Research pipeline (mermaid/diagrams.md). Export to cip-ux-pipeline.png -->
 
