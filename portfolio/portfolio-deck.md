@@ -623,7 +623,7 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 | CO2 Tracking (GS/Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand |
 | Research Maturity | Led Americas to Level 4 – governance, templates, training |
 | CIP + Research | Led integration into ServiceNow CIM; research gate in CIP workflow |
-| Collaboration | Tutor at SENAI Digital Talent Academy; scientific methods and project delivery |  
+| Collaboration | Tutor at SENAI Digital Talent Academy |  
 
 ---
 
