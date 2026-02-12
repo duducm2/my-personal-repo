@@ -5,11 +5,11 @@ paginate: false
 title: "Eduardo Figueiredo – Portfolio"
 author: "Eduardo Figueiredo"
 style: |
-  /* === IMAGE SIZE & POSITION (img-tune) – direct on <img> ===
-   * Put class="img-tune" on the img; set CSS variables in the img's style attribute.
-   *   --img-size : width (single property; height is auto for locked aspect ratio). Default: 72%
-   *   --img-x, --img-y : horizontal / vertical offset (margin-left, margin-top). Defaults: 0
-   * Example: <img class="img-tune" src="..." alt="..." style="--img-size: 200px; --img-x: 1rem; --img-y: 0.5rem;" />
+  /* === IMAGE SIZE & POSITION (img-tune + scoped style for Marp/PDF) ===
+   * Theme and PDF export often override inline styles on <img>. For reliable control:
+   * (1) On a slide, add <style scoped> and target the image, e.g. img[src*="story-flow"] { width: 60%; margin-top: 10px !important; }
+   * (2) Scoped CSS is merged by Marp and applies in PDF. Calibrate by editing values in that block.
+   * img-tune class still provides defaults (width: 72%, height: auto) where no scoped rule overrides.
    */
   :root {
     font-family: "Lato", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -92,6 +92,11 @@ style: |
     background-repeat: no-repeat;
   }
   section.lead img { display: block; margin-left: auto; margin-right: auto; }
+  section.lead img.img-tune {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    height: auto !important;
+  }
   section.lead::after {
     display: none;
   }
@@ -138,11 +143,9 @@ style: |
   }
 
   section img.img-tune {
-    width: var(--img-size, 72%) !important;
+    width: 72%;
     height: auto !important;
     object-fit: contain;
-    margin-left: var(--img-x, 0) !important;
-    margin-top: var(--img-y, 0) !important;
     display: inline-block;
     vertical-align: middle;
   }
@@ -419,18 +422,33 @@ style: |
     max-width: 18%;
     height: auto;
   }
+
+  /* img-tune: size/position come from inline style (width, margin-top, margin-left) for Marp compatibility */
 ---
 
 <!-- _class: lead -->
 
 <!--
-  HOW TO CALIBRATE IMAGES: Every content image has class="img-tune". To adjust size and position,
-  edit the img's style attribute and set: --img-size (width, e.g. 200px or 72%), --img-x, --img-y (offsets).
-  Omit a variable to use the default (72%, 0, 0). Aspect ratio is always preserved. Calibrate per slide by
-  tweaking these three parameters.
+  HOW TO CALIBRATE IMAGES (Marp/PDF): Inline styles on <img> are often overridden by the theme.
+  Use a <style scoped> block ON THE SLIDE and target the image (e.g. by img[src*="filename"]).
+  Set width, margin-top, margin-left there. Scoped CSS is merged by Marp and works in PDF export.
 -->
 
 <!-- Slide 1 – Why (Golden Circle: Why) -->
+
+<style scoped>
+/* Calibrate story-flow image: change width and margin-top here; they apply in Marp/PDF */
+img[src*="story-flow"] {
+  width: 60% !important;
+  height: auto !important;
+  margin-top: 10px !important;
+  margin-left: 10px !important;
+  margin-right: auto !important;
+  display: block !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+</style>
 
 # Why I Work in Technology, Project Management & Research
 ## Trustworthy, human-centered software for complex services
@@ -439,7 +457,7 @@ style: |
 - My work centers **technology**, **project management**, and **in-depth research**, integrating evidence and user needs into processes via systematic delivery.
 - This portfolio tells that story:
 
-<p><img class="img-tune" src="../pictures/diagrams/story-flow.png" alt="Diagram story-flow: Why story flow" style="--img-size: 60%; --img-y: 3.5rem; border: none; box-shadow: none;" /></p>
+<p><img src="../pictures/diagrams/story-flow.png" alt="Diagram story-flow: Why story flow" /></p>
 
 <!-- Diagram: story-flow (mermaid/diagrams.md). Export to story-flow.png -->
 
@@ -459,7 +477,7 @@ style: |
 | Impact | Americas UX Maturity Level 4; AI-driven UX quality gates; international projects |
 | Contact | Nova Odessa, SP – Brazil · edu.evangelista.figueiredo@gmail.com · LinkedIn / phone on request |
 
-<p class="photo-at-bottom"><img class="img-tune" src="../pictures/personal/my-photo-rectangle.png" alt="Eduardo Figueiredo" style="--img-size: 320px;" /></p>  
+<p class="photo-at-bottom"><img class="img-tune" src="../pictures/personal/my-photo-rectangle.png" alt="Eduardo Figueiredo" style="width: 320px;" /></p>  
 
 ---
 
@@ -469,11 +487,11 @@ style: |
 
 ## Past – Academic Foundations & Professional Profile
 
-<p><img class="img-tune" src="../pictures/academia/logos/ETEC.png" alt="ETEC logo – Bento Quirino" style="--img-size: 48px; vertical-align: middle;" /></p>
-<p><img class="img-tune" src="../pictures/academia/logos/UNICAMP.png" alt="Unicamp logo" style="--img-size: 48px; vertical-align: middle;" /></p>
-<p><img class="img-tune" src="../pictures/academia/academic-writing.jpg" alt="Academic Writing Course - Unicamp" style="--img-size: 100px;" /></p>
+<p><img class="img-tune" src="../pictures/academia/logos/ETEC.png" alt="ETEC logo – Bento Quirino" style="width: 48px; vertical-align: middle;" /></p>
+<p><img class="img-tune" src="../pictures/academia/logos/UNICAMP.png" alt="Unicamp logo" style="width: 48px; vertical-align: middle;" /></p>
+<p><img class="img-tune" src="../pictures/academia/academic-writing.jpg" alt="Academic Writing Course - Unicamp" style="width: 100px;" /></p>
 
-<p><img class="img-tune" src="../pictures/diagrams/academic-timeline.png" alt="Diagram academic-timeline: Academic timeline" style="--img-size: 72%; --img-y: 0.5rem; border: none; box-shadow: none;" /></p>
+<p><img class="img-tune" src="../pictures/diagrams/academic-timeline.png" alt="Diagram academic-timeline: Academic timeline" style="width: 72%; margin-top: 0.5rem; margin-left: auto; margin-right: auto; display: block; border: none; box-shadow: none;" /></p>
 
 - **Technical school (ETEC):** Technical Degree in Computer Science – ETEC Bento Quirino (2012–2014).
 - **Undergraduate & Master's (Unicamp):** Systems Analysis and Development (2015–2020); Master's in Technology – Information and Communication Systems UX (2023–2025).
@@ -490,9 +508,9 @@ style: |
 
 ## Present – Research & Technology (Bosch Brasil)
 
-<p style="position: absolute; top: 0.5rem; left: 0.5rem; margin: 0;"><img class="img-tune" src="../pictures/work/bdu/UXGS%20Logo_verticle.svg" alt="UXGS area logo" style="--img-size: 56px;" /></p>
-<p><img class="img-tune" src="../pictures/work/americas-team-2025.jpg" alt="Americas Team 2025 - UX Maturity Level 4" style="--img-size: 280px;" /></p>
-<p style="position: absolute; top: 0.5rem; right: 2rem; margin: 0;"><img class="img-tune" src="../pictures/work/in-front-of-the-bosch-building.jpg" alt="In front of Bosch building" style="--img-size: 150px;" /></p>
+<p style="position: absolute; top: 0.5rem; left: 0.5rem; margin: 0;"><img class="img-tune" src="../pictures/work/bdu/UXGS%20Logo_verticle.svg" alt="UXGS area logo" style="width: 56px;" /></p>
+<p><img class="img-tune" src="../pictures/work/americas-team-2025.jpg" alt="Americas Team 2025 - UX Maturity Level 4" style="width: 280px;" /></p>
+<p style="position: absolute; top: 0.5rem; right: 2rem; margin: 0;"><img class="img-tune" src="../pictures/work/in-front-of-the-bosch-building.jpg" alt="In front of Bosch building" style="width: 150px;" /></p>
 
 | Area | Achievement |
 | ---- | ----------- |
@@ -511,13 +529,13 @@ style: |
 
 ## Present – CIP and UX Integration: A Critical Career Milestone
 
-<p><img class="img-tune" src="../pictures/work/digital-ws.jpg" alt="UX Strategy Workshop" style="--img-size: 250px;" /></p>
+<p><img class="img-tune" src="../pictures/work/digital-ws.jpg" alt="UX Strategy Workshop" style="width: 250px;" /></p>
 
 - **Career significance:** This project marks a pivotal evolution into **Senior Researcher** capabilities—combining in-depth, data-oriented investigation with technical execution, project management, and governance.  
 - **Project scope:** Integrated **UX relevance assessment** into the **Continuous Improvement Process (CIP)** in ServiceNow CIM. A **UX gate** sits between Assess and Approve; the method runs at that gate to triage improvement initiatives (Low / Medium / High UX relevance).  
 - **Methodology—developer skills for research:** Utilized **Cursor IDE**, **AI-assisted coding**, and version-controlled Python pipelines. Workflow:
 
-<p><img class="img-tune" src="../pictures/diagrams/cip-ux-pipeline.png" alt="Diagram cip-ux-pipeline: CIP-UX methodology pipeline" style="--img-size: 72%; --img-y: 0.5rem; border: none; box-shadow: none;" /></p>
+<p><img class="img-tune" src="../pictures/diagrams/cip-ux-pipeline.png" alt="Diagram cip-ux-pipeline: CIP-UX methodology pipeline" style="width: 72%; margin-top: 0.5rem; margin-left: auto; margin-right: auto; display: block; border: none; box-shadow: none;" /></p>
 
 - **Deliverables:**
 
@@ -558,9 +576,9 @@ style: |
 
 ## Present – Academic Research (Trust in AI & UI)
 
-<p><img class="img-tune" src="../pictures/academia/hfsd-workshop-1.jpg" alt="ISSRE 2025 HFSD Workshop" style="--img-size: 250px;" /></p>
+<p><img class="img-tune" src="../pictures/academia/hfsd-workshop-1.jpg" alt="ISSRE 2025 HFSD Workshop" style="width: 250px;" /></p>
 
-<p><img class="img-tune" src="../pictures/diagrams/academic-research-flow.png" alt="Diagram academic-research-flow: Academic research flow" style="--img-size: 72%; --img-y: 0.5rem; border: none; box-shadow: none;" /></p>
+<p><img class="img-tune" src="../pictures/diagrams/academic-research-flow.png" alt="Diagram academic-research-flow: Academic research flow" style="width: 72%; margin-top: 0.5rem; margin-left: auto; margin-right: auto; display: block; border: none; box-shadow: none;" /></p>
 
 - **Master's focus:** Benchmark to assess software trustworthiness (Usability, Accessibility, UX). Thesis: quantitative methods for perceived trust in e-commerce and software interfaces.  
 - **Publications:** ISSRE 2025 (HFSD – IEEE), IHC 2025 (SBC SOL). **TrustMate** + Power BI for trust scores; **AI agents as survey respondents**, full-stack development, Figma prototyping.  
@@ -641,7 +659,7 @@ style: |
 ## Theme: Data Visualization – InfoVis Project (PNAD Contínua)
 
 - **InfoVis class project – Power BI:** Built multi-page reports using **PNAD Contínua** (Brazil's National Household Sample Survey). Brazil’s National Household Sample Survey.
-<p><img class="img-tune" src="../pictures/diagrams/infovis-pnad-structures.png" alt="Diagram infovis-pnad-structures: InfoVis PNAD visual structures" style="--img-size: 72%; --img-y: 0.5rem; border: none; box-shadow: none;" /></p>
+<p><img class="img-tune" src="../pictures/diagrams/infovis-pnad-structures.png" alt="Diagram infovis-pnad-structures: InfoVis PNAD visual structures" style="width: 72%; margin-top: 0.5rem; margin-left: auto; margin-right: auto; display: block; border: none; box-shadow: none;" /></p>
 
 - **Impact:** Demonstrates **Power BI** proficiency and **processing complex national research datasets** into clear, actionable visual insights for socioeconomic analysis.
 
@@ -660,7 +678,7 @@ style: |
 
 <!-- Diagram: dissertation-tech (mermaid/diagrams.md). Export to dissertation-tech.png -->
 
-<p><img class="img-tune" src="../pictures/diagrams/dissertation-tech.png" alt="Diagram dissertation-tech: Dissertation & research technologies" style="--img-size: 72%; --img-y: 0.5rem; border: none; box-shadow: none;" /></p>
+<p><img class="img-tune" src="../pictures/diagrams/dissertation-tech.png" alt="Diagram dissertation-tech: Dissertation & research technologies" style="width: 72%; margin-top: 0.5rem; margin-left: auto; margin-right: auto; display: block; border: none; box-shadow: none;" /></p>
 
 ---
 
@@ -687,7 +705,7 @@ style: |
 
 - **Tooling project for PT:** Key development in **technical delivery and project management**—from requirements to high-fidelity deliverable, with **customer progress review meetings** throughout.
 
-<p><img class="img-tune" src="../pictures/diagrams/tooling-pt-workflow.png" alt="Diagram tooling-pt-workflow: Tooling PT delivery workflow" style="--img-size: 72%; --img-y: 0.5rem; border: none; box-shadow: none;" /></p>
+<p><img class="img-tune" src="../pictures/diagrams/tooling-pt-workflow.png" alt="Diagram tooling-pt-workflow: Tooling PT delivery workflow" style="width: 72%; margin-top: 0.5rem; margin-left: auto; margin-right: auto; display: block; border: none; box-shadow: none;" /></p>
 
 <!-- Diagram: tooling-pt-workflow (mermaid/diagrams.md). Export to tooling-pt-workflow.png -->
 
@@ -708,7 +726,7 @@ style: |
 - **Definition:** Excel-based application for **automated proposal creation**—project proposals: define activities, estimate hours, Gantt-style timeline, and generate PowerPoint.
 - **Generation logic:** Uses **predefined criteria and historical project data**; outputs (activities, hours, timeline) are driven by that logic.
 
-<p><img class="img-tune" src="../pictures/diagrams/proposal-generator-phases.png" alt="Diagram proposal-generator-phases: Proposal Generator UX phases" style="--img-size: 72%; --img-y: 0.5rem; border: none; box-shadow: none;" /></p>
+<p><img class="img-tune" src="../pictures/diagrams/proposal-generator-phases.png" alt="Diagram proposal-generator-phases: Proposal Generator UX phases" style="width: 72%; margin-top: 0.5rem; margin-left: auto; margin-right: auto; display: block; border: none; box-shadow: none;" /></p>
 
 - **Technical proficiency:** Developed in **Excel VBA**—macros for automation, calculations, and presentation generation.
 
@@ -741,7 +759,7 @@ style: |
 - **Proposal:** Combine **AI assistance** with **Scrum practices** to improve throughput, transparency, and quality.  
 - **Approach:**
 
-<p><img class="img-tune" src="../pictures/diagrams/ai-agile-research.png" alt="Diagram ai-agile-research: AI and Agile in Research" style="--img-size: 72%; --img-y: 0.5rem; border: none; box-shadow: none;" /></p>
+<p><img class="img-tune" src="../pictures/diagrams/ai-agile-research.png" alt="Diagram ai-agile-research: AI and Agile in Research" style="width: 72%; margin-top: 0.5rem; margin-left: auto; margin-right: auto; display: block; border: none; box-shadow: none;" /></p>
 
 - **Guardrails:** AI outputs treated as drafts; strong focus on reproducibility, data privacy, and explicit quality criteria.  
 
@@ -773,12 +791,12 @@ style: |
 - **Trajectory across Bosch locations:** Brazil, Hungary (Budapest), Germany, Argentina.
 
 <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
-<p><img class="img-tune" src="../pictures/work/budapest-2019.jpg" alt="Bosch Magyarország - Budapest 2019" style="--img-size: 140px;" /></p>
-<p><img class="img-tune" src="../pictures/work/budapest-2019-2.jpg" alt="Budapest team 2019 – farewell book" style="--img-size: 140px;" /></p>
-<p><img class="img-tune" src="../pictures/work/bosch-argentina.jpg" alt="Bosch Argentina – We are Bosch" style="--img-size: 140px;" /></p>
+<p><img class="img-tune" src="../pictures/work/budapest-2019.jpg" alt="Bosch Magyarország - Budapest 2019" style="width: 140px;" /></p>
+<p><img class="img-tune" src="../pictures/work/budapest-2019-2.jpg" alt="Budapest team 2019 – farewell book" style="width: 140px;" /></p>
+<p><img class="img-tune" src="../pictures/work/bosch-argentina.jpg" alt="Bosch Argentina – We are Bosch" style="width: 140px;" /></p>
 </div>
 
-<p><img class="img-tune" src="../pictures/diagrams/experience-timeline.png" alt="Diagram experience-timeline: Experience timeline" style="--img-size: 72%; --img-y: 0.5rem; border: none; box-shadow: none;" /></p>
+<p><img class="img-tune" src="../pictures/diagrams/experience-timeline.png" alt="Diagram experience-timeline: Experience timeline" style="width: 72%; margin-top: 0.5rem; margin-left: auto; margin-right: auto; display: block; border: none; box-shadow: none;" /></p>
 
 <!-- Diagram: experience-timeline (mermaid/diagrams.md). Export to experience-timeline.png -->  
 
@@ -790,7 +808,7 @@ style: |
 
 <!-- Diagram: future-career-path (mermaid/diagrams.md). Export to future-career-path.png -->
 
-<p><img class="img-tune" src="../pictures/diagrams/future-career-path.png" alt="Diagram future-career-path: Prioritized paths to leadership" style="--img-size: 72%; --img-y: 0.5rem; border: none; box-shadow: none;" /></p>
+<p><img class="img-tune" src="../pictures/diagrams/future-career-path.png" alt="Diagram future-career-path: Prioritized paths to leadership" style="width: 72%; margin-top: 0.5rem; margin-left: auto; margin-right: auto; display: block; border: none; box-shadow: none;" /></p>
 
 - **Prioritized career paths (all leading to a Lead position):** (1) **Priority 1 – Ideal:** PhD within Bosch supporting the company with Quantum or AI technology; (2) **Priority 2:** Research Scrum Master who also provides technical support; (3) **Priority 3:** UX Researcher.
 - **Future objective:** Work in **technology-focused roles** that integrate **in-depth research, project management, and AI implementation** as a core professional interest.
