@@ -656,8 +656,8 @@ img[src*="cip-ux-pipeline"] {
 .cip-artifacts-grid {
   display: grid !important;
   grid-template-columns: repeat(4, 1fr) !important;
-  gap: 0.5rem 0.75rem !important;
-  max-width: 95% !important;
+  gap: 0.12rem 0.6rem !important;
+  max-width: 81% !important;
   margin: 0 auto !important;
   justify-items: center !important;
   align-items: center !important;
