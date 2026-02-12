@@ -607,15 +607,18 @@ I feel proactive, self-reliant and organized.
   gap: 0.75rem !important; min-height: 60vh !important;
   margin-top: 0.75rem !important;
 }
+section { overflow-x: visible !important; }
 .experience-timeline-photos {
-  display: flex !important; flex-direction: row !important; gap: 0.6rem !important;
+  display: flex !important; flex-direction: row !important; gap: 0.5rem !important;
   justify-content: center !important; align-items: center !important;
   margin-top: auto !important; flex-shrink: 0 !important;
+  overflow-x: visible !important; min-width: min-content !important;
 }
 .experience-timeline-photos p { margin: 0 !important; }
 .experience-timeline-photos img {
-  width: 200px !important; height: auto !important; max-height: 200px !important;
+  width: 140px !important; height: auto !important; max-height: 140px !important;
   object-fit: cover !important; display: block !important; border-radius: 4px !important;
+  flex-shrink: 0 !important;
 }
 .experience-timeline-diagram-wrap {
   flex: 0 0 auto !important;
@@ -638,9 +641,14 @@ I feel proactive, self-reliant and organized.
 <p><img src="../pictures/diagrams/experience-timeline.png" alt="Diagram experience-timeline: Experience timeline" /></p>
 </div>
 <div class="experience-timeline-photos">
+<p><img src="../pictures/work/bosch-2018.jpg" alt="Bosch 2018 – Compartilhando Sucessos RH" /></p>
 <p><img src="../pictures/work/budapest-2019.jpg" alt="Bosch Magyarország - Budapest 2019" /></p>
 <p><img src="../pictures/work/budapest-2019-2.jpg" alt="Budapest team 2019 – farewell book" /></p>
 <p><img src="../pictures/work/bosch-argentina.jpg" alt="Bosch Argentina – We are Bosch" /></p>
+<p><img src="../pictures/work/digital-ws.jpg" alt="Digital workspace – UX GS team" /></p>
+<p><img src="../pictures/work/joinville-ws-2024.jpg" alt="Joinville workshop 2024" /></p>
+<p><img src="../pictures/work/germany-ws-2024.jpg" alt="Germany workshop 2024" /></p>
+<p><img src="../pictures/work/americas-team-2025.jpg" alt="Americas team 2025" /></p>
 </div>
 </div>
 
