@@ -598,6 +598,56 @@ I feel proactive, self-reliant and organized.
 
 ---
 
+<!-- Slide 4 – Past (Experience Timeline) -->
+
+<style scoped>
+.experience-timeline-slide {
+  display: flex !important; flex-direction: column !important;
+  justify-content: flex-start !important; align-items: center !important;
+  gap: 0.75rem !important; min-height: 60vh !important;
+  margin-top: 0.75rem !important;
+}
+.experience-timeline-photos {
+  display: flex !important; flex-direction: row !important; gap: 0.6rem !important;
+  justify-content: center !important; align-items: center !important;
+  margin-top: auto !important; flex-shrink: 0 !important;
+}
+.experience-timeline-photos p { margin: 0 !important; }
+.experience-timeline-photos img {
+  width: 200px !important; height: auto !important; max-height: 200px !important;
+  object-fit: cover !important; display: block !important; border-radius: 4px !important;
+}
+.experience-timeline-diagram-wrap {
+  flex: 0 0 auto !important;
+  display: flex !important; justify-content: center !important; align-items: center !important;
+}
+.experience-timeline-diagram-wrap p { margin: 0 !important; text-align: center !important; }
+.experience-timeline-diagram-wrap img {
+  width: 86% !important; max-width: 86% !important; height: auto !important;
+  display: block !important; margin: 0 auto !important;
+  border: none !important; box-shadow: none !important;
+}
+</style>
+
+## Past – Experience Timeline (Condensed)
+
+- **Trajectory across Bosch locations:** Campinas, Hungary, Sorocaba, and Campinas.
+
+<div class="experience-timeline-slide">
+<div class="experience-timeline-diagram-wrap">
+<p><img src="../pictures/diagrams/experience-timeline.png" alt="Diagram experience-timeline: Experience timeline" /></p>
+</div>
+<div class="experience-timeline-photos">
+<p><img src="../pictures/work/budapest-2019.jpg" alt="Bosch Magyarország - Budapest 2019" /></p>
+<p><img src="../pictures/work/budapest-2019-2.jpg" alt="Budapest team 2019 – farewell book" /></p>
+<p><img src="../pictures/work/bosch-argentina.jpg" alt="Bosch Argentina – We are Bosch" /></p>
+</div>
+</div>
+
+<!-- Diagram: experience-timeline (mermaid/diagrams.md). Export to experience-timeline.png -->  
+
+---
+
 <!-- Slide 5 – Present (Role & Strategic Impact) -->
 
 <!-- _class: art-top-right -->
@@ -1257,57 +1307,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ---
 
-<!-- Slide 21 – Past (Experience Timeline) -->
-
-<style scoped>
-.experience-timeline-slide {
-  display: flex !important; flex-direction: column !important;
-  justify-content: flex-start !important; align-items: center !important;
-  gap: 0.75rem !important; min-height: 60vh !important;
-  margin-top: 0.75rem !important;
-}
-.experience-timeline-photos {
-  display: flex !important; flex-direction: row !important; gap: 0.6rem !important;
-  justify-content: center !important; align-items: center !important;
-  margin-top: auto !important; flex-shrink: 0 !important;
-}
-.experience-timeline-photos p { margin: 0 !important; }
-.experience-timeline-photos img {
-  width: 200px !important; height: auto !important; max-height: 200px !important;
-  object-fit: cover !important; display: block !important; border-radius: 4px !important;
-}
-.experience-timeline-diagram-wrap {
-  flex: 0 0 auto !important;
-  display: flex !important; justify-content: center !important; align-items: center !important;
-}
-.experience-timeline-diagram-wrap p { margin: 0 !important; text-align: center !important; }
-.experience-timeline-diagram-wrap img {
-  width: 86% !important; max-width: 86% !important; height: auto !important;
-  display: block !important; margin: 0 auto !important;
-  border: none !important; box-shadow: none !important;
-}
-</style>
-
-## Process – Experience Timeline (Condensed)
-
-- **Trajectory across Bosch locations:** Campinas, Hungary, Sorocaba, and Campinas.
-
-<div class="experience-timeline-slide">
-<div class="experience-timeline-diagram-wrap">
-<p><img src="../pictures/diagrams/experience-timeline.png" alt="Diagram experience-timeline: Experience timeline" /></p>
-</div>
-<div class="experience-timeline-photos">
-<p><img src="../pictures/work/budapest-2019.jpg" alt="Bosch Magyarország - Budapest 2019" /></p>
-<p><img src="../pictures/work/budapest-2019-2.jpg" alt="Budapest team 2019 – farewell book" /></p>
-<p><img src="../pictures/work/bosch-argentina.jpg" alt="Bosch Argentina – We are Bosch" /></p>
-</div>
-</div>
-
-<!-- Diagram: experience-timeline (mermaid/diagrams.md). Export to experience-timeline.png -->  
-
----
-
-<!-- Slide 22 – Future (Career Aspirations, Vacancy Types & Prioritized Paths to Leadership) -->
+<!-- Slide 21 – Future (Career Aspirations, Vacancy Types & Prioritized Paths to Leadership) -->
 
 <style scoped>
 .future-career-wrap {
