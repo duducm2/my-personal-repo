@@ -104,6 +104,21 @@ style: |
   section.midnight-blue-slide table, section.midnight-blue-slide th, section.midnight-blue-slide td { color: white; border-color: rgba(255,255,255,0.3); }
   section.midnight-blue-slide ul, section.midnight-blue-slide li { color: white; }
   section.midnight-blue-slide img { border: 4px solid rgba(255,255,255,0.4); box-shadow: 2px 3px 12px rgba(0,0,0,0.3); }
+  section.photo-at-bottom { position: relative; }
+  section.photo-at-bottom p.photo-at-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    line-height: 0;
+  }
+  section.photo-at-bottom p.photo-at-bottom img {
+    width: 320px;
+    height: auto;
+    display: block;
+    border: 4px solid rgba(255,255,255,0.4);
+    box-shadow: 2px 3px 12px rgba(0,0,0,0.3);
+  }
 
   section.persona-slide img[alt*="Persona 2"] { display: block; margin-left: auto; margin-right: auto; margin-top: -1rem; }
   
@@ -121,6 +136,11 @@ style: |
     border: 4px solid white;
     box-shadow: 2px 3px 8px rgba(0,0,0,0.15);
     transition: transform 0.3s ease;
+  }
+  /* Diagrams: no border, no shadow, fit the slide */
+  section img[src*="diagrams/"] {
+    border: none !important;
+    box-shadow: none !important;
   }
   section:not(.lead) img:hover { transform: scale(1.05) rotate(0deg); z-index: 10; }
   
@@ -396,7 +416,7 @@ style: |
 - My work centers **technology**, **project management**, and **in-depth research**—integrating evidence and user needs into processes via **Continuous Improvement (CIP)** and systematic delivery.
 - This portfolio tells that story:
 
-<p><img src="../pictures/diagrams/story-flow.png" alt="Diagram story-flow: Why story flow" style="max-width: 90%; height: auto; margin: 0.5rem auto; display: block;" /></p>
+<p><img src="../pictures/diagrams/story-flow.png" alt="Diagram story-flow: Why story flow" style="max-width: 72%; height: auto; margin: 0.5rem auto; display: block; border: none; box-shadow: none;" /></p>
 
 <!-- Diagram: story-flow (mermaid/diagrams.md). Export to story-flow.png -->
 
@@ -404,11 +424,9 @@ style: |
 
 <!-- Slide 2 – Who I Am (Golden Circle: Who/What) -->
 
-<!-- _class: art-top-right midnight-blue-slide -->
+<!-- _class: midnight-blue-slide photo-at-bottom -->
 
 ## Who I Am – Snapshot
-
-<p><img src="../pictures/personal/my-photo-rectangle.png" alt="Eduardo Figueiredo" /></p>
 
 | Attribute | Value |
 | --------- | ----- |
@@ -416,7 +434,9 @@ style: |
 | Role | Research, Technology & Project Management (Master's, Unicamp) |
 | Focus | Technology, CIP governance, in-depth research, and measuring software trustworthiness |
 | Impact | Americas UX Maturity Level 4; AI-driven UX quality gates; international projects |
-| Contact | Nova Odessa, SP – Brazil · edu.evangelista.figueiredo@gmail.com · LinkedIn / phone on request |  
+| Contact | Nova Odessa, SP – Brazil · edu.evangelista.figueiredo@gmail.com · LinkedIn / phone on request |
+
+<p class="photo-at-bottom"><img src="../pictures/personal/my-photo-rectangle.png" alt="Eduardo Figueiredo" /></p>  
 
 ---
 
@@ -430,7 +450,7 @@ style: |
 <p><img src="../pictures/academia/logos/UNICAMP.png" alt="Unicamp logo" style="height: 48px; width: auto; vertical-align: middle;" /></p>
 <p><img src="../pictures/academia/academic-writing.jpg" alt="Academic Writing Course - Unicamp" /></p>
 
-<p><img src="../pictures/diagrams/academic-timeline.png" alt="Diagram academic-timeline: Academic timeline" style="max-width: 90%; height: auto; margin: 0.5rem auto; display: block;" /></p>
+<p><img src="../pictures/diagrams/academic-timeline.png" alt="Diagram academic-timeline: Academic timeline" style="max-width: 72%; height: auto; margin: 0.5rem auto; display: block; border: none; box-shadow: none;" /></p>
 
 - **Technical school (ETEC):** Technical Degree in Computer Science – ETEC Bento Quirino (2012–2014).
 - **Undergraduate & Master's (Unicamp):** Systems Analysis and Development (2015–2020); Master's in Technology – Information and Communication Systems UX (2023–2025).
@@ -476,7 +496,7 @@ style: |
 - **Project scope:** Integrated **UX relevance assessment** into the **Continuous Improvement Process (CIP)** in ServiceNow CIM. A **UX gate** sits between Assess and Approve; the method runs at that gate to triage improvement initiatives (Low / Medium / High UX relevance).  
 - **Methodology—developer skills for research:** Utilized **Cursor IDE**, **AI-assisted coding**, and version-controlled Python pipelines. Workflow:
 
-<p><img src="../pictures/diagrams/cip-ux-pipeline.png" alt="Diagram cip-ux-pipeline: CIP-UX methodology pipeline" style="max-width: 90%; height: auto; margin: 0.5rem auto; display: block;" /></p>
+<p><img src="../pictures/diagrams/cip-ux-pipeline.png" alt="Diagram cip-ux-pipeline: CIP-UX methodology pipeline" style="max-width: 72%; height: auto; margin: 0.5rem auto; display: block; border: none; box-shadow: none;" /></p>
 
 - **Deliverables:**
 
@@ -521,7 +541,7 @@ style: |
 
 <p><img src="../pictures/academia/hfsd-workshop-1.jpg" alt="ISSRE 2025 HFSD Workshop" /></p>
 
-<p><img src="../pictures/diagrams/academic-research-flow.png" alt="Diagram academic-research-flow: Academic research flow" style="max-width: 90%; height: auto; margin: 0.5rem auto; display: block;" /></p>
+<p><img src="../pictures/diagrams/academic-research-flow.png" alt="Diagram academic-research-flow: Academic research flow" style="max-width: 72%; height: auto; margin: 0.5rem auto; display: block; border: none; box-shadow: none;" /></p>
 
 - **Master's focus:** Benchmark to assess software trustworthiness (Usability, Accessibility, UX). Thesis: quantitative methods for perceived trust in e-commerce and software interfaces.  
 - **Publications:** ISSRE 2025 (HFSD – IEEE), IHC 2025 (SBC SOL). **TrustMate** + Power BI for trust scores; **AI agents as survey respondents**, full-stack development, Figma prototyping.  
@@ -602,7 +622,7 @@ style: |
 ## Theme: Data Visualization – InfoVis Project (PNAD Contínua)
 
 - **InfoVis class project – Power BI:** Built multi-page reports using **PNAD Contínua** (Brazil's National Household Sample Survey). Brazil’s National Household Sample Survey.
-<p><img src="../pictures/diagrams/infovis-pnad-structures.png" alt="Diagram infovis-pnad-structures: InfoVis PNAD visual structures" style="max-width: 90%; height: auto; margin: 0.5rem auto; display: block;" /></p>
+<p><img src="../pictures/diagrams/infovis-pnad-structures.png" alt="Diagram infovis-pnad-structures: InfoVis PNAD visual structures" style="max-width: 72%; height: auto; margin: 0.5rem auto; display: block; border: none; box-shadow: none;" /></p>
 
 - **Impact:** Demonstrates **Power BI** proficiency and **processing complex national research datasets** into clear, actionable visual insights for socioeconomic analysis.
 
@@ -621,7 +641,7 @@ style: |
 
 <!-- Diagram: dissertation-tech (mermaid/diagrams.md). Export to dissertation-tech.png -->
 
-<p><img src="../pictures/diagrams/dissertation-tech.png" alt="Diagram dissertation-tech: Dissertation & research technologies" style="max-width: 70%; height: auto; margin: 0.5rem auto; display: block;" /></p>
+<p><img src="../pictures/diagrams/dissertation-tech.png" alt="Diagram dissertation-tech: Dissertation & research technologies" style="max-width: 72%; height: auto; margin: 0.5rem auto; display: block; border: none; box-shadow: none;" /></p>
 
 ---
 
@@ -648,7 +668,7 @@ style: |
 
 - **Tooling project for PT:** Key development in **technical delivery and project management**—from requirements to high-fidelity deliverable, with **customer progress review meetings** throughout.
 
-<p><img src="../pictures/diagrams/tooling-pt-workflow.png" alt="Diagram tooling-pt-workflow: Tooling PT delivery workflow" style="max-width: 90%; height: auto; margin: 0.5rem auto; display: block;" /></p>
+<p><img src="../pictures/diagrams/tooling-pt-workflow.png" alt="Diagram tooling-pt-workflow: Tooling PT delivery workflow" style="max-width: 72%; height: auto; margin: 0.5rem auto; display: block; border: none; box-shadow: none;" /></p>
 
 <!-- Diagram: tooling-pt-workflow (mermaid/diagrams.md). Export to tooling-pt-workflow.png -->
 
@@ -669,7 +689,7 @@ style: |
 - **Definition:** Excel-based application for **automated proposal creation**—project proposals: define activities, estimate hours, Gantt-style timeline, and generate PowerPoint.
 - **Generation logic:** Uses **predefined criteria and historical project data**; outputs (activities, hours, timeline) are driven by that logic.
 
-<p><img src="../pictures/diagrams/proposal-generator-phases.png" alt="Diagram proposal-generator-phases: Proposal Generator UX phases" style="max-width: 90%; height: auto; margin: 0.5rem auto; display: block;" /></p>
+<p><img src="../pictures/diagrams/proposal-generator-phases.png" alt="Diagram proposal-generator-phases: Proposal Generator UX phases" style="max-width: 72%; height: auto; margin: 0.5rem auto; display: block; border: none; box-shadow: none;" /></p>
 
 - **Technical proficiency:** Developed in **Excel VBA**—macros for automation, calculations, and presentation generation.
 
@@ -702,7 +722,7 @@ style: |
 - **Proposal:** Combine **AI assistance** with **Scrum practices** to improve throughput, transparency, and quality.  
 - **Approach:**
 
-<p><img src="../pictures/diagrams/ai-agile-research.png" alt="Diagram ai-agile-research: AI and Agile in Research" style="max-width: 90%; height: auto; margin: 0.5rem auto; display: block;" /></p>
+<p><img src="../pictures/diagrams/ai-agile-research.png" alt="Diagram ai-agile-research: AI and Agile in Research" style="max-width: 72%; height: auto; margin: 0.5rem auto; display: block; border: none; box-shadow: none;" /></p>
 
 - **Guardrails:** AI outputs treated as drafts; strong focus on reproducibility, data privacy, and explicit quality criteria.  
 
@@ -739,7 +759,7 @@ style: |
 <p><img src="../pictures/work/budapest-2019-2.jpg" alt="Budapest team 2019 – farewell book" style="max-width: 200px; height: auto;" /></p>
 <p><img src="../pictures/work/bosch-argentina.jpg" alt="Bosch Argentina – We are Bosch" style="max-width: 200px; height: auto;" /></p>
 
-<p><img src="../pictures/diagrams/experience-timeline.png" alt="Diagram experience-timeline: Experience timeline" style="max-width: 90%; height: auto; margin: 0.5rem auto; display: block;" /></p>
+<p><img src="../pictures/diagrams/experience-timeline.png" alt="Diagram experience-timeline: Experience timeline" style="max-width: 72%; height: auto; margin: 0.5rem auto; display: block; border: none; box-shadow: none;" /></p>
 
 <!-- Diagram: experience-timeline (mermaid/diagrams.md). Export to experience-timeline.png -->  
 
@@ -751,7 +771,7 @@ style: |
 
 <!-- Diagram: future-career-path (mermaid/diagrams.md). Export to future-career-path.png -->
 
-<p><img src="../pictures/diagrams/future-career-path.png" alt="Diagram future-career-path: Prioritized paths to leadership" style="max-width: 90%; height: auto; margin: 0.5rem auto; display: block;" /></p>
+<p><img src="../pictures/diagrams/future-career-path.png" alt="Diagram future-career-path: Prioritized paths to leadership" style="max-width: 72%; height: auto; margin: 0.5rem auto; display: block; border: none; box-shadow: none;" /></p>
 
 - **Prioritized career paths (all leading to a Lead position):** (1) **Priority 1 – Ideal:** PhD within Bosch supporting the company with Quantum or AI technology; (2) **Priority 2:** Research Scrum Master who also provides technical support; (3) **Priority 3:** UX Researcher.
 - **Future objective:** Work in **technology-focused roles** that integrate **in-depth research, project management, and AI implementation** as a core professional interest.
