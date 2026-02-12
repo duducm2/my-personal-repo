@@ -747,15 +747,16 @@ style: |
 
 ---
 
-<!-- Slide 22 – Future (Career Aspirations, Vacancy Types & Strategic Views) -->
+<!-- Slide 22 – Future (Career Aspirations, Vacancy Types & Prioritized Paths to Leadership) -->
 
-## Future – Career Aspirations, Vacancy Types & Strategic Views
+## Future – Career Aspirations, Vacancy Types & Prioritized Paths to Leadership
 
 <!-- Diagram: future-career-path (mermaid/diagrams.md). Export to future-career-path.png -->
 
-<p><img src="future-career-path.png" alt="Diagram future-career-path: Future Career Path Timeline" style="max-width: 90%; height: auto; margin: 0.5rem auto; display: block;" /></p>
+<p><img src="future-career-path.png" alt="Diagram future-career-path: Prioritized paths to leadership" style="max-width: 90%; height: auto; margin: 0.5rem auto; display: block;" /></p>
 
-- **Future objective:** Work in **technology-focused roles** that integrate **in-depth research, project management, and AI implementation** as a core professional interest.  
+- **Prioritized career paths (all leading to a Lead position):** (1) **Priority 1 – Ideal:** PhD within Bosch supporting the company with Quantum or AI technology; (2) **Priority 2:** Research Scrum Master who also provides technical support; (3) **Priority 3:** UX Researcher.
+- **Future objective:** Work in **technology-focused roles** that integrate **in-depth research, project management, and AI implementation** as a core professional interest.
 - **Desired vacancy types (Bosch & external):**
 
 [INSERT TABLE HERE: Future vacancy types and examples]
@@ -766,14 +767,9 @@ style: |
 | Technology / PM Lead | Digital / Enterprise Applications – B2B tools for service teams | — |
 | Scrum Master / Agile Coach | — | Data-informed, research-oriented facilitation |
 | Researcher advanced tech | — | Quantum & AI – technology and human factors |  
-- **Target roles:** Researcher, Technology / Project Management Lead, Scrum Master, or Researcher in advanced tech contexts.  
-- **Scrum Master role – focus:** Data-informed, research-oriented agile facilitation for technology, AI, and trustworthiness projects; project management and delivery quality.  
-- **Core Scrum Master responsibilities:** Maintain **data integrity** and ensure **statistical relevance** across experiments and project lifecycles; oversee the **rigorous application of scientific methods** and the **adequate use of AI** to accelerate deliverables (never replacing human judgment); manage project timelines to **prevent stagnation and perpetual postponement**.  
-- **Proactive strategies for communication blockers:** If appointment requests are not answered, deploy short, targeted surveys to collect decisions and unblock work; if surveys are not completed, schedule **mandatory 10-minute sessions** to secure answers and align expectations.  
-- **Stakeholder engagement protocols:** Maintain **direct customer contact** to guarantee delivery of agreed outcomes; ensure customers are held **accountable for supporting project deliverables**, including providing data, approvals, and access needed to move forward.  
-- **Strategic View A – "Paradise" (Quantum Computing):** Deep technical research and experimentation in quantum computing and advanced R&D. Leverages analytical skills, experimentation mindset, and physics background.  
-- **Strategic View B – "Modest" (Scrum / Agile Leadership):** Scrum Master or agile leader enabling teams to deliver high-quality products. Builds on CIP, project management, facilitation, and coaching.  
-- **Shared assets:** In-depth research, technology, project management, CIP integration, AI + agile methodology, and data-driven decision-making.
+- **Target roles:** Researcher, Technology / Project Management Lead, Scrum Master, or Researcher in advanced tech contexts.
+- **Scrum Master role – focus:** Data-informed, research-oriented agile facilitation for technology, AI, and trustworthiness projects; project management and delivery quality. Core responsibilities: **data integrity** and **statistical relevance** across experiments; **rigorous application of scientific methods** and **adequate use of AI** (never replacing human judgment); managing timelines to prevent stagnation. Proactive unblocking (e.g. short surveys, mandatory 10-minute sessions); **direct customer contact** and **stakeholder accountability** for deliverables.
+- **Shared assets across paths:** UX research, CIP + UX integration, AI + agile methodology, data-driven decision-making.
 
 ---
 

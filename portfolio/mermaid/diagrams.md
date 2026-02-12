@@ -16,8 +16,7 @@ Open this file in an editor or viewer that supports Mermaid (e.g. VS Code with M
 | `proposal-generator-phases` | Proposal Generator UX phases | 10 |
 | `ai-agile-research` | AI and Agile in Research | 11 |
 | `experience-timeline` | Experience timeline | 12 |
-| `future-career-path` | Future career path | 13 |
-| `future-career-strategic-views` | Future career – strategic views | 14 |
+| `future-career-path` | Future career – prioritized paths to leadership | 13 |
 
 **File naming:** Use the ID for sources and exports (e.g. `story-flow.mmd`, `story-flow.png`). All deck references use these IDs.
 
@@ -193,56 +192,17 @@ flowchart TD
 
 ---
 
-## 11. [future-career-path] Future career path (Slide 13)
+## 11. [future-career-path] Future career – prioritized paths to leadership (Slide 13)
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%
-flowchart TD
-  D1["2026-2027"] -.-> E1["Deepen UX research leadership at Bosch (UX researcher / UX lead focus)"]
-  D2["2026-2027"] -.-> E2["Grow Scrum master experience in technology-focused product teams"]
-  D3["2028-2030"] -.-> E3["Assume regional UX leadership or research lead roles"]
-  D4["2028-2030"] -.-> E4["Move into UX researcher roles at global product companies in AI / data-intensive domains"]
-  D5["2031+"] -.-> E5["Specialize in advanced tech research (quantum computing, AI & UX trustworthiness)"]
-  D6["2031+"] -.-> E6["Hybrid leadership across UX research, AI implementation, and agile governance"]
+flowchart LR
+  P1["Priority 1 (Ideal)<br/>PhD within Bosch –<br/>Quantum or AI technology"]
+  P2["Priority 2<br/>Research Scrum Master<br/>+ technical support"]
+  P3["Priority 3<br/>UX Researcher"]
+  Lead["Leadership"]
+  P1 --> Lead
+  P2 --> Lead
+  P3 --> Lead
 ```
 
----
-
-## 12. [future-career-strategic-views] Future career – strategic views (Slide 14)
-
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%
-flowchart TD
-    Objective["Future Objective:<br/>Technology-Focused Roles<br/>Integrating UX Research<br/>with AI Implementation<br/>& Development"]
-    
-    Roles["Target Roles:<br/>UX Researcher<br/>UX Lead<br/>Scrum Master<br/>Researcher in<br/>Advanced Tech"]
-    
-    ViewA["Strategic View A<br/>Paradise<br/>Quantum Computing"]
-    ViewA1["Deep technical research<br/>& experimentation<br/>in quantum computing<br/>& advanced R&D"]
-    ViewA2["Leverages:<br/>Analytical skills<br/>Experimentation mindset<br/>Physics background"]
-    
-    ViewB["Strategic View B<br/>Modest<br/>Scrum / Agile Leadership"]
-    ViewB1["Scrum Master or<br/>agile leader enabling<br/>high-quality products"]
-    ViewB2["Builds on:<br/>CIP & UX experience<br/>Facilitation<br/>Coaching"]
-    
-    Assets["Shared Assets:<br/>UX Research<br/>CIP + UX Integration<br/>AI + Agile Methodology<br/>Data-Driven Decision-Making"]
-    
-    Objective --> Roles
-    Objective --> ViewA
-    Objective --> ViewB
-    Objective --> Assets
-    
-    ViewA --> ViewA1
-    ViewA --> ViewA2
-    ViewB --> ViewB1
-    ViewB --> ViewB2
-    
-    Assets -.-> ViewA
-    Assets -.-> ViewB
-    
-    style Objective fill:#2c3e50,stroke:#bdc3c7,stroke-width:3px,color:#fff
-    style ViewA fill:#2c3e50,stroke:#bdc3c7,stroke-width:2px,color:#fff
-    style ViewB fill:#2c3e50,stroke:#bdc3c7,stroke-width:2px,color:#fff
-    style Assets fill:#2c3e50,stroke:#bdc3c7,stroke-width:2px,color:#fff
-    style Roles fill:#2c3e50,stroke:#bdc3c7,stroke-width:2px,color:#fff
-```
