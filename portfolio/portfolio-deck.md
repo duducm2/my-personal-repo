@@ -502,7 +502,7 @@ table thead { display: none !important; }
 | --------- | ----- |
 | Name | Eduardo M. de A. Figueiredo |
 | Role | Research, Technology & Project Management |
-| Impact | I help teams govern better and improve faster, using research to prioritize, cide, and deliver with clear data and accountability. |
+| Impact | I help teams govern better and improve faster, using research to prioritize, decide, and deliver with clear data and accountability. |
 | Contact | Nova Odessa, SP – Brazil · edu.evangelista.figueiredo@gmail.com · www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b / +55 19 98176-658 |
 
 <p class="photo-at-bottom"><img src="../pictures/personal/my-photo-rectangle.png" alt="Eduardo Figueiredo" /></p>  

@@ -42,7 +42,7 @@ flowchart LR
 flowchart LR
   A["2012–2014<br/>Technical Degree<br/>Informatics<br/>(ETEC Bento Quirino)"]
   B["2015–2020<br/>Systems Analysis<br/>and Development<br/>(Unicamp)"]
-  C["2023–2025<br/>Master's in Information Systems and Communication<br/> (Unicamp)"]
+  C["2023–2026<br/>Master's in Information Systems and Communication<br/> (Unicamp)"]
   A --> B --> C
 ```
 
