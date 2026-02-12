@@ -495,17 +495,14 @@ table thead { display: none !important; }
 <!-- Slide 3 – Past (Foundations: Education & Profile) -->
 
 <!-- _class: art-top-right -->
-
 <style scoped>
-p.logos-together { display: flex; align-items: center; gap: 0.5rem; margin: 0 0 0.5rem 0; }
+p.logos-together { display: flex; align-items: center; gap: 0.5rem; margin: 2.75rem 2 2.5rem -1rem; }
 p.logos-together img[src*="ETEC.png"] {
   width: 96px !important; height: auto !important;
-  border: 3px solid #bdc3c7; box-shadow: 1px 2px 6px rgba(0,0,0,0.15);
   transform: rotate(-2.5deg);
 }
 p.logos-together img[src*="UNICAMP.png"] {
   width: 96px !important; height: auto !important;
-  border: 3px solid #bdc3c7; box-shadow: 1px 2px 6px rgba(0,0,0,0.15);
   transform: rotate(2deg);
 }
 img[src*="academic-writing"] { width: 100px !important; height: auto !important; }
