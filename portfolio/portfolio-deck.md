@@ -439,7 +439,7 @@ style: |
 - My work centers **technology**, **project management**, and **in-depth research**, integrating evidence and user needs into processes via systematic delivery.
 - This portfolio tells that story:
 
-<p><img class="img-tune" src="../pictures/diagrams/story-flow.png" alt="Diagram story-flow: Why story flow" style="--img-size: 60%; --img-y: 0.5rem; border: none; box-shadow: none;" /></p>
+<p><img class="img-tune" src="../pictures/diagrams/story-flow.png" alt="Diagram story-flow: Why story flow" style="--img-size: 60%; --img-y: 3.5rem; border: none; box-shadow: none;" /></p>
 
 <!-- Diagram: story-flow (mermaid/diagrams.md). Export to story-flow.png -->
 
