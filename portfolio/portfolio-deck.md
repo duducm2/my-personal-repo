@@ -412,8 +412,8 @@ style: |
     height: auto;
   }
 
-  /* CIP and UX Integration – eight images */
-  section.cip-ux-images p {
+  /* CIP and Research Integration – eight images */
+  section.cip-research-images p {
     display: inline-block;
     margin: 0.25rem;
     vertical-align: top;
@@ -629,9 +629,9 @@ img[src*="academic-research-flow"] {
 
 <p><img src="../pictures/diagrams/academic-research-flow.png" alt="Diagram academic-research-flow: Academic research flow" /></p>
 
-- **Master's focus:** Benchmark to assess software trustworthiness (Usability, Accessibility, UX). Thesis: quantitative methods for perceived trust in e-commerce and software interfaces.  
+- **Master's focus:** Benchmark to assess software trustworthiness (usability, accessibility, user-centred research). Thesis: quantitative methods for perceived trust in e-commerce and software interfaces.  
 - **Publications:** ISSRE 2025 (HFSD – IEEE), IHC 2025 (SBC SOL). **TrustMate** + Power BI for trust scores; **AI agents as survey respondents**, full-stack development, Figma prototyping.  
-- **Industry connection:** Methods and tools reusable for UX audits, maturity assessments, and CIP + UX work.
+- **Industry connection:** Methods and tools reusable for research audits, maturity assessments, and CIP + research work.
 
 <!-- Diagram: academic-research-flow (mermaid/diagrams.md). Export to academic-research-flow.png -->  
 
@@ -662,7 +662,7 @@ img[src*="academia/articles"] { width: 140px !important; height: auto !important
 
 ## Present – CSI & NPS Performance (2024–2025)
 
-- **High customer satisfaction** across eight UX projects delivered in 2024–2025. **Averages: CSI 4.86 / 5, NPS 9.94 / 10.**
+- **High customer satisfaction** across eight research-led projects delivered in 2024–2025. **Averages: CSI 4.86 / 5, NPS 9.94 / 10.**
 
 | Project | CSI | NPS |
 | ------- | --- | --- |
@@ -672,7 +672,7 @@ img[src*="academia/articles"] { width: 140px !important; height: auto !important
 | EXT_M-PMQ PPAP | 5 | 10 |
 | GS_P2P_MovDiv | 5 | 10 |
 | GS_P2P_Financial_Portal | 5 | 10 |
-| GS_UX Bootcamp 2024 | 4.9 | 9.6 |
+| GS Research Bootcamp 2024 | 4.9 | 9.6 |
 | GS_B2R_AA CF Automation | 4 | 10 |
 | **Averages** | **4.86** | **9.94** |
 
@@ -688,7 +688,7 @@ img[src*="pbi-allocation"], img[src*="pbi-training-evolution"] { width: 48% !imp
 
 ## Theme: Data Visualization – Power BI Dashboards at Work
 
-- **Bosch UXGS Americas:** Power BI dashboards developed in role for project and resource oversight and for training tracking—supporting data-driven decision-making and governance.
+- **Bosch Research Americas (GS):** Power BI dashboards developed in role for project and resource oversight and for training tracking—supporting data-driven decision-making and governance.
 
 <p><img src="../pictures/work/pbi-allocation.png" alt="Power BI – LA Allocation Dashboard" /></p>
 <p><img src="../pictures/work/pbi-training-evolution.png" alt="Power BI – SMTs Evolution training dashboard" /></p>
@@ -773,7 +773,7 @@ img[src*="disseratation-tech"] { width: 20% !important; height: auto !important;
 <p><img src="../pictures/academia/disseratation-tech-1-agents-1.png" alt="AI agent survey – e-commerce evaluation" /></p>
 <p><img src="../pictures/academia/disseratation-tech-1-agents-2.png" alt="AI agent survey – TrustMate dashboard" /></p>
 <p><img src="../pictures/academia/disseratation-tech-2-web-1.png" alt="E-commerce evaluation – product page" /></p>
-<p><img src="../pictures/academia/disseratation-tech-2-web-2.png" alt="Evaluation metrics – trust and UX scores" /></p>
+<p><img src="../pictures/academia/disseratation-tech-2-web-2.png" alt="Evaluation metrics – trust and research scores" /></p>
 <p><img src="../pictures/academia/disseratation-tech-2-web-3.png" alt="TrustMate – hierarchy of attributes" /></p>
 <p><img src="../pictures/academia/disseratation-tech-3-prototype-1.png" alt="TrustMate tool evaluation – prototype" /></p>
 
@@ -826,7 +826,7 @@ img[src*="proposal-generator-phases"] {
 - **Definition:** Excel-based application for **automated proposal creation**—project proposals: define activities, estimate hours, Gantt-style timeline, and generate PowerPoint.
 - **Generation logic:** Uses **predefined criteria and historical project data**; outputs (activities, hours, timeline) are driven by that logic.
 
-<p><img src="../pictures/diagrams/proposal-generator-phases.png" alt="Diagram proposal-generator-phases: Proposal Generator UX phases" /></p>
+<p><img src="../pictures/diagrams/proposal-generator-phases.png" alt="Diagram proposal-generator-phases: Proposal Generator research phases" /></p>
 
 - **Technical proficiency:** Developed in **Excel VBA**—macros for automation, calculations, and presentation generation.
 
@@ -943,7 +943,7 @@ img[src*="future-career-path"] {
 
 <p><img src="../pictures/diagrams/future-career-path.png" alt="Diagram future-career-path: Prioritized paths to leadership" /></p>
 
-- **Prioritized career paths (all leading to a Lead position):** (1) **Priority 1 – Ideal:** PhD within Bosch supporting the company with Quantum or AI technology; (2) **Priority 2:** Research Scrum Master who also provides technical support; (3) **Priority 3:** UX Researcher.
+- **Prioritized career paths (all leading to a Lead position):** (1) **Priority 1 – Ideal:** PhD within Bosch supporting the company with Quantum or AI technology; (2) **Priority 2:** Research Scrum Master who also provides technical support; (3) **Priority 3:** Deep Researcher.
 - **Future objective:** Work in **technology-focused roles** that integrate **in-depth research, project management, and AI implementation** as a core professional interest.
 - **Desired vacancy types (Bosch & external):**
 
@@ -955,7 +955,7 @@ img[src*="future-career-path"] {
 | Researcher advanced tech | — | Quantum & AI – technology and human factors |  
 - **Target roles:** Researcher, Technology / Project Management Lead, Scrum Master, or Researcher in advanced tech contexts.
 - **Scrum Master role – focus:** Data-informed, research-oriented agile facilitation for technology, AI, and trustworthiness projects; project management and delivery quality. Core responsibilities: **data integrity** and **statistical relevance** across experiments; **rigorous application of scientific methods** and **adequate use of AI** (never replacing human judgment); managing timelines to prevent stagnation. Proactive unblocking (e.g. short surveys, mandatory 10-minute sessions); **direct customer contact** and **stakeholder accountability** for deliverables.
-- **Shared assets across paths:** UX research, CIP + UX integration, AI + agile methodology, data-driven decision-making.
+- **Shared assets across paths:** Research, CIP + research integration, AI + agile methodology, data-driven decision-making.
 
 ---
 
@@ -1001,8 +1001,8 @@ img[src*="personal/"] { width: 165px !important; height: auto !important; max-wi
 | Area | Summary |
 | ---- | ------- |
 | Core | In-depth Research, Technology & Project Management |
-| Leadership | UX Maturity Level 4 – Americas |
-| Milestone | CIP and UX Integration – Cursor IDE, AI, coding; Senior Researcher evolution |
+| Leadership | Research Maturity Level 4 – Americas |
+| Milestone | CIP and Research Integration – Cursor IDE, AI, coding; Senior Researcher evolution |
 | Research | Trust in interfaces; data-driven decision-making |
 
 **Let's connect:** Email: edu.evangelista.figueiredo@gmail.com · LinkedIn: https://www.linkedin.com/in/eduardo-figueiredo · Resume PDF and this portfolio deck available on request.
