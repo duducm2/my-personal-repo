@@ -424,6 +424,9 @@ style: |
   }
 
   /* img-tune: size/position come from inline style (width, margin-top, margin-left) for Marp compatibility */
+
+  /* Thesis topic and Agentic AI emphasis – bold + increased text size */
+  .thesis-emphasis, .agentic-ai-emphasis { font-weight: bold !important; font-size: 1.15em !important; }
 ---
 
 <!-- _class: lead -->
@@ -773,7 +776,7 @@ section { position: relative; }
 
 ## Present – Scientific Publications (Visual Evidence)
 
-<p class="publications-intro">Published work in <strong>ISSRE 2025 (HFSD Workshop)</strong> and <strong>IHC 2025 (SBC SOL)</strong>; master's dissertation on software trustworthiness.</p>
+<p class="publications-intro">Published work in <strong>ISSRE 2025 (HFSD Workshop)</strong> and <strong>IHC 2025 (SBC SOL)</strong>; <span class="thesis-emphasis">master's dissertation on software trustworthiness and Agentic AI</span>.</p>
 
 <div class="publications-grid">
 <p><img src="../pictures/academia/articles/article-1-1.png" alt="Article 1 page 1" /></p>
@@ -866,7 +869,7 @@ section { position: relative; }
 
 ## Data Visualization – Dissertation Power BI
 
-<p class="dissertation-pbi-intro">Dissertation focused on comparing whether AI agents behave similarly to humans.</p>
+<p class="dissertation-pbi-intro"><span class="thesis-emphasis">Dissertation focused on comparing whether <span class="agentic-ai-emphasis">Agentic AI</span> behaves similarly to humans.</span></p>
 
 <div class="dissertation-pbi-row">
 <p><img src="../pictures/academia/dissertation/dissertation-pbi-1.png" alt="Power BI – variability of human scores between websites" /></p>
@@ -954,9 +957,9 @@ section { position: relative; }
 }
 </style>
 
-## Technical Implementation – Dissertation (AI & Full Stack)
+## Technical Implementation – Dissertation (<span class="agentic-ai-emphasis">Agentic AI</span> & Full Stack)
 
-- **Architecture:** Database design supporting projects, experiments, attributes, scores, and agent runs.
+- **Architecture:** Database design supporting projects, experiments, attributes, scores, and <span class="agentic-ai-emphasis">Agentic AI</span> runs.
 
 <!-- Diagram: dissertation-tech (mermaid/diagrams.md). Export to dissertation-tech.png -->
 
@@ -994,8 +997,8 @@ section { position: relative; }
 ## Technical Implementation – Visual Evidence
 
 <div class="tech-evidence-grid">
-<p><img src="../pictures/academia/disseratation-tech-1-agents-1.png" alt="AI agent survey – e-commerce evaluation" /></p>
-<p><img src="../pictures/academia/disseratation-tech-1-agents-2.png" alt="AI agent survey – TrustMate dashboard" /></p>
+<p><img src="../pictures/academia/disseratation-tech-1-agents-1.png" alt="Agentic AI survey – e-commerce evaluation" /></p>
+<p><img src="../pictures/academia/disseratation-tech-1-agents-2.png" alt="Agentic AI survey – TrustMate dashboard" /></p>
 <p><img src="../pictures/academia/disseratation-tech-2-web-1.png" alt="E-commerce evaluation – product page" /></p>
 <p><img src="../pictures/academia/disseratation-tech-2-web-2.png" alt="Evaluation metrics – trust and research scores" /></p>
 <p><img src="../pictures/academia/disseratation-tech-2-web-3.png" alt="TrustMate – hierarchy of attributes" /></p>
