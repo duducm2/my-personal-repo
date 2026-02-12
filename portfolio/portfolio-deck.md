@@ -497,8 +497,17 @@ table thead { display: none !important; }
 <!-- _class: art-top-right -->
 
 <style scoped>
-img[src*="ETEC.png"] { width: 48px !important; height: auto !important; vertical-align: middle !important; }
-img[src*="UNICAMP.png"] { width: 48px !important; height: auto !important; vertical-align: middle !important; }
+p.logos-together { display: flex; align-items: center; gap: 0.5rem; margin: 0 0 0.5rem 0; }
+p.logos-together img[src*="ETEC.png"] {
+  width: 96px !important; height: auto !important;
+  border: 3px solid #bdc3c7; box-shadow: 1px 2px 6px rgba(0,0,0,0.15);
+  transform: rotate(-2.5deg);
+}
+p.logos-together img[src*="UNICAMP.png"] {
+  width: 96px !important; height: auto !important;
+  border: 3px solid #bdc3c7; box-shadow: 1px 2px 6px rgba(0,0,0,0.15);
+  transform: rotate(2deg);
+}
 img[src*="academic-writing"] { width: 100px !important; height: auto !important; }
 img[src*="academic-timeline"] {
   width: 72% !important; height: auto !important; margin-top: 0.5rem !important;
@@ -509,8 +518,7 @@ img[src*="academic-timeline"] {
 
 ## Past – Academic Foundations & Professional Profile
 
-<p><img src="../pictures/academia/logos/ETEC.png" alt="ETEC logo – Bento Quirino" /></p>
-<p><img src="../pictures/academia/logos/UNICAMP.png" alt="Unicamp logo" /></p>
+<p class="logos-together"><img src="../pictures/academia/logos/ETEC.png" alt="ETEC logo – Bento Quirino" /><img src="../pictures/academia/logos/UNICAMP.png" alt="Unicamp logo" /></p>
 <p><img src="../pictures/academia/academic-writing.jpg" alt="Academic Writing Course - Unicamp" /></p>
 
 <p><img src="../pictures/diagrams/academic-timeline.png" alt="Diagram academic-timeline: Academic timeline" /></p>
