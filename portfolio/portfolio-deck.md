@@ -512,7 +512,20 @@ p.logos-together img[src*="UNICAMP.png"] {
   width: 96px !important; height: auto !important;
   transform: rotate(2deg);
 }
-img[src*="academic-writing"] { width: 100px !important; height: auto !important; }
+p.academic-writing-wrap {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  margin: 0 !important;
+  margin-left: 2.5rem !important;
+  margin-bottom: 2.5rem !important;
+  line-height: 0;
+}
+p.academic-writing-wrap img {
+  width: 400px !important;
+  height: auto !important;
+  display: block !important;
+}
 img[src*="academic-timeline"] {
   width: 72% !important; height: auto !important; margin-top: 0.5rem !important;
   margin-left: auto !important; margin-right: auto !important; display: block !important;
@@ -552,14 +565,14 @@ p.historico-wrap img {
 ## Past – Academic Foundations & Professional Profile
 
 <p class="logos-together"><img src="../pictures/academia/logos/ETEC.png" alt="ETEC logo – Bento Quirino" /><img src="../pictures/academia/logos/UNICAMP.png" alt="Unicamp logo" /></p>
-<p><img src="../pictures/academia/academic-writing.jpg" alt="Academic Writing Course - Unicamp" /></p>
+<p class="academic-writing-wrap"><img src="../pictures/academia/academic-writing.jpg" alt="Academic Writing Course - Unicamp" /></p>
 
 <p><img src="../pictures/diagrams/academic-timeline.png" alt="Diagram academic-timeline: Academic timeline" /></p>
 
 <p class="english-proficiency-wrap"><img src="../pictures/academia/english-proficiency.png" alt="English proficiency – academic credentials" /></p>
 <p class="historico-wrap"><img src="../pictures/academia/docs/historico-escolar.png" alt="Academic record – Unicamp" /></p>
 
-- I feel proactive, self-reliant and organized.
+I feel proactive, self-reliant and organized.
 
 <p style="text-align: center; margin-top: 1rem;"><strong>Grade 'A' in all Master's coursework</strong>; English proficiency test verification.</p>
 
