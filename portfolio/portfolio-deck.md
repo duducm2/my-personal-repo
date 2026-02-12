@@ -1447,7 +1447,7 @@ section.closing-redesign h2 {
 ## Closing & Contact
 
 <div class="closing-summary">
-<p>I bring research-driven evidence, technology support, and project delivery to help teams build solutions. Solutions that are trustworthy, user-centered software, with clear data, accountability, and measurable impact.</p>
+<p>I bring research-driven evidence, technology support, and project delivery to help teams build solutions. Solutions that are trustworthy, user-centered, with clear data, accountability, and measurable impact.</p>
 </div>
 
 <div class="closing-contact">
