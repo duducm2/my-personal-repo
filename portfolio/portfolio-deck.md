@@ -667,6 +667,10 @@ img[src*="cip-ux-pipeline"] {
   width: 100% !important; max-width: 100% !important; height: auto !important;
   display: block !important; object-fit: contain !important;
 }
+.cip-artifacts-grid p.cip-artifacts-large img {
+  transform: scale(1.56) !important;
+  transform-origin: center center !important;
+}
 </style>
 
 ## Present – CIP and Research Integration: Research Artifacts
@@ -676,9 +680,9 @@ img[src*="cip-ux-pipeline"] {
 <p><img src="../pictures/work/cip-ux/cip-ux-2.png" alt="CIP-Research 2 – Summary and executive findings" /></p>
 <p><img src="../pictures/work/cip-ux/cip-ux-3.png" alt="CIP-Research 3 – Context and methodology" /></p>
 <p><img src="../pictures/work/cip-ux/cip-ux-4.png" alt="CIP-Research 4 – Literature review and benchmark" /></p>
-<p><img src="../pictures/work/cip-ux/cip-ux-5.png" alt="CIP-Research 5 – Findings and Criticality Index" /></p>
-<p><img src="../pictures/work/cip-ux/cip-ux-6.png" alt="CIP-Research 6 – Pipeline and data processing" /></p>
-<p><img src="../pictures/work/cip-ux/cip-ux-7.png" alt="CIP-Research 7 – Conclusions and strategic opportunities" /></p>
+<p class="cip-artifacts-large"><img src="../pictures/work/cip-ux/cip-ux-5.png" alt="CIP-Research 5 – Findings and Criticality Index" /></p>
+<p class="cip-artifacts-large"><img src="../pictures/work/cip-ux/cip-ux-6.png" alt="CIP-Research 6 – Pipeline and data processing" /></p>
+<p class="cip-artifacts-large"><img src="../pictures/work/cip-ux/cip-ux-7.png" alt="CIP-Research 7 – Conclusions and strategic opportunities" /></p>
 <p><img src="../pictures/work/cip-ux/cip-ux-8.png" alt="CIP-Research 8 – Additional research visuals" /></p>
 </div>
 
