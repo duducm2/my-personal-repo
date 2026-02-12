@@ -559,9 +559,10 @@ p.historico-wrap img {
 <p class="english-proficiency-wrap"><img src="../pictures/academia/english-proficiency.png" alt="English proficiency – academic credentials" /></p>
 <p class="historico-wrap"><img src="../pictures/academia/docs/historico-escolar.png" alt="Academic record – Unicamp" /></p>
 
-- **Professional profile:** Proactive, self-reliant, organized; combines **in-depth research**, **technology**, and **project management** with agile practices (Scrum, Kanban) and delivery leadership.
+- I feel proactive, self-reliant and organized.
 
-<p style="text-align: center; margin-top: 1rem;"><strong>Grade 'A' in all Master's coursework</strong> (Unicamp transcript available on request).</p>
+<p style="text-align: center; margin-top: 1rem;"><strong>Grade 'A' in all Master's coursework</strong>; English proficiency test (Unicamp transcript available on request).</p>
+<p style="text-align: center; margin-top: 1rem;"><strong>Grade 'A' in all Master's coursework</strong>; English proficiency test (Unicamp transcript available on request).</p>
 
 <!-- Diagram: academic-timeline (mermaid/diagrams.md). Export to academic-timeline.png -->  
 
