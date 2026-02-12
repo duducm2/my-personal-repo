@@ -59,9 +59,9 @@ flowchart TB
     M3["Automated pipeline"]
     M4["Data-driven reports"]
   end
-  subgraph tools [Technical tools]
+  subgraph tools [" "]
     direction LR
-    subgraph tools_col1
+    subgraph tools_col1 [" "]
       direction TB
       T1["Markdown"]
       T2["Python"]
@@ -69,7 +69,7 @@ flowchart TB
       T4["CSV"]
       T5["Power BI"]
     end
-    subgraph tools_col2
+    subgraph tools_col2 [" "]
       direction TB
       T6["Mermaid diagrams"]
       T7["Matplotlib"]
@@ -79,7 +79,19 @@ flowchart TB
     end
   end
   style methodologies fill:#ffffff,stroke:#2c3e50,stroke-width:2px,color:#000000
-  style tools fill:#ffffff,stroke:#2c3e50,stroke-width:2px,color:#000000
+  style tools fill:transparent,stroke:none
+  style tools_col1 fill:transparent,stroke:none
+  style tools_col2 fill:transparent,stroke:none
+  style T1 fill:#2c3e50,stroke:none
+  style T2 fill:#2c3e50,stroke:none
+  style T3 fill:#2c3e50,stroke:none
+  style T4 fill:#2c3e50,stroke:none
+  style T5 fill:#2c3e50,stroke:none
+  style T6 fill:#2c3e50,stroke:none
+  style T7 fill:#2c3e50,stroke:none
+  style T8 fill:#2c3e50,stroke:none
+  style T9 fill:#2c3e50,stroke:none
+  style T10 fill:#2c3e50,stroke:none
 ```
 
 ---
