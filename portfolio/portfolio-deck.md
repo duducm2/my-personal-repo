@@ -690,30 +690,49 @@ img[src*="cip-ux-pipeline"] {
 
 <!-- Slide 8 – Present (Academic Research & TrustMate) -->
 
-<!-- _class: art-top-right -->
+<!-- _class: dense-content -->
 
 <style scoped>
-img[src*="hfsd-workshop-1"] { width: 250px !important; height: auto !important; }
-img[src*="academic-research-flow"] {
-  width: 72% !important; height: auto !important; margin-top: 0.5rem !important;
-  margin-left: auto !important; margin-right: auto !important; display: block !important;
+section { position: relative; }
+.academic-research-diagram {
+  text-align: center !important;
+  margin: 0.5rem auto 0.75rem auto !important;
+  padding-bottom: 5rem !important;
+}
+.academic-research-diagram img {
+  width: 75% !important; max-width: 78% !important; height: auto !important;
+  display: block !important; margin: 0 auto !important;
   border: none !important; box-shadow: none !important;
+}
+.academic-research-images-bottom {
+  position: absolute !important;
+  bottom: 0.5rem !important;
+  right: 0.5rem !important;
+  left: auto !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+  gap: 0.4rem 0.6rem !important;
+  line-height: 0 !important;
+}
+.academic-research-images-bottom p { margin: 0 !important; }
+.academic-research-images-bottom img {
+  width: auto !important; max-width: 138px !important; height: auto !important;
+  display: block !important; border: none !important; box-shadow: none !important;
 }
 </style>
 
 ## Present – Academic Research (Trust in AI & UI)
 
+<p class="academic-research-diagram"><img src="../pictures/diagrams/academic-research-flow.png" alt="Diagram academic-research-flow: Academic research flow" /></p>
+
+<div class="academic-research-images-bottom">
 <p><img src="../pictures/academia/hfsd-workshop-1.jpg" alt="ISSRE 2025 HFSD Workshop" /></p>
 <p><img src="../pictures/academia/hfsd-workshop-2.jpg" alt="ISSRE 2025 HFSD Workshop – session" /></p>
-
-<p><img src="../pictures/diagrams/academic-research-flow.png" alt="Diagram academic-research-flow: Academic research flow" /></p>
-
 <p><img src="../pictures/academia/ihc-2025-1.jpg" alt="IHC 2025 SBC SOL" /></p>
 <p><img src="../pictures/academia/ihc-2025-2.jpg" alt="IHC 2025 SBC SOL – presentation" /></p>
-
-- **Master's focus:** Benchmark to assess software trustworthiness (usability, accessibility, user-centred research). Thesis: quantitative methods for perceived trust in e-commerce and software interfaces.  
-- **Publications:** ISSRE 2025 (HFSD – IEEE), IHC 2025 (SBC SOL). **TrustMate** + Power BI for trust scores; **AI agents as survey respondents**, full-stack development, Figma prototyping.  
-- **Industry connection:** Methods and tools reusable for research audits, maturity assessments, and CIP + research work.
+</div>
 
 <!-- Diagram: academic-research-flow (mermaid/diagrams.md). Export to academic-research-flow.png -->  
 
@@ -721,20 +740,35 @@ img[src*="academic-research-flow"] {
 
 <!-- Slide 9 – Present (Scientific Publications – Snapshot) -->
 
-<!-- _class: dense-content article-images -->
+<!-- _class: dense-content -->
 
 <style scoped>
-img[src*="academia/articles"] { width: 140px !important; height: auto !important; max-width: 145px !important; }
+.publications-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 0.12rem 0.5rem !important;
+  max-width: 58% !important;
+  margin: 0 auto 0.75rem auto !important;
+  justify-items: center !important;
+  align-items: center !important;
+}
+.publications-grid p { margin: 0 !important; }
+.publications-grid img {
+  width: 100% !important; max-width: 100% !important; height: auto !important;
+  display: block !important; object-fit: contain !important;
+}
 </style>
 
 ## Present – Scientific Publications (Visual Evidence)
 
+<div class="publications-grid">
 <p><img src="../pictures/academia/articles/article-1-1.png" alt="Article 1 page 1" /></p>
 <p><img src="../pictures/academia/articles/article-1-2.png" alt="Article 1 page 2" /></p>
 <p><img src="../pictures/academia/articles/article-2-1.png" alt="Article 2 page 1" /></p>
 <p><img src="../pictures/academia/articles/article-2-2.png" alt="Article 2 page 2" /></p>
 <p><img src="../pictures/academia/articles/dissertation-page-1.png" alt="Dissertation page 1" /></p>
 <p><img src="../pictures/academia/articles/dissertation-page-2.png" alt="Dissertation page 2" /></p>
+</div>
 
 - Published work in **ISSRE 2025 (HFSD Workshop)** and **IHC 2025 (SBC SOL)**; master's dissertation on software trustworthiness.
 
