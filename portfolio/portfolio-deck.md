@@ -1198,7 +1198,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 ## Technical Implementation – Tooling Project for PT
 
 - **Tooling project for PT:** Led **technical delivery and project management** from requirements through high-fidelity prototypes, with **regular customer check-ins**.
-- **Workshop facilitation:** Ran strategy and team workshops with large groups (e.g. Digital WS, Joinville 2024).
+<!-- - **Workshop facilitation:** Ran strategy and team workshops with large groups (e.g. Digital WS, Joinville 2024). -->
 
 <div class="tooling-pt-layout">
 <div class="tooling-pt-main">
@@ -1279,8 +1279,8 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## Technical Implementation – PhraseNets Web Visualization
 
-- **Course project – Information Visualization (InfoVis):** Built a web-based PhraseNets visualization to explore how words connect in text.\
-- **Technique:** Uses pattern-based networks (subject–verb, verb–object, etc.) to surface co-occurrences that standard charts miss.\
+- **Course project – Information Visualization (InfoVis):** Built a web-based PhraseNets visualization to explore how words connect in text.
+- **Technique:** Uses pattern-based networks to surface co-occurrences that standard charts miss.
 - **Relevance:** Interactive web tooling and visual structures beyond Power BI.
 
 <div class="phrase-net-row">
@@ -1369,7 +1369,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 .personal-interests-grid p:nth-child(n+4) img { max-height: 32vh !important; }
 </style>
 
-## Future – Personal Interests that Power My Work
+## Personal Interests that Power My Work
 
 - **At home:** Two cats, learning piano, and a split keyboard I use for macros and productivity.
 
@@ -1402,20 +1402,61 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 <!-- Slide 26 – Closing & Contact -->
 
-<!-- _class: midnight-blue-slide -->
+<!-- _class: midnight-blue-slide closing-redesign -->
+
+<style scoped>
+section.closing-redesign {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  text-align: center !important;
+  min-height: 80vh !important;
+}
+section.closing-redesign h2 {
+  text-align: left !important;
+  align-self: flex-start !important;
+  width: 100% !important;
+}
+.closing-summary {
+  flex: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 2rem 1rem !important;
+}
+.closing-summary p {
+  font-size: 1.65rem !important;
+  line-height: 1.45 !important;
+  max-width: 90% !important;
+  margin: 0 !important;
+  font-weight: 500 !important;
+}
+.closing-contact {
+  flex-shrink: 0 !important;
+  width: 100% !important;
+  padding: 1.25rem 0 0 !important;
+  border-top: 1px solid rgba(255,255,255,0.25) !important;
+  text-align: center !important;
+}
+.closing-contact p { margin: 0.35rem 0 !important; }
+.closing-contact strong { display: block; margin-bottom: 0.5rem !important; font-size: 1.1em !important; }
+.closing-contact a { color: #a8d4ff !important; }
+</style>
 
 ## Closing & Contact
 
-**What I bring**
+<div class="closing-summary">
+<p>I bring research-driven evidence, technology support, and project delivery to help teams build solutions. Solutions that are trustworthy, user-centered software, with clear data, accountability, and measurable impact.</p>
+</div>
 
-| Area | Summary |
-| ---- | ------- |
-| Core | In-depth Research, Technology & Project Management |
-| Leadership | Research Maturity Level 4 – Americas |
-| Milestone | CIP and Research Integration – Cursor IDE, AI, coding; Senior Researcher evolution |
-| Research | Trust in interfaces; using data to inform decisions |
-
-**Let's connect:** edu.evangelista.figueiredo@gmail.com · LinkedIn: https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b · Resume and this deck available on request.
+<div class="closing-contact">
+<p><strong>Let's connect</strong></p>
+<p>edu.evangelista.figueiredo@gmail.com</p>
+<p><a href="https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b">linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b</a></p>
+<p>+55 19 98176-6583</p>
+<p style="margin-top: 0.75rem !important; font-size: 0.9em; opacity: 0.9;">Resume and this deck available on request.</p>
+</div>
 
 ---
 
