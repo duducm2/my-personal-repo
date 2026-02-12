@@ -101,7 +101,7 @@ flowchart LR
   B["Full-stack"]
   C["Figma"]
   D["Database"]
-  E["Tests (Python)"]
+  E["Tests with Python"]
   F["Azure Cloud Infrastructure"]
   A --- B --- C --- D --- E --- F
 ```

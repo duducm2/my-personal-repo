@@ -448,7 +448,7 @@ style: |
 
 <p><img src="../pictures/academia/logos/ETEC.png" alt="ETEC logo – Bento Quirino" style="height: 48px; width: auto; vertical-align: middle;" /></p>
 <p><img src="../pictures/academia/logos/UNICAMP.png" alt="Unicamp logo" style="height: 48px; width: auto; vertical-align: middle;" /></p>
-<p><img src="../pictures/academia/academic-writing.jpg" alt="Academic Writing Course - Unicamp" /></p>
+<p><img src="../pictures/academia/academic-writing.jpg" alt="Academic Writing Course - Unicamp" style="height: 100px; width: auto;" /></p>
 
 <p><img src="../pictures/diagrams/academic-timeline.png" alt="Diagram academic-timeline: Academic timeline" style="max-width: 72%; height: auto; margin: 0.5rem auto; display: block; border: none; box-shadow: none;" /></p>
 
@@ -471,8 +471,6 @@ style: |
 <p><img src="../pictures/work/americas-team-2025.jpg" alt="Americas Team 2025 - UX Maturity Level 4" style="max-width: 280px; width: 100%; height: auto;" /></p>
 <p style="position: absolute; top: 0.5rem; right: 2rem; margin: 0;"><img src="../pictures/work/in-front-of-the-bosch-building.jpg" alt="In front of Bosch building" style="width: 150px; height: auto;" /></p>
 
-[INSERT TABLE HERE: Present role achievements]
-
 | Area | Achievement |
 | ---- | ----------- |
 | Role | Research & Technology – Bosch Brasil (May 2023 – present); UX Project Champion GS/BDU |
@@ -490,7 +488,7 @@ style: |
 
 ## Present – CIP and UX Integration: A Critical Career Milestone
 
-<p><img src="../pictures/work/digital-ws.jpg" alt="UX Strategy Workshop" /></p>
+<p><img src="../pictures/work/digital-ws.jpg" alt="UX Strategy Workshop" style="max-height: 250px; width: auto;" /></p>
 
 - **Career significance:** This project marks a pivotal evolution into **Senior Researcher** capabilities—combining in-depth, data-oriented investigation with technical execution, project management, and governance.  
 - **Project scope:** Integrated **UX relevance assessment** into the **Continuous Improvement Process (CIP)** in ServiceNow CIM. A **UX gate** sits between Assess and Approve; the method runs at that gate to triage improvement initiatives (Low / Medium / High UX relevance).  
@@ -499,8 +497,6 @@ style: |
 <p><img src="../pictures/diagrams/cip-ux-pipeline.png" alt="Diagram cip-ux-pipeline: CIP-UX methodology pipeline" style="max-width: 72%; height: auto; margin: 0.5rem auto; display: block; border: none; box-shadow: none;" /></p>
 
 - **Deliverables:**
-
-[INSERT TABLE HERE: CIP-UX deliverables]
 
 | Deliverable | Description |
 | ----------- | ----------- |
@@ -539,7 +535,7 @@ style: |
 
 ## Present – Academic Research (Trust in AI & UI)
 
-<p><img src="../pictures/academia/hfsd-workshop-1.jpg" alt="ISSRE 2025 HFSD Workshop" /></p>
+<p><img src="../pictures/academia/hfsd-workshop-1.jpg" alt="ISSRE 2025 HFSD Workshop" style="max-height: 250px; width: auto;" /></p>
 
 <p><img src="../pictures/diagrams/academic-research-flow.png" alt="Diagram academic-research-flow: Academic research flow" style="max-width: 72%; height: auto; margin: 0.5rem auto; display: block; border: none; box-shadow: none;" /></p>
 
@@ -736,8 +732,6 @@ style: |
 
 <p><img src="../pictures/work/bosch-2018.jpg" alt="Bosch Talent Forum 2018 - 3rd Place Award" /></p>
 
-[INSERT TABLE HERE: Awards]
-
 | Award | Place | Year / Context |
 | ----- | ----- | -------------- |
 | X-Games Brazil | 1st | 2018 – New Business Creation / Consultancy |
@@ -755,9 +749,11 @@ style: |
 
 - **Trajectory across Bosch locations:** Brazil, Hungary (Budapest), Germany, Argentina.
 
-<p><img src="../pictures/work/budapest-2019.jpg" alt="Bosch Magyarország - Budapest 2019" /></p>
-<p><img src="../pictures/work/budapest-2019-2.jpg" alt="Budapest team 2019 – farewell book" style="max-width: 200px; height: auto;" /></p>
-<p><img src="../pictures/work/bosch-argentina.jpg" alt="Bosch Argentina – We are Bosch" style="max-width: 200px; height: auto;" /></p>
+<div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
+<p><img src="../pictures/work/budapest-2019.jpg" alt="Bosch Magyarország - Budapest 2019" style="height: 140px; width: auto;" /></p>
+<p><img src="../pictures/work/budapest-2019-2.jpg" alt="Budapest team 2019 – farewell book" style="height: 140px; width: auto;" /></p>
+<p><img src="../pictures/work/bosch-argentina.jpg" alt="Bosch Argentina – We are Bosch" style="height: 140px; width: auto;" /></p>
+</div>
 
 <p><img src="../pictures/diagrams/experience-timeline.png" alt="Diagram experience-timeline: Experience timeline" style="max-width: 72%; height: auto; margin: 0.5rem auto; display: block; border: none; box-shadow: none;" /></p>
 
@@ -776,8 +772,6 @@ style: |
 - **Prioritized career paths (all leading to a Lead position):** (1) **Priority 1 – Ideal:** PhD within Bosch supporting the company with Quantum or AI technology; (2) **Priority 2:** Research Scrum Master who also provides technical support; (3) **Priority 3:** UX Researcher.
 - **Future objective:** Work in **technology-focused roles** that integrate **in-depth research, project management, and AI implementation** as a core professional interest.
 - **Desired vacancy types (Bosch & external):**
-
-[INSERT TABLE HERE: Future vacancy types and examples]
 
 | Type | Bosch examples | External examples |
 | ---- | -------------- | ----------------- |
@@ -805,8 +799,6 @@ style: |
 <p><img src="../pictures/personal/budapes-2019-2.jpg" alt="Budapest 2019" /></p>
 <p><img src="../pictures/personal/cat-piano.jpg" alt="Cat on piano – beginner piano practice" /></p>
 <p><img src="../pictures/personal/cat-slipt-keyboard.jpg" alt="Cat on split keyboard – macro creation and productivity" /></p>
-
-[INSERT TABLE HERE: Personal interests and career enablers]
 
 | Interest | Career enabler |
 | -------- | -------------- |
