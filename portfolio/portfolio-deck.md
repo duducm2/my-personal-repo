@@ -585,16 +585,36 @@ I feel proactive, self-reliant and organized.
 <!-- _class: art-top-right -->
 
 <style scoped>
-img[src*="UXGS"] { width: 56px !important; height: auto !important; }
-img[src*="americas-team-2025"] { width: 280px !important; height: auto !important; }
-img[src*="in-front-of-the-bosch-building"] { width: 150px !important; height: auto !important; }
+section { position: relative; }
+.slide-art-top-right {
+  position: absolute !important;
+  bottom: 0.5rem !important;
+  right: 0.5rem !important;
+  top: auto !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: flex-end !important;
+  gap: 0.35rem !important;
+  margin: 0 !important;
+  line-height: 0 !important;
+}
+.slide-art-top-right p { position: relative !important; margin: 0 !important; float: none !important; }
+.slide-art-top-right .uxgs-logo { order: 1; margin-right: -12px !important; z-index: 1; }
+.slide-art-top-right .uxgs-logo img { width: 48px !important; height: auto !important; display: block !important; }
+.slide-art-top-right .building-img { order: 2; }
+.slide-art-top-right .building-img img { width: 110px !important; height: auto !important; display: block !important; }
+.slide-art-top-right .americas-img { order: 3; }
+.slide-art-top-right .americas-img img { width: 120px !important; height: auto !important; display: block !important; }
+table { margin-top: 0.5rem !important; clear: both !important; }
 </style>
 
 ## Present – Research & Technology (Bosch Brasil)
 
-<p style="position: absolute; top: 0.5rem; left: 0.5rem; margin: 0;"><img src="../pictures/work/bdu/UXGS%20Logo_verticle.svg" alt="Research area logo" /></p>
-<p><img src="../pictures/work/americas-team-2025.jpg" alt="Americas Team 2025 - Research Maturity Level 4" /></p>
-<p style="position: absolute; top: 0.5rem; right: 2rem; margin: 0;"><img src="../pictures/work/in-front-of-the-bosch-building.jpg" alt="In front of Bosch building" /></p>
+<div class="slide-art-top-right">
+<p class="uxgs-logo"><img src="../pictures/work/bdu/UXGS%20Logo_verticle.svg" alt="Research area logo" /></p>
+<p class="building-img"><img src="../pictures/work/in-front-of-the-bosch-building.jpg" alt="In front of Bosch building" /></p>
+<p class="americas-img"><img src="../pictures/work/americas-team-2025.jpg" alt="Americas Team 2025 - Research Maturity Level 4" /></p>
+</div>
 
 | Area | Achievement |
 | ---- | ----------- |
