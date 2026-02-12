@@ -496,7 +496,14 @@ table thead { display: none !important; }
 
 <!-- _class: art-top-right -->
 <style scoped>
-p.logos-together { display: flex; align-items: center; gap: 0.5rem; margin: 2.75rem 2 2.5rem -1rem; }
+p.logos-together {
+  display: flex; align-items: center; gap: 0.5rem;
+  margin-top: 1.25rem !important;
+  margin-left: -6.5rem !important;
+  margin-right: 2.5rem !important;
+  margin-bottom: 0.5rem;
+  margin-right: auto;
+}
 p.logos-together img[src*="ETEC.png"] {
   width: 96px !important; height: auto !important;
   transform: rotate(-2.5deg);
