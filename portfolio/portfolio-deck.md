@@ -471,7 +471,7 @@ img[src*="story-flow"] {
 # Why I Work in Technology, Project Management & Research
 ## Trustworthy, human-centered software for complex services
 
-- I believe software in service organizations should be **trustworthy, usable, and inclusive**—especially when it affects real people and businesses.
+- I believe software in service organizations should be **trustworthy, usable, and inclusive**, especially when it affects real people and businesses.
 - My work centers **technology**, **project management**, and **research**: bringing evidence and user needs into how we build and deliver.
 - This portfolio walks through that story.
 
@@ -502,7 +502,7 @@ table thead { display: none !important; }
 | --------- | ----- |
 | Name | Eduardo M. de A. Figueiredo |
 | Role | Research, Technology & Project Management |
-| Impact | I help teams govern better and improve faster—using research to prioritize, decide, and deliver with clear data and accountability. |
+| Impact | I help teams govern better and improve faster, using research to prioritize, decide, and deliver with clear data and accountability. |
 | Contact | Nova Odessa, SP – Brazil · edu.evangelista.figueiredo@gmail.com · LinkedIn / +55 19 98176-658 |
 
 <p class="photo-at-bottom"><img src="../pictures/personal/my-photo-rectangle.png" alt="Eduardo Figueiredo" /></p>  
@@ -812,7 +812,7 @@ section { position: relative; }
 
 | Project | CSI | NPS |
 | ------- | --- | --- |
-| GS_R2S Financial Portal | 5 | — |
+| GS_R2S Financial Portal | 5 | N/A |
 | EXT_PS_CCC Telemetry | 5 | 10 |
 | EXT_M-PUR36 Tooling | 5 | 10 |
 | EXT_M-PMQ PPAP | 5 | 10 |
@@ -848,7 +848,7 @@ section { position: relative; }
 
 ## Data Visualization – Power BI Dashboards at Work
 
-- **Bosch Research Americas (GS):** Built Power BI dashboards for project and resource oversight and training tracking—so the team can see the numbers and make better calls.
+- **Bosch Research Americas (GS):** Built Power BI dashboards for project and resource oversight and training tracking, so the team can see the numbers and make better calls.
 
 <div class="pbi-dashboards-row">
 <p><img src="../pictures/work/pbi-allocation.png" alt="Power BI – LA Allocation Dashboard" /></p>
@@ -1007,6 +1007,10 @@ section { position: relative; }
   border-radius: 4px !important;
 }
 .tech-evidence-grid p:nth-child(n+4) img { max-height: 60vh !important; }
+/* Nudge prototype image up slightly for better alignment */
+.tech-evidence-grid img[src*="dissertation-tech-3-prototype-1"] {
+  margin-top: -30px !important;
+}
 </style>
 
 ## Technical Implementation – Visual Evidence
