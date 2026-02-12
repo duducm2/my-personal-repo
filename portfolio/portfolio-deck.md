@@ -600,11 +600,11 @@ section { position: relative; }
 }
 .slide-art-top-right p { position: relative !important; margin: 0 !important; float: none !important; }
 .slide-art-top-right .uxgs-logo { order: 1; margin-right: -12px !important; z-index: 1; }
-.slide-art-top-right .uxgs-logo img { width: 48px !important; height: auto !important; display: block !important; }
+.slide-art-top-right .uxgs-logo img { width: 72px !important; height: auto !important; display: block !important; }
 .slide-art-top-right .building-img { order: 2; }
-.slide-art-top-right .building-img img { width: 110px !important; height: auto !important; display: block !important; }
+.slide-art-top-right .building-img img { width: 165px !important; height: auto !important; display: block !important; }
 .slide-art-top-right .americas-img { order: 3; }
-.slide-art-top-right .americas-img img { width: 120px !important; height: auto !important; display: block !important; }
+.slide-art-top-right .americas-img img { width: 180px !important; height: auto !important; display: block !important; }
 table { margin-top: 0.5rem !important; clear: both !important; }
 </style>
 
