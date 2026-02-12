@@ -669,7 +669,7 @@ section.diagram-slide-top-title .diagram-wrapper {
   min-height: 0;
 }
 section.diagram-slide-top-title .diagram-wrapper img {
-  width: 85% !important;
+  width: 100% !important;
   max-width: 90% !important;
   height: auto !important;
   margin: 0 auto !important;
@@ -829,9 +829,37 @@ section { position: relative; }
 
 <!-- Slide 10 – Present (CSI & NPS Performance 2024–2025) -->
 
-<!-- _class: center -->
+<!-- _class: diagram-slide-top-title -->
+
+<style scoped>
+section.diagram-slide-top-title {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  align-items: stretch !important;
+}
+section.diagram-slide-top-title h2 {
+  margin-top: 0 !important;
+  flex-shrink: 0;
+}
+section.diagram-slide-top-title .diagram-wrapper {
+  flex: 1;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 0;
+}
+section.diagram-slide-top-title .csi-table-wrapper table {
+  font-size: 1.15em !important;
+  width: 85% !important;
+  max-width: 90% !important;
+  margin: 0 auto !important;
+}
+</style>
 
 ## Present – CSI & NPS Performance (2024–2025)
+
+<div class="diagram-wrapper csi-table-wrapper">
 
 | Project | CSI | NPS |
 | ------- | --- | --- |
@@ -844,6 +872,8 @@ section { position: relative; }
 | GS Research Bootcamp 2024 | 4.9 | 9.6 |
 | GS_B2R_AA CF Automation | 4 | 10 |
 | **Averages** | **4.86** | **9.94** |
+
+</div>
 
 ---
 
