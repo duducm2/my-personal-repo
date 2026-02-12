@@ -4,15 +4,15 @@
 // =============================================================================
 
 #let name = "Eduardo M. de A. Figueiredo"
-#let tagline = "UX Researcher | Front-end Developer | Master in Technology"
-#let phone = "+55 (19) 98176-6583"
+#let tagline = "Research, Technology & Project Management | Master in Technology"
+#let phone = "+55 (19) 98176-658"
 #let email = "edu.evangelista.figueiredo@gmail.com"
 #let linkedin = "LinkedIn"
-#let linkedin-url = "https://www.linkedin.com/in/eduardo-figueiredo"
+#let linkedin-url = "https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b"
 #let location = "Nova Odessa, SP — Brazil"
 
 #let profile = [
-  UX Researcher and Front-end Developer with a Master's in Technology (Unicamp). Specialized in integrating User Experience into organizational processes (CIP) and measuring software trustworthiness. Led regions to high UX maturity (Level 4), developed AI-driven quality gates, and managed international projects. Background in full-stack development and continuous improvement.
+  Research-driven evidence, technology leadership, and project delivery. Specialized in integrating UX into organizational processes (CIP) and measuring software trustworthiness. Led Americas to UX Maturity Level 4; Senior Researcher evolution. Background in full-stack development and continuous improvement. Grade A in all Master's coursework.
 ]
 
 #let strengths = [
@@ -27,16 +27,17 @@
 // Nested structure: each item is (category, array of sub-items or empty)
 #let skills = (
   ("Core:", ("UX Research", "Project Management", "Continuous Improvement (CIP)", "AI Systems")),
-  ("Tech:", ("Front-end Development", "React", "Python", "SQL", "Power BI", "Git", "GitHub", "Azure", "Bitbucket", "Figma", "Adobe XD")),
+  ("Tech:", ("Front-end Development", "React", "Python", "SQL", "Power BI", "Cursor IDE", "Mermaid", "Git", "GitHub", "Azure", "Bitbucket", "Figma", "Adobe XD")),
 )
 
 #let experience = (
-  ("May 2023 – Present", "Bosch Brasil", "UX Research & Design Analyst", (
-    [Led Americas region to #strong[UX Maturity Level 4] (Dec 2025): governance, templates, training for service lines.],
-    [Managed "Integrating UX Quality Gates" project – UX embedded into CIP using AI and automation.],
-    [Global collaboration: scientific methods to identify service issues and design solutions; tutor at SENAI Digital Talent Academy.],
+  ("May 2023 – Present", "Bosch Brasil", "UX Research & Design Analyst (Research Expert, GS/BDU)", (
+    [Led Americas to #strong[UX Maturity Level 4]: governance, templates, training. CSI 4.86 / NPS 9.94 avg. (2024–2025).],
+    [CIP+Research integration into ServiceNow CIM; research gate in CIP workflow; AI-driven quality gates.],
+    [Power BI dashboards for project/resource oversight and training tracking.],
+    [Two trips to Germany (2024, 2025); tutor at SENAI Digital Talent Academy.],
   )),
-  ("May 2021 – Nov 2023", "Bosch Brasil", "Web Developer", (
+  ("2020 – Nov 2023", "Bosch Brasil", "Web Developer", (
     [Web solutions, front-end technologies, teamwork-driven development; React, Scrum.],
   )),
   ("Jan 2019 – Dec 2019", "Bosch Magyarország (Hungary)", "Digitization Support Analyst", (
@@ -48,8 +49,9 @@
 )
 
 #let education = (
-  ("Master's in Technology:", "Info & Comm Systems, UX. Unicamp (2023–2025).", "Thesis: Benchmark to assess software trustworthiness via Usability, Accessibility, and UX."),
+  ("Master's in Technology:", "Info & Comm Systems, UX. Unicamp (2023–2025).", "Dissertation: Benchmark for software trustworthiness (Usability, Accessibility, UX) using Agentic AI and TrustMate evaluation tool."),
   ("Systems Analysis and Development.", "Unicamp (2015–2020).", ""),
+  ("Technical Degree in Informatics.", "ETEC Bento Quirino (2012–2014).", ""),
 )
 
 #let publications = (
