@@ -870,7 +870,7 @@ section { position: relative; }
 .publications-grid p:nth-child(n+4) img { max-height: 34vh !important; }
 </style>
 
-## Present – Scientific Publications (Visual Evidence)
+## Present – Scientific Publications
 
 <p class="publications-intro">Published work in <strong>ISSRE 2025 (HFSD Workshop)</strong> and <strong>IHC 2025 (SBC SOL)</strong>; <span class="thesis-emphasis">master's dissertation on software trustworthiness and Agentic AI</span>.</p>
 
@@ -1124,7 +1124,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 }
 </style>
 
-## Technical Implementation – Visual Evidence
+## Technical Implementation
 
 <div class="tech-evidence-grid">
 <p><img src="../pictures/academia/dissertation-tech-1-agents-1.png" alt="Agentic AI survey – e-commerce evaluation" /></p>
