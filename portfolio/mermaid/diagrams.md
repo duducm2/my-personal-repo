@@ -9,6 +9,7 @@ Open this file in an editor or viewer that supports Mermaid (e.g. VS Code with M
 | `story-flow` | Why story flow | 1 |
 | `academic-timeline` | Academic timeline | 3 |
 | `cip-ux-pipeline` | CIP-UX methodology pipeline | 6 |
+| `ux-relevance-model` | UX relevance evaluation model | 6a |
 | `academic-research-flow` | Academic research flow | 4 |
 | `dissertation-tech` | Dissertation & research – technologies | 6 & 7 |
 | `infovis-pnad-structures` | InfoVis PNAD visual structures | 8 |
@@ -92,6 +93,23 @@ flowchart TB
   style T8 fill:#2c3e50,stroke:none
   style T9 fill:#2c3e50,stroke:none
   style T10 fill:#2c3e50,stroke:none
+```
+
+---
+
+## 3b. [ux-relevance-model] UX relevance evaluation model (Slide 6a)
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%
+flowchart LR
+  CIM["Information from CIM (ServiceNow CIM fields)"]
+  Priority["Set by priority (Prioritization logic)"]
+  Low["Low"]
+  Medium["Medium"]
+  High["High"]
+  CIM --> Priority --> Low
+  Priority --> Medium
+  Priority --> High
 ```
 
 ---

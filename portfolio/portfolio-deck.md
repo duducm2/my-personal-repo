@@ -713,6 +713,53 @@ section.diagram-slide-top-title .diagram-wrapper img {
 
 ---
 
+<!-- Slide 6a – Present (UX relevance evaluation model) -->
+
+<!-- _class: diagram-slide-top-title -->
+
+<style scoped>
+section.diagram-slide-top-title {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  align-items: stretch !important;
+}
+section.diagram-slide-top-title h2 {
+  margin-top: 0 !important;
+  flex-shrink: 0;
+}
+section.diagram-slide-top-title .diagram-wrapper {
+  flex: 1;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 0;
+}
+section.diagram-slide-top-title .diagram-wrapper img {
+  width: 100% !important;
+  max-width: 90% !important;
+  height: auto !important;
+  margin: 0 auto !important;
+  display: block !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+</style>
+
+## Present – UX relevance evaluation model
+
+- I created a **model to evaluate UX relevance** for CIP initiatives: information from **CIM (ServiceNow)** fields → set by priority → result **Low**, **Medium**, or **High** (triage for when deeper UX involvement is needed).
+- **Sampling of 35 projects** (pipeline run): **Low 40.0%**, **Medium 37.1%**, **High 22.9%**.
+- **Python** used to run the pipeline and test the model in real scenarios (standalone tests, CIM-like data).
+
+<div class="diagram-wrapper">
+<p><img src="../pictures/diagrams/ux-relevance-model.png" alt="Diagram: UX relevance evaluation model (CIM fields, priority, Low/Medium/High)" /></p>
+</div>
+
+<!-- Diagram: ux-relevance-model (mermaid/diagrams.md). Export to ux-relevance-model.png -->
+
+---
+
 <!-- Slide 6b – Present (CIP and Research: eight pictures – 2 rows of 4, centered) -->
 
 <!-- _class: dense-content -->
