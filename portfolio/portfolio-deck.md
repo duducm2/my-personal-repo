@@ -488,6 +488,7 @@ table thead { display: none !important; }
 | Contact | Nova Odessa, SP – Brazil · edu.evangelista.figueiredo@gmail.com · LinkedIn / +55 19 98176-658 |
 
 <p class="photo-at-bottom"><img src="../pictures/personal/my-photo-rectangle.png" alt="Eduardo Figueiredo" /></p>  
+<!-- <p><img src="../pictures/personal/my-photo.png" alt="Eduardo Figueiredo" /></p> -->
 
 ---
 
@@ -514,10 +515,12 @@ img[src*="academic-timeline"] {
 
 <p><img src="../pictures/diagrams/academic-timeline.png" alt="Diagram academic-timeline: Academic timeline" /></p>
 
-- **Technical school (ETEC):** Technical Degree in Computer Science – ETEC Bento Quirino (2012–2014).
-- **Undergraduate & Master's (Unicamp):** Systems Analysis and Development (2015–2020); Master's in Technology – Information and Communication Systems, research focus (2023–2025).
-- **Master's thesis:** Benchmark to assess software trustworthiness via usability, accessibility, and user-centred research. Grade 'A' in all Master's coursework (Unicamp transcript available on request).
+<p><img src="../pictures/academia/english-proficiency.png" alt="English proficiency – academic credentials" /></p>
+<p><img src="../pictures/academia/docs/historico-escolar.png" alt="Academic record – Unicamp" /></p>
+
 - **Professional profile:** Proactive, self-reliant, organized; combines **in-depth research**, **technology**, and **project management** with agile practices (Scrum, Kanban) and delivery leadership.
+
+<p style="text-align: center; margin-top: 1rem;"><strong>Grade 'A' in all Master's coursework</strong> (Unicamp transcript available on request).</p>
 
 <!-- Diagram: academic-timeline (mermaid/diagrams.md). Export to academic-timeline.png -->  
 
@@ -566,6 +569,8 @@ img[src*="cip-ux-pipeline"] {
 ## Present – CIP and Research Integration: A Critical Career Milestone
 
 <p><img src="../pictures/work/digital-ws.jpg" alt="Research Strategy Workshop" /></p>
+<p><img src="../pictures/work/germany-ws-2024.jpg" alt="Research workshop – Germany 2024" /></p>
+<p><img src="../pictures/work/joinville-ws-2024.jpg" alt="Research workshop – Joinville 2024" /></p>
 
 - **Career significance:** This project marks a pivotal evolution into **Senior Researcher** capabilities—combining in-depth, data-oriented investigation with technical execution, project management, and governance.  
 - **Project scope:** Integrated **research relevance assessment** into the **Continuous Improvement Process (CIP)** in ServiceNow CIM. A **research gate** sits between Assess and Approve; the method runs at that gate to triage improvement initiatives (Low / Medium / High research relevance).  
@@ -626,8 +631,12 @@ img[src*="academic-research-flow"] {
 ## Present – Academic Research (Trust in AI & UI)
 
 <p><img src="../pictures/academia/hfsd-workshop-1.jpg" alt="ISSRE 2025 HFSD Workshop" /></p>
+<p><img src="../pictures/academia/hfsd-workshop-2.jpg" alt="ISSRE 2025 HFSD Workshop – session" /></p>
 
 <p><img src="../pictures/diagrams/academic-research-flow.png" alt="Diagram academic-research-flow: Academic research flow" /></p>
+
+<p><img src="../pictures/academia/ihc-2025-1.jpg" alt="IHC 2025 SBC SOL" /></p>
+<p><img src="../pictures/academia/ihc-2025-2.jpg" alt="IHC 2025 SBC SOL – presentation" /></p>
 
 - **Master's focus:** Benchmark to assess software trustworthiness (usability, accessibility, user-centred research). Thesis: quantitative methods for perceived trust in e-commerce and software interfaces.  
 - **Publications:** ISSRE 2025 (HFSD – IEEE), IHC 2025 (SBC SOL). **TrustMate** + Power BI for trust scores; **AI agents as survey respondents**, full-stack development, Figma prototyping.  
@@ -803,6 +812,9 @@ img[src*="tooling-project/"] { width: 32% !important; height: auto !important; m
 <p><img src="../pictures/work/tooling-project/tooling-1.png" alt="Tooling project for PT – wireframe or early concept" /></p>
 <p><img src="../pictures/work/tooling-project/tooling-2.png" alt="Tooling project for PT – low-fidelity prototype" /></p>
 <p><img src="../pictures/work/tooling-project/tooling-3.png" alt="Tooling project for PT – high-fidelity prototype" /></p>
+<p><img src="../pictures/work/tooling-project/tooling-4.jpg" alt="Tooling project for PT – deliverable or session" /></p>
+<p><img src="../pictures/work/tooling-project/tooling-5.jpg" alt="Tooling project for PT – deliverable or session" /></p>
+<p><img src="../pictures/work/tooling-project/tooling-6.jpg" alt="Tooling project for PT – deliverable or session" /></p>
 
 ---
 
