@@ -471,7 +471,7 @@ img[src*="story-flow"] {
 # Why I Work in Technology, Project Management & Research
 ## Trustworthy, human-centered software for complex services
 
-- I believe software in service organizations should be **trustworthy, usable, and inclusive**, especially when it affects real people and businesses.
+- I believe software in service organizations should be **trustworthy, usable, and usefull**, especially when it affects real people and businesses.
 - My work centers **technology**, **project management**, and **research**: bringing evidence and user needs into how we build and deliver.
 - This portfolio walks through that story.
 
@@ -642,7 +642,7 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 | Tooling project (PT) | Led technical delivery and project management from requirements through high-fidelity prototypes, with regular customer check-ins. |
 | Research Maturity | Led Americas to Level 4 – governance, templates, training |
 | CIP + Research | Led integration into ServiceNow CIM; research gate in CIP workflow |
-| Collaboration | Tutor at SENAI Digital Talent Academy |
+| Collaboration | Tutor of Digital Talent Academy Students |
 
 ---
 
