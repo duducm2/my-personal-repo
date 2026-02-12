@@ -31,15 +31,15 @@
 // Section title: uppercase, bold, midnight blue; accent line below (main column)
 #let section-title(body) = {
   set text(size: 9pt, weight: "bold", fill: highlight-blue)
-  block(above: 0.6em, below: 0.25em)[#block(body)]
-  block(below: 0.7em)[#line(length: 2.5em, stroke: (paint: highlight-blue, thickness: 0.6pt))]
+  block(above: 0.6em, below: 0.5em)[#block(body)]
+  block(below: 1.4em)[#line(length: 2.5em, stroke: (paint: highlight-blue, thickness: 0.6pt))]
 }
 
 // Sidebar subsection: bold, midnight blue; short accent line below
 #let sidebar-heading(body) = {
   set text(size: 9pt, weight: "bold", fill: highlight-blue)
-  block(above: 0.5em, below: 0.2em)[#block(body)]
-  block(below: 0.5em)[#line(length: 1.5em, stroke: (paint: highlight-blue, thickness: 0.5pt))]
+  block(above: 0.5em, below: 0.4em)[#block(body)]
+  block(below: 1em)[#line(length: 1.5em, stroke: (paint: highlight-blue, thickness: 0.5pt))]
 }
 // Sidebar body text: slightly smaller, comfortable line height
 #let sidebar-text(body) = {
