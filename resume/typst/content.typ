@@ -53,14 +53,14 @@
 )
 
 #let education = (
-  ("Master's in Technology:", "Info & Comm Systems, UX. Unicamp (2023–2025).", "Dissertation: Benchmark for software trustworthiness using #strong[Agentic AI] and #strong[TrustMate] evaluation tool."),
-  ("Systems Analysis and Development.", "Unicamp (2015–2020).", ""),
-  ("Technical Degree in Informatics.", "ETEC Bento Quirino (2012–2014).", ""),
+  ("Master's in Technology:", "Info & Comm Systems, UX. Unicamp (2023–2025).", [Dissertation: Benchmark for software trustworthiness using #strong[Agentic AI] and #strong[TrustMate] evaluation tool.]),
+  ("Systems Analysis and Development.", "Unicamp (2015–2020).", none),
+  ("Technical Degree in Informatics.", "ETEC Bento Quirino (2012–2014).", none),
 )
 
 #let publications = (
-  ("#strong[IHC 2025]:", "\"Interface Trustworthiness Score Definition Platform\" (SOL / SBC Open Lib). Co-authors: Regina Moraes, Andreia Casare."),
-  ("#strong[ISSRE 2025] (HFSD Workshop):", "\"Measuring Perceived Trust in Websites: A digital tool providing a score for evaluation.\""),
+  ("IHC 2025:", "\"Interface Trustworthiness Score Definition Platform\" (SOL / SBC Open Lib). Co-authors: Regina Moraes, Andreia Casare."),
+  ("ISSRE 2025 (HFSD Workshop):", "\"Measuring Perceived Trust in Websites: A digital tool providing a score for evaluation.\""),
 )
 
 #let additional = (
