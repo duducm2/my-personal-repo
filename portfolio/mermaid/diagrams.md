@@ -60,16 +60,23 @@ flowchart TB
     M4["Data-driven reports"]
   end
   subgraph tools [Technical tools]
-    T1["Markdown"]
-    T2["Python"]
-    T3["Cursor IDE"]
-    T4["CSV"]
-    T5["Power BI"]
-    T6["Mermaid diagrams"]
-    T7["Matplotlib"]
-    T8["Seaborn"]
-    T9["HTML"]
-    T10["CSS"]
+    direction LR
+    subgraph tools_col1
+      direction TB
+      T1["Markdown"]
+      T2["Python"]
+      T3["Cursor IDE"]
+      T4["CSV"]
+      T5["Power BI"]
+    end
+    subgraph tools_col2
+      direction TB
+      T6["Mermaid diagrams"]
+      T7["Matplotlib"]
+      T8["Seaborn"]
+      T9["HTML"]
+      T10["CSS"]
+    end
   end
   style methodologies fill:#ffffff,stroke:#2c3e50,stroke-width:2px,color:#000000
   style tools fill:#ffffff,stroke:#2c3e50,stroke-width:2px,color:#000000
