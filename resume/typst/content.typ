@@ -5,14 +5,14 @@
 
 #let name = "Eduardo M. de A. Figueiredo"
 #let tagline = "Research, Technology & Project Management | Master in Technology"
-#let phone = "+55 (19) 98176-658"
+#let phone = "+55 (19) 98176-6583"
 #let email = "edu.evangelista.figueiredo@gmail.com"
 #let linkedin = "LinkedIn"
 #let linkedin-url = "https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b"
 #let location = "Nova Odessa, SP — Brazil"
 
 #let profile = [
-  Research-driven evidence, technology leadership, and project delivery. Specialized in integrating UX into organizational processes (CIP) and measuring software trustworthiness. Led Americas to UX Maturity Level 4; Senior Researcher evolution. Background in full-stack development and continuous improvement. Grade A in all Master's coursework.
+  I bring research-driven evidence, technology support, and project delivery to help teams build solutions that are trustworthy, user-centered, with clear data, accountability, and measurable impact. Specialized in integrating UX into organizational processes (CIP) and measuring software trustworthiness. Led Americas to UX Maturity Level 4. Background in full-stack development and continuous improvement. Grade A in all Master's coursework.
 ]
 
 #let strengths = [
