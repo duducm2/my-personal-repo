@@ -439,9 +439,9 @@ style: |
 <style scoped>
 /* Calibrate story-flow image: change width and margin-top here; they apply in Marp/PDF */
 img[src*="story-flow"] {
-  width: 60% !important;
+  width: 70% !important;
   height: auto !important;
-  margin-top: 10px !important;
+  margin-top: 70px !important;
   margin-left: 10px !important;
   margin-right: auto !important;
   display: block !important;
