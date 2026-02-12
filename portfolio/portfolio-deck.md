@@ -618,7 +618,7 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 
 | Area | Achievement |
 | ---- | ----------- |
-| Role | Research & Technology – Bosch Brasil (May 2023 – present); Research Project Champion GS/BDU |
+| Role | Research & Technology – Bosch Brasil (May 2023 – present); Research Expert & Project Champion at GS/BDU |
 | International | Two trips to Germany (2024, 2025) for role-related work |
 | CO2 Tracking (GS/Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand |
 | Research Maturity | Led Americas to Level 4 – governance, templates, training |
