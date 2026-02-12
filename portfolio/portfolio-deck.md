@@ -502,7 +502,7 @@ table thead { display: none !important; }
 | --------- | ----- |
 | Name | Eduardo M. de A. Figueiredo |
 | Role | Research, Technology & Project Management |
-| Impact | I help teams govern better and improve faster, using research to prioritize, decide, and deliver with clear data and accountability. |
+| Impact | I help teams govern better and improve faster, using research to prioritize, cide, and deliver with clear data and accountability. |
 | Contact | Nova Odessa, SP – Brazil · edu.evangelista.figueiredo@gmail.com · www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b / +55 19 98176-658 |
 
 <p class="photo-at-bottom"><img src="../pictures/personal/my-photo-rectangle.png" alt="Eduardo Figueiredo" /></p>  
@@ -1069,6 +1069,7 @@ section { position: relative; }
   width: 100% !important; max-width: 100% !important; height: auto !important;
   max-height: 28vh !important; object-fit: contain !important;
   display: block !important; border: none !important; box-shadow: none !important;
+  margin-top: 15px !important;
 }
 .tooling-pt-workshops {
   flex: 0 0 auto !important; margin-top: auto !important;
@@ -1263,7 +1264,7 @@ section { position: relative; }
 .future-career-wrap p { margin: 0 !important; text-align: center !important; }
 .future-career-wrap img {
   width: 43% !important; max-width: 43% !important; height: auto !important;
-  display: block !important; margin: 0 auto !important;
+  display: block !important; margin: 20px auto 0 !important;
   border: none !important; box-shadow: none !important;
 }
 </style>
