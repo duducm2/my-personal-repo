@@ -749,23 +749,31 @@ section { position: relative; }
 <!-- _class: dense-content -->
 
 <style scoped>
+.publications-intro {
+  margin: 0 0 0.6rem 0 !important; font-size: 0.95em !important;
+  color: var(--color-fg-muted, #555) !important; line-height: 1.35 !important;
+}
 .publications-grid {
   display: grid !important;
   grid-template-columns: repeat(3, 1fr) !important;
-  gap: 0.12rem 0.5rem !important;
-  max-width: 58% !important;
-  margin: 0 auto 0.75rem auto !important;
+  gap: 0.6rem 1.25rem !important;
+  max-width: 92% !important;
+  margin: 0 auto 0 !important;
   justify-items: center !important;
   align-items: center !important;
 }
 .publications-grid p { margin: 0 !important; }
 .publications-grid img {
   width: 100% !important; max-width: 100% !important; height: auto !important;
-  display: block !important; object-fit: contain !important;
+  max-height: 39vh !important; object-fit: contain !important;
+  display: block !important; border-radius: 4px !important;
 }
+.publications-grid p:nth-child(n+4) img { max-height: 34vh !important; }
 </style>
 
 ## Present – Scientific Publications (Visual Evidence)
+
+<p class="publications-intro">Published work in <strong>ISSRE 2025 (HFSD Workshop)</strong> and <strong>IHC 2025 (SBC SOL)</strong>; master's dissertation on software trustworthiness.</p>
 
 <div class="publications-grid">
 <p><img src="../pictures/academia/articles/article-1-1.png" alt="Article 1 page 1" /></p>
@@ -775,8 +783,6 @@ section { position: relative; }
 <p><img src="../pictures/academia/articles/dissertation-page-1.png" alt="Dissertation page 1" /></p>
 <p><img src="../pictures/academia/articles/dissertation-page-2.png" alt="Dissertation page 2" /></p>
 </div>
-
-- Published work in **ISSRE 2025 (HFSD Workshop)** and **IHC 2025 (SBC SOL)**; master's dissertation on software trustworthiness.
 
 ---
 
@@ -897,11 +903,14 @@ section { position: relative; }
   min-width: 0 !important;
   display: flex !important;
   flex-direction: column !important;
-  gap: 0.75rem !important;
+  gap: 0.35rem !important;
+  justify-content: flex-start !important;
 }
 .infovis-split .infovis-right p { margin: 0 !important; }
+.infovis-split .infovis-right p:last-child { margin-top: -0.4rem !important; }
 .infovis-split .infovis-right img {
-  width: 100% !important; height: auto !important; display: block !important;
+  width: 80% !important; max-width: 80% !important; height: auto !important;
+  display: block !important; margin: 0 auto !important;
   object-fit: contain !important;
 }
 </style>
@@ -929,11 +938,18 @@ section { position: relative; }
   align-items: center !important;
   min-height: 58vh !important;
   width: 100% !important;
-  margin-top: -0.5rem !important;
+  margin: -0.5rem auto 0 !important;
+  padding: 0 1rem !important;
+  box-sizing: border-box !important;
 }
-.dissertation-tech-wrap p { margin: 0 !important; }
+.dissertation-tech-wrap p {
+  margin: 0 auto !important;
+  flex: 0 1 auto !important;
+  text-align: center !important;
+}
 .dissertation-tech-wrap img {
-  width: 86% !important; height: auto !important; display: block !important;
+  width: 103% !important; max-width: 103% !important; height: auto !important;
+  display: block !important; margin: 0 auto !important;
   border: none !important; box-shadow: none !important;
 }
 </style>
@@ -952,76 +968,154 @@ section { position: relative; }
 
 <!-- Slide 15 – Present (Dissertation: Technical Visuals) -->
 
-<!-- _class: dense-content dissertation-tech-images -->
+<!-- _class: dense-content -->
 
 <style scoped>
-img[src*="disseratation-tech"] { width: 20% !important; height: auto !important; max-width: 20% !important; }
+.tech-evidence-grid {
+  display: grid !important;
+  grid-template-columns: 0.9fr 0.9fr 1.2fr !important;
+  grid-template-rows: 1fr 1fr !important;
+  gap: 0.5rem 1rem !important;
+  max-width: 95% !important;
+  margin: 0.2rem auto 0 !important;
+  justify-items: center !important;
+  align-items: center !important;
+  min-height: 0 !important;
+}
+.tech-evidence-grid p { margin: 0 !important; }
+.tech-evidence-grid img {
+  width: 100% !important; max-width: 100% !important; height: auto !important;
+  max-height: 32vh !important; display: block !important; object-fit: contain !important;
+  border-radius: 4px !important;
+}
+.tech-evidence-grid p:nth-child(n+4) img { max-height: 30vh !important; }
 </style>
 
 ## Theme: Technical Implementation – Visual Evidence
 
+<div class="tech-evidence-grid">
 <p><img src="../pictures/academia/disseratation-tech-1-agents-1.png" alt="AI agent survey – e-commerce evaluation" /></p>
 <p><img src="../pictures/academia/disseratation-tech-1-agents-2.png" alt="AI agent survey – TrustMate dashboard" /></p>
 <p><img src="../pictures/academia/disseratation-tech-2-web-1.png" alt="E-commerce evaluation – product page" /></p>
 <p><img src="../pictures/academia/disseratation-tech-2-web-2.png" alt="Evaluation metrics – trust and research scores" /></p>
 <p><img src="../pictures/academia/disseratation-tech-2-web-3.png" alt="TrustMate – hierarchy of attributes" /></p>
+<!-- Prototype image (TrustMate tool evaluation) – bottom-right in dissertation technical implementation -->
 <p><img src="../pictures/academia/disseratation-tech-3-prototype-1.png" alt="TrustMate tool evaluation – prototype" /></p>
+</div>
 
 ---
 
 <!-- Slide 16 – Present (Tooling Project for PT) -->
 
-<!-- _class: dense-content tooling-project-images -->
+<!-- _class: dense-content -->
 
 <style scoped>
-img[src*="tooling-pt-workflow"] {
-  width: 72% !important; height: auto !important; margin-top: 0.5rem !important;
-  margin-left: auto !important; margin-right: auto !important; display: block !important;
-  border: none !important; box-shadow: none !important;
+.tooling-pt-layout {
+  display: flex !important; flex-direction: column !important;
+  gap: 0.5rem !important; margin-top: 0.35rem !important;
+  max-width: 100% !important;
 }
-img[src*="tooling-project/"] { width: 32% !important; height: auto !important; max-width: 32% !important; }
+.tooling-pt-main {
+  display: flex !important; flex-direction: row !important;
+  align-items: stretch !important; justify-content: flex-start !important;
+  gap: 1.25rem !important; min-height: 0 !important; flex: 1 1 auto !important;
+}
+.tooling-pt-prototypes {
+  flex: 0 0 50% !important; min-width: 0 !important;
+  display: flex !important; flex-direction: column !important;
+  gap: 0.5rem !important; justify-content: flex-start !important;
+}
+.tooling-pt-prototypes p { margin: 0 !important; }
+.tooling-pt-prototypes img {
+  width: 100% !important; max-width: 100% !important; height: auto !important;
+  max-height: 24vh !important; object-fit: contain !important;
+  display: block !important; border-radius: 4px !important;
+}
+.tooling-pt-right {
+  flex: 1 1 auto !important; min-width: 0 !important;
+  display: flex !important; flex-direction: column !important;
+  align-items: center !important; justify-content: space-between !important;
+  gap: 0.5rem !important;
+}
+.tooling-pt-diagram { flex: 0 0 auto !important; text-align: center !important; margin: 0 !important; }
+.tooling-pt-diagram p { margin: 0 !important; }
+.tooling-pt-diagram img {
+  width: 100% !important; max-width: 100% !important; height: auto !important;
+  max-height: 28vh !important; object-fit: contain !important;
+  display: block !important; border: none !important; box-shadow: none !important;
+}
+.tooling-pt-workshops {
+  display: flex !important; flex-direction: row !important;
+  gap: 0.4rem !important; align-items: center !important; justify-content: center !important;
+  flex-wrap: wrap !important;
+}
+.tooling-pt-workshops p { margin: 0 !important; }
+.tooling-pt-workshops img {
+  width: auto !important; height: 56px !important; max-height: 56px !important;
+  object-fit: cover !important; display: block !important;
+  border-radius: 4px !important; border: 1px solid rgba(0,0,0,0.08) !important;
+}
 </style>
 
 ## Theme: Technical Implementation – Tooling Project for PT
 
 - **Tooling project for PT:** Key development in **technical delivery and project management**—from requirements to high-fidelity deliverable, with **customer progress review meetings** throughout.
+- **Workshop facilitation:** Strategy and team workshops with many participants (e.g. Digital WS, Joinville 2024).
 
-<p><img src="../pictures/diagrams/tooling-pt-workflow.png" alt="Diagram tooling-pt-workflow: Tooling PT delivery workflow" /></p>
-
-<!-- Diagram: tooling-pt-workflow (mermaid/diagrams.md). Export to tooling-pt-workflow.png -->
-
+<div class="tooling-pt-layout">
+<div class="tooling-pt-main">
+<div class="tooling-pt-prototypes">
 <p><img src="../pictures/work/tooling-project/tooling-1.png" alt="Tooling project for PT – wireframe or early concept" /></p>
 <p><img src="../pictures/work/tooling-project/tooling-2.png" alt="Tooling project for PT – low-fidelity prototype" /></p>
 <p><img src="../pictures/work/tooling-project/tooling-3.png" alt="Tooling project for PT – high-fidelity prototype" /></p>
-<p><img src="../pictures/work/tooling-project/tooling-4.jpg" alt="Tooling project for PT – deliverable or session" /></p>
-<p><img src="../pictures/work/tooling-project/tooling-5.jpg" alt="Tooling project for PT – deliverable or session" /></p>
-<p><img src="../pictures/work/tooling-project/tooling-6.jpg" alt="Tooling project for PT – deliverable or session" /></p>
+</div>
+<div class="tooling-pt-right">
+<p class="tooling-pt-diagram"><img src="../pictures/diagrams/tooling-pt-workflow.png" alt="Diagram tooling-pt-workflow: Tooling PT delivery workflow" /></p>
+<div class="tooling-pt-workshops">
+<p><img src="../pictures/work/tooling-project/tooling-4.jpg" alt="Tooling project for PT – customer workshop" /></p>
+<p><img src="../pictures/work/tooling-project/tooling-5.jpg" alt="Tooling project for PT – customer workshop" /></p>
+<p><img src="../pictures/work/tooling-project/tooling-6.jpg" alt="Tooling project for PT – customer workshop" /></p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Diagram: tooling-pt-workflow (mermaid/diagrams.md). Export to tooling-pt-workflow.png -->
 
 ---
 
 <!-- Slide 17 – Present (Proposal Generator – Excel VBA) -->
 
-<!-- _class: art-top-right -->
-
 <style scoped>
-img[src*="proposal-generator.png"] { width: 280px !important; height: auto !important; }
-img[src*="proposal-generator-phases"] {
-  width: 72% !important; height: auto !important; margin-top: 0.5rem !important;
-  margin-left: auto !important; margin-right: auto !important; display: block !important;
-  border: none !important; box-shadow: none !important;
+.proposal-gen-wrap {
+  display: flex !important; flex-direction: column !important;
+  justify-content: space-between !important; align-items: center !important;
+  min-height: 65vh !important; margin-top: 0.25rem !important;
+}
+.proposal-gen-wrap .proposal-gen-diagram {
+  flex: 0 0 auto !important;
+  text-align: center !important; margin: 0 !important; margin-top: 1.5rem !important;
+}
+.proposal-gen-wrap .proposal-gen-diagram img {
+  width: 72% !important; max-width: 72% !important; height: auto !important;
+  display: inline-block !important; border: none !important; box-shadow: none !important;
+}
+.proposal-gen-wrap .proposal-gen-screenshot {
+  flex: 0 0 auto !important;
+  text-align: center !important; margin: 0 !important; margin-top: 0.5rem !important;
+}
+.proposal-gen-wrap .proposal-gen-screenshot img {
+  width: 784px !important; max-width: 95% !important; height: auto !important;
+  display: block !important; margin: 0 auto !important;
 }
 </style>
 
 ## Theme: Technical Implementation – Proposal Generator (Excel VBA)
 
-<p><img src="../pictures/work/proposal-generator.png" alt="Proposal Generator – Excel-based project proposal tool" /></p>
-
-- **Definition:** Excel-based application for **automated proposal creation**—project proposals: define activities, estimate hours, Gantt-style timeline, and generate PowerPoint.
-- **Generation logic:** Uses **predefined criteria and historical project data**; outputs (activities, hours, timeline) are driven by that logic.
-
-<p><img src="../pictures/diagrams/proposal-generator-phases.png" alt="Diagram proposal-generator-phases: Proposal Generator research phases" /></p>
-
-- **Technical proficiency:** Developed in **Excel VBA**—macros for automation, calculations, and presentation generation.
+<div class="proposal-gen-wrap">
+<p class="proposal-gen-diagram"><img src="../pictures/diagrams/proposal-generator-phases.png" alt="Diagram proposal-generator-phases: Proposal Generator research phases" /></p>
+<p class="proposal-gen-screenshot"><img src="../pictures/work/proposal-generator.png" alt="Proposal Generator – Excel-based project proposal tool" /></p>
+</div>
 
 <!-- Diagram: proposal-generator-phases (mermaid/diagrams.md). Export to proposal-generator-phases.png -->
 
@@ -1032,7 +1126,17 @@ img[src*="proposal-generator-phases"] {
 <!-- _class: dense-content phrase-net-images -->
 
 <style scoped>
-img[src*="infovis-phrase-netproject"] { width: 32% !important; height: auto !important; max-width: 32% !important; }
+.phrase-net-row {
+  display: flex !important; flex-direction: row !important;
+  justify-content: space-between !important; align-items: center !important;
+  gap: 0.75rem !important; margin-top: 0.5rem !important;
+  max-width: 98% !important;
+}
+.phrase-net-row p { margin: 0 !important; flex: 1 1 0 !important; min-width: 0 !important; text-align: center !important; }
+.phrase-net-row img {
+  width: 100% !important; max-width: 100% !important; height: auto !important;
+  display: block !important; object-fit: contain !important; border-radius: 4px !important;
+}
 </style>
 
 ## Theme: Technical Implementation – PhraseNets Web Visualization
@@ -1041,9 +1145,11 @@ img[src*="infovis-phrase-netproject"] { width: 32% !important; height: auto !imp
 - **Technique:** Implements PhraseNets pattern-based networks (e.g. subject–verb, verb–object) to reveal co-occurrence structures that standard charts miss.\
 - **Why it matters:** Demonstrates proficiency in **web development** (interactive browser-based interface) and **advanced visual structures** beyond standard Power BI capabilities.
 
+<div class="phrase-net-row">
 <p><img src="../pictures/academia/infovis/infovis-phrase-netproject-1.png" alt="PhraseNets web visualization – interface and controls" /></p>
 <p><img src="../pictures/academia/infovis/infovis-phrase-netproject-2.png" alt="PhraseNets visualization – example network 1" /></p>
 <p><img src="../pictures/academia/infovis/infovis-phrase-netproject-3.png" alt="PhraseNets visualization – example network 2" /></p>
+</div>
 
 ---
 
@@ -1051,70 +1157,67 @@ img[src*="infovis-phrase-netproject"] { width: 32% !important; height: auto !imp
 <!-- Diagram: ai-agile-research (mermaid/diagrams.md). Export to ai-agile-research.png -->
 
 <style scoped>
-img[src*="ai-agile-research"] {
-  width: 72% !important; height: auto !important; margin-top: 0.5rem !important;
-  margin-left: auto !important; margin-right: auto !important; display: block !important;
+.ai-agile-wrap {
+  display: flex !important; justify-content: center !important; align-items: center !important;
+  min-height: 62vh !important; width: 100% !important; margin-top: -0.25rem !important;
+}
+.ai-agile-wrap p { margin: 0 !important; text-align: center !important; }
+.ai-agile-wrap img {
+  width: 58% !important; max-width: 58% !important; height: auto !important;
+  display: block !important; margin: 0 auto !important;
   border: none !important; box-shadow: none !important;
 }
 </style>
 
 ## Theme: Process & Future – AI & Agile in Research
 
-- **Motivation:** Research projects often lack repeatable, quality-focused processes and clear accountability.  
-- **Proposal:** Combine **AI assistance** with **Scrum practices** to improve throughput, transparency, and quality.  
-- **Approach:**
-
+<div class="ai-agile-wrap">
 <p><img src="../pictures/diagrams/ai-agile-research.png" alt="Diagram ai-agile-research: AI and Agile in Research" /></p>
-
-- **Guardrails:** AI outputs treated as drafts; strong focus on reproducibility, data privacy, and explicit quality criteria.  
-
----
-
-<!-- Slide 20 – Present (Innovation & Awards) -->
-
-<!-- _class: art-top-right compact-list -->
-
-<style scoped>
-img[src*="bosch-2018"] { width: 280px !important; height: auto !important; }
-</style>
-
-## Theme: Process & Innovation – Awards
-
-<p><img src="../pictures/work/bosch-2018.jpg" alt="Bosch Talent Forum 2018 - 3rd Place Award" /></p>
-
-| Award | Place | Year / Context |
-| ----- | ----- | -------------- |
-| X-Games Brazil | 1st | 2018 – New Business Creation / Consultancy |
-| Bosch Talent Forum | 3rd | 2018 – Project Management Software |
-| Bosch Intern Talent Forum | 3rd | 2018 – Intern projects |
-| NGO Hospitalhaços | Volunteer | Admin – social impact and community engagement |  
+</div>  
 
 ---
 
 <!-- Slide 21 – Past (Experience Timeline) -->
 
-<!-- _class: art-top-right dense-content -->
-
 <style scoped>
-img[src*="budapest-2019"], img[src*="bosch-argentina"] { width: 140px !important; height: auto !important; }
-img[src*="experience-timeline"] {
-  width: 72% !important; height: auto !important; margin-top: 0.5rem !important;
-  margin-left: auto !important; margin-right: auto !important; display: block !important;
+.experience-timeline-slide {
+  position: relative !important; min-height: 60vh !important;
+}
+.experience-timeline-photos {
+  position: absolute !important; top: 0.25rem !important; right: 0.25rem !important;
+  display: flex !important; flex-direction: row !important; gap: 0.35rem !important;
+}
+.experience-timeline-photos p { margin: 0 !important; }
+.experience-timeline-photos img {
+  width: 72px !important; height: auto !important; max-height: 52px !important;
+  object-fit: cover !important; display: block !important; border-radius: 3px !important;
+}
+.experience-timeline-diagram-wrap {
+  display: flex !important; justify-content: center !important; align-items: center !important;
+  min-height: 58vh !important; margin-top: -0.25rem !important;
+}
+.experience-timeline-diagram-wrap p { margin: 0 !important; text-align: center !important; }
+.experience-timeline-diagram-wrap img {
+  width: 86% !important; max-width: 86% !important; height: auto !important;
+  display: block !important; margin: 0 auto !important;
   border: none !important; box-shadow: none !important;
 }
 </style>
 
 ## Theme: Process – Experience Timeline (Condensed)
 
-- **Trajectory across Bosch locations:** Brazil, Hungary (Budapest), Germany, Argentina.
+- **Trajectory across Bosch locations:** Campinas, Hungary, Sorocaba, and Campinas.
 
-<div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
+<div class="experience-timeline-slide">
+<div class="experience-timeline-photos">
 <p><img src="../pictures/work/budapest-2019.jpg" alt="Bosch Magyarország - Budapest 2019" /></p>
 <p><img src="../pictures/work/budapest-2019-2.jpg" alt="Budapest team 2019 – farewell book" /></p>
 <p><img src="../pictures/work/bosch-argentina.jpg" alt="Bosch Argentina – We are Bosch" /></p>
 </div>
-
+<div class="experience-timeline-diagram-wrap">
 <p><img src="../pictures/diagrams/experience-timeline.png" alt="Diagram experience-timeline: Experience timeline" /></p>
+</div>
+</div>
 
 <!-- Diagram: experience-timeline (mermaid/diagrams.md). Export to experience-timeline.png -->  
 
@@ -1123,32 +1226,25 @@ img[src*="experience-timeline"] {
 <!-- Slide 22 – Future (Career Aspirations, Vacancy Types & Prioritized Paths to Leadership) -->
 
 <style scoped>
-img[src*="future-career-path"] {
-  width: 72% !important; height: auto !important; margin-top: 0.5rem !important;
-  margin-left: auto !important; margin-right: auto !important; display: block !important;
+.future-career-wrap {
+  display: flex !important; justify-content: center !important; align-items: center !important;
+  min-height: 62vh !important; width: 100% !important; margin-top: -0.25rem !important;
+}
+.future-career-wrap p { margin: 0 !important; text-align: center !important; }
+.future-career-wrap img {
+  width: 72% !important; max-width: 72% !important; height: auto !important;
+  display: block !important; margin: 0 auto !important;
   border: none !important; box-shadow: none !important;
 }
 </style>
 
 ## Future – Career Aspirations, Vacancy Types & Prioritized Paths to Leadership
 
-<!-- Diagram: future-career-path (mermaid/diagrams.md). Export to future-career-path.png -->
-
+<div class="future-career-wrap">
 <p><img src="../pictures/diagrams/future-career-path.png" alt="Diagram future-career-path: Prioritized paths to leadership" /></p>
+</div>
 
-- **Prioritized career paths (all leading to a Lead position):** (1) **Priority 1 – Ideal:** PhD within Bosch supporting the company with Quantum or AI technology; (2) **Priority 2:** Research Scrum Master who also provides technical support; (3) **Priority 3:** Deep Researcher.
-- **Future objective:** Work in **technology-focused roles** that integrate **in-depth research, project management, and AI implementation** as a core professional interest.
-- **Desired vacancy types (Bosch & external):**
-
-| Type | Bosch examples | External examples |
-| ---- | -------------- | ----------------- |
-| Researcher / Senior | Global Service Solutions – service platforms, internal tools | Trust & Safety – trust, safety, fairness at scale |
-| Technology / PM Lead | Digital / Enterprise Applications – B2B tools for service teams | — |
-| Scrum Master / Agile Coach | — | Data-informed, research-oriented facilitation |
-| Researcher advanced tech | — | Quantum & AI – technology and human factors |  
-- **Target roles:** Researcher, Technology / Project Management Lead, Scrum Master, or Researcher in advanced tech contexts.
-- **Scrum Master role – focus:** Data-informed, research-oriented agile facilitation for technology, AI, and trustworthiness projects; project management and delivery quality. Core responsibilities: **data integrity** and **statistical relevance** across experiments; **rigorous application of scientific methods** and **adequate use of AI** (never replacing human judgment); managing timelines to prevent stagnation. Proactive unblocking (e.g. short surveys, mandatory 10-minute sessions); **direct customer contact** and **stakeholder accountability** for deliverables.
-- **Shared assets across paths:** Research, CIP + research integration, AI + agile methodology, data-driven decision-making.
+<!-- Diagram: future-career-path (mermaid/diagrams.md). Export to future-career-path.png -->
 
 ---
 
@@ -1163,10 +1259,7 @@ img[src*="personal/"] { width: 165px !important; height: auto !important; max-wi
 ## Future – Personal Interests that Power My Work
 
 - **At home:** Two cats, beginner piano practice, and a split keyboard for macro creation and productivity.
-- **Workshop facilitation:** Strategy and team workshops with many participants (e.g. Digital WS, Joinville 2024).
 
-<p><img src="../pictures/work/digital-ws.jpg" alt="Research Strategy Workshop" /></p>
-<p><img src="../pictures/work/joinville-ws-2024.jpg" alt="Research workshop – Joinville 2024" /></p>
 <p><img src="../pictures/personal/my-family.jpg" alt="Family" /></p>
 <p><img src="../pictures/personal/friends.jpg" alt="Friends" /></p>
 <p><img src="../pictures/personal/germany-2025.jpg" alt="Germany 2025" /></p>
@@ -1201,7 +1294,7 @@ img[src*="personal/"] { width: 165px !important; height: auto !important; max-wi
 | Milestone | CIP and Research Integration – Cursor IDE, AI, coding; Senior Researcher evolution |
 | Research | Trust in interfaces; data-driven decision-making |
 
-**Let's connect:** Email: edu.evangelista.figueiredo@gmail.com · LinkedIn: https://www.linkedin.com/in/eduardo-figueiredo · Resume PDF and this portfolio deck available on request.
+**Let's connect:** Email: edu.evangelista.figueiredo@gmail.com · LinkedIn: https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b · Resume PDF and this portfolio deck available on request.
 
 ---
 
