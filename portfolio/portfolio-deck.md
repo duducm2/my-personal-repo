@@ -719,8 +719,14 @@ section { position: relative; }
 .academic-research-images-bottom p { margin: 0 !important; }
 .academic-research-images-bottom img {
   width: auto !important; max-width: 138px !important; height: auto !important;
-  display: block !important; border: none !important; box-shadow: none !important;
+  display: block !important;
+  border: 3px solid #f0f0f0 !important;
+  box-shadow: 2px 3px 10px rgba(0,0,0,0.15) !important;
 }
+.academic-research-images-bottom p:nth-child(1) img { transform: rotate(-2.5deg); }
+.academic-research-images-bottom p:nth-child(2) img { transform: rotate(1.8deg); }
+.academic-research-images-bottom p:nth-child(3) img { transform: rotate(-1.2deg); }
+.academic-research-images-bottom p:nth-child(4) img { transform: rotate(2.2deg); }
 </style>
 
 ## Present – Academic Research (Trust in AI & UI)
@@ -796,36 +802,68 @@ section { position: relative; }
 
 <!-- Slide 11 – Present (Power BI Dashboards at Work) -->
 
-<!-- _class: dense-content work-pbi-images -->
+<!-- _class: dense-content -->
 
 <style scoped>
-img[src*="pbi-allocation"], img[src*="pbi-training-evolution"] { width: 48% !important; height: auto !important; max-width: 48% !important; }
+.pbi-dashboards-row {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  gap: 0.75rem !important;
+  margin: 0.5rem auto !important;
+  max-width: 98% !important;
+}
+.pbi-dashboards-row p { margin: 0 !important; flex: 1 1 0; min-width: 0; }
+.pbi-dashboards-row img {
+  width: 100% !important; max-width: 100% !important; height: auto !important;
+  display: block !important; object-fit: contain !important;
+}
 </style>
 
 ## Theme: Data Visualization – Power BI Dashboards at Work
 
 - **Bosch Research Americas (GS):** Power BI dashboards developed in role for project and resource oversight and for training tracking—supporting data-driven decision-making and governance.
 
+<div class="pbi-dashboards-row">
 <p><img src="../pictures/work/pbi-allocation.png" alt="Power BI – LA Allocation Dashboard" /></p>
 <p><img src="../pictures/work/pbi-training-evolution.png" alt="Power BI – SMTs Evolution training dashboard" /></p>
+</div>
 
 ---
 
 <!-- Slide 12 – Present (Dissertation: Power BI Visualizations) -->
 
-<!-- _class: dense-content dissertation-pbi-images -->
+<!-- _class: dense-content -->
 
 <style scoped>
-img[src*="dissertation/dissertation-pbi"] { width: 32% !important; height: auto !important; max-width: 32% !important; }
+.dissertation-pbi-row {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  gap: 0.5rem !important;
+  margin: 0.5rem auto !important;
+  max-width: 98% !important;
+}
+.dissertation-pbi-row p { margin: 0 !important; flex: 1 1 0; min-width: 0; }
+.dissertation-pbi-row img {
+  width: 100% !important; max-width: 100% !important; height: auto !important;
+  display: block !important; object-fit: contain !important;
+}
 </style>
 
 ## Theme: Data Visualization – Dissertation Power BI
 
 - **Dissertation InfoVis (Power BI):** Dashboards and charts for trust-metrics analysis—variability of human scores across websites (Americanas, MadeiraMadeira, Kabum), AI × human homogeneity by attribute, and line comparisons (human vs AI scores per website). Supports validation of trust perception models and consolidation of research findings.
 
+<div class="dissertation-pbi-row">
 <p><img src="../pictures/academia/dissertation/dissertation-pbi-1.png" alt="Power BI – variability of human scores between websites" /></p>
 <p><img src="../pictures/academia/dissertation/dissertation-pbi-2.png" alt="Power BI – AI × human homogeneity by attribute" /></p>
 <p><img src="../pictures/academia/dissertation/dissertation-pbi-3.png" alt="Power BI – AI × humans comparison lines per website" /></p>
+</div>
 
 ---
 
