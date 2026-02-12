@@ -249,6 +249,21 @@ style: |
   }
   section.flow-diagram-fit { display: flex; align-items: center; justify-content: center; }
   section.flow-diagram-fit img { display: block; margin: 0 auto; height: auto; object-fit: contain; }
+  /* Centered slide layout: vertically and horizontally center content on slides with `_class: center` */
+  section.center {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  section.center > * {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  section.center table {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
   section.relevance-summary-with-doodle { position: relative; }
   section.relevance-summary-with-doodle p.doodle-right { position: absolute; right: 5rem; top: 50%; transform: translateY(-50%); margin: 0; line-height: 0; }
   section.relevance-summary-with-doodle p.doodle-right img { width: 220px; height: auto; display: block; }
@@ -456,9 +471,9 @@ img[src*="story-flow"] {
 # Why I Work in Technology, Project Management & Research
 ## Trustworthy, human-centered software for complex services
 
-- I believe that software used in service organizations must be **trustworthy, usable, and inclusive**, especially when decisions affect people and businesses at scale.
-- My work centers **technology**, **project management**, and **in-depth research**, integrating evidence and user needs into processes via systematic delivery.
-- This portfolio tells that story:
+- I believe software in service organizations should be **trustworthy, usable, and inclusive**—especially when it affects real people and businesses.
+- My work centers **technology**, **project management**, and **research**: bringing evidence and user needs into how we build and deliver.
+- This portfolio walks through that story.
 
 <p><img src="../pictures/diagrams/story-flow.png" alt="Diagram story-flow: Why story flow" /></p>
 
@@ -487,7 +502,7 @@ table thead { display: none !important; }
 | --------- | ----- |
 | Name | Eduardo M. de A. Figueiredo |
 | Role | Research, Technology & Project Management |
-| Impact | Clearer governance and faster improvement flow; builds scalable research maturity and evidence-based prioritization; uses research to support solid product and service decisions; delivers with data, accountability, and measurable results. |
+| Impact | I help teams govern better and improve faster—using research to prioritize, decide, and deliver with clear data and accountability. |
 | Contact | Nova Odessa, SP – Brazil · edu.evangelista.figueiredo@gmail.com · LinkedIn / +55 19 98176-658 |
 
 <p class="photo-at-bottom"><img src="../pictures/personal/my-photo-rectangle.png" alt="Eduardo Figueiredo" /></p>  
@@ -624,7 +639,7 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 | Role | Research & Technology – Bosch Brasil (May 2023 – present); Research Expert & Project Champion at GS/BDU |
 | International | Two trips to Germany (2024, 2025) for role-related work |
 | CO2 Tracking (GS/Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand |
-| Tooling project (PT) | Key development in technical delivery and project management—from requirements to high-fidelity deliverable; customer progress review meetings throughout. |
+| Tooling project (PT) | Led technical delivery and project management from requirements through high-fidelity prototypes, with regular customer check-ins. |
 | Research Maturity | Led Americas to Level 4 – governance, templates, training |
 | CIP + Research | Led integration into ServiceNow CIM; research gate in CIP workflow |
 | Collaboration | Tutor at SENAI Digital Talent Academy |
@@ -791,9 +806,9 @@ section { position: relative; }
 
 <!-- Slide 10 – Present (CSI & NPS Performance 2024–2025) -->
 
-## Present – CSI & NPS Performance (2024–2025)
+<!-- _class: center -->
 
-- **High customer satisfaction** across eight research-led projects delivered in 2024–2025. **Averages: CSI 4.86 / 5, NPS 9.94 / 10.**
+## Present – CSI & NPS Performance (2024–2025)
 
 | Project | CSI | NPS |
 | ------- | --- | --- |
@@ -833,7 +848,7 @@ section { position: relative; }
 
 ## Data Visualization – Power BI Dashboards at Work
 
-- **Bosch Research Americas (GS):** Power BI dashboards developed in role for project and resource oversight and for training tracking—supporting data-driven decision-making and governance.
+- **Bosch Research Americas (GS):** Built Power BI dashboards for project and resource oversight and training tracking—so the team can see the numbers and make better calls.
 
 <div class="pbi-dashboards-row">
 <p><img src="../pictures/work/pbi-allocation.png" alt="Power BI – LA Allocation Dashboard" /></p>
@@ -869,7 +884,7 @@ section { position: relative; }
 
 ## Data Visualization – Dissertation Power BI
 
-<p class="dissertation-pbi-intro"><span class="thesis-emphasis">Dissertation focused on comparing whether <span class="agentic-ai-emphasis">Agentic AI</span> behaves similarly to humans.</span></p>
+<p class="dissertation-pbi-intro"><span class="thesis-emphasis">My dissertation asks whether <span class="agentic-ai-emphasis">Agentic AI</span> behaves like humans.</span></p>
 
 <div class="dissertation-pbi-row">
 <p><img src="../pictures/academia/dissertation/dissertation-pbi-1.png" alt="Power BI – variability of human scores between websites" /></p>
@@ -997,13 +1012,13 @@ section { position: relative; }
 ## Technical Implementation – Visual Evidence
 
 <div class="tech-evidence-grid">
-<p><img src="../pictures/academia/disseratation-tech-1-agents-1.png" alt="Agentic AI survey – e-commerce evaluation" /></p>
-<p><img src="../pictures/academia/disseratation-tech-1-agents-2.png" alt="Agentic AI survey – TrustMate dashboard" /></p>
-<p><img src="../pictures/academia/disseratation-tech-2-web-1.png" alt="E-commerce evaluation – product page" /></p>
-<p><img src="../pictures/academia/disseratation-tech-2-web-2.png" alt="Evaluation metrics – trust and research scores" /></p>
-<p><img src="../pictures/academia/disseratation-tech-2-web-3.png" alt="TrustMate – hierarchy of attributes" /></p>
+<p><img src="../pictures/academia/dissertation-tech-1-agents-1.png" alt="Agentic AI survey – e-commerce evaluation" /></p>
+<p><img src="../pictures/academia/dissertation-tech-1-agents-2.png" alt="Agentic AI survey – TrustMate dashboard" /></p>
+<p><img src="../pictures/academia/dissertation-tech-2-web-1.png" alt="E-commerce evaluation – product page" /></p>
+<p><img src="../pictures/academia/dissertation-tech-2-web-2.png" alt="Evaluation metrics – trust and research scores" /></p>
+<p><img src="../pictures/academia/dissertation-tech-2-web-3.png" alt="TrustMate – hierarchy of attributes" /></p>
 <!-- Prototype image (TrustMate tool evaluation) – bottom-right in dissertation technical implementation -->
-<p><img src="../pictures/academia/disseratation-tech-3-prototype-1.png" alt="TrustMate tool evaluation – prototype" /></p>
+<p><img src="../pictures/academia/dissertation-tech-3-prototype-1.png" alt="TrustMate tool evaluation – prototype" /></p>
 </div>
 
 ---
@@ -1066,8 +1081,8 @@ section { position: relative; }
 
 ## Technical Implementation – Tooling Project for PT
 
-- **Tooling project for PT:** Key development in **technical delivery and project management**—from requirements to high-fidelity deliverable, with **customer progress review meetings** throughout.
-- **Workshop facilitation:** Strategy and team workshops with many participants (e.g. Digital WS, Joinville 2024).
+- **Tooling project for PT:** Led **technical delivery and project management** from requirements through high-fidelity prototypes, with **regular customer check-ins**.
+- **Workshop facilitation:** Ran strategy and team workshops with large groups (e.g. Digital WS, Joinville 2024).
 
 <div class="tooling-pt-layout">
 <div class="tooling-pt-main">
@@ -1148,9 +1163,9 @@ section { position: relative; }
 
 ## Technical Implementation – PhraseNets Web Visualization
 
-- **Course project – Information Visualization (InfoVis):** Developed a web-based PhraseNets visualization to explore relationships in text.\
-- **Technique:** Implements PhraseNets pattern-based networks (e.g. subject–verb, verb–object) to reveal co-occurrence structures that standard charts miss.\
-- **Why it matters:** Demonstrates proficiency in **web development** (interactive browser-based interface) and **advanced visual structures** beyond standard Power BI capabilities.
+- **Course project – Information Visualization (InfoVis):** Built a web-based PhraseNets visualization to explore how words connect in text.\
+- **Technique:** Uses pattern-based networks (subject–verb, verb–object, etc.) to surface co-occurrences that standard charts miss.\
+- **Relevance:** Interactive web tooling and visual structures beyond Power BI.
 
 <div class="phrase-net-row">
 <p><img src="../pictures/academia/infovis/infovis-phrase-netproject-1.png" alt="PhraseNets web visualization – interface and controls" /></p>
@@ -1290,7 +1305,7 @@ section { position: relative; }
 
 ## Future – Personal Interests that Power My Work
 
-- **At home:** Two cats, beginner piano practice, and a split keyboard for macro creation and productivity.
+- **At home:** Two cats, learning piano, and a split keyboard I use for macros and productivity.
 
 <div class="personal-interests-layout">
 <div class="personal-interests-left">
@@ -1311,9 +1326,9 @@ section { position: relative; }
 <p><img src="../pictures/personal/my-family.jpg" alt="Family" /></p>
 <p><img src="../pictures/personal/friends.jpg" alt="Friends" /></p>
 <p><img src="../pictures/personal/germany-2025.jpg" alt="Germany 2025" /></p>
-<p><img src="../pictures/personal/budapes-2019-2.jpg" alt="Budapest 2019" /></p>
+<p><img src="../pictures/personal/me-cooking.jpeg" alt="Budapest 2019" /></p>
 <p><img src="../pictures/personal/cat-piano.jpg" alt="Cat on piano – beginner piano practice" /></p>
-<p><img src="../pictures/personal/cat-slipt-keyboard.jpg" alt="Cat on split keyboard – macro creation and productivity" /></p>
+<p><img src="../pictures/personal/cat-split-keyboard.jpg" alt="Cat on split keyboard – macro creation and productivity" /></p>
 </div>
 </div>  
 
@@ -1332,9 +1347,9 @@ section { position: relative; }
 | Core | In-depth Research, Technology & Project Management |
 | Leadership | Research Maturity Level 4 – Americas |
 | Milestone | CIP and Research Integration – Cursor IDE, AI, coding; Senior Researcher evolution |
-| Research | Trust in interfaces; data-driven decision-making |
+| Research | Trust in interfaces; using data to inform decisions |
 
-**Let's connect:** Email: edu.evangelista.figueiredo@gmail.com · LinkedIn: https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b · Resume PDF and this portfolio deck available on request.
+**Let's connect:** edu.evangelista.figueiredo@gmail.com · LinkedIn: https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b · Resume and this deck available on request.
 
 ---
 
