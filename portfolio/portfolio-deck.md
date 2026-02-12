@@ -838,26 +838,29 @@ section { position: relative; }
 <!-- _class: dense-content -->
 
 <style scoped>
+.dissertation-pbi-intro { margin-bottom: 1rem !important; font-size: 0.95em !important; color: var(--color-fg-muted, #666) !important; }
 .dissertation-pbi-row {
   display: flex !important;
   flex-direction: row !important;
   flex-wrap: nowrap !important;
-  justify-content: center !important;
-  align-items: flex-start !important;
-  gap: 0.5rem !important;
-  margin: 0.5rem auto !important;
-  max-width: 98% !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 1rem !important;
+  margin: 1.25rem auto 0 !important;
+  max-width: 96% !important;
+  padding: 0 0.5rem !important;
 }
 .dissertation-pbi-row p { margin: 0 !important; flex: 1 1 0; min-width: 0; }
 .dissertation-pbi-row img {
   width: 100% !important; max-width: 100% !important; height: auto !important;
   display: block !important; object-fit: contain !important;
+  border-radius: 4px !important;
 }
 </style>
 
 ## Theme: Data Visualization – Dissertation Power BI
 
-- **Dissertation InfoVis (Power BI):** Dashboards and charts for trust-metrics analysis—variability of human scores across websites (Americanas, MadeiraMadeira, Kabum), AI × human homogeneity by attribute, and line comparisons (human vs AI scores per website). Supports validation of trust perception models and consolidation of research findings.
+<p class="dissertation-pbi-intro">Dissertation focused on comparing whether AI agents behave similarly to humans.</p>
 
 <div class="dissertation-pbi-row">
 <p><img src="../pictures/academia/dissertation/dissertation-pbi-1.png" alt="Power BI – variability of human scores between websites" /></p>
@@ -869,37 +872,68 @@ section { position: relative; }
 
 <!-- Slide 13 – Present (InfoVis Project – Power BI & PNAD Contínua) -->
 
-<!-- _class: dense-content infovis-pbi-images -->
+<!-- _class: dense-content -->
 
 <style scoped>
-img[src*="infovis-pnad-structures"] {
-  width: 72% !important; height: auto !important; margin-top: 0.5rem !important;
-  margin-left: auto !important; margin-right: auto !important; display: block !important;
+.infovis-split {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 1.5rem !important;
+  margin-top: 0.5rem !important;
+  max-width: 100% !important;
+}
+.infovis-split .infovis-left {
+  flex: 0 1 48% !important;
+  min-width: 0 !important;
+}
+.infovis-split .infovis-left img {
+  width: 100% !important; height: auto !important; display: block !important;
   border: none !important; box-shadow: none !important;
 }
-img[src*="pbi-infovis"] { width: 48% !important; height: auto !important; max-width: 48% !important; }
+.infovis-split .infovis-right {
+  flex: 0 1 48% !important;
+  min-width: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.75rem !important;
+}
+.infovis-split .infovis-right p { margin: 0 !important; }
+.infovis-split .infovis-right img {
+  width: 100% !important; height: auto !important; display: block !important;
+  object-fit: contain !important;
+}
 </style>
 
 ## Theme: Data Visualization – InfoVis Project (PNAD Contínua)
 
-- **InfoVis class project – Power BI:** Built multi-page reports using **PNAD Contínua** (Brazil's National Household Sample Survey). Brazil’s National Household Sample Survey.
-<p><img src="../pictures/diagrams/infovis-pnad-structures.png" alt="Diagram infovis-pnad-structures: InfoVis PNAD visual structures" /></p>
-
-- **Impact:** Demonstrates **Power BI** proficiency and **processing complex national research datasets** into clear, actionable visual insights for socioeconomic analysis.
-
-<!-- Diagram: infovis-pnad-structures (mermaid/diagrams.md). Export to infovis-pnad-structures.png -->
-
+<div class="infovis-split">
+<div class="infovis-left">
+<p><img src="../pictures/diagrams/infovis-pnad-structures.png" alt="InfoVis PNAD visual structures" /></p>
+</div>
+<div class="infovis-right">
 <p><img src="../pictures/academia/infovis/pbi-infovis-1.png" alt="Power BI – Education-employment trajectories Sankey" /></p>
 <p><img src="../pictures/academia/infovis/pbi-infovis-2.png" alt="Power BI – Family structure and socioeconomic patterns" /></p>
+</div>
+</div>
 
 ---
 
 <!-- Slide 14 – Present (Dissertation: Technical Implementation & Impact) -->
 
 <style scoped>
-img[src*="dissertation-tech.png"] {
-  width: 72% !important; height: auto !important; margin-top: 0.5rem !important;
-  margin-left: auto !important; margin-right: auto !important; display: block !important;
+.dissertation-tech-wrap {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  min-height: 58vh !important;
+  width: 100% !important;
+  margin-top: -0.5rem !important;
+}
+.dissertation-tech-wrap p { margin: 0 !important; }
+.dissertation-tech-wrap img {
+  width: 86% !important; height: auto !important; display: block !important;
   border: none !important; box-shadow: none !important;
 }
 </style>
@@ -910,7 +944,9 @@ img[src*="dissertation-tech.png"] {
 
 <!-- Diagram: dissertation-tech (mermaid/diagrams.md). Export to dissertation-tech.png -->
 
+<div class="dissertation-tech-wrap">
 <p><img src="../pictures/diagrams/dissertation-tech.png" alt="Diagram dissertation-tech: Dissertation & research technologies" /></p>
+</div>
 
 ---
 
