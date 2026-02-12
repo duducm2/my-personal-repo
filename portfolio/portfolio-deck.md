@@ -600,11 +600,11 @@ section { position: relative; }
 }
 .slide-art-top-right p { position: relative !important; margin: 0 !important; float: none !important; }
 .slide-art-top-right .uxgs-logo { order: 1; margin-right: -12px !important; z-index: 1; }
-.slide-art-top-right .uxgs-logo img { width: 72px !important; height: auto !important; display: block !important; }
+.slide-art-top-right .uxgs-logo img { width: 58px !important; height: auto !important; display: block !important; }
 .slide-art-top-right .building-img { order: 2; }
-.slide-art-top-right .building-img img { width: 165px !important; height: auto !important; display: block !important; }
+.slide-art-top-right .building-img img { width: 132px !important; height: auto !important; display: block !important; }
 .slide-art-top-right .americas-img { order: 3; }
-.slide-art-top-right .americas-img img { width: 180px !important; height: auto !important; display: block !important; }
+.slide-art-top-right .americas-img img { width: 144px !important; height: auto !important; display: block !important; }
 table { margin-top: 0.5rem !important; clear: both !important; }
 </style>
 
@@ -621,64 +621,58 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 | Role | Research & Technology – Bosch Brasil (May 2023 – present); Research Expert & Project Champion at GS/BDU |
 | International | Two trips to Germany (2024, 2025) for role-related work |
 | CO2 Tracking (GS/Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand |
+| Tooling project (PT) | Key development in technical delivery and project management—from requirements to high-fidelity deliverable; customer progress review meetings throughout. |
 | Research Maturity | Led Americas to Level 4 – governance, templates, training |
 | CIP + Research | Led integration into ServiceNow CIM; research gate in CIP workflow |
-| Collaboration | Tutor at SENAI Digital Talent Academy |  
+| Collaboration | Tutor at SENAI Digital Talent Academy |
 
 ---
 
-<!-- Slide 6 – Present (CIP and Research Integration: Critical Career Milestone) -->
+<!-- Slide 6 – Present (CIP and Research Integration: diagram only) -->
 
-<!-- _class: art-top-right -->
+<!-- _class: center -->
 
 <style scoped>
-img[src*="digital-ws"] { width: 250px !important; height: auto !important; }
 img[src*="cip-ux-pipeline"] {
-  width: 72% !important; height: auto !important; margin-top: 0.5rem !important;
-  margin-left: auto !important; margin-right: auto !important; display: block !important;
+  width: 51% !important; max-width: 55% !important; height: auto !important;
+  margin: 0 auto !important; display: block !important;
   border: none !important; box-shadow: none !important;
 }
 </style>
 
-## Present – CIP and Research Integration: A Critical Career Milestone
-
-<p><img src="../pictures/work/digital-ws.jpg" alt="Research Strategy Workshop" /></p>
-<p><img src="../pictures/work/germany-ws-2024.jpg" alt="Research workshop – Germany 2024" /></p>
-<p><img src="../pictures/work/joinville-ws-2024.jpg" alt="Research workshop – Joinville 2024" /></p>
-
-- **Career significance:** This project marks a pivotal evolution into **Senior Researcher** capabilities—combining in-depth, data-oriented investigation with technical execution, project management, and governance.  
-- **Project scope:** Integrated **research relevance assessment** into the **Continuous Improvement Process (CIP)** in ServiceNow CIM. A **research gate** sits between Assess and Approve; the method runs at that gate to triage improvement initiatives (Low / Medium / High research relevance).  
-- **Methodology—developer skills for research:** Utilized **Cursor IDE**, **AI-assisted coding**, and version-controlled Python pipelines. Workflow:
+## Present – CIP and Research Integration: Methodology Pipeline
 
 <p><img src="../pictures/diagrams/cip-ux-pipeline.png" alt="Diagram: CIP-Research methodology pipeline" /></p>
 
-- **Deliverables:**
-
-| Deliverable | Description |
-| ----------- | ----------- |
-| Research Relevance Quick Method | 10 system-calculated questions from 11 CIM fields; thresholds Low &lt;60, Medium 60–70, High ≥70 |
-| 1st Research Report (Jan 2026) | Stakeholder inputs, governance clarity |
-| Pipeline | extract_cim_data.py, calculate_relevance_scores.py, aggregate_to_csv.py – reproducible validation |
-
-- **Impact:** Governance clarity, reduced perceived delay, and reusable research governance framework. Aligned CAP and research into a unified, defensible solution.
-
-<!-- Diagram: CIP-Research pipeline (mermaid/diagrams.md). Export to cip-ux-pipeline.png -->  
+<!-- Diagram: CIP-Research pipeline (mermaid/diagrams.md). Export to cip-ux-pipeline.png -->
 
 ---
 
-<!-- Slide 6b – Present (CIP and Research Integration: Research Artifacts & Visuals) -->
+<!-- Slide 6b – Present (CIP and Research: eight pictures – 2 rows of 4, centered) -->
 
-<!-- _class: dense-content cip-research-images -->
+<!-- _class: dense-content -->
 
 <style scoped>
-img[src*="cip-ux/"] { width: 18% !important; height: auto !important; max-width: 18% !important; }
+.cip-artifacts-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 0.5rem 0.75rem !important;
+  max-width: 95% !important;
+  margin: 0 auto !important;
+  justify-items: center !important;
+  align-items: center !important;
+}
+.cip-artifacts-grid p { margin: 0 !important; }
+.cip-artifacts-grid img {
+  width: 100% !important; max-width: 100% !important; height: auto !important;
+  display: block !important; object-fit: contain !important;
+}
 </style>
 
-## Present – CIP and Research Integration: Research Artifacts & Visuals
+## Present – CIP and Research Integration: Research Artifacts
 
-- **High-quality, data-oriented deliverables** produced using Markdown, Python pipelines, and Cursor IDE: (1) **1st Research Report** (January 2026)—"Make governance clear. Keep improvements moving."—consolidating N=214 records, executive summary, literature benchmark, methodology, findings, and strategic opportunities; (2) **Research Relevance Quick Method** (method.md v2.8)—CIM-to-Q1–Q10 mapping, scoring algorithm, post-evaluation workflow; (3) **Pipeline** (`tests/standalone-tests/pipeline/`)—extraction, aggregation, score calculation, validation. Distribution (N=35): Low 57.1%, Medium 20.0%, High 22.9%.
-
-<p><img src="../pictures/work/cip-ux/cip-ux-1.png" alt="CIP-Research 1 – Report cover: Make governance clear. Keep improvements moving." /></p>
+<div class="cip-artifacts-grid">
+<p><img src="../pictures/work/cip-ux/cip-ux-1.png" alt="CIP-Research 1 – Report cover" /></p>
 <p><img src="../pictures/work/cip-ux/cip-ux-2.png" alt="CIP-Research 2 – Summary and executive findings" /></p>
 <p><img src="../pictures/work/cip-ux/cip-ux-3.png" alt="CIP-Research 3 – Context and methodology" /></p>
 <p><img src="../pictures/work/cip-ux/cip-ux-4.png" alt="CIP-Research 4 – Literature review and benchmark" /></p>
@@ -686,6 +680,7 @@ img[src*="cip-ux/"] { width: 18% !important; height: auto !important; max-width:
 <p><img src="../pictures/work/cip-ux/cip-ux-6.png" alt="CIP-Research 6 – Pipeline and data processing" /></p>
 <p><img src="../pictures/work/cip-ux/cip-ux-7.png" alt="CIP-Research 7 – Conclusions and strategic opportunities" /></p>
 <p><img src="../pictures/work/cip-ux/cip-ux-8.png" alt="CIP-Research 8 – Additional research visuals" /></p>
+</div>
 
 ---
 
@@ -1056,7 +1051,10 @@ img[src*="personal/"] { width: 165px !important; height: auto !important; max-wi
 ## Future – Personal Interests that Power My Work
 
 - **At home:** Two cats, beginner piano practice, and a split keyboard for macro creation and productivity.
+- **Workshop facilitation:** Strategy and team workshops with many participants (e.g. Digital WS, Joinville 2024).
 
+<p><img src="../pictures/work/digital-ws.jpg" alt="Research Strategy Workshop" /></p>
+<p><img src="../pictures/work/joinville-ws-2024.jpg" alt="Research workshop – Joinville 2024" /></p>
 <p><img src="../pictures/personal/my-family.jpg" alt="Family" /></p>
 <p><img src="../pictures/personal/friends.jpg" alt="Friends" /></p>
 <p><img src="../pictures/personal/germany-2025.jpg" alt="Germany 2025" /></p>
