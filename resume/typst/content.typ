@@ -12,11 +12,11 @@
 #let location = "Nova Odessa, SP — Brazil"
 
 #let profile = [
-  I bring Applied Research-driven evidence, technology support, and project delivery to help teams build solutions that are trustworthy, user-centered, with clear data, accountability, and measurable impact. Specialized in integrating Applied Research into organizational processes and measuring software quality. Led Americas to Applied Research Maturity Level 4. Background in full-stack development and continuous improvement. Grade A in all Master's coursework.
+  I help teams build trustworthy, user-centered solutions by bringing Applied Research, technology support, and project delivery together—with clear data, accountability, and measurable impact. I specialize in weaving evidence into organizational processes and quality measurement, and supported the Americas Team to Maturity Level 4. Background in full-stack development and continuous improvement; Grade A in all Master's coursework.
 ]
 
 #let strengths = [
-  Proactive, self-reliant, organized. Applied Research, design, front-end development; data visualization (Power BI, Python); agile (Scrum, Kanban); project management; scientific method.
+  I work proactively and independently, bringing structure and evidence to how teams build. I ground decisions in Applied Research, design, and front-end development. Turn data into clarity with Power BI and Python and use agile project management, and the scientific method to deliver with intention.
 ]
 
 #let languages = (
