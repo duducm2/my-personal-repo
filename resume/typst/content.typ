@@ -25,7 +25,7 @@
 
 #let experience = (
   ("May 2023 – Present", "Bosch Brasil", "Applied Research & Design Analyst (Applied Research Expert, GS/BDU)", (
-    [Led Americas to #strong[Applied Research Maturity Level 4]: governance, templates, training. #strong[CSI 4.86 / NPS 9.94] avg. (2024–2025).],
+    [Led Americas to #strong[Research Maturity Level 4 inside GS]: governance, templates, training. #strong[CSI 4.86 / NPS 9.94] avg. (2024–2025).],
     [CIP+Applied Research integration into #strong[ServiceNow CIM]; Applied Research gate in CIP workflow; #strong[AI-driven] quality gates.],
     [#strong[Tooling project (PT):] led technical delivery and project management from requirements through high-fidelity prototypes; regular customer check-ins.],
     [Power BI dashboards for project/resource oversight and training tracking.],
