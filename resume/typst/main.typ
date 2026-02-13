@@ -77,15 +77,13 @@
       #block(below: 0.55em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[E-mail] #h(0.5em) #text(size: 9pt)[#email]]
       #block(below: 0.55em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[LinkedIn] #h(0.5em) #link(linkedin-url)[#text(size: 9pt, fill: highlight-blue)[#linkedin]]]
       #block(below: 1.2em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[Location] #h(0.5em) #text(size: 9pt)[#location]]
-      // Profile & Strengths
+      // Profile (includes strengths in bold)
       #sidebar-heading[Profile]
-      #block(width: 100%, below: 1em)[#sidebar-text[#profile]]
-      #sidebar-heading[Strengths]
-      #block(width: 100%, below: 1.3em)[#sidebar-text[#strengths]]
+      #block(width: 100%, below: 1.3em)[#sidebar-text[#profile]]
     // Languages
     #sidebar-heading[Languages]
     #block(below: 0.5em)[
-      #for lang in languages [#text(size: 9pt, fill: rgb("#444444"))[#lang] #linebreak()]
+      #text(size: 9pt, fill: rgb("#444444"))[#languages]
     ]
     #block(below: 1.2em)[]
     // Skills (category + bulleted items)

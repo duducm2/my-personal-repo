@@ -12,17 +12,10 @@
 #let location = "Nova Odessa, SP — Brazil"
 
 #let profile = [
-  I help teams build useful, user-centered solutions using Applied Research, technology, and project management. I use data and evidence to make decisions and measure results. I like agile methods because they help teams work together and adapt quickly. I use Agentic AI every day in my work, from research to solving problems. Background in full-stack development and continuous improvement; Grade A in all Master's coursework.
+  I help teams build user-centered solutions through Applied Research, technology, and project management. Data-driven and agile; Agentic AI daily for research and problem-solving. Full-stack background; continuous improvement; Grade A in all Master's coursework. #strong[Strengths:] Self-directed and proactive. Design and front-end; Power BI and Python for data visuals; scientific method.
 ]
 
-#let strengths = [
-  I work on my own and take initiative. I use Applied Research, design, and front-end development to make decisions. I turn data into clear visuals with Power BI and Python, and I use agile methods and the scientific method to get things done.
-]
-
-#let languages = (
-  "Portuguese (Native).",
-  "English (Fluent).",
-)
+#let languages = "Portuguese (Native). English (Fluent)."
 
 // Nested structure: each item is (category, array of sub-items or empty)
 #let skills = (
