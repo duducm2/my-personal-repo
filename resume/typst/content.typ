@@ -4,7 +4,7 @@
 // =============================================================================
 
 #let name = "Eduardo M. de A. Figueiredo"
-#let tagline = "Applied Research, Technology & Project Management | Master in Technology"
+#let tagline = "Applied Research, Technology & Project Management | Master in Technology (expected 2026)"
 #let phone = "+55 (19) 98176-6583"
 #let email = "edu.evangelista.figueiredo@gmail.com"
 #let linkedin = "LinkedIn"
@@ -12,7 +12,7 @@
 #let location = "Nova Odessa, SP — Brazil"
 
 #let profile = [
-  I help teams build user-centered solutions through Applied Research, technology, and project management. Data-driven and agile; Agentic AI daily for research and problem-solving. Full-stack background; continuous improvement; Grade A in all Master's coursework. #strong[Strengths:] Self-directed and proactive. Design and front-end; Power BI and Python for data visuals; scientific method.
+  I help teams build solutions centered on users by combining Applied Research, technology, and project management. With a full stack background and a scientific mindset, I bring structure to ambiguity. I use data, continuous improvement, and Agentic AI daily to turn complex problems into clear outcomes. My strengths lie in being self directed and proactive: from design and front end to Power BI and Python for data visuals, I deliver across the full pipeline. Master's in Technology with Grade A across all coursework.
 ]
 
 #let languages = "Portuguese (Native). English (Fluent)."
@@ -47,7 +47,7 @@
 )
 
 #let education = (
-  ("Master's in Technology:", "Info & Comm Systems, Applied Research. Unicamp (2023–2025).", [Dissertation: Benchmark for software trustworthiness using #strong[Agentic AI] and #strong[TrustMate] evaluation tool.]),
+  ("Master's in Technology:", "Info & Comm Systems, Applied Research. Unicamp (2023–2026).", [Dissertation: Benchmark for software trustworthiness using #strong[Agentic AI] and #strong[TrustMate] evaluation tool.]),
   ("Systems Analysis and Development.", "Unicamp (2015–2020).", none),
   ("Technical Degree in Informatics.", "ETEC Bento Quirino (2012–2014).", none),
 )
