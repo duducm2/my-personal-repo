@@ -4,7 +4,7 @@
 // =============================================================================
 
 #let name = "Eduardo M. de A. Figueiredo"
-#let tagline = "Applied Research, Technology & Project Management | Master in Technology (expected 2026)"
+#let tagline = "Applied Research, Technology & Project Management"
 #let phone = "+55 (19) 98176-6583"
 #let email = "edu.evangelista.figueiredo@gmail.com"
 #let linkedin = "LinkedIn"
