@@ -15,7 +15,7 @@
   I help teams build solutions centered on users by combining Applied Research, technology, and project management. With a full stack background and a scientific mindset, I bring structure to solutions. I use data, continuous improvement, and Agentic AI daily to turn complex problems into clear outcomes. My strengths lie in being self directed and proactive: from design and front end to Power BI and Python for data visuals, I deliver across the full pipeline. Master's in Technology with Grade A across all coursework.
 ]
 
-#let languages = "Portuguese (Native). English (Fluent)."
+#let languages = "Portuguese (Native)   English (Fluent)"
 
 // Nested structure: each item is (category, array of sub-items or empty)
 #let skills = (
