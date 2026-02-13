@@ -12,7 +12,7 @@
 #let location = "Nova Odessa, SP — Brazil"
 
 #let profile = [
-  I help teams build #strong[solutions centered on users] by combining #strong[Applied Research, technology, and project management]. With a full stack background and a #strong[scientific mindset], I bring structure to solutions. I use data, continuous improvement, and #strong[Agentic AI] daily to turn complex problems into clear outcomes. My strengths lie in being #strong[self directed and proactive]: from design and front end to Power BI and Python for data visuals, I deliver across the full pipeline. Master's in Technology with #strong[Grade A across all coursework].
+  I help teams build #strong[user-centered solutions] through #strong[Applied Research, technology, and project management]. My full-stack background and #strong[scientific mindset] ground this work—I use data, continuous improvement, and #strong[Agentic AI] daily to turn complex problems into clear outcomes. #strong[Self-directed and proactive], I deliver across the pipeline: design, front-end, Power BI, and Python for data visuals. Master's in Technology with #strong[Grade A across all coursework].
 ]
 
 #let languages = "Portuguese (Native)   English (Fluent)"
@@ -25,7 +25,7 @@
 
 #let experience = (
   ("May 2023 – Present", "Bosch Brasil", "Applied Research & Design Analyst (Applied Research Expert, GS/BDU)", (
-    [Led Americas to #strong[Research Maturity Level 4 inside GS]: governance, templates, training. #strong[CSI 4.86 / NPS 9.94] avg. (2024–2025).],
+    [Supported Americas to #strong[Research Maturity Level 4 inside GS]: governance, templates, training. #strong[CSI 4.86 / NPS 9.94] avg. in my projects (2024–2025).],
     [CIP+Applied Research integration into #strong[ServiceNow CIM]; Applied Research gate in CIP workflow; #strong[AI-driven] quality gates.],
     [#strong[Tooling project (PT):] led technical delivery and project management from requirements through high-fidelity prototypes; regular customer check-ins.],
     [Power BI dashboards for project/resource oversight and training tracking.],
