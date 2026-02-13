@@ -395,7 +395,7 @@ style: |
     height: auto;
   }
 
-  /* CIP and Research Integration – eight images */
+  /* CIP and Applied Research Integration – eight images */
   section.cip-research-images p {
     display: inline-block;
     margin: 0.25rem;
@@ -436,11 +436,11 @@ img[src*="story-flow"] {
 }
 </style>
 
-# Why I Work in Technology, Project Management & Research
+# Why I Work in Technology, Project Management & Applied Research
 ## Trustworthy, human-centered software for complex services
 
 - I believe software in service organizations should be **trustworthy, usable, and usefull**, especially when it affects real people and businesses.
-- My work centers **technology**, **project management**, and **research**: bringing evidence and user needs into how we build and deliver.
+- My work centers **technology**, **project management**, and **Applied Research**: bringing evidence and user needs into how we build and deliver.
 - This portfolio walks through that story.
 
 <p><img src="../pictures/diagrams/story-flow.png" alt="Diagram story-flow: Why story flow" /></p>
@@ -469,8 +469,8 @@ table thead { display: none !important; }
 | Attribute | Value |
 | --------- | ----- |
 | Name | Eduardo M. de A. Figueiredo |
-| Role | Research, Technology & Project Management |
-| Impact | I help teams govern better and improve faster, using research to prioritize, decide, and deliver with clear data and accountability. |
+| Role | Applied Research, Technology & Project Management |
+| Impact | I help teams govern better and improve faster, using Applied Research to prioritize, decide, and deliver with clear data and accountability. |
 | Contact | Nova Odessa, SP – Brazil · edu.evangelista.figueiredo@gmail.com · www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b / +55 19 98176-658 |
 
 <p class="photo-at-bottom"><img src="../pictures/personal/my-photo-rectangle.png" alt="Eduardo Figueiredo" /></p>  
@@ -611,7 +611,7 @@ section { overflow-x: visible !important; }
 <p><img src="../pictures/work/budapest-2019.jpg" alt="Bosch Magyarország - Budapest 2019" /></p>
 <p><img src="../pictures/work/budapest-2019-2.jpg" alt="Budapest team 2019 – farewell book" /></p>
 <p><img src="../pictures/work/bosch-argentina.jpg" alt="Bosch Argentina – We are Bosch" /></p>
-<p><img src="../pictures/work/digital-ws.jpg" alt="Digital workspace – UX GS team" /></p>
+<p><img src="../pictures/work/digital-ws.jpg" alt="Digital workspace – Applied Research GS team" /></p>
 <p><img src="../pictures/work/joinville-ws-2024.jpg" alt="Joinville workshop 2024" /></p>
 <p><img src="../pictures/work/germany-ws-2024.jpg" alt="Germany workshop 2024" /></p>
 <p><img src="../pictures/work/americas-team-2025.jpg" alt="Americas team 2025" /></p>
@@ -650,27 +650,27 @@ section { position: relative; }
 table { margin-top: 0.5rem !important; clear: both !important; }
 </style>
 
-## Present – Research & Technology (Bosch Brasil)
+## Present – Applied Research & Technology (Bosch Brasil)
 
 <div class="slide-art-top-right">
-<p class="uxgs-logo"><img src="../pictures/work/bdu/UXGS%20Logo_verticle.svg" alt="Research area logo" /></p>
+<p class="uxgs-logo"><img src="../pictures/work/bdu/UXGS%20Logo_verticle.svg" alt="Applied Research area logo" /></p>
 <p class="building-img"><img src="../pictures/work/in-front-of-the-bosch-building.jpg" alt="In front of Bosch building" /></p>
-<p class="americas-img"><img src="../pictures/work/americas-team-2025.jpg" alt="Americas Team 2025 - Research Maturity Level 4" /></p>
+<p class="americas-img"><img src="../pictures/work/americas-team-2025.jpg" alt="Americas Team 2025 - Applied Research Maturity Level 4" /></p>
 </div>
 
 | Area | Achievement |
 | ---- | ----------- |
-| Role | Research & Technology – Bosch Brasil (May 2023 – present); Research Expert & Project Champion at GS/BDU |
+| Role | Applied Research & Technology – Bosch Brasil (May 2023 – present); Applied Research Expert & Project Champion at GS/BDU |
 | International | Two trips to Germany (2024, 2025) for role-related work |
-| CO2 Tracking (GS/Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand |
+| CO2 Tracking (GS/Applied Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand |
 | Tooling project (PT) | Led technical delivery and project management from requirements through high-fidelity prototypes, with regular customer check-ins. |
-| Research Maturity | Led Americas to Level 4 – governance, templates, training |
-| CIP + Research | Led integration into ServiceNow CIM; research gate in CIP workflow |
+| Applied Research Maturity | Led Americas to Level 4 – governance, templates, training |
+| CIP + Applied Research | Led integration into ServiceNow CIM; Applied Research gate in CIP workflow |
 | Collaboration | Tutor of Digital Talent Academy Students |
 
 ---
 
-<!-- Slide 6 – Present (CIP and Research Integration: diagram only) -->
+<!-- Slide 6 – Present (CIP and Applied Research Integration: diagram only) -->
 
 <!-- _class: diagram-slide-top-title -->
 
@@ -703,17 +703,17 @@ section.diagram-slide-top-title .diagram-wrapper img {
 }
 </style>
 
-## Present – CIP and Research Integration: Methodology Pipeline
+## Present – CIP and Applied Research Integration: Methodology Pipeline
 
 <div class="diagram-wrapper">
-<p><img src="../pictures/diagrams/cip-ux-pipeline.png" alt="Diagram: CIP-Research methodology pipeline" /></p>
+<p><img src="../pictures/diagrams/cip-ux-pipeline.png" alt="Diagram: CIP-Applied Research methodology pipeline" /></p>
 </div>
 
 <!-- Diagram: CIP-Research pipeline (mermaid/diagrams.md). Export to cip-ux-pipeline.png -->
 
 ---
 
-<!-- Slide 6a – Present (UX relevance evaluation model) -->
+<!-- Slide 6a – Present (Applied Research relevance evaluation model) -->
 
 <!-- _class: diagram-slide-top-title -->
 
@@ -746,21 +746,21 @@ section.diagram-slide-top-title .diagram-wrapper img {
 }
 </style>
 
-## Present – UX relevance evaluation model
+## Present – Applied Research relevance evaluation model
 
-- I created a **model to evaluate UX relevance** for CIP initiatives: information from **CIM (ServiceNow)** fields → set by priority → result **Low**, **Medium**, or **High** (triage for when deeper UX involvement is needed).
+- I created a **model to evaluate Applied Research relevance** for CIP initiatives: information from **CIM (ServiceNow)** fields → set by priority → result **Low**, **Medium**, or **High** (triage for when deeper Applied Research involvement is needed).
 - **Sampling of 35 projects** (pipeline run): **Low 40.0%**, **Medium 37.1%**, **High 22.9%**.
 - **Python** used to run the pipeline and test the model in real scenarios (standalone tests, CIM-like data).
 
 <div class="diagram-wrapper">
-<p><img src="../pictures/diagrams/ux-relevance-model.png" alt="Diagram: UX relevance evaluation model (CIM fields, priority, Low/Medium/High)" /></p>
+<p><img src="../pictures/diagrams/ux-relevance-model.png" alt="Diagram: Applied Research relevance evaluation model (CIM fields, priority, Low/Medium/High)" /></p>
 </div>
 
 <!-- Diagram: ux-relevance-model (mermaid/diagrams.md). Export to ux-relevance-model.png -->
 
 ---
 
-<!-- Slide 6b – Present (CIP and Research: eight pictures – 2 rows of 4, centered) -->
+<!-- Slide 6b – Present (CIP and Applied Research: eight pictures – 2 rows of 4, centered) -->
 
 <!-- _class: dense-content -->
 
@@ -785,22 +785,22 @@ section.diagram-slide-top-title .diagram-wrapper img {
 }
 </style>
 
-## Present – CIP and Research Integration: Research Artifacts
+## Present – CIP and Applied Research Integration: Applied Research Artifacts
 
 <div class="cip-artifacts-grid">
-<p><img src="../pictures/work/cip-ux/cip-ux-1.png" alt="CIP-Research 1 – Report cover" /></p>
-<p><img src="../pictures/work/cip-ux/cip-ux-2.png" alt="CIP-Research 2 – Summary and executive findings" /></p>
-<p><img src="../pictures/work/cip-ux/cip-ux-3.png" alt="CIP-Research 3 – Context and methodology" /></p>
-<p><img src="../pictures/work/cip-ux/cip-ux-4.png" alt="CIP-Research 4 – Literature review and benchmark" /></p>
-<p class="cip-artifacts-large"><img src="../pictures/work/cip-ux/cip-ux-5.png" alt="CIP-Research 5 – Findings and Criticality Index" /></p>
-<p class="cip-artifacts-large"><img src="../pictures/work/cip-ux/cip-ux-6.png" alt="CIP-Research 6 – Pipeline and data processing" /></p>
-<p class="cip-artifacts-large"><img src="../pictures/work/cip-ux/cip-ux-7.png" alt="CIP-Research 7 – Conclusions and strategic opportunities" /></p>
-<p><img src="../pictures/work/cip-ux/cip-ux-8.png" alt="CIP-Research 8 – Additional research visuals" /></p>
+<p><img src="../pictures/work/cip-ux/cip-ux-1.png" alt="CIP-Applied Research 1 – Report cover" /></p>
+<p><img src="../pictures/work/cip-ux/cip-ux-2.png" alt="CIP-Applied Research 2 – Summary and executive findings" /></p>
+<p><img src="../pictures/work/cip-ux/cip-ux-3.png" alt="CIP-Applied Research 3 – Context and methodology" /></p>
+<p><img src="../pictures/work/cip-ux/cip-ux-4.png" alt="CIP-Applied Research 4 – Literature review and benchmark" /></p>
+<p class="cip-artifacts-large"><img src="../pictures/work/cip-ux/cip-ux-5.png" alt="CIP-Applied Research 5 – Findings and Criticality Index" /></p>
+<p class="cip-artifacts-large"><img src="../pictures/work/cip-ux/cip-ux-6.png" alt="CIP-Applied Research 6 – Pipeline and data processing" /></p>
+<p class="cip-artifacts-large"><img src="../pictures/work/cip-ux/cip-ux-7.png" alt="CIP-Applied Research 7 – Conclusions and strategic opportunities" /></p>
+<p><img src="../pictures/work/cip-ux/cip-ux-8.png" alt="CIP-Applied Research 8 – Additional Applied Research visuals" /></p>
 </div>
 
 ---
 
-<!-- Slide 8 – Present (Academic Research & TrustMate) -->
+<!-- Slide 8 – Present (Academic Applied Research & TrustMate) -->
 
 <!-- _class: dense-content -->
 
@@ -837,9 +837,9 @@ section { position: relative; }
 }
 </style>
 
-## Present – Academic Research (Trust in AI & UI)
+## Present – Academic Applied Research (Trust in AI & UI)
 
-<p class="academic-research-diagram"><img src="../pictures/diagrams/academic-research-flow.png" alt="Diagram academic-research-flow: Academic research flow" /></p>
+<p class="academic-research-diagram"><img src="../pictures/diagrams/academic-research-flow.png" alt="Diagram academic-research-flow: Academic Applied Research flow" /></p>
 
 <div class="academic-research-images-bottom">
 <p><img src="../pictures/academia/hfsd-workshop-1.jpg" alt="ISSRE 2025 HFSD Workshop" /></p>
@@ -936,7 +936,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 | EXT_M-PMQ PPAP | 5 | 10 |
 | GS_P2P_MovDiv | 5 | 10 |
 | GS_P2P_Financial_Portal | 5 | 10 |
-| GS Research Bootcamp 2024 | 4.9 | 9.6 |
+| GS Applied Research Bootcamp 2024 | 4.9 | 9.6 |
 | GS_B2R_AA CF Automation | 4 | 10 |
 | **Averages** | **4.86** | **9.94** |
 
@@ -968,7 +968,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## Data Visualization – Power BI Dashboards at Work
 
-- **Bosch Research Americas (GS):** Built Power BI dashboards for project and resource oversight and training tracking, so the team can see the numbers and make better calls.
+- **Bosch Applied Research Americas (GS):** Built Power BI dashboards for project and resource oversight and training tracking, so the team can see the numbers and make better calls.
 
 <div class="pbi-dashboards-row">
 <p><img src="../pictures/work/pbi-allocation.png" alt="Power BI – LA Allocation Dashboard" /></p>
@@ -1099,7 +1099,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 <!-- Diagram: dissertation-tech (mermaid/diagrams.md). Export to dissertation-tech.png -->
 
 <div class="dissertation-tech-wrap">
-<p><img src="../pictures/diagrams/dissertation-tech.png" alt="Diagram dissertation-tech: Dissertation & research technologies" /></p>
+<p><img src="../pictures/diagrams/dissertation-tech.png" alt="Diagram dissertation-tech: Dissertation & Applied Research technologies" /></p>
 </div>
 
 ---
@@ -1139,7 +1139,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 <p><img src="../pictures/academia/dissertation-tech-1-agents-1.png" alt="Agentic AI survey – e-commerce evaluation" /></p>
 <p><img src="../pictures/academia/dissertation-tech-1-agents-2.png" alt="Agentic AI survey – TrustMate dashboard" /></p>
 <p><img src="../pictures/academia/dissertation-tech-2-web-1.png" alt="E-commerce evaluation – product page" /></p>
-<p><img src="../pictures/academia/dissertation-tech-2-web-2.png" alt="Evaluation metrics – trust and research scores" /></p>
+<p><img src="../pictures/academia/dissertation-tech-2-web-2.png" alt="Evaluation metrics – trust and Applied Research scores" /></p>
 <p><img src="../pictures/academia/dissertation-tech-2-web-3.png" alt="TrustMate – hierarchy of attributes" /></p>
 <!-- Prototype image (TrustMate tool evaluation) – bottom-right in dissertation technical implementation -->
 <p><img src="../pictures/academia/dissertation-tech-3-prototype-1.png" alt="TrustMate tool evaluation – prototype" /></p>
@@ -1260,7 +1260,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 ## Technical Implementation – Proposal Generator (Excel VBA)
 
 <div class="proposal-gen-wrap">
-<p class="proposal-gen-diagram"><img src="../pictures/diagrams/proposal-generator-phases.png" alt="Diagram proposal-generator-phases: Proposal Generator research phases" /></p>
+<p class="proposal-gen-diagram"><img src="../pictures/diagrams/proposal-generator-phases.png" alt="Diagram proposal-generator-phases: Proposal Generator Applied Research phases" /></p>
 <p class="proposal-gen-screenshot"><img src="../pictures/work/proposal-generator.png" alt="Proposal Generator – Excel-based project proposal tool" /></p>
 </div>
 
@@ -1300,7 +1300,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ---
 
-<!-- Slide 19 – Future (AI & Agile in Research) -->
+<!-- Slide 19 – Future (AI & Agile in Applied Research) -->
 <!-- Diagram: ai-agile-research (mermaid/diagrams.md). Export to ai-agile-research.png -->
 
 <style scoped>
@@ -1319,7 +1319,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 ## Future
 
 <div class="ai-agile-wrap">
-<p><img src="../pictures/diagrams/ai-agile-research.png" alt="Diagram ai-agile-research: AI and Agile in Research" /></p>
+<p><img src="../pictures/diagrams/ai-agile-research.png" alt="Diagram ai-agile-research: AI and Agile in Applied Research" /></p>
 </div>  
 
 ---
@@ -1456,7 +1456,7 @@ section.closing-redesign h2 {
 ## Closing & Contact
 
 <div class="closing-summary">
-<p>I bring research-driven evidence, technology support, and project delivery to help teams build solutions. Solutions that are trustworthy, user-centered, with clear data, accountability, and measurable impact.</p>
+<p>I bring Applied Research-driven evidence, technology support, and project delivery to help teams build solutions. Solutions that are trustworthy, user-centered, with clear data, accountability, and measurable impact.</p>
 </div>
 
 <div class="closing-contact">
