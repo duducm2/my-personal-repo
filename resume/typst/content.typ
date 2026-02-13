@@ -20,7 +20,7 @@
 // Nested structure: each item is (category, array of sub-items or empty)
 #let skills = (
   ("Core:", ("Applied Research", "Project Management", "Continuous Improvement (CIP)", "AI Systems")),
-  ("Tech:", ("Front-end Development", "React", "Python", "SQL", "Power BI", "Matplotlib", "Seaborn", "Cursor IDE", "Mermaid", "Git", "GitHub", "Azure", "Bitbucket", "Figma", "Adobe XD")),
+  ("Tech:", ("Power BI", "Python", "React", "Figma", "SQL", "Matplotlib", "Seaborn", "Git", "GitHub", "Cursor IDE", "Azure", "Bitbucket", "HTML", "CSS", "Mermaid", "VS Code", "Excel", "VBA", "AutoHotkey")),
 )
 
 #let experience = (
