@@ -12,11 +12,11 @@
 #let location = "Nova Odessa, SP — Brazil"
 
 #let profile = [
-  I help teams build trustworthy, user-centered solutions by bringing Applied Research, technology support, and project delivery together—with clear data, accountability, and measurable impact. I specialize in weaving evidence into organizational processes and quality measurement, and supported the Americas Team to Maturity Level 4. Background in full-stack development and continuous improvement; Grade A in all Master's coursework.
+  I help teams build useful, user-centered solutions using Applied Research, technology, and project management. I use data and evidence to make decisions and measure results. I like agile methods because they help teams work together and adapt quickly. I use Agentic AI every day in my work, from research to solving problems. Background in full-stack development and continuous improvement; Grade A in all Master's coursework.
 ]
 
 #let strengths = [
-  I work proactively and independently, bringing structure and evidence to how teams build. I ground decisions in Applied Research, design, and front-end development. Turn data into clarity with Power BI and Python and use agile project management, and the scientific method to deliver with intention.
+  I work on my own and take initiative. I use Applied Research, design, and front-end development to make decisions. I turn data into clear visuals with Power BI and Python, and I use agile methods and the scientific method to get things done.
 ]
 
 #let languages = (
@@ -36,6 +36,7 @@
     [CIP+Applied Research integration into #strong[ServiceNow CIM]; Applied Research gate in CIP workflow; #strong[AI-driven] quality gates.],
     [#strong[Tooling project (PT):] led technical delivery and project management from requirements through high-fidelity prototypes; regular customer check-ins.],
     [Power BI dashboards for project/resource oversight and training tracking.],
+    [#strong[Agentic AI:] use daily for research, analysis, and problem-solving—building on dissertation work that benchmarked software trustworthiness using Agentic AI.],
     [#strong[Two trips to Germany] (2024, 2025); tutor at SENAI Digital Talent Academy.],
   )),
   ("2020 – Nov 2023", "Bosch Brasil", "Web Developer", (
