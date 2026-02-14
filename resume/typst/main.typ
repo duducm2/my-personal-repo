@@ -73,10 +73,10 @@
       ]
       // Contact (short labels before each line)
       #sidebar-heading[Contact]
-      #block(below: 0.6em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[Ph.] #h(0.5em) #text(size: 9pt)[#phone]]
-      #block(below: 0.55em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[E-mail] #h(0.5em) #text(size: 9pt)[#email]]
-      #block(below: 0.55em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[LinkedIn] #h(0.5em) #link(linkedin-url)[#text(size: 9pt, fill: highlight-blue)[#linkedin]]]
-      #block(below: 1.2em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[Location] #h(0.5em) #text(size: 9pt)[#location]]
+      #block(below: 0.6em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[Ph.:] #h(0.5em) #text(size: 9pt)[#phone]]
+      #block(below: 0.55em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[E-mail:] #h(0.5em) #text(size: 8pt)[#email]]
+      #block(below: 0.55em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[LinkedIn:] #h(0.5em) #link(linkedin-url)[#text(size: 9pt, fill: highlight-blue)[#linkedin]]]
+      #block(below: 1.2em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[Location:] #h(0.5em) #text(size: 9pt)[#location]]
       // Profile (includes strengths in bold)
       #sidebar-heading[Profile]
       #block(width: 100%, below: 1.3em)[#sidebar-text[#profile]]
