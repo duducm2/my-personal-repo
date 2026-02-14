@@ -32,7 +32,7 @@
     [#strong[Agentic AI:] use daily with #strong[Cursor IDE] and context management for research, analysis, and problem-solving. Delivering Applied Research efficiently across pipeline and artifacts.],
     [#strong[International & Mentorship:] two trips to Germany (2024, 2025); tutor at SENAI Digital Talent Academy.],
   )),
-  ("2020 – Nov 2023", "Bosch Brasil", "Web Developer", (
+  ("Jan 2020 – Nov 2023", "Bosch Brasil", "Web Developer", (
     [Front-end development, React, Scrum, Applied Research; web solutions and teamwork-driven delivery.],
     [Collaborated on customer-facing applications and internal tools.],
   )),
@@ -40,7 +40,7 @@
     [Business Excellence digitization; internal tools and workflows.],
     [#strong[Full-stack web development:] VS Code, SQL Server, Windows Server (IIS).],
   )),
-  ("01/2017 – 11/2018", "Bosch Brasil (Campinas)", "Intern", (
+  ("Jan 2017 – Nov 2018", "Bosch Brasil (Campinas)", "Intern", (
     [VBA (Excel) for Continuous Improvement and internal communication.],
   )),
 )
