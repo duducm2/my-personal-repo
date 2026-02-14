@@ -125,6 +125,7 @@
         ]
         #block(above: 0.2em)[#text(style: "italic", fill: highlight-blue)[#title]]
         #block(above: 0.5em)[
+          #set par(leading: 1em)
           #for b in bullets [#block(inset: (left: 1em), above: 0.45em)[#text(fill: heading-color)[• #b]]]
         ]
       ]
