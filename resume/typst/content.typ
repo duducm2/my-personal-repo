@@ -42,7 +42,6 @@
   )),
   ("01/2017 – 11/2018", "Bosch Brasil (Campinas)", "Intern", (
     [VBA (Excel) for Continuous Improvement and internal communication.],
-    [Recognition: Compartilhando Sucessos RH (HR excellence program).],
   )),
 )
 
