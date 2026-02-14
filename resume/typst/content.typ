@@ -29,7 +29,7 @@
     [CIP + Research integration into #strong[ServiceNow]; Added Research gate in the workflow; #strong[method-driven] quality gate.],
     [#strong[Tooling project (Power Tools):] supported technical delivery and project management from requirements through high-fidelity prototypes; regular customer check-ins.],
     [Power BI dashboards for project/resource oversight and training tracking.],
-    [#strong[Agentic AI:] use daily for research, analysis, and problem-solving; building on dissertation work that benchmarked software trustworthiness using Agentic AI.],
+    [#strong[Agentic AI:] use daily with #strong[Cursor IDE] and context management for research, analysis, and problem-solving. Delivering Applied Research efficiently across pipeline and artifacts.],
     [#strong[Two trips to Germany] (2024, 2025); tutor at SENAI Digital Talent Academy.],
   )),
   ("2020 – Nov 2023", "Bosch Brasil", "Web Developer", (
@@ -47,7 +47,7 @@
 )
 
 #let education = (
-  ("Master's in Technology:", "Info & Comm Systems, Applied Research. Unicamp (2023–2026).", [Dissertation: Benchmark for software trustworthiness using #strong[Agentic AI] and #strong[TrustMate] evaluation tool.]),
+  ("Master's in Technology:", "Info & Comm Systems, Applied Research. Unicamp (2023–2026).", [Dissertation: Building on #strong[Agentic AI] to benchmark software trustworthiness via #strong[TrustMate] evaluation tool.]),
   ("Systems Analysis and Development.", "Unicamp (2015–2020).", none),
   ("Technical Degree in Informatics.", "ETEC Bento Quirino (2012–2014).", none),
 )
