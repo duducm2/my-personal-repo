@@ -52,12 +52,12 @@
 )
 
 #let publications = (
-  ("IHC 2025:", "\"Interface Trustworthiness Score Definition Platform\" (SOL / SBC Open Lib). Co-authors: Regina Moraes, Andreia Casare."),
+  ("IHC 2025:", "\"Interface Trustworthiness Score Definition Platform\" (SOL / SBC Open Lib)."),
   ("ISSRE 2025 (HFSD Workshop):", "\"Measuring Perceived Trust in Websites: A digital tool providing a score for evaluation.\""),
 )
 
 #let additional = (
-  [3rd Place – Bosch Talent Forum 2018; 3rd Place – Bosch Intern Talent Forum 2018.],
+  [3rd Place – Bosch Talent Forum 2018.],
   [InfoVis: PhraseNets web visualization for text co-occurrence analysis (course project).],
   [Volunteer – NGO Hospitalhaços (Admin).],
 )
