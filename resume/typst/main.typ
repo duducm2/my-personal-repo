@@ -74,7 +74,7 @@
       // Contact (short labels before each line)
       #sidebar-heading[Contact]
       #block(below: 0.45em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[Ph.:] #h(0.5em) #text(size: 9pt)[#phone]]
-      #block(below: 0.45em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[E-mail:] #h(0.5em) #text(size: 8pt)[#email]]
+      #block(below: 0.45em)[#grid(columns: (auto, 1fr), gutter: 0.5em, align: (left, left))[#text(weight: "bold", size: 9pt, fill: highlight-blue)[E-mail:] #text(size: 8pt, fill: rgb("#444444"))[#email]]]
       #block(below: 0.45em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[LinkedIn:] #h(0.5em) #link(linkedin-url)[#text(size: 9pt, fill: highlight-blue)[#linkedin]]]
       #block(below: 0.9em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[Location:] #h(0.5em) #text(size: 9pt)[#location]]
       // Profile (includes strengths in bold)
@@ -85,7 +85,7 @@
     #block(below: 0.4em)[
       #text(size: 9pt, fill: rgb("#444444"))[#languages]
     ]
-    #v(1fr)
+    #block(below: 0.6em)[]
     // Skills (Core: list; Tech: pills/tags)
     #sidebar-heading[Skills]
     #for (cat, sub) in skills [
