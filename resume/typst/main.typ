@@ -20,19 +20,19 @@
 #let sidebar-header-bg = rgb("#fff")
 #let accent-line = rgb("#7A5C3A")
 #let accent-color = rgb("#6A0DAD")
-#let footer-bg = rgb("#2c3e50")
+#let footer-bg = rgb("#34495e")
 #let heading-color = rgb("#2D2D2D")
 #let sidebar-bg = rgb("#F5F5F5")
-#let highlight-blue = rgb("#2c3e50")  // Midnight blue for key elements
+#let highlight-blue = rgb("#34495e")  // Slightly brighter midnight blue (accessibility)
+#let pill-bg = rgb("#E8EEF2")  // Light tint for skill pills
 
 // Make strong text use midnight blue for emphasis
 #show strong: it => text(weight: "bold", fill: highlight-blue)[#it]
 
-// Section title: uppercase, bold, midnight blue; accent line below (main column)
+// Section title: uppercase, bold, sans-serif, no underline (modern UX look)
 #let section-title(body) = {
   set text(size: 9pt, weight: "bold", fill: highlight-blue)
-  block(above: 0.6em, below: 0.5em)[#block(body)]
-  block(below: 1.4em)[#line(length: 2.5em, stroke: (paint: highlight-blue, thickness: 0.6pt))]
+  block(above: 0.75em, below: 0.9em)[#block(body)]
 }
 
 // Sidebar subsection: bold, midnight blue; short accent line below
@@ -59,14 +59,14 @@
   // 3. Left Column (Sidebar) — full-height light grey background to remove empty gap
   // -------------------------------------------------------------------------
   [
-    #block(fill: sidebar-bg, width: 100%, height: 98%, inset: (left: 0.6em, right: 0.6em, top: 0.6em, bottom: 0.6em), stroke: (paint: rgb("#D3D3D3"), thickness: 1pt))[
+    #block(fill: sidebar-bg, width: 100%, height: 98%, inset: (left: 0.85em, right: 0.85em, top: 0.75em, bottom: 0.75em), stroke: (paint: rgb("#D3D3D3"), thickness: 1pt))[
       // Photo: width 90% of container, rectangular, margins, container visible
       #block(width: 100%, inset: 0.75em, below: 0.9em)[
         #align(center)[
           #box(
             width: 100%,
             height: 7.7em,
-            stroke: (paint: rgb("#2c3e50"), thickness: 4pt),
+            stroke: (paint: highlight-blue, thickness: 4pt),
             clip: true
           )[#align(bottom)[#image("pictures/my-photo-rectangle.png", width: 100%, height: 8.2em)]]
         ]
@@ -86,13 +86,23 @@
       #text(size: 9pt, fill: rgb("#444444"))[#languages]
     ]
     #block(below: 1.2em)[]
-    // Skills (category + bulleted items)
+    // Skills (Core: list; Tech: pills/tags)
     #sidebar-heading[Skills]
     #for (cat, sub) in skills [
       #block(above: 0.65em)[
         #text(weight: "bold", size: 9pt, fill: highlight-blue)[#cat]
         #linebreak()
-        #for item in sub [#block(inset: (left: 0.75em), above: 0.35em)[#text(size: 9pt, fill: rgb("#444444"))[• #item]]]
+        #if cat == "Tech:" [
+          #block(above: 0.4em)[
+            #grid(columns: (1fr, 1fr), gutter: (0.35em, 0.28em), [
+              #for item in sub [
+                #block(fill: pill-bg, radius: 0.22em, inset: (left: 0.32em, right: 0.32em, top: 0.12em, bottom: 0.12em))[#text(size: 8pt, fill: rgb("#444444"))[#item]]
+              ]
+            ])
+          ]
+        ] else [
+          #for item in sub [#block(inset: (left: 0.75em), above: 0.35em)[#text(size: 9pt, fill: rgb("#444444"))[• #item]]]
+        ]
       ]
     ]
     ]
@@ -121,16 +131,16 @@
       #block(above: 1em, below: 0.9em)[
         #grid(columns: (1fr, auto), gutter: 1em, align: (left, right))[
           #text(weight: "bold", fill: highlight-blue)[#company]
-          #text(weight: "bold", fill: gray)[#date]
+          #text(weight: "bold", fill: rgb("#555555"))[#date]
         ]
         #block(above: 0.2em)[#text(style: "italic", fill: highlight-blue)[#title]]
         #block(above: 0.5em)[
-          #set par(leading: 1em)
-          #for b in bullets [#block(inset: (left: 1em), above: 0.45em)[#text(fill: heading-color)[• #b]]]
+          #set par(leading: 1.2em)
+          #for b in bullets [#block(inset: (left: 1em), above: 0.5em)[#text(fill: heading-color)[• #b]]]
         ]
       ]
     ]
-    #block(above: 0.5em, below: 0.25em)[#line(length: 100%, stroke: (paint: gray, thickness: 0.35pt))]
+    #block(above: 0.7em, below: 0.35em)[#line(length: 100%, stroke: (paint: gray, thickness: 0.35pt))]
     // Education
     #section-title[EDUCATION]
     #for (degree, inst, thesis) in education [
@@ -139,13 +149,13 @@
         #if thesis != none [#block(inset: (left: 0.5em), above: 0.4em)[#text(size: 9pt, style: "italic", fill: rgb("#444444"))[#thesis]]]
       ]
     ]
-    #block(above: 0.4em, below: 0.2em)[#line(length: 100%, stroke: (paint: gray, thickness: 0.35pt))]
+    #block(above: 0.7em, below: 0.35em)[#line(length: 100%, stroke: (paint: gray, thickness: 0.35pt))]
     // Publications
     #section-title[SELECTED PUBLICATIONS]
     #for (venue, desc) in publications [
       #block(above: 0.65em)[#strong[#venue] #desc]
     ]
-    #block(above: 0.4em, below: 0.2em)[#line(length: 100%, stroke: (paint: gray, thickness: 0.35pt))]
+    #block(above: 0.7em, below: 0.35em)[#line(length: 100%, stroke: (paint: gray, thickness: 0.35pt))]
     // Additional
     #section-title[ADDITIONAL]
     #for a in additional [#block(above: 0.6em)[#a]]
