@@ -41,10 +41,10 @@
   block(above: 0.4em, below: 0.3em)[#block(body)]
   block(below: 0.65em)[#line(length: 1.5em, stroke: (paint: highlight-blue, thickness: 0.5pt))]
 }
-// Sidebar body text: comfortable line height for readability
+// Sidebar body text: comfortable line height for readability (modest increase)
 #let sidebar-text(body) = {
   set text(size: 9pt, fill: rgb("#444444"))
-  set par(leading: 1.55em, spacing: 0.6em)
+  set par(leading: 1.62em, spacing: 0.62em)
   body
 }
 
@@ -59,7 +59,7 @@
   // 3. Left Column (Sidebar) — full-height light grey background to remove empty gap
   // -------------------------------------------------------------------------
   [
-    #block(fill: sidebar-bg, width: 100%, height: 98%, inset: (left: 0.75em, right: 0.75em, top: 0.65em, bottom: 0.65em), stroke: (paint: rgb("#D3D3D3"), thickness: 1pt))[
+    #block(fill: sidebar-bg, width: 100%, height: 98%, inset: (left: 0.8em, right: 0.8em, top: 0.6em, bottom: 0.6em), stroke: (paint: rgb("#D3D3D3"), thickness: 1pt))[
       // Photo: width 90% of container, rectangular, margins, container visible
       #block(width: 100%, inset: 0.5em, below: 0.6em)[
         #align(center)[
@@ -74,18 +74,18 @@
       // Contact (short labels before each line)
       #sidebar-heading[Contact]
       #block(below: 0.45em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[Ph.:] #h(0.5em) #text(size: 9pt)[#phone]]
-      #block(below: 0.45em)[#grid(columns: (auto, 1fr), gutter: 0.5em, align: (left, left))[#text(weight: "bold", size: 9pt, fill: highlight-blue)[E-mail:] #text(size: 8pt, fill: rgb("#444444"))[#email]]]
+      #block(below: 0.45em)[#grid(columns: (auto, 1fr), gutter: 0.5em, align: (left, left))[#text(weight: "bold", size: 9pt, fill: highlight-blue)[E-mail:] #box[#text(size: 7.5pt, fill: rgb("#444444"))[#email]]]]
       #block(below: 0.45em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[LinkedIn:] #h(0.5em) #link(linkedin-url)[#text(size: 9pt, fill: highlight-blue)[#linkedin]]]
       #block(below: 0.9em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[Location:] #h(0.5em) #text(size: 9pt)[#location]]
       // Profile (includes strengths in bold)
       #sidebar-heading[Profile]
-      #block(width: 100%, below: 0.9em)[#sidebar-text[#profile]]
+      #block(width: 100%, below: 0.75em)[#sidebar-text[#profile]]
     // Languages
     #sidebar-heading[Languages]
     #block(below: 0.4em)[
       #text(size: 9pt, fill: rgb("#444444"))[#languages]
     ]
-    #block(below: 0.6em)[]
+    #block(below: 0.5em)[]
     // Skills (Core: list; Tech: pills/tags)
     #sidebar-heading[Skills]
     #for (cat, sub) in skills [
@@ -97,12 +97,12 @@
             #columns(2, gutter: 0.4em)[
               #for (i, item) in sub.enumerate() [
                 #if i == ((sub.len() + 1) / 2) [#colbreak()]
-                #block(fill: pill-bg, radius: 0.18em, inset: (left: 0.25em, right: 0.25em, top: 0.08em, bottom: 0.08em), below: 0.24em)[#text(size: 9pt, fill: rgb("#444444"))[#item]]
+                #block(fill: pill-bg, radius: 0.18em, inset: (left: 0.25em, right: 0.25em, top: 0.08em, bottom: 0.08em), below: 0.22em)[#text(size: 9pt, fill: rgb("#444444"))[#item]]
               ]
             ]
           ]
         ] else [
-          #for item in sub [#block(inset: (left: 0.75em), above: 0.42em)[#text(size: 9pt, fill: rgb("#444444"))[• #item]]]
+          #for item in sub [#block(inset: (left: 0.75em), above: 0.4em)[#text(size: 9pt, fill: rgb("#444444"))[• #item]]]
         ]
       ]
     ]
