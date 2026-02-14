@@ -38,7 +38,7 @@
   )),
   ("Jan 2019 – Dec 2019", "Bosch Magyarország (Hungary)", "Digitization Support Analyst", (
     [Business Excellence digitization; internal tools and workflows.],
-    [VS Code, SQL Server, Windows Server (IIS).],
+    [#strong[Full-stack web development:] VS Code, SQL Server, Windows Server (IIS).],
   )),
   ("01/2017 – 11/2018", "Bosch Brasil (Campinas)", "Intern", (
     [VBA (Excel) for Continuous Improvement and internal communication.],
@@ -58,9 +58,7 @@
 )
 
 #let additional = (
-  [#strong[1st Place] – X-Games Brazil 2018 (New Business Creation / Consultancy).],
   [3rd Place – Bosch Talent Forum 2018; 3rd Place – Bosch Intern Talent Forum 2018.],
-  [Proposal Generator: Excel VBA tool for Applied Research project proposals (Planning, Understand, Synthesize, Ideate, Test).],
   [InfoVis: PhraseNets web visualization for text co-occurrence analysis (course project).],
   [Volunteer – NGO Hospitalhaços (Admin).],
 )
