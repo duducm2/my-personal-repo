@@ -46,7 +46,7 @@
 )
 
 #let education = (
-  ("Master's in Technology:", "Info & Comm Systems, Applied Research. Unicamp (2023–2026).", [Dissertation: Building on #strong[Agentic AI] to benchmark software trustworthiness via #strong[TrustMate] evaluation tool.]),
+  ("Master's in Technology:", "Info & Comm Systems. Unicamp (2023–2026).", [Dissertation: #strong[Agentic AI] applied to evaluate software quality metrics (UX, accessibility, usability, and trustworthiness). Full-stack design, development, and cloud deployment of evaluation platform via #strong[web application]. Coursework (#strong[Grade A]): Academic Writing, Scientific Research (Conception to Publication), Innovation & Technology Transfer, Information Visualization, Directed Studies.]),
   ("Systems Analysis and Development.", "Unicamp (2015–2020).", none),
   ("Technical Degree in Informatics.", "ETEC Bento Quirino (2012–2014).", none),
 )

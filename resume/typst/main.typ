@@ -136,7 +136,7 @@
     #for (degree, inst, thesis) in education [
       #block(above: 0.75em)[
         #strong[#degree] #inst
-        #if thesis != none [#block(inset: (left: 0.5em), above: 0.4em)[#text(size: 9pt, style: "italic", fill: gray)[#thesis]]]
+        #if thesis != none [#block(inset: (left: 0.5em), above: 0.4em)[#text(size: 9pt, style: "italic", fill: rgb("#444444"))[#thesis]]]
       ]
     ]
     #block(above: 0.4em, below: 0.2em)[#line(length: 100%, stroke: (paint: gray, thickness: 0.35pt))]
