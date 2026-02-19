@@ -12,7 +12,7 @@
 #let location = "Nova Odessa, SP - Brazil"
 
 #let profile = [
-  I help teams build #strong[user-centered solutions] through #strong[Applied Research, technology, and project management]. My full-stack background and #strong[scientific mindset] ground this work. I use data, continuous improvement, and #strong[Agentic AI] daily to turn complex problems into clear outcomes. #strong[Self-directed and proactive], I deliver across the pipeline: design, front-end, Power BI, and Python for data visuals. Master's in Technology with #strong[Grade A across all coursework].
+  I help teams build #strong[user-centered solutions] through #strong[Applied Research, technology, and project management]. My full-stack background and #strong[scientific mindset] ground this work. I use data, continuous improvement, and #strong[Agentic AI] daily to turn complex problems into clear outcomes. #strong[Self-directed and proactive], I deliver across the pipeline: design, front-end, Power BI, and Python for data visuals. Master's in Technology with #strong[Grade A across all coursework]. Aspiring to grow as an #strong[AI Scrum Master].
 ]
 
 #let languages = "Portuguese (Native)   English (Fluent)"

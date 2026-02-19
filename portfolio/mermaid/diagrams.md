@@ -198,12 +198,12 @@ flowchart LR
 
 ## 9. [ai-agile-research] AI and Agile in Research (Slide 11)
 
-*Narrative for slide:* The **Research Scrum Master** facilitates the process (sprint planning, backlog refinement, daily check-ins, reviews, retrospectives) and evaluates whether the team is using tools and tech correctly (e.g. AI, AR). The research team works with AI tools and participates in ceremonies; outcomes include research backlog, experiment cards, dashboards, and human-reviewed AI drafts.
+*Narrative for slide:* The **AI Scrum Master** facilitates the process (sprint planning, backlog refinement, daily check-ins, reviews, retrospectives) and evaluates whether the team is using tools and tech correctly (e.g. AI, AR). The research team works with AI tools and participates in ceremonies; outcomes include research backlog, experiment cards, dashboards, and human-reviewed AI drafts.
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato', 'subgraphBg': 'transparent', 'subgraphBorder': '#bdc3c7'}}}%%
 flowchart TD
-  RSM["Research Scrum Master"]
+  RSM["AI Scrum Master"]
   RT["Research Team + AI tools"]
   C1["Sprint planning, Backlog refinement"]
   C2["Daily check-ins, Reviews, Retrospectives"]
@@ -240,7 +240,7 @@ flowchart TD
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%
 flowchart LR
   P1["Priority 1 (Ideal)<br/>PhD within Bosch –<br/>Quantum or AI technology"]
-  P2["Priority 2<br/>Research Scrum Master<br/>+ technical support"]
+  P2["Priority 2<br/>AI Scrum Master<br/>+ technical support"]
   P3["Priority 3<br/>UX Researcher"]
   Lead["Leadership"]
   P1 --> Lead

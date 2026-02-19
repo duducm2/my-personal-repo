@@ -1321,7 +1321,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 ## Future
 
 <div class="ai-agile-wrap">
-<p><img src="../pictures/diagrams/ai-agile-research.png" alt="Diagram ai-agile-research: AI and Agile in Applied Research" /></p>
+<p><img src="../pictures/diagrams/ai-agile-research.png" alt="Diagram ai-agile-research: AI and Agile in Applied Research, AI Scrum Master role" /></p>
 </div>  
 
 ---
@@ -1344,7 +1344,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 ## Future – Career Aspirations, Vacancy Types & Prioritized Paths to Leadership
 
 <div class="future-career-wrap">
-<p><img src="../pictures/diagrams/future-career-path.png" alt="Diagram future-career-path: Prioritized paths to leadership" /></p>
+<p><img src="../pictures/diagrams/future-career-path.png" alt="Diagram future-career-path: Prioritized paths to leadership, including AI Scrum Master" /></p>
 </div>
 
 <!-- Diagram: future-career-path (mermaid/diagrams.md). Export to future-career-path.png -->
