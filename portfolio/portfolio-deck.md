@@ -460,6 +460,8 @@ img[src*="my-photo-rectangle"] {
   display: block !important;
   margin-left: 820px !important;
   margin-bottom: 80px !important;
+  border: 4px solid white !important;
+  box-shadow: 2px 3px 12px rgba(0,0,0,0.3);
 }
 table thead { display: none !important; }
 </style>
