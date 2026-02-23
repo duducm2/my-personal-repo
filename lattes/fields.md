@@ -1,6 +1,6 @@
 # Lattes form fields
 
-This is the single Lattes document for this folder. It describes the Lattes platform structure, form fields, and **content to paste** into the curriculum. All content is drawn from **portfolio/portfolio-deck.md**, **resume** (CV and typst content), and **context.md**. Below: hierarchy, populated content per section, the two documented fields **Texto inicial** and **Tradução**, and a future-fulfillment plan.
+This is the single Lattes document for this folder. It describes the Lattes platform structure, form fields, and **content to paste** into the curriculum. Below: hierarchy, populated content per section, the two documented fields **Texto inicial** and **Tradução**, and a future-fulfillment plan.
 
 **Platform reference** — Screenshot of the Lattes interface (Dados gerais tab) for visual context. The horizontal tabs match the hierarchy below; the "Resumo" area in the center is where **Texto inicial** is edited; "O que você quer registrar?" lists specific items you can add.
 
@@ -22,7 +22,7 @@ This is the single Lattes document for this folder. It describes the Lattes plat
 - [Citações](#citacoes)
 - [Field 1 — Texto inicial](#field-1--texto-inicial)
 - [Field 2 — Tradução](#field-2--traducao)
-- [Content from portfolio and resume](#content-from-portfolio-and-resume)
+- [Content for Lattes](#content-for-lattes)
 - [Future fulfillment plan](#future-fulfillment-plan)
 
 Below is the full Lattes platform structure.
@@ -204,19 +204,19 @@ Below is the full Lattes platform structure.
 
 ---
 
-<a id="content-from-portfolio-and-resume"></a>
+<a id="content-for-lattes"></a>
 
-## Content from portfolio and resume
+## Content for Lattes
 
-Content below is extracted from **portfolio/portfolio-deck.md**, **resume** (CV and typst), and **context.md** for copy-paste into the Lattes platform.
+Content below is for copy-paste into the Lattes platform.
 
 ### Status legend
 
-| Emoji | Meaning                   | Use when                                                                                             |
-| ----- | ------------------------- | ---------------------------------------------------------------------------------------------------- |
-| ✅    | **Fulfilled**             | Data exists in portfolio/resume/context and can be pasted or slightly adapted for this Lattes field. |
-| ⏳    | **Partial / in progress** | Some data exists but the field is not complete (e.g. dissertation in progress).                      |
-| ⬜    | **Empty (future)**        | No data yet; fulfillment depends on a future milestone.                                              |
+| Emoji | Meaning                   | Use when                                                                        |
+| ----- | ------------------------- | ------------------------------------------------------------------------------- |
+| ✅    | **Fulfilled**             | Data is available and can be pasted or slightly adapted for this Lattes field.  |
+| ⏳    | **Partial / in progress** | Some data exists but the field is not complete (e.g. dissertation in progress). |
+| ⬜    | **Empty (future)**        | No data yet; fulfillment depends on a future milestone.                         |
 
 ### Dados gerais
 
@@ -291,15 +291,15 @@ Content below is extracted from **portfolio/portfolio-deck.md**, **resume** (CV 
 
 ## Field 1 — Texto inicial
 
-| Attribute                   |                    **Value**                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| --------------------------- | :----------------------------------------------: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Name (form)**             |                  Texto inicial                   | Form label for the initial/summary text.                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| **Menu path**               | Dados gerais → Texto inicial do Currículo Lattes | Selecting this menu item opens the form that contains this field. Use this path in the Lattes platform to reach the input for Texto inicial and Tradução.                                                                                                                                                                                                                                                                                                                                       |
-| **Where it appears**        |                        —                         | At the top of the curriculum, as the initial/summary text block (introductory narrative).                                                                                                                                                                                                                                                                                                                                                                                                       |
-| **Purpose**                 |                        —                         | To provide the introductory paragraph for the Lattes curriculum: academic history, current roles, and research interests (maps to "Personal Data and Summary" in the platform).                                                                                                                                                                                                                                                                                                                 |
-| **Mapping from context**    |                        —                         | Use the "Strategic Application" and "Personal Data and Summary" guidance in `context.md`. Content should reflect: Master's research on perceived trust in e-commerce (methodologies: web scraping, machine learning, UI flexibility analysis); professional experience as UX Researcher at Bosch with emphasis on technical contributions and applied scientific methods; future academic objectives (doctoral studies in machine learning or quantum computing, international collaborations). |
-| **Data sources**            |                        —                         | LinkedIn, resume, portfolio — synthesized into a single narrative that highlights the intersection of corporate innovation and academic rigor.                                                                                                                                                                                                                                                                                                                                                  |
-| **Structure / constraints** |                        —                         | Free-text narrative. Character or word limits: to be confirmed from the Lattes platform.                                                                                                                                                                                                                                                                                                                                                                                                        |
+| Attribute                   |                    **Value**                     | Description                                                                                                                                                                                                                                                                                                                                                                                           |
+| --------------------------- | :----------------------------------------------: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Name (form)**             |                  Texto inicial                   | Form label for the initial/summary text.                                                                                                                                                                                                                                                                                                                                                              |
+| **Menu path**               | Dados gerais → Texto inicial do Currículo Lattes | Selecting this menu item opens the form that contains this field. Use this path in the Lattes platform to reach the input for Texto inicial and Tradução.                                                                                                                                                                                                                                             |
+| **Where it appears**        |                        —                         | At the top of the curriculum, as the initial/summary text block (introductory narrative).                                                                                                                                                                                                                                                                                                             |
+| **Purpose**                 |                        —                         | To provide the introductory paragraph for the Lattes curriculum: academic history, current roles, and research interests (maps to "Personal Data and Summary" in the platform).                                                                                                                                                                                                                       |
+| **Mapping from context**    |                        —                         | Content should reflect: Master's research on perceived trust in e-commerce (methodologies: web scraping, machine learning, UI flexibility analysis); professional experience as UX Researcher at Bosch with emphasis on technical contributions and applied scientific methods; future academic objectives (doctoral studies in machine learning or quantum computing, international collaborations). |
+| **Data sources**            |                        —                         | Synthesized into a single narrative that highlights the intersection of corporate innovation and academic rigor.                                                                                                                                                                                                                                                                                      |
+| **Structure / constraints** |                        —                         | Free-text narrative. Character or word limits: to be confirmed from the Lattes platform.                                                                                                                                                                                                                                                                                                              |
 
 ---
 
@@ -321,4 +321,4 @@ Content below is extracted from **portfolio/portfolio-deck.md**, **resume** (CV 
 
 ## Summary
 
-This document is the single Lattes reference: platform hierarchy, field definitions, and **content from portfolio/portfolio-deck.md and resume** (with status and future-fulfillment plan). **Texto inicial** and **Tradução** are the two fields with detailed tables; their paste-ready text is in the "Content from portfolio and resume" section. Use `context.md` for strategic focus and this file for structure, mapping, and copy-paste content.
+This document is the single Lattes reference: platform hierarchy, field definitions, and paste-ready content (with status and future-fulfillment plan). **Texto inicial** and **Tradução** are the two fields with detailed tables; their paste-ready text is in the "Content for Lattes" section.
