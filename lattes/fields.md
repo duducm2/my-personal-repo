@@ -2,7 +2,7 @@
 
 This is the single Lattes document for this folder. It describes the Lattes platform structure, form fields, and **content to paste** into the curriculum. Below: hierarchy, populated content per section, the two documented fields **Texto inicial** and **Tradução**, and a future-fulfillment plan.
 
-**Open-text field values:** The specific text values for the two Lattes open-text fields (Texto inicial and Tradução) are taken from the user's resume. They appear in two places in this file: (1) in the **Content for Lattes** section under Dados gerais, and (2) in **highlighted copy-paste blocks** directly under the Field 1 and Field 2 tables below. Use those blocks for quick copy-paste into the Lattes platform. **Quick links** to the copy-paste values: [Summary → Quick links to field values](#summary).
+**Open-text field values:** The specific text values for the two Lattes open-text fields (Texto inicial and Tradução) are taken from the user's resume. They appear in two places in this file: (1) in the **Content for Lattes** section under Dados gerais, and (2) in **highlighted copy-paste blocks** directly under the [Field 1 — Texto inicial](#field-1--texto-inicial) and [Field 2 — Tradução](#field-2--traducao) tables below. Use those blocks or the Table of Contents for quick copy-paste into the Lattes platform.
 
 **Platform reference** — Screenshot of the Lattes interface (Dados gerais tab) for visual context. The horizontal tabs match the hierarchy below; the "Resumo" area in the center is where **Texto inicial** is edited; "O que você quer registrar?" lists specific items you can add.
 
@@ -451,33 +451,3 @@ Pesquisador em Experiência do Usuário (UX) e desenvolvedor front-end, mestrand
 ```
 UX Researcher and Front-end Developer; Master's student in Technology (Unicamp, expected 2026). Specialized in integrating User Experience into organizational processes (CIP) and measuring software trustworthiness. Led regions to high UX maturity (Level 4), developed AI-driven quality gates, and managed international projects. Background in full-stack development and continuous improvement.
 ```
-
----
-
-<a id="summary"></a>
-
-## Summary
-
-· · ·
-
-This document is the single Lattes reference: platform hierarchy, field definitions, and paste-ready content (with status and future-fulfillment plan). **Texto inicial** and **Tradução** are the two fields with detailed tables; their paste-ready text is in the "Content for Lattes" section.
-
-**Quick links to field values**
-
-| Field                           | Link                                                                                               |
-| ------------------------------- | -------------------------------------------------------------------------------------------------- |
-| Texto inicial (PT)              | [Copy-paste value (PT)](#field-1-copy-paste)                                                       |
-| Tradução (EN)                   | [Copy-paste value (EN)](#field-2-copy-paste)                                                       |
-| Dados gerais                    | [Content for Lattes — Dados gerais](#content-for-lattes-dados-gerais)                              |
-| Formação                        | [Content for Lattes — Formação](#content-for-lattes-formacao)                                      |
-| Atuação                         | [Content for Lattes — Atuação](#content-for-lattes-atuacao)                                        |
-| Projetos                        | [Content for Lattes — Projetos](#content-for-lattes-projetos)                                      |
-| Produções                       | [Content for Lattes — Produções](#content-for-lattes-producoes)                                    |
-| Patentes e Registros            | [Content for Lattes — Patentes e Registros](#content-for-lattes-patentes-registros)                |
-| Inovação                        | [Content for Lattes — Inovação](#content-for-lattes-inovacao)                                      |
-| Educação e Popularização de C&T | [Content for Lattes — Educação e Popularização de C&T](#content-for-lattes-educacao-popularizacao) |
-| Eventos                         | [Content for Lattes — Eventos](#content-for-lattes-eventos)                                        |
-| Orientações                     | [Content for Lattes — Orientações](#content-for-lattes-orientacoes)                                |
-| Bancas                          | [Content for Lattes — Bancas](#content-for-lattes-bancas)                                          |
-| Citações                        | [Content for Lattes — Citações](#content-for-lattes-citacoes)                                      |
-| _(other open-text fields)_      | _(placeholder: none documented)_                                                                   |
