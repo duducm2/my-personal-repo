@@ -132,7 +132,7 @@ style: |
   }
 
   section.persona-slide img[alt*="Persona 2"] { display: block; margin-left: auto; margin-right: auto; margin-top: -1rem; }
-  
+
   /* Global Decorative Elements */
   section:not(.lead):not(.midnight-blue-slide) {
     /* Subtle dot grid to fill whitespace */
@@ -250,7 +250,7 @@ style: |
   section.relevance-summary-with-doodle { position: relative; }
   section.relevance-summary-with-doodle p.doodle-right { position: absolute; right: 5rem; top: 50%; transform: translateY(-50%); margin: 0; line-height: 0; }
   section.relevance-summary-with-doodle p.doodle-right img { width: 220px; height: auto; display: block; }
-  
+
   /* Final slide – art-background.png, same padding as all slides */
   section.blank-midnight-blue {
     position: relative;
@@ -270,7 +270,7 @@ style: |
     z-index: 0;
     pointer-events: none;
   }
-  
+
   /* Personal images layout - scattered photo effect */
   section.personal-images p {
     display: inline-block;
@@ -283,7 +283,7 @@ style: |
   section.personal-images p:nth-of-type(4) img { width: 165px; }
   section.personal-images p:nth-of-type(5) img { width: 165px; }
   section.personal-images p:nth-of-type(6) img { width: 165px; }
-  
+
   /* Article images layout - scattered group (scientific publications) */
   section.article-images p {
     display: inline-block;
@@ -437,6 +437,7 @@ img[src*="story-flow"] {
 </style>
 
 # Why I Work in Technology, Project Management & Applied Research
+
 ## Trustworthy, human-centered software for complex services
 
 - I believe software in service organizations should be **trustworthy, usable, and usefull**, especially when it affects real people and businesses.
@@ -468,12 +469,12 @@ table thead { display: none !important; }
 
 ## Who I Am – Snapshot
 
-| Attribute | Value |
-| --------- | ----- |
-| Name | Eduardo M. de A. Figueiredo |
-| Role | Applied Research, Technology & Project Management |
-| Impact | I help teams govern better and improve faster, using Applied Research to prioritize, decide, and deliver with clear data and accountability. |
-| Contact | Nova Odessa, SP – Brazil · edu.evangelista.figueiredo@gmail.com · www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b / +55 19 98176-658 |
+| Attribute | Value                                                                                                                                                                                                                                                                         |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Name      | Eduardo M. de A. Figueiredo                                                                                                                                                                                                                                                   |
+| Role      | Applied Research, Technology & Project Management                                                                                                                                                                                                                             |
+| Impact    | I help teams govern better and improve faster, using Applied Research to prioritize, decide, and deliver with clear data and accountability.                                                                                                                                  |
+| Contact   | Nova Odessa, SP – Brazil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583 |
 
 <p class="photo-at-bottom"><img src="../pictures/personal/my-photo-rectangle.png" alt="Eduardo Figueiredo" /></p>  
 <!-- <p><img src="../pictures/personal/my-photo.png" alt="Eduardo Figueiredo" /></p> -->
@@ -562,7 +563,7 @@ I feel proactive, self-reliant and organized.
 
 <p style="text-align: center; margin-top: 1rem;"><strong>Grade 'A' in all Master's coursework</strong>; English proficiency test verification.</p>
 
-<!-- Diagram: academic-timeline (mermaid/diagrams.md). Export to academic-timeline.png -->  
+<!-- Diagram: academic-timeline (mermaid/diagrams.md). Export to academic-timeline.png -->
 
 ---
 
@@ -620,7 +621,7 @@ section { overflow-x: visible !important; }
 </div>
 </div>
 
-<!-- Diagram: experience-timeline (mermaid/diagrams.md). Export to experience-timeline.png -->  
+<!-- Diagram: experience-timeline (mermaid/diagrams.md). Export to experience-timeline.png -->
 
 ---
 
@@ -660,15 +661,15 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 <p class="americas-img"><img src="../pictures/work/americas-team-2025.jpg" alt="Americas Team 2025 - Applied Research Maturity Level 4" /></p>
 </div>
 
-| Area | Achievement |
-| ---- | ----------- |
-| Role | Applied Research & Technology – Bosch Brasil (May 2023 – present); Applied Research Expert & Project Champion at GS/BDU |
-| International | Two trips to Germany (2024, 2025) for role-related work |
-| CO2 Tracking (GS/Applied Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand |
-| Tooling project (PT) | Led technical delivery and project management from requirements through high-fidelity prototypes, with regular customer check-ins. |
-| Applied Research Maturity | Led Americas to Level 4 – governance, templates, training |
-| CIP + Applied Research | Led integration into ServiceNow CIM; Applied Research gate in CIP workflow |
-| Collaboration | Tutor of Digital Talent Academy Students |
+| Area                               | Achievement                                                                                                                        |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Role                               | Applied Research & Technology – Bosch Brasil (May 2023 – present); Applied Research Expert & Project Champion at GS/BDU            |
+| International                      | Two trips to Germany (2024, 2025) for role-related work                                                                            |
+| CO2 Tracking (GS/Applied Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand                                                               |
+| Tooling project (PT)               | Led technical delivery and project management from requirements through high-fidelity prototypes, with regular customer check-ins. |
+| Applied Research Maturity          | Led Americas to Level 4 – governance, templates, training                                                                          |
+| CIP + Applied Research             | Led integration into ServiceNow CIM; Applied Research gate in CIP workflow                                                         |
+| Collaboration                      | Tutor of Digital Talent Academy Students                                                                                           |
 
 ---
 
@@ -850,7 +851,7 @@ section { position: relative; }
 <p><img src="../pictures/academia/ihc-2025-2.jpg" alt="IHC 2025 SBC SOL – presentation" /></p>
 </div>
 
-<!-- Diagram: academic-research-flow (mermaid/diagrams.md). Export to academic-research-flow.png -->  
+<!-- Diagram: academic-research-flow (mermaid/diagrams.md). Export to academic-research-flow.png -->
 
 ---
 
@@ -930,17 +931,17 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 <div class="diagram-wrapper csi-table-wrapper">
 
-| Project | CSI | NPS |
-| ------- | --- | --- |
-| GS_R2S Financial Portal | 5 | N/A |
-| EXT_PS_CCC Telemetry | 5 | 10 |
-| EXT_M-PUR36 Tooling | 5 | 10 |
-| EXT_M-PMQ PPAP | 5 | 10 |
-| GS_P2P_MovDiv | 5 | 10 |
-| GS_P2P_Financial_Portal | 5 | 10 |
-| GS Applied Research Bootcamp 2024 | 4.9 | 9.6 |
-| GS_B2R_AA CF Automation | 4 | 10 |
-| **Averages** | **4.86** | **9.94** |
+| Project                           | CSI      | NPS      |
+| --------------------------------- | -------- | -------- |
+| GS_R2S Financial Portal           | 5        | N/A      |
+| EXT_PS_CCC Telemetry              | 5        | 10       |
+| EXT_M-PUR36 Tooling               | 5        | 10       |
+| EXT_M-PMQ PPAP                    | 5        | 10       |
+| GS_P2P_MovDiv                     | 5        | 10       |
+| GS_P2P_Financial_Portal           | 5        | 10       |
+| GS Applied Research Bootcamp 2024 | 4.9      | 9.6      |
+| GS_B2R_AA CF Automation           | 4        | 10       |
+| **Averages**                      | **4.86** | **9.94** |
 
 </div>
 
@@ -1322,7 +1323,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 <div class="ai-agile-wrap">
 <p><img src="../pictures/diagrams/ai-agile-research.png" alt="Diagram ai-agile-research: AI and Agile in Applied Research, AI Scrum Master role" /></p>
-</div>  
+</div>
 
 ---
 
@@ -1407,7 +1408,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 <p><img src="../pictures/personal/cat-piano.jpg" alt="Cat on piano – beginner piano practice" /></p>
 <p><img src="../pictures/personal/cat-split-keyboard.jpg" alt="Cat on split keyboard – macro creation and productivity" /></p>
 </div>
-</div>  
+</div>
 
 ---
 
@@ -1465,6 +1466,7 @@ section.closing-redesign h2 {
 <p><strong>Let's connect</strong></p>
 <p>edu.evangelista.figueiredo@gmail.com</p>
 <p><a href="https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b">linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b</a></p>
+<p><a href="https://lattes.cnpq.br/2708641049892967">Lattes</a> · <a href="https://orcid.org/0009-0002-5178-6157">ORCID</a></p>
 <p>+55 19 98176-6583</p>
 <p style="margin-top: 0.75rem !important; font-size: 0.9em; opacity: 0.9;">Resume and this deck available on request.</p>
 </div>

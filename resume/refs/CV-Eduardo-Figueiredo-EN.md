@@ -31,6 +31,8 @@ body { margin: 0; padding: 0.2in; font-family: 'Segoe UI', system-ui, sans-serif
 <span>📞 +55 (19) 98176-6583</span>
 <span>✉ edu.evangelista.figueiredo@gmail.com</span>
 <span>🔗 <a href="https://www.linkedin.com/in/eduardo-figueiredo">LinkedIn</a></span>
+<span>🔗 <a href="https://lattes.cnpq.br/2708641049892967">Lattes</a></span>
+<span>🔗 <a href="https://orcid.org/0009-0002-5178-6157">ORCID</a></span>
 <span>📍 Nova Odessa, SP — Brazil</span>
 </p>
 <p class="cv-contact"><strong>UX Researcher | Front-end Developer | Master in Technology</strong></p>
@@ -117,4 +119,3 @@ body { margin: 0; padding: 0.2in; font-family: 'Segoe UI', system-ui, sans-serif
 </div>
 
 </div>
-

@@ -76,6 +76,8 @@
       #block(below: 0.45em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[Ph.:] #h(0.5em) #text(size: 9pt)[#phone]]
       #block(below: 0.45em)[#grid(columns: (auto, 1fr), gutter: 0.5em, align: (left, left))[#text(weight: "bold", size: 9pt, fill: highlight-blue)[E-mail:] #box[#text(size: 7.5pt, fill: rgb("#444444"))[#email]]]]
       #block(below: 0.45em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[LinkedIn:] #h(0.5em) #link(linkedin-url)[#text(size: 9pt, fill: highlight-blue)[#linkedin]]]
+      #block(below: 0.45em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[Lattes:] #h(0.5em) #link(lattes-url)[#text(size: 9pt, fill: highlight-blue)[#lattes]]]
+      #block(below: 0.45em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[ORCID:] #h(0.5em) #link(orcid-url)[#text(size: 9pt, fill: highlight-blue)[#orcid]]]
       #block(below: 0.9em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[Location:] #h(0.5em) #text(size: 9pt)[#location]]
       // Profile (includes strengths in bold)
       #sidebar-heading[Profile]

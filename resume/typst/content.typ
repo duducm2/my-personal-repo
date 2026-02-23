@@ -9,6 +9,10 @@
 #let email = "edu.evangelista.figueiredo@gmail.com"
 #let linkedin = "LinkedIn"
 #let linkedin-url = "https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b"
+#let lattes = "Lattes"
+#let lattes-url = "https://lattes.cnpq.br/2708641049892967"
+#let orcid = "ORCID"
+#let orcid-url = "https://orcid.org/0009-0002-5178-6157"
 #let location = "Nova Odessa, SP - Brazil"
 
 #let profile = [

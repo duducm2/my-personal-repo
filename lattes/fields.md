@@ -12,9 +12,13 @@ This is the single Lattes document for this folder. It describes the Lattes plat
 
 - [Dados gerais](#dados-gerais)
 - [Formação](#formacao)
+  - [Formação — source data (copy-paste)](#content-for-lattes-formacao)
 - [Atuação](#atuacao)
 - [Projetos](#projetos)
 - [Produções](#producoes)
+  - [Produção Bibliográfica](#producao-bibliografica)
+  - [Produção Técnica](#producao-tecnica)
+  - [Outra produção artística/cultural](#outra-producao-artistica-cultural)
 - [Patentes e Registros](#patentes-e-registros)
 - [Inovação](#inovacao)
 - [Educação e Popularização de C&T](#educacao-e-popularizacao-de-ct)
@@ -25,6 +29,7 @@ This is the single Lattes document for this folder. It describes the Lattes plat
 - [Field 1 — Texto inicial](#field-1--texto-inicial) → [Copy-paste (PT)](#field-1-copy-paste)
 - [Field 2 — Tradução](#field-2--traducao) → [Copy-paste (EN)](#field-2-copy-paste)
 - [Content for Lattes](#content-for-lattes)
+  - [Formação (source data)](#content-for-lattes-formacao)
 - [Future fulfillment plan](#future-fulfillment-plan)
 
 Below is the full Lattes platform structure.
@@ -50,6 +55,8 @@ Below is the full Lattes platform structure.
 - Formação acadêmica/titulação
 - Pós-doutorado e/ou livre-docência
 - Formação complementar
+
+**Source data (copy-paste):** [Content for Lattes → Formação](#content-for-lattes-formacao)
 
 <a id="atuacao"></a>
 
@@ -77,6 +84,8 @@ Below is the full Lattes platform structure.
 
 ## Produções
 
+<a id="producao-bibliografica"></a>
+
 ### Produção Bibliográfica
 
 - Artigos completos publicados em periódicos
@@ -89,6 +98,8 @@ Below is the full Lattes platform structure.
 - Tradução
 - Prefácio, posfácio
 - Outra produção bibliográfica
+
+<a id="producao-tecnica"></a>
 
 ### Produção Técnica
 
@@ -108,6 +119,8 @@ Below is the full Lattes platform structure.
 - Relatório de pesquisa
 - Redes sociais, websites e blogs
 - Outra produção técnica
+
+<a id="outra-producao-artistica-cultural"></a>
 
 ### Outra produção artística/cultural
 
@@ -230,6 +243,8 @@ Content below is for copy-paste into the Lattes platform. Items marked ⬜ are e
 - **Texto inicial do Currículo Lattes** ✅ — See **copy-paste value (PT)** in [Field 1 — Texto inicial](#field-1--texto-inicial) below.
 - **Tradução (Texto inicial em inglês)** ✅ — See **copy-paste value (EN)** in [Field 2 — Tradução](#field-2--traducao) below.
 - **Outras informações relevantes** ✅ — Voluntário – ONG Hospitalhaços (atuação administrativa). Mestrado com conceito A em todas as disciplinas; proficiência em inglês comprovada.
+
+<a id="content-for-lattes-formacao"></a>
 
 ### Formação
 
