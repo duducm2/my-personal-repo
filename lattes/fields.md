@@ -395,17 +395,3 @@ UX Researcher and Front-end Developer; Master's student in Technology (Unicamp, 
 ```
 
 ---
-
-## Summary
-
-· · ·
-
-This document is the single Lattes reference: platform hierarchy, field definitions, and paste-ready content (with status and future-fulfillment plan). **Texto inicial** and **Tradução** are the two fields with detailed tables; their paste-ready text is in the "Content for Lattes" section.
-
-**Quick links to field values**
-
-| Field                      | Link                                         |
-| -------------------------- | -------------------------------------------- |
-| Texto inicial (PT)         | [Copy-paste value (PT)](#field-1-copy-paste) |
-| Tradução (EN)              | [Copy-paste value (EN)](#field-2-copy-paste) |
-| _(other open-text fields)_ | _(placeholder: none documented)_             |
