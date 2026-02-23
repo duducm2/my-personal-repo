@@ -2,7 +2,7 @@
 
 This is the single Lattes document for this folder. It describes the Lattes platform structure, form fields, and **content to paste** into the curriculum. Below: hierarchy, populated content per section, the two documented fields **Texto inicial** and **Tradução**, and a future-fulfillment plan.
 
-**Open-text field values:** The specific text values for the two Lattes open-text fields (Texto inicial and Tradução) are taken from the user's resume. They appear in two places in this file: (1) in the **Content for Lattes** section under Dados gerais, and (2) in **highlighted copy-paste blocks** directly under the Field 1 and Field 2 tables below. Use those blocks for quick copy-paste into the Lattes platform.
+**Open-text field values:** The specific text values for the two Lattes open-text fields (Texto inicial and Tradução) are taken from the user's resume. They appear in two places in this file: (1) in the **Content for Lattes** section under Dados gerais, and (2) in **highlighted copy-paste blocks** directly under the Field 1 and Field 2 tables below. Use those blocks for quick copy-paste into the Lattes platform. **Quick links** to the copy-paste values: [Summary → Quick links to field values](#summary).
 
 **Platform reference** — Screenshot of the Lattes interface (Dados gerais tab) for visual context. The horizontal tabs match the hierarchy below; the "Resumo" area in the center is where **Texto inicial** is edited; "O que você quer registrar?" lists specific items you can add.
 
@@ -22,8 +22,8 @@ This is the single Lattes document for this folder. It describes the Lattes plat
 - [Orientações](#orientacoes)
 - [Bancas](#bancas)
 - [Citações](#citacoes)
-- [Field 1 — Texto inicial](#field-1--texto-inicial)
-- [Field 2 — Tradução](#field-2--traducao)
+- [Field 1 — Texto inicial](#field-1--texto-inicial) → [Copy-paste (PT)](#field-1-copy-paste)
+- [Field 2 — Tradução](#field-2--traducao) → [Copy-paste (EN)](#field-2-copy-paste)
 - [Content for Lattes](#content-for-lattes)
 - [Future fulfillment plan](#future-fulfillment-plan)
 
@@ -210,7 +210,7 @@ Below is the full Lattes platform structure.
 
 ## Content for Lattes
 
-Content below is for copy-paste into the Lattes platform.
+Content below is for copy-paste into the Lattes platform. Items marked ⬜ are empty; leave the Lattes field blank or use placeholder _(empty)_ until the [Future fulfillment plan](#future-fulfillment-plan) applies.
 
 ### Status legend
 
@@ -328,6 +328,8 @@ Content below is for copy-paste into the Lattes platform.
 | **Data sources**            |                        —                         | Synthesized into a single narrative that highlights the intersection of corporate innovation and academic rigor.                                                                                                                                                                                                                                                                                      |
 | **Structure / constraints** |                        —                         | Free-text narrative. Character or word limits: to be confirmed from the Lattes platform.                                                                                                                                                                                                                                                                                                              |
 
+<a id="field-1-copy-paste"></a>
+
 **Copy-paste value (Texto inicial — PT):**
 
 ```
@@ -350,6 +352,8 @@ Pesquisador em Experiência do Usuário (UX) e desenvolvedor front-end, mestrand
 | **Scope**                   |                        —                         | **Assumption:** This field may apply to the translation of "Texto inicial" only, or to the full curriculum. Verify on the Lattes form and update this document if the scope differs.                                                              |
 | **Structure / constraints** |                        —                         | Free text in the target language. Any limits or formatting rules: to be confirmed from the platform.                                                                                                                                              |
 
+<a id="field-2-copy-paste"></a>
+
 **Copy-paste value (Tradução — EN):**
 
 ```
@@ -360,4 +364,14 @@ UX Researcher and Front-end Developer; Master's student in Technology (Unicamp, 
 
 ## Summary
 
+· · ·
+
 This document is the single Lattes reference: platform hierarchy, field definitions, and paste-ready content (with status and future-fulfillment plan). **Texto inicial** and **Tradução** are the two fields with detailed tables; their paste-ready text is in the "Content for Lattes" section.
+
+**Quick links to field values**
+
+| Field                      | Link                                         |
+| -------------------------- | -------------------------------------------- |
+| Texto inicial (PT)         | [Copy-paste value (PT)](#field-1-copy-paste) |
+| Tradução (EN)              | [Copy-paste value (EN)](#field-2-copy-paste) |
+| _(other open-text fields)_ | _(placeholder: none documented)_             |
