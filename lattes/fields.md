@@ -2,6 +2,8 @@
 
 This is the single Lattes document for this folder. It describes the Lattes platform structure, form fields, and **content to paste** into the curriculum. Below: hierarchy, populated content per section, the two documented fields **Texto inicial** and **Tradução**, and a future-fulfillment plan.
 
+**Open-text field values:** The specific text values for the two Lattes open-text fields (Texto inicial and Tradução) are taken from the user's resume. They appear in two places in this file: (1) in the **Content for Lattes** section under Dados gerais, and (2) in **highlighted copy-paste blocks** directly under the Field 1 and Field 2 tables below. Use those blocks for quick copy-paste into the Lattes platform.
+
 **Platform reference** — Screenshot of the Lattes interface (Dados gerais tab) for visual context. The horizontal tabs match the hierarchy below; the "Resumo" area in the center is where **Texto inicial** is edited; "O que você quer registrar?" lists specific items you can add.
 
 ![Lattes platform screenshot](platform/lattes-platform.png)
@@ -225,8 +227,8 @@ Content below is for copy-paste into the Lattes platform.
 - **Licença Maternidade, Paternidade e Adoção** ⬜ — N/A. Deixar em branco conforme o formulário.
 - **Idiomas** ✅ — Português: língua materna (leitura, escrita, fala e compreensão plenos). Inglês: fluente (leitura, escrita, fala e compreensão em nível avançado).
 - **Prêmios e títulos** ✅ — 1º lugar – X-Games Brazil 2018 (Criação de Novos Negócios / Consultoria). 3º lugar – Bosch Talent Forum 2018. 3º lugar – Bosch Intern Talent Forum 2018.
-- **Texto inicial do Currículo Lattes** ✅ — _Content (PT):_ Pesquisador em Experiência do Usuário (UX) e desenvolvedor front-end, mestre em Tecnologia pela Unicamp. Foco na interseção entre inovação corporativa e rigor acadêmico. Pesquisa de mestrado em confiança percebida em e-commerce e em avaliação de usabilidade, acessibilidade e UX em software, com uso de Agentic AI e métodos científicos. Experiência como Analista de Pesquisa e Design na Bosch Brasil: liderança da região das Américas em maturidade de UX (Nível 4), integração de UX ao CIP, portais de qualidade e projetos internacionais. Objetivos acadêmicos: doutorado em aprendizado de máquina ou computação quântica e colaborações internacionais.
-- **Tradução (Texto inicial em inglês)** ✅ — _Content (EN):_ UX Researcher and Front-end Developer with a Master's in Technology (Unicamp). Focus on the intersection of corporate innovation and academic rigor. Master's research on perceived trust in e-commerce and on evaluating usability, accessibility, and UX in software using Agentic AI and scientific methods. Experience as Applied Research & Design Analyst at Bosch Brasil: led Americas to UX Maturity Level 4, integrated UX into CIP, quality gates, and international projects. Academic goals: doctoral studies in machine learning or quantum computing and international collaborations.
+- **Texto inicial do Currículo Lattes** ✅ — See **copy-paste value (PT)** in [Field 1 — Texto inicial](#field-1--texto-inicial) below.
+- **Tradução (Texto inicial em inglês)** ✅ — See **copy-paste value (EN)** in [Field 2 — Tradução](#field-2--traducao) below.
 - **Outras informações relevantes** ✅ — Voluntário – ONG Hospitalhaços (atuação administrativa). Mestrado com conceito A em todas as disciplinas; proficiência em inglês comprovada.
 
 ### Formação
@@ -301,6 +303,12 @@ Content below is for copy-paste into the Lattes platform.
 | **Data sources**            |                        —                         | Synthesized into a single narrative that highlights the intersection of corporate innovation and academic rigor.                                                                                                                                                                                                                                                                                      |
 | **Structure / constraints** |                        —                         | Free-text narrative. Character or word limits: to be confirmed from the Lattes platform.                                                                                                                                                                                                                                                                                                              |
 
+**Copy-paste value (Texto inicial — PT):**
+
+```
+Pesquisador em Experiência do Usuário (UX) e desenvolvedor front-end, mestre em Tecnologia pela Unicamp. Foco na interseção entre inovação corporativa e rigor acadêmico. Pesquisa de mestrado em confiança percebida em e-commerce e em avaliação de usabilidade, acessibilidade e UX em software, com uso de Agentic AI e métodos científicos. Experiência como Analista de Pesquisa e Design na Bosch Brasil: liderança da região das Américas em maturidade de UX (Nível 4), integração de UX ao CIP, portais de qualidade e projetos internacionais. Objetivos acadêmicos: doutorado em aprendizado de máquina ou computação quântica e colaborações internacionais.
+```
+
 ---
 
 <a id="field-2--traducao"></a>
@@ -316,6 +324,12 @@ Content below is for copy-paste into the Lattes platform.
 | **Mapping from context**    |                        —                         | Same substantive content as described for "Texto inicial" (or, if the form applies to the full curriculum, the whole profile), in the target language. Should preserve the strategic focus: Master's work, Bosch UX research, and doctoral goals. |
 | **Scope**                   |                        —                         | **Assumption:** This field may apply to the translation of "Texto inicial" only, or to the full curriculum. Verify on the Lattes form and update this document if the scope differs.                                                              |
 | **Structure / constraints** |                        —                         | Free text in the target language. Any limits or formatting rules: to be confirmed from the platform.                                                                                                                                              |
+
+**Copy-paste value (Tradução — EN):**
+
+```
+UX Researcher and Front-end Developer with a Master's in Technology (Unicamp). Specialized in integrating User Experience into organizational processes (CIP) and measuring software trustworthiness. Led regions to high UX maturity (Level 4), developed AI-driven quality gates, and managed international projects. Background in full-stack development and continuous improvement.
+```
 
 ---
 
