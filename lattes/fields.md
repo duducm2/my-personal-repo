@@ -226,14 +226,37 @@ Content below is for copy-paste into the Lattes platform.
 - **Endereço** ✅ — Nova Odessa, SP — Brasil.
 - **Licença Maternidade, Paternidade e Adoção** ⬜ — N/A. Deixar em branco conforme o formulário.
 - **Idiomas** ✅ — Português: língua materna (leitura, escrita, fala e compreensão plenos). Inglês: fluente (leitura, escrita, fala e compreensão em nível avançado).
-- **Prêmios e títulos** ✅ — 1º lugar – X-Games Brazil 2018 (Criação de Novos Negócios / Consultoria). 3º lugar – Bosch Talent Forum 2018. 3º lugar – Bosch Intern Talent Forum 2018.
+- **Prêmios e títulos** ⬜ — Only academic prizes/titles belong here. X-Games Brazil 2018, Bosch Talent Forum, and Bosch Intern Talent Forum are not academic; leave this section empty until you have academic awards (e.g. thesis prize, academic distinction).
 - **Texto inicial do Currículo Lattes** ✅ — See **copy-paste value (PT)** in [Field 1 — Texto inicial](#field-1--texto-inicial) below.
 - **Tradução (Texto inicial em inglês)** ✅ — See **copy-paste value (EN)** in [Field 2 — Tradução](#field-2--traducao) below.
 - **Outras informações relevantes** ✅ — Voluntário – ONG Hospitalhaços (atuação administrativa). Mestrado com conceito A em todas as disciplinas; proficiência em inglês comprovada.
 
 ### Formação
 
-- **Formação acadêmica/titulação** ⏳ — Mestrado em Tecnologia (Unicamp, 2023–2026), dissertação em andamento: Agentic AI e métricas de qualidade de software (UX, acessibilidade, usabilidade e confiança). Tecnólogo em Análise e Desenvolvimento de Sistemas (Unicamp, 2015–2020). Técnico em Informática (ETEC Bento Quirino, 2012–2014). Orientador: [preencher após confirmação]. Atualizar título final após defesa.
+- **Formação acadêmica/titulação** ⏳ — Use the values below in the Lattes **Dados Gerais** modal for the Master's entry. Other degrees (Tecnólogo, Técnico) go in separate entries.
+
+  **Mestrado (modal fields):**
+
+  | Campo                             | Valor                                                                                                                             |
+  | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+  | **Nível**                         | Mestrado                                                                                                                          |
+  | **Tipo de mestrado**              | normal                                                                                                                            |
+  | **Instituição**                   | Universidade Estadual de Campinas                                                                                                 |
+  | **Curso**                         | TECNOLOGIA (33003025001P8)                                                                                                        |
+  | **Status do curso**               | em andamento                                                                                                                      |
+  | **Período — Início (ano)**        | 2023                                                                                                                              |
+  | **Período — Conclusão (ano)**     | 2026                                                                                                                              |
+  | **Obtenção do título (mês/ano)**  | Deixar em branco até a defesa                                                                                                     |
+  | **Bolsa**                         | Sim ou Não (e Agência financiadora, se houver)                                                                                    |
+  | **Título da dissertação/tese**    | Agentic AI e métricas de qualidade de software (UX, acessibilidade, usabilidade e confiança) — atualizar título final após defesa |
+  | **Nome completo do orientador**   | Regina Lúcia de Oliveira Moraes                                                                                                   |
+  | **Nome completo do coorientador** | Deixar em branco ou preencher se houver                                                                                           |
+  | **Palavras-chave**                | Ex.: confiança em software, UX, usabilidade, Agentic AI, acessibilidade                                                           |
+  | **Áreas / Setores**               | Preencher conforme a tabela do Lattes                                                                                             |
+  | **Visibilidade**                  | Público ou Privado                                                                                                                |
+
+  Outros títulos: Tecnólogo em Análise e Desenvolvimento de Sistemas (Unicamp, 2015–2020). Técnico em Informática (ETEC Bento Quirino, 2012–2014). Cada um em um registro próprio no Lattes.
+
 - **Pós-doutorado e/ou livre-docência** ⬜ — Nenhum.
 - **Formação complementar** ✅ — Redação acadêmica, Pesquisa científica (da concepção à publicação), Inovação e transferência de tecnologia, Visualização de informações, Estudos dirigidos (Unicamp).
 
@@ -274,18 +297,19 @@ Content below is for copy-paste into the Lattes platform.
 
 ### Future fulfillment plan
 
-| Lattes field / section                           | Status | Trigger / milestone for fulfillment                |
-| ------------------------------------------------ | ------ | -------------------------------------------------- |
-| Formação acadêmica — título e orientador         | ⏳     | Após defesa; confirmar no Lattes.                  |
-| Artigos completos publicados em periódicos       | ⬜     | Quando workshop papers forem aceitos em periódico. |
-| Relatório de pesquisa (dissertação)              | ⏳     | Marcar concluído após defesa.                      |
-| Orientações (concluídas / em andamento)          | ⬜     | Quando houver orientandos.                         |
-| Bancas                                           | ⬜     | Quando convidado para bancas.                      |
-| Citações                                         | ⬜     | À medida que os trabalhos forem citados.           |
-| Patentes / Programa de Computador Registrado     | ⬜     | Se registrar software ou patente.                  |
-| Pós-doutorado e/ou livre-docência                | ⬜     | Se cursar.                                         |
-| Membro de corpo editorial / Revisor de periódico | ⬜     | Quando participar ou receber convites.             |
-| Organização de eventos                           | ⬜     | Quando coorganizar evento/sessão.                  |
+| Lattes field / section                           | Status | Trigger / milestone for fulfillment                                                     |
+| ------------------------------------------------ | ------ | --------------------------------------------------------------------------------------- |
+| Formação acadêmica — título e orientador         | ⏳     | Após defesa; confirmar no Lattes.                                                       |
+| Artigos completos publicados em periódicos       | ⬜     | Quando workshop papers forem aceitos em periódico.                                      |
+| Relatório de pesquisa (dissertação)              | ⏳     | Marcar concluído após defesa.                                                           |
+| Orientações (concluídas / em andamento)          | ⬜     | Quando houver orientandos.                                                              |
+| Bancas                                           | ⬜     | Quando convidado para bancas.                                                           |
+| Citações                                         | ⬜     | À medida que os trabalhos forem citados.                                                |
+| Patentes / Programa de Computador Registrado     | ⬜     | Se registrar software ou patente.                                                       |
+| Pós-doutorado e/ou livre-docência                | ⬜     | Se cursar.                                                                              |
+| Membro de corpo editorial / Revisor de periódico | ⬜     | Quando participar ou receber convites.                                                  |
+| Organização de eventos                           | ⬜     | Quando coorganizar evento/sessão.                                                       |
+| Prêmios e títulos                                | ⬜     | Only academic prizes; fill when you have one (e.g. thesis award, academic distinction). |
 
 ---
 
