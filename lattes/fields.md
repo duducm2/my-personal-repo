@@ -30,9 +30,18 @@ This is the single Lattes document for this folder. It describes the Lattes plat
 - [Field 1 — Texto inicial](#field-1--texto-inicial) → [Copy-paste (PT)](#field-1-copy-paste)
 - [Field 2 — Tradução](#field-2--traducao) → [Copy-paste (EN)](#field-2-copy-paste)
 - [Content for Lattes](#content-for-lattes)
+  - [Dados gerais](#content-for-lattes-dados-gerais)
   - [Formação (source data)](#content-for-lattes-formacao)
   - [Atuação (source data)](#content-for-lattes-atuacao)
-- [Future fulfillment plan](#future-fulfillment-plan)
+  - [Projetos](#content-for-lattes-projetos)
+  - [Produções](#content-for-lattes-producoes)
+  - [Patentes e Registros](#content-for-lattes-patentes-registros)
+  - [Inovação](#content-for-lattes-inovacao)
+  - [Educação e Popularização de C&T](#content-for-lattes-educacao-popularizacao)
+  - [Eventos](#content-for-lattes-eventos)
+  - [Orientações](#content-for-lattes-orientacoes)
+  - [Bancas](#content-for-lattes-bancas)
+  - [Citações](#content-for-lattes-citacoes)
 
 Below is the full Lattes platform structure.
 
@@ -42,21 +51,21 @@ Below is the full Lattes platform structure.
 
 ## Dados gerais
 
-- Identificação
-- Endereço
-- Licença Maternidade, Paternidade e Adoção
-- Idiomas
-- Prêmios e títulos
-- **[Texto inicial do Currículo Lattes](#field-1--texto-inicial)** — menu item that opens the form where **Texto inicial** (Field 1) and **Tradução** (Field 2) are entered.
-- Outras informações relevantes
+- [Identificação](#content-for-lattes-dados-gerais)
+- [Endereço](#content-for-lattes-dados-gerais)
+- [Licença Maternidade, Paternidade e Adoção](#content-for-lattes-dados-gerais)
+- [Idiomas](#content-for-lattes-dados-gerais)
+- [Prêmios e títulos](#content-for-lattes-dados-gerais)
+- **[Texto inicial do Currículo Lattes](#field-1--texto-inicial)** — [Copy-paste (PT)](#field-1-copy-paste) / [Tradução (EN)](#field-2-copy-paste). Menu item that opens the form where **Texto inicial** (Field 1) and **Tradução** (Field 2) are entered.
+- [Outras informações relevantes](#content-for-lattes-dados-gerais)
 
 <a id="formacao"></a>
 
 ## Formação
 
-- Formação acadêmica/titulação
-- Pós-doutorado e/ou livre-docência
-- Formação complementar
+- [Formação acadêmica/titulação](#content-for-lattes-formacao)
+- [Pós-doutorado e/ou livre-docência](#content-for-lattes-formacao)
+- [Formação complementar](#content-for-lattes-formacao)
 
 **Source data (copy-paste):** [Content for Lattes → Formação](#content-for-lattes-formacao)
 
@@ -65,22 +74,22 @@ Below is the full Lattes platform structure.
 ## Atuação
 
 - **Atuação profissional** — Campos: Instituição, Vínculo, Período, Outras informações, Visibilidade. [Source data (copy-paste)](#content-for-lattes-atuacao).
-- Linhas de pesquisa
-- Membro de corpo editorial
-- Membro de comitê de assessoramento
-- Revisor de periódico
-- Revisor de projeto de agência de fomento
-- Áreas de atuação
+- [Linhas de pesquisa](#content-for-lattes-atuacao)
+- [Membro de corpo editorial](#content-for-lattes-atuacao)
+- [Membro de comitê de assessoramento](#content-for-lattes-atuacao)
+- [Revisor de periódico](#content-for-lattes-atuacao)
+- [Revisor de projeto de agência de fomento](#content-for-lattes-atuacao)
+- [Áreas de atuação](#content-for-lattes-atuacao)
 
 <a id="projetos"></a>
 
 ## Projetos
 
-- Projetos de pesquisa
-- Projeto de desenvolvimento tecnológico
-- Projeto de extensão
-- Projeto de ensino
-- Outros tipos de projetos
+- [Projetos de pesquisa](#content-for-lattes-projetos)
+- [Projeto de desenvolvimento tecnológico](#content-for-lattes-projetos)
+- [Projeto de extensão](#content-for-lattes-projetos)
+- [Projeto de ensino](#content-for-lattes-projetos)
+- [Outros tipos de projetos](#content-for-lattes-projetos)
 
 <a id="producoes"></a>
 
@@ -90,134 +99,134 @@ Below is the full Lattes platform structure.
 
 ### Produção Bibliográfica
 
-- Artigos completos publicados em periódicos
-- Artigos aceitos para publicação
-- Livros e capítulos
-- Texto em jornal ou revista (magazine)
-- Trabalhos publicados em anais de eventos
-- Apresentação de trabalho e palestra
-- Partitura musical
-- Tradução
-- Prefácio, posfácio
-- Outra produção bibliográfica
+- [Artigos completos publicados em periódicos](#content-for-lattes-producoes)
+- [Artigos aceitos para publicação](#content-for-lattes-producoes)
+- [Livros e capítulos](#content-for-lattes-producoes)
+- [Texto em jornal ou revista (magazine)](#content-for-lattes-producoes)
+- [Trabalhos publicados em anais de eventos](#content-for-lattes-producoes)
+- [Apresentação de trabalho e palestra](#content-for-lattes-producoes)
+- [Partitura musical](#content-for-lattes-producoes)
+- [Tradução](#content-for-lattes-producoes)
+- [Prefácio, posfácio](#content-for-lattes-producoes)
+- [Outra produção bibliográfica](#content-for-lattes-producoes)
 
 <a id="producao-tecnica"></a>
 
 ### Produção Técnica
 
-- Assessoria e consultoria
-- Extensão tecnológica
-- Programa de computador sem registro
-- Produtos
-- Processos ou técnicas
-- Trabalhos técnicos
-- Cartas, mapas ou similares
-- Curso de curta duração ministrado
-- Desenvolvimento de material didático ou instrucional
-- Editoração
-- Manutenção de obra artística
-- Maquete
-- Entrevistas, mesas redondas, programas e comentários na mídia
-- Relatório de pesquisa
-- Redes sociais, websites e blogs
-- Outra produção técnica
+- [Assessoria e consultoria](#content-for-lattes-producoes)
+- [Extensão tecnológica](#content-for-lattes-producoes)
+- [Programa de computador sem registro](#content-for-lattes-producoes)
+- [Produtos](#content-for-lattes-producoes)
+- [Processos ou técnicas](#content-for-lattes-producoes)
+- [Trabalhos técnicos](#content-for-lattes-producoes)
+- [Cartas, mapas ou similares](#content-for-lattes-producoes)
+- [Curso de curta duração ministrado](#content-for-lattes-producoes)
+- [Desenvolvimento de material didático ou instrucional](#content-for-lattes-producoes)
+- [Editoração](#content-for-lattes-producoes)
+- [Manutenção de obra artística](#content-for-lattes-producoes)
+- [Maquete](#content-for-lattes-producoes)
+- [Entrevistas, mesas redondas, programas e comentários na mídia](#content-for-lattes-producoes)
+- [Relatório de pesquisa](#content-for-lattes-producoes)
+- [Redes sociais, websites e blogs](#content-for-lattes-producoes)
+- [Outra produção técnica](#content-for-lattes-producoes)
 
 <a id="outra-producao-artistica-cultural"></a>
 
 ### Outra produção artística/cultural
 
-- Artes cênicas
-- Música
-- Artes visuais
-- Outra produção artística/cultural
+- [Artes cênicas](#content-for-lattes-producoes)
+- [Música](#content-for-lattes-producoes)
+- [Artes visuais](#content-for-lattes-producoes)
+- [Outra produção artística/cultural](#content-for-lattes-producoes)
 
 <a id="patentes-e-registros"></a>
 
 ## Patentes e Registros
 
-- Patente
-- Programa de Computador Registrado
-- Cultivar protegida
-- Cultivar registrada
-- Desenho industrial registrado
-- Marca registrada
-- Topografia de circuito integrado registrada
+- [Patente](#content-for-lattes-patentes-registros)
+- [Programa de Computador Registrado](#content-for-lattes-patentes-registros)
+- [Cultivar protegida](#content-for-lattes-patentes-registros)
+- [Cultivar registrada](#content-for-lattes-patentes-registros)
+- [Desenho industrial registrado](#content-for-lattes-patentes-registros)
+- [Marca registrada](#content-for-lattes-patentes-registros)
+- [Topografia de circuito integrado registrada](#content-for-lattes-patentes-registros)
 
 <a id="inovacao"></a>
 
 ## Inovação
 
-- Patente
-- Programa de Computador Registrado
-- Cultivar protegida
-- Cultivar registrada
-- Desenho industrial registrado
-- Marca registrada
-- Topografia de circuito integrado registrada
-- Programa de computador sem registro
-- Produtos
-- Processos ou técnicas
-- Projetos de pesquisa
-- Projeto de desenvolvimento tecnológico
-- Projeto de extensão
-- Projeto de ensino
-- Outros projetos
+- [Patente](#content-for-lattes-inovacao)
+- [Programa de Computador Registrado](#content-for-lattes-inovacao)
+- [Cultivar protegida](#content-for-lattes-inovacao)
+- [Cultivar registrada](#content-for-lattes-inovacao)
+- [Desenho industrial registrado](#content-for-lattes-inovacao)
+- [Marca registrada](#content-for-lattes-inovacao)
+- [Topografia de circuito integrado registrada](#content-for-lattes-inovacao)
+- [Programa de computador sem registro](#content-for-lattes-inovacao)
+- [Produtos](#content-for-lattes-inovacao)
+- [Processos ou técnicas](#content-for-lattes-inovacao)
+- [Projetos de pesquisa](#content-for-lattes-inovacao)
+- [Projeto de desenvolvimento tecnológico](#content-for-lattes-inovacao)
+- [Projeto de extensão](#content-for-lattes-inovacao)
+- [Projeto de ensino](#content-for-lattes-inovacao)
+- [Outros projetos](#content-for-lattes-inovacao)
 
 <a id="educacao-e-popularizacao-de-ct"></a>
 
 ## Educação e Popularização de C&T
 
-- Artigos completos publicados em periódicos
-- Artigos aceitos para publicação
-- Livros e capítulos
-- Texto em jornal ou revista (magazine)
-- Trabalhos publicados em anais de eventos
-- Apresentação de trabalho e palestra
-- Programa de computador sem registro
-- Curso de curta duração ministrado
-- Desenvolvimento de material didático ou instrucional
-- Entrevistas, mesas redondas, programas e comentários na mídia
-- Programa de Computador Registrado
-- Organização de eventos, congressos, exposições, feiras e olimpíadas
-- Participação em eventos, congressos, exposições, feiras e olimpíadas
-- Redes sociais, websites e blogs
-- Artes visuais
-- Artes cênicas
-- Música
-- Outra produção bibliográfica
-- Outra produção técnica
-- Outra produção artística/cultural
+- [Artigos completos publicados em periódicos](#content-for-lattes-educacao-popularizacao)
+- [Artigos aceitos para publicação](#content-for-lattes-educacao-popularizacao)
+- [Livros e capítulos](#content-for-lattes-educacao-popularizacao)
+- [Texto em jornal ou revista (magazine)](#content-for-lattes-educacao-popularizacao)
+- [Trabalhos publicados em anais de eventos](#content-for-lattes-educacao-popularizacao)
+- [Apresentação de trabalho e palestra](#content-for-lattes-educacao-popularizacao)
+- [Programa de computador sem registro](#content-for-lattes-educacao-popularizacao)
+- [Curso de curta duração ministrado](#content-for-lattes-educacao-popularizacao)
+- [Desenvolvimento de material didático ou instrucional](#content-for-lattes-educacao-popularizacao)
+- [Entrevistas, mesas redondas, programas e comentários na mídia](#content-for-lattes-educacao-popularizacao)
+- [Programa de Computador Registrado](#content-for-lattes-educacao-popularizacao)
+- [Organização de eventos, congressos, exposições, feiras e olimpíadas](#content-for-lattes-educacao-popularizacao)
+- [Participação em eventos, congressos, exposições, feiras e olimpíadas](#content-for-lattes-educacao-popularizacao)
+- [Redes sociais, websites e blogs](#content-for-lattes-educacao-popularizacao)
+- [Artes visuais](#content-for-lattes-educacao-popularizacao)
+- [Artes cênicas](#content-for-lattes-educacao-popularizacao)
+- [Música](#content-for-lattes-educacao-popularizacao)
+- [Outra produção bibliográfica](#content-for-lattes-educacao-popularizacao)
+- [Outra produção técnica](#content-for-lattes-educacao-popularizacao)
+- [Outra produção artística/cultural](#content-for-lattes-educacao-popularizacao)
 
 <a id="eventos"></a>
 
 ## Eventos
 
-- Participação em eventos, congressos, exposições, feiras e olimpíadas
-- Organização de eventos, congressos, exposições, feiras e olimpíadas
+- [Participação em eventos, congressos, exposições, feiras e olimpíadas](#content-for-lattes-eventos)
+- [Organização de eventos, congressos, exposições, feiras e olimpíadas](#content-for-lattes-eventos)
 
 <a id="orientacoes"></a>
 
 ## Orientações
 
-- Orientações e supervisões concluídas
-- Orientações e supervisões em andamento
+- [Orientações e supervisões concluídas](#content-for-lattes-orientacoes)
+- [Orientações e supervisões em andamento](#content-for-lattes-orientacoes)
 
 <a id="bancas"></a>
 
 ## Bancas
 
-- Participação em bancas de trabalhos de conclusão
-- Participação em bancas de comissões julgadoras
+- [Participação em bancas de trabalhos de conclusão](#content-for-lattes-bancas)
+- [Participação em bancas de comissões julgadoras](#content-for-lattes-bancas)
 
 <a id="citacoes"></a>
 
 ## Citações
 
-- Citações no Web of Science
-- Citações no SciELO
-- Citações no SCOPUS
-- Citações no Google Scholar
-- Citações em outra base bibliográfica
+- [Citações no Web of Science](#content-for-lattes-citacoes)
+- [Citações no SciELO](#content-for-lattes-citacoes)
+- [Citações no SCOPUS](#content-for-lattes-citacoes)
+- [Citações no Google Scholar](#content-for-lattes-citacoes)
+- [Citações em outra base bibliográfica](#content-for-lattes-citacoes)
 
 ---
 
@@ -235,13 +244,15 @@ Content below is for copy-paste into the Lattes platform. Items marked ⬜ are e
 | ⏳    | **Partial / in progress** | Some data exists but the field is not complete (e.g. dissertation in progress). |
 | ⬜    | **Empty (future)**        | No data yet; fulfillment depends on a future milestone.                         |
 
+<a id="content-for-lattes-dados-gerais"></a>
+
 ### Dados gerais
 
 - **Identificação** ✅ — Nome: Eduardo Matos de Assis Figueiredo. E-mail: edu.evangelista.figueiredo@gmail.com. Telefone: +55 (19) 98176-6583. Endereço Lattes: https://lattes.cnpq.br/2708641049892967. LinkedIn: https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b
 - **Endereço** ✅ — Nova Odessa, SP — Brasil.
-- **Licença Maternidade, Paternidade e Adoção** ⬜ — N/A. Deixar em branco conforme o formulário.
+- **Licença Maternidade, Paternidade e Adoção** ⬜ — N/A. Deixar em branco conforme o formulário. _(placeholder)_
 - **Idiomas** ✅ — Português: língua materna (leitura, escrita, fala e compreensão plenos). Inglês: fluente (leitura, escrita, fala e compreensão em nível avançado).
-- **Prêmios e títulos** ⬜ — Only academic prizes/titles belong here. X-Games Brazil 2018, Bosch Talent Forum, and Bosch Intern Talent Forum are not academic; leave this section empty until you have academic awards (e.g. thesis prize, academic distinction).
+- **Prêmios e títulos** ⬜ — Only academic prizes/titles belong here. _(placeholder: vazio até haver premiações acadêmicas.)_
 - **Texto inicial do Currículo Lattes** ✅ — See **copy-paste value (PT)** in [Field 1 — Texto inicial](#field-1--texto-inicial) below.
 - **Tradução (Texto inicial em inglês)** ✅ — See **copy-paste value (EN)** in [Field 2 — Tradução](#field-2--traducao) below.
 - **Outras informações relevantes** ✅ — Voluntário – ONG Hospitalhaços (atuação administrativa). Mestrado com conceito A em todas as disciplinas; proficiência em inglês comprovada.
@@ -277,7 +288,7 @@ Content below is for copy-paste into the Lattes platform. Items marked ⬜ are e
 
   **Ajuda (Lattes):** Controle quem pode visualizar estas informações ao definir a visibilidade. **Público:** exibido na consulta pública. **Privado:** não exibido na consulta pública.
 
-- **Pós-doutorado e/ou livre-docência** ⬜ — Nenhum.
+- **Pós-doutorado e/ou livre-docência** ⬜ — _(placeholder: Lorem ipsum — nenhum pós-doutorado; preencher quando houver.)_
 - **Formação complementar** ✅ — Redação acadêmica, Pesquisa científica (da concepção à publicação), Inovação e transferência de tecnologia, Visualização de informações, Estudos dirigidos (Unicamp).
 
 <a id="content-for-lattes-atuacao"></a>
@@ -299,15 +310,19 @@ Content below is for copy-paste into the Lattes platform. Items marked ⬜ are e
   **Resumo por vínculo (para copiar/adaptar):** Bosch Brasil (mai/2023–presente): Analista de Pesquisa e Design; maturidade UX Nível 4, CIP/ServiceNow, tooling PT, Power BI, Agentic AI, Alemanha 2024/2025, tutor SENAI. Bosch Brasil (jan/2020–nov/2023): Desenvolvedor Web, React, Scrum. Bosch Magyarország (jan–dez/2019): Analista de Suporte à Digitalização. Bosch Brasil (jan/2017–nov/2018): Estagiário, VBA/Excel.
 
 - **Linhas de pesquisa** ✅ — Confiança em software, interfaces e e-commerce; avaliação de UX, usabilidade e acessibilidade; Agentic AI para métricas de qualidade.
-- **Membro de corpo editorial / comitê / Revisor de periódico / Revisor de projeto de fomento** ⬜ — Nenhuma atuação registrada.
+- **Membro de corpo editorial / comitê / Revisor de periódico / Revisor de projeto de fomento** ⬜ — _(placeholder: conteúdo a preencher quando houver.)_
 - **Áreas de atuação** ✅ — Pesquisa em UX; Pesquisa aplicada; Tecnologia da Informação; IHC; Melhoria contínua (CIP); Sistemas de informação.
+
+<a id="content-for-lattes-projetos"></a>
 
 ### Projetos
 
 - **Projetos de pesquisa** ✅ — Pesquisa de mestrado (TrustMate, Agentic AI, confiança em sites/software). Integração de UX ao CIP (Bosch, ServiceNow, portais de qualidade).
 - **Projeto de desenvolvimento tecnológico** ✅ — Tooling PT (requisitos a protótipos, check-ins cliente). Plataforma TrustMate (dissertação).
 - **Projeto de extensão** ⏳ — Tutoria SENAI Digital Talent Academy.
-- **Projeto de ensino / Outros** ⬜ — Preencher quando houver.
+- **Projeto de ensino / Outros** ⬜ — _(placeholder: a preencher quando houver.)_
+
+<a id="content-for-lattes-producoes"></a>
 
 ### Produções
 
@@ -325,6 +340,49 @@ Content below is for copy-paste into the Lattes platform. Items marked ⬜ are e
 - **Eventos — Participação** ✅ — IHC 2025 (SBC), ISSRE 2025 (HFSD). **Organização** ⬜ — Preencher quando houver.
 - **Orientações / Bancas** ⬜ — Nenhuma. Preencher quando houver orientandos ou convites para bancas.
 - **Citações** ⬜ — Atualizar conforme citações (Google Scholar, Web of Science, SciELO, SCOPUS).
+
+<a id="content-for-lattes-patentes-registros"></a>
+
+### Patentes e Registros
+
+- _(placeholder: a preencher quando houver patentes ou registros.)_
+
+<a id="content-for-lattes-inovacao"></a>
+
+### Inovação
+
+- _(placeholder: a preencher quando houver dados de inovação.)_
+
+<a id="content-for-lattes-educacao-popularizacao"></a>
+
+### Educação e Popularização de C&T
+
+- Reutilizar participações em eventos, cursos SENAI, material, redes (conforme Produções/Eventos). _(Itens vazios: placeholder a preencher quando houver.)_
+
+<a id="content-for-lattes-eventos"></a>
+
+### Eventos
+
+- **Participação** ✅ — IHC 2025 (SBC), ISSRE 2025 (HFSD).
+- **Organização** ⬜ — _(placeholder: a preencher quando houver.)_
+
+<a id="content-for-lattes-orientacoes"></a>
+
+### Orientações
+
+- _(placeholder: Lorem ipsum — nenhuma orientação registrada; preencher quando houver orientandos.)_
+
+<a id="content-for-lattes-bancas"></a>
+
+### Bancas
+
+- _(placeholder: a preencher quando convidado para bancas.)_
+
+<a id="content-for-lattes-citacoes"></a>
+
+### Citações
+
+- _(placeholder: atualizar conforme citações em Google Scholar, Web of Science, SciELO, SCOPUS.)_
 
 ---
 
@@ -395,3 +453,31 @@ UX Researcher and Front-end Developer; Master's student in Technology (Unicamp, 
 ```
 
 ---
+
+<a id="summary"></a>
+
+## Summary
+
+· · ·
+
+This document is the single Lattes reference: platform hierarchy, field definitions, and paste-ready content (with status and future-fulfillment plan). **Texto inicial** and **Tradução** are the two fields with detailed tables; their paste-ready text is in the "Content for Lattes" section.
+
+**Quick links to field values**
+
+| Field                           | Link                                                                                               |
+| ------------------------------- | -------------------------------------------------------------------------------------------------- |
+| Texto inicial (PT)              | [Copy-paste value (PT)](#field-1-copy-paste)                                                       |
+| Tradução (EN)                   | [Copy-paste value (EN)](#field-2-copy-paste)                                                       |
+| Dados gerais                    | [Content for Lattes — Dados gerais](#content-for-lattes-dados-gerais)                              |
+| Formação                        | [Content for Lattes — Formação](#content-for-lattes-formacao)                                      |
+| Atuação                         | [Content for Lattes — Atuação](#content-for-lattes-atuacao)                                        |
+| Projetos                        | [Content for Lattes — Projetos](#content-for-lattes-projetos)                                      |
+| Produções                       | [Content for Lattes — Produções](#content-for-lattes-producoes)                                    |
+| Patentes e Registros            | [Content for Lattes — Patentes e Registros](#content-for-lattes-patentes-registros)                |
+| Inovação                        | [Content for Lattes — Inovação](#content-for-lattes-inovacao)                                      |
+| Educação e Popularização de C&T | [Content for Lattes — Educação e Popularização de C&T](#content-for-lattes-educacao-popularizacao) |
+| Eventos                         | [Content for Lattes — Eventos](#content-for-lattes-eventos)                                        |
+| Orientações                     | [Content for Lattes — Orientações](#content-for-lattes-orientacoes)                                |
+| Bancas                          | [Content for Lattes — Bancas](#content-for-lattes-bancas)                                          |
+| Citações                        | [Content for Lattes — Citações](#content-for-lattes-citacoes)                                      |
+| _(other open-text fields)_      | _(placeholder: none documented)_                                                                   |
