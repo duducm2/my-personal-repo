@@ -12,6 +12,10 @@ The contents here are intended to guide updates to the Lattes Curriculum (CNPq p
 
 - **fields.md** — Structured documentation of specific Lattes form fields: names, purpose, structure, and mapping from existing data (LinkedIn, resume, portfolio). Used to ensure consistent interpretation when updating the curriculum.
 
+- **platform/lattes-platform.png** — Screenshot of the Lattes platform (Currículo Lattes profile page, Dados gerais tab). Use it as a visual reference for the main navigation (Dados gerais, Formação, Atuação, Projetos, Produções, etc.), the "Resumo" (Texto inicial) area, and the "O que você quer registrar?" quick-entry panel.
+
+![Lattes platform screenshot](platform/lattes-platform.png)
+
 ## Audience
 
 Future AI assistants that help fill or refine Lattes sections should use this folder to understand the platform, the user's strategic focus, and how each documented field maps to context and to external data sources.
