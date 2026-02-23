@@ -1,242 +1,10 @@
 # Lattes form fields
 
-This is the single Lattes document for this folder. It describes the Lattes platform structure, form fields, and **content to paste** into the curriculum. Below: hierarchy, populated content per section, the two documented fields **Texto inicial** and **Tradução**, and a future-fulfillment plan.
-
-**Open-text field values:** The specific text values for the two Lattes open-text fields (Texto inicial and Tradução) are taken from the user's resume. They appear in two places in this file: (1) in the **Content for Lattes** section under Dados gerais, and (2) in **highlighted copy-paste blocks** directly under the [Field 1 — Texto inicial](#field-1--texto-inicial) and [Field 2 — Tradução](#field-2--traducao) tables below. Use those blocks or the Table of Contents for quick copy-paste into the Lattes platform.
-
-**Platform reference** — Screenshot of the Lattes interface (Dados gerais tab) for visual context. The horizontal tabs match the hierarchy below; the "Resumo" area in the center is where **Texto inicial** is edited; "O que você quer registrar?" lists specific items you can add.
+Paste-ready content for the Lattes platform, by section. ✅ Fulfilled | ⏳ Partial | ⬜ Empty.
 
 ![Lattes platform screenshot](platform/lattes-platform.png)
 
-## Table of Contents
-
-- [Dados gerais](#dados-gerais)
-- [Formação](#formacao)
-  - [Formação — source data (copy-paste)](#content-for-lattes-formacao)
-- [Atuação](#atuacao)
-  - [Atuação — source data (copy-paste)](#content-for-lattes-atuacao)
-- [Projetos](#projetos)
-- [Produções](#producoes)
-  - [Produção Bibliográfica](#producao-bibliografica)
-  - [Produção Técnica](#producao-tecnica)
-  - [Outra produção artística/cultural](#outra-producao-artistica-cultural)
-- [Patentes e Registros](#patentes-e-registros)
-- [Inovação](#inovacao)
-- [Educação e Popularização de C&T](#educacao-e-popularizacao-de-ct)
-- [Eventos](#eventos)
-- [Orientações](#orientacoes)
-- [Bancas](#bancas)
-- [Citações](#citacoes)
-- [Field 1 — Texto inicial](#field-1--texto-inicial) → [Copy-paste (PT)](#field-1-copy-paste)
-- [Field 2 — Tradução](#field-2--traducao) → [Copy-paste (EN)](#field-2-copy-paste)
-- [Content for Lattes](#content-for-lattes)
-  - [Dados gerais](#content-for-lattes-dados-gerais)
-  - [Formação (source data)](#content-for-lattes-formacao)
-  - [Atuação (source data)](#content-for-lattes-atuacao)
-  - [Projetos](#content-for-lattes-projetos)
-  - [Produções](#content-for-lattes-producoes)
-  - [Patentes e Registros](#content-for-lattes-patentes-registros)
-  - [Inovação](#content-for-lattes-inovacao)
-  - [Educação e Popularização de C&T](#content-for-lattes-educacao-popularizacao)
-  - [Eventos](#content-for-lattes-eventos)
-  - [Orientações](#content-for-lattes-orientacoes)
-  - [Bancas](#content-for-lattes-bancas)
-  - [Citações](#content-for-lattes-citacoes)
-
-Below is the full Lattes platform structure.
-
----
-
-<a id="dados-gerais"></a>
-
-## Dados gerais
-
-- [Identificação](#content-for-lattes-dados-gerais)
-- [Endereço](#content-for-lattes-dados-gerais)
-- [Licença Maternidade, Paternidade e Adoção](#content-for-lattes-dados-gerais)
-- [Idiomas](#content-for-lattes-dados-gerais)
-- [Prêmios e títulos](#content-for-lattes-dados-gerais)
-- **[Texto inicial do Currículo Lattes](#field-1--texto-inicial)** — [Copy-paste (PT)](#field-1-copy-paste) / [Tradução (EN)](#field-2-copy-paste). Menu item that opens the form where **Texto inicial** (Field 1) and **Tradução** (Field 2) are entered.
-- [Outras informações relevantes](#content-for-lattes-dados-gerais)
-
-<a id="formacao"></a>
-
-## Formação
-
-- [Formação acadêmica/titulação](#content-for-lattes-formacao)
-- [Pós-doutorado e/ou livre-docência](#content-for-lattes-formacao)
-- [Formação complementar](#content-for-lattes-formacao)
-
-**Source data (copy-paste):** [Content for Lattes → Formação](#content-for-lattes-formacao)
-
-<a id="atuacao"></a>
-
-## Atuação
-
-- **Atuação profissional** — Campos: Instituição, Vínculo, Período, Outras informações, Visibilidade. [Source data (copy-paste)](#content-for-lattes-atuacao).
-- [Linhas de pesquisa](#content-for-lattes-atuacao)
-- [Membro de corpo editorial](#content-for-lattes-atuacao)
-- [Membro de comitê de assessoramento](#content-for-lattes-atuacao)
-- [Revisor de periódico](#content-for-lattes-atuacao)
-- [Revisor de projeto de agência de fomento](#content-for-lattes-atuacao)
-- [Áreas de atuação](#content-for-lattes-atuacao)
-
-<a id="projetos"></a>
-
-## Projetos
-
-- [Projetos de pesquisa](#content-for-lattes-projetos)
-- [Projeto de desenvolvimento tecnológico](#content-for-lattes-projetos)
-- [Projeto de extensão](#content-for-lattes-projetos)
-- [Projeto de ensino](#content-for-lattes-projetos)
-- [Outros tipos de projetos](#content-for-lattes-projetos)
-
-<a id="producoes"></a>
-
-## Produções
-
-<a id="producao-bibliografica"></a>
-
-### Produção Bibliográfica
-
-- [Artigos completos publicados em periódicos](#content-for-lattes-producoes)
-- [Artigos aceitos para publicação](#content-for-lattes-producoes)
-- [Livros e capítulos](#content-for-lattes-producoes)
-- [Texto em jornal ou revista (magazine)](#content-for-lattes-producoes)
-- [Trabalhos publicados em anais de eventos](#content-for-lattes-producoes)
-- [Apresentação de trabalho e palestra](#content-for-lattes-producoes)
-- [Partitura musical](#content-for-lattes-producoes)
-- [Tradução](#content-for-lattes-producoes)
-- [Prefácio, posfácio](#content-for-lattes-producoes)
-- [Outra produção bibliográfica](#content-for-lattes-producoes)
-
-<a id="producao-tecnica"></a>
-
-### Produção Técnica
-
-- [Assessoria e consultoria](#content-for-lattes-producoes)
-- [Extensão tecnológica](#content-for-lattes-producoes)
-- [Programa de computador sem registro](#content-for-lattes-producoes)
-- [Produtos](#content-for-lattes-producoes)
-- [Processos ou técnicas](#content-for-lattes-producoes)
-- [Trabalhos técnicos](#content-for-lattes-producoes)
-- [Cartas, mapas ou similares](#content-for-lattes-producoes)
-- [Curso de curta duração ministrado](#content-for-lattes-producoes)
-- [Desenvolvimento de material didático ou instrucional](#content-for-lattes-producoes)
-- [Editoração](#content-for-lattes-producoes)
-- [Manutenção de obra artística](#content-for-lattes-producoes)
-- [Maquete](#content-for-lattes-producoes)
-- [Entrevistas, mesas redondas, programas e comentários na mídia](#content-for-lattes-producoes)
-- [Relatório de pesquisa](#content-for-lattes-producoes)
-- [Redes sociais, websites e blogs](#content-for-lattes-producoes)
-- [Outra produção técnica](#content-for-lattes-producoes)
-
-<a id="outra-producao-artistica-cultural"></a>
-
-### Outra produção artística/cultural
-
-- [Artes cênicas](#content-for-lattes-producoes)
-- [Música](#content-for-lattes-producoes)
-- [Artes visuais](#content-for-lattes-producoes)
-- [Outra produção artística/cultural](#content-for-lattes-producoes)
-
-<a id="patentes-e-registros"></a>
-
-## Patentes e Registros
-
-- [Patente](#content-for-lattes-patentes-registros)
-- [Programa de Computador Registrado](#content-for-lattes-patentes-registros)
-- [Cultivar protegida](#content-for-lattes-patentes-registros)
-- [Cultivar registrada](#content-for-lattes-patentes-registros)
-- [Desenho industrial registrado](#content-for-lattes-patentes-registros)
-- [Marca registrada](#content-for-lattes-patentes-registros)
-- [Topografia de circuito integrado registrada](#content-for-lattes-patentes-registros)
-
-<a id="inovacao"></a>
-
-## Inovação
-
-- [Patente](#content-for-lattes-inovacao)
-- [Programa de Computador Registrado](#content-for-lattes-inovacao)
-- [Cultivar protegida](#content-for-lattes-inovacao)
-- [Cultivar registrada](#content-for-lattes-inovacao)
-- [Desenho industrial registrado](#content-for-lattes-inovacao)
-- [Marca registrada](#content-for-lattes-inovacao)
-- [Topografia de circuito integrado registrada](#content-for-lattes-inovacao)
-- [Programa de computador sem registro](#content-for-lattes-inovacao)
-- [Produtos](#content-for-lattes-inovacao)
-- [Processos ou técnicas](#content-for-lattes-inovacao)
-- [Projetos de pesquisa](#content-for-lattes-inovacao)
-- [Projeto de desenvolvimento tecnológico](#content-for-lattes-inovacao)
-- [Projeto de extensão](#content-for-lattes-inovacao)
-- [Projeto de ensino](#content-for-lattes-inovacao)
-- [Outros projetos](#content-for-lattes-inovacao)
-
-<a id="educacao-e-popularizacao-de-ct"></a>
-
-## Educação e Popularização de C&T
-
-- [Artigos completos publicados em periódicos](#content-for-lattes-educacao-popularizacao)
-- [Artigos aceitos para publicação](#content-for-lattes-educacao-popularizacao)
-- [Livros e capítulos](#content-for-lattes-educacao-popularizacao)
-- [Texto em jornal ou revista (magazine)](#content-for-lattes-educacao-popularizacao)
-- [Trabalhos publicados em anais de eventos](#content-for-lattes-educacao-popularizacao)
-- [Apresentação de trabalho e palestra](#content-for-lattes-educacao-popularizacao)
-- [Programa de computador sem registro](#content-for-lattes-educacao-popularizacao)
-- [Curso de curta duração ministrado](#content-for-lattes-educacao-popularizacao)
-- [Desenvolvimento de material didático ou instrucional](#content-for-lattes-educacao-popularizacao)
-- [Entrevistas, mesas redondas, programas e comentários na mídia](#content-for-lattes-educacao-popularizacao)
-- [Programa de Computador Registrado](#content-for-lattes-educacao-popularizacao)
-- [Organização de eventos, congressos, exposições, feiras e olimpíadas](#content-for-lattes-educacao-popularizacao)
-- [Participação em eventos, congressos, exposições, feiras e olimpíadas](#content-for-lattes-educacao-popularizacao)
-- [Redes sociais, websites e blogs](#content-for-lattes-educacao-popularizacao)
-- [Artes visuais](#content-for-lattes-educacao-popularizacao)
-- [Artes cênicas](#content-for-lattes-educacao-popularizacao)
-- [Música](#content-for-lattes-educacao-popularizacao)
-- [Outra produção bibliográfica](#content-for-lattes-educacao-popularizacao)
-- [Outra produção técnica](#content-for-lattes-educacao-popularizacao)
-- [Outra produção artística/cultural](#content-for-lattes-educacao-popularizacao)
-
-<a id="eventos"></a>
-
-## Eventos
-
-- [Participação em eventos, congressos, exposições, feiras e olimpíadas](#content-for-lattes-eventos)
-- [Organização de eventos, congressos, exposições, feiras e olimpíadas](#content-for-lattes-eventos)
-
-<a id="orientacoes"></a>
-
-## Orientações
-
-- [Orientações e supervisões concluídas](#content-for-lattes-orientacoes)
-- [Orientações e supervisões em andamento](#content-for-lattes-orientacoes)
-
-<a id="bancas"></a>
-
-## Bancas
-
-- [Participação em bancas de trabalhos de conclusão](#content-for-lattes-bancas)
-- [Participação em bancas de comissões julgadoras](#content-for-lattes-bancas)
-
-<a id="citacoes"></a>
-
-## Citações
-
-- [Citações no Web of Science](#content-for-lattes-citacoes)
-- [Citações no SciELO](#content-for-lattes-citacoes)
-- [Citações no SCOPUS](#content-for-lattes-citacoes)
-- [Citações no Google Scholar](#content-for-lattes-citacoes)
-- [Citações em outra base bibliográfica](#content-for-lattes-citacoes)
-
----
-
-<a id="content-for-lattes"></a>
-
-## Content for Lattes
-
-Content below is for copy-paste into the Lattes platform. Items marked ⬜ are empty; leave the Lattes field blank or use placeholder _(empty)_ until the [Future fulfillment plan](#future-fulfillment-plan) applies.
-
-### Status legend
+## Status legend
 
 | Emoji | Meaning                   | Use when                                                                        |
 | ----- | ------------------------- | ------------------------------------------------------------------------------- |
@@ -244,22 +12,18 @@ Content below is for copy-paste into the Lattes platform. Items marked ⬜ are e
 | ⏳    | **Partial / in progress** | Some data exists but the field is not complete (e.g. dissertation in progress). |
 | ⬜    | **Empty (future)**        | No data yet; fulfillment depends on a future milestone.                         |
 
-<a id="content-for-lattes-dados-gerais"></a>
-
-### Dados gerais
+## Dados gerais
 
 - **Identificação** ✅ — Nome: Eduardo Matos de Assis Figueiredo. E-mail: edu.evangelista.figueiredo@gmail.com. Telefone: +55 (19) 98176-6583. Endereço Lattes: https://lattes.cnpq.br/2708641049892967. LinkedIn: https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b
 - **Endereço** ✅ — Nova Odessa, SP — Brasil.
 - **Licença Maternidade, Paternidade e Adoção** ⬜ — N/A. Deixar em branco conforme o formulário. _(placeholder)_
 - **Idiomas** ✅ — Português: língua materna (leitura, escrita, fala e compreensão plenos). Inglês: fluente (leitura, escrita, fala e compreensão em nível avançado).
 - **Prêmios e títulos** ⬜ — Only academic prizes/titles belong here. _(placeholder: vazio até haver premiações acadêmicas.)_
-- **Texto inicial do Currículo Lattes** ✅ — See **copy-paste value (PT)** in [Field 1 — Texto inicial](#field-1--texto-inicial) below.
-- **Tradução (Texto inicial em inglês)** ✅ — See **copy-paste value (EN)** in [Field 2 — Tradução](#field-2--traducao) below.
+- **Texto inicial do Currículo Lattes** ✅ — See section **Texto inicial (PT)** below.
+- **Tradução (Texto inicial em inglês)** ✅ — See section **Tradução (EN)** below.
 - **Outras informações relevantes** ✅ — Voluntário – ONG Hospitalhaços (atuação administrativa). Mestrado com conceito A em todas as disciplinas; proficiência em inglês comprovada.
 
-<a id="content-for-lattes-formacao"></a>
-
-### Formação
+## Formação
 
 - **Formação acadêmica/titulação** ⏳ — Valores abaixo refletem exatamente o que foi cadastrado no Lattes para o Mestrado. Outros títulos (Tecnólogo, Técnico) em registros separados.
 
@@ -291,9 +55,7 @@ Content below is for copy-paste into the Lattes platform. Items marked ⬜ are e
 - **Pós-doutorado e/ou livre-docência** ⬜ — _(placeholder: Lorem ipsum — nenhum pós-doutorado; preencher quando houver.)_
 - **Formação complementar** ✅ — Redação acadêmica, Pesquisa científica (da concepção à publicação), Inovação e transferência de tecnologia, Visualização de informações, Estudos dirigidos (Unicamp).
 
-<a id="content-for-lattes-atuacao"></a>
-
-### Atuação
+## Atuação
 
 - **Atuação profissional** ✅ — Um registro por vínculo no Lattes. Use a tabela abaixo para preencher cada entrada (Instituição, Vínculo, Período, Outras informações, Visibilidade).
 
@@ -313,18 +75,14 @@ Content below is for copy-paste into the Lattes platform. Items marked ⬜ are e
 - **Membro de corpo editorial / comitê / Revisor de periódico / Revisor de projeto de fomento** ⬜ — _(placeholder: conteúdo a preencher quando houver.)_
 - **Áreas de atuação** ✅ — Pesquisa em UX; Pesquisa aplicada; Tecnologia da Informação; IHC; Melhoria contínua (CIP); Sistemas de informação.
 
-<a id="content-for-lattes-projetos"></a>
-
-### Projetos
+## Projetos
 
 - **Projetos de pesquisa** ✅ — Pesquisa de mestrado (TrustMate, Agentic AI, confiança em sites/software). Integração de UX ao CIP (Bosch, ServiceNow, portais de qualidade).
 - **Projeto de desenvolvimento tecnológico** ✅ — Tooling PT (requisitos a protótipos, check-ins cliente). Plataforma TrustMate (dissertação).
 - **Projeto de extensão** ⏳ — Tutoria SENAI Digital Talent Academy.
 - **Projeto de ensino / Outros** ⬜ — _(placeholder: a preencher quando houver.)_
 
-<a id="content-for-lattes-producoes"></a>
-
-### Produções
+## Produções
 
 - **Produção Bibliográfica — Artigos em periódicos** ⬜ — Ainda não.
 - **Artigos aceitos / Trabalhos em anais** ✅ — IHC 2025 (SBC SOL): "Interface Trustworthiness Score Definition Platform" (Regina Moraes, Andreia Casare). DOI: [10.5753/ihc_estendido.2025.12446](https://doi.org/10.5753/ihc_estendido.2025.12446). ISSRE 2025 (HFSD): "Measuring Perceived Trust in Websites…". DOI: [10.1109/ISSREW67781.2025.00069](https://doi.org/10.1109/ISSREW67781.2025.00069).
@@ -341,54 +99,38 @@ Content below is for copy-paste into the Lattes platform. Items marked ⬜ are e
 - **Orientações / Bancas** ⬜ — Nenhuma. Preencher quando houver orientandos ou convites para bancas.
 - **Citações** ⬜ — Atualizar conforme citações (Google Scholar, Web of Science, SciELO, SCOPUS).
 
-<a id="content-for-lattes-patentes-registros"></a>
-
-### Patentes e Registros
+## Patentes e Registros
 
 - _(placeholder: a preencher quando houver patentes ou registros.)_
 
-<a id="content-for-lattes-inovacao"></a>
-
-### Inovação
+## Inovação
 
 - _(placeholder: a preencher quando houver dados de inovação.)_
 
-<a id="content-for-lattes-educacao-popularizacao"></a>
-
-### Educação e Popularização de C&T
+## Educação e Popularização de C&T
 
 - Reutilizar participações em eventos, cursos SENAI, material, redes (conforme Produções/Eventos). _(Itens vazios: placeholder a preencher quando houver.)_
 
-<a id="content-for-lattes-eventos"></a>
-
-### Eventos
+## Eventos
 
 - **Participação** ✅ — IHC 2025 (SBC), ISSRE 2025 (HFSD).
 - **Organização** ⬜ — _(placeholder: a preencher quando houver.)_
 
-<a id="content-for-lattes-orientacoes"></a>
-
-### Orientações
+## Orientações
 
 - _(placeholder: Lorem ipsum — nenhuma orientação registrada; preencher quando houver orientandos.)_
 
-<a id="content-for-lattes-bancas"></a>
-
-### Bancas
+## Bancas
 
 - _(placeholder: a preencher quando convidado para bancas.)_
 
-<a id="content-for-lattes-citacoes"></a>
-
-### Citações
+## Citações
 
 - _(placeholder: atualizar conforme citações em Google Scholar, Web of Science, SciELO, SCOPUS.)_
 
 ---
 
-<a id="future-fulfillment-plan"></a>
-
-### Future fulfillment plan
+## Future fulfillment plan
 
 | Lattes field / section                           | Status | Trigger / milestone for fulfillment                                                     |
 | ------------------------------------------------ | ------ | --------------------------------------------------------------------------------------- |
@@ -406,23 +148,7 @@ Content below is for copy-paste into the Lattes platform. Items marked ⬜ are e
 
 ---
 
-<a id="field-1--texto-inicial"></a>
-
-## Field 1 — Texto inicial
-
-| Attribute                   |                    **Value**                     | Description                                                                                                                                                                                                                                                                                                                                                                                           |
-| --------------------------- | :----------------------------------------------: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Name (form)**             |                  Texto inicial                   | Form label for the initial/summary text.                                                                                                                                                                                                                                                                                                                                                              |
-| **Menu path**               | Dados gerais → Texto inicial do Currículo Lattes | Selecting this menu item opens the form that contains this field. Use this path in the Lattes platform to reach the input for Texto inicial and Tradução.                                                                                                                                                                                                                                             |
-| **Where it appears**        |                        —                         | At the top of the curriculum, as the initial/summary text block (introductory narrative).                                                                                                                                                                                                                                                                                                             |
-| **Purpose**                 |                        —                         | To provide the introductory paragraph for the Lattes curriculum: academic history, current roles, and research interests (maps to "Personal Data and Summary" in the platform).                                                                                                                                                                                                                       |
-| **Mapping from context**    |                        —                         | Content should reflect: Master's research on perceived trust in e-commerce (methodologies: web scraping, machine learning, UI flexibility analysis); professional experience as UX Researcher at Bosch with emphasis on technical contributions and applied scientific methods; future academic objectives (doctoral studies in machine learning or quantum computing, international collaborations). |
-| **Data sources**            |                        —                         | Synthesized into a single narrative that highlights the intersection of corporate innovation and academic rigor.                                                                                                                                                                                                                                                                                      |
-| **Structure / constraints** |                        —                         | Free-text narrative. Character or word limits: to be confirmed from the Lattes platform.                                                                                                                                                                                                                                                                                                              |
-
-<a id="field-1-copy-paste"></a>
-
-**Copy-paste value (Texto inicial — PT):**
+## Texto inicial (PT)
 
 ```
 Pesquisador em Experiência do Usuário (UX) e desenvolvedor front-end, mestrando em Tecnologia pela Unicamp (previsão de conclusão em 2026). Foco na interseção entre inovação corporativa e rigor acadêmico. Pesquisa de mestrado em confiança percebida em e-commerce e em avaliação de usabilidade, acessibilidade e UX em software, com uso de Agentic AI e métodos científicos. Experiência como Analista de Pesquisa e Design na Bosch Brasil: liderança da região das Américas em maturidade de UX (Nível 4), integração de UX ao CIP, portais de qualidade e projetos internacionais. Objetivos acadêmicos: doutorado em aprendizado de máquina ou computação quântica e colaborações internacionais.
@@ -430,23 +156,7 @@ Pesquisador em Experiência do Usuário (UX) e desenvolvedor front-end, mestrand
 
 ---
 
-<a id="field-2--traducao"></a>
-
-## Field 2 — Tradução
-
-| Attribute                   |                    **Value**                     | Description                                                                                                                                                                                                                                       |
-| --------------------------- | :----------------------------------------------: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Name (form)**             |                     Tradução                     | Form label for the translation field.                                                                                                                                                                                                             |
-| **Menu path**               | Dados gerais → Texto inicial do Currículo Lattes | Same as Field 1. Selecting this menu item opens the form that contains both Texto inicial and Tradução; the menu selection provides the functionality to input data into both fields.                                                             |
-| **Where it appears**        |                        —                         | Translation section of the Lattes form (exact placement to be verified on the platform). On the same form as Texto inicial when reached via the menu path above.                                                                                  |
-| **Purpose**                 |                        —                         | To provide a translated version (typically English) of the curriculum or of the initial text, for international visibility, collaborations, and grants.                                                                                           |
-| **Mapping from context**    |                        —                         | Same substantive content as described for "Texto inicial" (or, if the form applies to the full curriculum, the whole profile), in the target language. Should preserve the strategic focus: Master's work, Bosch UX research, and doctoral goals. |
-| **Scope**                   |                        —                         | **Assumption:** This field may apply to the translation of "Texto inicial" only, or to the full curriculum. Verify on the Lattes form and update this document if the scope differs.                                                              |
-| **Structure / constraints** |                        —                         | Free text in the target language. Any limits or formatting rules: to be confirmed from the platform.                                                                                                                                              |
-
-<a id="field-2-copy-paste"></a>
-
-**Copy-paste value (Tradução — EN):**
+## Tradução (EN)
 
 ```
 UX Researcher and Front-end Developer; Master's student in Technology (Unicamp, expected 2026). Specialized in integrating User Experience into organizational processes (CIP) and measuring software trustworthiness. Led regions to high UX maturity (Level 4), developed AI-driven quality gates, and managed international projects. Background in full-stack development and continuous improvement.
