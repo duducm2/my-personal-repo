@@ -1,0 +1,35 @@
+# Lattes form fields
+
+This document describes specific Lattes platform form fields so that updates can be aligned with the folder context and with data from LinkedIn, resume, and portfolio. Below are the first two fields documented: **Texto inicial** and **Tradução**.
+
+---
+
+## Field 1 — Texto inicial
+
+| Attribute                   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Name (form)**             | Texto inicial                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| **Where it appears**        | At the top of the curriculum, as the initial/summary text block (introductory narrative).                                                                                                                                                                                                                                                                                                                                                                                                       |
+| **Purpose**                 | To provide the introductory paragraph for the Lattes curriculum: academic history, current roles, and research interests (maps to "Personal Data and Summary" in the platform).                                                                                                                                                                                                                                                                                                                 |
+| **Mapping from context**    | Use the "Strategic Application" and "Personal Data and Summary" guidance in `context.md`. Content should reflect: Master's research on perceived trust in e-commerce (methodologies: web scraping, machine learning, UI flexibility analysis); professional experience as UX Researcher at Bosch with emphasis on technical contributions and applied scientific methods; future academic objectives (doctoral studies in machine learning or quantum computing, international collaborations). |
+| **Data sources**            | LinkedIn, resume, portfolio — synthesized into a single narrative that highlights the intersection of corporate innovation and academic rigor.                                                                                                                                                                                                                                                                                                                                                  |
+| **Structure / constraints** | Free-text narrative. Character or word limits: to be confirmed from the Lattes platform.                                                                                                                                                                                                                                                                                                                                                                                                        |
+
+---
+
+## Field 2 — Tradução
+
+| Attribute                   | Description                                                                                                                                                                                                                                       |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Name (form)**             | Tradução                                                                                                                                                                                                                                          |
+| **Where it appears**        | Translation section of the Lattes form (exact placement to be verified on the platform).                                                                                                                                                          |
+| **Purpose**                 | To provide a translated version (typically English) of the curriculum or of the initial text, for international visibility, collaborations, and grants.                                                                                           |
+| **Mapping from context**    | Same substantive content as described for "Texto inicial" (or, if the form applies to the full curriculum, the whole profile), in the target language. Should preserve the strategic focus: Master's work, Bosch UX research, and doctoral goals. |
+| **Scope**                   | **Assumption:** This field may apply to the translation of "Texto inicial" only, or to the full curriculum. Verify on the Lattes form and update this document if the scope differs.                                                              |
+| **Structure / constraints** | Free text in the target language. Any limits or formatting rules: to be confirmed from the platform.                                                                                                                                              |
+
+---
+
+## Summary
+
+**Texto inicial** and **Tradução** are the first two Lattes form fields documented here. Together they support updating the curriculum’s introductory narrative from existing data (LinkedIn, resume, portfolio) and, via **Tradução**, making that narrative (or the full curriculum) available in another language for international use. When filling these fields, use `context.md` for strategic content and this document for structure and mapping.
