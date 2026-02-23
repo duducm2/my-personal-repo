@@ -312,7 +312,7 @@ Content below is for copy-paste into the Lattes platform. Items marked ⬜ are e
 ### Produções
 
 - **Produção Bibliográfica — Artigos em periódicos** ⬜ — Ainda não.
-- **Artigos aceitos / Trabalhos em anais** ✅ — IHC 2025 (SBC SOL): "Interface Trustworthiness Score Definition Platform" (Regina Moraes, Andreia Casare). DOI: https://doi.org/10.5753/ihc_estendido.2025.12446. ISSRE 2025 (HFSD): "Measuring Perceived Trust in Websites…".
+- **Artigos aceitos / Trabalhos em anais** ✅ — IHC 2025 (SBC SOL): "Interface Trustworthiness Score Definition Platform" (Regina Moraes, Andreia Casare). DOI: [10.5753/ihc_estendido.2025.12446](https://doi.org/10.5753/ihc_estendido.2025.12446). ISSRE 2025 (HFSD): "Measuring Perceived Trust in Websites…". DOI: [10.1109/ISSREW67781.2025.00069](https://doi.org/10.1109/ISSREW67781.2025.00069).
 - **Apresentação de trabalho e palestra** ✅ — IHC 2025, ISSRE 2025.
 - **Tradução (produção)** ✅ — Usar versão em inglês do Texto inicial (Dados gerais).
 - **Produção Técnica — Relatório de pesquisa** ⏳ — Dissertação (TrustMate); concluir após defesa.
