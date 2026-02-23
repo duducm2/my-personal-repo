@@ -306,7 +306,7 @@ Content below is for copy-paste into the Lattes platform.
 **Copy-paste value (Texto inicial — PT):**
 
 ```
-Pesquisador em Experiência do Usuário (UX) e desenvolvedor front-end, mestre em Tecnologia pela Unicamp. Foco na interseção entre inovação corporativa e rigor acadêmico. Pesquisa de mestrado em confiança percebida em e-commerce e em avaliação de usabilidade, acessibilidade e UX em software, com uso de Agentic AI e métodos científicos. Experiência como Analista de Pesquisa e Design na Bosch Brasil: liderança da região das Américas em maturidade de UX (Nível 4), integração de UX ao CIP, portais de qualidade e projetos internacionais. Objetivos acadêmicos: doutorado em aprendizado de máquina ou computação quântica e colaborações internacionais.
+Pesquisador em Experiência do Usuário (UX) e desenvolvedor front-end, mestrando em Tecnologia pela Unicamp (previsão de conclusão em 2026). Foco na interseção entre inovação corporativa e rigor acadêmico. Pesquisa de mestrado em confiança percebida em e-commerce e em avaliação de usabilidade, acessibilidade e UX em software, com uso de Agentic AI e métodos científicos. Experiência como Analista de Pesquisa e Design na Bosch Brasil: liderança da região das Américas em maturidade de UX (Nível 4), integração de UX ao CIP, portais de qualidade e projetos internacionais. Objetivos acadêmicos: doutorado em aprendizado de máquina ou computação quântica e colaborações internacionais.
 ```
 
 ---
@@ -328,7 +328,7 @@ Pesquisador em Experiência do Usuário (UX) e desenvolvedor front-end, mestre e
 **Copy-paste value (Tradução — EN):**
 
 ```
-UX Researcher and Front-end Developer with a Master's in Technology (Unicamp). Specialized in integrating User Experience into organizational processes (CIP) and measuring software trustworthiness. Led regions to high UX maturity (Level 4), developed AI-driven quality gates, and managed international projects. Background in full-stack development and continuous improvement.
+UX Researcher and Front-end Developer; Master's student in Technology (Unicamp, expected 2026). Specialized in integrating User Experience into organizational processes (CIP) and measuring software trustworthiness. Led regions to high UX maturity (Level 4), developed AI-driven quality gates, and managed international projects. Background in full-stack development and continuous improvement.
 ```
 
 ---
