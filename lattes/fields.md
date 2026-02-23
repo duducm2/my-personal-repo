@@ -1,6 +1,6 @@
 # Lattes form fields
 
-This document describes specific Lattes platform form fields so that updates can be aligned with the folder context and with data from LinkedIn, resume, and portfolio. Below are the first two fields documented: **Texto inicial** and **Tradução**.
+This is the single Lattes document for this folder. It describes the Lattes platform structure, form fields, and **content to paste** into the curriculum. All content is drawn from **portfolio/portfolio-deck.md**, **resume** (CV and typst content), and **context.md**. Below: hierarchy, populated content per section, the two documented fields **Texto inicial** and **Tradução**, and a future-fulfillment plan.
 
 **Platform reference** — Screenshot of the Lattes interface (Dados gerais tab) for visual context. The horizontal tabs match the hierarchy below; the "Resumo" area in the center is where **Texto inicial** is edited; "O que você quer registrar?" lists specific items you can add.
 
@@ -22,6 +22,8 @@ This document describes specific Lattes platform form fields so that updates can
 - [Citações](#citacoes)
 - [Field 1 — Texto inicial](#field-1--texto-inicial)
 - [Field 2 — Tradução](#field-2--traducao)
+- [Content from portfolio and resume](#content-from-portfolio-and-resume)
+- [Future fulfillment plan](#future-fulfillment-plan)
 
 Below is the full Lattes platform structure.
 
@@ -202,6 +204,89 @@ Below is the full Lattes platform structure.
 
 ---
 
+<a id="content-from-portfolio-and-resume"></a>
+
+## Content from portfolio and resume
+
+Content below is extracted from **portfolio/portfolio-deck.md**, **resume** (CV and typst), and **context.md** for copy-paste into the Lattes platform.
+
+### Status legend
+
+| Emoji | Meaning                   | Use when                                                                                             |
+| ----- | ------------------------- | ---------------------------------------------------------------------------------------------------- |
+| ✅    | **Fulfilled**             | Data exists in portfolio/resume/context and can be pasted or slightly adapted for this Lattes field. |
+| ⏳    | **Partial / in progress** | Some data exists but the field is not complete (e.g. dissertation in progress).                      |
+| ⬜    | **Empty (future)**        | No data yet; fulfillment depends on a future milestone.                                              |
+
+### Dados gerais
+
+- **Identificação** ✅ — Nome: Eduardo Matos de Assis Figueiredo. E-mail: edu.evangelista.figueiredo@gmail.com. Telefone: +55 (19) 98176-6583. Endereço Lattes: https://lattes.cnpq.br/2708641049892967. LinkedIn: https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b
+- **Endereço** ✅ — Nova Odessa, SP — Brasil.
+- **Licença Maternidade, Paternidade e Adoção** ⬜ — N/A. Deixar em branco conforme o formulário.
+- **Idiomas** ✅ — Português: língua materna (leitura, escrita, fala e compreensão plenos). Inglês: fluente (leitura, escrita, fala e compreensão em nível avançado).
+- **Prêmios e títulos** ✅ — 1º lugar – X-Games Brazil 2018 (Criação de Novos Negócios / Consultoria). 3º lugar – Bosch Talent Forum 2018. 3º lugar – Bosch Intern Talent Forum 2018.
+- **Texto inicial do Currículo Lattes** ✅ — _Content (PT):_ Pesquisador em Experiência do Usuário (UX) e desenvolvedor front-end, mestre em Tecnologia pela Unicamp. Foco na interseção entre inovação corporativa e rigor acadêmico. Pesquisa de mestrado em confiança percebida em e-commerce e em avaliação de usabilidade, acessibilidade e UX em software, com uso de Agentic AI e métodos científicos. Experiência como Analista de Pesquisa e Design na Bosch Brasil: liderança da região das Américas em maturidade de UX (Nível 4), integração de UX ao CIP, portais de qualidade e projetos internacionais. Objetivos acadêmicos: doutorado em aprendizado de máquina ou computação quântica e colaborações internacionais.
+- **Tradução (Texto inicial em inglês)** ✅ — _Content (EN):_ UX Researcher and Front-end Developer with a Master's in Technology (Unicamp). Focus on the intersection of corporate innovation and academic rigor. Master's research on perceived trust in e-commerce and on evaluating usability, accessibility, and UX in software using Agentic AI and scientific methods. Experience as Applied Research & Design Analyst at Bosch Brasil: led Americas to UX Maturity Level 4, integrated UX into CIP, quality gates, and international projects. Academic goals: doctoral studies in machine learning or quantum computing and international collaborations.
+- **Outras informações relevantes** ✅ — Voluntário – ONG Hospitalhaços (atuação administrativa). Mestrado com conceito A em todas as disciplinas; proficiência em inglês comprovada.
+
+### Formação
+
+- **Formação acadêmica/titulação** ⏳ — Mestrado em Tecnologia (Unicamp, 2023–2026), dissertação em andamento: Agentic AI e métricas de qualidade de software (UX, acessibilidade, usabilidade e confiança). Tecnólogo em Análise e Desenvolvimento de Sistemas (Unicamp, 2015–2020). Técnico em Informática (ETEC Bento Quirino, 2012–2014). Orientador: [preencher após confirmação]. Atualizar título final após defesa.
+- **Pós-doutorado e/ou livre-docência** ⬜ — Nenhum.
+- **Formação complementar** ✅ — Redação acadêmica, Pesquisa científica (da concepção à publicação), Inovação e transferência de tecnologia, Visualização de informações, Estudos dirigidos (Unicamp).
+
+### Atuação
+
+- **Atuação profissional** ✅ — Bosch Brasil (mai/2023–presente): Analista de Pesquisa e Design; maturidade UX Nível 4, CIP/ServiceNow, tooling PT, Power BI, Agentic AI, Alemanha 2024/2025, tutor SENAI. Bosch Brasil (jan/2020–nov/2023): Desenvolvedor Web, React, Scrum. Bosch Magyarország (jan–dez/2019): Analista de Suporte à Digitalização. Bosch Brasil (jan/2017–nov/2018): Estagiário, VBA/Excel.
+- **Linhas de pesquisa** ✅ — Confiança em software, interfaces e e-commerce; avaliação de UX, usabilidade e acessibilidade; Agentic AI para métricas de qualidade.
+- **Membro de corpo editorial / comitê / Revisor de periódico / Revisor de projeto de fomento** ⬜ — Nenhuma atuação registrada.
+- **Áreas de atuação** ✅ — Pesquisa em UX; Pesquisa aplicada; Tecnologia da Informação; IHC; Melhoria contínua (CIP); Sistemas de informação.
+
+### Projetos
+
+- **Projetos de pesquisa** ✅ — Pesquisa de mestrado (TrustMate, Agentic AI, confiança em sites/software). Integração de UX ao CIP (Bosch, ServiceNow, portais de qualidade).
+- **Projeto de desenvolvimento tecnológico** ✅ — Tooling PT (requisitos a protótipos, check-ins cliente). Plataforma TrustMate (dissertação).
+- **Projeto de extensão** ⏳ — Tutoria SENAI Digital Talent Academy.
+- **Projeto de ensino / Outros** ⬜ — Preencher quando houver.
+
+### Produções
+
+- **Produção Bibliográfica — Artigos em periódicos** ⬜ — Ainda não.
+- **Artigos aceitos / Trabalhos em anais** ✅ — IHC 2025 (SBC SOL): "Interface Trustworthiness Score Definition Platform" (Regina Moraes, Andreia Casare). ISSRE 2025 (HFSD): "Measuring Perceived Trust in Websites…".
+- **Apresentação de trabalho e palestra** ✅ — IHC 2025, ISSRE 2025.
+- **Tradução (produção)** ✅ — Usar versão em inglês do Texto inicial (Dados gerais).
+- **Produção Técnica — Relatório de pesquisa** ⏳ — Dissertação (TrustMate); concluir após defesa.
+- **Programa de computador sem registro** ✅ — TrustMate; ferramentas CIP/UX (Power BI, ServiceNow).
+- **Curso de curta duração ministrado** ✅ — SENAI Digital Talent Academy (tutor).
+- **Desenvolvimento de material didático** ⏳ — Bootcamp Pesquisa Aplicada, materiais CIP–UX.
+- **Redes sociais, websites e blogs** ✅ — LinkedIn: https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b
+- **Patentes e Registros / Inovação** ⬜ — Nenhum.
+- **Educação e Popularização de C&T** — Reutilizar participações em eventos, cursos SENAI, material, redes (conforme Produções/Eventos).
+- **Eventos — Participação** ✅ — IHC 2025 (SBC), ISSRE 2025 (HFSD). **Organização** ⬜ — Preencher quando houver.
+- **Orientações / Bancas** ⬜ — Nenhuma. Preencher quando houver orientandos ou convites para bancas.
+- **Citações** ⬜ — Atualizar conforme citações (Google Scholar, Web of Science, SciELO, SCOPUS).
+
+---
+
+<a id="future-fulfillment-plan"></a>
+
+### Future fulfillment plan
+
+| Lattes field / section                           | Status | Trigger / milestone for fulfillment                |
+| ------------------------------------------------ | ------ | -------------------------------------------------- |
+| Formação acadêmica — título e orientador         | ⏳     | Após defesa; confirmar no Lattes.                  |
+| Artigos completos publicados em periódicos       | ⬜     | Quando workshop papers forem aceitos em periódico. |
+| Relatório de pesquisa (dissertação)              | ⏳     | Marcar concluído após defesa.                      |
+| Orientações (concluídas / em andamento)          | ⬜     | Quando houver orientandos.                         |
+| Bancas                                           | ⬜     | Quando convidado para bancas.                      |
+| Citações                                         | ⬜     | À medida que os trabalhos forem citados.           |
+| Patentes / Programa de Computador Registrado     | ⬜     | Se registrar software ou patente.                  |
+| Pós-doutorado e/ou livre-docência                | ⬜     | Se cursar.                                         |
+| Membro de corpo editorial / Revisor de periódico | ⬜     | Quando participar ou receber convites.             |
+| Organização de eventos                           | ⬜     | Quando coorganizar evento/sessão.                  |
+
+---
+
 <a id="field-1--texto-inicial"></a>
 
 ## Field 1 — Texto inicial
@@ -236,4 +321,4 @@ Below is the full Lattes platform structure.
 
 ## Summary
 
-**Texto inicial** and **Tradução** are the first two Lattes form fields documented here. Together they support updating the curriculum's introductory narrative from existing data (LinkedIn, resume, portfolio) and, via **Tradução**, making that narrative (or the full curriculum) available in another language for international use. When filling these fields, use `context.md` for strategic content and this document for structure and mapping.
+This document is the single Lattes reference: platform hierarchy, field definitions, and **content from portfolio/portfolio-deck.md and resume** (with status and future-fulfillment plan). **Texto inicial** and **Tradução** are the two fields with detailed tables; their paste-ready text is in the "Content from portfolio and resume" section. Use `context.md` for strategic focus and this file for structure, mapping, and copy-paste content.
