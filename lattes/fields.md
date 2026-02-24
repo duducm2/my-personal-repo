@@ -89,7 +89,7 @@ Paste-ready content for the Lattes platform, by section. ✅ Fulfilled | ⏳ Par
 
   **Formulário Lattes (Trabalhos em anais):** D.O.I | Dados gerais (Natureza, Título, Ano, País, Idioma, Meio de divulgação, URL, 10 mais relevantes?, Educação e popularização?) | Detalhamento do evento (Classificação, Nome do evento, Cidade, Ano) | Detalhamento da publicação (Título dos anais, Volume, Fascículo, Série, Página inicial/final, ISBN/ISSN, Editora, Cidade) | Autores (ordem de autoria) | Palavras-chave | Áreas | Setores | Outras informações | Traduções (Title, Other information) | Visibilidade.
 
-  **Artigo 1 — IHC 2025 (SBC SOL)**
+  ### Artigo 1 — IHC 2025 (SBC SOL)
 
   | Campo                                   | Valor                                                                                                                                     |
   | --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
@@ -119,7 +119,7 @@ Paste-ready content for the Lattes platform, by section. ✅ Fulfilled | ⏳ Par
   | **Traduções — Title**                   | Interface Trustworthiness Score Definition Platform                                                                                       |
   | **Visibilidade**                        | Público                                                                                                                                   |
 
-  **Artigo 2 — ISSRE 2025 (HFSD)**
+  ### Artigo 2 — ISSRE 2025 (HFSD)
 
   | Campo                                   | Valor                                                                                                                                       |
   | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
