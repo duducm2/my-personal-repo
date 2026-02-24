@@ -85,7 +85,70 @@ Paste-ready content for the Lattes platform, by section. ✅ Fulfilled | ⏳ Par
 ## Produções
 
 - **Produção Bibliográfica — Artigos em periódicos** ⬜ — Ainda não.
-- **Artigos aceitos / Trabalhos em anais** ✅ — IHC 2025 (SBC SOL): "Interface Trustworthiness Score Definition Platform" (Regina Moraes, Andreia Casare). DOI: [10.5753/ihc_estendido.2025.12446](https://doi.org/10.5753/ihc_estendido.2025.12446). ISSRE 2025 (HFSD): "Measuring Perceived Trust in Websites…". DOI: [10.1109/ISSREW67781.2025.00069](https://doi.org/10.1109/ISSREW67781.2025.00069).
+- **Artigos aceitos / Trabalhos em anais** ✅ — Dois registros (um por artigo). Campos do formulário Lattes e valores abaixo.
+
+  **Formulário Lattes (Trabalhos em anais):** D.O.I | Dados gerais (Natureza, Título, Ano, País, Idioma, Meio de divulgação, URL, 10 mais relevantes?, Educação e popularização?) | Detalhamento do evento (Classificação, Nome do evento, Cidade, Ano) | Detalhamento da publicação (Título dos anais, Volume, Fascículo, Série, Página inicial/final, ISBN/ISSN, Editora, Cidade) | Autores (ordem de autoria) | Palavras-chave | Áreas | Setores | Outras informações | Traduções (Title, Other information) | Visibilidade.
+
+  **Artigo 1 — IHC 2025 (SBC SOL)**
+
+  | Campo                                   | Valor                                                                                                                                     |
+  | --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+  | **D.O.I**                               | [10.5753/ihc_estendido.2025.12446](https://doi.org/10.5753/ihc_estendido.2025.12446)                                                      |
+  | **Natureza**                            | Resumo Expandido                                                                                                                          |
+  | **Título**                              | Interface Trustworthiness Score Definition Platform                                                                                       |
+  | **Ano**                                 | 2025                                                                                                                                      |
+  | **País de publicação**                  | Brasil                                                                                                                                    |
+  | **Idioma**                              | Português                                                                                                                                 |
+  | **Meio de divulgação**                  | Home page do trabalho (preencher URL no Lattes)                                                                                           |
+  | **É um dos 10 mais relevantes?**        | sim / não                                                                                                                                 |
+  | **Educação e popularização de C&T?**    | não                                                                                                                                       |
+  | **Classificação do evento**             | Nacional                                                                                                                                  |
+  | **Nome do evento**                      | IHC 2025 — Simpósio Brasileiro de Computação (SBC), trilha SOL                                                                            |
+  | **Cidade do evento**                    | (preencher no Lattes)                                                                                                                     |
+  | **Ano (evento)**                        | 2025                                                                                                                                      |
+  | **Título dos anais**                    | Anais do XXIII Simpósio Brasileiro sobre Fatores Humanos em Sistemas Computacionais (IHC 2025) — ou conforme Lattes/DOI                   |
+  | **Volume / Fascículo / Série**          | —                                                                                                                                         |
+  | **Página inicial / final**              | (preencher no Lattes a partir do DOI)                                                                                                     |
+  | **ISBN/ISSN**                           | (preencher no Lattes)                                                                                                                     |
+  | **Nome da editora / Cidade da editora** | SBC / (preencher)                                                                                                                         |
+  | **Autores (ordem)**                     | 1º Eduardo Matos de Assis Figueiredo; 2º Regina Lúcia de Oliveira Moraes; 3º Andreia Casare — ajustar ordem no Lattes conforme publicação |
+  | **Palavras-chave**                      | (preencher ou recuperar via DOI: ex. confiança, UX, trustworthiness, interface)                                                           |
+  | **Áreas**                               | Ciência da Computação; Sistemas de Informação; Engenharia de Software                                                                     |
+  | **Setores**                             | Atividades dos serviços de tecnologia da informação; Pesquisa e desenvolvimento científico                                                |
+  | **Outras informações**                  | —                                                                                                                                         |
+  | **Traduções — Title**                   | Interface Trustworthiness Score Definition Platform                                                                                       |
+  | **Visibilidade**                        | Público                                                                                                                                   |
+
+  **Artigo 2 — ISSRE 2025 (HFSD)**
+
+  | Campo                                   | Valor                                                                                                                                       |
+  | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+  | **D.O.I**                               | [10.1109/ISSREW67781.2025.00069](https://doi.org/10.1109/ISSREW67781.2025.00069)                                                            |
+  | **Natureza**                            | Resumo Expandido ou Completo (conforme anais)                                                                                               |
+  | **Título**                              | Measuring Perceived Trust in Websites: A Digital Tool Supported by Experimentation and Machine Learning — ou título completo conforme anais |
+  | **Ano**                                 | 2025                                                                                                                                        |
+  | **País de publicação**                  | (preencher: ex. Estados Unidos)                                                                                                             |
+  | **Idioma**                              | Inglês                                                                                                                                      |
+  | **Meio de divulgação**                  | Home page do trabalho (preencher URL no Lattes)                                                                                             |
+  | **É um dos 10 mais relevantes?**        | sim / não                                                                                                                                   |
+  | **Educação e popularização de C&T?**    | não                                                                                                                                         |
+  | **Classificação do evento**             | Internacional                                                                                                                               |
+  | **Nome do evento**                      | ISSRE 2025 — IEEE International Symposium on Software Reliability Engineering (HFSD workshop)                                               |
+  | **Cidade do evento**                    | (preencher no Lattes)                                                                                                                       |
+  | **Ano (evento)**                        | 2025                                                                                                                                        |
+  | **Título dos anais**                    | (preencher: anais do ISSRE 2025 / HFSD workshop)                                                                                            |
+  | **Volume / Fascículo / Série**          | —                                                                                                                                           |
+  | **Página inicial / final**              | (preencher no Lattes a partir do DOI)                                                                                                       |
+  | **ISBN/ISSN**                           | (preencher no Lattes)                                                                                                                       |
+  | **Nome da editora / Cidade da editora** | IEEE / (preencher)                                                                                                                          |
+  | **Autores (ordem)**                     | (preencher: incluir Eduardo Matos de Assis Figueiredo, Regina Lúcia de Oliveira Moraes e demais conforme publicação)                        |
+  | **Palavras-chave**                      | (preencher ou recuperar via DOI: ex. perceived trust, websites, machine learning, experimentation)                                          |
+  | **Áreas**                               | Ciência da Computação; Engenharia de Software                                                                                               |
+  | **Setores**                             | Pesquisa e desenvolvimento científico; Atividades dos serviços de tecnologia da informação                                                  |
+  | **Outras informações**                  | —                                                                                                                                           |
+  | **Traduções — Title**                   | Measuring Perceived Trust in Websites… (ou título EN completo)                                                                              |
+  | **Visibilidade**                        | Público                                                                                                                                     |
+
 - **Apresentação de trabalho e palestra** ✅ — IHC 2025, ISSRE 2025.
 - **Tradução (produção)** ✅ — Usar versão em inglês do Texto inicial (Dados gerais).
 - **Produção Técnica — Relatório de pesquisa** ⏳ — Dissertação (TrustMate); concluir após defesa.
