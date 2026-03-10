@@ -1328,29 +1328,6 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 <!-- Slide 21 – Future (Career Aspirations, Vacancy Types & Prioritized Paths to Leadership) -->
 
-<style scoped>
-.future-career-wrap {
-  display: flex !important; justify-content: center !important; align-items: center !important;
-  min-height: 62vh !important; width: 100% !important; margin-top: 0.75rem !important;
-}
-.future-career-wrap p { margin: 0 !important; text-align: center !important; }
-.future-career-wrap img {
-  width: 43% !important; max-width: 43% !important; height: auto !important;
-  display: block !important; margin: 20px auto 0 !important;
-  border: none !important; box-shadow: none !important;
-}
-</style>
-
-## Future – Career Paths & Leadership within Bosch
-
-<div class="future-career-wrap">
-<p><img src="../../pictures/diagrams/future-career-path.png" alt="Diagram future-career-path: Prioritized paths to leadership, including AI Scrum Master" /></p>
-</div>
-
-<!-- Diagram: future-career-path (mermaid/diagrams.md). Export to future-career-path.png -->
-
----
-
 <!-- Slide 23 – Future (Personal Interests as Career Enablers) -->
 
 <!-- _class: dense-content -->
@@ -1463,9 +1440,8 @@ section.closing-redesign h2 {
 
 <div class="closing-contact">
 <p><strong>How to involve me</strong></p>
-<p>Engage me in Applied Research for strategic initiatives, CIP governance, and data-informed decision frameworks across regions.</p>
+<p>Engage me in Applied Research for strategic initiatives and agile project management for quick delivery.</p>
 <p>Involve me when you need technology support, experimentation, or project delivery that balances user experience, feasibility, and business outcomes.</p>
-<p style="margin-top: 0.75rem !important; font-size: 0.9em; opacity: 0.9;">Thank you for your time and consideration.</p>
 </div>
 
 ---
