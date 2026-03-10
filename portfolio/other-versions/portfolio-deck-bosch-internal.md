@@ -474,7 +474,6 @@ table thead { display: none !important; }
 | Name      | Eduardo M. de A. Figueiredo                                                                                                                                                                                                                                                   |
 | Role      | Applied Research, Technology & Project Management – Bosch Brasil                                                                                                                                                                                                              |
 | Impact    | I help Bosch teams govern better and improve faster, using Applied Research to prioritize, decide, and deliver with clear data and accountability.                                                                                                                             |
-| Contact   | Available via Bosch Outlook and Microsoft Teams                                                                                                                                                                                                                               |
 
 <p class="photo-at-bottom"><img src="../../pictures/personal/my-photo-rectangle.png" alt="Eduardo Figueiredo" /></p>  
 <!-- <p><img src="../../pictures/personal/my-photo.png" alt="Eduardo Figueiredo" /></p> -->
@@ -1412,7 +1411,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ---
 
-<!-- Slide 26 – Closing & Contact -->
+<!-- Slide 26 – Closing -->
 
 <!-- _class: midnight-blue-slide closing-redesign -->
 
@@ -1466,7 +1465,7 @@ section.closing-redesign h2 {
 <p><strong>How to involve me</strong></p>
 <p>Engage me in Applied Research for strategic initiatives, CIP governance, and data-informed decision frameworks across regions.</p>
 <p>Involve me when you need technology support, experimentation, or project delivery that balances user experience, feasibility, and business outcomes.</p>
-<p style="margin-top: 0.75rem !important; font-size: 0.9em; opacity: 0.9;">Available for collaboration through Bosch Outlook and Microsoft Teams.</p>
+<p style="margin-top: 0.75rem !important; font-size: 0.9em; opacity: 0.9;">Thank you for your time and consideration.</p>
 </div>
 
 ---
