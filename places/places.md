@@ -22,6 +22,33 @@
   - Role: Collaboration partners for Bosch in quantum computing and sensing applications.  
   - Relevance for Edu: Potential secondments, joint PhD/industrial projects, or Bosch‑led collaborations where internal staff participate.
 
+## Quantum Communities and Departments
+
+- **Quiapo – Quantum Computing Community at Bosch**  
+  - Type: Internal Bosch quantum computing community (referenced via Docupedia "Quantum Computing in Bosch" page).  
+  - Role: Knowledge-sharing hub for Bosch associates interested in quantum computing, including learning resources, internal talks, and peer exchange.  
+  - Relevance for Edu: First internal community to join for networking, staying aligned with Bosch quantum topics, and spotting collaboration opportunities.
+
+- **AE/PAQ – Bosch Quantum Sensing (AE start-up "Quantum Sensing")**  
+  - Department: AE/PAQ (Advanced Engineering / Quantum Sensing).  
+  - Role: Application-oriented quantum sensing start-up within Bosch AE, focusing on quantum sensors and related products.  
+  - Relevance for Edu: Core internal unit for roles connecting AI, sensing, and quantum-enabled applications.
+
+- **CR/ATM CE-QT – Corporate Research, Chief Expert for Quantum Technologies**  
+  - Department: CR/ATM CE-QT.  
+  - Role: Corporate research unit hosting the chief expert function for quantum technologies, steering Bosch’s overall quantum technology strategy.  
+  - Relevance for Edu: High-level strategic anchor point to understand and align with Bosch’s quantum roadmap.
+
+- **BMS – Business unit involving quantum-ML work**  
+  - Department: BMS.  
+  - Role: Hosts activities such as "Quantum computing should supercharge this machine-learning technique," exploring how quantum computing can accelerate ML.  
+  - Relevance for Edu: Potential landing zone for hybrid AI/quantum roles, especially around quantum-enhanced ML.
+
+- **MS/ECL1 – Cybersecurity and post-quantum cryptography**  
+  - Department: MS/ECL1.  
+  - Role: Focuses on quantum and post-quantum cryptography and their effect on cybersecurity.  
+  - Relevance for Edu: Entry point if targeting quantum-safe security, cryptography, and AI-security intersections.
+
 ## How to use these locations for Edu’s internal reallocation
 
 - **Entry points inside Bosch**  
