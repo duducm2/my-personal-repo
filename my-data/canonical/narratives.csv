@@ -31,7 +31,7 @@ general,present_table,Present achievements table,Tabela de conquistas,"| Area   
 | International                      | Two trips to Germany (2024, 2025) for role-related work                                                                            |
 | CO2 Tracking (GS/Applied Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand                                                               |
 | Tooling project (PT)               | Led technical delivery and project management from requirements through high-fidelity prototypes, with regular customer check-ins. |
-| Applied Research Maturity          | Led Americas to Level 4 – governance, templates, training                                                                          |
+| UX Maturity          | Led Americas to Level 4 – governance, templates, training                                                                          |
 | CIP + Applied Research             | Led integration into ServiceNow CIM; Applied Research gate in CIP workflow                                                         |
 | Collaboration                      | Tutor of Digital Talent Academy Students                                                                                           |","| Área                               | Conquista                                                                                                                        |
 | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
@@ -39,7 +39,7 @@ general,present_table,Present achievements table,Tabela de conquistas,"| Area   
 | Internacional                      | Realizei duas viagens à Alemanha (2024, 2025) por trabalho relacionado ao cargo                                                                            |
 | Rastreamento CO2 (GS/Pesquisa Aplicada) | Conduzi prospecção de mercado para telemetria CO2; achado: falta de demanda de mercado                                                               |
 | Projeto tooling (PT)               | **Liderei** a entrega técnica e gestão do projeto de requisitos a protótipos de alta fidelidade, com check-ins regulares com clientes. |
-| Maturidade em Pesquisa Aplicada          | **Liderei** as Américas ao Nível 4 – governança, templates, treinamento                                                                          |
+| Maturidade em UX          | **Liderei** as Américas ao Nível 4 – governança, templates, treinamento                                                                          |
 | CIP + Pesquisa Aplicada             | **Integrei** ao ServiceNow CIM; gate de Pesquisa Aplicada no fluxo CIP                                                         |
 | Colaboração                      | Sou tutor de estudantes da Digital Talent Academy                                                                                           |"
 product-owner,present_table,Present achievements table,Tabela de conquistas,"| Area                               | Achievement                                                                                                                       |
@@ -48,7 +48,7 @@ product-owner,present_table,Present achievements table,Tabela de conquistas,"| A
 | International                      | Two trips to Germany (2024, 2025) for role-related work                                                                           |
 | CO2 Tracking (GS/Applied Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand — a discovery outcome that stopped low-value work            |
 | Tooling project (PT)               | Requirements → high-fidelity prototypes → regular **customer check-ins**; discovery-to-delivery ownership with technical partners |
-| Applied Research Maturity          | Americas Level 4 – governance, templates, training that **productized** research practice for stakeholders                        |
+| UX Maturity          | Americas Level 4 – governance, templates, training that **productized** UX practice for stakeholders                        |
 | CIP + Applied Research             | ServiceNow CIM integration; Applied Research as an **intake / quality gate** so the right work advances                           |
 | Collaboration                      | Tutor of Digital Talent Academy Students                                                                                          |","| Área                               | Conquista                                                                                                                       |
 | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
@@ -56,7 +56,7 @@ product-owner,present_table,Present achievements table,Tabela de conquistas,"| A
 | Internacional                      | Realizei duas viagens à Alemanha (2024, 2025) por trabalho relacionado ao cargo                                                                           |
 | Rastreamento CO2 (GS/Pesquisa Aplicada) | Conduzi prospecção de mercado para telemetria CO2; achado: falta de demanda — resultado de descoberta que interrompeu trabalho de baixo valor            |
 | Projeto tooling (PT)               | Conduzi de requisitos a protótipos de alta fidelidade com **check-ins regulares com clientes**; ownership descoberta→entrega com parceiros técnicos |
-| Maturidade em Pesquisa Aplicada          | Apoiei as Américas a atingir Nível 4 – governança, templates, treinamento que **produtizaram** a prática de pesquisa para stakeholders                        |
+| Maturidade em UX          | Apoiei as Américas a atingir Nível 4 – governança, templates, treinamento que **produtizaram** a prática de UX para stakeholders                        |
 | CIP + Pesquisa Aplicada             | **Integrei** ServiceNow CIM; Pesquisa Aplicada como **gate de entrada / qualidade** para o trabalho certo avançar                           |
 | Colaboração                      | Sou tutor de estudantes da Digital Talent Academy                                                                                          |"
 general,cip_pipeline_h2,CIP pipeline heading,Título pipeline CIP,Present – CIP and Applied Research Integration: Methodology Pipeline,Presente – Integração CIP e Pesquisa Aplicada: Pipeline metodológico
@@ -95,7 +95,7 @@ product-owner,future_career_body,Future career body,Corpo slide carreira,"## Fut
 | ----------------------- | --------------------------------------------------------- |
 | Discovery & validation  | Tooling PT requirements → prototypes → customer check-ins |
 | Prioritization / intake | ServiceNow Applied Research gate in CIP                   |
-| Stakeholder enablement  | Americas Research Maturity Level 4 (templates, training)  |
+| Stakeholder enablement  | Americas UX Maturity Level 4 (templates, training)  |
 | Outcome ownership       | CSI 4.86 / NPS 9.94 avg. (2024–2025)                      |
 
 </div>
@@ -111,7 +111,7 @@ product-owner,future_career_body,Future career body,Corpo slide carreira,"## Fut
 | ----------------------- | --------------------------------------------------------- |
 | Descoberta e validação  | Tooling PT requisitos → protótipos → check-ins com clientes |
 | Priorização / entrada | Gate de Pesquisa Aplicada no CIP ServiceNow                   |
-| Habilitação de stakeholders  | Nível 4 de Maturidade em Pesquisa nas Américas (templates, treinamento)  |
+| Habilitação de stakeholders  | Nível 4 de Maturidade em UX nas Américas (templates, treinamento)  |
 | Ownership de resultados       | CSI 4,86 / NPS 9,94 méd. (2024–2025)                      |
 
 </div>

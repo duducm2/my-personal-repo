@@ -111,7 +111,7 @@ def main() -> int:
 
     # Critical phrases must appear
     required_phrases = [
-        ("general", "Research Maturity Level 4"),
+        ("general", "UX Maturity Level 4"),
         ("general", "CSI 4.86"),
         ("general", "NPS 9.94"),
         ("general", "ServiceNow"),
@@ -357,7 +357,7 @@ def main() -> int:
             [
                 "GENERATED",
                 "Applied Research, Technology & Project Management",
-                "Research Maturity Level 4",
+                "UX Maturity Level 4",
                 "AI Scrum Master",
                 "AutoHotkey",
                 "September 2026",

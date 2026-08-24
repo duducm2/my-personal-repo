@@ -64,7 +64,7 @@ PT_NARRATIVES: dict[tuple[str, str], str] = {
         "| ----------------------- | --------------------------------------------------------- |\n"
         "| Descoberta e validação  | Tooling PT requisitos → protótipos → check-ins com clientes |\n"
         "| Priorização / entrada | Gate de Pesquisa Aplicada no CIP ServiceNow                   |\n"
-        "| Habilitação de stakeholders  | Nível 4 de Maturidade em Pesquisa nas Américas (templates, treinamento)  |\n"
+        "| Habilitação de stakeholders  | Nível 4 de Maturidade em UX nas Américas (templates, treinamento)  |\n"
         "| Ownership de resultados       | CSI 4,86 / NPS 9,94 méd. (2024–2025)                      |\n\n"
         "</div>\n"
         '<p><img src="{{canonical:asset_prefix}}pictures/diagrams/future-career-path.png" '

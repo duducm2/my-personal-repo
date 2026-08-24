@@ -440,8 +440,8 @@ img[src*="story-flow"] {
 
 ## Software confiável e centrado no humano para serviços complexos
 
-- Acredito que software em organizações de serviço deve ser **confiável, utilizável e útil**, especialmente quando afeta pessoas reais e negócios.
-- Meu trabalho centra **tecnologia**, **gestão de projetos** e **Pesquisa Aplicada**: trazendo evidência e necessidades dos usuários para como construímos e entregamos.
+- Acredito que software em organizações de serviço deve ser **confiável, utilizável e útil**, especialmente quando afeta pessoas reais e negócios.
+- Meu trabalho centra **tecnologia**, **gestão de projetos** e **Pesquisa Aplicada**: trazendo evidência e necessidades dos usuários para como construímos e entregamos.
 - Este portfólio percorre essa história.
 
 <p><img src="../pictures/diagrams/story-flow.png" alt="Diagram story-flow: Why story flow" /></p>
@@ -658,17 +658,17 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 <div class="slide-art-top-right">
 <p class="uxgs-logo"><img src="../pictures/work/bdu/UXGS%20Logo_verticle.svg" alt="Applied Research area logo" /></p>
 <p class="building-img"><img src="../pictures/work/in-front-of-the-bosch-building.jpg" alt="In front of Bosch building" /></p>
-<p class="americas-img"><img src="../pictures/work/americas-team-2025.jpg" alt="Americas Team 2025 - Applied Research Maturity Level 4" /></p>
+<p class="americas-img"><img src="../pictures/work/americas-team-2025.jpg" alt="Americas Team 2025 - UX Maturity Level 4" /></p>
 </div>
 
-| Área                               | Conquista                                                                                                                        |
-| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| Cargo                               | Pesquisa Aplicada e Tecnologia – Bosch Brasil (mai 2023 – atual); Especialista em Pesquisa Aplicada e Project Champion na GS/BDU            |
-| Internacional                      | Realizei duas viagens à Alemanha (2024, 2025) por trabalho relacionado ao cargo                                                                            |
-| Rastreamento CO2 (GS/Pesquisa Aplicada) | Conduzi prospecção de mercado para telemetria CO2; achado: falta de demanda de mercado                                                               |
-| Projeto tooling (PT)               | **Liderei** a entrega técnica e gestão do projeto de requisitos a protótipos de alta fidelidade, com check-ins regulares com clientes. |
-| Maturidade em Pesquisa Aplicada          | **Liderei** as Américas ao Nível 4 – governança, templates, treinamento                                                                          |
-| CIP + Pesquisa Aplicada             | **Integrei** ao ServiceNow CIM; gate de Pesquisa Aplicada no fluxo CIP                                                         |
+| Área                               | Conquista                                                                                                                        |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Cargo                               | Pesquisa Aplicada e Tecnologia – Bosch Brasil (mai 2023 – atual); Especialista em Pesquisa Aplicada e Project Champion na GS/BDU            |
+| Internacional                      | Realizei duas viagens à Alemanha (2024, 2025) por trabalho relacionado ao cargo                                                                            |
+| Rastreamento CO2 (GS/Pesquisa Aplicada) | Conduzi prospecção de mercado para telemetria CO2; achado: falta de demanda de mercado                                                               |
+| Projeto tooling (PT)               | **Liderei** a entrega técnica e gestão do projeto de requisitos a protótipos de alta fidelidade, com check-ins regulares com clientes. |
+| Maturidade em UX          | **Liderei** as Américas ao Nível 4 – governança, templates, treinamento                                                                          |
+| CIP + Pesquisa Aplicada             | **Integrei** ao ServiceNow CIM; gate de Pesquisa Aplicada no fluxo CIP                                                         |
 | Colaboração                      | Sou tutor de estudantes da Digital Talent Academy                                                                                           |
 
 
@@ -1345,10 +1345,10 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 }
 </style>
 
-## Futuro – Aspirações de Carreira, Tipos de Vaga e Caminhos Priorizados para Liderança
-
-<div class="future-career-wrap">
-<p><img src="../pictures/diagrams/future-career-path.png" alt="Diagrama future-career-path: Caminhos priorizados para liderança, incluindo AI Scrum Master" /></p>
+## Futuro – Aspirações de Carreira, Tipos de Vaga e Caminhos Priorizados para Liderança
+
+<div class="future-career-wrap">
+<p><img src="../pictures/diagrams/future-career-path.png" alt="Diagrama future-career-path: Caminhos priorizados para liderança, incluindo AI Scrum Master" /></p>
 </div>
 
 <!-- Diagram: future-career-path (mermaid/diagrams.md). Export to future-career-path.png -->

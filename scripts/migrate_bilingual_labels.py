@@ -374,7 +374,7 @@ def main() -> None:
             "bosch-ar-2023",
             "general",
             1,
-        ): "Apoiei as Américas a atingir **Nível 4 de Maturidade em Pesquisa na Global Services**: governança, templates, treinamento. **CSI 4,86 / NPS 9,94** méd. nos meus projetos (2024–2025).",
+        ): "Apoiei as Américas a atingir **Nível 4 de Maturidade em UX na Global Services**: governança, templates, treinamento. **CSI 4,86 / NPS 9,94** méd. nos meus projetos (2024–2025).",
         (
             "bosch-ar-2023",
             "general",
@@ -439,7 +439,7 @@ def main() -> None:
             "bosch-ar-2023",
             "product-owner",
             3,
-        ): "Apoiei as Américas a atingir **Nível 4 de Maturidade em Pesquisa**: governança, templates e treinamento que **produtizaram** a prática de pesquisa.",
+        ): "Apoiei as Américas a atingir **Nível 4 de Maturidade em UX**: governança, templates e treinamento que **produtizaram** a prática de UX.",
         (
             "bosch-ar-2023",
             "product-owner",
@@ -643,8 +643,8 @@ def main() -> None:
             "Evidência de priorização/entrada.",
         ),
         "maturity-l4": (
-            "Nível 4 de Maturidade em Pesquisa – Américas",
-            "Governança, templates e treinamento que produtizaram a prática de pesquisa.",
+            "Nível 4 de Maturidade em UX – Américas",
+            "Governança, templates e treinamento que produtizaram a prática de UX.",
             "Habilitação de stakeholders.",
         ),
         "outcomes-2024-2025": (

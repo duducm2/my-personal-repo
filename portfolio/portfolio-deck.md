@@ -658,7 +658,7 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 <div class="slide-art-top-right">
 <p class="uxgs-logo"><img src="../pictures/work/bdu/UXGS%20Logo_verticle.svg" alt="Applied Research area logo" /></p>
 <p class="building-img"><img src="../pictures/work/in-front-of-the-bosch-building.jpg" alt="In front of Bosch building" /></p>
-<p class="americas-img"><img src="../pictures/work/americas-team-2025.jpg" alt="Americas Team 2025 - Applied Research Maturity Level 4" /></p>
+<p class="americas-img"><img src="../pictures/work/americas-team-2025.jpg" alt="Americas Team 2025 - UX Maturity Level 4" /></p>
 </div>
 
 | Area                               | Achievement                                                                                                                        |
@@ -667,7 +667,7 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 | International                      | Two trips to Germany (2024, 2025) for role-related work                                                                            |
 | CO2 Tracking (GS/Applied Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand                                                               |
 | Tooling project (PT)               | Led technical delivery and project management from requirements through high-fidelity prototypes, with regular customer check-ins. |
-| Applied Research Maturity          | Led Americas to Level 4 – governance, templates, training                                                                          |
+| UX Maturity          | Led Americas to Level 4 – governance, templates, training                                                                          |
 | CIP + Applied Research             | Led integration into ServiceNow CIM; Applied Research gate in CIP workflow                                                         |
 | Collaboration                      | Tutor of Digital Talent Academy Students                                                                                           |
 

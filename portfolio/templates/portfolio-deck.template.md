@@ -467,11 +467,11 @@ table thead { display: none !important; }
 
 ## Who I Am – Snapshot
 
-| Attribute | Value                                                                                                                                                                                                                                                                         |
-| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Name      | {{canonical:who_name}}                                                                                                                                                                                                                                                   |
-| Role      | {{canonical:who_role}}                                                                                                                                                                                                                             |
-| Impact    | {{canonical:who_impact}}                                                                                                                                  |
+| Attribute | Value                     |
+| --------- | ------------------------- |
+| Name      | {{canonical:who_name}}    |
+| Role      | {{canonical:who_role}}    |
+| Impact    | {{canonical:who_impact}}  |
 | Contact   | {{canonical:who_contact}} |
 
 <p class="photo-at-bottom"><img src="{{canonical:asset_prefix}}pictures/personal/my-photo-rectangle.png" alt="Eduardo Figueiredo" /></p>  
@@ -656,11 +656,10 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 <div class="slide-art-top-right">
 <p class="uxgs-logo"><img src="{{canonical:asset_prefix}}pictures/work/bdu/UXGS%20Logo_verticle.svg" alt="Applied Research area logo" /></p>
 <p class="building-img"><img src="{{canonical:asset_prefix}}pictures/work/in-front-of-the-bosch-building.jpg" alt="In front of Bosch building" /></p>
-<p class="americas-img"><img src="{{canonical:asset_prefix}}pictures/work/americas-team-2025.jpg" alt="Americas Team 2025 - Applied Research Maturity Level 4" /></p>
+<p class="americas-img"><img src="{{canonical:asset_prefix}}pictures/work/americas-team-2025.jpg" alt="Americas Team 2025 - UX Maturity Level 4" /></p>
 </div>
 
 {{canonical:present_table}}
-
 
 ---
 
@@ -1201,6 +1200,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 ## {{canonical:tooling_h2}}
 
 {{canonical:tooling_bullet}}
+
 <!-- - **Workshop facilitation:** Ran strategy and team workshops with large groups (e.g. Digital WS, Joinville 2024). -->
 
 <div class="tooling-pt-layout">

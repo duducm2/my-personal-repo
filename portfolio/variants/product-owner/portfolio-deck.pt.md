@@ -440,8 +440,8 @@ img[src*="story-flow"] {
 
 ## Da descoberta à entrega para produtos confiáveis e centrados no humano
 
-- Acredito que produtos em organizações de serviço devem ser **confiáveis, utilizáveis e úteis**, especialmente quando afetam pessoas reais e negócios.
-- Meu trabalho conecta **necessidades de stakeholders**, **priorização** e **Pesquisa Aplicada**: trazendo evidência sobre o que construímos, por quê e em qual ordem.
+- Acredito que produtos em organizações de serviço devem ser **confiáveis, utilizáveis e úteis**, especialmente quando afetam pessoas reais e negócios.
+- Meu trabalho conecta **necessidades de stakeholders**, **priorização** e **Pesquisa Aplicada**: trazendo evidência sobre o que construímos, por quê e em qual ordem.
 - Este portfólio mostra esse caminho descoberta → entrega por meio de projetos reais.
 
 <p><img src="../../../pictures/diagrams/story-flow.png" alt="Diagram story-flow: Why story flow" /></p>
@@ -658,17 +658,17 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 <div class="slide-art-top-right">
 <p class="uxgs-logo"><img src="../../../pictures/work/bdu/UXGS%20Logo_verticle.svg" alt="Applied Research area logo" /></p>
 <p class="building-img"><img src="../../../pictures/work/in-front-of-the-bosch-building.jpg" alt="In front of Bosch building" /></p>
-<p class="americas-img"><img src="../../../pictures/work/americas-team-2025.jpg" alt="Americas Team 2025 - Applied Research Maturity Level 4" /></p>
+<p class="americas-img"><img src="../../../pictures/work/americas-team-2025.jpg" alt="Americas Team 2025 - UX Maturity Level 4" /></p>
 </div>
 
-| Área                               | Conquista                                                                                                                       |
-| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| Cargo (oficial)                    | Analista de Pesquisa Aplicada e Design – Bosch Brasil (mai 2023 – atual); Especialista em Pesquisa Aplicada e Project Champion na GS/BDU       |
-| Internacional                      | Realizei duas viagens à Alemanha (2024, 2025) por trabalho relacionado ao cargo                                                                           |
-| Rastreamento CO2 (GS/Pesquisa Aplicada) | Conduzi prospecção de mercado para telemetria CO2; achado: falta de demanda — resultado de descoberta que interrompeu trabalho de baixo valor            |
-| Projeto tooling (PT)               | Conduzi de requisitos a protótipos de alta fidelidade com **check-ins regulares com clientes**; ownership descoberta→entrega com parceiros técnicos |
-| Maturidade em Pesquisa Aplicada          | Apoiei as Américas a atingir Nível 4 – governança, templates, treinamento que **produtizaram** a prática de pesquisa para stakeholders                        |
-| CIP + Pesquisa Aplicada             | **Integrei** ServiceNow CIM; Pesquisa Aplicada como **gate de entrada / qualidade** para o trabalho certo avançar                           |
+| Área                               | Conquista                                                                                                                       |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| Cargo (oficial)                    | Analista de Pesquisa Aplicada e Design – Bosch Brasil (mai 2023 – atual); Especialista em Pesquisa Aplicada e Project Champion na GS/BDU       |
+| Internacional                      | Realizei duas viagens à Alemanha (2024, 2025) por trabalho relacionado ao cargo                                                                           |
+| Rastreamento CO2 (GS/Pesquisa Aplicada) | Conduzi prospecção de mercado para telemetria CO2; achado: falta de demanda — resultado de descoberta que interrompeu trabalho de baixo valor            |
+| Projeto tooling (PT)               | Conduzi de requisitos a protótipos de alta fidelidade com **check-ins regulares com clientes**; ownership descoberta→entrega com parceiros técnicos |
+| Maturidade em UX          | Apoiei as Américas a atingir Nível 4 – governança, templates, treinamento que **produtizaram** a prática de UX para stakeholders                        |
+| CIP + Pesquisa Aplicada             | **Integrei** ServiceNow CIM; Pesquisa Aplicada como **gate de entrada / qualidade** para o trabalho certo avançar                           |
 | Colaboração                      | Sou tutor de estudantes da Digital Talent Academy                                                                                          |
 
 
@@ -1350,22 +1350,22 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 }
 </style>
 
-## Futuro – Como Trabalho
-
-- **O que trago:** descoberta → protótipos → check-ins com stakeholders; gates de entrada/qualidade; métricas de resultado (CSI/NPS).
-
-<div class="future-career-wrap">
-<div class="future-po-bullets">
-
-| Competência              | Evidência do meu trabalho                                     |
-| ----------------------- | --------------------------------------------------------- |
-| Descoberta e validação  | Tooling PT requisitos → protótipos → check-ins com clientes |
-| Priorização / entrada | Gate de Pesquisa Aplicada no CIP ServiceNow                   |
-| Habilitação de stakeholders  | Nível 4 de Maturidade em Pesquisa nas Américas (templates, treinamento)  |
-| Ownership de resultados       | CSI 4,86 / NPS 9,94 méd. (2024–2025)                      |
-
-</div>
-<p><img src="../../../pictures/diagrams/future-career-path.png" alt="Diagrama future-career-path: Caminhos de carreira priorizados" /></p>
+## Futuro – Como Trabalho
+
+- **O que trago:** descoberta → protótipos → check-ins com stakeholders; gates de entrada/qualidade; métricas de resultado (CSI/NPS).
+
+<div class="future-career-wrap">
+<div class="future-po-bullets">
+
+| Competência              | Evidência do meu trabalho                                     |
+| ----------------------- | --------------------------------------------------------- |
+| Descoberta e validação  | Tooling PT requisitos → protótipos → check-ins com clientes |
+| Priorização / entrada | Gate de Pesquisa Aplicada no CIP ServiceNow                   |
+| Habilitação de stakeholders  | Nível 4 de Maturidade em UX nas Américas (templates, treinamento)  |
+| Ownership de resultados       | CSI 4,86 / NPS 9,94 méd. (2024–2025)                      |
+
+</div>
+<p><img src="../../../pictures/diagrams/future-career-path.png" alt="Diagrama future-career-path: Caminhos de carreira priorizados" /></p>
 </div>
 
 <!-- Diagram: future-career-path (mermaid/diagrams.md). Export to future-career-path.png -->

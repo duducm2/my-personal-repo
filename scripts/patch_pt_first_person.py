@@ -33,7 +33,7 @@ PRESENT_TABLE_PT = {
         "| Internacional                      | Realizei duas viagens à Alemanha (2024, 2025) por trabalho relacionado ao cargo                                                                            |\n"
         "| Rastreamento CO2 (GS/Pesquisa Aplicada) | Conduzi prospecção de mercado para telemetria CO2; achado: falta de demanda de mercado                                                               |\n"
         "| Projeto tooling (PT)               | **Liderei** a entrega técnica e gestão do projeto de requisitos a protótipos de alta fidelidade, com check-ins regulares com clientes. |\n"
-        "| Maturidade em Pesquisa Aplicada          | **Liderei** as Américas ao Nível 4 – governança, templates, treinamento                                                                          |\n"
+        "| Maturidade em UX          | **Liderei** as Américas ao Nível 4 – governança, templates, treinamento                                                                          |\n"
         "| CIP + Pesquisa Aplicada             | **Integrei** ao ServiceNow CIM; gate de Pesquisa Aplicada no fluxo CIP                                                         |\n"
         "| Colaboração                      | Sou tutor de estudantes da Digital Talent Academy                                                                                           |"
     ),
@@ -44,7 +44,7 @@ PRESENT_TABLE_PT = {
         "| Internacional                      | Realizei duas viagens à Alemanha (2024, 2025) por trabalho relacionado ao cargo                                                                           |\n"
         "| Rastreamento CO2 (GS/Pesquisa Aplicada) | Conduzi prospecção de mercado para telemetria CO2; achado: falta de demanda — resultado de descoberta que interrompeu trabalho de baixo valor            |\n"
         "| Projeto tooling (PT)               | Conduzi de requisitos a protótipos de alta fidelidade com **check-ins regulares com clientes**; ownership descoberta→entrega com parceiros técnicos |\n"
-        "| Maturidade em Pesquisa Aplicada          | Apoiei as Américas a atingir Nível 4 – governança, templates, treinamento que **produtizaram** a prática de pesquisa para stakeholders                        |\n"
+        "| Maturidade em UX          | Apoiei as Américas a atingir Nível 4 – governança, templates, treinamento que **produtizaram** a prática de UX para stakeholders                        |\n"
         "| CIP + Pesquisa Aplicada             | **Integrei** ServiceNow CIM; Pesquisa Aplicada como **gate de entrada / qualidade** para o trabalho certo avançar                           |\n"
         "| Colaboração                      | Sou tutor de estudantes da Digital Talent Academy                                                                                          |"
     ),
@@ -114,7 +114,9 @@ def patch_narratives() -> None:
         w = csv.DictWriter(f, fieldnames=rows[0].keys(), quoting=csv.QUOTE_MINIMAL)
         w.writeheader()
         w.writerows(rows)
-    print(f"patched narratives.csv ({len(PROFILE_PT) + len(PRESENT_TABLE_PT) + 1} fields)")
+    print(
+        f"patched narratives.csv ({len(PROFILE_PT) + len(PRESENT_TABLE_PT) + 1} fields)"
+    )
 
 
 def patch_bullets() -> None:

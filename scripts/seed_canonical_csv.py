@@ -121,7 +121,7 @@ def main() -> None:
             "bosch-ar-2023",
             "general",
             1,
-            "Supported Americas to reach **Research Maturity Level 4 inside Global Services**: governance, templates, training. **CSI 4.86 / NPS 9.94** avg. in my projects (2024–2025).",
+            "Supported Americas to reach **UX Maturity Level 4 inside Global Services**: governance, templates, training. **CSI 4.86 / NPS 9.94** avg. in my projects (2024–2025).",
         ),
         (
             "bosch-ar-2023",
@@ -200,7 +200,7 @@ def main() -> None:
             "bosch-ar-2023",
             "product-owner",
             3,
-            "Supported Americas to reach **Research Maturity Level 4**: governance, templates, and training that productized research practice for stakeholders.",
+            "Supported Americas to reach **UX Maturity Level 4**: governance, templates, and training that productized UX practice for stakeholders.",
         ),
         (
             "bosch-ar-2023",
@@ -395,8 +395,8 @@ def main() -> None:
             },
             {
                 "id": "maturity-l4",
-                "name": "Americas Research Maturity Level 4",
-                "summary": "Governance, templates, and training that productized research practice.",
+                "name": "Americas UX Maturity Level 4",
+                "summary": "Governance, templates, and training that productized UX practice.",
                 "csi": "",
                 "nps": "",
                 "notes": "Stakeholder enablement.",
@@ -487,7 +487,7 @@ def main() -> None:
             "| International                      | Two trips to Germany (2024, 2025) for role-related work                                                                            |\n"
             "| CO2 Tracking (GS/Applied Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand                                                               |\n"
             "| Tooling project (PT)               | Led technical delivery and project management from requirements through high-fidelity prototypes, with regular customer check-ins. |\n"
-            "| Applied Research Maturity          | Led Americas to Level 4 – governance, templates, training                                                                          |\n"
+            "| UX Maturity          | Led Americas to Level 4 – governance, templates, training                                                                          |\n"
             "| CIP + Applied Research             | Led integration into ServiceNow CIM; Applied Research gate in CIP workflow                                                         |\n"
             "| Collaboration                      | Tutor of Digital Talent Academy Students                                                                                           |",
         ),
@@ -500,7 +500,7 @@ def main() -> None:
             "| International                      | Two trips to Germany (2024, 2025) for role-related work                                                                           |\n"
             "| CO2 Tracking (GS/Applied Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand — a discovery outcome that stopped low-value work            |\n"
             "| Tooling project (PT)               | Requirements → high-fidelity prototypes → regular **customer check-ins**; discovery-to-delivery ownership with technical partners |\n"
-            "| Applied Research Maturity          | Americas Level 4 – governance, templates, training that **productized** research practice for stakeholders                        |\n"
+            "| UX Maturity          | Americas Level 4 – governance, templates, training that **productized** UX practice for stakeholders                        |\n"
             "| CIP + Applied Research             | ServiceNow CIM integration; Applied Research as an **intake / quality gate** so the right work advances                           |\n"
             "| Collaboration                      | Tutor of Digital Talent Academy Students                                                                                          |",
         ),
@@ -583,7 +583,7 @@ def main() -> None:
             "| ----------------------- | --------------------------------------------------------- |\n"
             "| Discovery & validation  | Tooling PT requirements → prototypes → customer check-ins |\n"
             "| Prioritization / intake | ServiceNow Applied Research gate in CIP                   |\n"
-            "| Stakeholder enablement  | Americas Research Maturity Level 4 (templates, training)  |\n"
+            "| Stakeholder enablement  | Americas UX Maturity Level 4 (templates, training)  |\n"
             "| Outcome ownership       | CSI 4.86 / NPS 9.94 avg. (2024–2025)                      |\n\n"
             "</div>\n"
             '<p><img src="{{canonical:asset_prefix}}pictures/diagrams/future-career-path.png" alt="Diagram future-career-path: Prioritized career paths" /></p>\n'
