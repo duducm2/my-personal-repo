@@ -211,7 +211,48 @@ def main() -> int:
         issues.append("field_labels.csv missing")
     else:
         fl = load("field_labels.csv")
+        ui_labels = [r for r in fl if r["domain"] == "resume_ui"]
+        if len(ui_labels) < 13:
+            issues.append(f"field_labels resume_ui want >=13 got {len(ui_labels)}")
         ok.append(f"field_labels.csv: {len(fl)} key labels (EN/PT)")
+
+    # PT translation completeness
+    PT_IDENTICAL_OK = {
+        ("general", "future_career_style"),
+        ("product-owner", "future_career_style"),
+        ("general", "future_intro"),  # intentionally empty in EN and PT
+    }
+    narratives_rows = load("narratives.csv")
+    pt_gaps: list[str] = []
+    for row in narratives_rows:
+        key = (row["variant"], row["field"])
+        pt = row.get("text_pt", "").strip()
+        en = row.get("text_en", row.get("text", "")).strip()
+        if key in PT_IDENTICAL_OK:
+            continue
+        if not pt:
+            pt_gaps.append(f"{row['variant']}/{row['field']}: text_pt empty")
+        elif pt == en:
+            pt_gaps.append(f"{row['variant']}/{row['field']}: text_pt identical to EN")
+    if pt_gaps:
+        for gap in pt_gaps:
+            issues.append(f"PT narrative gap: {gap}")
+    else:
+        ok.append("narratives.csv: PT translations complete (required fields)")
+
+    bullet_pt_gaps: list[str] = []
+    for row in load("experience_bullets.csv"):
+        pt = row.get("text_pt", "").strip()
+        en = row.get("text_en", row.get("text", "")).strip()
+        if not pt or pt == en:
+            bullet_pt_gaps.append(
+                f"{row['experience_id']}/{row['variant']}/{row['sort_order']}"
+            )
+    if bullet_pt_gaps:
+        for gap in bullet_pt_gaps:
+            issues.append(f"PT bullet gap: {gap}")
+    else:
+        ok.append("experience_bullets.csv: PT text present")
 
     pubs = load("publications.csv")
     if len(pubs) != 2:
@@ -264,13 +305,16 @@ def main() -> int:
                 issues.append(f"narratives missing {var}/{field}")
     ok.append(f"narratives.csv: {len(nars)} fields covering both variants")
 
-    # Generated files
-    gen_resume_g = (ROOT / "resume" / "typst" / "content.typ").read_text(
+    # Generated files (EN lang-suffixed + legacy content.typ)
+    gen_resume_g = (ROOT / "resume" / "typst" / "content.en.typ").read_text(
         encoding="utf-8"
     )
     gen_resume_po = (
-        ROOT / "resume" / "variants" / "product-owner" / "content.typ"
+        ROOT / "resume" / "variants" / "product-owner" / "content.en.typ"
     ).read_text(encoding="utf-8")
+    gen_resume_g_pt = (ROOT / "resume" / "typst" / "content.pt.typ").read_text(
+        encoding="utf-8"
+    )
     for label, text, needles in (
         (
             "general content.typ",
@@ -302,6 +346,12 @@ def main() -> int:
                 issues.append(f"{label} missing {n!r}")
         ok.append(f"{label}: key strings present")
 
+    if "#let ui = (" not in gen_resume_g_pt:
+        issues.append("PT content.pt.typ missing ui labels dict")
+    if "EXPERIÊNCIA" not in gen_resume_g_pt:
+        issues.append("PT content.pt.typ missing Portuguese section labels")
+    ok.append("content.pt.typ: UI labels and PT section headings present")
+
     # Publication quotes in generated Typst
     if '""Measuring' in gen_resume_g:
         issues.append("general content.typ has doubled quotes in publications")
@@ -313,10 +363,11 @@ def main() -> int:
     if "Product Owner" in tagline_line:
         issues.append("PO content.typ tagline still mentions Product Owner")
 
-    deck_g = (ROOT / "portfolio" / "portfolio-deck.md").read_text(encoding="utf-8")
+    deck_g = (ROOT / "portfolio" / "portfolio-deck.en.md").read_text(encoding="utf-8")
     deck_po = (
-        ROOT / "portfolio" / "variants" / "product-owner" / "portfolio-deck.md"
+        ROOT / "portfolio" / "variants" / "product-owner" / "portfolio-deck.en.md"
     ).read_text(encoding="utf-8")
+    deck_g_pt = (ROOT / "portfolio" / "portfolio-deck.pt.md").read_text(encoding="utf-8")
     if "{{canonical:" in deck_g or "{{canonical:" in deck_po:
         issues.append("unresolved {{canonical:}} slots in generated decks")
     for label, deck, needles in (
@@ -349,6 +400,10 @@ def main() -> int:
             if n not in deck:
                 issues.append(f"{label} missing {n!r}")
         ok.append(f"{label}: key narrative + asset paths OK")
+
+    if "Por que trabalho" not in deck_g_pt:
+        issues.append("PT general deck missing Portuguese why slide")
+    ok.append("portfolio-deck.pt.md: Portuguese narrative present")
 
     # CSI project table still in decks (not slotted — structural)
     csi_projects = [

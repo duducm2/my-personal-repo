@@ -1,0 +1,59 @@
+# GENERATED — portfolio content layer
+variant: general
+lang: pt
+fields:
+  asset_prefix: "../"
+  cip_pipeline_h2: "Presente – Integração CIP e Pesquisa Aplicada: Pipeline metodológico"
+  closing_summary: "Trago evidência de Pesquisa Aplicada, suporte tecnológico e entrega de projetos para ajudar equipes a construir soluções confiáveis, centradas no usuário, com dados claros, accountability e impacto mensurável."
+  csi_h2: "Presente – Desempenho CSI e NPS (2024–2025)"
+  deck_title: "Eduardo Figueiredo – Portfólio"
+  email: "edu.evangelista.figueiredo@gmail.com"
+  future_career_body: |
+    ## Futuro – Aspirações de Carreira, Tipos de Vaga e Caminhos Priorizados para Liderança
+    
+    <div class="future-career-wrap">
+    <p><img src="../pictures/diagrams/future-career-path.png" alt="Diagrama future-career-path: Caminhos priorizados para liderança, incluindo AI Scrum Master" /></p>
+    </div>
+  future_career_style: |
+    .future-career-wrap {
+      display: flex !important; justify-content: center !important; align-items: center !important;
+      min-height: 62vh !important; width: 100% !important; margin-top: 0.75rem !important;
+    }
+    .future-career-wrap p { margin: 0 !important; text-align: center !important; }
+    .future-career-wrap img {
+      width: 43% !important; max-width: 43% !important; height: auto !important;
+      display: block !important; margin: 20px auto 0 !important;
+      border: none !important; box-shadow: none !important;
+    }
+  future_diagram_alt: "Diagrama ai-agile-research: IA e Ágil em Pesquisa Aplicada, papel AI Scrum Master"
+  future_h2: "Futuro"
+  future_intro: ""
+  lattes_url: "https://lattes.cnpq.br/2708641049892967"
+  linkedin_display: "linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b"
+  linkedin_url: "https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b"
+  orcid_url: "https://orcid.org/0009-0002-5178-6157"
+  phone: "+55 (19) 98176-6583"
+  present_h2: "Presente – Pesquisa Aplicada e Tecnologia (Bosch Brasil)"
+  present_table: |
+    | Área                               | Conquista                                                                                                                        |
+    | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+    | Cargo                               | Pesquisa Aplicada e Tecnologia – Bosch Brasil (mai 2023 – atual); Especialista em Pesquisa Aplicada e Project Champion na GS/BDU            |
+    | Internacional                      | Duas viagens à Alemanha (2024, 2025) por trabalho relacionado ao cargo                                                                            |
+    | Rastreamento CO2 (GS/Pesquisa Aplicada) | Prospecção de mercado para telemetria CO2; achado: falta de demanda de mercado                                                               |
+    | Projeto tooling (PT)               | Liderança na entrega técnica e gestão do projeto de requisitos a protótipos de alta fidelidade, com check-ins regulares com clientes. |
+    | Maturidade em Pesquisa Aplicada          | Liderança das Américas ao Nível 4 – governança, templates, treinamento                                                                          |
+    | CIP + Pesquisa Aplicada             | Integração ao ServiceNow CIM; gate de Pesquisa Aplicada no fluxo CIP                                                         |
+    | Colaboração                      | Tutor de estudantes da Digital Talent Academy                                                                                           |
+  relevance_h2: "Presente – Modelo de avaliação de relevância"
+  tooling_bullet: "- **Projeto tooling para PT:** Liderança na **entrega técnica e gestão do projeto** de requisitos a protótipos de alta fidelidade, com **check-ins regulares com clientes**."
+  tooling_h2: "Implementação técnica – Projeto Tooling para PT"
+  who_contact: "Nova Odessa, SP – Brasil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583"
+  who_impact: "Ajudo equipes a governar melhor e melhorar mais rápido, usando Pesquisa Aplicada para priorizar, decidir e entregar com dados claros e accountability."
+  who_name: "Eduardo M. de A. Figueiredo"
+  who_role: "Pesquisa Aplicada, Tecnologia e Gestão de Projetos"
+  why_bullets: |
+    - Acredito que software em organizações de serviço deve ser **confiável, utilizável e útil**, especialmente quando afeta pessoas reais e negócios.
+    - Meu trabalho centra **tecnologia**, **gestão de projetos** e **Pesquisa Aplicada**: trazendo evidência e necessidades dos usuários para como construímos e entregamos.
+    - Este portfólio percorre essa história.
+  why_h1: "Por que trabalho com Tecnologia, Gestão de Projetos e Pesquisa Aplicada"
+  why_h2: "Software confiável e centrado no humano para serviços complexos"

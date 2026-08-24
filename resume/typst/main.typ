@@ -3,7 +3,7 @@
 // Two-column grid (32% Sidebar / 68% Main) per refactor_cv_layout_e4f9a2 plan.
 // =============================================================================
 
-#import "content.typ": *
+#import sys.inputs.at("content", default: "content.en.typ"): *
 
 // -----------------------------------------------------------------------------
 // 1. Setup and Global Styles (Plan §1)
@@ -72,29 +72,29 @@
         ]
       ]
       // Contact (short labels before each line)
-      #sidebar-heading[Contact]
-      #block(below: 0.45em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[Ph.:] #h(0.5em) #text(size: 9pt)[#phone]]
-      #block(below: 0.45em)[#grid(columns: (auto, 1fr), gutter: 0.5em, align: (left, left))[#text(weight: "bold", size: 9pt, fill: highlight-blue)[E-mail:] #box[#text(size: 7.5pt, fill: rgb("#444444"))[#email]]]]
-      #block(below: 0.45em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[LinkedIn:] #h(0.5em) #link(linkedin-url)[#text(size: 9pt, fill: highlight-blue)[#linkedin]]]
-      #block(below: 0.45em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[Lattes:] #h(0.5em) #link(lattes-url)[#text(size: 9pt, fill: highlight-blue)[#lattes]]]
-      #block(below: 0.45em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[ORCID:] #h(0.5em) #link(orcid-url)[#text(size: 9pt, fill: highlight-blue)[#orcid]]]
-      #block(below: 0.9em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[Location:] #h(0.5em) #text(size: 9pt)[#location]]
+      #sidebar-heading[#ui.contact]
+      #block(below: 0.45em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[#ui.phone_abbr] #h(0.5em) #text(size: 9pt)[#phone]]
+      #block(below: 0.45em)[#grid(columns: (auto, 1fr), gutter: 0.5em, align: (left, left))[#text(weight: "bold", size: 9pt, fill: highlight-blue)[#ui.email:] #box[#text(size: 7.5pt, fill: rgb("#444444"))[#email]]]]
+      #block(below: 0.45em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[#ui.linkedin:] #h(0.5em) #link(linkedin-url)[#text(size: 9pt, fill: highlight-blue)[#linkedin]]]
+      #block(below: 0.45em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[#ui.lattes:] #h(0.5em) #link(lattes-url)[#text(size: 9pt, fill: highlight-blue)[#lattes]]]
+      #block(below: 0.45em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[#ui.orcid:] #h(0.5em) #link(orcid-url)[#text(size: 9pt, fill: highlight-blue)[#orcid]]]
+      #block(below: 0.9em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[#ui.location:] #h(0.5em) #text(size: 9pt)[#location]]
       // Profile (includes strengths in bold)
-      #sidebar-heading[Profile]
+      #sidebar-heading[#ui.profile]
       #block(width: 100%, below: 0.75em)[#sidebar-text[#profile]]
     // Languages
-    #sidebar-heading[Languages]
+    #sidebar-heading[#ui.languages]
     #block(below: 0.4em)[
       #text(size: 9pt, fill: rgb("#444444"))[#languages]
     ]
     #block(below: 0.5em)[]
     // Skills (Core: list; Tech: pills/tags)
-    #sidebar-heading[Skills]
-    #for (cat, sub) in skills [
+    #sidebar-heading[#ui.skills]
+    #for (key, cat, sub) in skills [
       #block(above: 0.65em)[
         #text(weight: "bold", size: 9pt, fill: highlight-blue)[#cat]
         #linebreak()
-        #if cat == "Tech:" [
+        #if key == "Tech" [
           #block(above: 0.3em)[
             #columns(2, gutter: 0.4em)[
               #for (i, item) in sub.enumerate() [
@@ -129,7 +129,7 @@
       #line(length: 100%, stroke: (paint: gray, thickness: 0.4pt))
     ]
     // Experience
-    #section-title[EXPERIENCE]
+    #section-title[#ui.experience]
     #for (date, company, title, bullets) in experience [
       #block(above: 1em, below: 0.9em)[
         #grid(columns: (1fr, auto), gutter: 1em, align: (left, right))[
@@ -145,7 +145,7 @@
     ]
     #block(above: 0.7em, below: 0.35em)[#line(length: 100%, stroke: (paint: gray, thickness: 0.35pt))]
     // Education
-    #section-title[EDUCATION]
+    #section-title[#ui.education]
     #for (degree, inst, thesis) in education [
       #block(above: 0.75em)[
         #strong[#degree] #inst
@@ -154,13 +154,13 @@
     ]
     #block(above: 0.7em, below: 0.35em)[#line(length: 100%, stroke: (paint: gray, thickness: 0.35pt))]
     // Publications
-    #section-title[SELECTED PUBLICATIONS]
+    #section-title[#ui.publications]
     #for (venue, desc) in publications [
       #block(above: 0.65em)[#strong[#venue] #desc]
     ]
     #block(above: 0.7em, below: 0.35em)[#line(length: 100%, stroke: (paint: gray, thickness: 0.35pt))]
     // Additional
-    #section-title[ADDITIONAL]
+    #section-title[#ui.additional]
     #for a in additional [#block(above: 0.6em)[#a]]
   ]
 )

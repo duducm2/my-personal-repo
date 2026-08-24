@@ -16,6 +16,23 @@
 #let orcid-url = "https://orcid.org/0009-0002-5178-6157"
 #let location = "Nova Odessa, SP - Brazil"
 
+#let ui = (
+  contact: "Contact",
+  phone_abbr: "Ph.",
+  email: "E-mail",
+  linkedin: "LinkedIn",
+  lattes: "Lattes",
+  orcid: "ORCID",
+  location: "Location",
+  profile: "Profile",
+  languages: "Languages",
+  skills: "Skills",
+  experience: "EXPERIENCE",
+  education: "EDUCATION",
+  publications: "SELECTED PUBLICATIONS",
+  additional: "ADDITIONAL",
+)
+
 #let profile = [
   Product-minded professional connecting #strong[discovery to delivery]: clarifying needs, aligning stakeholders, and guiding solutions from requirements through validation. Background in #strong[Applied Research, UX, and project delivery] with a full-stack foundation. Uses data, CIP, and #strong[customer check-ins] to prioritize outcomes. Master's in Technology (#strong[completing September 2026]) with #strong[Grade A across all coursework].
 ]
@@ -23,8 +40,8 @@
 #let languages = "Portuguese (Native)   English (Fluent)"
 
 #let skills = (
-  ("Core:", ("Product discovery", "Stakeholder alignment", "Prioritization & outcomes", "Applied Research", "Agile (Scrum / Kanban) / CIP")),
-  ("Tech:", ("Power BI", "Python", "React", "Figma", "SQL", "Matplotlib", "Seaborn", "Git", "GitHub", "Cursor IDE", "Azure", "ServiceNow", "Bitbucket", "HTML", "CSS", "Mermaid", "VS Code", "Excel", "VBA", "AutoHotkey")),
+  ("Core", "Core:", ("Product discovery", "Stakeholder alignment", "Prioritization & outcomes", "Applied Research", "Agile (Scrum / Kanban) / CIP")),
+  ("Tech", "Tech:", ("Power BI", "Python", "React", "Figma", "SQL", "Matplotlib", "Seaborn", "Git", "GitHub", "Cursor IDE", "Azure", "ServiceNow", "Bitbucket", "HTML", "CSS", "Mermaid", "VS Code", "Excel", "VBA", "AutoHotkey")),
 )
 
 #let experience = (

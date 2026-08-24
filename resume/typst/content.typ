@@ -16,6 +16,23 @@
 #let orcid-url = "https://orcid.org/0009-0002-5178-6157"
 #let location = "Nova Odessa, SP - Brazil"
 
+#let ui = (
+  contact: "Contact",
+  phone_abbr: "Ph.",
+  email: "E-mail",
+  linkedin: "LinkedIn",
+  lattes: "Lattes",
+  orcid: "ORCID",
+  location: "Location",
+  profile: "Profile",
+  languages: "Languages",
+  skills: "Skills",
+  experience: "EXPERIENCE",
+  education: "EDUCATION",
+  publications: "SELECTED PUBLICATIONS",
+  additional: "ADDITIONAL",
+)
+
 #let profile = [
   UX and software-quality researcher helping teams build #strong[user-centered solutions] through #strong[Applied Research, technology, and project management]. Full-stack background and #strong[scientific mindset]. Daily use of data, CIP, and #strong[Agentic AI]. #strong[Self-directed and proactive] across design, front-end, Power BI, and Python. Master's in Technology (#strong[completing September 2026]) with #strong[Grade A across all coursework]. Aspiring #strong[AI Scrum Master].
 ]
@@ -23,8 +40,8 @@
 #let languages = "Portuguese (Native)   English (Fluent)"
 
 #let skills = (
-  ("Core:", ("Applied Research", "Project Management", "Continuous Improvement (CIP)", "AI Systems")),
-  ("Tech:", ("Power BI", "Python", "React", "Figma", "SQL", "Matplotlib", "Seaborn", "Git", "GitHub", "Cursor IDE", "Azure", "Bitbucket", "HTML", "CSS", "Mermaid", "VS Code", "Excel", "VBA", "AutoHotkey")),
+  ("Core", "Core:", ("Applied Research", "Project Management", "Continuous Improvement (CIP)", "AI Systems")),
+  ("Tech", "Tech:", ("Power BI", "Python", "React", "Figma", "SQL", "Matplotlib", "Seaborn", "Git", "GitHub", "Cursor IDE", "Azure", "Bitbucket", "HTML", "CSS", "Mermaid", "VS Code", "Excel", "VBA", "AutoHotkey")),
 )
 
 #let experience = (

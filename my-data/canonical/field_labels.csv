@@ -24,3 +24,17 @@ narrative_field,future_diagram_alt,Future diagram alt text,Texto alt diagrama Fu
 narrative_field,future_career_body,Future career body,Corpo slide carreira
 narrative_field,future_career_style,Future career CSS,CSS slide carreira
 narrative_field,closing_summary,Closing summary,Resumo de encerramento
+resume_ui,contact,Contact,Contato
+resume_ui,phone_abbr,Ph.,Tel.
+resume_ui,email,E-mail,E-mail
+resume_ui,linkedin,LinkedIn,LinkedIn
+resume_ui,lattes,Lattes,Lattes
+resume_ui,orcid,ORCID,ORCID
+resume_ui,location,Location,Localização
+resume_ui,profile,Profile,Perfil
+resume_ui,languages,Languages,Idiomas
+resume_ui,skills,Skills,Habilidades
+resume_ui,experience,EXPERIENCE,EXPERIÊNCIA
+resume_ui,education,EDUCATION,FORMAÇÃO ACADÊMICA
+resume_ui,publications,SELECTED PUBLICATIONS,PUBLICAÇÕES SELECIONADAS
+resume_ui,additional,ADDITIONAL,INFORMAÇÕES ADICIONAIS

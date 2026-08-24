@@ -1,0 +1,76 @@
+# GENERATED — portfolio content layer
+variant: product-owner
+lang: pt
+fields:
+  asset_prefix: "../../../"
+  cip_pipeline_h2: "Presente – Gate de entrada CIP: Pipeline metodológico"
+  closing_summary: "Conecto descoberta à entrega: esclareço necessidades, alinho stakeholders, priorizo com evidência e valido resultados — criando produtos confiáveis, centrados no usuário, com impacto mensurável."
+  csi_h2: "Presente – Evidência de resultados: CSI e NPS (2024–2025)"
+  deck_title: "Eduardo Figueiredo – Portfólio"
+  email: "edu.evangelista.figueiredo@gmail.com"
+  future_career_body: |
+    ## Futuro – Como Trabalho
+    
+    - **O que trago:** descoberta → protótipos → check-ins com stakeholders; gates de entrada/qualidade; métricas de resultado (CSI/NPS).
+    
+    <div class="future-career-wrap">
+    <div class="future-po-bullets">
+    
+    | Competência              | Evidência do meu trabalho                                     |
+    | ----------------------- | --------------------------------------------------------- |
+    | Descoberta e validação  | Tooling PT requisitos → protótipos → check-ins com clientes |
+    | Priorização / entrada | Gate de Pesquisa Aplicada no CIP ServiceNow                   |
+    | Habilitação de stakeholders  | Nível 4 de Maturidade em Pesquisa nas Américas (templates, treinamento)  |
+    | Ownership de resultados       | CSI 4,86 / NPS 9,94 méd. (2024–2025)                      |
+    
+    </div>
+    <p><img src="../../../pictures/diagrams/future-career-path.png" alt="Diagrama future-career-path: Caminhos de carreira priorizados" /></p>
+    </div>
+  future_career_style: |
+    .future-career-wrap {
+      display: flex !important; flex-direction: column !important;
+      justify-content: center !important; align-items: center !important;
+      min-height: 55vh !important; width: 100% !important; margin-top: 0.75rem !important;
+      gap: 1rem !important;
+    }
+    .future-career-wrap p { margin: 0 !important; text-align: center !important; }
+    .future-career-wrap img {
+      width: 38% !important; max-width: 38% !important; height: auto !important;
+      display: block !important; margin: 10px auto 0 !important;
+      border: none !important; box-shadow: none !important;
+    }
+    .future-po-bullets {
+      max-width: 85% !important; text-align: left !important; font-size: 0.95em !important;
+    }
+  future_diagram_alt: "Diagrama ai-agile-research: IA e Ágil em Pesquisa Aplicada"
+  future_h2: "Futuro – Contexto de entrega ágil"
+  future_intro: "**Descoberta, priorização e entrega** se encontram em como trabalho com equipes hoje. O diagrama abaixo é o contexto ágil/pesquisa em que atuo."
+  lattes_url: "https://lattes.cnpq.br/2708641049892967"
+  linkedin_display: "linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b"
+  linkedin_url: "https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b"
+  orcid_url: "https://orcid.org/0009-0002-5178-6157"
+  phone: "+55 (19) 98176-6583"
+  present_h2: "Presente – Trabalho orientado a produto na Bosch Brasil"
+  present_table: |
+    | Área                               | Conquista                                                                                                                       |
+    | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+    | Cargo (oficial)                    | Analista de Pesquisa Aplicada e Design – Bosch Brasil (mai 2023 – atual); Especialista em Pesquisa Aplicada e Project Champion na GS/BDU       |
+    | Internacional                      | Duas viagens à Alemanha (2024, 2025) por trabalho relacionado ao cargo                                                                           |
+    | Rastreamento CO2 (GS/Pesquisa Aplicada) | Prospecção de mercado para telemetria CO2; achado: falta de demanda — resultado de descoberta que interrompeu trabalho de baixo valor            |
+    | Projeto tooling (PT)               | Requisitos → protótipos de alta fidelidade → **check-ins regulares com clientes**; ownership descoberta→entrega com parceiros técnicos |
+    | Maturidade em Pesquisa Aplicada          | Nível 4 nas Américas – governança, templates, treinamento que **produtizaram** a prática de pesquisa para stakeholders                        |
+    | CIP + Pesquisa Aplicada             | Integração ServiceNow CIM; Pesquisa Aplicada como **gate de entrada / qualidade** para o trabalho certo avançar                           |
+    | Colaboração                      | Tutor de estudantes da Digital Talent Academy                                                                                          |
+  relevance_h2: "Presente – Modelo de priorização (relevância Baixa / Média / Alta)"
+  tooling_bullet: "- **Projeto tooling para PT:** Conduzi o caminho de **requisitos** a **protótipos de alta fidelidade**, com **check-ins regulares com clientes** — validação com stakeholders integrada à entrega."
+  tooling_h2: "Descoberta → Entrega – Projeto Tooling para PT"
+  who_contact: "Nova Odessa, SP – Brasil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583"
+  who_impact: "Ajudo equipes a priorizar e entregar com clareza: Pesquisa Aplicada para decidir, alinhamento de stakeholders para comprometer e resultados mensuráveis para provar valor."
+  who_name: "Eduardo M. de A. Figueiredo"
+  who_role: "Descoberta, Entrega e Resultados com Stakeholders"
+  why_bullets: |
+    - Acredito que produtos em organizações de serviço devem ser **confiáveis, utilizáveis e úteis**, especialmente quando afetam pessoas reais e negócios.
+    - Meu trabalho conecta **necessidades de stakeholders**, **priorização** e **Pesquisa Aplicada**: trazendo evidência sobre o que construímos, por quê e em qual ordem.
+    - Este portfólio mostra esse caminho descoberta → entrega por meio de projetos reais.
+  why_h1: "Por que descoberta e entrega importam"
+  why_h2: "Da descoberta à entrega para produtos confiáveis e centrados no humano"

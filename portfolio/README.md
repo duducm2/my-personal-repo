@@ -93,5 +93,5 @@ This keeps the portfolio deck **code-based, reproducible, and easy to version-co
 
 - **Canonical data:** [`../my-data/canonical/`](../my-data/canonical/) — edit CSVs, then `python scripts/generate_from_canonical.py`.
 - **Template (layout/CSS):** [`templates/portfolio-deck.template.md`](templates/portfolio-deck.template.md) with `{{canonical:…}}` slots.
-- **Generated decks:** [`portfolio-deck.md`](portfolio-deck.md) (general) and [`variants/product-owner/portfolio-deck.md`](variants/product-owner/portfolio-deck.md).
-- **Ready-to-send PDFs:** [`../output/`](../output/) only — see [`../output/README.md`](../output/README.md). Do not export decks to `portfolio/portfolio-deck.pdf`.
+- **Generated decks:** `portfolio-deck.{en,pt}.md` (general) and `variants/product-owner/portfolio-deck.{en,pt}.md`. Legacy `portfolio-deck.md` is an EN copy.
+- **Ready-to-send PDFs:** [`../output/`](../output/) only (8 files: EN + PT × general + product-owner) — see [`../output/README.md`](../output/README.md). Build with `python scripts/build_outputs.py`.
