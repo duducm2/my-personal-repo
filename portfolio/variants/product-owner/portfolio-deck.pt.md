@@ -469,11 +469,11 @@ table thead { display: none !important; }
 
 ## Who I Am – Snapshot
 
-| Attribute | Value                                                                                                                                                                                                                                                                         |
-| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Name      | Eduardo M. de A. Figueiredo                                                                                                                                                                                                                                                   |
-| Role      | Descoberta, Entrega e Resultados com Stakeholders                                                                                                                                                                                                                             |
-| Impact    | Ajudo equipes a priorizar e entregar com clareza: Pesquisa Aplicada para decidir, alinhamento de stakeholders para comprometer e resultados mensuráveis para provar valor.                                                                                                                                  |
+| Attribute | Value                     |
+| --------- | ------------------------- |
+| Name      | Eduardo M. de A. Figueiredo    |
+| Role      | Descoberta, Entrega e Resultados com Stakeholders    |
+| Impact    | Ajudo equipes a priorizar e entregar com clareza: Pesquisa Aplicada para decidir, alinhamento de stakeholders para comprometer e resultados mensuráveis para provar valor.  |
 | Contact   | Nova Odessa, SP – Brasil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583 |
 
 <p class="photo-at-bottom"><img src="../../../pictures/personal/my-photo-rectangle.png" alt="Eduardo Figueiredo" /></p>  
@@ -670,7 +670,6 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 | Maturidade em UX          | Apoiei as Américas a atingir Nível 4 – governança, templates, treinamento que **produtizaram** a prática de UX para stakeholders                        |
 | CIP + Pesquisa Aplicada             | **Integrei** ServiceNow CIM; Pesquisa Aplicada como **gate de entrada / qualidade** para o trabalho certo avançar                           |
 | Colaboração                      | Sou tutor de estudantes da Digital Talent Academy                                                                                          |
-
 
 ---
 
@@ -1211,6 +1210,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 ## Descoberta → Entrega – Projeto Tooling para PT
 
 - **Projeto tooling para PT:** Conduzi o caminho de **requisitos** a **protótipos de alta fidelidade**, com **check-ins regulares com clientes** — validação com stakeholders integrada à entrega.
+
 <!-- - **Workshop facilitation:** Ran strategy and team workshops with large groups (e.g. Digital WS, Joinville 2024). -->
 
 <div class="tooling-pt-layout">

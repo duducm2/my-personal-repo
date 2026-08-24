@@ -469,11 +469,11 @@ table thead { display: none !important; }
 
 ## Who I Am – Snapshot
 
-| Attribute | Value                                                                                                                                                                                                                                                                         |
-| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Name      | Eduardo M. de A. Figueiredo                                                                                                                                                                                                                                                   |
-| Role      | Pesquisa Aplicada, Tecnologia e Gestão de Projetos                                                                                                                                                                                                                             |
-| Impact    | Ajudo equipes a governar melhor e melhorar mais rápido, usando Pesquisa Aplicada para priorizar, decidir e entregar com dados claros e accountability.                                                                                                                                  |
+| Attribute | Value                     |
+| --------- | ------------------------- |
+| Name      | Eduardo M. de A. Figueiredo    |
+| Role      | Pesquisa Aplicada, Tecnologia e Gestão de Projetos    |
+| Impact    | Ajudo equipes a governar melhor e melhorar mais rápido, usando Pesquisa Aplicada para priorizar, decidir e entregar com dados claros e accountability.  |
 | Contact   | Nova Odessa, SP – Brasil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583 |
 
 <p class="photo-at-bottom"><img src="../pictures/personal/my-photo-rectangle.png" alt="Eduardo Figueiredo" /></p>  
@@ -670,7 +670,6 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 | Maturidade em UX          | **Liderei** as Américas ao Nível 4 – governança, templates, treinamento                                                                          |
 | CIP + Pesquisa Aplicada             | **Integrei** ao ServiceNow CIM; gate de Pesquisa Aplicada no fluxo CIP                                                         |
 | Colaboração                      | Sou tutor de estudantes da Digital Talent Academy                                                                                           |
-
 
 ---
 
@@ -1211,6 +1210,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 ## Implementação técnica – Projeto Tooling para PT
 
 - **Projeto tooling para PT:** **Liderei** a **entrega técnica e gestão do projeto** de requisitos a protótipos de alta fidelidade, com **check-ins regulares com clientes**.
+
 <!-- - **Workshop facilitation:** Ran strategy and team workshops with large groups (e.g. Digital WS, Joinville 2024). -->
 
 <div class="tooling-pt-layout">

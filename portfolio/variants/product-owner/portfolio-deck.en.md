@@ -469,11 +469,11 @@ table thead { display: none !important; }
 
 ## Who I Am – Snapshot
 
-| Attribute | Value                                                                                                                                                                                                                                                                         |
-| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Name      | Eduardo M. de A. Figueiredo                                                                                                                                                                                                                                                   |
-| Role      | Discovery, Delivery & Stakeholder Outcomes                                                                                                                                                                                                                             |
-| Impact    | I help teams prioritize and ship with clarity: Applied Research to decide, stakeholder alignment to commit, and measurable outcomes to prove value.                                                                                                                                  |
+| Attribute | Value                     |
+| --------- | ------------------------- |
+| Name      | Eduardo M. de A. Figueiredo    |
+| Role      | Discovery, Delivery & Stakeholder Outcomes    |
+| Impact    | I help teams prioritize and ship with clarity: Applied Research to decide, stakeholder alignment to commit, and measurable outcomes to prove value.  |
 | Contact   | Nova Odessa, SP – Brazil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583 |
 
 <p class="photo-at-bottom"><img src="../../../pictures/personal/my-photo-rectangle.png" alt="Eduardo Figueiredo" /></p>  
@@ -670,7 +670,6 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 | UX Maturity          | Americas Level 4 – governance, templates, training that **productized** UX practice for stakeholders                        |
 | CIP + Applied Research             | ServiceNow CIM integration; Applied Research as an **intake / quality gate** so the right work advances                           |
 | Collaboration                      | Tutor of Digital Talent Academy Students                                                                                          |
-
 
 ---
 
@@ -1211,6 +1210,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 ## Discovery → Delivery – Tooling Project for PT
 
 - **Tooling project for PT:** Owned the path from **requirements** through **high-fidelity prototypes**, with **regular customer check-ins** — stakeholder validation baked into delivery.
+
 <!-- - **Workshop facilitation:** Ran strategy and team workshops with large groups (e.g. Digital WS, Joinville 2024). -->
 
 <div class="tooling-pt-layout">

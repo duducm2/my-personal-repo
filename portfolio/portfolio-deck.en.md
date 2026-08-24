@@ -469,11 +469,11 @@ table thead { display: none !important; }
 
 ## Who I Am – Snapshot
 
-| Attribute | Value                                                                                                                                                                                                                                                                         |
-| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Name      | Eduardo M. de A. Figueiredo                                                                                                                                                                                                                                                   |
-| Role      | Applied Research, Technology & Project Management                                                                                                                                                                                                                             |
-| Impact    | I help teams govern better and improve faster, using Applied Research to prioritize, decide, and deliver with clear data and accountability.                                                                                                                                  |
+| Attribute | Value                     |
+| --------- | ------------------------- |
+| Name      | Eduardo M. de A. Figueiredo    |
+| Role      | Applied Research, Technology & Project Management    |
+| Impact    | I help teams govern better and improve faster, using Applied Research to prioritize, decide, and deliver with clear data and accountability.  |
 | Contact   | Nova Odessa, SP – Brazil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583 |
 
 <p class="photo-at-bottom"><img src="../pictures/personal/my-photo-rectangle.png" alt="Eduardo Figueiredo" /></p>  
@@ -670,7 +670,6 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 | UX Maturity          | Led Americas to Level 4 – governance, templates, training                                                                          |
 | CIP + Applied Research             | Led integration into ServiceNow CIM; Applied Research gate in CIP workflow                                                         |
 | Collaboration                      | Tutor of Digital Talent Academy Students                                                                                           |
-
 
 ---
 
@@ -1211,6 +1210,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 ## Technical Implementation – Tooling Project for PT
 
 - **Tooling project for PT:** Led **technical delivery and project management** from requirements through high-fidelity prototypes, with **regular customer check-ins**.
+
 <!-- - **Workshop facilitation:** Ran strategy and team workshops with large groups (e.g. Digital WS, Joinville 2024). -->
 
 <div class="tooling-pt-layout">

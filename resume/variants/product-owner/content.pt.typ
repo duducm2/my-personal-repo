@@ -77,7 +77,7 @@
 )
 
 #let additional = (
-  [3º Lugar – Bosch Talent Forum 2018.],
+  [3º Lugar – Fórum de talentos Bosch 2018.],
   [InfoVis: visualização web PhraseNets para análise de coocorrência de texto.],
   [Voluntário – ONG Hospitalhaços (Admin).],
 )

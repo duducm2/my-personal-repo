@@ -611,7 +611,7 @@ def main() -> None:
     )
 
     add_pt = {
-        "1": "3º Lugar – Bosch Talent Forum 2018.",
+        "1": "3º Lugar – Fórum de talentos Bosch 2018.",
         "2": "InfoVis: visualização web PhraseNets para análise de coocorrência de texto.",
         "3": "Voluntário – ONG Hospitalhaços (Admin).",
     }
