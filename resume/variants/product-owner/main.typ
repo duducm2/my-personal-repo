@@ -63,10 +63,17 @@
       ]
       #sidebar-heading[#ui.contact]
       #block(below: 0.45em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[#ui.phone_abbr] #h(0.5em) #text(size: 9pt)[#phone]]
-      #block(below: 0.45em)[#grid(columns: (auto, 1fr), gutter: 0.5em, align: (left, left))[#text(weight: "bold", size: 9pt, fill: highlight-blue)[#ui.email:] #box[#text(size: 7.5pt, fill: rgb("#444444"))[#email]]]]
-      #block(below: 0.45em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[#ui.linkedin:] #h(0.5em) #link(linkedin-url)[#text(size: 9pt, fill: highlight-blue)[#linkedin]]]
-      #block(below: 0.45em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[#ui.lattes:] #h(0.5em) #link(lattes-url)[#text(size: 9pt, fill: highlight-blue)[#lattes]]]
-      #block(below: 0.45em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[#ui.orcid:] #h(0.5em) #link(orcid-url)[#text(size: 9pt, fill: highlight-blue)[#orcid]]]
+      #block(below: 0.45em)[#link("mailto:" + email)[#text(size: 7.5pt, fill: highlight-blue)[#email]]]
+      #block(above: 1.05em, below: 1.65em)[
+        #grid(
+          columns: (1fr, 1fr, 1fr),
+          gutter: 0.35em,
+          align: (center, center, center),
+          [#link(linkedin-url)[#text(size: 9pt, fill: highlight-blue)[#linkedin]]],
+          [#link(lattes-url)[#text(size: 9pt, fill: highlight-blue)[#lattes]]],
+          [#link(orcid-url)[#text(size: 9pt, fill: highlight-blue)[#orcid]]],
+        )
+      ]
       #block(below: 0.9em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[#ui.location:] #h(0.5em) #text(size: 9pt)[#location]]
       #sidebar-heading[#ui.profile]
       #block(width: 100%, below: 0.75em)[#sidebar-text[#profile]]
