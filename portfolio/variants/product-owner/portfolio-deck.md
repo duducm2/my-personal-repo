@@ -2,7 +2,7 @@
 marp: true
 theme: default
 paginate: false
-title: "Eduardo Figueiredo – Product Owner Portfolio"
+title: "Eduardo Figueiredo – Portfolio"
 author: "Eduardo Figueiredo"
 style: |
   /* === IMAGE SIZE & POSITION (img-tune + scoped style for Marp/PDF) ===
@@ -436,12 +436,12 @@ img[src*="story-flow"] {
 }
 </style>
 
-# Why I Work Toward Product Ownership
+# Why Discovery and Delivery Matter
 
 ## Discovery to delivery for trustworthy, human-centered products
 
-- I believe products in service organizations should be **trustworthy, usable, and useful**, especially when they affect real people and businesses.
-- My work connects **stakeholder needs**, **prioritization**, and **Applied Research**: bringing evidence into what we build, why, and in what order.
+- I believe products in service organizations should be **trustworthy, usable, and useful**, especially when they affect real people and businesses.
+- My work connects **stakeholder needs**, **prioritization**, and **Applied Research**: bringing evidence into what we build, why, and in what order.
 - This portfolio shows that discovery → delivery path through real projects.
 
 <p><img src="../../../pictures/diagrams/story-flow.png" alt="Diagram story-flow: Why story flow" /></p>
@@ -472,7 +472,7 @@ table thead { display: none !important; }
 | Attribute | Value                                                                                                                                                                                                                                                                         |
 | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Name      | Eduardo M. de A. Figueiredo                                                                                                                                                                                                                                                   |
-| Role      | Product Owner focus — Discovery, Delivery & Stakeholder Outcomes                                                                                                                                                                                                                             |
+| Role      | Discovery, Delivery & Stakeholder Outcomes                                                                                                                                                                                                                             |
 | Impact    | I help teams prioritize and ship with clarity: Applied Research to decide, stakeholder alignment to commit, and measurable outcomes to prove value.                                                                                                                                  |
 | Contact   | Nova Odessa, SP – Brazil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583 |
 
@@ -661,14 +661,14 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 <p class="americas-img"><img src="../../../pictures/work/americas-team-2025.jpg" alt="Americas Team 2025 - Applied Research Maturity Level 4" /></p>
 </div>
 
-| Area                               | Achievement                                                                                                                       |
-| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| Role (official)                    | Applied Research & Design Analyst – Bosch Brasil (May 2023 – present); Applied Research Expert & Project Champion at GS/BDU       |
-| International                      | Two trips to Germany (2024, 2025) for role-related work                                                                           |
-| CO2 Tracking (GS/Applied Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand — a discovery outcome that stopped low-value work            |
-| Tooling project (PT)               | Requirements → high-fidelity prototypes → regular **customer check-ins**; discovery-to-delivery ownership with technical partners |
-| Applied Research Maturity          | Americas Level 4 – governance, templates, training that **productized** research practice for stakeholders                        |
-| CIP + Applied Research             | ServiceNow CIM integration; Applied Research as an **intake / quality gate** so the right work advances                           |
+| Area                               | Achievement                                                                                                                       |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| Role (official)                    | Applied Research & Design Analyst – Bosch Brasil (May 2023 – present); Applied Research Expert & Project Champion at GS/BDU       |
+| International                      | Two trips to Germany (2024, 2025) for role-related work                                                                           |
+| CO2 Tracking (GS/Applied Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand — a discovery outcome that stopped low-value work            |
+| Tooling project (PT)               | Requirements → high-fidelity prototypes → regular **customer check-ins**; discovery-to-delivery ownership with technical partners |
+| Applied Research Maturity          | Americas Level 4 – governance, templates, training that **productized** research practice for stakeholders                        |
+| CIP + Applied Research             | ServiceNow CIM integration; Applied Research as an **intake / quality gate** so the right work advances                           |
 | Collaboration                      | Tutor of Digital Talent Academy Students                                                                                          |
 
 
@@ -1322,7 +1322,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## Future – Agile Delivery Context
 
-Product ownership sits where **discovery, prioritization, and delivery** meet. The diagram below is the agile/research operating context I work in today.
+**Discovery, prioritization, and delivery** meet in how I work with teams today. The diagram below is the agile/research operating context I work in.
 
 <div class="ai-agile-wrap">
 <p><img src="../../../pictures/diagrams/ai-agile-research.png" alt="Diagram ai-agile-research: AI and Agile in Applied Research" /></p>
@@ -1333,41 +1333,39 @@ Product ownership sits where **discovery, prioritization, and delivery** meet. T
 <!-- Slide 21 – Future (Career) -->
 
 <style scoped>
-.future-career-wrap {
-  display: flex !important; flex-direction: column !important;
-  justify-content: center !important; align-items: center !important;
-  min-height: 55vh !important; width: 100% !important; margin-top: 0.75rem !important;
-  gap: 1rem !important;
-}
-.future-career-wrap p { margin: 0 !important; text-align: center !important; }
-.future-career-wrap img {
-  width: 38% !important; max-width: 38% !important; height: auto !important;
-  display: block !important; margin: 10px auto 0 !important;
-  border: none !important; box-shadow: none !important;
-}
-.future-po-bullets {
-  max-width: 85% !important; text-align: left !important; font-size: 0.95em !important;
+.future-career-wrap {
+  display: flex !important; flex-direction: column !important;
+  justify-content: center !important; align-items: center !important;
+  min-height: 55vh !important; width: 100% !important; margin-top: 0.75rem !important;
+  gap: 1rem !important;
+}
+.future-career-wrap p { margin: 0 !important; text-align: center !important; }
+.future-career-wrap img {
+  width: 38% !important; max-width: 38% !important; height: auto !important;
+  display: block !important; margin: 10px auto 0 !important;
+  border: none !important; box-shadow: none !important;
+}
+.future-po-bullets {
+  max-width: 85% !important; text-align: left !important; font-size: 0.95em !important;
 }
 </style>
 
-## Future – Targeting Product Owner Roles
-
-- **Focus:** Product Owner roles where research-informed decisions drive backlog and outcomes.
-- **What I bring:** discovery → prototypes → stakeholder check-ins; intake/quality gates; outcome metrics (CSI/NPS).
-- **Honest framing:** my official title is Applied Research & Design Analyst / Project Champion — the work below maps to PO competencies without claiming a PO job title I did not hold.
-
-<div class="future-career-wrap">
-<div class="future-po-bullets">
-
-| PO competency           | Evidence from my work                                     |
-| ----------------------- | --------------------------------------------------------- |
-| Discovery & validation  | Tooling PT requirements → prototypes → customer check-ins |
-| Prioritization / intake | ServiceNow Applied Research gate in CIP                   |
-| Stakeholder enablement  | Americas Research Maturity Level 4 (templates, training)  |
-| Outcome ownership       | CSI 4.86 / NPS 9.94 avg. (2024–2025)                      |
-
-</div>
-<p><img src="../../../pictures/diagrams/future-career-path.png" alt="Diagram future-career-path: Prioritized career paths" /></p>
+## Future – How I Work
+
+- **What I bring:** discovery → prototypes → stakeholder check-ins; intake/quality gates; outcome metrics (CSI/NPS).
+
+<div class="future-career-wrap">
+<div class="future-po-bullets">
+
+| Competency              | Evidence from my work                                     |
+| ----------------------- | --------------------------------------------------------- |
+| Discovery & validation  | Tooling PT requirements → prototypes → customer check-ins |
+| Prioritization / intake | ServiceNow Applied Research gate in CIP                   |
+| Stakeholder enablement  | Americas Research Maturity Level 4 (templates, training)  |
+| Outcome ownership       | CSI 4.86 / NPS 9.94 avg. (2024–2025)                      |
+
+</div>
+<p><img src="../../../pictures/diagrams/future-career-path.png" alt="Diagram future-career-path: Prioritized career paths" /></p>
 </div>
 
 <!-- Diagram: future-career-path (mermaid/diagrams.md). Export to future-career-path.png -->
@@ -1481,7 +1479,7 @@ section.closing-redesign h2 {
 ## Closing & Contact
 
 <div class="closing-summary">
-<p>I connect discovery to delivery: clarifying needs, aligning stakeholders, prioritizing with evidence, and validating outcomes. Seeking Product Owner roles where that loop creates trustworthy, user-centered products with measurable impact.</p>
+<p>I connect discovery to delivery: clarifying needs, aligning stakeholders, prioritizing with evidence, and validating outcomes — creating trustworthy, user-centered products with measurable impact.</p>
 </div>
 
 <div class="closing-contact">

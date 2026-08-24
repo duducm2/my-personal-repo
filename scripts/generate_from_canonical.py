@@ -2,6 +2,7 @@
 """Generate resume content.typ and portfolio decks from my-data/canonical/*.csv."""
 from __future__ import annotations
 
+import argparse
 import csv
 import re
 import sys
@@ -32,6 +33,7 @@ ASSET_PREFIX = {
 }
 
 SLOT_RE = re.compile(r"\{\{canonical:([a-z0-9_]+)\}\}")
+DEFAULT_LANG = "en"
 
 
 def load_csv(name: str) -> list[dict[str, str]]:
@@ -40,15 +42,28 @@ def load_csv(name: str) -> list[dict[str, str]]:
         return list(csv.DictReader(f))
 
 
+def lang_col(row: dict[str, str], base: str, lang: str = DEFAULT_LANG) -> str:
+    """Read bilingual column: prefers {base}_{lang}, falls back to legacy {base}."""
+    return row.get(f"{base}_{lang}", "") or row.get(base, "")
+
+
 def md_bold_to_typst(text: str) -> str:
     """Convert **bold** markdown to Typst #strong[bold]."""
     return re.sub(r"\*\*(.+?)\*\*", r"#strong[\1]", text)
 
 
-def load_narratives() -> dict[str, dict[str, str]]:
+def typst_inline(s: str) -> str:
+    """Typst tuple string: commas inside quotes still split tuples — use content for those."""
+    escaped = s.replace("\\", "\\\\").replace('"', '\\"')
+    if "," in s:
+        return f"[{s}]"
+    return f'"{escaped}"'
+
+
+def load_narratives(lang: str = DEFAULT_LANG) -> dict[str, dict[str, str]]:
     out: dict[str, dict[str, str]] = defaultdict(dict)
     for row in load_csv("narratives.csv"):
-        out[row["variant"]][row["field"]] = row["text"]
+        out[row["variant"]][row["field"]] = lang_col(row, "text", lang)
     return out
 
 
@@ -59,7 +74,7 @@ def narrative(nars: dict[str, dict[str, str]], variant: str, field: str) -> str:
 
 
 def render_resume(
-    variant: str, nars: dict[str, dict[str, str]], warnings: list[str]
+    variant: str, nars: dict[str, dict[str, str]], warnings: list[str], lang: str = DEFAULT_LANG
 ) -> str:
     profile = load_csv("profile.csv")[0]
     experience = sorted(load_csv("experience.csv"), key=lambda r: int(r["sort_order"]))
@@ -78,13 +93,12 @@ def render_resume(
 
     header_note = (
         "GENERATED from my-data/canonical — do not edit by hand.\n"
-        f"// Variant: {variant}. Re-run: python scripts/generate_from_canonical.py"
+        f"// Variant: {variant}, lang: {lang}. Re-run: python scripts/generate_from_canonical.py"
     )
 
     tagline = narrative(nars, variant, "tagline")
     profile_text = md_bold_to_typst(narrative(nars, variant, "profile"))
 
-    # Skills grouped
     core = sorted(
         [r for r in skills_all if r["category"] == "Core"],
         key=lambda r: int(r["sort_order"]),
@@ -95,8 +109,10 @@ def render_resume(
     )
     if not core:
         warnings.append(f"No Core skills for variant={variant}")
-    core_tuple = ", ".join(f'"{s["label"]}"' for s in core)
-    tech_tuple = ", ".join(f'"{s["label"]}"' for s in tech)
+    core_label = lang_col(core[0], "category_label", lang) + ":" if core else "Core:"
+    tech_label = lang_col(tech[0], "category_label", lang) + ":" if tech else "Tech:"
+    core_tuple = ", ".join(f'"{lang_col(s, "label", lang)}"' for s in core)
+    tech_tuple = ", ".join(f'"{lang_col(s, "label", lang)}"' for s in tech)
 
     exp_blocks: list[str] = []
     for exp in experience:
@@ -110,9 +126,11 @@ def render_resume(
         )
         if not bs:
             warnings.append(f"No bullets for {exp['id']} variant={variant}")
-        bullet_lines = ",\n    ".join(f"[{md_bold_to_typst(b['text'])}]" for b in bs)
+        bullet_lines = ",\n    ".join(
+            f"[{md_bold_to_typst(lang_col(b, 'text', lang))}]" for b in bs
+        )
         exp_blocks.append(
-            f'  ("{exp["date_display"]}", "{exp["company"]}", "{exp["title"]}", (\n'
+            f'  ("{lang_col(exp, "date_display", lang)}", "{exp["company"]}", "{lang_col(exp, "title", lang)}", (\n'
             f"    {bullet_lines},\n"
             f"  ))"
         )
@@ -120,23 +138,23 @@ def render_resume(
 
     edu_blocks: list[str] = []
     for edu in education:
-        detail = edu.get("detail", "").strip()
+        detail = lang_col(edu, "detail", lang).strip()
         if detail:
             detail_typst = f"[{md_bold_to_typst(detail)}]"
         else:
             detail_typst = "none"
         edu_blocks.append(
-            f'  ("{edu["degree"]}", "{edu["institution"]}", {detail_typst})'
+            f'  ({typst_inline(lang_col(edu, "degree", lang))}, {typst_inline(lang_col(edu, "institution", lang))}, {detail_typst})'
         )
     education_typst = ",\n".join(edu_blocks)
 
     pub_lines = []
     for p in publications:
-        cite = p["citation"].replace("\\", "\\\\").replace('"', '\\"')
-        pub_lines.append(f'  ("{p["venue"]}", "{cite}")')
+        cite = lang_col(p, "citation", lang).replace("\\", "\\\\").replace('"', '\\"')
+        pub_lines.append(f'  ("{lang_col(p, "venue", lang)}", "{cite}")')
     publications_typst = ",\n".join(pub_lines)
 
-    add_lines = ",\n".join(f"  [{a['text']}]" for a in additional)
+    add_lines = ",\n".join(f"  [{lang_col(a, 'text', lang)}]" for a in additional)
 
     return f"""// =============================================================================
 // {header_note}
@@ -147,23 +165,23 @@ def render_resume(
 #let tagline = "{tagline}"
 #let phone = "{profile['phone']}"
 #let email = "{profile['email']}"
-#let linkedin = "{profile['linkedin_label']}"
+#let linkedin = "{lang_col(profile, 'linkedin_label', lang)}"
 #let linkedin-url = "{profile['linkedin_url']}"
-#let lattes = "{profile['lattes_label']}"
+#let lattes = "{lang_col(profile, 'lattes_label', lang)}"
 #let lattes-url = "{profile['lattes_url']}"
-#let orcid = "{profile['orcid_label']}"
+#let orcid = "{lang_col(profile, 'orcid_label', lang)}"
 #let orcid-url = "{profile['orcid_url']}"
-#let location = "{profile['location']}"
+#let location = "{lang_col(profile, 'location', lang)}"
 
 #let profile = [
   {profile_text}
 ]
 
-#let languages = "{profile['languages']}"
+#let languages = "{lang_col(profile, 'languages', lang)}"
 
 #let skills = (
-  ("Core:", ({core_tuple})),
-  ("Tech:", ({tech_tuple})),
+  ("{core_label}", ({core_tuple})),
+  ("{tech_label}", ({tech_tuple})),
 )
 
 #let experience = (
@@ -184,9 +202,12 @@ def render_resume(
 """
 
 
-def build_slot_map(variant: str, nars: dict[str, dict[str, str]]) -> dict[str, str]:
+def build_slot_map(
+    variant: str, nars: dict[str, dict[str, str]], lang: str = DEFAULT_LANG
+) -> dict[str, str]:
     profile = load_csv("profile.csv")[0]
     prefix = ASSET_PREFIX[variant]
+    location = lang_col(profile, "location", lang)
     slots = {
         "asset_prefix": prefix,
         "deck_title": narrative(nars, variant, "deck_title"),
@@ -196,12 +217,6 @@ def build_slot_map(variant: str, nars: dict[str, dict[str, str]]) -> dict[str, s
         "who_name": profile["display_name"],
         "who_role": narrative(nars, variant, "who_role"),
         "who_impact": narrative(nars, variant, "who_impact"),
-        "who_contact": (
-            f"{profile['location'].replace(' - ', ' – ')} · {profile['email']} · "
-            f"[LinkedIn]({profile['linkedin_url']}) · "
-            f"[Lattes]({profile['lattes_url']}) · "
-            f"[ORCID]({profile['orcid_url']}) · {profile['phone'].replace('(19) ', '19 ').replace('-', ' ').replace('  ', ' ')}"
-        ),
         "present_h2": narrative(nars, variant, "present_h2"),
         "present_table": narrative(nars, variant, "present_table"),
         "cip_pipeline_h2": narrative(nars, variant, "cip_pipeline_h2"),
@@ -224,9 +239,9 @@ def build_slot_map(variant: str, nars: dict[str, dict[str, str]]) -> dict[str, s
         "orcid_url": profile["orcid_url"],
         "phone": profile["phone"],
     }
-    # Contact line matching existing deck style more closely
+    loc_display = location.replace(" - ", " – ")
     slots["who_contact"] = (
-        f"Nova Odessa, SP – Brazil · {profile['email']} · "
+        f"{loc_display} · {profile['email']} · "
         f"[LinkedIn]({profile['linkedin_url']}) · "
         f"[Lattes]({profile['lattes_url']}) · "
         f"[ORCID]({profile['orcid_url']}) · +55 19 98176-6583"
@@ -271,6 +286,16 @@ def merge_template(variant: str, slots: dict[str, str], warnings: list[str]) -> 
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser(description="Generate resume and portfolio from canonical CSV")
+    parser.add_argument(
+        "--lang",
+        choices=("en", "pt"),
+        default=DEFAULT_LANG,
+        help="Language column suffix to use (default: en)",
+    )
+    args = parser.parse_args()
+    lang = args.lang
+
     if not (CANON / "profile.csv").exists():
         print(
             "Canonical CSVs missing. Run: python scripts/seed_canonical_csv.py",
@@ -279,15 +304,17 @@ def main() -> int:
         return 1
 
     warnings: list[str] = []
-    nars = load_narratives()
+    nars = load_narratives(lang)
 
     for variant in VARIANTS:
         resume_path = RESUME_OUT[variant]
         resume_path.parent.mkdir(parents=True, exist_ok=True)
-        resume_path.write_text(render_resume(variant, nars, warnings), encoding="utf-8")
+        resume_path.write_text(
+            render_resume(variant, nars, warnings, lang), encoding="utf-8"
+        )
         print(f"wrote {resume_path.relative_to(ROOT)}")
 
-        slots = build_slot_map(variant, nars)
+        slots = build_slot_map(variant, nars, lang)
         write_narrative_yaml(variant, slots)
         print(f"wrote {GENERATED.relative_to(ROOT)}/{variant}/narrative.yaml")
 

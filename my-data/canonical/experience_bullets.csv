@@ -1,22 +1,22 @@
-experience_id,variant,sort_order,text
-bosch-ar-2023,general,1,"Supported Americas to reach **Research Maturity Level 4 inside Global Services**: governance, templates, training. **CSI 4.86 / NPS 9.94** avg. in my projects (2024–2025)."
-bosch-ar-2023,general,2,CIP + Research integration into **ServiceNow**; added a Research gate in the workflow; **method-driven** quality gate.
-bosch-ar-2023,general,3,**Tooling project (Power Tools):** supported technical delivery and project management from requirements through high-fidelity prototypes; regular customer check-ins.
-bosch-ar-2023,general,4,Power BI dashboards for project/resource oversight and training tracking.
-bosch-ar-2023,general,5,"**Agentic AI:** use daily with **Cursor IDE** and context management for research, analysis, and problem-solving. Delivering Applied Research efficiently across pipeline and artifacts."
-bosch-ar-2023,general,6,"**International & Mentorship:** two trips to Germany (2024, 2025); tutor at SENAI Digital Talent Academy."
-bosch-web-2020,general,1,"Front-end development, React, Scrum, Applied Research; web solutions and teamwork-driven delivery."
-bosch-web-2020,general,2,Collaborated on customer-facing applications and internal tools.
-bosch-hu-2019,general,1,Business Excellence digitization; internal tools and workflows.
-bosch-hu-2019,general,2,"**Full-stack web development:** VS Code, SQL Server, Windows Server (IIS)."
-bosch-intern-2017,general,1,VBA (Excel) for Continuous Improvement and internal communication.
-bosch-ar-2023,product-owner,1,**Tooling project (Power Tools):** owned the path from requirements through high-fidelity prototypes; regular **customer check-ins** and delivery coordination with technical partners.
-bosch-ar-2023,product-owner,2,Integrated Applied Research into **CIP / ServiceNow** as an intake and quality gate—method-driven triage so the right work advances.
-bosch-ar-2023,product-owner,3,"Supported Americas to reach **Research Maturity Level 4**: governance, templates, and training that productized research practice for stakeholders."
-bosch-ar-2023,product-owner,4,Outcome evidence: **CSI 4.86 / NPS 9.94** avg. across my projects (2024–2025); Power BI for project and resource oversight.
-bosch-ar-2023,product-owner,5,"**International & Mentorship:** two trips to Germany (2024, 2025); tutor at SENAI Digital Talent Academy."
-bosch-web-2020,product-owner,1,"Delivered customer-facing and internal web solutions in **Scrum**; collaborated across design, research, and engineering."
-bosch-web-2020,product-owner,2,Translated needs into shipped front-end (React) increments with teamwork-driven delivery.
-bosch-hu-2019,product-owner,1,Digitized Business Excellence workflows—clarifying process needs and shipping internal tools.
-bosch-hu-2019,product-owner,2,"**Full-stack web development:** VS Code, SQL Server, Windows Server (IIS)."
-bosch-intern-2017,product-owner,1,Built VBA tools supporting Continuous Improvement and internal communication processes.
+experience_id,variant,sort_order,text_en,text_pt
+bosch-ar-2023,general,1,"Supported Americas to reach **Research Maturity Level 4 inside Global Services**: governance, templates, training. **CSI 4.86 / NPS 9.94** avg. in my projects (2024–2025).","Apoiei as Américas a atingir **Nível 4 de Maturidade em Pesquisa na Global Services**: governança, templates, treinamento. **CSI 4,86 / NPS 9,94** méd. nos meus projetos (2024–2025)."
+bosch-ar-2023,general,2,CIP + Research integration into **ServiceNow**; added a Research gate in the workflow; **method-driven** quality gate.,Integração CIP + Pesquisa no **ServiceNow**; gate de Pesquisa no fluxo; gate de qualidade **orientado por método**.
+bosch-ar-2023,general,3,**Tooling project (Power Tools):** supported technical delivery and project management from requirements through high-fidelity prototypes; regular customer check-ins.,**Projeto tooling (Power Tools):** apoio à entrega técnica e gestão do projeto de requisitos a protótipos de alta fidelidade; check-ins regulares com clientes.
+bosch-ar-2023,general,4,Power BI dashboards for project/resource oversight and training tracking.,Dashboards Power BI para acompanhamento de projetos/recursos e treinamentos.
+bosch-ar-2023,general,5,"**Agentic AI:** use daily with **Cursor IDE** and context management for research, analysis, and problem-solving. Delivering Applied Research efficiently across pipeline and artifacts.","**IA agêntica:** uso diário com **Cursor IDE** e gestão de contexto para pesquisa, análise e resolução de problemas."
+bosch-ar-2023,general,6,"**International & Mentorship:** two trips to Germany (2024, 2025); tutor at SENAI Digital Talent Academy.","**Internacional e mentoria:** duas viagens à Alemanha (2024, 2025); tutor na SENAI Digital Talent Academy."
+bosch-web-2020,general,1,"Front-end development, React, Scrum, Applied Research; web solutions and teamwork-driven delivery.","Desenvolvimento front-end, React, Scrum, Pesquisa Aplicada; soluções web e entrega em equipe."
+bosch-web-2020,general,2,Collaborated on customer-facing applications and internal tools.,Colaboração em aplicações para clientes e ferramentas internas.
+bosch-hu-2019,general,1,Business Excellence digitization; internal tools and workflows.,Digitalização Business Excellence; ferramentas e fluxos internos.
+bosch-hu-2019,general,2,"**Full-stack web development:** VS Code, SQL Server, Windows Server (IIS).","**Desenvolvimento web full-stack:** VS Code, SQL Server, Windows Server (IIS)."
+bosch-intern-2017,general,1,VBA (Excel) for Continuous Improvement and internal communication.,VBA (Excel) para Melhoria Contínua e comunicação interna.
+bosch-ar-2023,product-owner,1,**Tooling project (Power Tools):** owned the path from requirements through high-fidelity prototypes; regular **customer check-ins** and delivery coordination with technical partners.,**Projeto tooling (Power Tools):** conduzi o caminho de requisitos a protótipos de alta fidelidade; **check-ins regulares** com clientes e coordenação com parceiros técnicos.
+bosch-ar-2023,product-owner,2,Integrated Applied Research into **CIP / ServiceNow** as an intake and quality gate—method-driven triage so the right work advances.,Integrei Pesquisa Aplicada ao **CIP / ServiceNow** como gate de entrada e qualidade—triagem orientada por método.
+bosch-ar-2023,product-owner,3,"Supported Americas to reach **Research Maturity Level 4**: governance, templates, and training that productized research practice for stakeholders.","Apoiei as Américas a atingir **Nível 4 de Maturidade em Pesquisa**: governança, templates e treinamento que **produtizaram** a prática de pesquisa."
+bosch-ar-2023,product-owner,4,Outcome evidence: **CSI 4.86 / NPS 9.94** avg. across my projects (2024–2025); Power BI for project and resource oversight.,"Evidência de resultados: **CSI 4,86 / NPS 9,94** méd. (2024–2025); Power BI para projetos e recursos."
+bosch-ar-2023,product-owner,5,"**International & Mentorship:** two trips to Germany (2024, 2025); tutor at SENAI Digital Talent Academy.","**Internacional e mentoria:** duas viagens à Alemanha (2024, 2025); tutor na SENAI Digital Talent Academy."
+bosch-web-2020,product-owner,1,"Delivered customer-facing and internal web solutions in **Scrum**; collaborated across design, research, and engineering.","Entreguei soluções web internas e para clientes em **Scrum**; colaboração entre design, pesquisa e engenharia."
+bosch-web-2020,product-owner,2,Translated needs into shipped front-end (React) increments with teamwork-driven delivery.,Traduzi necessidades em incrementos front-end (React) com entrega em equipe.
+bosch-hu-2019,product-owner,1,Digitized Business Excellence workflows—clarifying process needs and shipping internal tools.,Digitalizei fluxos Business Excellence—esclarecendo necessidades e entregando ferramentas internas.
+bosch-hu-2019,product-owner,2,"**Full-stack web development:** VS Code, SQL Server, Windows Server (IIS).","**Desenvolvimento web full-stack:** VS Code, SQL Server, Windows Server (IIS)."
+bosch-intern-2017,product-owner,1,Built VBA tools supporting Continuous Improvement and internal communication processes.,Ferramentas VBA para Melhoria Contínua e comunicação interna.

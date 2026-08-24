@@ -1,41 +1,41 @@
-variant,category,sort_order,label
-general,Core,1,Applied Research
-general,Core,2,Project Management
-general,Core,3,Continuous Improvement (CIP)
-general,Core,4,AI Systems
-general,Tech,1,Power BI
-general,Tech,2,Python
-general,Tech,3,React
-general,Tech,4,Figma
-general,Tech,5,SQL
-general,Tech,6,Matplotlib
-general,Tech,7,Seaborn
-general,Tech,8,Git
-general,Tech,9,GitHub
-general,Tech,10,Cursor IDE
-general,Tech,11,Azure
-general,Tech,12,Bitbucket
-general,Tech,13,HTML
-general,Tech,14,CSS
-general,Tech,15,Mermaid
-general,Tech,16,VS Code
-general,Tech,17,Excel
-general,Tech,18,VBA
-general,Tech,19,AutoHotkey
-product-owner,Core,1,Product discovery
-product-owner,Core,2,Stakeholder alignment
-product-owner,Core,3,Prioritization & outcomes
-product-owner,Core,4,Applied Research
-product-owner,Core,5,Agile / CIP
-product-owner,Tech,1,Figma
-product-owner,Tech,2,Power BI
-product-owner,Tech,3,React
-product-owner,Tech,4,SQL
-product-owner,Tech,5,Python
-product-owner,Tech,6,ServiceNow
-product-owner,Tech,7,Azure
-product-owner,Tech,8,Git
-product-owner,Tech,9,Mermaid
-product-owner,Tech,10,Cursor IDE
-product-owner,Tech,11,Excel
-product-owner,Tech,12,VBA
+variant,category,category_label_en,category_label_pt,sort_order,label_en,label_pt
+general,Core,Core,Núcleo,1,Applied Research,Pesquisa Aplicada
+general,Core,Core,Núcleo,2,Project Management,Gestão de Projetos
+general,Core,Core,Núcleo,3,Continuous Improvement (CIP),Melhoria Contínua (CIP)
+general,Core,Core,Núcleo,4,AI Systems,Sistemas de IA
+general,Tech,Tech,Tecnologias,1,Power BI,Power BI
+general,Tech,Tech,Tecnologias,2,Python,Python
+general,Tech,Tech,Tecnologias,3,React,React
+general,Tech,Tech,Tecnologias,4,Figma,Figma
+general,Tech,Tech,Tecnologias,5,SQL,SQL
+general,Tech,Tech,Tecnologias,6,Matplotlib,Matplotlib
+general,Tech,Tech,Tecnologias,7,Seaborn,Seaborn
+general,Tech,Tech,Tecnologias,8,Git,Git
+general,Tech,Tech,Tecnologias,9,GitHub,GitHub
+general,Tech,Tech,Tecnologias,10,Cursor IDE,Cursor IDE
+general,Tech,Tech,Tecnologias,11,Azure,Azure
+general,Tech,Tech,Tecnologias,12,Bitbucket,Bitbucket
+general,Tech,Tech,Tecnologias,13,HTML,HTML
+general,Tech,Tech,Tecnologias,14,CSS,CSS
+general,Tech,Tech,Tecnologias,15,Mermaid,Mermaid
+general,Tech,Tech,Tecnologias,16,VS Code,VS Code
+general,Tech,Tech,Tecnologias,17,Excel,Excel
+general,Tech,Tech,Tecnologias,18,VBA,VBA
+general,Tech,Tech,Tecnologias,19,AutoHotkey,AutoHotkey
+product-owner,Core,Core,Núcleo,1,Product discovery,Descoberta de produto
+product-owner,Core,Core,Núcleo,2,Stakeholder alignment,Alinhamento de stakeholders
+product-owner,Core,Core,Núcleo,3,Prioritization & outcomes,Priorização e resultados
+product-owner,Core,Core,Núcleo,4,Applied Research,Pesquisa Aplicada
+product-owner,Core,Core,Núcleo,5,Agile / CIP,Ágil / CIP
+product-owner,Tech,Tech,Tecnologias,1,Figma,Figma
+product-owner,Tech,Tech,Tecnologias,2,Power BI,Power BI
+product-owner,Tech,Tech,Tecnologias,3,React,React
+product-owner,Tech,Tech,Tecnologias,4,SQL,SQL
+product-owner,Tech,Tech,Tecnologias,5,Python,Python
+product-owner,Tech,Tech,Tecnologias,6,ServiceNow,ServiceNow
+product-owner,Tech,Tech,Tecnologias,7,Azure,Azure
+product-owner,Tech,Tech,Tecnologias,8,Git,Git
+product-owner,Tech,Tech,Tecnologias,9,Mermaid,Mermaid
+product-owner,Tech,Tech,Tecnologias,10,Cursor IDE,Cursor IDE
+product-owner,Tech,Tech,Tecnologias,11,Excel,Excel
+product-owner,Tech,Tech,Tecnologias,12,VBA,VBA

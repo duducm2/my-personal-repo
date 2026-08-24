@@ -1,11 +1,11 @@
 // =============================================================================
 // GENERATED from my-data/canonical — do not edit by hand.
-// Variant: product-owner. Re-run: python scripts/generate_from_canonical.py
+// Variant: product-owner, lang: en. Re-run: python scripts/generate_from_canonical.py
 // Layout: main.typ (do not change layout here).
 // =============================================================================
 
 #let name = "Eduardo M. de A. Figueiredo"
-#let tagline = "Product Owner Focus | Discovery, Delivery & Stakeholder Outcomes"
+#let tagline = "Discovery, Delivery & Stakeholder Outcomes"
 #let phone = "+55 (19) 98176-6583"
 #let email = "edu.evangelista.figueiredo@gmail.com"
 #let linkedin = "LinkedIn"
@@ -17,7 +17,7 @@
 #let location = "Nova Odessa, SP - Brazil"
 
 #let profile = [
-  Product-minded professional connecting #strong[discovery to delivery]: clarifying needs, aligning stakeholders, and guiding solutions from requirements through validation. Background in #strong[Applied Research, UX, and project delivery] with a full-stack foundation. Uses data, CIP, and #strong[customer check-ins] to prioritize outcomes. Master's in Technology with #strong[Grade A across all coursework]. Seeking #strong[Product Owner] roles where research-informed decisions drive backlog and results.
+  Product-minded professional connecting #strong[discovery to delivery]: clarifying needs, aligning stakeholders, and guiding solutions from requirements through validation. Background in #strong[Applied Research, UX, and project delivery] with a full-stack foundation. Uses data, CIP, and #strong[customer check-ins] to prioritize outcomes. Master's in Technology (#strong[completing September 2026]) with #strong[Grade A across all coursework].
 ]
 
 #let languages = "Portuguese (Native)   English (Fluent)"
@@ -49,7 +49,7 @@
 )
 
 #let education = (
-  ("Master's in Technology:", "Info & Comm Systems. Unicamp (2023–2026).", [Dissertation: Measuring #strong[perceived trust] in e-commerce websites with a digital evaluation platform (ISO/IEC 25000), using experimentation, ML, and human vs #strong[AI-agent] validation. Coursework (#strong[Grade A in all courses]): Academic Writing, Scientific Research, Innovation & Technology Transfer, Information Visualization.]),
+  ("Master's in Technology:", [Info & Comm Systems. Unicamp (2023–2026, completing September 2026).], [Dissertation: Measuring #strong[perceived trust] in e-commerce websites with a digital evaluation platform (ISO/IEC 25000), using experimentation, ML, and human vs #strong[AI-agent] validation. Coursework (#strong[Grade A in all courses]): Academic Writing, Scientific Research, Innovation & Technology Transfer, Information Visualization.]),
   ("Systems Analysis and Development.", "Unicamp (2015–2020).", none),
   ("Technical Degree in Informatics.", "ETEC Bento Quirino (2012–2014).", none),
 )

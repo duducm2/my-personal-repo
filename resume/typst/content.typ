@@ -1,6 +1,6 @@
 // =============================================================================
 // GENERATED from my-data/canonical — do not edit by hand.
-// Variant: general. Re-run: python scripts/generate_from_canonical.py
+// Variant: general, lang: en. Re-run: python scripts/generate_from_canonical.py
 // Layout: main.typ (do not change layout here).
 // =============================================================================
 
@@ -17,7 +17,7 @@
 #let location = "Nova Odessa, SP - Brazil"
 
 #let profile = [
-  UX and software-quality researcher helping teams build #strong[user-centered solutions] through #strong[Applied Research, technology, and project management]. Full-stack background and #strong[scientific mindset]. Daily use of data, CIP, and #strong[Agentic AI]. #strong[Self-directed and proactive] across design, front-end, Power BI, and Python. Master's in Technology with #strong[Grade A across all coursework]. Aspiring #strong[AI Scrum Master].
+  UX and software-quality researcher helping teams build #strong[user-centered solutions] through #strong[Applied Research, technology, and project management]. Full-stack background and #strong[scientific mindset]. Daily use of data, CIP, and #strong[Agentic AI]. #strong[Self-directed and proactive] across design, front-end, Power BI, and Python. Master's in Technology (#strong[completing September 2026]) with #strong[Grade A across all coursework]. Aspiring #strong[AI Scrum Master].
 ]
 
 #let languages = "Portuguese (Native)   English (Fluent)"
@@ -50,7 +50,7 @@
 )
 
 #let education = (
-  ("Master's in Technology:", "Info & Comm Systems. Unicamp (2023–2026).", [Dissertation: Measuring #strong[perceived trust] in e-commerce websites with a digital evaluation platform (ISO/IEC 25000), using experimentation, ML, and human vs #strong[AI-agent] validation. Coursework (#strong[Grade A in all courses]): Academic Writing, Scientific Research, Innovation & Technology Transfer, Information Visualization.]),
+  ("Master's in Technology:", [Info & Comm Systems. Unicamp (2023–2026, completing September 2026).], [Dissertation: Measuring #strong[perceived trust] in e-commerce websites with a digital evaluation platform (ISO/IEC 25000), using experimentation, ML, and human vs #strong[AI-agent] validation. Coursework (#strong[Grade A in all courses]): Academic Writing, Scientific Research, Innovation & Technology Transfer, Information Visualization.]),
   ("Systems Analysis and Development.", "Unicamp (2015–2020).", none),
   ("Technical Degree in Informatics.", "ETEC Bento Quirino (2012–2014).", none),
 )

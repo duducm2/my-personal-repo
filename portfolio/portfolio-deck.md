@@ -440,8 +440,8 @@ img[src*="story-flow"] {
 
 ## Trustworthy, human-centered software for complex services
 
-- I believe software in service organizations should be **trustworthy, usable, and usefull**, especially when it affects real people and businesses.
-- My work centers **technology**, **project management**, and **Applied Research**: bringing evidence and user needs into how we build and deliver.
+- I believe software in service organizations should be **trustworthy, usable, and usefull**, especially when it affects real people and businesses.
+- My work centers **technology**, **project management**, and **Applied Research**: bringing evidence and user needs into how we build and deliver.
 - This portfolio walks through that story.
 
 <p><img src="../pictures/diagrams/story-flow.png" alt="Diagram story-flow: Why story flow" /></p>
@@ -661,14 +661,14 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 <p class="americas-img"><img src="../pictures/work/americas-team-2025.jpg" alt="Americas Team 2025 - Applied Research Maturity Level 4" /></p>
 </div>
 
-| Area                               | Achievement                                                                                                                        |
-| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| Role                               | Applied Research & Technology – Bosch Brasil (May 2023 – present); Applied Research Expert & Project Champion at GS/BDU            |
-| International                      | Two trips to Germany (2024, 2025) for role-related work                                                                            |
-| CO2 Tracking (GS/Applied Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand                                                               |
-| Tooling project (PT)               | Led technical delivery and project management from requirements through high-fidelity prototypes, with regular customer check-ins. |
-| Applied Research Maturity          | Led Americas to Level 4 – governance, templates, training                                                                          |
-| CIP + Applied Research             | Led integration into ServiceNow CIM; Applied Research gate in CIP workflow                                                         |
+| Area                               | Achievement                                                                                                                        |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Role                               | Applied Research & Technology – Bosch Brasil (May 2023 – present); Applied Research Expert & Project Champion at GS/BDU            |
+| International                      | Two trips to Germany (2024, 2025) for role-related work                                                                            |
+| CO2 Tracking (GS/Applied Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand                                                               |
+| Tooling project (PT)               | Led technical delivery and project management from requirements through high-fidelity prototypes, with regular customer check-ins. |
+| Applied Research Maturity          | Led Americas to Level 4 – governance, templates, training                                                                          |
+| CIP + Applied Research             | Led integration into ServiceNow CIM; Applied Research gate in CIP workflow                                                         |
 | Collaboration                      | Tutor of Digital Talent Academy Students                                                                                           |
 
 
@@ -1333,22 +1333,22 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 <!-- Slide 21 – Future (Career) -->
 
 <style scoped>
-.future-career-wrap {
-  display: flex !important; justify-content: center !important; align-items: center !important;
-  min-height: 62vh !important; width: 100% !important; margin-top: 0.75rem !important;
-}
-.future-career-wrap p { margin: 0 !important; text-align: center !important; }
-.future-career-wrap img {
-  width: 43% !important; max-width: 43% !important; height: auto !important;
-  display: block !important; margin: 20px auto 0 !important;
-  border: none !important; box-shadow: none !important;
+.future-career-wrap {
+  display: flex !important; justify-content: center !important; align-items: center !important;
+  min-height: 62vh !important; width: 100% !important; margin-top: 0.75rem !important;
+}
+.future-career-wrap p { margin: 0 !important; text-align: center !important; }
+.future-career-wrap img {
+  width: 43% !important; max-width: 43% !important; height: auto !important;
+  display: block !important; margin: 20px auto 0 !important;
+  border: none !important; box-shadow: none !important;
 }
 </style>
 
-## Future – Career Aspirations, Vacancy Types & Prioritized Paths to Leadership
-
-<div class="future-career-wrap">
-<p><img src="../pictures/diagrams/future-career-path.png" alt="Diagram future-career-path: Prioritized paths to leadership, including AI Scrum Master" /></p>
+## Future – Career Aspirations, Vacancy Types & Prioritized Paths to Leadership
+
+<div class="future-career-wrap">
+<p><img src="../pictures/diagrams/future-career-path.png" alt="Diagram future-career-path: Prioritized paths to leadership, including AI Scrum Master" /></p>
 </div>
 
 <!-- Diagram: future-career-path (mermaid/diagrams.md). Export to future-career-path.png -->

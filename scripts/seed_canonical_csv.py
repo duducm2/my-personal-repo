@@ -1,11 +1,19 @@
 #!/usr/bin/env python3
-"""One-time / refresh seed of my-data/canonical/*.csv from known resume+portfolio content."""
+"""One-time / refresh seed of my-data/canonical/*.csv from known resume+portfolio content.
+
+Writes English-first CSVs, then runs migrate_bilingual_labels to add schema.csv,
+field_labels.csv, and all _en / _pt columns.
+"""
 from __future__ import annotations
 
 import csv
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+SCRIPTS = Path(__file__).resolve().parent
+if str(SCRIPTS) not in sys.path:
+    sys.path.insert(0, str(SCRIPTS))
 CANON = ROOT / "my-data" / "canonical"
 
 
@@ -58,7 +66,15 @@ def main() -> None:
 
     write_csv(
         "experience.csv",
-        ["id", "sort_order", "start_date", "end_date", "date_display", "company", "title"],
+        [
+            "id",
+            "sort_order",
+            "start_date",
+            "end_date",
+            "date_display",
+            "company",
+            "title",
+        ],
         [
             {
                 "id": "bosch-ar-2023",
@@ -101,28 +117,133 @@ def main() -> None:
 
     bullets = [
         # general – current role
-        ("bosch-ar-2023", "general", 1, "Supported Americas to reach **Research Maturity Level 4 inside Global Services**: governance, templates, training. **CSI 4.86 / NPS 9.94** avg. in my projects (2024–2025)."),
-        ("bosch-ar-2023", "general", 2, "CIP + Research integration into **ServiceNow**; added a Research gate in the workflow; **method-driven** quality gate."),
-        ("bosch-ar-2023", "general", 3, "**Tooling project (Power Tools):** supported technical delivery and project management from requirements through high-fidelity prototypes; regular customer check-ins."),
-        ("bosch-ar-2023", "general", 4, "Power BI dashboards for project/resource oversight and training tracking."),
-        ("bosch-ar-2023", "general", 5, "**Agentic AI:** use daily with **Cursor IDE** and context management for research, analysis, and problem-solving. Delivering Applied Research efficiently across pipeline and artifacts."),
-        ("bosch-ar-2023", "general", 6, "**International & Mentorship:** two trips to Germany (2024, 2025); tutor at SENAI Digital Talent Academy."),
-        ("bosch-web-2020", "general", 1, "Front-end development, React, Scrum, Applied Research; web solutions and teamwork-driven delivery."),
-        ("bosch-web-2020", "general", 2, "Collaborated on customer-facing applications and internal tools."),
-        ("bosch-hu-2019", "general", 1, "Business Excellence digitization; internal tools and workflows."),
-        ("bosch-hu-2019", "general", 2, "**Full-stack web development:** VS Code, SQL Server, Windows Server (IIS)."),
-        ("bosch-intern-2017", "general", 1, "VBA (Excel) for Continuous Improvement and internal communication."),
+        (
+            "bosch-ar-2023",
+            "general",
+            1,
+            "Supported Americas to reach **Research Maturity Level 4 inside Global Services**: governance, templates, training. **CSI 4.86 / NPS 9.94** avg. in my projects (2024–2025).",
+        ),
+        (
+            "bosch-ar-2023",
+            "general",
+            2,
+            "CIP + Research integration into **ServiceNow**; added a Research gate in the workflow; **method-driven** quality gate.",
+        ),
+        (
+            "bosch-ar-2023",
+            "general",
+            3,
+            "**Tooling project (Power Tools):** supported technical delivery and project management from requirements through high-fidelity prototypes; regular customer check-ins.",
+        ),
+        (
+            "bosch-ar-2023",
+            "general",
+            4,
+            "Power BI dashboards for project/resource oversight and training tracking.",
+        ),
+        (
+            "bosch-ar-2023",
+            "general",
+            5,
+            "**Agentic AI:** use daily with **Cursor IDE** and context management for research, analysis, and problem-solving. Delivering Applied Research efficiently across pipeline and artifacts.",
+        ),
+        (
+            "bosch-ar-2023",
+            "general",
+            6,
+            "**International & Mentorship:** two trips to Germany (2024, 2025); tutor at SENAI Digital Talent Academy.",
+        ),
+        (
+            "bosch-web-2020",
+            "general",
+            1,
+            "Front-end development, React, Scrum, Applied Research; web solutions and teamwork-driven delivery.",
+        ),
+        (
+            "bosch-web-2020",
+            "general",
+            2,
+            "Collaborated on customer-facing applications and internal tools.",
+        ),
+        (
+            "bosch-hu-2019",
+            "general",
+            1,
+            "Business Excellence digitization; internal tools and workflows.",
+        ),
+        (
+            "bosch-hu-2019",
+            "general",
+            2,
+            "**Full-stack web development:** VS Code, SQL Server, Windows Server (IIS).",
+        ),
+        (
+            "bosch-intern-2017",
+            "general",
+            1,
+            "VBA (Excel) for Continuous Improvement and internal communication.",
+        ),
         # product-owner
-        ("bosch-ar-2023", "product-owner", 1, "**Tooling project (Power Tools):** owned the path from requirements through high-fidelity prototypes; regular **customer check-ins** and delivery coordination with technical partners."),
-        ("bosch-ar-2023", "product-owner", 2, "Integrated Applied Research into **CIP / ServiceNow** as an intake and quality gate—method-driven triage so the right work advances."),
-        ("bosch-ar-2023", "product-owner", 3, "Supported Americas to reach **Research Maturity Level 4**: governance, templates, and training that productized research practice for stakeholders."),
-        ("bosch-ar-2023", "product-owner", 4, "Outcome evidence: **CSI 4.86 / NPS 9.94** avg. across my projects (2024–2025); Power BI for project and resource oversight."),
-        ("bosch-ar-2023", "product-owner", 5, "**International & Mentorship:** two trips to Germany (2024, 2025); tutor at SENAI Digital Talent Academy."),
-        ("bosch-web-2020", "product-owner", 1, "Delivered customer-facing and internal web solutions in **Scrum**; collaborated across design, research, and engineering."),
-        ("bosch-web-2020", "product-owner", 2, "Translated needs into shipped front-end (React) increments with teamwork-driven delivery."),
-        ("bosch-hu-2019", "product-owner", 1, "Digitized Business Excellence workflows—clarifying process needs and shipping internal tools."),
-        ("bosch-hu-2019", "product-owner", 2, "**Full-stack web development:** VS Code, SQL Server, Windows Server (IIS)."),
-        ("bosch-intern-2017", "product-owner", 1, "Built VBA tools supporting Continuous Improvement and internal communication processes."),
+        (
+            "bosch-ar-2023",
+            "product-owner",
+            1,
+            "**Tooling project (Power Tools):** owned the path from requirements through high-fidelity prototypes; regular **customer check-ins** and delivery coordination with technical partners.",
+        ),
+        (
+            "bosch-ar-2023",
+            "product-owner",
+            2,
+            "Integrated Applied Research into **CIP / ServiceNow** as an intake and quality gate—method-driven triage so the right work advances.",
+        ),
+        (
+            "bosch-ar-2023",
+            "product-owner",
+            3,
+            "Supported Americas to reach **Research Maturity Level 4**: governance, templates, and training that productized research practice for stakeholders.",
+        ),
+        (
+            "bosch-ar-2023",
+            "product-owner",
+            4,
+            "Outcome evidence: **CSI 4.86 / NPS 9.94** avg. across my projects (2024–2025); Power BI for project and resource oversight.",
+        ),
+        (
+            "bosch-ar-2023",
+            "product-owner",
+            5,
+            "**International & Mentorship:** two trips to Germany (2024, 2025); tutor at SENAI Digital Talent Academy.",
+        ),
+        (
+            "bosch-web-2020",
+            "product-owner",
+            1,
+            "Delivered customer-facing and internal web solutions in **Scrum**; collaborated across design, research, and engineering.",
+        ),
+        (
+            "bosch-web-2020",
+            "product-owner",
+            2,
+            "Translated needs into shipped front-end (React) increments with teamwork-driven delivery.",
+        ),
+        (
+            "bosch-hu-2019",
+            "product-owner",
+            1,
+            "Digitized Business Excellence workflows—clarifying process needs and shipping internal tools.",
+        ),
+        (
+            "bosch-hu-2019",
+            "product-owner",
+            2,
+            "**Full-stack web development:** VS Code, SQL Server, Windows Server (IIS).",
+        ),
+        (
+            "bosch-intern-2017",
+            "product-owner",
+            1,
+            "Built VBA tools supporting Continuous Improvement and internal communication processes.",
+        ),
     ]
     write_csv(
         "experience_bullets.csv",
@@ -196,7 +317,7 @@ def main() -> None:
             {
                 "sort_order": "1",
                 "degree": "Master's in Technology:",
-                "institution": "Info & Comm Systems. Unicamp (2023–2026).",
+                "institution": "Info & Comm Systems. Unicamp (2023–2026, completing September 2026).",
                 "detail": "Dissertation: Measuring **perceived trust** in e-commerce websites with a digital evaluation platform (ISO/IEC 25000), using experimentation, ML, and human vs **AI-agent** validation. Coursework (**Grade A in all courses**): Academic Writing, Scientific Research, Innovation & Technology Transfer, Information Visualization.",
             },
             {
@@ -290,21 +411,33 @@ def main() -> None:
         (
             "general",
             "profile",
-            "UX and software-quality researcher helping teams build **user-centered solutions** through **Applied Research, technology, and project management**. Full-stack background and **scientific mindset**. Daily use of data, CIP, and **Agentic AI**. **Self-directed and proactive** across design, front-end, Power BI, and Python. Master's in Technology with **Grade A across all coursework**. Aspiring **AI Scrum Master**.",
+            "UX and software-quality researcher helping teams build **user-centered solutions** through **Applied Research, technology, and project management**. Full-stack background and **scientific mindset**. Daily use of data, CIP, and **Agentic AI**. **Self-directed and proactive** across design, front-end, Power BI, and Python. Master's in Technology (**completing September 2026**) with **Grade A across all coursework**. Aspiring **AI Scrum Master**.",
         ),
-        ("product-owner", "tagline", "Product Owner Focus | Discovery, Delivery & Stakeholder Outcomes"),
+        ("product-owner", "tagline", "Discovery, Delivery & Stakeholder Outcomes"),
         (
             "product-owner",
             "profile",
-            "Product-minded professional connecting **discovery to delivery**: clarifying needs, aligning stakeholders, and guiding solutions from requirements through validation. Background in **Applied Research, UX, and project delivery** with a full-stack foundation. Uses data, CIP, and **customer check-ins** to prioritize outcomes. Master's in Technology with **Grade A across all coursework**. Seeking **Product Owner** roles where research-informed decisions drive backlog and results.",
+            "Product-minded professional connecting **discovery to delivery**: clarifying needs, aligning stakeholders, and guiding solutions from requirements through validation. Background in **Applied Research, UX, and project delivery** with a full-stack foundation. Uses data, CIP, and **customer check-ins** to prioritize outcomes. Master's in Technology (**completing September 2026**) with **Grade A across all coursework**.",
         ),
         # portfolio deck
         ("general", "deck_title", "Eduardo Figueiredo – Portfolio"),
-        ("product-owner", "deck_title", "Eduardo Figueiredo – Product Owner Portfolio"),
-        ("general", "why_h1", "Why I Work in Technology, Project Management & Applied Research"),
-        ("product-owner", "why_h1", "Why I Work Toward Product Ownership"),
-        ("general", "why_h2", "Trustworthy, human-centered software for complex services"),
-        ("product-owner", "why_h2", "Discovery to delivery for trustworthy, human-centered products"),
+        ("product-owner", "deck_title", "Eduardo Figueiredo – Portfolio"),
+        (
+            "general",
+            "why_h1",
+            "Why I Work in Technology, Project Management & Applied Research",
+        ),
+        ("product-owner", "why_h1", "Why Discovery and Delivery Matter"),
+        (
+            "general",
+            "why_h2",
+            "Trustworthy, human-centered software for complex services",
+        ),
+        (
+            "product-owner",
+            "why_h2",
+            "Discovery to delivery for trustworthy, human-centered products",
+        ),
         (
             "general",
             "why_bullets",
@@ -316,7 +449,7 @@ def main() -> None:
             "- I believe products in service organizations should be **trustworthy, usable, and useful**, especially when they affect real people and businesses.\n- My work connects **stakeholder needs**, **prioritization**, and **Applied Research**: bringing evidence into what we build, why, and in what order.\n- This portfolio shows that discovery → delivery path through real projects.",
         ),
         ("general", "who_role", "Applied Research, Technology & Project Management"),
-        ("product-owner", "who_role", "Product Owner focus — Discovery, Delivery & Stakeholder Outcomes"),
+        ("product-owner", "who_role", "Discovery, Delivery & Stakeholder Outcomes"),
         (
             "general",
             "who_impact",
@@ -327,8 +460,16 @@ def main() -> None:
             "who_impact",
             "I help teams prioritize and ship with clarity: Applied Research to decide, stakeholder alignment to commit, and measurable outcomes to prove value.",
         ),
-        ("general", "present_h2", "Present – Applied Research & Technology (Bosch Brasil)"),
-        ("product-owner", "present_h2", "Present – Product-Shaped Work at Bosch Brasil"),
+        (
+            "general",
+            "present_h2",
+            "Present – Applied Research & Technology (Bosch Brasil)",
+        ),
+        (
+            "product-owner",
+            "present_h2",
+            "Present – Product-Shaped Work at Bosch Brasil",
+        ),
         (
             "general",
             "present_table",
@@ -355,14 +496,38 @@ def main() -> None:
             "| CIP + Applied Research             | ServiceNow CIM integration; Applied Research as an **intake / quality gate** so the right work advances                           |\n"
             "| Collaboration                      | Tutor of Digital Talent Academy Students                                                                                          |",
         ),
-        ("general", "cip_pipeline_h2", "Present – CIP and Applied Research Integration: Methodology Pipeline"),
-        ("product-owner", "cip_pipeline_h2", "Present – CIP Intake Gate: Methodology Pipeline"),
-        ("general", "relevance_h2", "Present – Applied Research relevance evaluation model"),
-        ("product-owner", "relevance_h2", "Present – Prioritization Model (Low / Medium / High relevance)"),
+        (
+            "general",
+            "cip_pipeline_h2",
+            "Present – CIP and Applied Research Integration: Methodology Pipeline",
+        ),
+        (
+            "product-owner",
+            "cip_pipeline_h2",
+            "Present – CIP Intake Gate: Methodology Pipeline",
+        ),
+        (
+            "general",
+            "relevance_h2",
+            "Present – Applied Research relevance evaluation model",
+        ),
+        (
+            "product-owner",
+            "relevance_h2",
+            "Present – Prioritization Model (Low / Medium / High relevance)",
+        ),
         ("general", "csi_h2", "Present – CSI & NPS Performance (2024–2025)"),
-        ("product-owner", "csi_h2", "Present – Outcome Evidence: CSI & NPS (2024–2025)"),
+        (
+            "product-owner",
+            "csi_h2",
+            "Present – Outcome Evidence: CSI & NPS (2024–2025)",
+        ),
         ("general", "tooling_h2", "Technical Implementation – Tooling Project for PT"),
-        ("product-owner", "tooling_h2", "Discovery → Delivery – Tooling Project for PT"),
+        (
+            "product-owner",
+            "tooling_h2",
+            "Discovery → Delivery – Tooling Project for PT",
+        ),
         (
             "general",
             "tooling_bullet",
@@ -379,10 +544,18 @@ def main() -> None:
         (
             "product-owner",
             "future_intro",
-            "Product ownership sits where **discovery, prioritization, and delivery** meet. The diagram below is the agile/research operating context I work in today.",
+            "**Discovery, prioritization, and delivery** meet in how I work with teams today. The diagram below is the agile/research operating context I work in.",
         ),
-        ("general", "future_diagram_alt", "Diagram ai-agile-research: AI and Agile in Applied Research, AI Scrum Master role"),
-        ("product-owner", "future_diagram_alt", "Diagram ai-agile-research: AI and Agile in Applied Research"),
+        (
+            "general",
+            "future_diagram_alt",
+            "Diagram ai-agile-research: AI and Agile in Applied Research, AI Scrum Master role",
+        ),
+        (
+            "product-owner",
+            "future_diagram_alt",
+            "Diagram ai-agile-research: AI and Agile in Applied Research",
+        ),
         (
             "general",
             "future_career_body",
@@ -394,13 +567,11 @@ def main() -> None:
         (
             "product-owner",
             "future_career_body",
-            "## Future – Targeting Product Owner Roles\n\n"
-            "- **Focus:** Product Owner roles where research-informed decisions drive backlog and outcomes.\n"
-            "- **What I bring:** discovery → prototypes → stakeholder check-ins; intake/quality gates; outcome metrics (CSI/NPS).\n"
-            "- **Honest framing:** my official title is Applied Research & Design Analyst / Project Champion — the work below maps to PO competencies without claiming a PO job title I did not hold.\n\n"
+            "## Future – How I Work\n\n"
+            "- **What I bring:** discovery → prototypes → stakeholder check-ins; intake/quality gates; outcome metrics (CSI/NPS).\n\n"
             '<div class="future-career-wrap">\n'
             '<div class="future-po-bullets">\n\n'
-            "| PO competency           | Evidence from my work                                     |\n"
+            "| Competency              | Evidence from my work                                     |\n"
             "| ----------------------- | --------------------------------------------------------- |\n"
             "| Discovery & validation  | Tooling PT requirements → prototypes → customer check-ins |\n"
             "| Prioritization / intake | ServiceNow Applied Research gate in CIP                   |\n"
@@ -451,7 +622,7 @@ def main() -> None:
         (
             "product-owner",
             "closing_summary",
-            "I connect discovery to delivery: clarifying needs, aligning stakeholders, prioritizing with evidence, and validating outcomes. Seeking Product Owner roles where that loop creates trustworthy, user-centered products with measurable impact.",
+            "I connect discovery to delivery: clarifying needs, aligning stakeholders, prioritizing with evidence, and validating outcomes — creating trustworthy, user-centered products with measurable impact.",
         ),
     ]
     write_csv(
@@ -460,7 +631,10 @@ def main() -> None:
         [{"variant": v, "field": f, "text": t} for v, f, t in narratives],
     )
 
-    print("Canonical CSV seed complete.")
+    print("Canonical CSV seed complete (EN columns). Running bilingual migration…")
+    from migrate_bilingual_labels import main as migrate_bilingual
+
+    migrate_bilingual()
 
 
 if __name__ == "__main__":

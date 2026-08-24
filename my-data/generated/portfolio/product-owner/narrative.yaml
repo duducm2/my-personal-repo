@@ -3,21 +3,19 @@ variant: product-owner
 fields:
   asset_prefix: "../../../"
   cip_pipeline_h2: "Present – CIP Intake Gate: Methodology Pipeline"
-  closing_summary: "I connect discovery to delivery: clarifying needs, aligning stakeholders, prioritizing with evidence, and validating outcomes. Seeking Product Owner roles where that loop creates trustworthy, user-centered products with measurable impact."
+  closing_summary: "I connect discovery to delivery: clarifying needs, aligning stakeholders, prioritizing with evidence, and validating outcomes — creating trustworthy, user-centered products with measurable impact."
   csi_h2: "Present – Outcome Evidence: CSI & NPS (2024–2025)"
-  deck_title: "Eduardo Figueiredo – Product Owner Portfolio"
+  deck_title: "Eduardo Figueiredo – Portfolio"
   email: "edu.evangelista.figueiredo@gmail.com"
   future_career_body: |
-    ## Future – Targeting Product Owner Roles
+    ## Future – How I Work
     
-    - **Focus:** Product Owner roles where research-informed decisions drive backlog and outcomes.
     - **What I bring:** discovery → prototypes → stakeholder check-ins; intake/quality gates; outcome metrics (CSI/NPS).
-    - **Honest framing:** my official title is Applied Research & Design Analyst / Project Champion — the work below maps to PO competencies without claiming a PO job title I did not hold.
     
     <div class="future-career-wrap">
     <div class="future-po-bullets">
     
-    | PO competency           | Evidence from my work                                     |
+    | Competency              | Evidence from my work                                     |
     | ----------------------- | --------------------------------------------------------- |
     | Discovery & validation  | Tooling PT requirements → prototypes → customer check-ins |
     | Prioritization / intake | ServiceNow Applied Research gate in CIP                   |
@@ -45,7 +43,7 @@ fields:
     }
   future_diagram_alt: "Diagram ai-agile-research: AI and Agile in Applied Research"
   future_h2: "Future – Agile Delivery Context"
-  future_intro: "Product ownership sits where **discovery, prioritization, and delivery** meet. The diagram below is the agile/research operating context I work in today."
+  future_intro: "**Discovery, prioritization, and delivery** meet in how I work with teams today. The diagram below is the agile/research operating context I work in."
   lattes_url: "https://lattes.cnpq.br/2708641049892967"
   linkedin_display: "linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b"
   linkedin_url: "https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b"
@@ -68,10 +66,10 @@ fields:
   who_contact: "Nova Odessa, SP – Brazil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583"
   who_impact: "I help teams prioritize and ship with clarity: Applied Research to decide, stakeholder alignment to commit, and measurable outcomes to prove value."
   who_name: "Eduardo M. de A. Figueiredo"
-  who_role: "Product Owner focus — Discovery, Delivery & Stakeholder Outcomes"
+  who_role: "Discovery, Delivery & Stakeholder Outcomes"
   why_bullets: |
     - I believe products in service organizations should be **trustworthy, usable, and useful**, especially when they affect real people and businesses.
     - My work connects **stakeholder needs**, **prioritization**, and **Applied Research**: bringing evidence into what we build, why, and in what order.
     - This portfolio shows that discovery → delivery path through real projects.
-  why_h1: "Why I Work Toward Product Ownership"
+  why_h1: "Why Discovery and Delivery Matter"
   why_h2: "Discovery to delivery for trustworthy, human-centered products"

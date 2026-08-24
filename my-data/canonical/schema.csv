@@ -1,0 +1,69 @@
+file,column,label_en,label_pt
+profile.csv,full_name,Full name,Nome completo
+profile.csv,display_name,Display name,Nome de exibição
+profile.csv,phone,Phone,Telefone
+profile.csv,email,Email,E-mail
+profile.csv,linkedin_label_en,LinkedIn label (EN),Rótulo LinkedIn (EN)
+profile.csv,linkedin_label_pt,LinkedIn label (PT),Rótulo LinkedIn (PT)
+profile.csv,linkedin_url,LinkedIn URL,URL LinkedIn
+profile.csv,lattes_label_en,Lattes label (EN),Rótulo Lattes (EN)
+profile.csv,lattes_label_pt,Lattes label (PT),Rótulo Lattes (PT)
+profile.csv,lattes_url,Lattes URL,URL Lattes
+profile.csv,orcid_label_en,ORCID label (EN),Rótulo ORCID (EN)
+profile.csv,orcid_label_pt,ORCID label (PT),Rótulo ORCID (PT)
+profile.csv,orcid_url,ORCID URL,URL ORCID
+profile.csv,location_en,Location (EN),Localização (EN)
+profile.csv,location_pt,Location (PT),Localização (PT)
+profile.csv,languages_en,Languages (EN),Idiomas (EN)
+profile.csv,languages_pt,Languages (PT),Idiomas (PT)
+experience.csv,id,Experience ID,ID da experiência
+experience.csv,sort_order,Sort order,Ordem
+experience.csv,start_date,Start date,Data início
+experience.csv,end_date,End date,Data fim
+experience.csv,date_display_en,Date display (EN),Período exibido (EN)
+experience.csv,date_display_pt,Date display (PT),Período exibido (PT)
+experience.csv,company,Company,Empresa
+experience.csv,title_en,Job title (EN),Cargo (EN)
+experience.csv,title_pt,Job title (PT),Cargo (PT)
+experience_bullets.csv,experience_id,Experience ID,ID da experiência
+experience_bullets.csv,variant,Variant,Variante
+experience_bullets.csv,sort_order,Sort order,Ordem
+experience_bullets.csv,text_en,Bullet text (EN),Texto do item (EN)
+experience_bullets.csv,text_pt,Bullet text (PT),Texto do item (PT)
+skills.csv,variant,Variant,Variante
+skills.csv,category,Category key,Chave da categoria
+skills.csv,category_label_en,Category label (EN),Rótulo da categoria (EN)
+skills.csv,category_label_pt,Category label (PT),Rótulo da categoria (PT)
+skills.csv,sort_order,Sort order,Ordem
+skills.csv,label_en,Skill label (EN),Rótulo da habilidade (EN)
+skills.csv,label_pt,Skill label (PT),Rótulo da habilidade (PT)
+education.csv,sort_order,Sort order,Ordem
+education.csv,degree_en,Degree (EN),Grau (EN)
+education.csv,degree_pt,Degree (PT),Grau (PT)
+education.csv,institution_en,Institution (EN),Instituição (EN)
+education.csv,institution_pt,Institution (PT),Instituição (PT)
+education.csv,detail_en,Detail (EN),Detalhe (EN)
+education.csv,detail_pt,Detail (PT),Detalhe (PT)
+publications.csv,sort_order,Sort order,Ordem
+publications.csv,venue_en,Venue (EN),Veículo (EN)
+publications.csv,venue_pt,Venue (PT),Veículo (PT)
+publications.csv,citation_en,Citation (EN),Citação (EN)
+publications.csv,citation_pt,Citation (PT),Citação (PT)
+additional.csv,sort_order,Sort order,Ordem
+additional.csv,text_en,Text (EN),Texto (EN)
+additional.csv,text_pt,Text (PT),Texto (PT)
+projects.csv,id,Project ID,ID do projeto
+projects.csv,name_en,Name (EN),Nome (EN)
+projects.csv,name_pt,Name (PT),Nome (PT)
+projects.csv,summary_en,Summary (EN),Resumo (EN)
+projects.csv,summary_pt,Summary (PT),Resumo (PT)
+projects.csv,csi,CSI score,Nota CSI
+projects.csv,nps,NPS score,Nota NPS
+projects.csv,notes_en,Notes (EN),Observações (EN)
+projects.csv,notes_pt,Notes (PT),Observações (PT)
+narratives.csv,variant,Variant,Variante
+narratives.csv,field,Field key,Chave do campo
+narratives.csv,label_en,Field label (EN),Rótulo do campo (EN)
+narratives.csv,label_pt,Field label (PT),Rótulo do campo (PT)
+narratives.csv,text_en,Text (EN),Texto (EN)
+narratives.csv,text_pt,Text (PT),Texto (PT)

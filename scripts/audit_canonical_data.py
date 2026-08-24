@@ -33,8 +33,10 @@ def main() -> int:
             "linkedin_url",
             "lattes_url",
             "orcid_url",
-            "location",
-            "languages",
+            "location_en",
+            "location_pt",
+            "languages_en",
+            "languages_pt",
         ):
             if not p.get(k):
                 issues.append(f"profile missing {k}")
@@ -56,8 +58,9 @@ def main() -> int:
         if not row:
             issues.append(f"experience missing id={eid}")
         else:
-            if row["title"] != title:
-                issues.append(f"{eid} title mismatch: {row['title']!r}")
+            title_val = row.get("title_en", row.get("title", ""))
+            if title_val != title:
+                issues.append(f"{eid} title mismatch: {title_val!r}")
             if row["company"] != company:
                 issues.append(f"{eid} company mismatch: {row['company']!r}")
     ok.append(f"experience.csv: {len(exp)} roles (resume baseline)")
@@ -116,18 +119,22 @@ def main() -> int:
         ("general", "SENAI"),
         ("product-owner", "customer check-ins"),
         ("product-owner", "intake and quality gate"),
-        (
-            "product-owner",
-            "Product Owner",
-        ),  # in seeking wording via narratives not bullets
+        ("product-owner", "Discovery, Delivery"),
     ]
     all_bullet_text = {
-        "general": " ".join(b["text"] for b in bullets if b["variant"] == "general"),
+        "general": " ".join(
+            b.get("text_en", b.get("text", "")) for b in bullets if b["variant"] == "general"
+        ),
         "product-owner": " ".join(
-            b["text"] for b in bullets if b["variant"] == "product-owner"
+            b.get("text_en", b.get("text", ""))
+            for b in bullets
+            if b["variant"] == "product-owner"
         ),
     }
-    nars = {(r["variant"], r["field"]): r["text"] for r in load("narratives.csv")}
+    nars = {
+        (r["variant"], r["field"]): r.get("text_en", r.get("text", ""))
+        for r in load("narratives.csv")
+    }
     for var, phrase in required_phrases:
         hay = (
             all_bullet_text[var]
@@ -137,6 +144,23 @@ def main() -> int:
         if phrase not in hay:
             issues.append(f"missing phrase in {var}: {phrase!r}")
     ok.append("critical phrases present in bullets/narratives")
+
+    forbidden_po_labels = (
+        "Product Owner Focus",
+        "Product Owner focus",
+        "Seeking Product Owner",
+        "Product Owner Portfolio",
+        "Targeting Product Owner",
+    )
+    po_text = " ".join(
+        row.get("text_en", row.get("text", ""))
+        for row in load("narratives.csv")
+        if row["variant"] == "product-owner"
+    )
+    for bad in forbidden_po_labels:
+        if bad in po_text:
+            issues.append(f"product-owner narrative still contains meta-label: {bad!r}")
+    ok.append("product-owner narratives: no PO meta-labels")
 
     skills = load("skills.csv")
     g_core = [
@@ -164,20 +188,35 @@ def main() -> int:
     edu = load("education.csv")
     if len(edu) != 3:
         issues.append(f"education want 3 got {len(edu)}")
-    if "perceived trust" not in edu[0]["detail"]:
+    if "perceived trust" not in edu[0].get("detail_en", edu[0].get("detail", "")):
         issues.append("master's dissertation detail missing perceived trust")
-    ok.append("education.csv: 3 degrees + dissertation detail")
+    inst = edu[0].get("institution_en", edu[0].get("institution", ""))
+    if "September 2026" not in inst and "setembro de 2026" not in edu[0].get("institution_pt", ""):
+        issues.append("master's institution missing September 2026 completion")
+    ok.append("education.csv: 3 degrees + dissertation detail + completion date")
+
+    # Bilingual label registry
+    if not (CANON / "schema.csv").exists():
+        issues.append("schema.csv missing")
+    else:
+        schema = load("schema.csv")
+        if len(schema) < 50:
+            issues.append(f"schema.csv seems incomplete: {len(schema)} rows")
+        ok.append(f"schema.csv: {len(schema)} column labels (EN/PT)")
+    if not (CANON / "field_labels.csv").exists():
+        issues.append("field_labels.csv missing")
+    else:
+        fl = load("field_labels.csv")
+        ok.append(f"field_labels.csv: {len(fl)} key labels (EN/PT)")
 
     pubs = load("publications.csv")
     if len(pubs) != 2:
         issues.append(f"publications want 2 got {len(pubs)}")
     # Check double-quote corruption
     for p in pubs:
-        if '""' in p["citation"] and p["citation"].count('""') >= 2:
-            # CSV correctly escapes quotes as ""; DictReader should un-escape
-            pass
-        if "Measuring" not in p["citation"]:
-            issues.append(f"publication citation odd: {p['citation']!r}")
+        cite = p.get("citation_en", p.get("citation", ""))
+        if "Measuring" not in cite:
+            issues.append(f"publication citation odd: {cite!r}")
     ok.append("publications.csv: IHC + ISSRE present")
 
     add = load("additional.csv")
@@ -238,6 +277,7 @@ def main() -> int:
                 "Research Maturity Level 4",
                 "AI Scrum Master",
                 "AutoHotkey",
+                "September 2026",
             ],
         ),
         (
@@ -245,7 +285,8 @@ def main() -> int:
             gen_resume_po,
             [
                 "GENERATED",
-                "Product Owner Focus",
+                "September 2026",
+                "Discovery, Delivery & Stakeholder Outcomes",
                 "discovery to delivery",
                 "customer check-ins",
                 "ServiceNow",
@@ -258,10 +299,13 @@ def main() -> int:
         ok.append(f"{label}: key strings present")
 
     # Publication quotes in generated Typst
-    if '""Measuring' in gen_resume_g or '""Measuring' in gen_resume_g:
+    if '""Measuring' in gen_resume_g:
         issues.append("general content.typ has doubled quotes in publications")
     if "Measuring User Trust" not in gen_resume_g:
         issues.append("general content.typ lost IHC publication title")
+    tagline_line = next((l for l in gen_resume_po.splitlines() if "#let tagline" in l), "")
+    if "Product Owner" in tagline_line:
+        issues.append("PO content.typ tagline still mentions Product Owner")
 
     deck_g = (ROOT / "portfolio" / "portfolio-deck.md").read_text(encoding="utf-8")
     deck_po = (
@@ -285,11 +329,12 @@ def main() -> int:
             "PO deck",
             deck_po,
             [
-                "Why I Work Toward Product Ownership",
+                "Why Discovery and Delivery Matter",
+                "Discovery, Delivery & Stakeholder Outcomes",
                 "Product-Shaped Work",
                 "Outcome Evidence",
                 "Discovery → Delivery",
-                "Targeting Product Owner Roles",
+                "Future – How I Work",
                 "../../../pictures/",
             ],
         ),
