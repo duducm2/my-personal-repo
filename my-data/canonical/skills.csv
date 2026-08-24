@@ -27,15 +27,23 @@ product-owner,Core,Core,Núcleo,2,Stakeholder alignment,Alinhamento de stakehold
 product-owner,Core,Core,Núcleo,3,Prioritization & outcomes,Priorização e resultados
 product-owner,Core,Core,Núcleo,4,Applied Research,Pesquisa Aplicada
 product-owner,Core,Core,Núcleo,5,Agile / CIP,Ágil / CIP
-product-owner,Tech,Tech,Tecnologias,1,Figma,Figma
-product-owner,Tech,Tech,Tecnologias,2,Power BI,Power BI
+product-owner,Tech,Tech,Tecnologias,1,Power BI,Power BI
+product-owner,Tech,Tech,Tecnologias,2,Python,Python
 product-owner,Tech,Tech,Tecnologias,3,React,React
-product-owner,Tech,Tech,Tecnologias,4,SQL,SQL
-product-owner,Tech,Tech,Tecnologias,5,Python,Python
-product-owner,Tech,Tech,Tecnologias,6,ServiceNow,ServiceNow
-product-owner,Tech,Tech,Tecnologias,7,Azure,Azure
+product-owner,Tech,Tech,Tecnologias,4,Figma,Figma
+product-owner,Tech,Tech,Tecnologias,5,SQL,SQL
+product-owner,Tech,Tech,Tecnologias,6,Matplotlib,Matplotlib
+product-owner,Tech,Tech,Tecnologias,7,Seaborn,Seaborn
 product-owner,Tech,Tech,Tecnologias,8,Git,Git
-product-owner,Tech,Tech,Tecnologias,9,Mermaid,Mermaid
+product-owner,Tech,Tech,Tecnologias,9,GitHub,GitHub
 product-owner,Tech,Tech,Tecnologias,10,Cursor IDE,Cursor IDE
-product-owner,Tech,Tech,Tecnologias,11,Excel,Excel
-product-owner,Tech,Tech,Tecnologias,12,VBA,VBA
+product-owner,Tech,Tech,Tecnologias,11,Azure,Azure
+product-owner,Tech,Tech,Tecnologias,12,ServiceNow,ServiceNow
+product-owner,Tech,Tech,Tecnologias,13,Bitbucket,Bitbucket
+product-owner,Tech,Tech,Tecnologias,14,HTML,HTML
+product-owner,Tech,Tech,Tecnologias,15,CSS,CSS
+product-owner,Tech,Tech,Tecnologias,16,Mermaid,Mermaid
+product-owner,Tech,Tech,Tecnologias,17,VS Code,VS Code
+product-owner,Tech,Tech,Tecnologias,18,Excel,Excel
+product-owner,Tech,Tech,Tecnologias,19,VBA,VBA
+product-owner,Tech,Tech,Tecnologias,20,AutoHotkey,AutoHotkey

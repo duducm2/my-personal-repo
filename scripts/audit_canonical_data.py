@@ -123,7 +123,9 @@ def main() -> int:
     ]
     all_bullet_text = {
         "general": " ".join(
-            b.get("text_en", b.get("text", "")) for b in bullets if b["variant"] == "general"
+            b.get("text_en", b.get("text", ""))
+            for b in bullets
+            if b["variant"] == "general"
         ),
         "product-owner": " ".join(
             b.get("text_en", b.get("text", ""))
@@ -181,8 +183,8 @@ def main() -> int:
         issues.append(f"general Tech skills want 19 got {len(g_tech)}")
     if len(po_core) != 5:
         issues.append(f"PO Core skills want 5 got {len(po_core)}")
-    if len(po_tech) != 12:
-        issues.append(f"PO Tech skills want 12 got {len(po_tech)}")
+    if len(po_tech) != 20:
+        issues.append(f"PO Tech skills want 20 got {len(po_tech)}")
     ok.append("skills.csv counts match resume baselines")
 
     edu = load("education.csv")
@@ -191,7 +193,9 @@ def main() -> int:
     if "perceived trust" not in edu[0].get("detail_en", edu[0].get("detail", "")):
         issues.append("master's dissertation detail missing perceived trust")
     inst = edu[0].get("institution_en", edu[0].get("institution", ""))
-    if "September 2026" not in inst and "setembro de 2026" not in edu[0].get("institution_pt", ""):
+    if "September 2026" not in inst and "setembro de 2026" not in edu[0].get(
+        "institution_pt", ""
+    ):
         issues.append("master's institution missing September 2026 completion")
     ok.append("education.csv: 3 degrees + dissertation detail + completion date")
 
@@ -303,7 +307,9 @@ def main() -> int:
         issues.append("general content.typ has doubled quotes in publications")
     if "Measuring User Trust" not in gen_resume_g:
         issues.append("general content.typ lost IHC publication title")
-    tagline_line = next((l for l in gen_resume_po.splitlines() if "#let tagline" in l), "")
+    tagline_line = next(
+        (l for l in gen_resume_po.splitlines() if "#let tagline" in l), ""
+    )
     if "Product Owner" in tagline_line:
         issues.append("PO content.typ tagline still mentions Product Owner")
 

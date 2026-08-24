@@ -24,7 +24,7 @@
 
 #let skills = (
   ("Core:", ("Product discovery", "Stakeholder alignment", "Prioritization & outcomes", "Applied Research", "Agile / CIP")),
-  ("Tech:", ("Figma", "Power BI", "React", "SQL", "Python", "ServiceNow", "Azure", "Git", "Mermaid", "Cursor IDE", "Excel", "VBA")),
+  ("Tech:", ("Power BI", "Python", "React", "Figma", "SQL", "Matplotlib", "Seaborn", "Git", "GitHub", "Cursor IDE", "Azure", "ServiceNow", "Bitbucket", "HTML", "CSS", "Mermaid", "VS Code", "Excel", "VBA", "AutoHotkey")),
 )
 
 #let experience = (
