@@ -51,7 +51,7 @@ You can copy existing slides and change the text while keeping the same visual l
 
 1. Open `portfolio-deck.md` in VS Code.
 2. Make sure you have either:
-   - The **Marp for VS Code** extension, or  
+   - The **Marp for VS Code** extension, or
    - **Markdown Preview Enhanced** configured to use Marp.
 3. Start the slide preview (e.g. `Marp: Open Preview to the Side` from the Command Palette).
 4. Edit content as normal Markdown; use `_class` comments to switch layouts or add new ones by reusing existing CSS classes.
@@ -82,8 +82,15 @@ If you use Markdown Preview Enhanced + Puppeteer instead, `.mume/style.less` pro
 ```
 
 - If you need a new layout, either:
-  - Reuse a class from `ChampionLeads.md` by copying its CSS into the `style:` block, or  
+  - Reuse a class from `ChampionLeads.md` by copying its CSS into the `style:` block, or
   - Create a new CSS rule in the same `style:` block and then use it via `<!-- _class: your-class-name -->` on a slide.
 
 This keeps the portfolio deck **code-based, reproducible, and easy to version-control** while staying visually aligned with the ChampionLeads aesthetic.
 
+---
+
+### Role variants & output PDFs
+
+- **General (this folder):** [`portfolio-deck.md`](portfolio-deck.md) — do not rewrite for vacancy-specific framing; leave as the baseline.
+- **Product Owner:** [`variants/product-owner/portfolio-deck.md`](variants/product-owner/portfolio-deck.md) — same visual system; wording focused on discovery → delivery and stakeholder outcomes (official job titles unchanged).
+- **Ready-to-send PDFs:** [`../output/`](../output/) — see [`../output/README.md`](../output/README.md) for compile/export commands.

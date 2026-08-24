@@ -8,17 +8,17 @@ This guide sets up a **code-driven resume** that replicates the visual design of
 
 - **Visual hierarchy:** See `RESUME-LAYOUT-ANALYSIS.md` for a full comparison. In short: ref uses an asymmetrical **32% / 68%** two-column grid, uppercase section titles, date-first experience entries, and nested skill lists.
 - **Content source:** Use the data already migrated into `typst/content.typ` (from `CV-Eduardo-Figueiredo-EN.md`). Design reference is `CV Ref.pdf`.
-- **AI safety:** Only `typst/content.typ` should be edited for resume *content*. Do not change `typst/main.typ` for copy or structure—that file defines the grid and typography.
+- **AI safety:** Only `typst/content.typ` should be edited for resume _content_. Do not change `typst/main.typ` for copy or structure—that file defines the grid and typography.
 
 ---
 
 ## 2. Tools and Extensions
 
-| Tool | Purpose |
-|------|--------|
-| **Typst** | CLI compiler; install from [typst.app](https://typst.app) or `cargo install typst-cli`. |
-| **Tinymist (VS Code / Cursor)** | LSP + real-time preview. Install from the marketplace: search "Typst" or "Tinymist". |
-| **Optional: Live Preview / Playwright** | Only if you add the HTML/Tailwind alternative later; not required for Typst. |
+| Tool                                    | Purpose                                                                                 |
+| --------------------------------------- | --------------------------------------------------------------------------------------- |
+| **Typst**                               | CLI compiler; install from [typst.app](https://typst.app) or `cargo install typst-cli`. |
+| **Tinymist (VS Code / Cursor)**         | LSP + real-time preview. Install from the marketplace: search "Typst" or "Tinymist".    |
+| **Optional: Live Preview / Playwright** | Only if you add the HTML/Tailwind alternative later; not required for Typst.            |
 
 ---
 
@@ -43,7 +43,7 @@ typst --version
 4. Reload the editor if prompted.
 
 ### 3.3 Project Layout
- 
+
 ```
 resume/
 ├── CV Ref.pdf              # Visual reference (do not edit)
@@ -81,6 +81,12 @@ typst watch resume/typst/main.typ resume/CV-Eduardo-Figueiredo-EN-typst.pdf
 - Edit `name`, `tagline`, `profile`, `strengths`, `languages`, `skills`, `experience`, `education`, `publications`, `additional` as needed.
 - Keep the **structure** of each variable (e.g. `experience` remains a tuple of `(date, company, title, bullets)`).
 - Do **not** change `main.typ` when updating copy—that file controls the 32/68 grid and typography.
+
+### 3.5a Role variants (Product Owner)
+
+- **General** content stays in `typst/content.typ` (baseline — leave unchanged for vacancy-specific framing).
+- **Product Owner** content: [`../variants/product-owner/content.typ`](../variants/product-owner/content.typ) (honest PO wording; official titles kept).
+- Compile PO resume to `output/product-owner/` — see [`../../output/README.md`](../../output/README.md).
 
 ### 3.6 Fonts (Optional)
 
