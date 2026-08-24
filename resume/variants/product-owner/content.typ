@@ -1,7 +1,7 @@
 // =============================================================================
-// RESUME CONTENT (Product Owner variant) — Honest reframing of existing work.
-// Official job titles unchanged. Do not edit resume/typst/content.typ from here.
-// Layout: main.typ in this folder.
+// GENERATED from my-data/canonical — do not edit by hand.
+// Variant: product-owner. Re-run: python scripts/generate_from_canonical.py
+// Layout: main.typ (do not change layout here).
 // =============================================================================
 
 #let name = "Eduardo M. de A. Figueiredo"
@@ -22,7 +22,6 @@
 
 #let languages = "Portuguese (Native)   English (Fluent)"
 
-// Nested structure: each item is (category, array of sub-items or empty)
 #let skills = (
   ("Core:", ("Product discovery", "Stakeholder alignment", "Prioritization & outcomes", "Applied Research", "Agile / CIP")),
   ("Tech:", ("Figma", "Power BI", "React", "SQL", "Python", "ServiceNow", "Azure", "Git", "Mermaid", "Cursor IDE", "Excel", "VBA")),

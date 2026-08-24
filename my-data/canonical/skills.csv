@@ -1,0 +1,41 @@
+variant,category,sort_order,label
+general,Core,1,Applied Research
+general,Core,2,Project Management
+general,Core,3,Continuous Improvement (CIP)
+general,Core,4,AI Systems
+general,Tech,1,Power BI
+general,Tech,2,Python
+general,Tech,3,React
+general,Tech,4,Figma
+general,Tech,5,SQL
+general,Tech,6,Matplotlib
+general,Tech,7,Seaborn
+general,Tech,8,Git
+general,Tech,9,GitHub
+general,Tech,10,Cursor IDE
+general,Tech,11,Azure
+general,Tech,12,Bitbucket
+general,Tech,13,HTML
+general,Tech,14,CSS
+general,Tech,15,Mermaid
+general,Tech,16,VS Code
+general,Tech,17,Excel
+general,Tech,18,VBA
+general,Tech,19,AutoHotkey
+product-owner,Core,1,Product discovery
+product-owner,Core,2,Stakeholder alignment
+product-owner,Core,3,Prioritization & outcomes
+product-owner,Core,4,Applied Research
+product-owner,Core,5,Agile / CIP
+product-owner,Tech,1,Figma
+product-owner,Tech,2,Power BI
+product-owner,Tech,3,React
+product-owner,Tech,4,SQL
+product-owner,Tech,5,Python
+product-owner,Tech,6,ServiceNow
+product-owner,Tech,7,Azure
+product-owner,Tech,8,Git
+product-owner,Tech,9,Mermaid
+product-owner,Tech,10,Cursor IDE
+product-owner,Tech,11,Excel
+product-owner,Tech,12,VBA

@@ -472,8 +472,8 @@ table thead { display: none !important; }
 | Attribute | Value                                                                                                                                                                                                                                                                         |
 | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Name      | Eduardo M. de A. Figueiredo                                                                                                                                                                                                                                                   |
-| Role      | Product Owner focus — Discovery, Delivery & Stakeholder Outcomes                                                                                                                                                                                                              |
-| Impact    | I help teams prioritize and ship with clarity: Applied Research to decide, stakeholder alignment to commit, and measurable outcomes to prove value.                                                                                                                           |
+| Role      | Product Owner focus — Discovery, Delivery & Stakeholder Outcomes                                                                                                                                                                                                                             |
+| Impact    | I help teams prioritize and ship with clarity: Applied Research to decide, stakeholder alignment to commit, and measurable outcomes to prove value.                                                                                                                                  |
 | Contact   | Nova Odessa, SP – Brazil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583 |
 
 <p class="photo-at-bottom"><img src="../../../pictures/personal/my-photo-rectangle.png" alt="Eduardo Figueiredo" /></p>  
@@ -670,6 +670,7 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 | Applied Research Maturity          | Americas Level 4 – governance, templates, training that **productized** research practice for stakeholders                        |
 | CIP + Applied Research             | ServiceNow CIM integration; Applied Research as an **intake / quality gate** so the right work advances                           |
 | Collaboration                      | Tutor of Digital Talent Academy Students                                                                                          |
+
 
 ---
 
@@ -1329,7 +1330,7 @@ Product ownership sits where **discovery, prioritization, and delivery** meet. T
 
 ---
 
-<!-- Slide 21 – Future (Career focus: Product Owner) -->
+<!-- Slide 21 – Future (Career) -->
 
 <style scoped>
 .future-career-wrap {
@@ -1488,7 +1489,7 @@ section.closing-redesign h2 {
 <p>edu.evangelista.figueiredo@gmail.com</p>
 <p><a href="https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b">linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b</a></p>
 <p><a href="https://lattes.cnpq.br/2708641049892967">Lattes</a> · <a href="https://orcid.org/0009-0002-5178-6157">ORCID</a></p>
-<p>+55 19 98176-6583</p>
+<p>+55 (19) 98176-6583</p>
 <p style="margin-top: 0.75rem !important; font-size: 0.9em; opacity: 0.9;">Resume and this deck available on request.</p>
 </div>
 

@@ -1,42 +1,36 @@
 # Output — role-ready PDFs
 
-Ready-to-send **resume** and **portfolio** PDFs, grouped by vacancy type. Editable sources stay under `resume/` and `portfolio/`; this folder is delivery only.
+Ready-to-send **resume** and **portfolio** PDFs, grouped by vacancy type.
+
+**Canonical data:** [`../my-data/canonical/`](../my-data/canonical/) (CSV). Generate content first, then compile here.
 
 ```
 output/
-  general/           # Current baseline (unchanged narrative)
-  product-owner/     # Honest PO-focused wording; official titles kept
+  general/
+  product-owner/
 ```
 
-| Folder           | Resume PDF                                   | Portfolio PDF                      | Sources                                                                                                                                            |
-| ---------------- | -------------------------------------------- | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `general/`       | `CV-Eduardo-Figueiredo-EN.pdf`               | `portfolio-deck.pdf`               | [`resume/typst/`](../resume/typst/), [`portfolio/portfolio-deck.md`](../portfolio/portfolio-deck.md)                                               |
-| `product-owner/` | `CV-Eduardo-Figueiredo-EN-product-owner.pdf` | `portfolio-deck-product-owner.pdf` | [`resume/variants/product-owner/`](../resume/variants/product-owner/), [`portfolio/variants/product-owner/`](../portfolio/variants/product-owner/) |
+| Folder           | Resume PDF                                   | Portfolio PDF                      |
+| ---------------- | -------------------------------------------- | ---------------------------------- |
+| `general/`       | `CV-Eduardo-Figueiredo-EN.pdf`               | `portfolio-deck.pdf`               |
+| `product-owner/` | `CV-Eduardo-Figueiredo-EN-product-owner.pdf` | `portfolio-deck-product-owner.pdf` |
 
-## Compile Product Owner resume
-
-From repo root (Typst needs `--root` so the shared photo under `resume/typst/pictures/` resolves):
+## Generate → compile → export
 
 ```bash
+# 1) CSV → Typst content + portfolio decks
+python scripts/generate_from_canonical.py
+
+# 2) Resumes
+typst compile --root . --font-path resume/typst/fonts resume/typst/main.typ resume/CV-Eduardo-Figueiredo-EN.pdf
 typst compile --root . --font-path resume/typst/fonts resume/variants/product-owner/main.typ output/product-owner/CV-Eduardo-Figueiredo-EN-product-owner.pdf
-```
+Copy-Item resume/CV-Eduardo-Figueiredo-EN.pdf output/general/ -Force
 
-## Export Product Owner portfolio
-
-```bash
+# 3) Portfolios
+npx @marp-team/marp-cli@latest portfolio/portfolio-deck.md -o output/general/portfolio-deck.pdf --allow-local-files
 npx @marp-team/marp-cli@latest portfolio/variants/product-owner/portfolio-deck.md -o output/product-owner/portfolio-deck-product-owner.pdf --allow-local-files
 ```
 
-Or use **Marp: Export slide deck** in the editor on `portfolio/variants/product-owner/portfolio-deck.md`, then save/copy the PDF into `output/product-owner/`.
+Full schema and edit rules: [`../my-data/canonical/README.md`](../my-data/canonical/README.md).
 
-## Refresh general PDFs
-
-Copy after regenerating from the general sources:
-
-```bash
-# PowerShell
-Copy-Item resume/CV-Eduardo-Figueiredo-EN.pdf output/general/ -Force
-Copy-Item portfolio/portfolio-deck.pdf output/general/ -Force
-```
-
-Do **not** edit general sources when preparing a role variant — add or edit under `variants/` instead.
+Do **not** edit generated `content.typ` or deck markdown for factual updates — change CSVs and re-run the generator.

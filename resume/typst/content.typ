@@ -1,6 +1,7 @@
 // =============================================================================
-// RESUME CONTENT — Edit this file only for resume data. Do not change layout.
-// Layout and grid are defined in main.typ.
+// GENERATED from my-data/canonical — do not edit by hand.
+// Variant: general. Re-run: python scripts/generate_from_canonical.py
+// Layout: main.typ (do not change layout here).
 // =============================================================================
 
 #let name = "Eduardo M. de A. Figueiredo"
@@ -21,7 +22,6 @@
 
 #let languages = "Portuguese (Native)   English (Fluent)"
 
-// Nested structure: each item is (category, array of sub-items or empty)
 #let skills = (
   ("Core:", ("Applied Research", "Project Management", "Continuous Improvement (CIP)", "AI Systems")),
   ("Tech:", ("Power BI", "Python", "React", "Figma", "SQL", "Matplotlib", "Seaborn", "Git", "GitHub", "Cursor IDE", "Azure", "Bitbucket", "HTML", "CSS", "Mermaid", "VS Code", "Excel", "VBA", "AutoHotkey")),

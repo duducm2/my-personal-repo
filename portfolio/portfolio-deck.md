@@ -671,6 +671,7 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 | CIP + Applied Research             | Led integration into ServiceNow CIM; Applied Research gate in CIP workflow                                                         |
 | Collaboration                      | Tutor of Digital Talent Academy Students                                                                                           |
 
+
 ---
 
 <!-- Slide 6 – Present (CIP and Applied Research Integration: diagram only) -->
@@ -1321,13 +1322,15 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## Future
 
+
+
 <div class="ai-agile-wrap">
 <p><img src="../pictures/diagrams/ai-agile-research.png" alt="Diagram ai-agile-research: AI and Agile in Applied Research, AI Scrum Master role" /></p>
 </div>
 
 ---
 
-<!-- Slide 21 – Future (Career Aspirations, Vacancy Types & Prioritized Paths to Leadership) -->
+<!-- Slide 21 – Future (Career) -->
 
 <style scoped>
 .future-career-wrap {
@@ -1467,7 +1470,7 @@ section.closing-redesign h2 {
 <p>edu.evangelista.figueiredo@gmail.com</p>
 <p><a href="https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b">linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b</a></p>
 <p><a href="https://lattes.cnpq.br/2708641049892967">Lattes</a> · <a href="https://orcid.org/0009-0002-5178-6157">ORCID</a></p>
-<p>+55 19 98176-6583</p>
+<p>+55 (19) 98176-6583</p>
 <p style="margin-top: 0.75rem !important; font-size: 0.9em; opacity: 0.9;">Resume and this deck available on request.</p>
 </div>
 

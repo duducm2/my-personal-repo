@@ -91,6 +91,7 @@ This keeps the portfolio deck **code-based, reproducible, and easy to version-co
 
 ### Role variants & output PDFs
 
-- **General (this folder):** [`portfolio-deck.md`](portfolio-deck.md) — do not rewrite for vacancy-specific framing; leave as the baseline.
-- **Product Owner:** [`variants/product-owner/portfolio-deck.md`](variants/product-owner/portfolio-deck.md) — same visual system; wording focused on discovery → delivery and stakeholder outcomes (official job titles unchanged).
-- **Ready-to-send PDFs:** [`../output/`](../output/) — see [`../output/README.md`](../output/README.md) for compile/export commands.
+- **Canonical data:** [`../my-data/canonical/`](../my-data/canonical/) — edit CSVs, then `python scripts/generate_from_canonical.py`.
+- **Template (layout/CSS):** [`templates/portfolio-deck.template.md`](templates/portfolio-deck.template.md) with `{{canonical:…}}` slots.
+- **Generated decks:** [`portfolio-deck.md`](portfolio-deck.md) (general) and [`variants/product-owner/portfolio-deck.md`](variants/product-owner/portfolio-deck.md).
+- **Ready-to-send PDFs:** [`../output/`](../output/) — see [`../output/README.md`](../output/README.md).

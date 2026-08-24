@@ -1,0 +1,5 @@
+id,name,summary,csi,nps,notes
+tooling-pt,EXT_M-PUR36 Tooling (Power Tools),Requirements through high-fidelity prototypes with regular customer check-ins.,5,10,Primary discovery-to-delivery evidence for Product Owner framing.
+cip-research-gate,CIP + Applied Research ServiceNow gate,Research quality/intake gate in CIP workflow; relevance triage Low/Medium/High.,,,Prioritization / intake evidence.
+maturity-l4,Americas Research Maturity Level 4,"Governance, templates, and training that productized research practice.",,,Stakeholder enablement.
+outcomes-2024-2025,Project CSI/NPS averages 2024–2025,Average CSI 4.86 / NPS 9.94 across projects.,4.86,9.94,Outcome ownership metric.

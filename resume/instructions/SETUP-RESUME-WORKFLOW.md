@@ -77,16 +77,14 @@ typst watch resume/typst/main.typ resume/CV-Eduardo-Figueiredo-EN-typst.pdf
 
 ### 3.5 Editing Content Only
 
-- Open `resume/typst/content.typ`.
-- Edit `name`, `tagline`, `profile`, `strengths`, `languages`, `skills`, `experience`, `education`, `publications`, `additional` as needed.
-- Keep the **structure** of each variable (e.g. `experience` remains a tuple of `(date, company, title, bullets)`).
+- **Canonical source:** edit CSVs under [`../../my-data/canonical/`](../../my-data/canonical/), then run `python scripts/generate_from_canonical.py`.
+- Generated files: `typst/content.typ` (general) and `variants/product-owner/content.typ` — do not hand-edit for routine updates.
 - Do **not** change `main.typ` when updating copy—that file controls the 32/68 grid and typography.
 
 ### 3.5a Role variants (Product Owner)
 
-- **General** content stays in `typst/content.typ` (baseline — leave unchanged for vacancy-specific framing).
-- **Product Owner** content: [`../variants/product-owner/content.typ`](../variants/product-owner/content.typ) (honest PO wording; official titles kept).
-- Compile PO resume to `output/product-owner/` — see [`../../output/README.md`](../../output/README.md).
+- Variant wording lives in `narratives.csv`, `experience_bullets.csv`, and `skills.csv` (`variant=product-owner`).
+- Compile / export to `output/` — see [`../../output/README.md`](../../output/README.md) and [`../../my-data/canonical/README.md`](../../my-data/canonical/README.md).
 
 ### 3.6 Fonts (Optional)
 
