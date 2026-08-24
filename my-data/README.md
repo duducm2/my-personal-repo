@@ -5,3 +5,5 @@
 - **Generated cache:** [`generated/portfolio/`](generated/portfolio/) — narrative YAML from the generator.
 
 Generate with language: `python scripts/generate_from_canonical.py --lang en` or `--lang pt`.
+
+**PDF deliverables** live in [`../output/`](../output/) — not under `resume/` or `portfolio/`. See [`../output/README.md`](../output/README.md).

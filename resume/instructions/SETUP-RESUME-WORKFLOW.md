@@ -57,22 +57,18 @@ resume/
 
 ### 3.4 Compile the PDF
 
-From the repo root or from `resume/`:
+From the repo root, export the general resume directly to [`../../output/general/`](../../output/general/):
 
 ```bash
-typst compile resume/typst/main.typ resume/CV-Eduardo-Figueiredo-EN-typst.pdf
+typst compile --root . --font-path resume/typst/fonts resume/typst/main.typ output/general/CV-Eduardo-Figueiredo-EN.pdf
 ```
 
-**If using the Lato font:** Put Lato `.ttf` files in `resume/typst/fonts/` (see that folder’s README), then compile with:
-
-```bash
-typst compile --font-path resume/typst/fonts resume/typst/main.typ resume/CV-Eduardo-Figueiredo-EN-typst.pdf
-```
+For quick layout preview while editing, you may compile to any local temp path — **`output/` is the canonical deliverable location** (see [`../../output/README.md`](../../output/README.md)).
 
 Watch mode (recompile on save):
 
 ```bash
-typst watch resume/typst/main.typ resume/CV-Eduardo-Figueiredo-EN-typst.pdf
+typst watch --root . --font-path resume/typst/fonts resume/typst/main.typ output/general/CV-Eduardo-Figueiredo-EN.pdf
 ```
 
 ### 3.5 Editing Content Only
