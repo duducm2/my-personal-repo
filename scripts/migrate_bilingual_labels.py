@@ -3,10 +3,20 @@
 from __future__ import annotations
 
 import csv
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 CANON = ROOT / "my-data" / "canonical"
+SCRIPTS = Path(__file__).resolve().parent
+if str(SCRIPTS) not in sys.path:
+    sys.path.insert(0, str(SCRIPTS))
+from patch_pt_first_person import (  # noqa: E402
+    BULLET_PT,
+    PRESENT_TABLE_PT,
+    PROFILE_PT,
+    TOOLING_BULLET_PT,
+)
 
 
 def write_csv(name: str, fieldnames: list[str], rows: list[dict]) -> None:
@@ -466,6 +476,7 @@ def main() -> None:
             1,
         ): "Ferramentas VBA para Melhoria Contínua e comunicação interna.",
     }
+    bullet_pt.update(BULLET_PT)
     write_csv(
         "experience_bullets.csv",
         ["experience_id", "variant", "sort_order", "text_en", "text_pt"],
@@ -688,6 +699,13 @@ def main() -> None:
 
     # --- narratives.csv --- load PT from companion or generate inline
     narrative_pt = _load_narrative_pt_translations()
+    narrative_pt.update(
+        {
+            ("general", "present_table"): PRESENT_TABLE_PT["general"],
+            ("product-owner", "present_table"): PRESENT_TABLE_PT["product-owner"],
+            ("general", "tooling_bullet"): TOOLING_BULLET_PT["general"],
+        }
+    )
     write_csv(
         "narratives.csv",
         ["variant", "field", "label_en", "label_pt", "text_en", "text_pt"],
@@ -724,19 +742,8 @@ def _load_narrative_pt_translations() -> dict[tuple[str, str], str]:
             "product-owner",
             "tagline",
         ): "Descoberta, Entrega e Resultados com Stakeholders",
-        ("general", "profile"): (
-            "Pesquisador de UX e qualidade de software que ajuda equipes a construir **soluções centradas no usuário** "
-            "por meio de **Pesquisa Aplicada, tecnologia e gestão de projetos**. Formação full-stack e **mentalidade científica**. "
-            "Uso diário de dados, CIP e **IA agêntica**. **Autodirigido e proativo** em design, front-end, Power BI e Python. "
-            "Mestrado em Tecnologia (**conclusão em setembro de 2026**) com **nota A em todas as disciplinas**. "
-            "Aspira a **AI Scrum Master**."
-        ),
-        ("product-owner", "profile"): (
-            "Profissional orientado a produto que conecta **descoberta à entrega**: esclarece necessidades, alinha stakeholders "
-            "e guia soluções de requisitos à validação. Background em **Pesquisa Aplicada, UX e entrega de projetos** com base full-stack. "
-            "Usa dados, CIP e **check-ins com clientes** para priorizar resultados. Mestrado em Tecnologia "
-            "(**conclusão em setembro de 2026**) com **nota A em todas as disciplinas**."
-        ),
+        ("general", "profile"): PROFILE_PT["general"],
+        ("product-owner", "profile"): PROFILE_PT["product-owner"],
         ("general", "deck_title"): "Eduardo Figueiredo – Portfólio",
         ("product-owner", "deck_title"): "Eduardo Figueiredo – Portfólio",
         (

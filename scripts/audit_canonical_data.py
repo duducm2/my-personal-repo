@@ -254,6 +254,41 @@ def main() -> int:
     else:
         ok.append("experience_bullets.csv: PT text present")
 
+    # PT voice warnings (3rd person / impersonal patterns in profile + bullets)
+    PT_VOICE_PATTERNS = [
+        (
+            re.compile(r"\bque (ajuda|conecta|usa|esclarece|alinha|guia)\b", re.I),
+            "3rd-person relative clause",
+        ),
+        (re.compile(r"\bAspira a\b"), "Aspira a (use Aspiro)"),
+        (re.compile(r"\bLiderança (na|das)\b"), "nominal Liderança (prefer Liderei)"),
+        (re.compile(r"^Integração ", re.M), "nominal Integração (prefer Integrei)"),
+        (
+            re.compile(r"^Colaboração em", re.M),
+            "nominal Colaboração (prefer Colaborei)",
+        ),
+    ]
+    voice_warn: list[str] = []
+    for row in narratives_rows:
+        if row["field"] not in ("profile", "present_table", "tooling_bullet"):
+            continue
+        text = row.get("text_pt", "")
+        for pat, label in PT_VOICE_PATTERNS:
+            if pat.search(text):
+                voice_warn.append(f"{row['variant']}/{row['field']}: {label}")
+    for row in load("experience_bullets.csv"):
+        text = row.get("text_pt", "")
+        for pat, label in PT_VOICE_PATTERNS:
+            if pat.search(text):
+                voice_warn.append(
+                    f"bullet {row['experience_id']}/{row['variant']}/{row['sort_order']}: {label}"
+                )
+    if voice_warn:
+        for w in voice_warn:
+            notes.append(f"PT voice check: {w}")
+    else:
+        ok.append("PT voice: no common 3rd-person patterns in profile/bullets")
+
     pubs = load("publications.csv")
     if len(pubs) != 2:
         issues.append(f"publications want 2 got {len(pubs)}")
@@ -367,7 +402,9 @@ def main() -> int:
     deck_po = (
         ROOT / "portfolio" / "variants" / "product-owner" / "portfolio-deck.en.md"
     ).read_text(encoding="utf-8")
-    deck_g_pt = (ROOT / "portfolio" / "portfolio-deck.pt.md").read_text(encoding="utf-8")
+    deck_g_pt = (ROOT / "portfolio" / "portfolio-deck.pt.md").read_text(
+        encoding="utf-8"
+    )
     if "{{canonical:" in deck_g or "{{canonical:" in deck_po:
         issues.append("unresolved {{canonical:}} slots in generated decks")
     for label, deck, needles in (

@@ -7,6 +7,17 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 CANON = ROOT / "my-data" / "canonical"
+SCRIPTS = Path(__file__).resolve().parent
+import sys
+
+if str(SCRIPTS) not in sys.path:
+    sys.path.insert(0, str(SCRIPTS))
+from patch_pt_first_person import (  # noqa: E402
+    BULLET_PT,
+    PRESENT_TABLE_PT,
+    PROFILE_PT,
+    TOOLING_BULLET_PT,
+)
 
 PT_NARRATIVES: dict[tuple[str, str], str] = {
     ("general", "why_bullets"): (
@@ -23,32 +34,9 @@ PT_NARRATIVES: dict[tuple[str, str], str] = {
         "trazendo evidência sobre o que construímos, por quê e em qual ordem.\n"
         "- Este portfólio mostra esse caminho descoberta → entrega por meio de projetos reais."
     ),
-    ("general", "present_table"): (
-        "| Área                               | Conquista                                                                                                                        |\n"
-        "| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |\n"
-        "| Cargo                               | Pesquisa Aplicada e Tecnologia – Bosch Brasil (mai 2023 – atual); Especialista em Pesquisa Aplicada e Project Champion na GS/BDU            |\n"
-        "| Internacional                      | Duas viagens à Alemanha (2024, 2025) por trabalho relacionado ao cargo                                                                            |\n"
-        "| Rastreamento CO2 (GS/Pesquisa Aplicada) | Prospecção de mercado para telemetria CO2; achado: falta de demanda de mercado                                                               |\n"
-        "| Projeto tooling (PT)               | Liderança na entrega técnica e gestão do projeto de requisitos a protótipos de alta fidelidade, com check-ins regulares com clientes. |\n"
-        "| Maturidade em Pesquisa Aplicada          | Liderança das Américas ao Nível 4 – governança, templates, treinamento                                                                          |\n"
-        "| CIP + Pesquisa Aplicada             | Integração ao ServiceNow CIM; gate de Pesquisa Aplicada no fluxo CIP                                                         |\n"
-        "| Colaboração                      | Tutor de estudantes da Digital Talent Academy                                                                                           |"
-    ),
-    ("product-owner", "present_table"): (
-        "| Área                               | Conquista                                                                                                                       |\n"
-        "| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |\n"
-        "| Cargo (oficial)                    | Analista de Pesquisa Aplicada e Design – Bosch Brasil (mai 2023 – atual); Especialista em Pesquisa Aplicada e Project Champion na GS/BDU       |\n"
-        "| Internacional                      | Duas viagens à Alemanha (2024, 2025) por trabalho relacionado ao cargo                                                                           |\n"
-        "| Rastreamento CO2 (GS/Pesquisa Aplicada) | Prospecção de mercado para telemetria CO2; achado: falta de demanda — resultado de descoberta que interrompeu trabalho de baixo valor            |\n"
-        "| Projeto tooling (PT)               | Requisitos → protótipos de alta fidelidade → **check-ins regulares com clientes**; ownership descoberta→entrega com parceiros técnicos |\n"
-        "| Maturidade em Pesquisa Aplicada          | Nível 4 nas Américas – governança, templates, treinamento que **produtizaram** a prática de pesquisa para stakeholders                        |\n"
-        "| CIP + Pesquisa Aplicada             | Integração ServiceNow CIM; Pesquisa Aplicada como **gate de entrada / qualidade** para o trabalho certo avançar                           |\n"
-        "| Colaboração                      | Tutor de estudantes da Digital Talent Academy                                                                                          |"
-    ),
-    ("general", "tooling_bullet"): (
-        "- **Projeto tooling para PT:** Liderança na **entrega técnica e gestão do projeto** "
-        "de requisitos a protótipos de alta fidelidade, com **check-ins regulares com clientes**."
-    ),
+    ("general", "present_table"): PRESENT_TABLE_PT["general"],
+    ("product-owner", "present_table"): PRESENT_TABLE_PT["product-owner"],
+    ("general", "tooling_bullet"): TOOLING_BULLET_PT["general"],
     ("product-owner", "tooling_bullet"): (
         "- **Projeto tooling para PT:** Conduzi o caminho de **requisitos** a **protótipos de alta fidelidade**, "
         "com **check-ins regulares com clientes** — validação com stakeholders integrada à entrega."
@@ -93,12 +81,26 @@ def main() -> None:
         key = (row["variant"], row["field"])
         if key in PT_NARRATIVES:
             row["text_pt"] = PT_NARRATIVES[key]
+        if key[1] == "profile" and key[0] in PROFILE_PT:
+            row["text_pt"] = PROFILE_PT[key[0]]
 
     with nar_path.open("w", encoding="utf-8", newline="") as f:
         w = csv.DictWriter(f, fieldnames=rows[0].keys(), quoting=csv.QUOTE_MINIMAL)
         w.writeheader()
         w.writerows(rows)
     print(f"patched {len(PT_NARRATIVES)} narrative fields in {nar_path.name}")
+
+    bullets_path = CANON / "experience_bullets.csv"
+    bullets = list(csv.DictReader(bullets_path.open(encoding="utf-8", newline="")))
+    for row in bullets:
+        key = (row["experience_id"], row["variant"], int(row["sort_order"]))
+        if key in BULLET_PT:
+            row["text_pt"] = BULLET_PT[key]
+    with bullets_path.open("w", encoding="utf-8", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=bullets[0].keys(), quoting=csv.QUOTE_MINIMAL)
+        w.writeheader()
+        w.writerows(bullets)
+    print(f"patched {len(BULLET_PT)} bullet fields in {bullets_path.name}")
 
     edu_path = CANON / "education.csv"
     edu = list(csv.DictReader(edu_path.open(encoding="utf-8", newline="")))

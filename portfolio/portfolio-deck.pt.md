@@ -664,12 +664,12 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 | Área                               | Conquista                                                                                                                        |
 | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | Cargo                               | Pesquisa Aplicada e Tecnologia – Bosch Brasil (mai 2023 – atual); Especialista em Pesquisa Aplicada e Project Champion na GS/BDU            |
-| Internacional                      | Duas viagens à Alemanha (2024, 2025) por trabalho relacionado ao cargo                                                                            |
-| Rastreamento CO2 (GS/Pesquisa Aplicada) | Prospecção de mercado para telemetria CO2; achado: falta de demanda de mercado                                                               |
-| Projeto tooling (PT)               | Liderança na entrega técnica e gestão do projeto de requisitos a protótipos de alta fidelidade, com check-ins regulares com clientes. |
-| Maturidade em Pesquisa Aplicada          | Liderança das Américas ao Nível 4 – governança, templates, treinamento                                                                          |
-| CIP + Pesquisa Aplicada             | Integração ao ServiceNow CIM; gate de Pesquisa Aplicada no fluxo CIP                                                         |
-| Colaboração                      | Tutor de estudantes da Digital Talent Academy                                                                                           |
+| Internacional                      | Realizei duas viagens à Alemanha (2024, 2025) por trabalho relacionado ao cargo                                                                            |
+| Rastreamento CO2 (GS/Pesquisa Aplicada) | Conduzi prospecção de mercado para telemetria CO2; achado: falta de demanda de mercado                                                               |
+| Projeto tooling (PT)               | **Liderei** a entrega técnica e gestão do projeto de requisitos a protótipos de alta fidelidade, com check-ins regulares com clientes. |
+| Maturidade em Pesquisa Aplicada          | **Liderei** as Américas ao Nível 4 – governança, templates, treinamento                                                                          |
+| CIP + Pesquisa Aplicada             | **Integrei** ao ServiceNow CIM; gate de Pesquisa Aplicada no fluxo CIP                                                         |
+| Colaboração                      | Sou tutor de estudantes da Digital Talent Academy                                                                                           |
 
 
 ---
@@ -1210,7 +1210,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## Implementação técnica – Projeto Tooling para PT
 
-- **Projeto tooling para PT:** Liderança na **entrega técnica e gestão do projeto** de requisitos a protótipos de alta fidelidade, com **check-ins regulares com clientes**.
+- **Projeto tooling para PT:** **Liderei** a **entrega técnica e gestão do projeto** de requisitos a protótipos de alta fidelidade, com **check-ins regulares com clientes**.
 <!-- - **Workshop facilitation:** Ran strategy and team workshops with large groups (e.g. Digital WS, Joinville 2024). -->
 
 <div class="tooling-pt-layout">

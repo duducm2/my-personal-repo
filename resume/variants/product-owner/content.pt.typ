@@ -34,7 +34,7 @@
 )
 
 #let profile = [
-  Profissional orientado a produto que conecta #strong[descoberta à entrega]: esclarece necessidades, alinha stakeholders e guia soluções de requisitos à validação. Background em #strong[Pesquisa Aplicada, UX e entrega de projetos] com base full-stack. Usa dados, CIP e #strong[check-ins com clientes] para priorizar resultados. Mestrado em Tecnologia (#strong[conclusão em setembro de 2026]) com #strong[nota A em todas as disciplinas].
+  #strong[Conecto descoberta à entrega]: #strong[esclareço] necessidades, #strong[alinho] stakeholders e #strong[guio] soluções de requisitos à validação. Background em #strong[Pesquisa Aplicada, UX e entrega de projetos] com base full-stack. #strong[Uso] dados, CIP e #strong[check-ins com clientes] para priorizar resultados. Mestrado em Tecnologia (#strong[conclusão em setembro de 2026]) com #strong[nota A em todas as disciplinas].
 ]
 
 #let languages = "Português (Nativo)   Inglês (Fluente)"
@@ -53,7 +53,7 @@
     [#strong[Internacional e mentoria:] duas viagens à Alemanha (2024, 2025); tutor na SENAI Digital Talent Academy.],
   )),
   ("Jan 2020 – Nov 2023", "Bosch Brasil", "Desenvolvedor Web", (
-    [Entreguei soluções web internas e para clientes em #strong[Scrum e Kanban]; colaboração entre design, pesquisa e engenharia.],
+    [Entreguei soluções web internas e para clientes em #strong[Scrum e Kanban]; colaborei com design, pesquisa e engenharia.],
     [Traduzi necessidades em incrementos front-end (React) com entrega em equipe.],
   )),
   ("Jan 2019 – Dez 2019", "Bosch Magyarország (Hungary)", "Analista de Suporte à Digitalização", (
@@ -61,7 +61,7 @@
     [#strong[Desenvolvimento web full-stack:] VS Code, SQL Server, Windows Server (IIS).],
   )),
   ("Jan 2017 – Nov 2018", "Bosch Brasil (Campinas)", "Estagiário", (
-    [Ferramentas VBA para Melhoria Contínua e comunicação interna.],
+    [Desenvolvi ferramentas VBA para Melhoria Contínua e comunicação interna.],
   )),
 )
 
