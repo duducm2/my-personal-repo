@@ -32,8 +32,18 @@ def main() -> None:
         ("profile.csv", "display_name", "Display name", "Nome de exibição"),
         ("profile.csv", "phone", "Phone", "Telefone"),
         ("profile.csv", "email", "Email", "E-mail"),
-        ("profile.csv", "linkedin_label_en", "LinkedIn label (EN)", "Rótulo LinkedIn (EN)"),
-        ("profile.csv", "linkedin_label_pt", "LinkedIn label (PT)", "Rótulo LinkedIn (PT)"),
+        (
+            "profile.csv",
+            "linkedin_label_en",
+            "LinkedIn label (EN)",
+            "Rótulo LinkedIn (EN)",
+        ),
+        (
+            "profile.csv",
+            "linkedin_label_pt",
+            "LinkedIn label (PT)",
+            "Rótulo LinkedIn (PT)",
+        ),
         ("profile.csv", "linkedin_url", "LinkedIn URL", "URL LinkedIn"),
         ("profile.csv", "lattes_label_en", "Lattes label (EN)", "Rótulo Lattes (EN)"),
         ("profile.csv", "lattes_label_pt", "Lattes label (PT)", "Rótulo Lattes (PT)"),
@@ -50,13 +60,28 @@ def main() -> None:
         ("experience.csv", "sort_order", "Sort order", "Ordem"),
         ("experience.csv", "start_date", "Start date", "Data início"),
         ("experience.csv", "end_date", "End date", "Data fim"),
-        ("experience.csv", "date_display_en", "Date display (EN)", "Período exibido (EN)"),
-        ("experience.csv", "date_display_pt", "Date display (PT)", "Período exibido (PT)"),
+        (
+            "experience.csv",
+            "date_display_en",
+            "Date display (EN)",
+            "Período exibido (EN)",
+        ),
+        (
+            "experience.csv",
+            "date_display_pt",
+            "Date display (PT)",
+            "Período exibido (PT)",
+        ),
         ("experience.csv", "company", "Company", "Empresa"),
         ("experience.csv", "title_en", "Job title (EN)", "Cargo (EN)"),
         ("experience.csv", "title_pt", "Job title (PT)", "Cargo (PT)"),
         # experience_bullets.csv
-        ("experience_bullets.csv", "experience_id", "Experience ID", "ID da experiência"),
+        (
+            "experience_bullets.csv",
+            "experience_id",
+            "Experience ID",
+            "ID da experiência",
+        ),
         ("experience_bullets.csv", "variant", "Variant", "Variante"),
         ("experience_bullets.csv", "sort_order", "Sort order", "Ordem"),
         ("experience_bullets.csv", "text_en", "Bullet text (EN)", "Texto do item (EN)"),
@@ -64,8 +89,18 @@ def main() -> None:
         # skills.csv
         ("skills.csv", "variant", "Variant", "Variante"),
         ("skills.csv", "category", "Category key", "Chave da categoria"),
-        ("skills.csv", "category_label_en", "Category label (EN)", "Rótulo da categoria (EN)"),
-        ("skills.csv", "category_label_pt", "Category label (PT)", "Rótulo da categoria (PT)"),
+        (
+            "skills.csv",
+            "category_label_en",
+            "Category label (EN)",
+            "Rótulo da categoria (EN)",
+        ),
+        (
+            "skills.csv",
+            "category_label_pt",
+            "Category label (PT)",
+            "Rótulo da categoria (PT)",
+        ),
         ("skills.csv", "sort_order", "Sort order", "Ordem"),
         ("skills.csv", "label_en", "Skill label (EN)", "Rótulo da habilidade (EN)"),
         ("skills.csv", "label_pt", "Skill label (PT)", "Rótulo da habilidade (PT)"),
@@ -124,28 +159,80 @@ def main() -> None:
         ("narrative_field", "profile", "Profile summary", "Resumo do perfil"),
         ("narrative_field", "deck_title", "Deck title", "Título do portfólio"),
         ("narrative_field", "why_h1", "Why slide heading", "Título slide Por quê"),
-        ("narrative_field", "why_h2", "Why slide subheading", "Subtítulo slide Por quê"),
-        ("narrative_field", "why_bullets", "Why slide bullets", "Tópicos slide Por quê"),
+        (
+            "narrative_field",
+            "why_h2",
+            "Why slide subheading",
+            "Subtítulo slide Por quê",
+        ),
+        (
+            "narrative_field",
+            "why_bullets",
+            "Why slide bullets",
+            "Tópicos slide Por quê",
+        ),
         ("narrative_field", "who_role", "Who slide role", "Papel slide Quem sou"),
         ("narrative_field", "who_impact", "Who slide impact", "Impacto slide Quem sou"),
-        ("narrative_field", "present_h2", "Present slide heading", "Título slide Presente"),
-        ("narrative_field", "present_table", "Present achievements table", "Tabela de conquistas"),
-        ("narrative_field", "cip_pipeline_h2", "CIP pipeline heading", "Título pipeline CIP"),
-        ("narrative_field", "relevance_h2", "Relevance model heading", "Título modelo de relevância"),
+        (
+            "narrative_field",
+            "present_h2",
+            "Present slide heading",
+            "Título slide Presente",
+        ),
+        (
+            "narrative_field",
+            "present_table",
+            "Present achievements table",
+            "Tabela de conquistas",
+        ),
+        (
+            "narrative_field",
+            "cip_pipeline_h2",
+            "CIP pipeline heading",
+            "Título pipeline CIP",
+        ),
+        (
+            "narrative_field",
+            "relevance_h2",
+            "Relevance model heading",
+            "Título modelo de relevância",
+        ),
         ("narrative_field", "csi_h2", "CSI/NPS heading", "Título CSI/NPS"),
-        ("narrative_field", "tooling_h2", "Tooling project heading", "Título projeto tooling"),
+        (
+            "narrative_field",
+            "tooling_h2",
+            "Tooling project heading",
+            "Título projeto tooling",
+        ),
         ("narrative_field", "tooling_bullet", "Tooling bullet", "Item projeto tooling"),
         ("narrative_field", "future_h2", "Future slide heading", "Título slide Futuro"),
         ("narrative_field", "future_intro", "Future intro", "Introdução slide Futuro"),
-        ("narrative_field", "future_diagram_alt", "Future diagram alt text", "Texto alt diagrama Futuro"),
-        ("narrative_field", "future_career_body", "Future career body", "Corpo slide carreira"),
-        ("narrative_field", "future_career_style", "Future career CSS", "CSS slide carreira"),
-        ("narrative_field", "closing_summary", "Closing summary", "Resumo de encerramento"),
+        (
+            "narrative_field",
+            "future_diagram_alt",
+            "Future diagram alt text",
+            "Texto alt diagrama Futuro",
+        ),
+        (
+            "narrative_field",
+            "future_career_body",
+            "Future career body",
+            "Corpo slide carreira",
+        ),
+        (
+            "narrative_field",
+            "future_career_style",
+            "Future career CSS",
+            "CSS slide carreira",
+        ),
+        (
+            "narrative_field",
+            "closing_summary",
+            "Closing summary",
+            "Resumo de encerramento",
+        ),
     ]
-    field_labels = {
-        (domain, key): (le, lp)
-        for domain, key, le, lp in field_label_rows
-    }
+    field_labels = {(domain, key): (le, lp) for domain, key, le, lp in field_label_rows}
     write_csv(
         "field_labels.csv",
         ["domain", "key", "label_en", "label_pt"],
@@ -155,7 +242,10 @@ def main() -> None:
         ],
     )
 
-    cat_labels = field_labels[("skill_category", "Core")], field_labels[("skill_category", "Tech")]
+    cat_labels = (
+        field_labels[("skill_category", "Core")],
+        field_labels[("skill_category", "Tech")],
+    )
 
     # --- profile.csv ---
     p = read_csv("profile.csv")[0]
@@ -186,19 +276,27 @@ def main() -> None:
                 "display_name": p["display_name"],
                 "phone": p["phone"],
                 "email": p["email"],
-                "linkedin_label_en": p.get("linkedin_label_en", p.get("linkedin_label", "LinkedIn")),
+                "linkedin_label_en": p.get(
+                    "linkedin_label_en", p.get("linkedin_label", "LinkedIn")
+                ),
                 "linkedin_label_pt": p.get("linkedin_label_pt", "LinkedIn"),
                 "linkedin_url": p["linkedin_url"],
-                "lattes_label_en": p.get("lattes_label_en", p.get("lattes_label", "Lattes")),
+                "lattes_label_en": p.get(
+                    "lattes_label_en", p.get("lattes_label", "Lattes")
+                ),
                 "lattes_label_pt": p.get("lattes_label_pt", "Lattes"),
                 "lattes_url": p["lattes_url"],
-                "orcid_label_en": p.get("orcid_label_en", p.get("orcid_label", "ORCID")),
+                "orcid_label_en": p.get(
+                    "orcid_label_en", p.get("orcid_label", "ORCID")
+                ),
                 "orcid_label_pt": p.get("orcid_label_pt", "ORCID"),
                 "orcid_url": p["orcid_url"],
                 "location_en": p.get("location_en", p.get("location", "")),
                 "location_pt": p.get(
                     "location_pt",
-                    p.get("location_en", p.get("location", "")).replace("Brazil", "Brasil"),
+                    p.get("location_en", p.get("location", "")).replace(
+                        "Brazil", "Brasil"
+                    ),
                 ),
                 "languages_en": p.get("languages_en", p.get("languages", "")),
                 "languages_pt": p.get(
@@ -243,13 +341,17 @@ def main() -> None:
                 "date_display_en": r.get("date_display_en", r.get("date_display", "")),
                 "date_display_pt": r.get(
                     "date_display_pt",
-                    date_pt_map.get(r.get("date_display_en", r.get("date_display", "")), ""),
+                    date_pt_map.get(
+                        r.get("date_display_en", r.get("date_display", "")), ""
+                    ),
                 ),
                 "company": r["company"],
                 "title_en": r.get("title_en", r.get("title", "")),
                 "title_pt": r.get(
                     "title_pt",
-                    title_pt_map.get(r.get("title_en", r.get("title", "")), r.get("title", "")),
+                    title_pt_map.get(
+                        r.get("title_en", r.get("title", "")), r.get("title", "")
+                    ),
                 ),
             }
             for r in read_csv("experience.csv")
@@ -258,27 +360,111 @@ def main() -> None:
 
     # --- experience_bullets.csv --- PT translations keyed by (experience_id, variant, sort_order)
     bullet_pt: dict[tuple[str, str, int], str] = {
-        ("bosch-ar-2023", "general", 1): "Apoiei as Américas a atingir **Nível 4 de Maturidade em Pesquisa na Global Services**: governança, templates, treinamento. **CSI 4,86 / NPS 9,94** méd. nos meus projetos (2024–2025).",
-        ("bosch-ar-2023", "general", 2): "Integração CIP + Pesquisa no **ServiceNow**; gate de Pesquisa no fluxo; gate de qualidade **orientado por método**.",
-        ("bosch-ar-2023", "general", 3): "**Projeto tooling (Power Tools):** apoio à entrega técnica e gestão do projeto de requisitos a protótipos de alta fidelidade; check-ins regulares com clientes.",
-        ("bosch-ar-2023", "general", 4): "Dashboards Power BI para acompanhamento de projetos/recursos e treinamentos.",
-        ("bosch-ar-2023", "general", 5): "**IA agêntica:** uso diário com **Cursor IDE** e gestão de contexto para pesquisa, análise e resolução de problemas.",
-        ("bosch-ar-2023", "general", 6): "**Internacional e mentoria:** duas viagens à Alemanha (2024, 2025); tutor na SENAI Digital Talent Academy.",
-        ("bosch-web-2020", "general", 1): "Desenvolvimento front-end, React, Scrum, Pesquisa Aplicada; soluções web e entrega em equipe.",
-        ("bosch-web-2020", "general", 2): "Colaboração em aplicações para clientes e ferramentas internas.",
-        ("bosch-hu-2019", "general", 1): "Digitalização Business Excellence; ferramentas e fluxos internos.",
-        ("bosch-hu-2019", "general", 2): "**Desenvolvimento web full-stack:** VS Code, SQL Server, Windows Server (IIS).",
-        ("bosch-intern-2017", "general", 1): "VBA (Excel) para Melhoria Contínua e comunicação interna.",
-        ("bosch-ar-2023", "product-owner", 1): "**Projeto tooling (Power Tools):** conduzi o caminho de requisitos a protótipos de alta fidelidade; **check-ins regulares** com clientes e coordenação com parceiros técnicos.",
-        ("bosch-ar-2023", "product-owner", 2): "Integrei Pesquisa Aplicada ao **CIP / ServiceNow** como gate de entrada e qualidade—triagem orientada por método.",
-        ("bosch-ar-2023", "product-owner", 3): "Apoiei as Américas a atingir **Nível 4 de Maturidade em Pesquisa**: governança, templates e treinamento que **produtizaram** a prática de pesquisa.",
-        ("bosch-ar-2023", "product-owner", 4): "Evidência de resultados: **CSI 4,86 / NPS 9,94** méd. (2024–2025); Power BI para projetos e recursos.",
-        ("bosch-ar-2023", "product-owner", 5): "**Internacional e mentoria:** duas viagens à Alemanha (2024, 2025); tutor na SENAI Digital Talent Academy.",
-        ("bosch-web-2020", "product-owner", 1): "Entreguei soluções web internas e para clientes em **Scrum**; colaboração entre design, pesquisa e engenharia.",
-        ("bosch-web-2020", "product-owner", 2): "Traduzi necessidades em incrementos front-end (React) com entrega em equipe.",
-        ("bosch-hu-2019", "product-owner", 1): "Digitalizei fluxos Business Excellence—esclarecendo necessidades e entregando ferramentas internas.",
-        ("bosch-hu-2019", "product-owner", 2): "**Desenvolvimento web full-stack:** VS Code, SQL Server, Windows Server (IIS).",
-        ("bosch-intern-2017", "product-owner", 1): "Ferramentas VBA para Melhoria Contínua e comunicação interna.",
+        (
+            "bosch-ar-2023",
+            "general",
+            1,
+        ): "Apoiei as Américas a atingir **Nível 4 de Maturidade em Pesquisa na Global Services**: governança, templates, treinamento. **CSI 4,86 / NPS 9,94** méd. nos meus projetos (2024–2025).",
+        (
+            "bosch-ar-2023",
+            "general",
+            2,
+        ): "Integração CIP + Pesquisa no **ServiceNow**; gate de Pesquisa no fluxo; gate de qualidade **orientado por método**.",
+        (
+            "bosch-ar-2023",
+            "general",
+            3,
+        ): "**Projeto tooling (Power Tools):** apoio à entrega técnica e gestão do projeto de requisitos a protótipos de alta fidelidade; check-ins regulares com clientes.",
+        (
+            "bosch-ar-2023",
+            "general",
+            4,
+        ): "Dashboards Power BI para acompanhamento de projetos/recursos e treinamentos.",
+        (
+            "bosch-ar-2023",
+            "general",
+            5,
+        ): "**IA agêntica:** uso diário com **Cursor IDE** e gestão de contexto para pesquisa, análise e resolução de problemas.",
+        (
+            "bosch-ar-2023",
+            "general",
+            6,
+        ): "**Internacional e mentoria:** duas viagens à Alemanha (2024, 2025); tutor na SENAI Digital Talent Academy.",
+        (
+            "bosch-web-2020",
+            "general",
+            1,
+        ): "Desenvolvimento front-end, React, Scrum, Kanban, Pesquisa Aplicada; soluções web e entrega em equipe.",
+        (
+            "bosch-web-2020",
+            "general",
+            2,
+        ): "Colaboração em aplicações para clientes e ferramentas internas.",
+        (
+            "bosch-hu-2019",
+            "general",
+            1,
+        ): "Digitalização Business Excellence em **Kanban**; ferramentas e fluxos internos.",
+        (
+            "bosch-hu-2019",
+            "general",
+            2,
+        ): "**Desenvolvimento web full-stack:** VS Code, SQL Server, Windows Server (IIS).",
+        (
+            "bosch-intern-2017",
+            "general",
+            1,
+        ): "VBA (Excel) para Melhoria Contínua e comunicação interna.",
+        (
+            "bosch-ar-2023",
+            "product-owner",
+            1,
+        ): "**Projeto tooling (Power Tools):** conduzi o caminho de requisitos a protótipos de alta fidelidade; **check-ins regulares** com clientes e coordenação com parceiros técnicos.",
+        (
+            "bosch-ar-2023",
+            "product-owner",
+            2,
+        ): "Integrei Pesquisa Aplicada ao **CIP / ServiceNow** como gate de entrada e qualidade—triagem orientada por método.",
+        (
+            "bosch-ar-2023",
+            "product-owner",
+            3,
+        ): "Apoiei as Américas a atingir **Nível 4 de Maturidade em Pesquisa**: governança, templates e treinamento que **produtizaram** a prática de pesquisa.",
+        (
+            "bosch-ar-2023",
+            "product-owner",
+            4,
+        ): "Evidência de resultados: **CSI 4,86 / NPS 9,94** méd. (2024–2025); Power BI para projetos e recursos.",
+        (
+            "bosch-ar-2023",
+            "product-owner",
+            5,
+        ): "**Internacional e mentoria:** duas viagens à Alemanha (2024, 2025); tutor na SENAI Digital Talent Academy.",
+        (
+            "bosch-web-2020",
+            "product-owner",
+            1,
+        ): "Entreguei soluções web internas e para clientes em **Scrum e Kanban**; colaboração entre design, pesquisa e engenharia.",
+        (
+            "bosch-web-2020",
+            "product-owner",
+            2,
+        ): "Traduzi necessidades em incrementos front-end (React) com entrega em equipe.",
+        (
+            "bosch-hu-2019",
+            "product-owner",
+            1,
+        ): "Digitalizei fluxos Business Excellence em **Kanban**—esclarecendo necessidades e entregando ferramentas internas.",
+        (
+            "bosch-hu-2019",
+            "product-owner",
+            2,
+        ): "**Desenvolvimento web full-stack:** VS Code, SQL Server, Windows Server (IIS).",
+        (
+            "bosch-intern-2017",
+            "product-owner",
+            1,
+        ): "Ferramentas VBA para Melhoria Contínua e comunicação interna.",
     }
     write_csv(
         "experience_bullets.csv",
@@ -310,7 +496,7 @@ def main() -> None:
         "Product discovery": "Descoberta de produto",
         "Stakeholder alignment": "Alinhamento de stakeholders",
         "Prioritization & outcomes": "Priorização e resultados",
-        "Agile / CIP": "Ágil / CIP",
+        "Agile / CIP": "Ágil (Scrum / Kanban) / CIP",
     }
     write_csv(
         "skills.csv",
@@ -339,7 +525,10 @@ def main() -> None:
                 "label_en": s.get("label_en", s.get("label", "")),
                 "label_pt": s.get(
                     "label_pt",
-                    skill_pt_map.get(s.get("label_en", s.get("label", "")), s.get("label_en", s.get("label", ""))),
+                    skill_pt_map.get(
+                        s.get("label_en", s.get("label", "")),
+                        s.get("label_en", s.get("label", "")),
+                    ),
                 ),
             }
             for s in read_csv("skills.csv")
@@ -349,12 +538,27 @@ def main() -> None:
     # --- education.csv ---
     write_csv(
         "education.csv",
-        ["sort_order", "degree_en", "degree_pt", "institution_en", "institution_pt", "detail_en", "detail_pt"],
+        [
+            "sort_order",
+            "degree_en",
+            "degree_pt",
+            "institution_en",
+            "institution_pt",
+            "detail_en",
+            "detail_pt",
+        ],
         [
             {
                 "sort_order": e["sort_order"],
                 "degree_en": e.get("degree_en", e.get("degree", "")),
-                "degree_pt": e.get("degree_pt", e.get("degree_en", e.get("degree", "")).replace("Master's", "Mestrado").replace("Technology:", "em Tecnologia:").replace("Systems Analysis", "Análise de Sistemas").replace("Technical Degree", "Técnico")),
+                "degree_pt": e.get(
+                    "degree_pt",
+                    e.get("degree_en", e.get("degree", ""))
+                    .replace("Master's", "Mestrado")
+                    .replace("Technology:", "em Tecnologia:")
+                    .replace("Systems Analysis", "Análise de Sistemas")
+                    .replace("Technical Degree", "Técnico"),
+                ),
                 "institution_en": e.get("institution_en", e.get("institution", "")),
                 "institution_pt": e.get(
                     "institution_pt",
@@ -365,9 +569,12 @@ def main() -> None:
                 "detail_en": e.get("detail_en", e.get("detail", "")),
                 "detail_pt": e.get(
                     "detail_pt",
-                    "Dissertação: mensuração de **confiança percebida** em sites de e-commerce com plataforma digital (ISO/IEC 25000), experimentação, ML e validação humano vs **agente de IA**. Disciplinas (**nota A em todas**): Escrita Acadêmica, Pesquisa Científica, Inovação e Transferência de Tecnologia, Visualização da Informação."
-                    if e["sort_order"] == "1" and e.get("detail_en", e.get("detail", ""))
-                    else e.get("detail_en", e.get("detail", "")),
+                    (
+                        "Dissertação: mensuração de **confiança percebida** em sites de e-commerce com plataforma digital (ISO/IEC 25000), experimentação, ML e validação humano vs **agente de IA**. Disciplinas (**nota A em todas**): Escrita Acadêmica, Pesquisa Científica, Inovação e Transferência de Tecnologia, Visualização da Informação."
+                        if e["sort_order"] == "1"
+                        and e.get("detail_en", e.get("detail", ""))
+                        else e.get("detail_en", e.get("detail", ""))
+                    ),
                 ),
             }
             for e in read_csv("education.csv")
@@ -384,7 +591,9 @@ def main() -> None:
                 "venue_en": r.get("venue_en", r.get("venue", "")),
                 "venue_pt": r.get("venue_pt", r.get("venue_en", r.get("venue", ""))),
                 "citation_en": r.get("citation_en", r.get("citation", "")),
-                "citation_pt": r.get("citation_pt", r.get("citation_en", r.get("citation", ""))),
+                "citation_pt": r.get(
+                    "citation_pt", r.get("citation_en", r.get("citation", ""))
+                ),
             }
             for r in read_csv("publications.csv")
         ],
@@ -402,7 +611,10 @@ def main() -> None:
             {
                 "sort_order": r["sort_order"],
                 "text_en": r.get("text_en", r.get("text", "")),
-                "text_pt": r.get("text_pt", add_pt.get(r["sort_order"], r.get("text_en", r.get("text", "")))),
+                "text_pt": r.get(
+                    "text_pt",
+                    add_pt.get(r["sort_order"], r.get("text_en", r.get("text", ""))),
+                ),
             }
             for r in read_csv("additional.csv")
         ],
@@ -432,18 +644,43 @@ def main() -> None:
     }
     write_csv(
         "projects.csv",
-        ["id", "name_en", "name_pt", "summary_en", "summary_pt", "csi", "nps", "notes_en", "notes_pt"],
+        [
+            "id",
+            "name_en",
+            "name_pt",
+            "summary_en",
+            "summary_pt",
+            "csi",
+            "nps",
+            "notes_en",
+            "notes_pt",
+        ],
         [
             {
                 "id": r["id"],
                 "name_en": r.get("name_en", r.get("name", "")),
-                "name_pt": r.get("name_pt", proj_pt.get(r["id"], (r.get("name_en", r.get("name", "")), "", ""))[0]),
+                "name_pt": r.get(
+                    "name_pt",
+                    proj_pt.get(r["id"], (r.get("name_en", r.get("name", "")), "", ""))[
+                        0
+                    ],
+                ),
                 "summary_en": r.get("summary_en", r.get("summary", "")),
-                "summary_pt": r.get("summary_pt", proj_pt.get(r["id"], ("", r.get("summary_en", r.get("summary", "")), ""))[1]),
+                "summary_pt": r.get(
+                    "summary_pt",
+                    proj_pt.get(
+                        r["id"], ("", r.get("summary_en", r.get("summary", "")), "")
+                    )[1],
+                ),
                 "csi": r.get("csi", ""),
                 "nps": r.get("nps", ""),
                 "notes_en": r.get("notes_en", r.get("notes", "")),
-                "notes_pt": r.get("notes_pt", proj_pt.get(r["id"], ("", "", r.get("notes_en", r.get("notes", ""))))[2]),
+                "notes_pt": r.get(
+                    "notes_pt",
+                    proj_pt.get(
+                        r["id"], ("", "", r.get("notes_en", r.get("notes", "")))
+                    )[2],
+                ),
             }
             for r in read_csv("projects.csv")
         ],
@@ -458,12 +695,18 @@ def main() -> None:
             {
                 "variant": n["variant"],
                 "field": n["field"],
-                "label_en": field_labels.get(("narrative_field", n["field"]), (n["field"], n["field"]))[0],
-                "label_pt": field_labels.get(("narrative_field", n["field"]), (n["field"], n["field"]))[1],
+                "label_en": field_labels.get(
+                    ("narrative_field", n["field"]), (n["field"], n["field"])
+                )[0],
+                "label_pt": field_labels.get(
+                    ("narrative_field", n["field"]), (n["field"], n["field"])
+                )[1],
                 "text_en": n.get("text_en", n.get("text", "")),
                 "text_pt": n.get(
                     "text_pt",
-                    narrative_pt.get((n["variant"], n["field"]), n.get("text_en", n.get("text", ""))),
+                    narrative_pt.get(
+                        (n["variant"], n["field"]), n.get("text_en", n.get("text", ""))
+                    ),
                 ),
             }
             for n in read_csv("narratives.csv")
@@ -477,7 +720,10 @@ def _load_narrative_pt_translations() -> dict[tuple[str, str], str]:
     """Portuguese narrative text keyed by (variant, field)."""
     return {
         ("general", "tagline"): "Pesquisa Aplicada, Tecnologia e Gestão de Projetos",
-        ("product-owner", "tagline"): "Descoberta, Entrega e Resultados com Stakeholders",
+        (
+            "product-owner",
+            "tagline",
+        ): "Descoberta, Entrega e Resultados com Stakeholders",
         ("general", "profile"): (
             "Pesquisador de UX e qualidade de software que ajuda equipes a construir **soluções centradas no usuário** "
             "por meio de **Pesquisa Aplicada, tecnologia e gestão de projetos**. Formação full-stack e **mentalidade científica**. "
@@ -493,12 +739,24 @@ def _load_narrative_pt_translations() -> dict[tuple[str, str], str]:
         ),
         ("general", "deck_title"): "Eduardo Figueiredo – Portfólio",
         ("product-owner", "deck_title"): "Eduardo Figueiredo – Portfólio",
-        ("general", "why_h1"): "Por que trabalho com Tecnologia, Gestão de Projetos e Pesquisa Aplicada",
+        (
+            "general",
+            "why_h1",
+        ): "Por que trabalho com Tecnologia, Gestão de Projetos e Pesquisa Aplicada",
         ("product-owner", "why_h1"): "Por que descoberta e entrega importam",
-        ("general", "why_h2"): "Software confiável e centrado no humano para serviços complexos",
-        ("product-owner", "why_h2"): "Da descoberta à entrega para produtos confiáveis e centrados no humano",
+        (
+            "general",
+            "why_h2",
+        ): "Software confiável e centrado no humano para serviços complexos",
+        (
+            "product-owner",
+            "why_h2",
+        ): "Da descoberta à entrega para produtos confiáveis e centrados no humano",
         ("general", "who_role"): "Pesquisa Aplicada, Tecnologia e Gestão de Projetos",
-        ("product-owner", "who_role"): "Descoberta, Entrega e Resultados com Stakeholders",
+        (
+            "product-owner",
+            "who_role",
+        ): "Descoberta, Entrega e Resultados com Stakeholders",
         ("general", "who_impact"): (
             "Ajudo equipes a governar melhor e melhorar mais rápido, usando Pesquisa Aplicada para priorizar, "
             "decidir e entregar com dados claros e accountability."
@@ -507,16 +765,37 @@ def _load_narrative_pt_translations() -> dict[tuple[str, str], str]:
             "Ajudo equipes a priorizar e entregar com clareza: Pesquisa Aplicada para decidir, alinhamento de stakeholders "
             "para comprometer e resultados mensuráveis para provar valor."
         ),
-        ("general", "present_h2"): "Presente – Pesquisa Aplicada e Tecnologia (Bosch Brasil)",
-        ("product-owner", "present_h2"): "Presente – Trabalho orientado a produto na Bosch Brasil",
+        (
+            "general",
+            "present_h2",
+        ): "Presente – Pesquisa Aplicada e Tecnologia (Bosch Brasil)",
+        (
+            "product-owner",
+            "present_h2",
+        ): "Presente – Trabalho orientado a produto na Bosch Brasil",
         ("general", "csi_h2"): "Presente – Desempenho CSI e NPS (2024–2025)",
-        ("product-owner", "csi_h2"): "Presente – Evidência de resultados: CSI e NPS (2024–2025)",
-        ("general", "cip_pipeline_h2"): "Presente – Integração CIP e Pesquisa Aplicada: Pipeline metodológico",
-        ("product-owner", "cip_pipeline_h2"): "Presente – Gate de entrada CIP: Pipeline metodológico",
+        (
+            "product-owner",
+            "csi_h2",
+        ): "Presente – Evidência de resultados: CSI e NPS (2024–2025)",
+        (
+            "general",
+            "cip_pipeline_h2",
+        ): "Presente – Integração CIP e Pesquisa Aplicada: Pipeline metodológico",
+        (
+            "product-owner",
+            "cip_pipeline_h2",
+        ): "Presente – Gate de entrada CIP: Pipeline metodológico",
         ("general", "relevance_h2"): "Presente – Modelo de avaliação de relevância",
-        ("product-owner", "relevance_h2"): "Presente – Modelo de priorização (relevância Baixa / Média / Alta)",
+        (
+            "product-owner",
+            "relevance_h2",
+        ): "Presente – Modelo de priorização (relevância Baixa / Média / Alta)",
         ("general", "tooling_h2"): "Implementação técnica – Projeto Tooling para PT",
-        ("product-owner", "tooling_h2"): "Descoberta → Entrega – Projeto Tooling para PT",
+        (
+            "product-owner",
+            "tooling_h2",
+        ): "Descoberta → Entrega – Projeto Tooling para PT",
         ("product-owner", "future_h2"): "Futuro – Contexto de entrega ágil",
         ("product-owner", "future_intro"): (
             "**Descoberta, priorização e entrega** se encontram em como trabalho com equipes hoje. "

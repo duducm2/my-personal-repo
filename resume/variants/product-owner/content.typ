@@ -23,7 +23,7 @@
 #let languages = "Portuguese (Native)   English (Fluent)"
 
 #let skills = (
-  ("Core:", ("Product discovery", "Stakeholder alignment", "Prioritization & outcomes", "Applied Research", "Agile / CIP")),
+  ("Core:", ("Product discovery", "Stakeholder alignment", "Prioritization & outcomes", "Applied Research", "Agile (Scrum / Kanban) / CIP")),
   ("Tech:", ("Power BI", "Python", "React", "Figma", "SQL", "Matplotlib", "Seaborn", "Git", "GitHub", "Cursor IDE", "Azure", "ServiceNow", "Bitbucket", "HTML", "CSS", "Mermaid", "VS Code", "Excel", "VBA", "AutoHotkey")),
 )
 
@@ -36,11 +36,11 @@
     [#strong[International & Mentorship:] two trips to Germany (2024, 2025); tutor at SENAI Digital Talent Academy.],
   )),
   ("Jan 2020 – Nov 2023", "Bosch Brasil", "Web Developer", (
-    [Delivered customer-facing and internal web solutions in #strong[Scrum]; collaborated across design, research, and engineering.],
+    [Delivered customer-facing and internal web solutions in #strong[Scrum and Kanban]; collaborated across design, research, and engineering.],
     [Translated needs into shipped front-end (React) increments with teamwork-driven delivery.],
   )),
   ("Jan 2019 – Dec 2019", "Bosch Magyarország (Hungary)", "Digitization Support Analyst", (
-    [Digitized Business Excellence workflows—clarifying process needs and shipping internal tools.],
+    [Digitized Business Excellence workflows in #strong[Kanban]—clarifying process needs and shipping internal tools.],
     [#strong[Full-stack web development:] VS Code, SQL Server, Windows Server (IIS).],
   )),
   ("Jan 2017 – Nov 2018", "Bosch Brasil (Campinas)", "Intern", (

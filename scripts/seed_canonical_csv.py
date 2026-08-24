@@ -157,7 +157,7 @@ def main() -> None:
             "bosch-web-2020",
             "general",
             1,
-            "Front-end development, React, Scrum, Applied Research; web solutions and teamwork-driven delivery.",
+            "Front-end development, React, Scrum, Kanban, Applied Research; web solutions and teamwork-driven delivery.",
         ),
         (
             "bosch-web-2020",
@@ -169,7 +169,7 @@ def main() -> None:
             "bosch-hu-2019",
             "general",
             1,
-            "Business Excellence digitization; internal tools and workflows.",
+            "Business Excellence digitization in **Kanban**; internal tools and workflows.",
         ),
         (
             "bosch-hu-2019",
@@ -218,7 +218,7 @@ def main() -> None:
             "bosch-web-2020",
             "product-owner",
             1,
-            "Delivered customer-facing and internal web solutions in **Scrum**; collaborated across design, research, and engineering.",
+            "Delivered customer-facing and internal web solutions in **Scrum and Kanban**; collaborated across design, research, and engineering.",
         ),
         (
             "bosch-web-2020",
@@ -230,7 +230,7 @@ def main() -> None:
             "bosch-hu-2019",
             "product-owner",
             1,
-            "Digitized Business Excellence workflows—clarifying process needs and shipping internal tools.",
+            "Digitized Business Excellence workflows in **Kanban**—clarifying process needs and shipping internal tools.",
         ),
         (
             "bosch-hu-2019",
@@ -287,7 +287,7 @@ def main() -> None:
         ("product-owner", "Core", 2, "Stakeholder alignment"),
         ("product-owner", "Core", 3, "Prioritization & outcomes"),
         ("product-owner", "Core", 4, "Applied Research"),
-        ("product-owner", "Core", 5, "Agile / CIP"),
+        ("product-owner", "Core", 5, "Agile (Scrum / Kanban) / CIP"),
         ("product-owner", "Tech", 1, "Power BI"),
         ("product-owner", "Tech", 2, "Python"),
         ("product-owner", "Tech", 3, "React"),

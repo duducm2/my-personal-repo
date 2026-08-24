@@ -37,11 +37,11 @@
     [#strong[International & Mentorship:] two trips to Germany (2024, 2025); tutor at SENAI Digital Talent Academy.],
   )),
   ("Jan 2020 – Nov 2023", "Bosch Brasil", "Web Developer", (
-    [Front-end development, React, Scrum, Applied Research; web solutions and teamwork-driven delivery.],
+    [Front-end development, React, Scrum, Kanban, Applied Research; web solutions and teamwork-driven delivery.],
     [Collaborated on customer-facing applications and internal tools.],
   )),
   ("Jan 2019 – Dec 2019", "Bosch Magyarország (Hungary)", "Digitization Support Analyst", (
-    [Business Excellence digitization; internal tools and workflows.],
+    [Business Excellence digitization in #strong[Kanban]; internal tools and workflows.],
     [#strong[Full-stack web development:] VS Code, SQL Server, Windows Server (IIS).],
   )),
   ("Jan 2017 – Nov 2018", "Bosch Brasil (Campinas)", "Intern", (
