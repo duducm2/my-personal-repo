@@ -663,7 +663,7 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 
 | Area                               | Achievement                                                                                                                       |
 | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| Role (official)                    | Applied Research & Design Analyst – Bosch Brasil (May 2023 – present); Applied Research Expert & Project Champion at GS/BDU       |
+| Role (official)                    | Applied Research & Design Analyst – Bosch Brasil (January 2023 – present); Applied Research Expert & Project Champion at GS/BDU       |
 | International                      | Two trips to Germany (2024, 2025) for role-related work                                                                           |
 | CO2 Tracking (GS/Applied Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand — a discovery outcome that stopped low-value work            |
 | Tooling project (PT)               | Requirements → high-fidelity prototypes → regular **customer check-ins**; discovery-to-delivery ownership with technical partners |

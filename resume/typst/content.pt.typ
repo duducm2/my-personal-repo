@@ -45,7 +45,7 @@
 )
 
 #let experience = (
-  ("Mai 2023 – Atual", "Bosch Brasil", "Analista de Pesquisa Aplicada e Design", (
+  ("Jan 2023 – Atual", "Bosch Brasil", "Analista de Pesquisa Aplicada e Design", (
     [Apoiei as Américas a atingir #strong[Nível 4 de Maturidade em UX na Global Services]: governança, templates, treinamento. #strong[CSI 4,86 / NPS 9,94] méd. nos meus projetos (2024–2025).],
     [Integrei CIP + Pesquisa no #strong[ServiceNow]; adicionei gate de Pesquisa no fluxo; gate de qualidade #strong[orientado por método].],
     [#strong[Projeto tooling (Power Tools):] apoiei a entrega técnica e gestão do projeto de requisitos a protótipos de alta fidelidade; check-ins regulares com clientes.],
@@ -53,7 +53,7 @@
     [#strong[IA agêntica:] uso diário com #strong[Cursor IDE] e gestão de contexto para pesquisa, análise e resolução de problemas. Entrego Pesquisa Aplicada com eficiência no pipeline e artefatos.],
     [#strong[Internacional e mentoria:] duas viagens à Alemanha (2024, 2025); tutor na SENAI Digital Talent Academy.],
   )),
-  ("Jan 2020 – Nov 2023", "Bosch Brasil", "Desenvolvedor Web", (
+  ("Jan 2020 – Dez 2023", "Bosch Brasil", "Desenvolvedor Web", (
     [Atuei em desenvolvimento front-end, React, Scrum, Kanban e Pesquisa Aplicada; soluções web e entrega em equipe.],
     [Colaborei em aplicações para clientes e ferramentas internas.],
   )),

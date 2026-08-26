@@ -324,8 +324,8 @@ def main() -> None:
         "Intern": "Estagiário",
     }
     date_pt_map = {
-        "May 2023 – Present": "Mai 2023 – Atual",
-        "Jan 2020 – Nov 2023": "Jan 2020 – Nov 2023",
+        "January 2023 – Present": "Jan 2023 – Atual",
+        "Jan 2020 – Dec 2023": "Jan 2020 – Dec 2023",
         "Jan 2019 – Dec 2019": "Jan 2019 – Dez 2019",
         "Jan 2017 – Nov 2018": "Jan 2017 – Nov 2018",
     }

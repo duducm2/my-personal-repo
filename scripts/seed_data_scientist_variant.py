@@ -274,7 +274,7 @@ def upsert_narratives() -> None:
         "present_table": (
             "| Area                               | Achievement                                                                                                                        |\n"
             "| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |\n"
-            "| Role                               | Applied Research & Design Analyst – Bosch Brasil (May 2023 – present); Applied Research Expert & Project Champion at GS/BDU            |\n"
+            "| Role                               | Applied Research & Design Analyst – Bosch Brasil (January 2023 – present); Applied Research Expert & Project Champion at GS/BDU            |\n"
             "| Metrics & BI                       | Power BI dashboards for project/resource oversight; **CSI 4.86 / NPS 9.94** avg. across my projects (2024–2025)                         |\n"
             "| International                      | Two trips to Germany (2024, 2025) for role-related work                                                                            |\n"
             "| CO2 Tracking (GS/Applied Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand — a data-informed stop                                       |\n"
@@ -284,7 +284,7 @@ def upsert_narratives() -> None:
             "| Collaboration                      | Tutor of Digital Talent Academy Students                                                                                           |",
             "| Área                               | Conquista                                                                                                                        |\n"
             "| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |\n"
-            "| Cargo                               | Analista de Pesquisa Aplicada e Design – Bosch Brasil (mai 2023 – atual); Especialista em Pesquisa Aplicada e Project Champion na GS/BDU            |\n"
+            "| Cargo                               | Analista de Pesquisa Aplicada e Design – Bosch Brasil (jan 2023 – atual); Especialista em Pesquisa Aplicada e Project Champion na GS/BDU            |\n"
             "| Métricas e BI                       | Dashboards Power BI para projetos/recursos; **CSI 4,86 / NPS 9,94** méd. nos meus projetos (2024–2025)                         |\n"
             "| Internacional                      | Realizei duas viagens à Alemanha (2024, 2025) por trabalho relacionado ao cargo                                                                            |\n"
             "| Rastreamento CO2 (GS/Pesquisa Aplicada) | Conduzi prospecção de mercado para telemetria CO2; achado: falta de demanda — interrupção baseada em dados                                       |\n"

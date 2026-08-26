@@ -45,14 +45,14 @@
 )
 
 #let experience = (
-  ("May 2023 – Present", "Bosch Brasil", "Applied Research & Design Analyst", (
+  ("Jan 2023 – Present", "Bosch Brasil", "Applied Research & Design Analyst", (
     [#strong[Tooling project (Power Tools):] owned the path from requirements through high-fidelity prototypes; regular #strong[customer check-ins] and delivery coordination with technical partners.],
     [Integrated Applied Research into #strong[CIP / ServiceNow] as an intake and quality gate—method-driven triage so the right work advances.],
     [Supported Americas to reach #strong[UX Maturity Level 4]: governance, templates, and training that productized UX practice for stakeholders.],
     [Outcome evidence: #strong[CSI 4.86 / NPS 9.94] avg. across my projects (2024–2025); Power BI for project and resource oversight.],
     [#strong[International & Mentorship:] two trips to Germany (2024, 2025); tutor at SENAI Digital Talent Academy.],
   )),
-  ("Jan 2020 – Nov 2023", "Bosch Brasil", "Web Developer", (
+  ("Jan 2020 – Dec 2023", "Bosch Brasil", "Web Developer", (
     [Delivered customer-facing and internal web solutions in #strong[Scrum and Kanban]; collaborated across design, research, and engineering.],
     [Translated needs into shipped front-end (React) increments with teamwork-driven delivery.],
   )),

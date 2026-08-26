@@ -440,8 +440,8 @@ img[src*="story-flow"] {
 
 ## Evidence that turns complex services into better decisions
 
-- I believe decisions in service organizations should be **evidence-based**, especially when they affect real people and businesses.
-- My work centers **data analysis**, **experimentation**, and **Applied Research**: measuring outcomes and feeding insight into delivery.
+- I believe decisions in service organizations should be **evidence-based**, especially when they affect real people and businesses.
+- My work centers **data analysis**, **experimentation**, and **Applied Research**: measuring outcomes and feeding insight into delivery.
 - This portfolio shows that path through real projects and metrics.
 
 <p><img src="../../../pictures/diagrams/story-flow.png" alt="Diagram story-flow: Why story flow" /></p>
@@ -661,15 +661,15 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 <p class="americas-img"><img src="../../../pictures/work/americas-team-2025.jpg" alt="Americas Team 2025 - UX Maturity Level 4" /></p>
 </div>
 
-| Area                               | Achievement                                                                                                                        |
-| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| Role                               | Applied Research & Design Analyst – Bosch Brasil (May 2023 – present); Applied Research Expert & Project Champion at GS/BDU            |
-| Metrics & BI                       | Power BI dashboards for project/resource oversight; **CSI 4.86 / NPS 9.94** avg. across my projects (2024–2025)                         |
-| International                      | Two trips to Germany (2024, 2025) for role-related work                                                                            |
-| CO2 Tracking (GS/Applied Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand — a data-informed stop                                       |
-| Tooling project (PT)               | Requirements through high-fidelity prototypes with regular customer check-ins; progress and feedback tracked for decisions         |
-| UX Maturity                        | Americas Level 4 – governance, templates, training that made UX practice measurable                                                |
-| CIP + Applied Research             | ServiceNow CIM integration; Applied Research as a method-driven quality/relevance gate                                           |
+| Area                               | Achievement                                                                                                                        |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Role                               | Applied Research & Design Analyst – Bosch Brasil (January 2023 – present); Applied Research Expert & Project Champion at GS/BDU            |
+| Metrics & BI                       | Power BI dashboards for project/resource oversight; **CSI 4.86 / NPS 9.94** avg. across my projects (2024–2025)                         |
+| International                      | Two trips to Germany (2024, 2025) for role-related work                                                                            |
+| CO2 Tracking (GS/Applied Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand — a data-informed stop                                       |
+| Tooling project (PT)               | Requirements through high-fidelity prototypes with regular customer check-ins; progress and feedback tracked for decisions         |
+| UX Maturity                        | Americas Level 4 – governance, templates, training that made UX practice measurable                                                |
+| CIP + Applied Research             | ServiceNow CIM integration; Applied Research as a method-driven quality/relevance gate                                           |
 | Collaboration                      | Tutor of Digital Talent Academy Students                                                                                           |
 
 ---
@@ -1334,39 +1334,39 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 <!-- Slide 21 – Future (Career) -->
 
 <style scoped>
-.future-career-wrap {
-  display: flex !important; flex-direction: column !important;
-  justify-content: center !important; align-items: center !important;
-  min-height: 55vh !important; width: 100% !important; margin-top: 0.75rem !important;
-  gap: 1rem !important;
-}
-.future-career-wrap p { margin: 0 !important; text-align: center !important; }
-.future-career-wrap img {
-  width: 38% !important; max-width: 38% !important; height: auto !important;
-  display: block !important; margin: 10px auto 0 !important;
-  border: none !important; box-shadow: none !important;
-}
-.future-po-bullets {
-  max-width: 85% !important; text-align: left !important; font-size: 0.95em !important;
+.future-career-wrap {
+  display: flex !important; flex-direction: column !important;
+  justify-content: center !important; align-items: center !important;
+  min-height: 55vh !important; width: 100% !important; margin-top: 0.75rem !important;
+  gap: 1rem !important;
+}
+.future-career-wrap p { margin: 0 !important; text-align: center !important; }
+.future-career-wrap img {
+  width: 38% !important; max-width: 38% !important; height: auto !important;
+  display: block !important; margin: 10px auto 0 !important;
+  border: none !important; box-shadow: none !important;
+}
+.future-po-bullets {
+  max-width: 85% !important; text-align: left !important; font-size: 0.95em !important;
 }
 </style>
 
-## Future – How I Work with Data
-
-- **What I bring:** dashboards & outcome metrics (CSI/NPS); experimentation/ML in research; method-driven intake gates.
-
-<div class="future-career-wrap">
-<div class="future-po-bullets">
-
-| Competency              | Evidence from my work                                     |
-| ----------------------- | --------------------------------------------------------- |
-| Metrics & BI            | Power BI dashboards; CSI 4.86 / NPS 9.94 avg. (2024–2025) |
-| Experimentation / ML    | Master's dissertation: perceived trust, ML, AI-agent validation |
-| Data-informed intake    | ServiceNow Applied Research gate in CIP                   |
-| Measurable practice     | Americas UX Maturity Level 4 (templates, training)        |
-
-</div>
-<p><img src="../../../pictures/diagrams/future-career-path.png" alt="Diagram future-career-path: Prioritized career paths" /></p>
+## Future – How I Work with Data
+
+- **What I bring:** dashboards & outcome metrics (CSI/NPS); experimentation/ML in research; method-driven intake gates.
+
+<div class="future-career-wrap">
+<div class="future-po-bullets">
+
+| Competency              | Evidence from my work                                     |
+| ----------------------- | --------------------------------------------------------- |
+| Metrics & BI            | Power BI dashboards; CSI 4.86 / NPS 9.94 avg. (2024–2025) |
+| Experimentation / ML    | Master's dissertation: perceived trust, ML, AI-agent validation |
+| Data-informed intake    | ServiceNow Applied Research gate in CIP                   |
+| Measurable practice     | Americas UX Maturity Level 4 (templates, training)        |
+
+</div>
+<p><img src="../../../pictures/diagrams/future-career-path.png" alt="Diagram future-career-path: Prioritized career paths" /></p>
 </div>
 
 <!-- Diagram: future-career-path (mermaid/diagrams.md). Export to future-career-path.png -->

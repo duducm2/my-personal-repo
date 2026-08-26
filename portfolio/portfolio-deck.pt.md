@@ -663,7 +663,7 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 
 | Área                               | Conquista                                                                                                                        |
 | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| Cargo                               | Pesquisa Aplicada e Tecnologia – Bosch Brasil (mai 2023 – atual); Especialista em Pesquisa Aplicada e Project Champion na GS/BDU            |
+| Cargo                               | Pesquisa Aplicada e Tecnologia – Bosch Brasil (jan 2023 – atual); Especialista em Pesquisa Aplicada e Project Champion na GS/BDU            |
 | Internacional                      | Realizei duas viagens à Alemanha (2024, 2025) por trabalho relacionado ao cargo                                                                            |
 | Rastreamento CO2 (GS/Pesquisa Aplicada) | Conduzi prospecção de mercado para telemetria CO2; achado: falta de demanda de mercado                                                               |
 | Projeto tooling (PT)               | **Liderei** a entrega técnica e gestão do projeto de requisitos a protótipos de alta fidelidade, com check-ins regulares com clientes. |

@@ -79,9 +79,9 @@ def main() -> None:
             {
                 "id": "bosch-ar-2023",
                 "sort_order": "1",
-                "start_date": "2023-05",
+                "start_date": "2023-01",
                 "end_date": "present",
-                "date_display": "May 2023 – Present",
+                "date_display": "Jan 2023 – Present",
                 "company": "Bosch Brasil",
                 "title": "Applied Research & Design Analyst",
             },
@@ -89,8 +89,8 @@ def main() -> None:
                 "id": "bosch-web-2020",
                 "sort_order": "2",
                 "start_date": "2020-01",
-                "end_date": "2023-11",
-                "date_display": "Jan 2020 – Nov 2023",
+                "end_date": "2023-12",
+                "date_display": "Jan 2020 – Dec 2023",
                 "company": "Bosch Brasil",
                 "title": "Web Developer",
             },
@@ -483,7 +483,7 @@ def main() -> None:
             "present_table",
             "| Area                               | Achievement                                                                                                                        |\n"
             "| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |\n"
-            "| Role                               | Applied Research & Technology – Bosch Brasil (May 2023 – present); Applied Research Expert & Project Champion at GS/BDU            |\n"
+            "| Role                               | Applied Research & Technology – Bosch Brasil (January 2023 – present); Applied Research Expert & Project Champion at GS/BDU            |\n"
             "| International                      | Two trips to Germany (2024, 2025) for role-related work                                                                            |\n"
             "| CO2 Tracking (GS/Applied Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand                                                               |\n"
             "| Tooling project (PT)               | Led technical delivery and project management from requirements through high-fidelity prototypes, with regular customer check-ins. |\n"
@@ -496,7 +496,7 @@ def main() -> None:
             "present_table",
             "| Area                               | Achievement                                                                                                                       |\n"
             "| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |\n"
-            "| Role (official)                    | Applied Research & Design Analyst – Bosch Brasil (May 2023 – present); Applied Research Expert & Project Champion at GS/BDU       |\n"
+            "| Role (official)                    | Applied Research & Design Analyst – Bosch Brasil (January 2023 – present); Applied Research Expert & Project Champion at GS/BDU       |\n"
             "| International                      | Two trips to Germany (2024, 2025) for role-related work                                                                           |\n"
             "| CO2 Tracking (GS/Applied Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand — a discovery outcome that stopped low-value work            |\n"
             "| Tooling project (PT)               | Requirements → high-fidelity prototypes → regular **customer check-ins**; discovery-to-delivery ownership with technical partners |\n"

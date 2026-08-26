@@ -440,8 +440,8 @@ img[src*="story-flow"] {
 
 ## Evidência que transforma serviços complexos em melhores decisões
 
-- Acredito que decisões em organizações de serviço devem ser **baseadas em evidência**, especialmente quando afetam pessoas reais e negócios.
-- Meu trabalho centra **análise de dados**, **experimentação** e **Pesquisa Aplicada**: mensurar resultados e alimentar a entrega com insight.
+- Acredito que decisões em organizações de serviço devem ser **baseadas em evidência**, especialmente quando afetam pessoas reais e negócios.
+- Meu trabalho centra **análise de dados**, **experimentação** e **Pesquisa Aplicada**: mensurar resultados e alimentar a entrega com insight.
 - Este portfólio mostra esse caminho por meio de projetos reais e métricas.
 
 <p><img src="../../../pictures/diagrams/story-flow.png" alt="Diagram story-flow: Why story flow" /></p>
@@ -661,15 +661,15 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 <p class="americas-img"><img src="../../../pictures/work/americas-team-2025.jpg" alt="Americas Team 2025 - UX Maturity Level 4" /></p>
 </div>
 
-| Área                               | Conquista                                                                                                                        |
-| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| Cargo                               | Analista de Pesquisa Aplicada e Design – Bosch Brasil (mai 2023 – atual); Especialista em Pesquisa Aplicada e Project Champion na GS/BDU            |
-| Métricas e BI                       | Dashboards Power BI para projetos/recursos; **CSI 4,86 / NPS 9,94** méd. nos meus projetos (2024–2025)                         |
-| Internacional                      | Realizei duas viagens à Alemanha (2024, 2025) por trabalho relacionado ao cargo                                                                            |
-| Rastreamento CO2 (GS/Pesquisa Aplicada) | Conduzi prospecção de mercado para telemetria CO2; achado: falta de demanda — interrupção baseada em dados                                       |
-| Projeto tooling (PT)               | Requisitos a protótipos de alta fidelidade com check-ins regulares; progresso e feedback acompanhados para decisões         |
-| Maturidade em UX                        | Nível 4 nas Américas – governança, templates, treinamento que tornaram a prática de UX mensurável                                                |
-| CIP + Pesquisa Aplicada             | Integração ServiceNow CIM; Pesquisa Aplicada como gate de qualidade/relevância orientado por método                                           |
+| Área                               | Conquista                                                                                                                        |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Cargo                               | Analista de Pesquisa Aplicada e Design – Bosch Brasil (jan 2023 – atual); Especialista em Pesquisa Aplicada e Project Champion na GS/BDU            |
+| Métricas e BI                       | Dashboards Power BI para projetos/recursos; **CSI 4,86 / NPS 9,94** méd. nos meus projetos (2024–2025)                         |
+| Internacional                      | Realizei duas viagens à Alemanha (2024, 2025) por trabalho relacionado ao cargo                                                                            |
+| Rastreamento CO2 (GS/Pesquisa Aplicada) | Conduzi prospecção de mercado para telemetria CO2; achado: falta de demanda — interrupção baseada em dados                                       |
+| Projeto tooling (PT)               | Requisitos a protótipos de alta fidelidade com check-ins regulares; progresso e feedback acompanhados para decisões         |
+| Maturidade em UX                        | Nível 4 nas Américas – governança, templates, treinamento que tornaram a prática de UX mensurável                                                |
+| CIP + Pesquisa Aplicada             | Integração ServiceNow CIM; Pesquisa Aplicada como gate de qualidade/relevância orientado por método                                           |
 | Colaboração                      | Sou tutor de estudantes da Digital Talent Academy                                                                                           |
 
 ---
@@ -1334,39 +1334,39 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 <!-- Slide 21 – Future (Career) -->
 
 <style scoped>
-.future-career-wrap {
-  display: flex !important; flex-direction: column !important;
-  justify-content: center !important; align-items: center !important;
-  min-height: 55vh !important; width: 100% !important; margin-top: 0.75rem !important;
-  gap: 1rem !important;
-}
-.future-career-wrap p { margin: 0 !important; text-align: center !important; }
-.future-career-wrap img {
-  width: 38% !important; max-width: 38% !important; height: auto !important;
-  display: block !important; margin: 10px auto 0 !important;
-  border: none !important; box-shadow: none !important;
-}
-.future-po-bullets {
-  max-width: 85% !important; text-align: left !important; font-size: 0.95em !important;
+.future-career-wrap {
+  display: flex !important; flex-direction: column !important;
+  justify-content: center !important; align-items: center !important;
+  min-height: 55vh !important; width: 100% !important; margin-top: 0.75rem !important;
+  gap: 1rem !important;
+}
+.future-career-wrap p { margin: 0 !important; text-align: center !important; }
+.future-career-wrap img {
+  width: 38% !important; max-width: 38% !important; height: auto !important;
+  display: block !important; margin: 10px auto 0 !important;
+  border: none !important; box-shadow: none !important;
+}
+.future-po-bullets {
+  max-width: 85% !important; text-align: left !important; font-size: 0.95em !important;
 }
 </style>
 
-## Futuro – Como trabalho com dados
-
-- **O que trago:** dashboards e métricas de resultado (CSI/NPS); experimentação/ML na pesquisa; gates de entrada orientados por método.
-
-<div class="future-career-wrap">
-<div class="future-po-bullets">
-
-| Competência              | Evidência do meu trabalho                                     |
-| ----------------------- | --------------------------------------------------------- |
-| Métricas e BI            | Dashboards Power BI; CSI 4,86 / NPS 9,94 méd. (2024–2025) |
-| Experimentação / ML    | Dissertação: confiança percebida, ML, validação com agente de IA |
-| Entrada baseada em dados    | Gate de Pesquisa Aplicada no CIP ServiceNow                   |
-| Prática mensurável     | Nível 4 de Maturidade em UX nas Américas (templates, treinamento)        |
-
-</div>
-<p><img src="../../../pictures/diagrams/future-career-path.png" alt="Diagrama future-career-path: Caminhos de carreira priorizados" /></p>
+## Futuro – Como trabalho com dados
+
+- **O que trago:** dashboards e métricas de resultado (CSI/NPS); experimentação/ML na pesquisa; gates de entrada orientados por método.
+
+<div class="future-career-wrap">
+<div class="future-po-bullets">
+
+| Competência              | Evidência do meu trabalho                                     |
+| ----------------------- | --------------------------------------------------------- |
+| Métricas e BI            | Dashboards Power BI; CSI 4,86 / NPS 9,94 méd. (2024–2025) |
+| Experimentação / ML    | Dissertação: confiança percebida, ML, validação com agente de IA |
+| Entrada baseada em dados    | Gate de Pesquisa Aplicada no CIP ServiceNow                   |
+| Prática mensurável     | Nível 4 de Maturidade em UX nas Américas (templates, treinamento)        |
+
+</div>
+<p><img src="../../../pictures/diagrams/future-career-path.png" alt="Diagrama future-career-path: Caminhos de carreira priorizados" /></p>
 </div>
 
 <!-- Diagram: future-career-path (mermaid/diagrams.md). Export to future-career-path.png -->
