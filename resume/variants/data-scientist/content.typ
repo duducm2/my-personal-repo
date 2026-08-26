@@ -53,7 +53,7 @@
     [#strong[Agentic AI:] daily #strong[Cursor IDE] use for research, analysis, and problem-solving across the pipeline.],
     [#strong[International & Mentorship:] two trips to Germany (2024, 2025); tutor at SENAI Digital Talent Academy.],
   )),
-  ("Jan 2020 – Dec 2023", "Bosch Brasil", "Web Developer", (
+  ("Jan 2020 – Dec 2022", "Bosch Brasil", "Web Developer", (
     [Front-end (React) and Applied Research in #strong[Scrum and Kanban]; customer-facing and internal tools.],
     [Data-backed UI delivery and teamwork-driven shipping of web solutions.],
   )),

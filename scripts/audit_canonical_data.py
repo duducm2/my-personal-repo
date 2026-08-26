@@ -72,7 +72,7 @@ def main() -> int:
     )
     notes.append(
         "INTENTIONAL GAP vs my-data.json: Web Developer start_date in JSON is 2021-05; "
-        "resume/canonical keep Jan 2020 – Dec 2023 (resume-accurate priority)"
+        "resume/canonical keep Jan 2020 – Dec 2022 (resume-accurate priority)"
     )
 
     bullets = load("experience_bullets.csv")

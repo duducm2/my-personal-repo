@@ -52,7 +52,7 @@
     [Outcome evidence: #strong[CSI 4.86 / NPS 9.94] avg. across my projects (2024–2025); Power BI for project and resource oversight.],
     [#strong[International & Mentorship:] two trips to Germany (2024, 2025); tutor at SENAI Digital Talent Academy.],
   )),
-  ("Jan 2020 – Dec 2023", "Bosch Brasil", "Web Developer", (
+  ("Jan 2020 – Dec 2022", "Bosch Brasil", "Web Developer", (
     [Delivered customer-facing and internal web solutions in #strong[Scrum and Kanban]; collaborated across design, research, and engineering.],
     [Translated needs into shipped front-end (React) increments with teamwork-driven delivery.],
   )),

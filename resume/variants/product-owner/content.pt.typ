@@ -52,7 +52,7 @@
     [Evidência de resultados: #strong[CSI 4,86 / NPS 9,94] méd. (2024–2025); Power BI para projetos e recursos.],
     [#strong[Internacional e mentoria:] duas viagens à Alemanha (2024, 2025); tutor na SENAI Digital Talent Academy.],
   )),
-  ("Jan 2020 – Dez 2023", "Bosch Brasil", "Desenvolvedor Web", (
+  ("Jan 2020 – Dez 2022", "Bosch Brasil", "Desenvolvedor Web", (
     [Entreguei soluções web internas e para clientes em #strong[Scrum e Kanban]; colaborei com design, pesquisa e engenharia.],
     [Traduzi necessidades em incrementos front-end (React) com entrega em equipe.],
   )),

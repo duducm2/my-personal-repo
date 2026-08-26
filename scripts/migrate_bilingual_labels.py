@@ -325,7 +325,7 @@ def main() -> None:
     }
     date_pt_map = {
         "January 2023 – Present": "Jan 2023 – Atual",
-        "Jan 2020 – Dec 2023": "Jan 2020 – Dec 2023",
+        "Jan 2020 – Dec 2022": "Jan 2020 – Dez 2022",
         "Jan 2019 – Dec 2019": "Jan 2019 – Dez 2019",
         "Jan 2017 – Nov 2018": "Jan 2017 – Nov 2018",
     }

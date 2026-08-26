@@ -53,7 +53,7 @@
     [#strong[IA agêntica:] uso diário com #strong[Cursor IDE] e gestão de contexto para pesquisa, análise e resolução de problemas. Entrego Pesquisa Aplicada com eficiência no pipeline e artefatos.],
     [#strong[Internacional e mentoria:] duas viagens à Alemanha (2024, 2025); tutor na SENAI Digital Talent Academy.],
   )),
-  ("Jan 2020 – Dez 2023", "Bosch Brasil", "Desenvolvedor Web", (
+  ("Jan 2020 – Dez 2022", "Bosch Brasil", "Desenvolvedor Web", (
     [Atuei em desenvolvimento front-end, React, Scrum, Kanban e Pesquisa Aplicada; soluções web e entrega em equipe.],
     [Colaborei em aplicações para clientes e ferramentas internas.],
   )),
