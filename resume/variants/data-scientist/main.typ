@@ -15,7 +15,7 @@
 )
 // Lato: put Lato *.ttf in resume/typst/fonts/ and compile with --font-path
 #set text(font: "Lato", size: 10pt)
-#set par(leading: 1.2em, spacing: 0.7em)
+#set par(leading: 1.05em, spacing: 0.55em)
 
 #let sidebar-header-bg = rgb("#fff")
 #let accent-line = rgb("#7A5C3A")
@@ -30,18 +30,18 @@
 
 #let section-title(body) = {
   set text(size: 9pt, weight: "bold", fill: highlight-blue)
-  block(above: 0.75em, below: 0.9em)[#block(body)]
+  block(above: 0.45em, below: 0.5em)[#block(body)]
 }
 
 #let sidebar-heading(body) = {
   set text(size: 9pt, weight: "bold", fill: highlight-blue)
-  block(above: 0.4em, below: 0.3em)[#block(body)]
-  block(below: 0.65em)[#line(length: 1.5em, stroke: (paint: highlight-blue, thickness: 0.5pt))]
+  block(above: 0.3em, below: 0.2em)[#block(body)]
+  block(below: 0.45em)[#line(length: 1.5em, stroke: (paint: highlight-blue, thickness: 0.5pt))]
 }
 
 #let sidebar-text(body) = {
-  set text(size: 9pt, fill: rgb("#444444"))
-  set par(leading: 1.62em, spacing: 0.62em)
+  set text(size: 8.5pt, fill: rgb("#444444"))
+  set par(leading: 1.35em, spacing: 0.5em)
   body
 }
 
@@ -64,7 +64,7 @@
       #sidebar-heading[#ui.contact]
       #block(below: 0.45em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[#ui.phone_abbr] #h(0.5em) #text(size: 9pt)[#phone]]
       #block(below: 0.45em)[#link("mailto:" + email)[#text(size: 7.5pt, fill: highlight-blue)[#email]]]
-      #block(above: 1.05em, below: 1.65em)[
+      #block(above: 0.45em, below: 0.55em)[
         #grid(
           columns: (1fr, 1fr, 1fr),
           gutter: 0.35em,
@@ -74,30 +74,30 @@
           [#link(orcid-url)[#text(size: 9pt, fill: highlight-blue)[#orcid]]],
         )
       ]
-      #block(below: 0.9em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[#ui.location:] #h(0.5em) #text(size: 9pt)[#location]]
+      #block(below: 0.55em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[#ui.location:] #h(0.5em) #text(size: 9pt)[#location]]
       #sidebar-heading[#ui.profile]
-      #block(width: 100%, below: 0.75em)[#sidebar-text[#profile]]
+      #block(width: 100%, below: 0.5em)[#sidebar-text[#profile]]
     #sidebar-heading[#ui.languages]
-    #block(below: 0.4em)[
+    #block(below: 0.3em)[
       #text(size: 9pt, fill: rgb("#444444"))[#languages]
     ]
-    #block(below: 0.5em)[]
+    #block(below: 0.35em)[]
     #sidebar-heading[#ui.skills]
     #for (key, cat, sub) in skills [
-      #block(above: 0.65em)[
+      #block(above: 0.4em)[
         #text(weight: "bold", size: 9pt, fill: highlight-blue)[#cat]
         #linebreak()
         #if key == "Tech" [
-          #block(above: 0.3em)[
+          #block(above: 0.2em)[
             #columns(2, gutter: 0.4em)[
               #for (i, item) in sub.enumerate() [
                 #if i == ((sub.len() + 1) / 2) [#colbreak()]
-                #block(fill: pill-bg, radius: 0.18em, inset: (left: 0.25em, right: 0.25em, top: 0.08em, bottom: 0.08em), below: 0.22em)[#text(size: 9pt, fill: rgb("#444444"))[#item]]
+                #block(fill: pill-bg, radius: 0.18em, inset: (left: 0.25em, right: 0.25em, top: 0.08em, bottom: 0.08em), below: 0.18em)[#text(size: 8.5pt, fill: rgb("#444444"))[#item]]
               ]
             ]
           ]
         ] else [
-          #for item in sub [#block(inset: (left: 0.75em), above: 0.4em)[#text(size: 9pt, fill: rgb("#444444"))[â€¢ #item]]]
+          #for item in sub [#block(inset: (left: 0.75em), above: 0.28em)[#text(size: 9pt, fill: rgb("#444444"))[• #item]]]
         ]
       ]
     ]
@@ -114,41 +114,41 @@
     #block(below: 0.5em)[
       #text(size: 12pt, fill: highlight-blue)[#upper(tagline)]
     ]
-    #block(below: 1.1em)[
+    #block(below: 0.65em)[
       #line(length: 100%, stroke: (paint: gray, thickness: 0.4pt))
     ]
     #section-title[#ui.experience]
     #for (date, company, title, bullets) in experience [
-      #block(above: 1em, below: 0.9em)[
+      #block(above: 0.5em, below: 0.4em)[
         #grid(columns: (1fr, auto), gutter: 1em, align: (left, right))[
           #text(weight: "bold", fill: highlight-blue)[#company]
           #text(weight: "bold", fill: rgb("#555555"))[#date]
         ]
-        #block(above: 0.2em)[#text(style: "italic", fill: highlight-blue)[#title]]
-        #block(above: 0.5em)[
-          #set par(leading: 1.2em)
-          #for b in bullets [#block(inset: (left: 1em), above: 0.5em)[#text(fill: heading-color)[â€¢ #b]]]
+        #block(above: 0.15em)[#text(style: "italic", fill: highlight-blue)[#title]]
+        #block(above: 0.3em)[
+          #set par(leading: 1.05em)
+          #for b in bullets [#block(inset: (left: 1em), above: 0.28em)[#text(fill: heading-color)[• #b]]]
         ]
       ]
     ]
-    #block(above: 0.7em, below: 0.35em)[#line(length: 100%, stroke: (paint: gray, thickness: 0.35pt))]
+    #block(above: 0.4em, below: 0.25em)[#line(length: 100%, stroke: (paint: gray, thickness: 0.35pt))]
     #section-title[#ui.education]
     #for (degree, inst, thesis) in education [
-      #block(above: 0.75em)[
+      #block(above: 0.45em)[
         #strong[#degree] #inst
-        #if thesis != none [#block(inset: (left: 0.5em), above: 0.4em)[#text(size: 9pt, style: "italic", fill: rgb("#444444"))[#thesis]]]
+        #if thesis != none [#block(inset: (left: 0.5em), above: 0.25em)[#text(size: 9pt, style: "italic", fill: rgb("#444444"))[#thesis]]]
       ]
     ]
-    #block(above: 0.7em, below: 0.35em)[#line(length: 100%, stroke: (paint: gray, thickness: 0.35pt))]
+    #block(above: 0.4em, below: 0.25em)[#line(length: 100%, stroke: (paint: gray, thickness: 0.35pt))]
     #section-title[#ui.publications]
     #for (venue, desc) in publications [
-      #block(above: 0.65em)[#strong[#venue] #desc]
+      #block(above: 0.4em)[#strong[#venue] #desc]
     ]
-    #block(above: 0.7em, below: 0.35em)[#line(length: 100%, stroke: (paint: gray, thickness: 0.35pt))]
+    #block(above: 0.4em, below: 0.25em)[#line(length: 100%, stroke: (paint: gray, thickness: 0.35pt))]
     #section-title[#ui.additional]
-    #for a in additional [#block(above: 0.6em)[#a]]
+    #for a in additional [#block(above: 0.35em)[#a]]
   ]
 )
 
-#block(above: 1em, width: 100%, height: 0.45em, fill: footer-bg)[]
+#block(above: 0.55em, width: 100%, height: 0.45em, fill: footer-bg)[]
 

@@ -120,32 +120,32 @@ def upsert_bullets() -> None:
         (
             "bosch-ar-2023",
             1,
-            "Built **Power BI** dashboards for project/resource oversight and training tracking; used **CSI 4.86 / NPS 9.94** avg. across my projects (2024–2025) as outcome metrics.",
-            "Desenvolvi dashboards **Power BI** para acompanhamento de projetos/recursos e treinamentos; usei **CSI 4,86 / NPS 9,94** méd. nos meus projetos (2024–2025) como métricas de resultado.",
+            "**Power BI** dashboards for project/resource oversight; **CSI 4.86 / NPS 9.94** avg. across my projects (2024–2025).",
+            "Dashboards **Power BI** para projetos/recursos; **CSI 4,86 / NPS 9,94** méd. nos meus projetos (2024–2025).",
         ),
         (
             "bosch-ar-2023",
             2,
-            "Integrated Applied Research into **CIP / ServiceNow** as a **method-driven** quality and relevance gate—data-informed triage so the right work advances.",
-            "Integrei Pesquisa Aplicada ao **CIP / ServiceNow** como gate de qualidade e relevância **orientado por método**—triagem baseada em dados para o trabalho certo avançar.",
+            "CIP + Research in **ServiceNow** as a **method-driven** quality/relevance gate—data-informed triage.",
+            "CIP + Pesquisa no **ServiceNow** como gate de qualidade/relevância **orientado por método**—triagem baseada em dados.",
         ),
         (
             "bosch-ar-2023",
             3,
-            "**Tooling project (Power Tools):** supported delivery from requirements through prototypes with regular customer check-ins; tracked progress and feedback as input to decisions.",
-            "**Projeto tooling (Power Tools):** apoiei a entrega de requisitos a protótipos com check-ins regulares com clientes; acompanhei progresso e feedback como input para decisões.",
+            "**Tooling project (Power Tools):** delivery from requirements through prototypes; regular check-ins; progress tracked for decisions.",
+            "**Projeto tooling (Power Tools):** entrega de requisitos a protótipos; check-ins regulares; progresso acompanhado para decisões.",
         ),
         (
             "bosch-ar-2023",
             4,
-            "Supported Americas to reach **UX Maturity Level 4 inside Global Services**: governance, templates, and training that made UX practice measurable and repeatable.",
-            "Apoiei as Américas a atingir **Nível 4 de Maturidade em UX na Global Services**: governança, templates e treinamento que tornaram a prática de UX mensurável e repetível.",
+            "Supported Americas to **UX Maturity Level 4**: governance, templates, training that made UX practice measurable.",
+            "Apoiei as Américas ao **Nível 4 de Maturidade em UX**: governança, templates e treinamento que tornaram a prática mensurável.",
         ),
         (
             "bosch-ar-2023",
             5,
-            "**Agentic AI:** daily use of **Cursor IDE** and context management for research, analysis, and problem-solving across the Applied Research pipeline.",
-            "**IA agêntica:** uso diário de **Cursor IDE** e gestão de contexto para pesquisa, análise e resolução de problemas no pipeline de Pesquisa Aplicada.",
+            "**Agentic AI:** daily **Cursor IDE** use for research, analysis, and problem-solving across the pipeline.",
+            "**IA agêntica:** uso diário de **Cursor IDE** para pesquisa, análise e resolução de problemas no pipeline.",
         ),
         (
             "bosch-ar-2023",
@@ -156,32 +156,32 @@ def upsert_bullets() -> None:
         (
             "bosch-web-2020",
             1,
-            "Front-end (React) and Applied Research delivery in **Scrum and Kanban**; collaborated on customer-facing apps and internal tools with measurable increments.",
-            "Entrega front-end (React) e Pesquisa Aplicada em **Scrum e Kanban**; colaborei em apps para clientes e ferramentas internas com incrementos mensuráveis.",
+            "Front-end (React) and Applied Research in **Scrum and Kanban**; customer-facing and internal tools.",
+            "Front-end (React) e Pesquisa Aplicada em **Scrum e Kanban**; apps para clientes e ferramentas internas.",
         ),
         (
             "bosch-web-2020",
             2,
-            "Worked with data-backed UI delivery and teamwork-driven shipping of web solutions.",
-            "Atuei em entrega de UI apoiada por dados e shipping de soluções web em equipe.",
+            "Data-backed UI delivery and teamwork-driven shipping of web solutions.",
+            "Entrega de UI apoiada por dados e shipping de soluções web em equipe.",
         ),
         (
             "bosch-hu-2019",
             1,
-            "Digitized Business Excellence workflows in **Kanban**; clarified process needs and shipped internal tools.",
-            "Digitalizei fluxos Business Excellence em **Kanban**; esclareci necessidades de processo e entreguei ferramentas internas.",
+            "Digitized Business Excellence workflows in **Kanban**; internal tools and process clarity.",
+            "Digitalizei fluxos Business Excellence em **Kanban**; ferramentas internas e clareza de processo.",
         ),
         (
             "bosch-hu-2019",
             2,
-            "**Full-stack web development** with **SQL Server**, VS Code, and Windows Server (IIS)—data layer and tooling for internal processes.",
-            "**Desenvolvimento web full-stack** com **SQL Server**, VS Code e Windows Server (IIS)—camada de dados e tooling para processos internos.",
+            "**Full-stack web development:** VS Code, **SQL Server**, Windows Server (IIS).",
+            "**Desenvolvimento web full-stack:** VS Code, **SQL Server**, Windows Server (IIS).",
         ),
         (
             "bosch-intern-2017",
             1,
-            "Built **VBA (Excel)** automations for Continuous Improvement and internal communication—early data/ops tooling.",
-            "Desenvolvi automações **VBA (Excel)** para Melhoria Contínua e comunicação interna—tooling inicial de dados/ops.",
+            "**VBA (Excel)** automations for Continuous Improvement and internal communication.",
+            "Automações **VBA (Excel)** para Melhoria Contínua e comunicação interna.",
         ),
     ]
     for eid, order, en, pt in bullets:
@@ -231,13 +231,13 @@ def upsert_narratives() -> None:
         ),
         "profile": (
             "Data-minded professional turning Applied Research and delivery into **measurable insight**: "
-            "Power BI dashboards, Python/SQL analysis, and experimentation (including ML in my master's dissertation). "
-            "Uses CSI/NPS and operational data to prioritize outcomes. Master's in Technology "
-            "(**completing September 2026**) with **Grade A across all coursework**.",
+            "Power BI, Python/SQL, and experimentation (ML in my master's dissertation). "
+            "Uses CSI/NPS and operational data to prioritize outcomes. "
+            "Master's in Technology (**completing September 2026**) with **Grade A across all coursework**.",
             "**Transformo** Pesquisa Aplicada e entrega em **insight mensurável**: "
-            "dashboards Power BI, análise com Python/SQL e experimentação (incluindo ML na dissertação de mestrado). "
-            "**Uso** CSI/NPS e dados operacionais para priorizar resultados. Mestrado em Tecnologia "
-            "(**conclusão em setembro de 2026**) com **nota A em todas as disciplinas**.",
+            "Power BI, Python/SQL e experimentação (ML na dissertação). "
+            "**Uso** CSI/NPS e dados operacionais para priorizar resultados. "
+            "Mestrado em Tecnologia (**conclusão em setembro de 2026**) com **nota A em todas as disciplinas**.",
         ),
         "deck_title": (
             "Eduardo Figueiredo – Portfolio",

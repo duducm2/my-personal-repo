@@ -34,7 +34,7 @@
 )
 
 #let profile = [
-  Data-minded professional turning Applied Research and delivery into #strong[measurable insight]: Power BI dashboards, Python/SQL analysis, and experimentation (including ML in my master's dissertation). Uses CSI/NPS and operational data to prioritize outcomes. Master's in Technology (#strong[completing September 2026]) with #strong[Grade A across all coursework].
+  Data-minded professional turning Applied Research and delivery into #strong[measurable insight]: Power BI, Python/SQL, and experimentation (ML in my master's dissertation). Uses CSI/NPS and operational data to prioritize outcomes. Master's in Technology (#strong[completing September 2026]) with #strong[Grade A across all coursework].
 ]
 
 #let languages = "Portuguese (Native)   English (Fluent)"
@@ -46,23 +46,23 @@
 
 #let experience = (
   ("May 2023 – Present", "Bosch Brasil", "Applied Research & Design Analyst", (
-    [Built #strong[Power BI] dashboards for project/resource oversight and training tracking; used #strong[CSI 4.86 / NPS 9.94] avg. across my projects (2024–2025) as outcome metrics.],
-    [Integrated Applied Research into #strong[CIP / ServiceNow] as a #strong[method-driven] quality and relevance gate—data-informed triage so the right work advances.],
-    [#strong[Tooling project (Power Tools):] supported delivery from requirements through prototypes with regular customer check-ins; tracked progress and feedback as input to decisions.],
-    [Supported Americas to reach #strong[UX Maturity Level 4 inside Global Services]: governance, templates, and training that made UX practice measurable and repeatable.],
-    [#strong[Agentic AI:] daily use of #strong[Cursor IDE] and context management for research, analysis, and problem-solving across the Applied Research pipeline.],
+    [#strong[Power BI] dashboards for project/resource oversight; #strong[CSI 4.86 / NPS 9.94] avg. across my projects (2024–2025).],
+    [CIP + Research in #strong[ServiceNow] as a #strong[method-driven] quality/relevance gate—data-informed triage.],
+    [#strong[Tooling project (Power Tools):] delivery from requirements through prototypes; regular check-ins; progress tracked for decisions.],
+    [Supported Americas to #strong[UX Maturity Level 4]: governance, templates, training that made UX practice measurable.],
+    [#strong[Agentic AI:] daily #strong[Cursor IDE] use for research, analysis, and problem-solving across the pipeline.],
     [#strong[International & Mentorship:] two trips to Germany (2024, 2025); tutor at SENAI Digital Talent Academy.],
   )),
   ("Jan 2020 – Nov 2023", "Bosch Brasil", "Web Developer", (
-    [Front-end (React) and Applied Research delivery in #strong[Scrum and Kanban]; collaborated on customer-facing apps and internal tools with measurable increments.],
-    [Worked with data-backed UI delivery and teamwork-driven shipping of web solutions.],
+    [Front-end (React) and Applied Research in #strong[Scrum and Kanban]; customer-facing and internal tools.],
+    [Data-backed UI delivery and teamwork-driven shipping of web solutions.],
   )),
   ("Jan 2019 – Dec 2019", "Bosch Magyarország (Hungary)", "Digitization Support Analyst", (
-    [Digitized Business Excellence workflows in #strong[Kanban]; clarified process needs and shipped internal tools.],
-    [#strong[Full-stack web development] with #strong[SQL Server], VS Code, and Windows Server (IIS)—data layer and tooling for internal processes.],
+    [Digitized Business Excellence workflows in #strong[Kanban]; internal tools and process clarity.],
+    [#strong[Full-stack web development:] VS Code, #strong[SQL Server], Windows Server (IIS).],
   )),
   ("Jan 2017 – Nov 2018", "Bosch Brasil (Campinas)", "Intern", (
-    [Built #strong[VBA (Excel)] automations for Continuous Improvement and internal communication—early data/ops tooling.],
+    [#strong[VBA (Excel)] automations for Continuous Improvement and internal communication.],
   )),
 )
 

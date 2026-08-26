@@ -34,7 +34,7 @@
 )
 
 #let profile = [
-  #strong[Transformo] Pesquisa Aplicada e entrega em #strong[insight mensurável]: dashboards Power BI, análise com Python/SQL e experimentação (incluindo ML na dissertação de mestrado). #strong[Uso] CSI/NPS e dados operacionais para priorizar resultados. Mestrado em Tecnologia (#strong[conclusão em setembro de 2026]) com #strong[nota A em todas as disciplinas].
+  #strong[Transformo] Pesquisa Aplicada e entrega em #strong[insight mensurável]: Power BI, Python/SQL e experimentação (ML na dissertação). #strong[Uso] CSI/NPS e dados operacionais para priorizar resultados. Mestrado em Tecnologia (#strong[conclusão em setembro de 2026]) com #strong[nota A em todas as disciplinas].
 ]
 
 #let languages = "Português (Nativo)   Inglês (Fluente)"
@@ -46,23 +46,23 @@
 
 #let experience = (
   ("Mai 2023 – Atual", "Bosch Brasil", "Analista de Pesquisa Aplicada e Design", (
-    [Desenvolvi dashboards #strong[Power BI] para acompanhamento de projetos/recursos e treinamentos; usei #strong[CSI 4,86 / NPS 9,94] méd. nos meus projetos (2024–2025) como métricas de resultado.],
-    [Integrei Pesquisa Aplicada ao #strong[CIP / ServiceNow] como gate de qualidade e relevância #strong[orientado por método]—triagem baseada em dados para o trabalho certo avançar.],
-    [#strong[Projeto tooling (Power Tools):] apoiei a entrega de requisitos a protótipos com check-ins regulares com clientes; acompanhei progresso e feedback como input para decisões.],
-    [Apoiei as Américas a atingir #strong[Nível 4 de Maturidade em UX na Global Services]: governança, templates e treinamento que tornaram a prática de UX mensurável e repetível.],
-    [#strong[IA agêntica:] uso diário de #strong[Cursor IDE] e gestão de contexto para pesquisa, análise e resolução de problemas no pipeline de Pesquisa Aplicada.],
+    [Dashboards #strong[Power BI] para projetos/recursos; #strong[CSI 4,86 / NPS 9,94] méd. nos meus projetos (2024–2025).],
+    [CIP + Pesquisa no #strong[ServiceNow] como gate de qualidade/relevância #strong[orientado por método]—triagem baseada em dados.],
+    [#strong[Projeto tooling (Power Tools):] entrega de requisitos a protótipos; check-ins regulares; progresso acompanhado para decisões.],
+    [Apoiei as Américas ao #strong[Nível 4 de Maturidade em UX]: governança, templates e treinamento que tornaram a prática mensurável.],
+    [#strong[IA agêntica:] uso diário de #strong[Cursor IDE] para pesquisa, análise e resolução de problemas no pipeline.],
     [#strong[Internacional e mentoria:] duas viagens à Alemanha (2024, 2025); tutor na SENAI Digital Talent Academy.],
   )),
   ("Jan 2020 – Nov 2023", "Bosch Brasil", "Desenvolvedor Web", (
-    [Entrega front-end (React) e Pesquisa Aplicada em #strong[Scrum e Kanban]; colaborei em apps para clientes e ferramentas internas com incrementos mensuráveis.],
-    [Atuei em entrega de UI apoiada por dados e shipping de soluções web em equipe.],
+    [Front-end (React) e Pesquisa Aplicada em #strong[Scrum e Kanban]; apps para clientes e ferramentas internas.],
+    [Entrega de UI apoiada por dados e shipping de soluções web em equipe.],
   )),
   ("Jan 2019 – Dez 2019", "Bosch Magyarország (Hungary)", "Analista de Suporte à Digitalização", (
-    [Digitalizei fluxos Business Excellence em #strong[Kanban]; esclareci necessidades de processo e entreguei ferramentas internas.],
-    [#strong[Desenvolvimento web full-stack] com #strong[SQL Server], VS Code e Windows Server (IIS)—camada de dados e tooling para processos internos.],
+    [Digitalizei fluxos Business Excellence em #strong[Kanban]; ferramentas internas e clareza de processo.],
+    [#strong[Desenvolvimento web full-stack:] VS Code, #strong[SQL Server], Windows Server (IIS).],
   )),
   ("Jan 2017 – Nov 2018", "Bosch Brasil (Campinas)", "Estagiário", (
-    [Desenvolvi automações #strong[VBA (Excel)] para Melhoria Contínua e comunicação interna—tooling inicial de dados/ops.],
+    [Automações #strong[VBA (Excel)] para Melhoria Contínua e comunicação interna.],
   )),
 )
 
