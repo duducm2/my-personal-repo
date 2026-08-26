@@ -80,7 +80,7 @@ def main() -> int:
         if b["experience_id"] not in exp_ids:
             issues.append(f"orphan bullet experience_id={b['experience_id']}")
     for eid in exp_ids:
-        for var in ("general", "product-owner"):
+        for var in ("general", "product-owner", "data-scientist"):
             n = sum(
                 1 for b in bullets if b["experience_id"] == eid and b["variant"] == var
             )
@@ -90,12 +90,16 @@ def main() -> int:
     expected_counts = {
         ("bosch-ar-2023", "general"): 6,
         ("bosch-ar-2023", "product-owner"): 5,
+        ("bosch-ar-2023", "data-scientist"): 6,
         ("bosch-web-2020", "general"): 2,
         ("bosch-web-2020", "product-owner"): 2,
+        ("bosch-web-2020", "data-scientist"): 2,
         ("bosch-hu-2019", "general"): 2,
         ("bosch-hu-2019", "product-owner"): 2,
+        ("bosch-hu-2019", "data-scientist"): 2,
         ("bosch-intern-2017", "general"): 1,
         ("bosch-intern-2017", "product-owner"): 1,
+        ("bosch-intern-2017", "data-scientist"): 1,
     }
     for key, want in expected_counts.items():
         got = sum(
@@ -120,6 +124,10 @@ def main() -> int:
         ("product-owner", "customer check-ins"),
         ("product-owner", "intake and quality gate"),
         ("product-owner", "Discovery, Delivery"),
+        ("data-scientist", "Power BI"),
+        ("data-scientist", "CSI 4.86"),
+        ("data-scientist", "Experimentation"),
+        ("data-scientist", "Data Analysis"),
     ]
     all_bullet_text = {
         "general": " ".join(
@@ -131,6 +139,11 @@ def main() -> int:
             b.get("text_en", b.get("text", ""))
             for b in bullets
             if b["variant"] == "product-owner"
+        ),
+        "data-scientist": " ".join(
+            b.get("text_en", b.get("text", ""))
+            for b in bullets
+            if b["variant"] == "data-scientist"
         ),
     }
     nars = {
@@ -164,6 +177,24 @@ def main() -> int:
             issues.append(f"product-owner narrative still contains meta-label: {bad!r}")
     ok.append("product-owner narratives: no PO meta-labels")
 
+    forbidden_ds_labels = (
+        "Data Scientist Focus",
+        "Seeking Data Scientist",
+        "Data Scientist Portfolio",
+        "Targeting Data Scientist",
+    )
+    ds_text = " ".join(
+        row.get("text_en", row.get("text", ""))
+        for row in load("narratives.csv")
+        if row["variant"] == "data-scientist"
+    )
+    for bad in forbidden_ds_labels:
+        if bad in ds_text:
+            issues.append(
+                f"data-scientist narrative still contains meta-label: {bad!r}"
+            )
+    ok.append("data-scientist narratives: no DS meta-labels")
+
     skills = load("skills.csv")
     g_core = [
         s for s in skills if s["variant"] == "general" and s["category"] == "Core"
@@ -177,6 +208,16 @@ def main() -> int:
     po_tech = [
         s for s in skills if s["variant"] == "product-owner" and s["category"] == "Tech"
     ]
+    ds_core = [
+        s
+        for s in skills
+        if s["variant"] == "data-scientist" and s["category"] == "Core"
+    ]
+    ds_tech = [
+        s
+        for s in skills
+        if s["variant"] == "data-scientist" and s["category"] == "Tech"
+    ]
     if len(g_core) != 4:
         issues.append(f"general Core skills want 4 got {len(g_core)}")
     if len(g_tech) != 19:
@@ -185,6 +226,10 @@ def main() -> int:
         issues.append(f"PO Core skills want 5 got {len(po_core)}")
     if len(po_tech) != 20:
         issues.append(f"PO Tech skills want 20 got {len(po_tech)}")
+    if len(ds_core) != 5:
+        issues.append(f"DS Core skills want 5 got {len(ds_core)}")
+    if len(ds_tech) != 20:
+        issues.append(f"DS Tech skills want 20 got {len(ds_tech)}")
     ok.append("skills.csv counts match resume baselines")
 
     edu = load("education.csv")
@@ -220,6 +265,7 @@ def main() -> int:
     PT_IDENTICAL_OK = {
         ("general", "future_career_style"),
         ("product-owner", "future_career_style"),
+        ("data-scientist", "future_career_style"),
         ("general", "future_intro"),  # intentionally empty in EN and PT
     }
     narratives_rows = load("narratives.csv")
@@ -334,11 +380,11 @@ def main() -> int:
         "future_career_body",
         "closing_summary",
     ]
-    for var in ("general", "product-owner"):
+    for var in ("general", "product-owner", "data-scientist"):
         for field in required_fields:
             if (var, field) not in nars:
                 issues.append(f"narratives missing {var}/{field}")
-    ok.append(f"narratives.csv: {len(nars)} fields covering both variants")
+    ok.append(f"narratives.csv: {len(nars)} fields covering all variants")
 
     # Generated files (EN lang-suffixed + legacy content.typ)
     gen_resume_g = (ROOT / "resume" / "typst" / "content.en.typ").read_text(
@@ -346,6 +392,9 @@ def main() -> int:
     )
     gen_resume_po = (
         ROOT / "resume" / "variants" / "product-owner" / "content.en.typ"
+    ).read_text(encoding="utf-8")
+    gen_resume_ds = (
+        ROOT / "resume" / "variants" / "data-scientist" / "content.en.typ"
     ).read_text(encoding="utf-8")
     gen_resume_g_pt = (ROOT / "resume" / "typst" / "content.pt.typ").read_text(
         encoding="utf-8"
@@ -375,6 +424,18 @@ def main() -> int:
                 "ServiceNow",
             ],
         ),
+        (
+            "DS content.typ",
+            gen_resume_ds,
+            [
+                "GENERATED",
+                "September 2026",
+                "Data Analysis, Experimentation & Applied Insights",
+                "Power BI",
+                "measurable insight",
+                "CSI 4.86",
+            ],
+        ),
     ):
         for n in needles:
             if n not in text:
@@ -397,15 +458,27 @@ def main() -> int:
     )
     if "Product Owner" in tagline_line:
         issues.append("PO content.typ tagline still mentions Product Owner")
+    ds_tagline = next(
+        (l for l in gen_resume_ds.splitlines() if "#let tagline" in l), ""
+    )
+    if "Data Scientist" in ds_tagline:
+        issues.append("DS content.typ tagline still mentions Data Scientist as a title")
 
     deck_g = (ROOT / "portfolio" / "portfolio-deck.en.md").read_text(encoding="utf-8")
     deck_po = (
         ROOT / "portfolio" / "variants" / "product-owner" / "portfolio-deck.en.md"
     ).read_text(encoding="utf-8")
+    deck_ds = (
+        ROOT / "portfolio" / "variants" / "data-scientist" / "portfolio-deck.en.md"
+    ).read_text(encoding="utf-8")
     deck_g_pt = (ROOT / "portfolio" / "portfolio-deck.pt.md").read_text(
         encoding="utf-8"
     )
-    if "{{canonical:" in deck_g or "{{canonical:" in deck_po:
+    if (
+        "{{canonical:" in deck_g
+        or "{{canonical:" in deck_po
+        or "{{canonical:" in deck_ds
+    ):
         issues.append("unresolved {{canonical:}} slots in generated decks")
     for label, deck, needles in (
         (
@@ -432,6 +505,18 @@ def main() -> int:
                 "../../../pictures/",
             ],
         ),
+        (
+            "DS deck",
+            deck_ds,
+            [
+                "Why I Work with Data",
+                "Data Analysis, Experimentation & Applied Insights",
+                "Data, Metrics & Applied Research",
+                "Outcome Metrics",
+                "How I Work with Data",
+                "../../../pictures/",
+            ],
+        ),
     ):
         for n in needles:
             if n not in deck:
@@ -455,7 +540,9 @@ def main() -> int:
             issues.append(f"general deck CSI table missing {n!r}")
         if n not in deck_po:
             issues.append(f"PO deck CSI table missing {n!r}")
-    ok.append("CSI/NPS project table preserved in both decks")
+        if n not in deck_ds:
+            issues.append(f"DS deck CSI table missing {n!r}")
+    ok.append("CSI/NPS project table preserved in all decks")
 
     # Template exists
     if not (ROOT / "portfolio" / "templates" / "portfolio-deck.template.md").exists():

@@ -15,11 +15,25 @@ FONTS = ROOT / "resume" / "typst" / "fonts"
 LANGS = ("en", "pt")
 LANG_SUFFIX = {"en": "EN", "pt": "PT"}
 
+VARIANTS = ("general", "product-owner", "data-scientist")
+
 OUTPUTS = {
-    ("general", "en", "resume"): ROOT / "output" / "general" / "CV-Eduardo-Figueiredo-EN.pdf",
-    ("general", "pt", "resume"): ROOT / "output" / "general" / "CV-Eduardo-Figueiredo-PT.pdf",
-    ("general", "en", "portfolio"): ROOT / "output" / "general" / "portfolio-deck-EN.pdf",
-    ("general", "pt", "portfolio"): ROOT / "output" / "general" / "portfolio-deck-PT.pdf",
+    ("general", "en", "resume"): ROOT
+    / "output"
+    / "general"
+    / "CV-Eduardo-Figueiredo-EN.pdf",
+    ("general", "pt", "resume"): ROOT
+    / "output"
+    / "general"
+    / "CV-Eduardo-Figueiredo-PT.pdf",
+    ("general", "en", "portfolio"): ROOT
+    / "output"
+    / "general"
+    / "portfolio-deck-EN.pdf",
+    ("general", "pt", "portfolio"): ROOT
+    / "output"
+    / "general"
+    / "portfolio-deck-PT.pdf",
     ("product-owner", "en", "resume"): ROOT
     / "output"
     / "product-owner"
@@ -36,21 +50,48 @@ OUTPUTS = {
     / "output"
     / "product-owner"
     / "portfolio-deck-product-owner-PT.pdf",
+    ("data-scientist", "en", "resume"): ROOT
+    / "output"
+    / "data-scientist"
+    / "CV-Eduardo-Figueiredo-EN-data-scientist.pdf",
+    ("data-scientist", "pt", "resume"): ROOT
+    / "output"
+    / "data-scientist"
+    / "CV-Eduardo-Figueiredo-PT-data-scientist.pdf",
+    ("data-scientist", "en", "portfolio"): ROOT
+    / "output"
+    / "data-scientist"
+    / "portfolio-deck-data-scientist-EN.pdf",
+    ("data-scientist", "pt", "portfolio"): ROOT
+    / "output"
+    / "data-scientist"
+    / "portfolio-deck-data-scientist-PT.pdf",
 }
 
 RESUME_MAIN = {
     "general": ROOT / "resume" / "typst" / "main.typ",
     "product-owner": ROOT / "resume" / "variants" / "product-owner" / "main.typ",
+    "data-scientist": ROOT / "resume" / "variants" / "data-scientist" / "main.typ",
 }
 
 RESUME_CONTENT = {
     "general": ROOT / "resume" / "typst",
     "product-owner": ROOT / "resume" / "variants" / "product-owner",
+    "data-scientist": ROOT / "resume" / "variants" / "data-scientist",
 }
 
 DECK_SRC = {
     "general": ROOT / "portfolio" / "portfolio-deck.{lang}.md",
-    "product-owner": ROOT / "portfolio" / "variants" / "product-owner" / "portfolio-deck.{lang}.md",
+    "product-owner": ROOT
+    / "portfolio"
+    / "variants"
+    / "product-owner"
+    / "portfolio-deck.{lang}.md",
+    "data-scientist": ROOT
+    / "portfolio"
+    / "variants"
+    / "data-scientist"
+    / "portfolio-deck.{lang}.md",
 }
 
 # Legacy filenames without language suffix (removed after successful build)
@@ -68,7 +109,14 @@ def run(cmd: list[str], *, cwd: Path = ROOT) -> None:
 
 
 def generate(lang_arg: str) -> None:
-    run([sys.executable, str(SCRIPTS / "generate_from_canonical.py"), "--lang", lang_arg])
+    run(
+        [
+            sys.executable,
+            str(SCRIPTS / "generate_from_canonical.py"),
+            "--lang",
+            lang_arg,
+        ]
+    )
 
 
 def compile_resume(variant: str, lang: str) -> None:
@@ -108,7 +156,9 @@ def compile_portfolio(variant: str, lang: str) -> None:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Build all PDF deliverables in output/")
+    parser = argparse.ArgumentParser(
+        description="Build all PDF deliverables in output/"
+    )
     parser.add_argument(
         "--lang",
         choices=("en", "pt", "all"),
@@ -135,7 +185,7 @@ def main() -> int:
         run([sys.executable, str(SCRIPTS / "audit_canonical_data.py")])
 
     for lang in langs:
-        for variant in ("general", "product-owner"):
+        for variant in VARIANTS:
             compile_resume(variant, lang)
             compile_portfolio(variant, lang)
 
@@ -146,7 +196,7 @@ def main() -> int:
 
     print("\nBuilt PDFs:")
     for lang in langs:
-        for variant in ("general", "product-owner"):
+        for variant in VARIANTS:
             for kind in ("resume", "portfolio"):
                 path = OUTPUTS[(variant, lang, kind)]
                 print(f"  {path.relative_to(ROOT)}")

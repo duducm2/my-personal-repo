@@ -38,7 +38,7 @@ After changing column structure, run: `python scripts/migrate_bilingual_labels.p
 | `projects.csv`           | Case evidence (`name_en/pt`, `summary_en/pt`, `notes_en/pt`)  |
 | `narratives.csv`         | Resume + portfolio copy (`label_en/pt`, `text_en/pt`)         |
 
-**Variants:** `general` | `product-owner` (see `field_labels.csv` for bilingual variant names)
+**Variants:** `general` | `product-owner` | `data-scientist` (see `field_labels.csv` for bilingual variant names)
 
 Use `**bold**` in text fields. The generator maps that to Typst `#strong[]` for resumes and leaves Markdown bold for portfolio.
 
@@ -48,7 +48,7 @@ Use `**bold**` in text fields. The generator maps that to Typst `#strong[]` for 
 python scripts/build_outputs.py
 ```
 
-This generates EN+PT sources, audits CSVs, and compiles all 8 PDFs into [`../../output/`](../../output/). See [`../../output/README.md`](../../output/README.md).
+This generates EN+PT sources, audits CSVs, and compiles all 12 PDFs into [`../../output/`](../../output/). See [`../../output/README.md`](../../output/README.md).
 
 Generate sources only (no PDF compile):
 

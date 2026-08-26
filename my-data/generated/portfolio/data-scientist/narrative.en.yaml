@@ -1,0 +1,77 @@
+# GENERATED — portfolio content layer
+variant: data-scientist
+lang: en
+fields:
+  asset_prefix: "../../../"
+  cip_pipeline_h2: "Present – CIP and Applied Research: Data-Informed Methodology Pipeline"
+  closing_summary: "I connect data to decisions: measuring outcomes, experimenting with methods, and turning Applied Research into clear insight for trustworthy, user-centered solutions."
+  csi_h2: "Present – Outcome Metrics: CSI & NPS (2024–2025)"
+  deck_title: "Eduardo Figueiredo – Portfolio"
+  email: "edu.evangelista.figueiredo@gmail.com"
+  future_career_body: |
+    ## Future – How I Work with Data
+    
+    - **What I bring:** dashboards & outcome metrics (CSI/NPS); experimentation/ML in research; method-driven intake gates.
+    
+    <div class="future-career-wrap">
+    <div class="future-po-bullets">
+    
+    | Competency              | Evidence from my work                                     |
+    | ----------------------- | --------------------------------------------------------- |
+    | Metrics & BI            | Power BI dashboards; CSI 4.86 / NPS 9.94 avg. (2024–2025) |
+    | Experimentation / ML    | Master's dissertation: perceived trust, ML, AI-agent validation |
+    | Data-informed intake    | ServiceNow Applied Research gate in CIP                   |
+    | Measurable practice     | Americas UX Maturity Level 4 (templates, training)        |
+    
+    </div>
+    <p><img src="../../../pictures/diagrams/future-career-path.png" alt="Diagram future-career-path: Prioritized career paths" /></p>
+    </div>
+  future_career_style: |
+    .future-career-wrap {
+      display: flex !important; flex-direction: column !important;
+      justify-content: center !important; align-items: center !important;
+      min-height: 55vh !important; width: 100% !important; margin-top: 0.75rem !important;
+      gap: 1rem !important;
+    }
+    .future-career-wrap p { margin: 0 !important; text-align: center !important; }
+    .future-career-wrap img {
+      width: 38% !important; max-width: 38% !important; height: auto !important;
+      display: block !important; margin: 10px auto 0 !important;
+      border: none !important; box-shadow: none !important;
+    }
+    .future-po-bullets {
+      max-width: 85% !important; text-align: left !important; font-size: 0.95em !important;
+    }
+  future_diagram_alt: "Diagram ai-agile-research: AI and Agile in Applied Research"
+  future_h2: "Future – Analysis, Experimentation & Delivery Context"
+  future_intro: "**Metrics, experimentation, and delivery** meet in how I work with teams today. The diagram below is the agile/research operating context I work in."
+  lattes_url: "https://lattes.cnpq.br/2708641049892967"
+  linkedin_display: "linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b"
+  linkedin_url: "https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b"
+  orcid_url: "https://orcid.org/0009-0002-5178-6157"
+  phone: "+55 (19) 98176-6583"
+  present_h2: "Present – Data, Metrics & Applied Research (Bosch Brasil)"
+  present_table: |
+    | Area                               | Achievement                                                                                                                        |
+    | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+    | Role                               | Applied Research & Design Analyst – Bosch Brasil (May 2023 – present); Applied Research Expert & Project Champion at GS/BDU            |
+    | Metrics & BI                       | Power BI dashboards for project/resource oversight; **CSI 4.86 / NPS 9.94** avg. across my projects (2024–2025)                         |
+    | International                      | Two trips to Germany (2024, 2025) for role-related work                                                                            |
+    | CO2 Tracking (GS/Applied Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand — a data-informed stop                                       |
+    | Tooling project (PT)               | Requirements through high-fidelity prototypes with regular customer check-ins; progress and feedback tracked for decisions         |
+    | UX Maturity                        | Americas Level 4 – governance, templates, training that made UX practice measurable                                                |
+    | CIP + Applied Research             | ServiceNow CIM integration; Applied Research as a method-driven quality/relevance gate                                           |
+    | Collaboration                      | Tutor of Digital Talent Academy Students                                                                                           |
+  relevance_h2: "Present – Relevance evaluation model (Low / Medium / High)"
+  tooling_bullet: "- **Tooling project for PT:** Supported delivery from requirements through high-fidelity prototypes with **regular customer check-ins**—feedback and progress as inputs to decisions."
+  tooling_h2: "Measurement in Delivery – Tooling Project for PT"
+  who_contact: "Nova Odessa, SP – Brazil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583"
+  who_impact: "I help teams decide and improve with clarity: dashboards and metrics to see reality, experimentation to learn, and Applied Research to turn insight into action."
+  who_name: "Eduardo M. de A. Figueiredo"
+  who_role: "Data Analysis, Experimentation & Applied Insights"
+  why_bullets: |
+    - I believe decisions in service organizations should be **evidence-based**, especially when they affect real people and businesses.
+    - My work centers **data analysis**, **experimentation**, and **Applied Research**: measuring outcomes and feeding insight into delivery.
+    - This portfolio shows that path through real projects and metrics.
+  why_h1: "Why I Work with Data, Experimentation & Applied Research"
+  why_h2: "Evidence that turns complex services into better decisions"

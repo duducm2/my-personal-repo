@@ -1,0 +1,77 @@
+# GENERATED — portfolio content layer
+variant: data-scientist
+lang: pt
+fields:
+  asset_prefix: "../../../"
+  cip_pipeline_h2: "Presente – CIP e Pesquisa Aplicada: Pipeline metodológico baseado em dados"
+  closing_summary: "Conecto dados a decisões: mensuro resultados, experimento métodos e transformo Pesquisa Aplicada em insight claro para soluções confiáveis e centradas no usuário."
+  csi_h2: "Presente – Métricas de resultado: CSI e NPS (2024–2025)"
+  deck_title: "Eduardo Figueiredo – Portfólio"
+  email: "edu.evangelista.figueiredo@gmail.com"
+  future_career_body: |
+    ## Futuro – Como trabalho com dados
+    
+    - **O que trago:** dashboards e métricas de resultado (CSI/NPS); experimentação/ML na pesquisa; gates de entrada orientados por método.
+    
+    <div class="future-career-wrap">
+    <div class="future-po-bullets">
+    
+    | Competência              | Evidência do meu trabalho                                     |
+    | ----------------------- | --------------------------------------------------------- |
+    | Métricas e BI            | Dashboards Power BI; CSI 4,86 / NPS 9,94 méd. (2024–2025) |
+    | Experimentação / ML    | Dissertação: confiança percebida, ML, validação com agente de IA |
+    | Entrada baseada em dados    | Gate de Pesquisa Aplicada no CIP ServiceNow                   |
+    | Prática mensurável     | Nível 4 de Maturidade em UX nas Américas (templates, treinamento)        |
+    
+    </div>
+    <p><img src="../../../pictures/diagrams/future-career-path.png" alt="Diagrama future-career-path: Caminhos de carreira priorizados" /></p>
+    </div>
+  future_career_style: |
+    .future-career-wrap {
+      display: flex !important; flex-direction: column !important;
+      justify-content: center !important; align-items: center !important;
+      min-height: 55vh !important; width: 100% !important; margin-top: 0.75rem !important;
+      gap: 1rem !important;
+    }
+    .future-career-wrap p { margin: 0 !important; text-align: center !important; }
+    .future-career-wrap img {
+      width: 38% !important; max-width: 38% !important; height: auto !important;
+      display: block !important; margin: 10px auto 0 !important;
+      border: none !important; box-shadow: none !important;
+    }
+    .future-po-bullets {
+      max-width: 85% !important; text-align: left !important; font-size: 0.95em !important;
+    }
+  future_diagram_alt: "Diagrama ai-agile-research: IA e Ágil em Pesquisa Aplicada"
+  future_h2: "Futuro – Contexto de análise, experimentação e entrega"
+  future_intro: "**Métricas, experimentação e entrega** se encontram em como trabalho com equipes hoje. O diagrama abaixo é o contexto ágil/pesquisa em que atuo."
+  lattes_url: "https://lattes.cnpq.br/2708641049892967"
+  linkedin_display: "linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b"
+  linkedin_url: "https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b"
+  orcid_url: "https://orcid.org/0009-0002-5178-6157"
+  phone: "+55 (19) 98176-6583"
+  present_h2: "Presente – Dados, Métricas e Pesquisa Aplicada (Bosch Brasil)"
+  present_table: |
+    | Área                               | Conquista                                                                                                                        |
+    | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+    | Cargo                               | Analista de Pesquisa Aplicada e Design – Bosch Brasil (mai 2023 – atual); Especialista em Pesquisa Aplicada e Project Champion na GS/BDU            |
+    | Métricas e BI                       | Dashboards Power BI para projetos/recursos; **CSI 4,86 / NPS 9,94** méd. nos meus projetos (2024–2025)                         |
+    | Internacional                      | Realizei duas viagens à Alemanha (2024, 2025) por trabalho relacionado ao cargo                                                                            |
+    | Rastreamento CO2 (GS/Pesquisa Aplicada) | Conduzi prospecção de mercado para telemetria CO2; achado: falta de demanda — interrupção baseada em dados                                       |
+    | Projeto tooling (PT)               | Requisitos a protótipos de alta fidelidade com check-ins regulares; progresso e feedback acompanhados para decisões         |
+    | Maturidade em UX                        | Nível 4 nas Américas – governança, templates, treinamento que tornaram a prática de UX mensurável                                                |
+    | CIP + Pesquisa Aplicada             | Integração ServiceNow CIM; Pesquisa Aplicada como gate de qualidade/relevância orientado por método                                           |
+    | Colaboração                      | Sou tutor de estudantes da Digital Talent Academy                                                                                           |
+  relevance_h2: "Presente – Modelo de avaliação de relevância (Baixa / Média / Alta)"
+  tooling_bullet: "- **Projeto tooling para PT:** Apoiei a entrega de requisitos a protótipos de alta fidelidade com **check-ins regulares com clientes**—feedback e progresso como inputs para decisões."
+  tooling_h2: "Mensuração na entrega – Projeto Tooling para PT"
+  who_contact: "Nova Odessa, SP – Brasil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583"
+  who_impact: "Ajudo equipes a decidir e melhorar com clareza: dashboards e métricas para ver a realidade, experimentação para aprender e Pesquisa Aplicada para transformar insight em ação."
+  who_name: "Eduardo M. de A. Figueiredo"
+  who_role: "Análise de Dados, Experimentação e Insights Aplicados"
+  why_bullets: |
+    - Acredito que decisões em organizações de serviço devem ser **baseadas em evidência**, especialmente quando afetam pessoas reais e negócios.
+    - Meu trabalho centra **análise de dados**, **experimentação** e **Pesquisa Aplicada**: mensurar resultados e alimentar a entrega com insight.
+    - Este portfólio mostra esse caminho por meio de projetos reais e métricas.
+  why_h1: "Por que trabalho com Dados, Experimentação e Pesquisa Aplicada"
+  why_h2: "Evidência que transforma serviços complexos em melhores decisões"
