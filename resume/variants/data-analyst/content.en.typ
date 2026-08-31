@@ -81,6 +81,5 @@
 
 #let additional = (
   [3rd Place – Bosch Talent Forum 2018 (Excel macro project).],
-  [MSc InfoVis (Grade A, Unicamp): visual mapping, multivariate data, interaction, graphs/trees, text viz—PNAD Power BI + PhraseNets.],
   [Volunteer – NGO Hospitalhaços (Admin).],
 )

@@ -344,9 +344,9 @@ def main() -> int:
     ok.append("publications.csv: IHC + ISSRE present")
 
     add = load("additional.csv")
-    if len(add) != 3:
-        issues.append(f"additional want 3 got {len(add)}")
-    ok.append("additional.csv: Talent Forum, PhraseNets, Hospitalhaços")
+    if len(add) != 2:
+        issues.append(f"additional want 2 got {len(add)}")
+    ok.append("additional.csv: Talent Forum, Hospitalhaços")
 
     projects = load("projects.csv")
     for pid in (

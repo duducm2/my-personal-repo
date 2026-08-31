@@ -79,6 +79,5 @@
 
 #let additional = (
   [3º Lugar – Fórum de talentos Bosch 2018 (projeto com macro Excel).],
-  [InfoVis (Mestrado, nota A, Unicamp): mapeamento visual, multivariados, interação, grafos/árvores, viz textos—PNAD Power BI + PhraseNets.],
   [Voluntário – ONG Hospitalhaços (Admin).],
 )
