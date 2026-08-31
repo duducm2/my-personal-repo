@@ -440,8 +440,8 @@ img[src*="story-flow"] {
 
 ## Evidência que transforma serviços complexos em melhores decisões
 
-- Acredito que decisões em organizações de serviço devem ser **baseadas em evidência**, especialmente quando afetam pessoas reais e negócios.
-- Meu trabalho centra **análise de dados**, **experimentação** e **Pesquisa Aplicada**: mensurar resultados e alimentar a entrega com insight.
+- Acredito que decisões devem ser **baseadas em evidência**—muitas vezes começando em **Excel** e **CSV** antes de escalar para BI e código.
+- Meu trabalho centra **análise de dados**, **experimentação** e **Pesquisa Aplicada**: mensurar resultados e alimentar a entrega com insight.
 - Este portfólio mostra esse caminho por meio de projetos reais e métricas.
 
 <p><img src="../../../pictures/diagrams/story-flow.png" alt="Diagram story-flow: Why story flow" /></p>
@@ -472,8 +472,8 @@ table thead { display: none !important; }
 | Attribute | Value                     |
 | --------- | ------------------------- |
 | Name      | Eduardo M. de A. Figueiredo    |
-| Role      | Análise de Dados, Experimentação e Insights Aplicados    |
-| Impact    | Ajudo equipes a decidir e melhorar com clareza: dashboards e métricas para ver a realidade, experimentação para aprender e Pesquisa Aplicada para transformar insight em ação.  |
+| Role      | Analista de Dados | Análise, Experimentação e Insights Aplicados    |
+| Impact    | Ajudo equipes a decidir com clareza: **Excel** e **CSV** no dia a dia, dashboards e métricas, e Pesquisa Aplicada para transformar insight em ação.  |
 | Contact   | Nova Odessa, SP – Brasil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583 |
 
 <p class="photo-at-bottom"><img src="../../../pictures/personal/my-photo-rectangle.png" alt="Eduardo Figueiredo" /></p>  
@@ -664,6 +664,7 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 | Área                               | Conquista                                                                                                                        |
 | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | Cargo                               | Analista de Pesquisa Aplicada e Design – Bosch Brasil (jan 2023 – atual); Especialista em Pesquisa Aplicada e Project Champion na GS/BDU            |
+| Excel e CSV                        | **Excel** avançado (fórmulas, VBA, planilhas como banco de dados, atalhos); uso intenso de **CSV**; **3º lugar, Fórum de talentos Bosch 2018** (macro Excel) |
 | Métricas e BI                       | Dashboards Power BI para projetos/recursos; **CSI 4,86 / NPS 9,94** méd. nos meus projetos (2024–2025)                         |
 | Internacional                      | Realizei duas viagens à Alemanha (2024, 2025) por trabalho relacionado ao cargo                                                                            |
 | Rastreamento CO2 (GS/Pesquisa Aplicada) | Conduzi prospecção de mercado para telemetria CO2; achado: falta de demanda — interrupção baseada em dados                                       |
@@ -1353,7 +1354,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## Futuro – Como trabalho com dados
 
-- **O que trago:** dashboards e métricas de resultado (CSI/NPS); experimentação/ML na pesquisa; gates de entrada orientados por método.
+- **O que trago:** fluência em **Excel** e **CSV**; dashboards e métricas de resultado (CSI/NPS); experimentação/ML na pesquisa; gates de entrada orientados por método.
 
 <div class="future-career-wrap">
 <div class="future-po-bullets">
@@ -1480,7 +1481,7 @@ section.closing-redesign h2 {
 ## Closing & Contact
 
 <div class="closing-summary">
-<p>Conecto dados a decisões: mensuro resultados, experimento métodos e transformo Pesquisa Aplicada em insight claro para soluções confiáveis e centradas no usuário.</p>
+<p>Conecto dados a decisões—de fórmulas **Excel** e tratamento de **CSV** a dashboards e Pesquisa Aplicada—para resultados confiáveis e mensuráveis.</p>
 </div>
 
 <div class="closing-contact">

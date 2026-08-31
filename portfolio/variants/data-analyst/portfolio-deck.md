@@ -440,8 +440,8 @@ img[src*="story-flow"] {
 
 ## Evidence that turns complex services into better decisions
 
-- I believe decisions in service organizations should be **evidence-based**, especially when they affect real people and businesses.
-- My work centers **data analysis**, **experimentation**, and **Applied Research**: measuring outcomes and feeding insight into delivery.
+- I believe decisions should be **evidence-based**—often starting in **Excel** and **CSV** before scaling to BI and code.
+- My work centers **data analysis**, **experimentation**, and **Applied Research**: measuring outcomes and feeding insight into delivery.
 - This portfolio shows that path through real projects and metrics.
 
 <p><img src="../../../pictures/diagrams/story-flow.png" alt="Diagram story-flow: Why story flow" /></p>
@@ -472,8 +472,8 @@ table thead { display: none !important; }
 | Attribute | Value                     |
 | --------- | ------------------------- |
 | Name      | Eduardo M. de A. Figueiredo    |
-| Role      | Data Analysis, Experimentation & Applied Insights    |
-| Impact    | I help teams decide and improve with clarity: dashboards and metrics to see reality, experimentation to learn, and Applied Research to turn insight into action.  |
+| Role      | Data Analyst | Analysis, Experimentation & Applied Insights    |
+| Impact    | I help teams decide with clarity: **Excel** and **CSV** for day-to-day analysis, dashboards and metrics, and Applied Research to turn insight into action.  |
 | Contact   | Nova Odessa, SP – Brazil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583 |
 
 <p class="photo-at-bottom"><img src="../../../pictures/personal/my-photo-rectangle.png" alt="Eduardo Figueiredo" /></p>  
@@ -664,6 +664,7 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 | Area                               | Achievement                                                                                                                        |
 | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | Role                               | Applied Research & Design Analyst – Bosch Brasil (January 2023 – present); Applied Research Expert & Project Champion at GS/BDU            |
+| Excel & CSV                        | Advanced **Excel** (formulas, VBA, database-style workbooks, shortcuts); heavy **CSV** use; **3rd place, Bosch Talent Forum 2018** (Excel macro) |
 | Metrics & BI                       | Power BI dashboards for project/resource oversight; **CSI 4.86 / NPS 9.94** avg. across my projects (2024–2025)                         |
 | International                      | Two trips to Germany (2024, 2025) for role-related work                                                                            |
 | CO2 Tracking (GS/Applied Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand — a data-informed stop                                       |
@@ -1353,7 +1354,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## Future – How I Work with Data
 
-- **What I bring:** dashboards & outcome metrics (CSI/NPS); experimentation/ML in research; method-driven intake gates.
+- **What I bring:** **Excel** & **CSV** fluency; dashboards & outcome metrics (CSI/NPS); experimentation/ML in research; method-driven intake gates.
 
 <div class="future-career-wrap">
 <div class="future-po-bullets">
@@ -1480,7 +1481,7 @@ section.closing-redesign h2 {
 ## Closing & Contact
 
 <div class="closing-summary">
-<p>I connect data to decisions: measuring outcomes, experimenting with methods, and turning Applied Research into clear insight for trustworthy, user-centered solutions.</p>
+<p>I connect data to decisions—from **Excel** formulas and **CSV** wrangling to dashboards and Applied Research—for trustworthy, measurable outcomes.</p>
 </div>
 
 <div class="closing-contact">

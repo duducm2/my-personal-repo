@@ -1,5 +1,5 @@
 ﻿// =============================================================================
-// RESUME LAYOUT â€” Data Scientist variant entry.
+// RESUME LAYOUT — Data Analyst variant entry.
 // Content: content.typ in this folder. Photo: shared from resume/typst/pictures/.
 // General resume layout source remains resume/typst/main.typ (unchanged).
 // =============================================================================

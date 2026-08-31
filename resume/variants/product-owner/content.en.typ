@@ -77,7 +77,7 @@
 )
 
 #let additional = (
-  [3rd Place – Bosch Talent Forum 2018.],
+  [3rd Place – Bosch Talent Forum 2018 (Excel macro project).],
   [InfoVis: PhraseNets web visualization for text co-occurrence analysis.],
   [Volunteer – NGO Hospitalhaços (Admin).],
 )

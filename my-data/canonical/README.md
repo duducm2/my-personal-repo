@@ -38,7 +38,7 @@ After changing column structure, run: `python scripts/migrate_bilingual_labels.p
 | `projects.csv`           | Case evidence (`name_en/pt`, `summary_en/pt`, `notes_en/pt`)  |
 | `narratives.csv`         | Resume + portfolio copy (`label_en/pt`, `text_en/pt`)         |
 
-**Variants:** `general` | `product-owner` | `data-scientist` (see `field_labels.csv` for bilingual variant names)
+**Variants:** `general` | `product-owner` | `data-analyst` (see `field_labels.csv` for bilingual variant names)
 
 Use `**bold**` in text fields. The generator maps that to Typst `#strong[]` for resumes and leaves Markdown bold for portfolio.
 

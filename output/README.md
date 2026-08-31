@@ -8,19 +8,19 @@
 output/
   general/
   product-owner/
-  data-scientist/
+  data-analyst/
 ```
 
 ## Deliverables (12 PDFs)
 
-| Folder            | Language | Resume                                        | Portfolio                              |
-| ----------------- | -------- | --------------------------------------------- | -------------------------------------- |
-| `general/`        | EN       | `CV-Eduardo-Figueiredo-EN.pdf`                | `portfolio-deck-EN.pdf`                |
-| `general/`        | PT       | `CV-Eduardo-Figueiredo-PT.pdf`                | `portfolio-deck-PT.pdf`                |
-| `product-owner/`  | EN       | `CV-Eduardo-Figueiredo-EN-product-owner.pdf`  | `portfolio-deck-product-owner-EN.pdf`  |
-| `product-owner/`  | PT       | `CV-Eduardo-Figueiredo-PT-product-owner.pdf`  | `portfolio-deck-product-owner-PT.pdf`  |
-| `data-scientist/` | EN       | `CV-Eduardo-Figueiredo-EN-data-scientist.pdf` | `portfolio-deck-data-scientist-EN.pdf` |
-| `data-scientist/` | PT       | `CV-Eduardo-Figueiredo-PT-data-scientist.pdf` | `portfolio-deck-data-scientist-PT.pdf` |
+| Folder           | Language | Resume                                       | Portfolio                             |
+| ---------------- | -------- | -------------------------------------------- | ------------------------------------- |
+| `general/`       | EN       | `CV-Eduardo-Figueiredo-EN.pdf`               | `portfolio-deck-EN.pdf`               |
+| `general/`       | PT       | `CV-Eduardo-Figueiredo-PT.pdf`               | `portfolio-deck-PT.pdf`               |
+| `product-owner/` | EN       | `CV-Eduardo-Figueiredo-EN-product-owner.pdf` | `portfolio-deck-product-owner-EN.pdf` |
+| `product-owner/` | PT       | `CV-Eduardo-Figueiredo-PT-product-owner.pdf` | `portfolio-deck-product-owner-PT.pdf` |
+| `data-analyst/`  | EN       | `CV-Eduardo-Figueiredo-EN-data-analyst.pdf`  | `portfolio-deck-data-analyst-EN.pdf`  |
+| `data-analyst/`  | PT       | `CV-Eduardo-Figueiredo-PT-data-analyst.pdf`  | `portfolio-deck-data-analyst-PT.pdf`  |
 
 ## Build (recommended)
 
@@ -44,7 +44,7 @@ python scripts/build_outputs.py --skip-generate   # compile existing sources onl
 
 | Location                         | Role                                                                                                                                        |
 | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`output/`**                    | **Deliverables** — general, product-owner, and data-scientist resume + portfolio PDFs (EN and PT). Rebuild after CSV or template changes.   |
+| **`output/`**                    | **Deliverables** — general, product-owner, and data-analyst resume + portfolio PDFs (EN and PT). Rebuild after CSV or template changes.     |
 | `resume/`                        | **Source only** — Typst layout (`main.typ`), generated `content.{en,pt}.typ`. Do **not** keep compiled CV PDFs here.                        |
 | `portfolio/`                     | **Source only** — MARP markdown `portfolio-deck.{en,pt}.md` and templates. Do **not** keep compiled deck PDFs next to the markdown sources. |
 | `portfolio/other-versions/`      | **Archived deck exports** — historical variants, not current deliverables.                                                                  |
@@ -54,11 +54,11 @@ python scripts/build_outputs.py --skip-generate   # compile existing sources onl
 
 ## Manual steps (if not using `build_outputs.py`)
 
-Prefer `python scripts/build_outputs.py`. Manual compile paths for the data-scientist variant:
+Prefer `python scripts/build_outputs.py`. Manual compile paths for the data-analyst variant:
 
 ```bash
-typst compile --root . --font-path resume/typst/fonts --input content=content.en.typ resume/variants/data-scientist/main.typ output/data-scientist/CV-Eduardo-Figueiredo-EN-data-scientist.pdf
-npx @marp-team/marp-cli@latest portfolio/variants/data-scientist/portfolio-deck.en.md -o output/data-scientist/portfolio-deck-data-scientist-EN.pdf --allow-local-files
+typst compile --root . --font-path resume/typst/fonts --input content=content.en.typ resume/variants/data-analyst/main.typ output/data-analyst/CV-Eduardo-Figueiredo-EN-data-analyst.pdf
+npx @marp-team/marp-cli@latest portfolio/variants/data-analyst/portfolio-deck.en.md -o output/data-analyst/portfolio-deck-data-analyst-EN.pdf --allow-local-files
 ```
 
 Full schema and edit rules: [`../my-data/canonical/README.md`](../my-data/canonical/README.md).

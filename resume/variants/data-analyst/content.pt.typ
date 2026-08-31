@@ -1,11 +1,11 @@
 // =============================================================================
 // GENERATED from my-data/canonical — do not edit by hand.
-// Variant: data-scientist, lang: pt. Re-run: python scripts/generate_from_canonical.py
+// Variant: data-analyst, lang: pt. Re-run: python scripts/generate_from_canonical.py
 // Layout: main.typ (do not change layout here).
 // =============================================================================
 
 #let name = "Eduardo M. de A. Figueiredo"
-#let tagline = "Análise de Dados, Experimentação e Insights Aplicados"
+#let tagline = "Analista de Dados | Análise, Experimentação e Insights Aplicados"
 #let phone = "+55 (19) 98176-6583"
 #let email = "edu.evangelista.figueiredo@gmail.com"
 #let linkedin = "LinkedIn"
@@ -34,14 +34,14 @@
 )
 
 #let profile = [
-  #strong[Transformo] Pesquisa Aplicada e entrega em #strong[insight mensurável]: Power BI, Python/SQL e experimentação (ML na dissertação). #strong[Uso] CSI/NPS e dados operacionais para priorizar resultados. Mestrado em Tecnologia (#strong[conclusão em setembro de 2026]) com #strong[nota A em todas as disciplinas].
+  #strong[Atuo como analista de dados] transformando Pesquisa Aplicada em #strong[insight mensurável]: #strong[Excel] avançado (fórmulas, VBA, planilhas como banco de dados, atalhos), pipelines #strong[CSV], Power BI e Python/SQL. #strong[Uso] CSI/NPS para priorizar resultados. Mestrado em Tecnologia (#strong[conclusão em setembro de 2026]) com #strong[nota A em todas as disciplinas].
 ]
 
 #let languages = "Português (Nativo)   Inglês (Fluente)"
 
 #let skills = (
-  ("Core", "Núcleo:", ("Análise de dados e métricas", "Experimentação e ML", "Visualização e BI", "Pesquisa Aplicada", "Python / SQL")),
-  ("Tech", "Tecnologias:", ("Python", "SQL", "Power BI", "Matplotlib", "Seaborn", "Excel", "Azure", "Cursor IDE", "Git", "GitHub", "React", "Figma", "ServiceNow", "Bitbucket", "HTML", "CSS", "Mermaid", "VS Code", "VBA", "AutoHotkey")),
+  ("Core", "Núcleo:", ("Excel (fórmulas, VBA, bases de dados)", "Análise de dados e CSV", "Visualização e BI", "Python / SQL", "Pesquisa Aplicada")),
+  ("Tech", "Tecnologias:", ("Excel", "VBA", "CSV", "Power BI", "Python", "SQL", "Matplotlib", "Seaborn", "Azure", "Cursor IDE", "Git", "GitHub", "React", "Figma", "ServiceNow", "Bitbucket", "HTML", "CSS", "Mermaid", "VS Code")),
 )
 
 #let experience = (
@@ -62,7 +62,7 @@
     [#strong[Desenvolvimento web full-stack:] VS Code, #strong[SQL Server], Windows Server (IIS).],
   )),
   ("Jan 2017 – Nov 2018", "Bosch Brasil (Campinas)", "Estagiário", (
-    [Automações #strong[VBA (Excel)] para Melhoria Contínua e comunicação interna.],
+    [#strong[Excel e VBA:] fórmulas avançadas, macros, planilhas como banco de dados, atalhos e fluxos com #strong[CSV]; #strong[3º lugar, Fórum de talentos Bosch 2018] (macro Excel).],
   )),
 )
 
@@ -78,7 +78,7 @@
 )
 
 #let additional = (
-  [3º Lugar – Fórum de talentos Bosch 2018.],
+  [3º Lugar – Fórum de talentos Bosch 2018 (projeto com macro Excel).],
   [InfoVis: visualização web PhraseNets para análise de coocorrência de texto.],
   [Voluntário – ONG Hospitalhaços (Admin).],
 )

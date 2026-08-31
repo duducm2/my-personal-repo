@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Seed data-scientist variant rows into canonical CSVs (idempotent)."""
+"""Seed data-analyst variant rows into canonical CSVs (idempotent)."""
 from __future__ import annotations
 
 import csv
@@ -7,7 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 CANON = ROOT / "my-data" / "canonical"
-VARIANT = "data-scientist"
+VARIANT = "data-analyst"
 
 
 def read(name: str) -> list[dict[str, str]]:
@@ -39,8 +39,8 @@ def upsert_field_labels() -> None:
                 {
                     "domain": "variant",
                     "key": VARIANT,
-                    "label_en": "Data science",
-                    "label_pt": "Ciência de dados",
+                    "label_en": "Data analyst",
+                    "label_pt": "Analista de dados",
                 }
             )
             inserted = True
@@ -49,8 +49,8 @@ def upsert_field_labels() -> None:
             {
                 "domain": "variant",
                 "key": VARIANT,
-                "label_en": "Data science",
-                "label_pt": "Ciência de dados",
+                "label_en": "Data analyst",
+                "label_pt": "Analista de dados",
             }
         )
     write("field_labels.csv", out)
@@ -59,19 +59,21 @@ def upsert_field_labels() -> None:
 def upsert_skills() -> None:
     rows = [r for r in read("skills.csv") if r["variant"] != VARIANT]
     core = [
-        ("Data analysis & metrics", "Análise de dados e métricas"),
-        ("Experimentation & ML", "Experimentação e ML"),
+        ("Excel (formulas, VBA, databases)", "Excel (fórmulas, VBA, bases de dados)"),
+        ("Data analysis & CSV", "Análise de dados e CSV"),
         ("Visualization & BI", "Visualização e BI"),
-        ("Applied Research", "Pesquisa Aplicada"),
         ("Python / SQL", "Python / SQL"),
+        ("Applied Research", "Pesquisa Aplicada"),
     ]
     tech = [
+        ("Excel", "Excel"),
+        ("VBA", "VBA"),
+        ("CSV", "CSV"),
+        ("Power BI", "Power BI"),
         ("Python", "Python"),
         ("SQL", "SQL"),
-        ("Power BI", "Power BI"),
         ("Matplotlib", "Matplotlib"),
         ("Seaborn", "Seaborn"),
-        ("Excel", "Excel"),
         ("Azure", "Azure"),
         ("Cursor IDE", "Cursor IDE"),
         ("Git", "Git"),
@@ -84,8 +86,6 @@ def upsert_skills() -> None:
         ("CSS", "CSS"),
         ("Mermaid", "Mermaid"),
         ("VS Code", "VS Code"),
-        ("VBA", "VBA"),
-        ("AutoHotkey", "AutoHotkey"),
     ]
     for i, (en, pt) in enumerate(core, 1):
         rows.append(
@@ -180,8 +180,10 @@ def upsert_bullets() -> None:
         (
             "bosch-intern-2017",
             1,
-            "**VBA (Excel)** automations for Continuous Improvement and internal communication.",
-            "Automações **VBA (Excel)** para Melhoria Contínua e comunicação interna.",
+            "**Excel & VBA:** advanced formulas, macros, database-style workbooks, shortcuts, and **CSV** workflows; "
+            "**3rd place, Bosch Talent Forum 2018** (Excel macro).",
+            "**Excel e VBA:** fórmulas avançadas, macros, planilhas como banco de dados, atalhos e fluxos com **CSV**; "
+            "**3º lugar, Fórum de talentos Bosch 2018** (macro Excel).",
         ),
     ]
     for eid, order, en, pt in bullets:
@@ -226,18 +228,18 @@ def upsert_narratives() -> None:
 
     texts: dict[str, tuple[str, str]] = {
         "tagline": (
-            "Data Analysis, Experimentation & Applied Insights",
-            "Análise de Dados, Experimentação e Insights Aplicados",
+            "Data Analyst | Analysis, Experimentation & Applied Insights",
+            "Analista de Dados | Análise, Experimentação e Insights Aplicados",
         ),
         "profile": (
-            "Data-minded professional turning Applied Research and delivery into **measurable insight**: "
-            "Power BI, Python/SQL, and experimentation (ML in my master's dissertation). "
-            "Uses CSI/NPS and operational data to prioritize outcomes. "
-            "Master's in Technology (**completing September 2026**) with **Grade A across all coursework**.",
-            "**Transformo** Pesquisa Aplicada e entrega em **insight mensurável**: "
-            "Power BI, Python/SQL e experimentação (ML na dissertação). "
-            "**Uso** CSI/NPS e dados operacionais para priorizar resultados. "
-            "Mestrado em Tecnologia (**conclusão em setembro de 2026**) com **nota A em todas as disciplinas**.",
+            "Data analyst turning Applied Research into **measurable insight**: advanced **Excel** "
+            "(formulas, VBA, database-style workbooks, shortcuts), **CSV** pipelines, Power BI, and Python/SQL. "
+            "Uses CSI/NPS to prioritize outcomes. Master's in Technology (**completing September 2026**) "
+            "with **Grade A across all coursework**.",
+            "**Atuo como analista de dados** transformando Pesquisa Aplicada em **insight mensurável**: **Excel** avançado "
+            "(fórmulas, VBA, planilhas como banco de dados, atalhos), pipelines **CSV**, Power BI e Python/SQL. "
+            "**Uso** CSI/NPS para priorizar resultados. Mestrado em Tecnologia (**conclusão em setembro de 2026**) "
+            "com **nota A em todas as disciplinas**.",
         ),
         "deck_title": (
             "Eduardo Figueiredo – Portfolio",
@@ -380,7 +382,7 @@ def main() -> None:
     upsert_skills()
     upsert_bullets()
     upsert_narratives()
-    print("data-scientist CSV seed complete.")
+    print("data-analyst CSV seed complete.")
 
 
 if __name__ == "__main__":

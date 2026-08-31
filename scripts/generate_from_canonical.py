@@ -14,21 +14,21 @@ CANON = ROOT / "my-data" / "canonical"
 GENERATED = ROOT / "my-data" / "generated" / "portfolio"
 TEMPLATE = ROOT / "portfolio" / "templates" / "portfolio-deck.template.md"
 
-VARIANTS = ("general", "product-owner", "data-scientist")
+VARIANTS = ("general", "product-owner", "data-analyst")
 RESUME_DIR = {
     "general": ROOT / "resume" / "typst",
     "product-owner": ROOT / "resume" / "variants" / "product-owner",
-    "data-scientist": ROOT / "resume" / "variants" / "data-scientist",
+    "data-analyst": ROOT / "resume" / "variants" / "data-analyst",
 }
 DECK_DIR = {
     "general": ROOT / "portfolio",
     "product-owner": ROOT / "portfolio" / "variants" / "product-owner",
-    "data-scientist": ROOT / "portfolio" / "variants" / "data-scientist",
+    "data-analyst": ROOT / "portfolio" / "variants" / "data-analyst",
 }
 ASSET_PREFIX = {
     "general": "../",
     "product-owner": "../../../",
-    "data-scientist": "../../../",
+    "data-analyst": "../../../",
 }
 
 SLOT_RE = re.compile(r"\{\{canonical:([a-z0-9_]+)\}\}")

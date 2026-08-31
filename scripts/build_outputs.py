@@ -15,7 +15,7 @@ FONTS = ROOT / "resume" / "typst" / "fonts"
 LANGS = ("en", "pt")
 LANG_SUFFIX = {"en": "EN", "pt": "PT"}
 
-VARIANTS = ("general", "product-owner", "data-scientist")
+VARIANTS = ("general", "product-owner", "data-analyst")
 
 OUTPUTS = {
     ("general", "en", "resume"): ROOT
@@ -50,34 +50,34 @@ OUTPUTS = {
     / "output"
     / "product-owner"
     / "portfolio-deck-product-owner-PT.pdf",
-    ("data-scientist", "en", "resume"): ROOT
+    ("data-analyst", "en", "resume"): ROOT
     / "output"
-    / "data-scientist"
-    / "CV-Eduardo-Figueiredo-EN-data-scientist.pdf",
-    ("data-scientist", "pt", "resume"): ROOT
+    / "data-analyst"
+    / "CV-Eduardo-Figueiredo-EN-data-analyst.pdf",
+    ("data-analyst", "pt", "resume"): ROOT
     / "output"
-    / "data-scientist"
-    / "CV-Eduardo-Figueiredo-PT-data-scientist.pdf",
-    ("data-scientist", "en", "portfolio"): ROOT
+    / "data-analyst"
+    / "CV-Eduardo-Figueiredo-PT-data-analyst.pdf",
+    ("data-analyst", "en", "portfolio"): ROOT
     / "output"
-    / "data-scientist"
-    / "portfolio-deck-data-scientist-EN.pdf",
-    ("data-scientist", "pt", "portfolio"): ROOT
+    / "data-analyst"
+    / "portfolio-deck-data-analyst-EN.pdf",
+    ("data-analyst", "pt", "portfolio"): ROOT
     / "output"
-    / "data-scientist"
-    / "portfolio-deck-data-scientist-PT.pdf",
+    / "data-analyst"
+    / "portfolio-deck-data-analyst-PT.pdf",
 }
 
 RESUME_MAIN = {
     "general": ROOT / "resume" / "typst" / "main.typ",
     "product-owner": ROOT / "resume" / "variants" / "product-owner" / "main.typ",
-    "data-scientist": ROOT / "resume" / "variants" / "data-scientist" / "main.typ",
+    "data-analyst": ROOT / "resume" / "variants" / "data-analyst" / "main.typ",
 }
 
 RESUME_CONTENT = {
     "general": ROOT / "resume" / "typst",
     "product-owner": ROOT / "resume" / "variants" / "product-owner",
-    "data-scientist": ROOT / "resume" / "variants" / "data-scientist",
+    "data-analyst": ROOT / "resume" / "variants" / "data-analyst",
 }
 
 DECK_SRC = {
@@ -87,10 +87,10 @@ DECK_SRC = {
     / "variants"
     / "product-owner"
     / "portfolio-deck.{lang}.md",
-    "data-scientist": ROOT
+    "data-analyst": ROOT
     / "portfolio"
     / "variants"
-    / "data-scientist"
+    / "data-analyst"
     / "portfolio-deck.{lang}.md",
 }
 
