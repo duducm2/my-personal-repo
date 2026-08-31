@@ -35,7 +35,7 @@
 )
 
 #let profile = [
-  #strong[Atuo como analista de dados] transformando Pesquisa Aplicada em #strong[insight mensurável]: #strong[Excel] avançado (fórmulas, VBA, planilhas-database, atalhos), #strong[CSV], Power BI, Python/SQL, #strong[estatística descritiva e inferencial], #strong[InfoVis] (Mestrado, nota A). #v(0.35em) #strong[Uso] CSI/NPS para priorizar. Mestrado (#strong[conclusão set/2026]) com #strong[nota A em todas].
+  #strong[Atuo como analista de dados] transformando Pesquisa Aplicada em #strong[insight mensurável]: #strong[Excel] avançado (fórmulas, VBA, planilhas-database, atalhos), #strong[CSV], Power BI, Python/SQL, #strong[estatística descritiva e inferencial], #strong[InfoVis] (Mestrado, nota A). #v(0.35em) #strong[Uso] CSI/NPS para priorizar. Mestrado (#strong[conclusão set/2026]) com #strong[nota A em todas as disciplinas].
 ]
 
 #let languages = "Português (Nativo)   Inglês (Fluente)"
