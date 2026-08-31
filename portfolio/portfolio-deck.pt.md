@@ -668,7 +668,7 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 | Rastreamento CO2 (GS/Pesquisa Aplicada) | Conduzi prospecção de mercado para telemetria CO2; achado: falta de demanda de mercado                                                               |
 | Projeto tooling (PT)               | **Liderei** a entrega técnica e gestão do projeto de requisitos a protótipos de alta fidelidade, com check-ins regulares com clientes. |
 | Maturidade em UX          | **Liderei** as Américas ao Nível 4 – governança, templates, treinamento                                                                          |
-| CIP + Pesquisa Aplicada             | **Integrei** ao ServiceNow CIM; gate de Pesquisa Aplicada no fluxo CIP                                                         |
+| CIP CIM (Global Services)          | Com equipe de UX, avaliei **dashboards estratégicos de CIP** de todas as iniciativas na GS—UX mais clara para a liderança identificar problemas e ganhos de eficiência/eficácia; **relevância em UX** automatizada no ServiceNow (pesos por propriedades) |
 | Colaboração                      | Sou tutor de estudantes da Digital Talent Academy                                                                                           |
 
 ---

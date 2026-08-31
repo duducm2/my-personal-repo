@@ -668,7 +668,7 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 | CO2 Tracking (GS/Applied Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand — a discovery outcome that stopped low-value work            |
 | Tooling project (PT)               | Requirements → high-fidelity prototypes → regular **customer check-ins**; discovery-to-delivery ownership with technical partners |
 | UX Maturity          | Americas Level 4 – governance, templates, training that **productized** UX practice for stakeholders                        |
-| CIP + Applied Research             | ServiceNow CIM integration; Applied Research as an **intake / quality gate** so the right work advances                           |
+| CIP CIM (Global Services)          | With UX team, improved **strategic CIP dashboards** so GS president could quickly identify main issues and efficiency/efficacy gains; automated **UX relevance** **intake / quality gate** in ServiceNow                           |
 | Collaboration                      | Tutor of Digital Talent Academy Students                                                                                          |
 
 ---
@@ -1360,7 +1360,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 | Competency              | Evidence from my work                                     |
 | ----------------------- | --------------------------------------------------------- |
 | Discovery & validation  | Tooling PT requirements → prototypes → customer check-ins |
-| Prioritization / intake | ServiceNow Applied Research gate in CIP                   |
+| Prioritization / intake | CIP CIM: ServiceNow UX relevance scoring + GS strategic CIP dashboard evaluation with UX team                   |
 | Stakeholder enablement  | Americas UX Maturity Level 4 (templates, training)  |
 | Outcome ownership       | CSI 4.86 / NPS 9.94 avg. (2024–2025)                      |
 

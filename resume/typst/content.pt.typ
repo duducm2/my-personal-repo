@@ -47,7 +47,7 @@
 #let experience = (
   ("Jan 2023 – Atual", "Bosch Brasil", "Analista de Pesquisa Aplicada e Design", (
     [Apoiei as Américas a atingir #strong[Nível 4 de Maturidade em UX na Global Services]: governança, templates, treinamento. #strong[CSI 4,86 / NPS 9,94] méd. nos meus projetos (2024–2025).],
-    [Integrei CIP + Pesquisa no #strong[ServiceNow]; adicionei gate de Pesquisa no fluxo; gate de qualidade #strong[orientado por método].],
+    [#strong[CIP CIM / Global Services:] Com equipe de UX, avaliei #strong[dashboards estratégicos de CIP] para a liderança da GS identificar rapidamente problemas e ganhos de eficiência/eficácia; pontuação automatizada de #strong[relevância em UX] no #strong[ServiceNow] com pesos por propriedades.],
     [#strong[Projeto tooling (Power Tools):] apoiei a entrega técnica e gestão do projeto de requisitos a protótipos de alta fidelidade; check-ins regulares com clientes.],
     [Desenvolvi dashboards Power BI para acompanhamento de projetos/recursos e treinamentos.],
     [#strong[IA agêntica:] uso diário com #strong[Cursor IDE] e gestão de contexto para pesquisa, análise e resolução de problemas. Entrego Pesquisa Aplicada com eficiência no pipeline e artefatos.],

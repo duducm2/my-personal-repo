@@ -90,7 +90,7 @@ def main() -> int:
     expected_counts = {
         ("bosch-ar-2023", "general"): 6,
         ("bosch-ar-2023", "product-owner"): 5,
-        ("bosch-ar-2023", "data-analyst"): 6,
+        ("bosch-ar-2023", "data-analyst"): 7,
         ("bosch-web-2020", "general"): 2,
         ("bosch-web-2020", "product-owner"): 2,
         ("bosch-web-2020", "data-analyst"): 2,
@@ -349,7 +349,7 @@ def main() -> int:
     ok.append("additional.csv: Talent Forum, PhraseNets, Hospitalhaços")
 
     projects = load("projects.csv")
-    for pid in ("tooling-pt", "cip-research-gate", "maturity-l4", "outcomes-2024-2025"):
+    for pid in ("tooling-pt", "data-insights-pt", "cip-research-gate", "maturity-l4", "outcomes-2024-2025"):
         if not any(r["id"] == pid for r in projects):
             issues.append(f"projects.csv missing {pid}")
     ok.append("projects.csv: tooling/CIP/maturity/outcomes")

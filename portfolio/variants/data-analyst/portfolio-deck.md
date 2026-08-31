@@ -440,8 +440,8 @@ img[src*="story-flow"] {
 
 ## Evidence that turns complex services into better decisions
 
-- I believe decisions should be **evidence-based**—often starting in **Excel** and **CSV** before scaling to BI and code.
-- My work centers **data analysis**, **experimentation**, and **Applied Research**: measuring outcomes and feeding insight into delivery.
+- I believe decisions should be **evidence-based**—often starting in **Excel** and **CSV** before scaling to BI and code.
+- My work centers **data analysis**, **experimentation**, and **Applied Research**: measuring outcomes and feeding insight into delivery.
 - This portfolio shows that path through real projects and metrics.
 
 <p><img src="../../../pictures/diagrams/story-flow.png" alt="Diagram story-flow: Why story flow" /></p>
@@ -664,13 +664,14 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 | Area                               | Achievement                                                                                                                        |
 | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | Role                               | Applied Research & Design Analyst – Bosch Brasil (January 2023 – present); Applied Research Expert & Project Champion at GS/BDU            |
-| Excel & CSV                        | Advanced **Excel** (formulas, VBA, database-style workbooks, shortcuts); heavy **CSV** use; **3rd place, Bosch Talent Forum 2018** (Excel macro) |
+| Excel & CSV                        | Advanced **Excel** (formulas, VBA, database-style workbooks, shortcuts); heavy **CSV** use; **3rd place, Bosch Talent Forum 2018** (Excel macro) |
 | Metrics & BI                       | Power BI dashboards for project/resource oversight; **CSI 4.86 / NPS 9.94** avg. across my projects (2024–2025)                         |
 | International                      | Two trips to Germany (2024, 2025) for role-related work                                                                            |
 | CO2 Tracking (GS/Applied Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand — a data-informed stop                                       |
 | Tooling project (PT)               | Requirements through high-fidelity prototypes with regular customer check-ins; progress and feedback tracked for decisions         |
+| Data Insights (Power Tools B2B)    | Call-center records analyzed with Strauss grounded theory (datasets, Python, AI); stakeholder-validated insights in Power BI—finance, conveyor delivery, and more |
 | UX Maturity                        | Americas Level 4 – governance, templates, training that made UX practice measurable                                                |
-| CIP + Applied Research             | ServiceNow CIM integration; Applied Research as a method-driven quality/relevance gate                                           |
+| CIP CIM (Global Services)          | Automated **UX relevance** in ServiceNow (data manipulation, property-based weights); with UX team, evaluated **strategic CIP dashboards** so GS leadership could quickly spot main issues and efficiency/efficacy improvements                                           |
 | Collaboration                      | Tutor of Digital Talent Academy Students                                                                                           |
 
 ---
@@ -1363,7 +1364,8 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 | ----------------------- | --------------------------------------------------------- |
 | Metrics & BI            | Power BI dashboards; CSI 4.86 / NPS 9.94 avg. (2024–2025) |
 | Experimentation / ML    | Master's dissertation: perceived trust, ML, AI-agent validation |
-| Data-informed intake    | ServiceNow Applied Research gate in CIP                   |
+| Data-informed intake    | CIP CIM: ServiceNow UX relevance scoring + GS strategic CIP dashboard evaluation with UX team                   |
+| Qualitative → BI analytics | Data Insights: Strauss grounded theory on B2B call-center records → Power BI dashboards |
 | Measurable practice     | Americas UX Maturity Level 4 (templates, training)        |
 
 </div>

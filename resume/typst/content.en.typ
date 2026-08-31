@@ -47,7 +47,7 @@
 #let experience = (
   ("Jan 2023 – Present", "Bosch Brasil", "Applied Research & Design Analyst", (
     [Supported Americas to reach #strong[UX Maturity Level 4 inside Global Services]: governance, templates, training. #strong[CSI 4.86 / NPS 9.94] avg. in my projects (2024–2025).],
-    [CIP + Research integration into #strong[ServiceNow]; added a Research gate in the workflow; #strong[method-driven] quality gate.],
+    [#strong[CIP CIM / Global Services:] With UX team, evaluated #strong[strategic CIP dashboards] so GS leadership could quickly spot main issues and efficiency/efficacy gains; automated #strong[UX relevance] scoring in #strong[ServiceNow] with property-based weights.],
     [#strong[Tooling project (Power Tools):] supported technical delivery and project management from requirements through high-fidelity prototypes; regular customer check-ins.],
     [Power BI dashboards for project/resource oversight and training tracking.],
     [#strong[Agentic AI:] use daily with #strong[Cursor IDE] and context management for research, analysis, and problem-solving. Delivering Applied Research efficiently across pipeline and artifacts.],

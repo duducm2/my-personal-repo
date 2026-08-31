@@ -20,7 +20,8 @@ fields:
     | ----------------------- | --------------------------------------------------------- |
     | Métricas e BI            | Dashboards Power BI; CSI 4,86 / NPS 9,94 méd. (2024–2025) |
     | Experimentação / ML    | Dissertação: confiança percebida, ML, validação com agente de IA |
-    | Entrada baseada em dados    | Gate de Pesquisa Aplicada no CIP ServiceNow                   |
+    | Entrada baseada em dados    | CIP CIM: pontuação de relevância em UX no ServiceNow + avaliação de dashboards estratégicos de CIP na GS com equipe de UX                   |
+    | Análise qualitativa → BI | Data Insights: teoria fundamentada de Strauss em registros B2B do call center → dashboards Power BI |
     | Prática mensurável     | Nível 4 de Maturidade em UX nas Américas (templates, treinamento)        |
     
     </div>
@@ -60,8 +61,9 @@ fields:
     | Internacional                      | Realizei duas viagens à Alemanha (2024, 2025) por trabalho relacionado ao cargo                                                                            |
     | Rastreamento CO2 (GS/Pesquisa Aplicada) | Conduzi prospecção de mercado para telemetria CO2; achado: falta de demanda — interrupção baseada em dados                                       |
     | Projeto tooling (PT)               | Requisitos a protótipos de alta fidelidade com check-ins regulares; progresso e feedback acompanhados para decisões         |
+    | Data Insights (Power Tools B2B)    | Registros do call center analisados com teoria fundamentada de Strauss (datasets, Python, IA); insights validados com stakeholders no Power BI—finanças, entrega com esteira transportadora e mais |
     | Maturidade em UX                        | Nível 4 nas Américas – governança, templates, treinamento que tornaram a prática de UX mensurável                                                |
-    | CIP + Pesquisa Aplicada             | Integração ServiceNow CIM; Pesquisa Aplicada como gate de qualidade/relevância orientado por método                                           |
+    | CIP CIM (Global Services)          | **Relevância em UX** automatizada no ServiceNow (manipulação de dados, pesos por propriedades); com equipe de UX, avaliei **dashboards estratégicos de CIP** para a liderança da GS identificar problemas e melhorias de eficiência/eficácia                                           |
     | Colaboração                      | Sou tutor de estudantes da Digital Talent Academy                                                                                           |
   relevance_h2: "Presente – Modelo de avaliação de relevância (Baixa / Média / Alta)"
   tooling_bullet: "- **Projeto tooling para PT:** Apoiei a entrega de requisitos a protótipos de alta fidelidade com **check-ins regulares com clientes**—feedback e progresso como inputs para decisões."

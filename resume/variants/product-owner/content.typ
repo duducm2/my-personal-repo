@@ -47,7 +47,7 @@
 #let experience = (
   ("Jan 2023 – Present", "Bosch Brasil", "Applied Research & Design Analyst", (
     [#strong[Tooling project (Power Tools):] owned the path from requirements through high-fidelity prototypes; regular #strong[customer check-ins] and delivery coordination with technical partners.],
-    [Integrated Applied Research into #strong[CIP / ServiceNow] as an intake and quality gate—method-driven triage so the right work advances.],
+    [#strong[CIP CIM / Global Services:] With UX team, improved #strong[strategic CIP dashboards] for GS president-level clarity on main issues and efficiency/efficacy; automated #strong[UX relevance] #strong[intake and quality gate] in ServiceNow.],
     [Supported Americas to reach #strong[UX Maturity Level 4]: governance, templates, and training that productized UX practice for stakeholders.],
     [Outcome evidence: #strong[CSI 4.86 / NPS 9.94] avg. across my projects (2024–2025); Power BI for project and resource oversight.],
     [#strong[International & Mentorship:] two trips to Germany (2024, 2025); tutor at SENAI Digital Talent Academy.],

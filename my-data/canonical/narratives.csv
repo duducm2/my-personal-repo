@@ -32,7 +32,7 @@ general,present_table,Present achievements table,Tabela de conquistas,"| Area   
 | CO2 Tracking (GS/Applied Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand                                                               |
 | Tooling project (PT)               | Led technical delivery and project management from requirements through high-fidelity prototypes, with regular customer check-ins. |
 | UX Maturity          | Led Americas to Level 4 – governance, templates, training                                                                          |
-| CIP + Applied Research             | Led integration into ServiceNow CIM; Applied Research gate in CIP workflow                                                         |
+| CIP CIM (Global Services)          | With UX team, evaluated **strategic CIP dashboards** for all GS initiatives—clearer UX so leadership could quickly spot main issues and efficiency/efficacy gains; automated **UX relevance** in ServiceNow (property-based weights) |
 | Collaboration                      | Tutor of Digital Talent Academy Students                                                                                           |","| Área                               | Conquista                                                                                                                        |
 | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | Cargo                               | Pesquisa Aplicada e Tecnologia – Bosch Brasil (jan 2023 – atual); Especialista em Pesquisa Aplicada e Project Champion na GS/BDU            |
@@ -40,7 +40,7 @@ general,present_table,Present achievements table,Tabela de conquistas,"| Area   
 | Rastreamento CO2 (GS/Pesquisa Aplicada) | Conduzi prospecção de mercado para telemetria CO2; achado: falta de demanda de mercado                                                               |
 | Projeto tooling (PT)               | **Liderei** a entrega técnica e gestão do projeto de requisitos a protótipos de alta fidelidade, com check-ins regulares com clientes. |
 | Maturidade em UX          | **Liderei** as Américas ao Nível 4 – governança, templates, treinamento                                                                          |
-| CIP + Pesquisa Aplicada             | **Integrei** ao ServiceNow CIM; gate de Pesquisa Aplicada no fluxo CIP                                                         |
+| CIP CIM (Global Services)          | Com equipe de UX, avaliei **dashboards estratégicos de CIP** de todas as iniciativas na GS—UX mais clara para a liderança identificar problemas e ganhos de eficiência/eficácia; **relevância em UX** automatizada no ServiceNow (pesos por propriedades) |
 | Colaboração                      | Sou tutor de estudantes da Digital Talent Academy                                                                                           |"
 product-owner,present_table,Present achievements table,Tabela de conquistas,"| Area                               | Achievement                                                                                                                       |
 | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
@@ -49,7 +49,7 @@ product-owner,present_table,Present achievements table,Tabela de conquistas,"| A
 | CO2 Tracking (GS/Applied Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand — a discovery outcome that stopped low-value work            |
 | Tooling project (PT)               | Requirements → high-fidelity prototypes → regular **customer check-ins**; discovery-to-delivery ownership with technical partners |
 | UX Maturity          | Americas Level 4 – governance, templates, training that **productized** UX practice for stakeholders                        |
-| CIP + Applied Research             | ServiceNow CIM integration; Applied Research as an **intake / quality gate** so the right work advances                           |
+| CIP CIM (Global Services)          | With UX team, improved **strategic CIP dashboards** so GS president could quickly identify main issues and efficiency/efficacy gains; automated **UX relevance** **intake / quality gate** in ServiceNow                           |
 | Collaboration                      | Tutor of Digital Talent Academy Students                                                                                          |","| Área                               | Conquista                                                                                                                       |
 | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | Cargo (oficial)                    | Analista de Pesquisa Aplicada e Design – Bosch Brasil (jan 2023 – atual); Especialista em Pesquisa Aplicada e Project Champion na GS/BDU       |
@@ -57,7 +57,7 @@ product-owner,present_table,Present achievements table,Tabela de conquistas,"| A
 | Rastreamento CO2 (GS/Pesquisa Aplicada) | Conduzi prospecção de mercado para telemetria CO2; achado: falta de demanda — resultado de descoberta que interrompeu trabalho de baixo valor            |
 | Projeto tooling (PT)               | Conduzi de requisitos a protótipos de alta fidelidade com **check-ins regulares com clientes**; ownership descoberta→entrega com parceiros técnicos |
 | Maturidade em UX          | Apoiei as Américas a atingir Nível 4 – governança, templates, treinamento que **produtizaram** a prática de UX para stakeholders                        |
-| CIP + Pesquisa Aplicada             | **Integrei** ServiceNow CIM; Pesquisa Aplicada como **gate de entrada / qualidade** para o trabalho certo avançar                           |
+| CIP CIM (Global Services)          | Com equipe de UX, melhorei **dashboards estratégicos de CIP** para o presidente da GS identificar problemas e ganhos de eficiência/eficácia; **gate de entrada / qualidade** de **relevância em UX** automatizado no ServiceNow                           |
 | Colaboração                      | Sou tutor de estudantes da Digital Talent Academy                                                                                          |"
 general,cip_pipeline_h2,CIP pipeline heading,Título pipeline CIP,Present – CIP and Applied Research Integration: Methodology Pipeline,Presente – Integração CIP e Pesquisa Aplicada: Pipeline metodológico
 product-owner,cip_pipeline_h2,CIP pipeline heading,Título pipeline CIP,Present – CIP Intake Gate: Methodology Pipeline,Presente – Gate de entrada CIP: Pipeline metodológico
@@ -94,7 +94,7 @@ product-owner,future_career_body,Future career body,Corpo slide carreira,"## Fut
 | Competency              | Evidence from my work                                     |
 | ----------------------- | --------------------------------------------------------- |
 | Discovery & validation  | Tooling PT requirements → prototypes → customer check-ins |
-| Prioritization / intake | ServiceNow Applied Research gate in CIP                   |
+| Prioritization / intake | CIP CIM: ServiceNow UX relevance scoring + GS strategic CIP dashboard evaluation with UX team                   |
 | Stakeholder enablement  | Americas UX Maturity Level 4 (templates, training)  |
 | Outcome ownership       | CSI 4.86 / NPS 9.94 avg. (2024–2025)                      |
 
@@ -110,7 +110,7 @@ product-owner,future_career_body,Future career body,Corpo slide carreira,"## Fut
 | Competência              | Evidência do meu trabalho                                     |
 | ----------------------- | --------------------------------------------------------- |
 | Descoberta e validação  | Tooling PT requisitos → protótipos → check-ins com clientes |
-| Priorização / entrada | Gate de Pesquisa Aplicada no CIP ServiceNow                   |
+| Priorização / entrada | CIP CIM: pontuação de relevância em UX no ServiceNow + avaliação de dashboards estratégicos de CIP na GS com equipe de UX                   |
 | Habilitação de stakeholders  | Nível 4 de Maturidade em UX nas Américas (templates, treinamento)  |
 | Ownership de resultados       | CSI 4,86 / NPS 9,94 méd. (2024–2025)                      |
 
@@ -188,8 +188,9 @@ data-analyst,present_table,Present achievements table,Tabela de conquistas,"| Ar
 | International                      | Two trips to Germany (2024, 2025) for role-related work                                                                            |
 | CO2 Tracking (GS/Applied Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand — a data-informed stop                                       |
 | Tooling project (PT)               | Requirements through high-fidelity prototypes with regular customer check-ins; progress and feedback tracked for decisions         |
+| Data Insights (Power Tools B2B)    | Call-center records analyzed with Strauss grounded theory (datasets, Python, AI); stakeholder-validated insights in Power BI—finance, conveyor delivery, and more |
 | UX Maturity                        | Americas Level 4 – governance, templates, training that made UX practice measurable                                                |
-| CIP + Applied Research             | ServiceNow CIM integration; Applied Research as a method-driven quality/relevance gate                                           |
+| CIP CIM (Global Services)          | Automated **UX relevance** in ServiceNow (data manipulation, property-based weights); with UX team, evaluated **strategic CIP dashboards** so GS leadership could quickly spot main issues and efficiency/efficacy improvements                                           |
 | Collaboration                      | Tutor of Digital Talent Academy Students                                                                                           |","| Área                               | Conquista                                                                                                                        |
 | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | Cargo                               | Analista de Pesquisa Aplicada e Design – Bosch Brasil (jan 2023 – atual); Especialista em Pesquisa Aplicada e Project Champion na GS/BDU            |
@@ -198,8 +199,9 @@ data-analyst,present_table,Present achievements table,Tabela de conquistas,"| Ar
 | Internacional                      | Realizei duas viagens à Alemanha (2024, 2025) por trabalho relacionado ao cargo                                                                            |
 | Rastreamento CO2 (GS/Pesquisa Aplicada) | Conduzi prospecção de mercado para telemetria CO2; achado: falta de demanda — interrupção baseada em dados                                       |
 | Projeto tooling (PT)               | Requisitos a protótipos de alta fidelidade com check-ins regulares; progresso e feedback acompanhados para decisões         |
+| Data Insights (Power Tools B2B)    | Registros do call center analisados com teoria fundamentada de Strauss (datasets, Python, IA); insights validados com stakeholders no Power BI—finanças, entrega com esteira transportadora e mais |
 | Maturidade em UX                        | Nível 4 nas Américas – governança, templates, treinamento que tornaram a prática de UX mensurável                                                |
-| CIP + Pesquisa Aplicada             | Integração ServiceNow CIM; Pesquisa Aplicada como gate de qualidade/relevância orientado por método                                           |
+| CIP CIM (Global Services)          | **Relevância em UX** automatizada no ServiceNow (manipulação de dados, pesos por propriedades); com equipe de UX, avaliei **dashboards estratégicos de CIP** para a liderança da GS identificar problemas e melhorias de eficiência/eficácia                                           |
 | Colaboração                      | Sou tutor de estudantes da Digital Talent Academy                                                                                           |"
 data-analyst,cip_pipeline_h2,CIP pipeline heading,Título pipeline CIP,Present – CIP and Applied Research: Data-Informed Methodology Pipeline,Presente – CIP e Pesquisa Aplicada: Pipeline metodológico baseado em dados
 data-analyst,relevance_h2,Relevance model heading,Título modelo de relevância,Present – Relevance evaluation model (Low / Medium / High),Presente – Modelo de avaliação de relevância (Baixa / Média / Alta)
@@ -220,7 +222,8 @@ data-analyst,future_career_body,Future career body,Corpo slide carreira,"## Futu
 | ----------------------- | --------------------------------------------------------- |
 | Metrics & BI            | Power BI dashboards; CSI 4.86 / NPS 9.94 avg. (2024–2025) |
 | Experimentation / ML    | Master's dissertation: perceived trust, ML, AI-agent validation |
-| Data-informed intake    | ServiceNow Applied Research gate in CIP                   |
+| Data-informed intake    | CIP CIM: ServiceNow UX relevance scoring + GS strategic CIP dashboard evaluation with UX team                   |
+| Qualitative → BI analytics | Data Insights: Strauss grounded theory on B2B call-center records → Power BI dashboards |
 | Measurable practice     | Americas UX Maturity Level 4 (templates, training)        |
 
 </div>
@@ -236,7 +239,8 @@ data-analyst,future_career_body,Future career body,Corpo slide carreira,"## Futu
 | ----------------------- | --------------------------------------------------------- |
 | Métricas e BI            | Dashboards Power BI; CSI 4,86 / NPS 9,94 méd. (2024–2025) |
 | Experimentação / ML    | Dissertação: confiança percebida, ML, validação com agente de IA |
-| Entrada baseada em dados    | Gate de Pesquisa Aplicada no CIP ServiceNow                   |
+| Entrada baseada em dados    | CIP CIM: pontuação de relevância em UX no ServiceNow + avaliação de dashboards estratégicos de CIP na GS com equipe de UX                   |
+| Análise qualitativa → BI | Data Insights: teoria fundamentada de Strauss em registros B2B do call center → dashboards Power BI |
 | Prática mensurável     | Nível 4 de Maturidade em UX nas Américas (templates, treinamento)        |
 
 </div>

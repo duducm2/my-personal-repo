@@ -47,8 +47,9 @@
 #let experience = (
   ("Jan 2023 – Atual", "Bosch Brasil", "Analista de Pesquisa Aplicada e Design", (
     [Dashboards #strong[Power BI] para projetos/recursos; #strong[CSI 4,86 / NPS 9,94] méd. nos meus projetos (2024–2025).],
-    [CIP + Pesquisa no #strong[ServiceNow] como gate de qualidade/relevância #strong[orientado por método]—triagem baseada em dados.],
+    [#strong[CIP CIM (Global Services):] Pontuação automatizada de #strong[relevância em UX] no #strong[ServiceNow] (manipulação de dados, pesos por propriedades); com equipe de UX, avaliei #strong[dashboards estratégicos de CIP] na GS para a liderança identificar rapidamente problemas e ganhos de eficiência/eficácia.],
     [#strong[Projeto tooling (Power Tools):] entrega de requisitos a protótipos; check-ins regulares; progresso acompanhado para decisões.],
+    [#strong[Data Insights (Power Tools B2B):] Analisei registros do call center com #strong[teoria fundamentada de Strauss]—datasets, #strong[Python] e IA para desmontar os dados em categorias; #strong[validação constante com stakeholders]; insights de negócio no #strong[Power BI] (finanças, entrega com esteira transportadora e mais).],
     [Apoiei as Américas ao #strong[Nível 4 de Maturidade em UX]: governança, templates e treinamento que tornaram a prática mensurável.],
     [#strong[IA agêntica:] uso diário de #strong[Cursor IDE] para pesquisa, análise e resolução de problemas no pipeline.],
     [#strong[Internacional e mentoria:] duas viagens à Alemanha (2024, 2025); tutor na SENAI Digital Talent Academy.],

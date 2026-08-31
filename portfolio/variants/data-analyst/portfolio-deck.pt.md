@@ -440,8 +440,8 @@ img[src*="story-flow"] {
 
 ## Evidência que transforma serviços complexos em melhores decisões
 
-- Acredito que decisões devem ser **baseadas em evidência**—muitas vezes começando em **Excel** e **CSV** antes de escalar para BI e código.
-- Meu trabalho centra **análise de dados**, **experimentação** e **Pesquisa Aplicada**: mensurar resultados e alimentar a entrega com insight.
+- Acredito que decisões devem ser **baseadas em evidência**—muitas vezes começando em **Excel** e **CSV** antes de escalar para BI e código.
+- Meu trabalho centra **análise de dados**, **experimentação** e **Pesquisa Aplicada**: mensurar resultados e alimentar a entrega com insight.
 - Este portfólio mostra esse caminho por meio de projetos reais e métricas.
 
 <p><img src="../../../pictures/diagrams/story-flow.png" alt="Diagram story-flow: Why story flow" /></p>
@@ -664,13 +664,14 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 | Área                               | Conquista                                                                                                                        |
 | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | Cargo                               | Analista de Pesquisa Aplicada e Design – Bosch Brasil (jan 2023 – atual); Especialista em Pesquisa Aplicada e Project Champion na GS/BDU            |
-| Excel e CSV                        | **Excel** avançado (fórmulas, VBA, planilhas como banco de dados, atalhos); uso intenso de **CSV**; **3º lugar, Fórum de talentos Bosch 2018** (macro Excel) |
+| Excel e CSV                        | **Excel** avançado (fórmulas, VBA, planilhas como banco de dados, atalhos); uso intenso de **CSV**; **3º lugar, Fórum de talentos Bosch 2018** (macro Excel) |
 | Métricas e BI                       | Dashboards Power BI para projetos/recursos; **CSI 4,86 / NPS 9,94** méd. nos meus projetos (2024–2025)                         |
 | Internacional                      | Realizei duas viagens à Alemanha (2024, 2025) por trabalho relacionado ao cargo                                                                            |
 | Rastreamento CO2 (GS/Pesquisa Aplicada) | Conduzi prospecção de mercado para telemetria CO2; achado: falta de demanda — interrupção baseada em dados                                       |
 | Projeto tooling (PT)               | Requisitos a protótipos de alta fidelidade com check-ins regulares; progresso e feedback acompanhados para decisões         |
+| Data Insights (Power Tools B2B)    | Registros do call center analisados com teoria fundamentada de Strauss (datasets, Python, IA); insights validados com stakeholders no Power BI—finanças, entrega com esteira transportadora e mais |
 | Maturidade em UX                        | Nível 4 nas Américas – governança, templates, treinamento que tornaram a prática de UX mensurável                                                |
-| CIP + Pesquisa Aplicada             | Integração ServiceNow CIM; Pesquisa Aplicada como gate de qualidade/relevância orientado por método                                           |
+| CIP CIM (Global Services)          | **Relevância em UX** automatizada no ServiceNow (manipulação de dados, pesos por propriedades); com equipe de UX, avaliei **dashboards estratégicos de CIP** para a liderança da GS identificar problemas e melhorias de eficiência/eficácia                                           |
 | Colaboração                      | Sou tutor de estudantes da Digital Talent Academy                                                                                           |
 
 ---
@@ -1363,7 +1364,8 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 | ----------------------- | --------------------------------------------------------- |
 | Métricas e BI            | Dashboards Power BI; CSI 4,86 / NPS 9,94 méd. (2024–2025) |
 | Experimentação / ML    | Dissertação: confiança percebida, ML, validação com agente de IA |
-| Entrada baseada em dados    | Gate de Pesquisa Aplicada no CIP ServiceNow                   |
+| Entrada baseada em dados    | CIP CIM: pontuação de relevância em UX no ServiceNow + avaliação de dashboards estratégicos de CIP na GS com equipe de UX                   |
+| Análise qualitativa → BI | Data Insights: teoria fundamentada de Strauss em registros B2B do call center → dashboards Power BI |
 | Prática mensurável     | Nível 4 de Maturidade em UX nas Américas (templates, treinamento)        |
 
 </div>
