@@ -47,7 +47,7 @@
 #let experience = (
   ("Jan 2023 – Present", "Bosch Brasil", "Applied Research & Design Analyst", (
     [#strong[Power BI] dashboards for project/resource oversight; #strong[CSI 4.86 / NPS 9.94] avg. across my projects (2024–2025).],
-    [#strong[CIP CIM (Global Services):] Automated #strong[UX relevance] in #strong[ServiceNow] (data manipulation, property-based weights); with UX team, evaluated GS #strong[strategic CIP dashboards] so leadership could quickly spot main issues and efficiency/efficacy gains.],
+    [#strong[CIP CIM (Global Services):] Automated #strong[UX relevance] in #strong[ServiceNow] (data manipulation, property-based weights); evaluated GS #strong[strategic CIP dashboards] so leadership could quickly spot main issues and efficiency/efficacy gains.],
     [#strong[Tooling project (Power Tools):] delivery from requirements through prototypes; regular check-ins; progress tracked for decisions.],
     [#strong[Data Insights (Power Tools B2B):] Analyzed call-center records with #strong[Strauss grounded theory]—datasets, #strong[Python], and AI to dismantle data into categories; constant #strong[stakeholder validation]; business insights in #strong[Power BI] (finance, conveyor delivery, and more).],
     [Supported Americas to #strong[UX Maturity Level 4]: governance, templates, training that made UX practice measurable.],
