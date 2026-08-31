@@ -8,13 +8,15 @@
 // -----------------------------------------------------------------------------
 // 1. Setup and Global Styles (Plan §1)
 // -----------------------------------------------------------------------------
-#set page(
-  paper: "a4",
-  margin: (left: 0.4cm, right: 0.4cm, top: 0.4cm, bottom: 0.4cm)
-)
+#let page-margin = if compact-layout {
+  (left: 0.38cm, right: 0.38cm, top: 0.38cm, bottom: 0.38cm)
+} else {
+  (left: 0.4cm, right: 0.4cm, top: 0.4cm, bottom: 0.4cm)
+}
+#set page(paper: "a4", margin: page-margin)
 // Lato: put Lato *.ttf (e.g. Lato-Regular, Lato-Bold, Lato-Italic) in typst/fonts/ and compile with --font-path
 #set text(font: "Lato", size: 10pt)
-#set par(leading: 1.2em, spacing: 0.7em)
+#set par(leading: 1.0em, spacing: 0em)
 
 // Palette: grey + brownish-beige (Alfredo-style); accent for optional highlight
 #let sidebar-header-bg = rgb("#fff")
@@ -23,30 +25,62 @@
 #let footer-bg = rgb("#34495e")
 #let heading-color = rgb("#2D2D2D")
 #let sidebar-bg = rgb("#F5F5F5")
-#let highlight-blue = rgb("#34495e")  // Slightly brighter midnight blue (accessibility)
-#let pill-bg = rgb("#E8EEF2")  // Light tint for skill pills
+#let highlight-blue = rgb("#34495e")
+#let pill-bg = rgb("#E8EEF2")
 
-// Make strong text use midnight blue for emphasis
 #show strong: it => text(weight: "bold", fill: highlight-blue)[#it]
 
-// Section title: uppercase, bold, sans-serif, no underline (modern UX look)
+#let sec-title-above = if compact-layout { 0.42em } else { 0.5em }
+#let sec-title-below = if compact-layout { 0.48em } else { 0.62em }
+#let exp-role-above = if compact-layout { 0.45em } else { 0.55em }
+#let exp-role-below = if compact-layout { 0.32em } else { 0.42em }
+#let bullet-above = if compact-layout { 0.38em } else { 0.5em }
+#let edu-above = if compact-layout { 0.4em } else { 0.48em }
+#let edu-thesis-above = if compact-layout { 0.3em } else { 0.38em }
+#let divider-above = if compact-layout { 0.34em } else { 0.42em }
+#let divider-below = if compact-layout { 0.22em } else { 0.28em }
+#let pub-above = if compact-layout { 0.34em } else { 0.42em }
+#let add-above = if compact-layout { 0.3em } else { 0.38em }
+#let footer-above = if compact-layout { 0.45em } else { 0.55em }
+
 #let section-title(body) = {
   set text(size: 9pt, weight: "bold", fill: highlight-blue)
-  block(above: 0.75em, below: 0.9em)[#block(body)]
+  block(above: sec-title-above, below: sec-title-below)[#block(body)]
 }
 
-// Sidebar subsection: bold, midnight blue; short accent line below
 #let sidebar-heading(body) = {
   set text(size: 9pt, weight: "bold", fill: highlight-blue)
-  block(above: 0.4em, below: 0.3em)[#block(body)]
-  block(below: 0.65em)[#line(length: 1.5em, stroke: (paint: highlight-blue, thickness: 0.5pt))]
+  block(above: 0.3em, below: 0.2em)[#block(body)]
+  block(below: 0.45em)[#line(length: 1.5em, stroke: (paint: highlight-blue, thickness: 0.5pt))]
 }
-// Sidebar body text: comfortable line height for readability (modest increase)
+
 #let sidebar-text(body) = {
-  set text(size: 9pt, fill: rgb("#444444"))
-  set par(leading: 1.62em, spacing: 0.62em)
+  set text(size: 8.5pt, fill: rgb("#444444"))
+  set par(leading: 1.0em, spacing: 0em)
   body
 }
+
+#let body-emphasis(it) = text(weight: "bold", fill: highlight-blue)[#it]
+
+#let body-prose(body) = {
+  set text(size: 9.5pt, fill: heading-color)
+  set par(leading: 1.0em, spacing: 0em)
+  show strong: body-emphasis
+  body
+}
+
+#let bullet-item(body) = block(
+  above: bullet-above,
+  below: 0.04em,
+)[
+  #grid(
+    columns: (0.55em, 1fr),
+    gutter: 0.35em,
+    align: (top + right, left),
+    [•],
+    [#body-prose[#body]],
+  )
+]
 
 // -----------------------------------------------------------------------------
 // 2. Layout Structure (Grid) — Plan §2
@@ -55,12 +89,8 @@
   columns: (32%, 1fr),
   gutter: 2em,
   align: (left, left),
-  // -------------------------------------------------------------------------
-  // 3. Left Column (Sidebar) — full-height light grey background to remove empty gap
-  // -------------------------------------------------------------------------
   [
     #block(fill: sidebar-bg, width: 100%, height: 98%, inset: (left: 0.8em, right: 0.8em, top: 0.6em, bottom: 0.6em), stroke: (paint: rgb("#D3D3D3"), thickness: 1pt))[
-      // Photo: width 90% of container, rectangular, margins, container visible
       #block(width: 100%, inset: 0.5em, below: 0.6em)[
         #align(center)[
           #box(
@@ -71,11 +101,10 @@
           )[#align(bottom)[#image("pictures/my-photo-rectangle.png", width: 100%, height: 8.2em)]]
         ]
       ]
-      // Contact: phone, clickable email, then LinkedIn / Lattes / ORCID in one row
       #sidebar-heading[#ui.contact]
       #block(below: 0.45em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[#ui.phone_abbr] #h(0.5em) #text(size: 9pt)[#phone]]
       #block(below: 0.45em)[#link("mailto:" + email)[#text(size: 7.5pt, fill: highlight-blue)[#email]]]
-      #block(above: 1.05em, below: 1.65em)[
+      #block(above: 0.45em, below: 0.55em)[
         #grid(
           columns: (1fr, 1fr, 1fr),
           gutter: 0.35em,
@@ -85,43 +114,36 @@
           [#link(orcid-url)[#text(size: 9pt, fill: highlight-blue)[#orcid]]],
         )
       ]
-      #block(below: 0.9em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[#ui.location:] #h(0.5em) #text(size: 9pt)[#location]]
-      // Profile (includes strengths in bold)
+      #block(below: 0.55em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[#ui.location:] #h(0.5em) #text(size: 9pt)[#location]]
       #sidebar-heading[#ui.profile]
-      #block(width: 100%, below: 0.75em)[#sidebar-text[#profile]]
-    // Languages
+      #block(width: 100%, below: 0.5em)[#sidebar-text[#profile]]
     #sidebar-heading[#ui.languages]
-    #block(below: 0.4em)[
+    #block(below: 0.3em)[
       #text(size: 9pt, fill: rgb("#444444"))[#languages]
     ]
-    #block(below: 0.5em)[]
-    // Skills (Core: list; Tech: pills/tags)
+    #block(below: 0.35em)[]
     #sidebar-heading[#ui.skills]
     #for (key, cat, sub) in skills [
-      #block(above: 0.65em)[
+      #block(above: 0.4em)[
         #text(weight: "bold", size: 9pt, fill: highlight-blue)[#cat]
         #linebreak()
         #if key == "Tech" [
-          #block(above: 0.3em)[
+          #block(above: 0.2em)[
             #columns(2, gutter: 0.4em)[
               #for (i, item) in sub.enumerate() [
                 #if i == ((sub.len() + 1) / 2) [#colbreak()]
-                #block(fill: pill-bg, radius: 0.18em, inset: (left: 0.25em, right: 0.25em, top: 0.08em, bottom: 0.08em), below: 0.22em)[#text(size: 9pt, fill: rgb("#444444"))[#item]]
+                #block(fill: pill-bg, radius: 0.18em, inset: (left: 0.25em, right: 0.25em, top: 0.08em, bottom: 0.08em), below: 0.18em)[#text(size: 8.5pt, fill: rgb("#444444"))[#item]]
               ]
             ]
           ]
         ] else [
-          #for item in sub [#block(inset: (left: 0.75em), above: 0.4em)[#text(size: 9pt, fill: rgb("#444444"))[• #item]]]
+          #for item in sub [#block(inset: (left: 0.75em), above: 0.28em)[#text(size: 9pt, fill: rgb("#444444"))[• #item]]]
         ]
       ]
     ]
     ]
   ],
-  // -------------------------------------------------------------------------
-  // 4. Right Column (Main Content)
-  // -------------------------------------------------------------------------
   [
-    // Header: name (tighter line spacing), then accent line, tagline
     #block(above: 0em, below: 0.6em)[
       #set par(leading: 0.72em)
         #text(size: 20pt, weight: "bold", fill: highlight-blue)[#upper(name)]
@@ -132,45 +154,43 @@
     #block(below: 0.5em)[
       #text(size: 12pt, fill: highlight-blue)[#upper(tagline)]
     ]
-    #block(below: 1.1em)[
+    #block(below: 0.55em)[
       #line(length: 100%, stroke: (paint: gray, thickness: 0.4pt))
     ]
-    // Experience
     #section-title[#ui.experience]
     #for (date, company, title, bullets) in experience [
-      #block(above: 1em, below: 0.9em)[
+      #block(above: exp-role-above, below: exp-role-below)[
         #grid(columns: (1fr, auto), gutter: 1em, align: (left, right))[
           #text(weight: "bold", fill: highlight-blue)[#company]
           #text(weight: "bold", fill: rgb("#555555"))[#date]
         ]
-        #block(above: 0.2em)[#text(style: "italic", fill: highlight-blue)[#title]]
-        #block(above: 0.5em)[
-          #set par(leading: 1.2em)
-          #for b in bullets [#block(inset: (left: 1em), above: 0.5em)[#text(fill: heading-color)[• #b]]]
+        #block(above: 0.12em, below: 0.22em)[#text(style: "italic", fill: highlight-blue)[#title]]
+        #for b in bullets [#bullet-item[#b]]
+      ]
+    ]
+    #block(above: divider-above, below: divider-below)[#line(length: 100%, stroke: (paint: gray, thickness: 0.35pt))]
+    #section-title[#ui.education]
+    #for (degree, inst, thesis) in education [
+      #block(above: edu-above, below: 0.12em)[
+        #strong[#degree] #inst
+        #if thesis != none [
+          #block(inset: (left: 0.65em), above: edu-thesis-above)[
+            #set text(size: 9pt, style: "italic", fill: rgb("#444444"))
+            #set par(leading: 1.0em, spacing: 0em)
+            #thesis
+          ]
         ]
       ]
     ]
-    #block(above: 0.7em, below: 0.35em)[#line(length: 100%, stroke: (paint: gray, thickness: 0.35pt))]
-    // Education
-    #section-title[#ui.education]
-    #for (degree, inst, thesis) in education [
-      #block(above: 0.75em)[
-        #strong[#degree] #inst
-        #if thesis != none [#block(inset: (left: 0.5em), above: 0.4em)[#text(size: 9pt, style: "italic", fill: rgb("#444444"))[#thesis]]]
-      ]
-    ]
-    #block(above: 0.7em, below: 0.35em)[#line(length: 100%, stroke: (paint: gray, thickness: 0.35pt))]
-    // Publications
+    #block(above: divider-above, below: divider-below)[#line(length: 100%, stroke: (paint: gray, thickness: 0.35pt))]
     #section-title[#ui.publications]
     #for (venue, desc) in publications [
-      #block(above: 0.65em)[#strong[#venue] #desc]
+      #block(above: pub-above)[#body-prose[#strong[#venue] #desc]]
     ]
-    #block(above: 0.7em, below: 0.35em)[#line(length: 100%, stroke: (paint: gray, thickness: 0.35pt))]
-    // Additional
+    #block(above: divider-above, below: divider-below)[#line(length: 100%, stroke: (paint: gray, thickness: 0.35pt))]
     #section-title[#ui.additional]
-    #for a in additional [#block(above: 0.6em)[#a]]
+    #for a in additional [#block(above: add-above)[#body-prose[#a]]]
   ]
 )
 
-// Full-width dark footer bar (reduced top space to help fit one page)
-#block(above: 1em, width: 100%, height: 0.45em, fill: footer-bg)[]
+#block(above: footer-above, width: 100%, height: 0.45em, fill: footer-bg)[]
