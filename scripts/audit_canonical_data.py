@@ -349,7 +349,15 @@ def main() -> int:
     ok.append("additional.csv: Talent Forum, PhraseNets, Hospitalhaços")
 
     projects = load("projects.csv")
-    for pid in ("tooling-pt", "data-insights-pt", "cip-research-gate", "maturity-l4", "outcomes-2024-2025", "infovis-msc"):
+    for pid in (
+        "tooling-pt",
+        "data-insights-pt",
+        "cip-research-gate",
+        "maturity-l4",
+        "outcomes-2024-2025",
+        "infovis-msc",
+        "dissertation-trustmate-stats",
+    ):
         if not any(r["id"] == pid for r in projects):
             issues.append(f"projects.csv missing {pid}")
     ok.append("projects.csv: tooling/CIP/maturity/outcomes")
@@ -375,6 +383,8 @@ def main() -> int:
         "infovis_pnad_bullets",
         "infovis_phrasenet_h2",
         "infovis_phrasenet_bullets",
+        "dissertation_pbi_intro",
+        "dissertation_pbi_bullets",
         "future_h2",
         "future_intro",
         "future_diagram_alt",

@@ -673,6 +673,8 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 | Maturidade em UX                        | Nível 4 nas Américas – governança, templates, treinamento que tornaram a prática de UX mensurável                                                |
 | CIP CIM (Global Services)          | **Relevância em UX** automatizada no ServiceNow (manipulação de dados, pesos por propriedades); com equipe de UX, avaliei **dashboards estratégicos de CIP** para a liderança da GS identificar problemas e melhorias de eficiência/eficácia                                           |
 | Visualização da Informação (Mestrado)      | **Nota A** (Unicamp)—estruturas visuais e mapeamento, dados multivariados, visões/interação, grafos/árvores, viz de textos; **PNAD Contínua** Power BI + projeto web **PhraseNets**                                                                                           |
+| Dissertação (TrustMate estatística)     | Testes de normalidade Shapiro-Wilk; **t de Welch/pareado**, **d de Cohen**, **FDR** (Python → Power BI); média, DP, variância, EE, IC + análise gráfica                                                                                                               |
+| Métodos de pesquisa                   | Disciplinas do mestrado + prática: raciocínio descritivo vs inferencial; teoria fundamentada, fenomenologia, PAR; conecta ao Data Insights (GT Strauss)                                                                                                                       |
 | Colaboração                      | Sou tutor de estudantes da Digital Talent Academy                                                                                           |
 
 ---
@@ -1011,7 +1013,11 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## Data Visualization – Dissertation Power BI
 
-<p class="dissertation-pbi-intro"><span class="thesis-emphasis">My dissertation asks whether <span class="agentic-ai-emphasis">Agentic AI</span> behaves like humans.</span></p>
+<p class="dissertation-pbi-intro"><span class="thesis-emphasis">Minha dissertação pergunta se **Agentic AI** se comporta como humanos.</span></p>
+
+- **Normalidade primeiro:** Shapiro-Wilk nas distribuições de scores por atributo antes de escolher testes inferenciais.
+- **Python → Power BI:** Scripts offline calculam **Welch** (Humano–IA), **t pareado** (Humano–Humano) e **t independente** (IA–IA) com **d de Cohen** e **FDR Benjamini-Hochberg**; resultados importados ao Power BI para reporting.
+- **Descritivo + visual:** Medidas DAX para **média, DP, variância, erro padrão e limites de IC**; 50+ estruturas de gráficos (boxplots, forest plots, small multiples) alinhadas ao curso de InfoVis.
 
 <div class="dissertation-pbi-row">
 <p><img src="../../../pictures/academia/dissertation/dissertation-pbi-1.png" alt="Power BI – variability of human scores between websites" /></p>
@@ -1367,9 +1373,10 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 | Competência              | Evidência do meu trabalho                                     |
 | ----------------------- | --------------------------------------------------------- |
 | Métricas e BI            | Dashboards Power BI; CSI 4,86 / NPS 9,94 méd. (2024–2025) |
-| Experimentação / ML    | Dissertação: confiança percebida, ML, validação com agente de IA |
+| Estatística inferencial  | Dissertação: testes de normalidade → t de Welch/pareado, d de Cohen, FDR (Python → Power BI) |
 | Entrada baseada em dados    | CIP CIM: pontuação de relevância em UX no ServiceNow + avaliação de dashboards estratégicos de CIP na GS com equipe de UX                   |
 | Análise qualitativa → BI | Data Insights: teoria fundamentada de Strauss em registros B2B do call center → dashboards Power BI |
+| Métodos de pesquisa        | Disciplinas do mestrado + prática: raciocínio descritivo vs inferencial; teoria fundamentada, fenomenologia, PAR; conecta ao Data Insights (GT Strauss) |
 | Visualização e codificação | InfoVis (Mestrado): mapeamento visual, estruturas multivariadas, visões/interação—PNAD Power BI + PhraseNets |
 | Prática mensurável     | Nível 4 de Maturidade em UX nas Américas (templates, treinamento)        |
 

@@ -997,7 +997,9 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## Data Visualization – Dissertation Power BI
 
-<p class="dissertation-pbi-intro"><span class="thesis-emphasis">My dissertation asks whether <span class="agentic-ai-emphasis">Agentic AI</span> behaves like humans.</span></p>
+<p class="dissertation-pbi-intro"><span class="thesis-emphasis">{{canonical:dissertation_pbi_intro}}</span></p>
+
+{{canonical:dissertation_pbi_bullets}}
 
 <div class="dissertation-pbi-row">
 <p><img src="{{canonical:asset_prefix}}pictures/academia/dissertation/dissertation-pbi-1.png" alt="Power BI – variability of human scores between websites" /></p>

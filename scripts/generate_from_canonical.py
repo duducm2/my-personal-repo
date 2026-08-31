@@ -252,6 +252,8 @@ def build_slot_map(
         "infovis_pnad_bullets": narrative(nars, variant, "infovis_pnad_bullets"),
         "infovis_phrasenet_h2": narrative(nars, variant, "infovis_phrasenet_h2"),
         "infovis_phrasenet_bullets": narrative(nars, variant, "infovis_phrasenet_bullets"),
+        "dissertation_pbi_intro": narrative(nars, variant, "dissertation_pbi_intro"),
+        "dissertation_pbi_bullets": narrative(nars, variant, "dissertation_pbi_bullets"),
         "future_h2": narrative(nars, variant, "future_h2"),
         "future_intro": narrative(nars, variant, "future_intro"),
         "future_diagram_alt": narrative(nars, variant, "future_diagram_alt"),

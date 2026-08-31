@@ -1007,7 +1007,11 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## Data Visualization – Dissertation Power BI
 
-<p class="dissertation-pbi-intro"><span class="thesis-emphasis">My dissertation asks whether <span class="agentic-ai-emphasis">Agentic AI</span> behaves like humans.</span></p>
+<p class="dissertation-pbi-intro"><span class="thesis-emphasis">My dissertation asks whether **Agentic AI** behaves like humans.</span></p>
+
+- **Normality first:** Shapiro-Wilk on attribute score distributions before choosing inferential tests.
+- **Python → Power BI:** Offline scripts compute **Welch** (Human–AI), **paired t-tests** (Human–Human), and **independent t-tests** (AI–AI) with **Cohen's d** and **Benjamini-Hochberg FDR**; results imported into Power BI for reporting.
+- **Descriptive + visual:** DAX measures for **mean, SD, variance, standard error, and CI bounds**; 50+ chart structures (boxplots, forest plots, small multiples) aligned with InfoVis coursework.
 
 <div class="dissertation-pbi-row">
 <p><img src="../../../pictures/academia/dissertation/dissertation-pbi-1.png" alt="Power BI – variability of human scores between websites" /></p>

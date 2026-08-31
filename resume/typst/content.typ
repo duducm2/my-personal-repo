@@ -67,7 +67,7 @@
 )
 
 #let education = (
-  ("Master's in Technology:", [Info & Comm Systems. Unicamp (2023–2026, completing September 2026).], [Dissertation: Measuring #strong[perceived trust] in e-commerce websites with a digital evaluation platform (ISO/IEC 25000), using experimentation, ML, and human vs #strong[AI-agent] validation. Coursework (#strong[Grade A in all courses]): Academic Writing, Scientific Research, Innovation & Technology Transfer, #strong[Information Visualization] (visual mapping, multivariate data, interaction, graphs/trees, text viz).]),
+  ("Master's in Technology:", [Info & Comm Systems. Unicamp (2023–2026, completing September 2026).], [Dissertation: #strong[perceived trust] in e-commerce (ISO/IEC 25000), human vs #strong[AI-agent] validation; #strong[inferential stats]—normality checks, #strong[Welch/paired t-tests], #strong[Cohen's d], #strong[FDR] (Python → Power BI); descriptive metrics (mean, SD, SE, CI). Coursework (#strong[Grade A in all courses]): Academic Writing, Scientific Research, Innovation & Technology Transfer, #strong[Information Visualization] (visual mapping, multivariate data, interaction, graphs/trees, text viz).]),
   ("Systems Analysis and Development.", "Unicamp (2015–2020).", none),
   ("Technical Degree in Informatics.", "ETEC Bento Quirino (2012–2014).", none),
 )
@@ -79,6 +79,6 @@
 
 #let additional = (
   [3rd Place – Bosch Talent Forum 2018 (Excel macro project).],
-  [MSc InfoVis (Grade A, Unicamp): visual mapping, multivariate data, interaction, graphs/trees & text viz—PNAD Contínua Power BI + PhraseNets web projects.],
+  [MSc InfoVis (Grade A, Unicamp): visual mapping, multivariate data, interaction, graphs/trees, text viz—PNAD Power BI + PhraseNets.],
   [Volunteer – NGO Hospitalhaços (Admin).],
 )

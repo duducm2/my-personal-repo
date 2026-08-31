@@ -673,6 +673,8 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 | UX Maturity                        | Americas Level 4 – governance, templates, training that made UX practice measurable                                                |
 | CIP CIM (Global Services)          | Automated **UX relevance** in ServiceNow (data manipulation, property-based weights); with UX team, evaluated **strategic CIP dashboards** so GS leadership could quickly spot main issues and efficiency/efficacy improvements                                           |
 | MSc Information Visualization      | **Grade A** (Unicamp)—visual structures & mapping, multivariate data, views/interaction, graphs/trees, text viz; **PNAD Contínua** Power BI + **PhraseNets** web project                                                                                           |
+| Dissertation (TrustMate stats)     | Shapiro-Wilk normality checks; Python **Welch/paired t-tests**, **Cohen's d**, **FDR** → Power BI; mean, SD, variance, SE, CI + graphical analysis                                                                                                               |
+| Research methods                   | MSc coursework + practice: descriptive vs inferential reasoning; grounded theory, phenomenology, PAR; connects to Data Insights (Strauss GT)                                                                                                                       |
 | Collaboration                      | Tutor of Digital Talent Academy Students                                                                                           |
 
 ---
@@ -1011,7 +1013,11 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## Data Visualization – Dissertation Power BI
 
-<p class="dissertation-pbi-intro"><span class="thesis-emphasis">My dissertation asks whether <span class="agentic-ai-emphasis">Agentic AI</span> behaves like humans.</span></p>
+<p class="dissertation-pbi-intro"><span class="thesis-emphasis">My dissertation asks whether **Agentic AI** behaves like humans.</span></p>
+
+- **Normality first:** Shapiro-Wilk on attribute score distributions before choosing inferential tests.
+- **Python → Power BI:** Offline scripts compute **Welch** (Human–AI), **paired t-tests** (Human–Human), and **independent t-tests** (AI–AI) with **Cohen's d** and **Benjamini-Hochberg FDR**; results imported into Power BI for reporting.
+- **Descriptive + visual:** DAX measures for **mean, SD, variance, standard error, and CI bounds**; 50+ chart structures (boxplots, forest plots, small multiples) aligned with InfoVis coursework.
 
 <div class="dissertation-pbi-row">
 <p><img src="../../../pictures/academia/dissertation/dissertation-pbi-1.png" alt="Power BI – variability of human scores between websites" /></p>
@@ -1367,9 +1373,10 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 | Competency              | Evidence from my work                                     |
 | ----------------------- | --------------------------------------------------------- |
 | Metrics & BI            | Power BI dashboards; CSI 4.86 / NPS 9.94 avg. (2024–2025) |
-| Experimentation / ML    | Master's dissertation: perceived trust, ML, AI-agent validation |
+| Inferential statistics  | Dissertation: normality checks → Welch/paired t-tests, Cohen's d, FDR (Python → Power BI) |
 | Data-informed intake    | CIP CIM: ServiceNow UX relevance scoring + GS strategic CIP dashboard evaluation with UX team                   |
 | Qualitative → BI analytics | Data Insights: Strauss grounded theory on B2B call-center records → Power BI dashboards |
+| Research methods        | MSc coursework + practice: descriptive vs inferential reasoning; grounded theory, phenomenology, PAR; connects to Data Insights (Strauss GT) |
 | Visualization & encoding | MSc InfoVis: visual mapping, multivariate structures, views/interaction—PNAD Power BI + PhraseNets |
 | Measurable practice     | Americas UX Maturity Level 4 (templates, training)        |
 

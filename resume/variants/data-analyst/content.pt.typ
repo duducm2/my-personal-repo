@@ -40,7 +40,7 @@
 #let languages = "Português (Nativo)   Inglês (Fluente)"
 
 #let skills = (
-  ("Core", "Núcleo:", ("Excel (fórmulas, VBA, bases de dados)", "Análise de dados e CSV", "Visualização, BI e InfoVis", "Python / SQL", "Pesquisa Aplicada")),
+  ("Core", "Núcleo:", ("Excel (fórmulas, VBA, bases de dados)", "Análise de dados e CSV", "Visualização, BI e InfoVis", "Python / SQL / Estatística", "Pesquisa Aplicada")),
   ("Tech", "Tecnologias:", ("Excel", "VBA", "CSV", "Power BI", "Python", "SQL", "Matplotlib", "Seaborn", "Azure", "Cursor IDE", "Git", "GitHub", "React", "Figma", "ServiceNow", "Bitbucket", "HTML", "CSS", "Mermaid", "VS Code")),
 )
 
@@ -68,7 +68,7 @@
 )
 
 #let education = (
-  ("Mestrado em Tecnologia:", [Sist. de Info. e Comunicação. Unicamp (2023–2026, conclusão em setembro de 2026).], [Dissertação: mensuração de #strong[confiança percebida] em sites de e-commerce com plataforma digital (ISO/IEC 25000), experimentação, ML e validação humano vs #strong[agente de IA]. Disciplinas (#strong[nota A em todas]): Escrita Acadêmica, Pesquisa Científica, Inovação e Transferência de Tecnologia, #strong[Visualização da Informação] (mapeamento visual, dados multivariados, interação, grafos/árvores, viz de textos).]),
+  ("Mestrado em Tecnologia:", [Sist. de Info. e Comunicação. Unicamp (2023–2026, conclusão em setembro de 2026).], [Dissertação: #strong[confiança percebida] em e-commerce (ISO/IEC 25000), validação humano vs #strong[agente de IA]; #strong[estatística inferencial]—normalidade, #strong[t de Welch/pareado], #strong[d de Cohen], #strong[FDR] (Python → Power BI); métricas descritivas (média, DP, EE, IC). Disciplinas (#strong[nota A em todas]): Escrita Acadêmica, Pesquisa Científica, Inovação e Transferência de Tecnologia, #strong[Visualização da Informação] (mapeamento visual, dados multivariados, interação, grafos/árvores, viz de textos).]),
   ("Análise e Desenvolvimento de Sistemas.", "Unicamp (2015–2020).", none),
   ("Técnico em Informática.", "ETEC Bento Quirino (2012–2014).", none),
 )
@@ -80,6 +80,6 @@
 
 #let additional = (
   [3º Lugar – Fórum de talentos Bosch 2018 (projeto com macro Excel).],
-  [InfoVis (Mestrado, nota A, Unicamp): mapeamento visual, dados multivariados, interação, grafos/árvores e viz de textos—PNAD Contínua Power BI + PhraseNets.],
+  [InfoVis (Mestrado, nota A, Unicamp): mapeamento visual, dados multivariados, interação, grafos/árvores, viz de textos—PNAD Power BI + PhraseNets.],
   [Voluntário – ONG Hospitalhaços (Admin).],
 )

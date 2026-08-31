@@ -7,6 +7,11 @@ fields:
   closing_summary: "Conecto descoberta à entrega: esclareço necessidades, alinho stakeholders, priorizo com evidência e valido resultados — criando produtos confiáveis, centrados no usuário, com impacto mensurável."
   csi_h2: "Presente – Evidência de resultados: CSI e NPS (2024–2025)"
   deck_title: "Eduardo Figueiredo – Portfólio"
+  dissertation_pbi_bullets: |
+    - **Normalidade primeiro:** Shapiro-Wilk nas distribuições de scores por atributo antes de escolher testes inferenciais.
+    - **Python → Power BI:** Scripts offline calculam **Welch** (Humano–IA), **t pareado** (Humano–Humano) e **t independente** (IA–IA) com **d de Cohen** e **FDR Benjamini-Hochberg**; resultados importados ao Power BI para reporting.
+    - **Descritivo + visual:** Medidas DAX para **média, DP, variância, erro padrão e limites de IC**; 50+ estruturas de gráficos (boxplots, forest plots, small multiples) alinhadas ao curso de InfoVis.
+  dissertation_pbi_intro: "Minha dissertação pergunta se **Agentic AI** se comporta como humanos."
   email: "edu.evangelista.figueiredo@gmail.com"
   future_career_body: |
     ## Futuro – Como Trabalho
