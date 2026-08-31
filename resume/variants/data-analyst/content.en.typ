@@ -15,6 +15,7 @@
 #let orcid = "ORCID"
 #let orcid-url = "https://orcid.org/0009-0002-5178-6157"
 #let location = "Nova Odessa, SP - Brazil"
+#let compact-layout = false
 
 #let ui = (
   contact: "Contact",

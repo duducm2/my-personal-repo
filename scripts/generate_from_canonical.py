@@ -57,25 +57,29 @@ def md_bold_to_typst(text: str) -> str:
     return re.sub(r"\*\*(.+?)\*\*", r"#strong[\1]", text)
 
 
-def typst_profile_blocks(text: str) -> str:
+def typst_profile_blocks(text: str, lang: str = DEFAULT_LANG) -> str:
     """Split profile into two Typst blocks with vertical gap (not line leading)."""
+    gap = "0.35em" if lang == "pt" else "0.5em"
     for sep, lead in ((". Uses ", "Uses "), (". **Uso** ", "**Uso** ")):
         if sep in text:
             first, second = text.split(sep, 1)
             return (
-                f"{md_bold_to_typst(first.strip())}. #v(0.5em) "
+                f"{md_bold_to_typst(first.strip())}. #v({gap}) "
                 f"{md_bold_to_typst(lead + second.strip())}"
             )
     return md_bold_to_typst(text)
 
 
-def typst_dense_lines(text: str, separator: str = "; ") -> str:
+def typst_dense_lines(
+    text: str, separator: str = "; ", lang: str = DEFAULT_LANG
+) -> str:
     """Break long prose into stacked blocks separated by vertical margin."""
+    gap = "0.28em" if lang == "pt" else "0.42em"
     converted = md_bold_to_typst(text)
     if separator not in converted:
         return converted
     parts = [p.strip() for p in converted.split(separator) if p.strip()]
-    return " #v(0.42em) ".join(parts)
+    return f" #v({gap}) ".join(parts)
 
 
 def typst_inline(s: str) -> str:
@@ -136,7 +140,8 @@ def render_resume(
     )
 
     tagline = narrative(nars, variant, "tagline")
-    profile_text = typst_profile_blocks(narrative(nars, variant, "profile"))
+    profile_text = typst_profile_blocks(narrative(nars, variant, "profile"), lang)
+    compact_layout = lang == "pt"
 
     core = sorted(
         [r for r in skills_all if r["category"] == "Core"],
@@ -179,7 +184,7 @@ def render_resume(
     for edu in education:
         detail = lang_col(edu, "detail", lang).strip()
         if detail:
-            detail_typst = f"[{typst_dense_lines(detail)}]"
+            detail_typst = f"[{typst_dense_lines(detail, lang=lang)}]"
         else:
             detail_typst = "none"
         edu_blocks.append(
@@ -216,6 +221,7 @@ def render_resume(
 #let orcid = "{lang_col(profile, 'orcid_label', lang)}"
 #let orcid-url = "{profile['orcid_url']}"
 #let location = "{lang_col(profile, 'location', lang)}"
+#let compact-layout = {str(compact_layout).lower()}
 
 #let ui = (
 {ui_fields}

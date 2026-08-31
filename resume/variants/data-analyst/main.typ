@@ -7,12 +7,14 @@
 #import sys.inputs.at("content", default: "content.en.typ"): *
 
 // -----------------------------------------------------------------------------
-// 1. Setup and Global Styles (Plan Â§1)
+// 1. Setup and Global Styles (Plan §1)
 // -----------------------------------------------------------------------------
-#set page(
-  paper: "a4",
-  margin: (left: 0.4cm, right: 0.4cm, top: 0.4cm, bottom: 0.4cm)
-)
+#let page-margin = if compact-layout {
+  (left: 0.38cm, right: 0.38cm, top: 0.38cm, bottom: 0.38cm)
+} else {
+  (left: 0.4cm, right: 0.4cm, top: 0.4cm, bottom: 0.4cm)
+}
+#set page(paper: "a4", margin: page-margin)
 // Lato: put Lato *.ttf in resume/typst/fonts/ and compile with --font-path
 #set text(font: "Lato", size: 10pt)
 #set par(leading: 1.0em, spacing: 0em)
@@ -28,9 +30,22 @@
 
 #show strong: it => text(weight: "bold", fill: highlight-blue)[#it]
 
+#let sec-title-above = if compact-layout { 0.42em } else { 0.5em }
+#let sec-title-below = if compact-layout { 0.48em } else { 0.62em }
+#let exp-role-above = if compact-layout { 0.45em } else { 0.55em }
+#let exp-role-below = if compact-layout { 0.32em } else { 0.42em }
+#let bullet-above = if compact-layout { 0.38em } else { 0.5em }
+#let edu-above = if compact-layout { 0.4em } else { 0.48em }
+#let edu-thesis-above = if compact-layout { 0.3em } else { 0.38em }
+#let divider-above = if compact-layout { 0.34em } else { 0.42em }
+#let divider-below = if compact-layout { 0.22em } else { 0.28em }
+#let pub-above = if compact-layout { 0.34em } else { 0.42em }
+#let add-above = if compact-layout { 0.3em } else { 0.38em }
+#let footer-above = if compact-layout { 0.45em } else { 0.55em }
+
 #let section-title(body) = {
   set text(size: 9pt, weight: "bold", fill: highlight-blue)
-  block(above: 0.5em, below: 0.62em)[#block(body)]
+  block(above: sec-title-above, below: sec-title-below)[#block(body)]
 }
 
 #let sidebar-heading(body) = {
@@ -55,8 +70,8 @@
 }
 
 #let bullet-item(body) = block(
-  above: 0.5em,
-  below: 0.06em,
+  above: bullet-above,
+  below: 0.04em,
 )[
   #grid(
     columns: (0.55em, 1fr),
@@ -141,7 +156,7 @@
     ]
     #section-title[#ui.experience]
     #for (date, company, title, bullets) in experience [
-      #block(above: 0.55em, below: 0.42em)[
+      #block(above: exp-role-above, below: exp-role-below)[
         #grid(columns: (1fr, auto), gutter: 1em, align: (left, right))[
           #text(weight: "bold", fill: highlight-blue)[#company]
           #text(weight: "bold", fill: rgb("#555555"))[#date]
@@ -150,13 +165,13 @@
         #for b in bullets [#bullet-item[#b]]
       ]
     ]
-    #block(above: 0.42em, below: 0.28em)[#line(length: 100%, stroke: (paint: gray, thickness: 0.35pt))]
+    #block(above: divider-above, below: divider-below)[#line(length: 100%, stroke: (paint: gray, thickness: 0.35pt))]
     #section-title[#ui.education]
     #for (degree, inst, thesis) in education [
-      #block(above: 0.48em, below: 0.12em)[
+      #block(above: edu-above, below: 0.12em)[
         #strong[#degree] #inst
         #if thesis != none [
-          #block(inset: (left: 0.65em), above: 0.38em)[
+          #block(inset: (left: 0.65em), above: edu-thesis-above)[
             #set text(size: 9pt, style: "italic", fill: rgb("#444444"))
             #set par(leading: 1.0em, spacing: 0em)
             #thesis
@@ -164,16 +179,15 @@
         ]
       ]
     ]
-    #block(above: 0.42em, below: 0.28em)[#line(length: 100%, stroke: (paint: gray, thickness: 0.35pt))]
+    #block(above: divider-above, below: divider-below)[#line(length: 100%, stroke: (paint: gray, thickness: 0.35pt))]
     #section-title[#ui.publications]
     #for (venue, desc) in publications [
-      #block(above: 0.42em)[#body-prose[#strong[#venue] #desc]]
+      #block(above: pub-above)[#body-prose[#strong[#venue] #desc]]
     ]
-    #block(above: 0.42em, below: 0.28em)[#line(length: 100%, stroke: (paint: gray, thickness: 0.35pt))]
+    #block(above: divider-above, below: divider-below)[#line(length: 100%, stroke: (paint: gray, thickness: 0.35pt))]
     #section-title[#ui.additional]
-    #for a in additional [#block(above: 0.38em)[#body-prose[#a]]]
+    #for a in additional [#block(above: add-above)[#body-prose[#a]]]
   ]
 )
 
-#block(above: 0.55em, width: 100%, height: 0.45em, fill: footer-bg)[]
-
+#block(above: footer-above, width: 100%, height: 0.45em, fill: footer-bg)[]

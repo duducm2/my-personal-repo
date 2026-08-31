@@ -15,6 +15,7 @@
 #let orcid = "ORCID"
 #let orcid-url = "https://orcid.org/0009-0002-5178-6157"
 #let location = "Nova Odessa, SP - Brasil"
+#let compact-layout = true
 
 #let ui = (
   contact: "Contato",
@@ -28,13 +29,13 @@
   languages: "Idiomas",
   skills: "Habilidades",
   experience: "EXPERIÊNCIA",
-  education: "FORMAÇÃO ACADÊMICA",
-  publications: "PUBLICAÇÕES SELECIONADAS",
-  additional: "INFORMAÇÕES ADICIONAIS",
+  education: "FORMAÇÃO",
+  publications: "PUBLICAÇÕES",
+  additional: "ADICIONAL",
 )
 
 #let profile = [
-  #strong[Conecto descoberta à entrega]: #strong[esclareço] necessidades, #strong[alinho] stakeholders e #strong[guio] soluções de requisitos à validação. Background em #strong[Pesquisa Aplicada, UX e entrega de projetos] com base full-stack. #v(0.5em) #strong[Uso] dados, CIP e #strong[check-ins com clientes] para priorizar resultados. Mestrado em Tecnologia (#strong[conclusão em setembro de 2026]) com #strong[nota A em todas as disciplinas].
+  #strong[Conecto descoberta à entrega]: #strong[esclareço] necessidades, #strong[alinho] stakeholders e #strong[guio] soluções de requisitos à validação. Background em #strong[Pesquisa Aplicada, UX e entrega de projetos] com base full-stack. #v(0.35em) #strong[Uso] dados, CIP e #strong[check-ins com clientes] para priorizar resultados. Mestrado em Tecnologia (#strong[conclusão em setembro de 2026]) com #strong[nota A em todas as disciplinas].
 ]
 
 #let languages = "Português (Nativo)   Inglês (Fluente)"
@@ -66,7 +67,7 @@
 )
 
 #let education = (
-  ("Mestrado em Tecnologia:", [Sist. de Info. e Comunicação. Unicamp (2023–2026, conclusão em setembro de 2026).], [Dissertação: #strong[confiança percebida] em e-commerce (ISO/IEC 25000), validação humano vs #strong[agente de IA] #v(0.42em) #strong[estatística inferencial]—normalidade, #strong[t de Welch/pareado], #strong[d de Cohen], #strong[FDR] (Python → Power BI) #v(0.42em) métricas descritivas (média, DP, EE, IC). Disciplinas (#strong[nota A em todas]): Escrita Acadêmica, Pesquisa Científica, Inovação e Transferência de Tecnologia, #strong[Visualização da Informação] (mapeamento visual, dados multivariados, interação, grafos/árvores, viz de textos).]),
+  ("Mestrado em Tecnologia:", [Sist. Info. e Comunicação. Unicamp (2023–2026, conclusão set/2026).], [Dissertação: #strong[confiança percebida] em e-commerce (ISO/IEC 25000), validação humano vs #strong[agente de IA] #v(0.28em) #strong[estatística inferencial]—normalidade, #strong[t de Welch/pareado], #strong[d de Cohen], #strong[FDR] (Python → Power BI) #v(0.28em) métricas descritivas (média, DP, EE, IC). Disciplinas (#strong[nota A]): Escrita Acadêmica, Pesquisa Científica, Inovação, #strong[InfoVis] (mapeamento visual, multivariados, interação, grafos/árvores, viz textos).]),
   ("Análise e Desenvolvimento de Sistemas.", "Unicamp (2015–2020).", none),
   ("Técnico em Informática.", "ETEC Bento Quirino (2012–2014).", none),
 )
@@ -78,6 +79,6 @@
 
 #let additional = (
   [3º Lugar – Fórum de talentos Bosch 2018 (projeto com macro Excel).],
-  [InfoVis (Mestrado, nota A, Unicamp): mapeamento visual, dados multivariados, interação, grafos/árvores, viz de textos—PNAD Power BI + PhraseNets.],
+  [InfoVis (Mestrado, nota A, Unicamp): mapeamento visual, multivariados, interação, grafos/árvores, viz textos—PNAD Power BI + PhraseNets.],
   [Voluntário – ONG Hospitalhaços (Admin).],
 )

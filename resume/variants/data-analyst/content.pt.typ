@@ -15,6 +15,7 @@
 #let orcid = "ORCID"
 #let orcid-url = "https://orcid.org/0009-0002-5178-6157"
 #let location = "Nova Odessa, SP - Brasil"
+#let compact-layout = true
 
 #let ui = (
   contact: "Contato",
@@ -28,13 +29,13 @@
   languages: "Idiomas",
   skills: "Habilidades",
   experience: "EXPERIÊNCIA",
-  education: "FORMAÇÃO ACADÊMICA",
-  publications: "PUBLICAÇÕES SELECIONADAS",
-  additional: "INFORMAÇÕES ADICIONAIS",
+  education: "FORMAÇÃO",
+  publications: "PUBLICAÇÕES",
+  additional: "ADICIONAL",
 )
 
 #let profile = [
-  #strong[Atuo como analista de dados] transformando Pesquisa Aplicada em #strong[insight mensurável]: #strong[Excel] avançado (fórmulas, VBA, planilhas como banco de dados, atalhos), pipelines #strong[CSV], Power BI, Python/SQL, #strong[estatística descritiva e inferencial] e #strong[Visualização da Informação] (Mestrado, nota A). #v(0.5em) #strong[Uso] CSI/NPS para priorizar resultados. Mestrado em Tecnologia (#strong[conclusão em setembro de 2026]) com #strong[nota A em todas as disciplinas].
+  #strong[Atuo como analista de dados] transformando Pesquisa Aplicada em #strong[insight mensurável]: #strong[Excel] avançado (fórmulas, VBA, planilhas-database, atalhos), #strong[CSV], Power BI, Python/SQL, #strong[estatística descritiva e inferencial], #strong[InfoVis] (Mestrado, nota A). #v(0.35em) #strong[Uso] CSI/NPS para priorizar. Mestrado (#strong[conclusão set/2026]) com #strong[nota A em todas].
 ]
 
 #let languages = "Português (Nativo)   Inglês (Fluente)"
@@ -47,10 +48,10 @@
 #let experience = (
   ("Jan 2023 – Atual", "Bosch Brasil", "Analista de Pesquisa Aplicada e Design", (
     [Dashboards #strong[Power BI] para projetos/recursos; #strong[CSI 4,86 / NPS 9,94] méd. nos meus projetos (2024–2025).],
-    [#strong[CIP CIM (Global Services):] Pontuação automatizada de #strong[relevância em UX] no #strong[ServiceNow] (manipulação de dados, pesos por propriedades); avaliei #strong[dashboards estratégicos de CIP] na GS para a liderança identificar rapidamente problemas e ganhos de eficiência/eficácia.],
+    [#strong[CIP CIM (Global Services):] #strong[Relevância em UX] automatizada no #strong[ServiceNow] (dados, pesos por propriedades); avaliei #strong[dashboards estratégicos de CIP] na GS para liderança identificar problemas e ganhos de eficiência/eficácia.],
     [#strong[Projeto tooling (Power Tools):] entrega de requisitos a protótipos; check-ins regulares; progresso acompanhado para decisões.],
-    [#strong[Data Insights (Power Tools B2B):] Analisei registros do call center com #strong[teoria fundamentada de Strauss]—datasets, #strong[Python] e IA para desmontar os dados em categorias; #strong[validação constante com stakeholders]; insights de negócio no #strong[Power BI] (finanças, entrega com esteira transportadora e mais).],
-    [Apoiei as Américas ao #strong[Nível 4 de Maturidade em UX]: governança, templates e treinamento que tornaram a prática mensurável.],
+    [#strong[Data Insights (Power Tools B2B):] Registros do call center com #strong[GT Strauss]—datasets, #strong[Python] e IA; #strong[validação com stakeholders]; insights no #strong[Power BI] (finanças, esteira transportadora e mais).],
+    [Apoiei Américas ao #strong[Nível 4 de Maturidade UX]: governança, templates e treinamento mensurável.],
     [#strong[IA agêntica:] uso diário de #strong[Cursor IDE] para pesquisa, análise e resolução de problemas no pipeline.],
     [#strong[Internacional e mentoria:] duas viagens à Alemanha (2024, 2025); tutor na SENAI Digital Talent Academy.],
   )),
@@ -63,12 +64,12 @@
     [#strong[Desenvolvimento web full-stack:] VS Code, #strong[SQL Server], Windows Server (IIS).],
   )),
   ("Jan 2017 – Nov 2018", "Bosch Brasil (Campinas)", "Estagiário", (
-    [#strong[Excel e VBA:] fórmulas avançadas, macros, planilhas como banco de dados, atalhos e fluxos com #strong[CSV]; #strong[3º lugar, Fórum de talentos Bosch 2018] (macro Excel).],
+    [#strong[Excel e VBA:] fórmulas avançadas, macros, planilhas-database, atalhos e fluxos #strong[CSV]; #strong[3º lugar, Fórum de talentos Bosch 2018] (macro Excel).],
   )),
 )
 
 #let education = (
-  ("Mestrado em Tecnologia:", [Sist. de Info. e Comunicação. Unicamp (2023–2026, conclusão em setembro de 2026).], [Dissertação: #strong[confiança percebida] em e-commerce (ISO/IEC 25000), validação humano vs #strong[agente de IA] #v(0.42em) #strong[estatística inferencial]—normalidade, #strong[t de Welch/pareado], #strong[d de Cohen], #strong[FDR] (Python → Power BI) #v(0.42em) métricas descritivas (média, DP, EE, IC). Disciplinas (#strong[nota A em todas]): Escrita Acadêmica, Pesquisa Científica, Inovação e Transferência de Tecnologia, #strong[Visualização da Informação] (mapeamento visual, dados multivariados, interação, grafos/árvores, viz de textos).]),
+  ("Mestrado em Tecnologia:", [Sist. Info. e Comunicação. Unicamp (2023–2026, conclusão set/2026).], [Dissertação: #strong[confiança percebida] em e-commerce (ISO/IEC 25000), validação humano vs #strong[agente de IA] #v(0.28em) #strong[estatística inferencial]—normalidade, #strong[t de Welch/pareado], #strong[d de Cohen], #strong[FDR] (Python → Power BI) #v(0.28em) métricas descritivas (média, DP, EE, IC). Disciplinas (#strong[nota A]): Escrita Acadêmica, Pesquisa Científica, Inovação, #strong[InfoVis] (mapeamento visual, multivariados, interação, grafos/árvores, viz textos).]),
   ("Análise e Desenvolvimento de Sistemas.", "Unicamp (2015–2020).", none),
   ("Técnico em Informática.", "ETEC Bento Quirino (2012–2014).", none),
 )
@@ -80,6 +81,6 @@
 
 #let additional = (
   [3º Lugar – Fórum de talentos Bosch 2018 (projeto com macro Excel).],
-  [InfoVis (Mestrado, nota A, Unicamp): mapeamento visual, dados multivariados, interação, grafos/árvores, viz de textos—PNAD Power BI + PhraseNets.],
+  [InfoVis (Mestrado, nota A, Unicamp): mapeamento visual, multivariados, interação, grafos/árvores, viz textos—PNAD Power BI + PhraseNets.],
   [Voluntário – ONG Hospitalhaços (Admin).],
 )

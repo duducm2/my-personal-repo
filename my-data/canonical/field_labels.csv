@@ -42,6 +42,6 @@ resume_ui,profile,Profile,Perfil
 resume_ui,languages,Languages,Idiomas
 resume_ui,skills,Skills,Habilidades
 resume_ui,experience,EXPERIENCE,EXPERIÊNCIA
-resume_ui,education,EDUCATION,FORMAÇÃO ACADÊMICA
-resume_ui,publications,SELECTED PUBLICATIONS,PUBLICAÇÕES SELECIONADAS
-resume_ui,additional,ADDITIONAL,INFORMAÇÕES ADICIONAIS
+resume_ui,education,EDUCATION,FORMAÇÃO
+resume_ui,publications,SELECTED PUBLICATIONS,PUBLICAÇÕES
+resume_ui,additional,ADDITIONAL,ADICIONAL
