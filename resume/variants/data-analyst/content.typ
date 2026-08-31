@@ -5,7 +5,7 @@
 // =============================================================================
 
 #let name = "Eduardo M. de A. Figueiredo"
-#let tagline = "Data Analyst | Analysis, Experimentation & Applied Insights"
+#let tagline = "Data Analyst | AI for Data Manipulation, Validation & Applied Insights"
 #let phone = "+55 (19) 98176-6583"
 #let email = "edu.evangelista.figueiredo@gmail.com"
 #let linkedin = "LinkedIn"
@@ -48,9 +48,9 @@
 #let experience = (
   ("Jan 2023 – Present", "Bosch Brasil", "Applied Research & Design Analyst", (
     [#strong[Power BI] dashboards for project/resource oversight; #strong[CSI 4.86 / NPS 9.94] avg. across my projects (2024–2025).],
-    [#strong[CIP CIM (Global Services):] Automated #strong[UX relevance] in #strong[ServiceNow] (data manipulation, property-based weights); evaluated GS #strong[strategic CIP dashboards] so leadership could quickly spot main issues and efficiency/efficacy gains.],
+    [#strong[CIP CIM (Global Services):] #strong[AI-assisted UX relevance] scoring and #strong[data classification] in #strong[ServiceNow] (property-based weights); #strong[AI-supported method design]; evaluated GS #strong[strategic CIP dashboards] for leadership on issues and efficiency/efficacy gains.],
     [#strong[Tooling project (Power Tools):] delivery from requirements through prototypes; regular check-ins; progress tracked for decisions.],
-    [#strong[Data Insights (Power Tools B2B):] Analyzed call-center records with #strong[Straussian grounded theory]—datasets, #strong[Python], and AI to dismantle data into categories; constant #strong[stakeholder validation]; business insights in #strong[Power BI] (finance, material transport, logistics, and more).],
+    [#strong[Data Insights (Power Tools B2B):] #strong[Straussian grounded theory] on call-center records—#strong[AI-assisted Python] for manipulation and categorization; #strong[stakeholder validation]; #strong[Power BI] insights (finance, material transport, logistics, and more).],
     [Supported Americas to #strong[UX Maturity Level 4]: governance, templates, training that made UX practice measurable.],
     [#strong[Agentic AI:] daily #strong[VS Code] use for research, analysis, and problem-solving across the pipeline.],
     [#strong[International & Mentorship:] two trips to Germany (2024, 2025); tutor at SENAI Digital Talent Academy.],

@@ -442,7 +442,7 @@ def main() -> int:
             [
                 "GENERATED",
                 "September 2026",
-                "Data Analyst | Analysis, Experimentation & Applied Insights",
+                "Data Analyst | AI for Data Manipulation, Validation & Applied Insights",
                 "Power BI",
                 "measurable insight",
                 "CSI 4.86",
@@ -524,7 +524,7 @@ def main() -> int:
             deck_ds,
             [
                 "Why I Work with Data",
-                "Data Analyst | Analysis, Experimentation & Applied Insights",
+                "Data Analyst | AI for Data Manipulation, Validation & Applied Insights",
                 "Data, Metrics & Applied Research",
                 "Excel & CSV",
                 "Outcome Metrics",

@@ -5,7 +5,7 @@
 // =============================================================================
 
 #let name = "Eduardo M. de A. Figueiredo"
-#let tagline = "Analista de Dados | Análise, Experimentação e Insights Aplicados"
+#let tagline = "Analista de Dados | IA para Manipulação, Checagem de Dados e Insights Aplicados"
 #let phone = "+55 (19) 98176-6583"
 #let email = "edu.evangelista.figueiredo@gmail.com"
 #let linkedin = "LinkedIn"
@@ -48,9 +48,9 @@
 #let experience = (
   ("Jan 2023 – Atual", "Bosch Brasil", "Analista de Pesquisa Aplicada e Design", (
     [Dashboards #strong[Power BI] para projetos/recursos; #strong[CSI 4,86 / NPS 9,94] méd. nos meus projetos (2024–2025).],
-    [#strong[CIP CIM (Global Services):] #strong[Relevância em UX] automatizada no #strong[ServiceNow] (dados, pesos por propriedades); avaliei #strong[dashboards estratégicos de CIP] na GS para liderança identificar problemas e ganhos de eficiência/eficácia.],
+    [#strong[CIP CIM (Global Services):] #strong[relevância em UX] e #strong[classificação de dados] com #strong[IA] no #strong[ServiceNow] (pesos por propriedades); #strong[método apoiado por IA]; avaliei #strong[dashboards estratégicos de CIP] na GS para liderança identificar problemas e ganhos de eficiência/eficácia.],
     [#strong[Projeto tooling (Power Tools):] entrega de requisitos a protótipos; check-ins regulares; progresso acompanhado para decisões.],
-    [#strong[Data Insights (Power Tools B2B):] Registros do call center com #strong[teoria fundamentada straussiana]—datasets, #strong[Python] e IA; #strong[validação com stakeholders]; insights no #strong[Power BI] (finanças, transporte de materiais, logística e mais).],
+    [#strong[Data Insights (Power Tools B2B):] registros do call center com #strong[teoria fundamentada straussiana]—#strong[Python com IA] para manipulação e categorização; #strong[validação com stakeholders]; insights no #strong[Power BI] (finanças, transporte de materiais, logística e mais).],
     [Apoiei Américas ao #strong[Nível 4 de Maturidade UX]: governança, templates e treinamento mensurável.],
     [#strong[IA agêntica:] uso diário de #strong[VS Code] para pesquisa, análise e resolução de problemas no pipeline.],
     [#strong[Internacional e mentoria:] duas viagens à Alemanha (2024, 2025); tutor na SENAI Digital Talent Academy.],

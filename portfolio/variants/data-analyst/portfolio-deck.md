@@ -472,7 +472,7 @@ table thead { display: none !important; }
 | Attribute | Value                     |
 | --------- | ------------------------- |
 | Name      | Eduardo M. de A. Figueiredo    |
-| Role      | Data Analyst | Analysis, Experimentation & Applied Insights    |
+| Role      | Data Analyst | AI for Data Manipulation, Validation & Applied Insights    |
 | Impact    | I help teams decide with clarity: **Excel** and **CSV** for day-to-day analysis, dashboards and metrics, and Applied Research to turn insight into action.  |
 | Contact   | Nova Odessa, SP – Brazil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583 |
 
