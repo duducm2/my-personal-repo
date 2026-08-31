@@ -672,6 +672,7 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 | Data Insights (Power Tools B2B)    | Call-center records analyzed with Strauss grounded theory (datasets, Python, AI); stakeholder-validated insights in Power BI—finance, conveyor delivery, and more |
 | UX Maturity                        | Americas Level 4 – governance, templates, training that made UX practice measurable                                                |
 | CIP CIM (Global Services)          | Automated **UX relevance** in ServiceNow (data manipulation, property-based weights); with UX team, evaluated **strategic CIP dashboards** so GS leadership could quickly spot main issues and efficiency/efficacy improvements                                           |
+| MSc Information Visualization      | **Grade A** (Unicamp)—visual structures & mapping, multivariate data, views/interaction, graphs/trees, text viz; **PNAD Contínua** Power BI + **PhraseNets** web project                                                                                           |
 | Collaboration                      | Tutor of Digital Talent Academy Students                                                                                           |
 
 ---
@@ -1059,7 +1060,10 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 }
 </style>
 
-## Data Visualization – InfoVis Project (PNAD Contínua)
+## Data Visualization – MSc InfoVis: PNAD Contínua (Power BI)
+
+- **MSc Information Visualization (Unicamp, Grade A):** Card et al. pipeline—raw data → tables → **visual structures**; **visual mapping** (expressiveness & effectiveness); **multivariate** techniques (composition, small multiples, dimension handling).
+- **PNAD Contínua (Power BI):** Sankey, choropleth, and faceted encodings for education–employment trajectories and socioeconomic patterns—the same structural choices behind executive dashboards.
 
 <div class="infovis-split">
 <div class="infovis-left">
@@ -1293,11 +1297,11 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 }
 </style>
 
-## Technical Implementation – PhraseNets Web Visualization
+## InfoVis – Text & Graph Visualization (PhraseNets)
 
-- **Course project – Information Visualization (InfoVis):** Built a web-based PhraseNets visualization to explore how words connect in text.
-- **Technique:** Uses pattern-based networks to surface co-occurrences that standard charts miss.
-- **Relevance:** Interactive web tooling and visual structures beyond Power BI.
+- **Course topics → analyst skills:** **Views & interaction** (filtering, detail-on-demand); **graphs & trees** (network layout); **text visualization** (co-occurrence, patterns/outliers)—how to encode data and enable exploration.
+- **PhraseNets project:** Web network viz for word relationships—structure that bar/line charts cannot show.
+- **Payoff for data work:** Mapping variables to marks, choosing the right structure for the question—not just charts, but effective visual communication.
 
 <div class="phrase-net-row">
 <p><img src="../../../pictures/academia/infovis/infovis-phrase-netproject-1.png" alt="PhraseNets web visualization – interface and controls" /></p>
@@ -1366,6 +1370,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 | Experimentation / ML    | Master's dissertation: perceived trust, ML, AI-agent validation |
 | Data-informed intake    | CIP CIM: ServiceNow UX relevance scoring + GS strategic CIP dashboard evaluation with UX team                   |
 | Qualitative → BI analytics | Data Insights: Strauss grounded theory on B2B call-center records → Power BI dashboards |
+| Visualization & encoding | MSc InfoVis: visual mapping, multivariate structures, views/interaction—PNAD Power BI + PhraseNets |
 | Measurable practice     | Americas UX Maturity Level 4 (templates, training)        |
 
 </div>

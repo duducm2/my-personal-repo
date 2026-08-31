@@ -672,6 +672,7 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 | Data Insights (Power Tools B2B)    | Registros do call center analisados com teoria fundamentada de Strauss (datasets, Python, IA); insights validados com stakeholders no Power BI—finanças, entrega com esteira transportadora e mais |
 | Maturidade em UX                        | Nível 4 nas Américas – governança, templates, treinamento que tornaram a prática de UX mensurável                                                |
 | CIP CIM (Global Services)          | **Relevância em UX** automatizada no ServiceNow (manipulação de dados, pesos por propriedades); com equipe de UX, avaliei **dashboards estratégicos de CIP** para a liderança da GS identificar problemas e melhorias de eficiência/eficácia                                           |
+| Visualização da Informação (Mestrado)      | **Nota A** (Unicamp)—estruturas visuais e mapeamento, dados multivariados, visões/interação, grafos/árvores, viz de textos; **PNAD Contínua** Power BI + projeto web **PhraseNets**                                                                                           |
 | Colaboração                      | Sou tutor de estudantes da Digital Talent Academy                                                                                           |
 
 ---
@@ -1059,7 +1060,10 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 }
 </style>
 
-## Data Visualization – InfoVis Project (PNAD Contínua)
+## Visualização de dados – InfoVis (Mestrado): PNAD Contínua (Power BI)
+
+- **Visualização da Informação (Unicamp, nota A):** Pipeline de Card et al.—dados brutos → tabelas → **estruturas visuais**; **mapeamento visual** (expressividade e efetividade); técnicas **multivariadas** (composição, small multiples, redução de dimensões).
+- **PNAD Contínua (Power BI):** Codificações Sankey, coropleta e facetadas para trajetórias educação–emprego e padrões socioeconômicos—as mesmas decisões estruturais em dashboards executivos.
 
 <div class="infovis-split">
 <div class="infovis-left">
@@ -1293,11 +1297,11 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 }
 </style>
 
-## Technical Implementation – PhraseNets Web Visualization
+## InfoVis – Visualização de textos e grafos (PhraseNets)
 
-- **Course project – Information Visualization (InfoVis):** Built a web-based PhraseNets visualization to explore how words connect in text.
-- **Technique:** Uses pattern-based networks to surface co-occurrences that standard charts miss.
-- **Relevance:** Interactive web tooling and visual structures beyond Power BI.
+- **Tópicos do curso → skills de analista:** **Visões e interação** (filtros, detalhes sob demanda); **grafos e árvores** (layout de redes); **visualização de textos** (coocorrência, padrões/outliers)—como codificar dados e permitir exploração.
+- **Projeto PhraseNets:** Viz web em rede para relações entre palavras—estrutura que gráficos de barras/linhas não mostram.
+- **Ganho para trabalho com dados:** Mapear variáveis a marcas e escolher a estrutura certa para a pergunta—não só gráficos, mas comunicação visual eficaz.
 
 <div class="phrase-net-row">
 <p><img src="../../../pictures/academia/infovis/infovis-phrase-netproject-1.png" alt="PhraseNets web visualization – interface and controls" /></p>
@@ -1366,6 +1370,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 | Experimentação / ML    | Dissertação: confiança percebida, ML, validação com agente de IA |
 | Entrada baseada em dados    | CIP CIM: pontuação de relevância em UX no ServiceNow + avaliação de dashboards estratégicos de CIP na GS com equipe de UX                   |
 | Análise qualitativa → BI | Data Insights: teoria fundamentada de Strauss em registros B2B do call center → dashboards Power BI |
+| Visualização e codificação | InfoVis (Mestrado): mapeamento visual, estruturas multivariadas, visões/interação—PNAD Power BI + PhraseNets |
 | Prática mensurável     | Nível 4 de Maturidade em UX nas Américas (templates, treinamento)        |
 
 </div>

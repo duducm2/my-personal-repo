@@ -1046,7 +1046,9 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 }
 </style>
 
-## Data Visualization – InfoVis Project (PNAD Contínua)
+## {{canonical:infovis_pnad_h2}}
+
+{{canonical:infovis_pnad_bullets}}
 
 <div class="infovis-split">
 <div class="infovis-left">
@@ -1280,11 +1282,9 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 }
 </style>
 
-## Technical Implementation – PhraseNets Web Visualization
+## {{canonical:infovis_phrasenet_h2}}
 
-- **Course project – Information Visualization (InfoVis):** Built a web-based PhraseNets visualization to explore how words connect in text.
-- **Technique:** Uses pattern-based networks to surface co-occurrences that standard charts miss.
-- **Relevance:** Interactive web tooling and visual structures beyond Power BI.
+{{canonical:infovis_phrasenet_bullets}}
 
 <div class="phrase-net-row">
 <p><img src="{{canonical:asset_prefix}}pictures/academia/infovis/infovis-phrase-netproject-1.png" alt="PhraseNets web visualization – interface and controls" /></p>

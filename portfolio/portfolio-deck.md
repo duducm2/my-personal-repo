@@ -1056,7 +1056,10 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 }
 </style>
 
-## Data Visualization – InfoVis Project (PNAD Contínua)
+## Data Visualization – MSc InfoVis: PNAD Contínua (Power BI)
+
+- **MSc Information Visualization (Unicamp, Grade A):** Card et al. pipeline—raw data → tables → **visual structures**; **visual mapping** (expressiveness & effectiveness); **multivariate** techniques (composition, small multiples, dimension handling).
+- **PNAD Contínua (Power BI):** Sankey, choropleth, and faceted encodings for education–employment trajectories and socioeconomic patterns—the same structural choices behind executive dashboards.
 
 <div class="infovis-split">
 <div class="infovis-left">
@@ -1290,11 +1293,11 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 }
 </style>
 
-## Technical Implementation – PhraseNets Web Visualization
+## InfoVis – Text & Graph Visualization (PhraseNets)
 
-- **Course project – Information Visualization (InfoVis):** Built a web-based PhraseNets visualization to explore how words connect in text.
-- **Technique:** Uses pattern-based networks to surface co-occurrences that standard charts miss.
-- **Relevance:** Interactive web tooling and visual structures beyond Power BI.
+- **Course topics → analyst skills:** **Views & interaction** (filtering, detail-on-demand); **graphs & trees** (network layout); **text visualization** (co-occurrence, patterns/outliers)—how to encode data and enable exploration.
+- **PhraseNets project:** Web network viz for word relationships—structure that bar/line charts cannot show.
+- **Payoff for data work:** Mapping variables to marks, choosing the right structure for the question—not just charts, but effective visual communication.
 
 <div class="phrase-net-row">
 <p><img src="../pictures/academia/infovis/infovis-phrase-netproject-1.png" alt="PhraseNets web visualization – interface and controls" /></p>

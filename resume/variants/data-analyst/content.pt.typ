@@ -34,13 +34,13 @@
 )
 
 #let profile = [
-  #strong[Atuo como analista de dados] transformando Pesquisa Aplicada em #strong[insight mensurável]: #strong[Excel] avançado (fórmulas, VBA, planilhas como banco de dados, atalhos), pipelines #strong[CSV], Power BI e Python/SQL. #strong[Uso] CSI/NPS para priorizar resultados. Mestrado em Tecnologia (#strong[conclusão em setembro de 2026]) com #strong[nota A em todas as disciplinas].
+  #strong[Atuo como analista de dados] transformando Pesquisa Aplicada em #strong[insight mensurável]: #strong[Excel] avançado (fórmulas, VBA, planilhas como banco de dados, atalhos), pipelines #strong[CSV], Power BI, Python/SQL e #strong[Visualização da Informação] (Mestrado, nota A). #strong[Uso] CSI/NPS para priorizar resultados. Mestrado em Tecnologia (#strong[conclusão em setembro de 2026]) com #strong[nota A em todas as disciplinas].
 ]
 
 #let languages = "Português (Nativo)   Inglês (Fluente)"
 
 #let skills = (
-  ("Core", "Núcleo:", ("Excel (fórmulas, VBA, bases de dados)", "Análise de dados e CSV", "Visualização e BI", "Python / SQL", "Pesquisa Aplicada")),
+  ("Core", "Núcleo:", ("Excel (fórmulas, VBA, bases de dados)", "Análise de dados e CSV", "Visualização, BI e InfoVis", "Python / SQL", "Pesquisa Aplicada")),
   ("Tech", "Tecnologias:", ("Excel", "VBA", "CSV", "Power BI", "Python", "SQL", "Matplotlib", "Seaborn", "Azure", "Cursor IDE", "Git", "GitHub", "React", "Figma", "ServiceNow", "Bitbucket", "HTML", "CSS", "Mermaid", "VS Code")),
 )
 
@@ -68,7 +68,7 @@
 )
 
 #let education = (
-  ("Mestrado em Tecnologia:", [Sist. de Info. e Comunicação. Unicamp (2023–2026, conclusão em setembro de 2026).], [Dissertação: mensuração de #strong[confiança percebida] em sites de e-commerce com plataforma digital (ISO/IEC 25000), experimentação, ML e validação humano vs #strong[agente de IA]. Disciplinas (#strong[nota A em todas]): Escrita Acadêmica, Pesquisa Científica, Inovação e Transferência de Tecnologia, Visualização da Informação.]),
+  ("Mestrado em Tecnologia:", [Sist. de Info. e Comunicação. Unicamp (2023–2026, conclusão em setembro de 2026).], [Dissertação: mensuração de #strong[confiança percebida] em sites de e-commerce com plataforma digital (ISO/IEC 25000), experimentação, ML e validação humano vs #strong[agente de IA]. Disciplinas (#strong[nota A em todas]): Escrita Acadêmica, Pesquisa Científica, Inovação e Transferência de Tecnologia, #strong[Visualização da Informação] (mapeamento visual, dados multivariados, interação, grafos/árvores, viz de textos).]),
   ("Análise e Desenvolvimento de Sistemas.", "Unicamp (2015–2020).", none),
   ("Técnico em Informática.", "ETEC Bento Quirino (2012–2014).", none),
 )
@@ -80,6 +80,6 @@
 
 #let additional = (
   [3º Lugar – Fórum de talentos Bosch 2018 (projeto com macro Excel).],
-  [InfoVis: visualização web PhraseNets para análise de coocorrência de texto.],
+  [InfoVis (Mestrado, nota A, Unicamp): mapeamento visual, dados multivariados, interação, grafos/árvores e viz de textos—PNAD Contínua Power BI + PhraseNets.],
   [Voluntário – ONG Hospitalhaços (Admin).],
 )

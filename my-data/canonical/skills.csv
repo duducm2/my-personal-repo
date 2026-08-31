@@ -49,7 +49,7 @@ product-owner,Tech,Tech,Tecnologias,19,VBA,VBA
 product-owner,Tech,Tech,Tecnologias,20,AutoHotkey,AutoHotkey
 data-analyst,Core,Core,Núcleo,1,"Excel (formulas, VBA, databases)","Excel (fórmulas, VBA, bases de dados)"
 data-analyst,Core,Core,Núcleo,2,Data analysis & CSV,Análise de dados e CSV
-data-analyst,Core,Core,Núcleo,3,Visualization & BI,Visualização e BI
+data-analyst,Core,Core,Núcleo,3,"Visualization, BI & InfoVis","Visualização, BI e InfoVis"
 data-analyst,Core,Core,Núcleo,4,Python / SQL,Python / SQL
 data-analyst,Core,Core,Núcleo,5,Applied Research,Pesquisa Aplicada
 data-analyst,Tech,Tech,Tecnologias,1,Excel,Excel

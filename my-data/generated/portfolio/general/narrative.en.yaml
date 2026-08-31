@@ -28,6 +28,15 @@ fields:
   future_diagram_alt: "Diagram ai-agile-research: AI and Agile in Applied Research, AI Scrum Master role"
   future_h2: "Future"
   future_intro: ""
+  infovis_phrasenet_bullets: |
+    - **Course topics → analyst skills:** **Views & interaction** (filtering, detail-on-demand); **graphs & trees** (network layout); **text visualization** (co-occurrence, patterns/outliers)—how to encode data and enable exploration.
+    - **PhraseNets project:** Web network viz for word relationships—structure that bar/line charts cannot show.
+    - **Payoff for data work:** Mapping variables to marks, choosing the right structure for the question—not just charts, but effective visual communication.
+  infovis_phrasenet_h2: "InfoVis – Text & Graph Visualization (PhraseNets)"
+  infovis_pnad_bullets: |
+    - **MSc Information Visualization (Unicamp, Grade A):** Card et al. pipeline—raw data → tables → **visual structures**; **visual mapping** (expressiveness & effectiveness); **multivariate** techniques (composition, small multiples, dimension handling).
+    - **PNAD Contínua (Power BI):** Sankey, choropleth, and faceted encodings for education–employment trajectories and socioeconomic patterns—the same structural choices behind executive dashboards.
+  infovis_pnad_h2: "Data Visualization – MSc InfoVis: PNAD Contínua (Power BI)"
   lattes_url: "https://lattes.cnpq.br/2708641049892967"
   linkedin_display: "linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b"
   linkedin_url: "https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b"

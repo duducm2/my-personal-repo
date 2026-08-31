@@ -19,6 +19,10 @@ narrative_field,relevance_h2,Relevance model heading,Título modelo de relevânc
 narrative_field,csi_h2,CSI/NPS heading,Título CSI/NPS
 narrative_field,tooling_h2,Tooling project heading,Título projeto tooling
 narrative_field,tooling_bullet,Tooling bullet,Item projeto tooling
+narrative_field,infovis_pnad_h2,InfoVis PNAD heading,Título InfoVis PNAD
+narrative_field,infovis_pnad_bullets,InfoVis PNAD bullets,Tópicos InfoVis PNAD
+narrative_field,infovis_phrasenet_h2,InfoVis PhraseNets heading,Título InfoVis PhraseNets
+narrative_field,infovis_phrasenet_bullets,InfoVis PhraseNets bullets,Tópicos InfoVis PhraseNets
 narrative_field,future_h2,Future slide heading,Título slide Futuro
 narrative_field,future_intro,Future intro,Introdução slide Futuro
 narrative_field,future_diagram_alt,Future diagram alt text,Texto alt diagrama Futuro
