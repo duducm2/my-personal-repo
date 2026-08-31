@@ -34,7 +34,7 @@
 )
 
 #let profile = [
-  Data analyst turning Applied Research into #strong[measurable insight]: advanced #strong[Excel] (formulas, VBA, database-style workbooks, shortcuts), #strong[CSV] pipelines, Power BI, Python/SQL, #strong[descriptive & inferential statistics], and MSc #strong[Information Visualization] (Grade A). Uses CSI/NPS to prioritize outcomes. Master's in Technology (#strong[completing September 2026]) with #strong[Grade A across all coursework].
+  Data analyst turning Applied Research into #strong[measurable insight]: advanced #strong[Excel] (formulas, VBA, database-style workbooks, shortcuts), #strong[CSV] pipelines, Power BI, Python/SQL, #strong[descriptive & inferential statistics], and MSc #strong[Information Visualization] (Grade A). #v(0.5em) Uses CSI/NPS to prioritize outcomes. Master's in Technology (#strong[completing September 2026]) with #strong[Grade A across all coursework].
 ]
 
 #let languages = "Portuguese (Native)   English (Fluent)"
@@ -68,7 +68,7 @@
 )
 
 #let education = (
-  ("Master's in Technology:", [Info & Comm Systems. Unicamp (2023–2026, completing September 2026).], [Dissertation: #strong[perceived trust] in e-commerce (ISO/IEC 25000), human vs #strong[AI-agent] validation; #strong[inferential stats]—normality checks, #strong[Welch/paired t-tests], #strong[Cohen's d], #strong[FDR] (Python → Power BI); descriptive metrics (mean, SD, SE, CI). Coursework (#strong[Grade A in all courses]): Academic Writing, Scientific Research, Innovation & Technology Transfer, #strong[Information Visualization] (visual mapping, multivariate data, interaction, graphs/trees, text viz).]),
+  ("Master's in Technology:", [Info & Comm Systems. Unicamp (2023–2026, completing September 2026).], [Dissertation: #strong[perceived trust] in e-commerce (ISO/IEC 25000), human vs #strong[AI-agent] validation #v(0.42em) #strong[inferential stats]—normality checks, #strong[Welch/paired t-tests], #strong[Cohen's d], #strong[FDR] (Python → Power BI) #v(0.42em) descriptive metrics (mean, SD, SE, CI). Coursework (#strong[Grade A in all courses]): Academic Writing, Scientific Research, Innovation & Technology Transfer, #strong[Information Visualization] (visual mapping, multivariate data, interaction, graphs/trees, text viz).]),
   ("Systems Analysis and Development.", "Unicamp (2015–2020).", none),
   ("Technical Degree in Informatics.", "ETEC Bento Quirino (2012–2014).", none),
 )

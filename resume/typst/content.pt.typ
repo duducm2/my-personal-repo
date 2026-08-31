@@ -34,7 +34,7 @@
 )
 
 #let profile = [
-  Sou pesquisador de UX e qualidade de software e #strong[ajudo] equipes a construir #strong[soluções centradas no usuário] por meio de #strong[Pesquisa Aplicada, tecnologia e gestão de projetos]. Formação full-stack e #strong[mentalidade científica]. #strong[Uso] dados, CIP e #strong[IA agêntica] no dia a dia. #strong[Autodirigido e proativo] em design, front-end, Power BI e Python. Mestrado em Tecnologia (#strong[conclusão em setembro de 2026]) com #strong[nota A em todas as disciplinas]. #strong[Aspiro] a #strong[AI Scrum Master].
+  Sou pesquisador de UX e qualidade de software e #strong[ajudo] equipes a construir #strong[soluções centradas no usuário] por meio de #strong[Pesquisa Aplicada, tecnologia e gestão de projetos]. Formação full-stack e #strong[mentalidade científica]. #v(0.5em) #strong[Uso] dados, CIP e #strong[IA agêntica] no dia a dia. #strong[Autodirigido e proativo] em design, front-end, Power BI e Python. Mestrado em Tecnologia (#strong[conclusão em setembro de 2026]) com #strong[nota A em todas as disciplinas]. #strong[Aspiro] a #strong[AI Scrum Master].
 ]
 
 #let languages = "Português (Nativo)   Inglês (Fluente)"
@@ -67,7 +67,7 @@
 )
 
 #let education = (
-  ("Mestrado em Tecnologia:", [Sist. de Info. e Comunicação. Unicamp (2023–2026, conclusão em setembro de 2026).], [Dissertação: #strong[confiança percebida] em e-commerce (ISO/IEC 25000), validação humano vs #strong[agente de IA]; #strong[estatística inferencial]—normalidade, #strong[t de Welch/pareado], #strong[d de Cohen], #strong[FDR] (Python → Power BI); métricas descritivas (média, DP, EE, IC). Disciplinas (#strong[nota A em todas]): Escrita Acadêmica, Pesquisa Científica, Inovação e Transferência de Tecnologia, #strong[Visualização da Informação] (mapeamento visual, dados multivariados, interação, grafos/árvores, viz de textos).]),
+  ("Mestrado em Tecnologia:", [Sist. de Info. e Comunicação. Unicamp (2023–2026, conclusão em setembro de 2026).], [Dissertação: #strong[confiança percebida] em e-commerce (ISO/IEC 25000), validação humano vs #strong[agente de IA] #v(0.42em) #strong[estatística inferencial]—normalidade, #strong[t de Welch/pareado], #strong[d de Cohen], #strong[FDR] (Python → Power BI) #v(0.42em) métricas descritivas (média, DP, EE, IC). Disciplinas (#strong[nota A em todas]): Escrita Acadêmica, Pesquisa Científica, Inovação e Transferência de Tecnologia, #strong[Visualização da Informação] (mapeamento visual, dados multivariados, interação, grafos/árvores, viz de textos).]),
   ("Análise e Desenvolvimento de Sistemas.", "Unicamp (2015–2020).", none),
   ("Técnico em Informática.", "ETEC Bento Quirino (2012–2014).", none),
 )

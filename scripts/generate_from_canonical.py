@@ -57,6 +57,27 @@ def md_bold_to_typst(text: str) -> str:
     return re.sub(r"\*\*(.+?)\*\*", r"#strong[\1]", text)
 
 
+def typst_profile_blocks(text: str) -> str:
+    """Split profile into two Typst blocks with vertical gap (not line leading)."""
+    for sep, lead in ((". Uses ", "Uses "), (". **Uso** ", "**Uso** ")):
+        if sep in text:
+            first, second = text.split(sep, 1)
+            return (
+                f"{md_bold_to_typst(first.strip())}. #v(0.5em) "
+                f"{md_bold_to_typst(lead + second.strip())}"
+            )
+    return md_bold_to_typst(text)
+
+
+def typst_dense_lines(text: str, separator: str = "; ") -> str:
+    """Break long prose into stacked blocks separated by vertical margin."""
+    converted = md_bold_to_typst(text)
+    if separator not in converted:
+        return converted
+    parts = [p.strip() for p in converted.split(separator) if p.strip()]
+    return " #v(0.42em) ".join(parts)
+
+
 def typst_inline(s: str) -> str:
     """Typst tuple string: commas inside quotes still split tuples — use content for those."""
     if "," in s:
@@ -88,7 +109,10 @@ def deck_out_path(variant: str, lang: str) -> Path:
 
 
 def render_resume(
-    variant: str, nars: dict[str, dict[str, str]], warnings: list[str], lang: str = DEFAULT_LANG
+    variant: str,
+    nars: dict[str, dict[str, str]],
+    warnings: list[str],
+    lang: str = DEFAULT_LANG,
 ) -> str:
     profile = load_csv("profile.csv")[0]
     experience = sorted(load_csv("experience.csv"), key=lambda r: int(r["sort_order"]))
@@ -112,7 +136,7 @@ def render_resume(
     )
 
     tagline = narrative(nars, variant, "tagline")
-    profile_text = md_bold_to_typst(narrative(nars, variant, "profile"))
+    profile_text = typst_profile_blocks(narrative(nars, variant, "profile"))
 
     core = sorted(
         [r for r in skills_all if r["category"] == "Core"],
@@ -155,7 +179,7 @@ def render_resume(
     for edu in education:
         detail = lang_col(edu, "detail", lang).strip()
         if detail:
-            detail_typst = f"[{md_bold_to_typst(detail)}]"
+            detail_typst = f"[{typst_dense_lines(detail)}]"
         else:
             detail_typst = "none"
         edu_blocks.append(
@@ -251,9 +275,13 @@ def build_slot_map(
         "infovis_pnad_h2": narrative(nars, variant, "infovis_pnad_h2"),
         "infovis_pnad_bullets": narrative(nars, variant, "infovis_pnad_bullets"),
         "infovis_phrasenet_h2": narrative(nars, variant, "infovis_phrasenet_h2"),
-        "infovis_phrasenet_bullets": narrative(nars, variant, "infovis_phrasenet_bullets"),
+        "infovis_phrasenet_bullets": narrative(
+            nars, variant, "infovis_phrasenet_bullets"
+        ),
         "dissertation_pbi_intro": narrative(nars, variant, "dissertation_pbi_intro"),
-        "dissertation_pbi_bullets": narrative(nars, variant, "dissertation_pbi_bullets"),
+        "dissertation_pbi_bullets": narrative(
+            nars, variant, "dissertation_pbi_bullets"
+        ),
         "future_h2": narrative(nars, variant, "future_h2"),
         "future_intro": narrative(nars, variant, "future_intro"),
         "future_diagram_alt": narrative(nars, variant, "future_diagram_alt"),
@@ -354,7 +382,9 @@ def generate_lang(lang: str, warnings: list[str]) -> None:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Generate resume and portfolio from canonical CSV")
+    parser = argparse.ArgumentParser(
+        description="Generate resume and portfolio from canonical CSV"
+    )
     parser.add_argument(
         "--lang",
         choices=("en", "pt", "all"),

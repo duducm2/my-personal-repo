@@ -15,7 +15,7 @@
 )
 // Lato: put Lato *.ttf in resume/typst/fonts/ and compile with --font-path
 #set text(font: "Lato", size: 10pt)
-#set par(leading: 1.05em, spacing: 0.55em)
+#set par(leading: 1.0em, spacing: 0em)
 
 #let sidebar-header-bg = rgb("#fff")
 #let accent-line = rgb("#7A5C3A")
@@ -30,7 +30,7 @@
 
 #let section-title(body) = {
   set text(size: 9pt, weight: "bold", fill: highlight-blue)
-  block(above: 0.45em, below: 0.5em)[#block(body)]
+  block(above: 0.5em, below: 0.62em)[#block(body)]
 }
 
 #let sidebar-heading(body) = {
@@ -41,9 +41,31 @@
 
 #let sidebar-text(body) = {
   set text(size: 8.5pt, fill: rgb("#444444"))
-  set par(leading: 1.35em, spacing: 0.5em)
+  set par(leading: 1.0em, spacing: 0em)
   body
 }
+
+#let body-emphasis(it) = text(weight: "bold", fill: highlight-blue)[#it]
+
+#let body-prose(body) = {
+  set text(size: 9.5pt, fill: heading-color)
+  set par(leading: 1.0em, spacing: 0em)
+  show strong: body-emphasis
+  body
+}
+
+#let bullet-item(body) = block(
+  above: 0.5em,
+  below: 0.06em,
+)[
+  #grid(
+    columns: (0.55em, 1fr),
+    gutter: 0.35em,
+    align: (top + right, left),
+    [•],
+    [#body-prose[#body]],
+  )
+]
 
 #grid(
   columns: (32%, 1fr),
@@ -114,39 +136,42 @@
     #block(below: 0.5em)[
       #text(size: 12pt, fill: highlight-blue)[#upper(tagline)]
     ]
-    #block(below: 0.65em)[
+    #block(below: 0.55em)[
       #line(length: 100%, stroke: (paint: gray, thickness: 0.4pt))
     ]
     #section-title[#ui.experience]
     #for (date, company, title, bullets) in experience [
-      #block(above: 0.5em, below: 0.4em)[
+      #block(above: 0.55em, below: 0.42em)[
         #grid(columns: (1fr, auto), gutter: 1em, align: (left, right))[
           #text(weight: "bold", fill: highlight-blue)[#company]
           #text(weight: "bold", fill: rgb("#555555"))[#date]
         ]
-        #block(above: 0.15em)[#text(style: "italic", fill: highlight-blue)[#title]]
-        #block(above: 0.3em)[
-          #set par(leading: 1.05em)
-          #for b in bullets [#block(inset: (left: 1em), above: 0.28em)[#text(fill: heading-color)[• #b]]]
+        #block(above: 0.12em, below: 0.22em)[#text(style: "italic", fill: highlight-blue)[#title]]
+        #for b in bullets [#bullet-item[#b]]
+      ]
+    ]
+    #block(above: 0.42em, below: 0.28em)[#line(length: 100%, stroke: (paint: gray, thickness: 0.35pt))]
+    #section-title[#ui.education]
+    #for (degree, inst, thesis) in education [
+      #block(above: 0.48em, below: 0.12em)[
+        #strong[#degree] #inst
+        #if thesis != none [
+          #block(inset: (left: 0.65em), above: 0.38em)[
+            #set text(size: 9pt, style: "italic", fill: rgb("#444444"))
+            #set par(leading: 1.0em, spacing: 0em)
+            #thesis
+          ]
         ]
       ]
     ]
-    #block(above: 0.4em, below: 0.25em)[#line(length: 100%, stroke: (paint: gray, thickness: 0.35pt))]
-    #section-title[#ui.education]
-    #for (degree, inst, thesis) in education [
-      #block(above: 0.45em)[
-        #strong[#degree] #inst
-        #if thesis != none [#block(inset: (left: 0.5em), above: 0.25em)[#text(size: 9pt, style: "italic", fill: rgb("#444444"))[#thesis]]]
-      ]
-    ]
-    #block(above: 0.4em, below: 0.25em)[#line(length: 100%, stroke: (paint: gray, thickness: 0.35pt))]
+    #block(above: 0.42em, below: 0.28em)[#line(length: 100%, stroke: (paint: gray, thickness: 0.35pt))]
     #section-title[#ui.publications]
     #for (venue, desc) in publications [
-      #block(above: 0.4em)[#strong[#venue] #desc]
+      #block(above: 0.42em)[#body-prose[#strong[#venue] #desc]]
     ]
-    #block(above: 0.4em, below: 0.25em)[#line(length: 100%, stroke: (paint: gray, thickness: 0.35pt))]
+    #block(above: 0.42em, below: 0.28em)[#line(length: 100%, stroke: (paint: gray, thickness: 0.35pt))]
     #section-title[#ui.additional]
-    #for a in additional [#block(above: 0.35em)[#a]]
+    #for a in additional [#block(above: 0.38em)[#body-prose[#a]]]
   ]
 )
 

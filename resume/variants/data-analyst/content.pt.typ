@@ -34,7 +34,7 @@
 )
 
 #let profile = [
-  #strong[Atuo como analista de dados] transformando Pesquisa Aplicada em #strong[insight mensurável]: #strong[Excel] avançado (fórmulas, VBA, planilhas como banco de dados, atalhos), pipelines #strong[CSV], Power BI, Python/SQL, #strong[estatística descritiva e inferencial] e #strong[Visualização da Informação] (Mestrado, nota A). #strong[Uso] CSI/NPS para priorizar resultados. Mestrado em Tecnologia (#strong[conclusão em setembro de 2026]) com #strong[nota A em todas as disciplinas].
+  #strong[Atuo como analista de dados] transformando Pesquisa Aplicada em #strong[insight mensurável]: #strong[Excel] avançado (fórmulas, VBA, planilhas como banco de dados, atalhos), pipelines #strong[CSV], Power BI, Python/SQL, #strong[estatística descritiva e inferencial] e #strong[Visualização da Informação] (Mestrado, nota A). #v(0.5em) #strong[Uso] CSI/NPS para priorizar resultados. Mestrado em Tecnologia (#strong[conclusão em setembro de 2026]) com #strong[nota A em todas as disciplinas].
 ]
 
 #let languages = "Português (Nativo)   Inglês (Fluente)"
@@ -68,7 +68,7 @@
 )
 
 #let education = (
-  ("Mestrado em Tecnologia:", [Sist. de Info. e Comunicação. Unicamp (2023–2026, conclusão em setembro de 2026).], [Dissertação: #strong[confiança percebida] em e-commerce (ISO/IEC 25000), validação humano vs #strong[agente de IA]; #strong[estatística inferencial]—normalidade, #strong[t de Welch/pareado], #strong[d de Cohen], #strong[FDR] (Python → Power BI); métricas descritivas (média, DP, EE, IC). Disciplinas (#strong[nota A em todas]): Escrita Acadêmica, Pesquisa Científica, Inovação e Transferência de Tecnologia, #strong[Visualização da Informação] (mapeamento visual, dados multivariados, interação, grafos/árvores, viz de textos).]),
+  ("Mestrado em Tecnologia:", [Sist. de Info. e Comunicação. Unicamp (2023–2026, conclusão em setembro de 2026).], [Dissertação: #strong[confiança percebida] em e-commerce (ISO/IEC 25000), validação humano vs #strong[agente de IA] #v(0.42em) #strong[estatística inferencial]—normalidade, #strong[t de Welch/pareado], #strong[d de Cohen], #strong[FDR] (Python → Power BI) #v(0.42em) métricas descritivas (média, DP, EE, IC). Disciplinas (#strong[nota A em todas]): Escrita Acadêmica, Pesquisa Científica, Inovação e Transferência de Tecnologia, #strong[Visualização da Informação] (mapeamento visual, dados multivariados, interação, grafos/árvores, viz de textos).]),
   ("Análise e Desenvolvimento de Sistemas.", "Unicamp (2015–2020).", none),
   ("Técnico em Informática.", "ETEC Bento Quirino (2012–2014).", none),
 )
