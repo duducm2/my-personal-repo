@@ -51,7 +51,7 @@
     [#strong[CIP CIM (Global Services):] #strong[AI-assisted UX relevance] scoring and #strong[data classification] in #strong[ServiceNow] (property-based weights); #strong[AI-supported method design]; evaluated GS #strong[strategic CIP dashboards] for leadership on issues and efficiency/efficacy gains.],
     [#strong[Tooling project (Power Tools):] delivery from requirements through prototypes; regular check-ins; progress tracked for decisions.],
     [#strong[Data Insights (Power Tools B2B):] #strong[Straussian grounded theory] on call-center records—#strong[AI-assisted Python] for manipulation and categorization; #strong[stakeholder validation]; #strong[Power BI] insights (finance, material transport, logistics, and more).],
-    [Supported Americas to #strong[UX Maturity Level 4]: governance, templates, training that made UX practice measurable.],
+    [Supported Americas to #strong[UX Maturity Level 4]: governance, templates, training; #strong[Power BI audit dashboard] auto-fetching #strong[Microsoft Lists] data to track #strong[project-management document] fulfillment.],
     [#strong[Agentic AI:] daily #strong[VS Code] use for research, analysis, and problem-solving across the pipeline.],
     [#strong[International & Mentorship:] two trips to Germany (2024, 2025); tutor at SENAI Digital Talent Academy.],
   )),

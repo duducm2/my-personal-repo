@@ -440,8 +440,8 @@ img[src*="story-flow"] {
 
 ## Discovery to delivery for trustworthy, human-centered products
 
-- I believe products in service organizations should be **trustworthy, usable, and useful**, especially when they affect real people and businesses.
-- My work connects **stakeholder needs**, **prioritization**, and **Applied Research**: bringing evidence into what we build, why, and in what order.
+- I believe products in service organizations should be **trustworthy, usable, and useful**, especially when they affect real people and businesses.
+- My work connects **stakeholder needs**, **prioritization**, and **Applied Research**: bringing evidence into what we build, why, and in what order.
 - This portfolio shows that discovery → delivery path through real projects.
 
 <p><img src="../../../pictures/diagrams/story-flow.png" alt="Diagram story-flow: Why story flow" /></p>
@@ -661,14 +661,14 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 <p class="americas-img"><img src="../../../pictures/work/americas-team-2025.jpg" alt="Americas Team 2025 - UX Maturity Level 4" /></p>
 </div>
 
-| Area                               | Achievement                                                                                                                       |
-| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| Role (official)                    | Applied Research & Design Analyst – Bosch Brasil (January 2023 – present); Applied Research Expert & Project Champion at GS/BDU       |
-| International                      | Two trips to Germany (2024, 2025) for role-related work                                                                           |
-| CO2 Tracking (GS/Applied Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand — a discovery outcome that stopped low-value work            |
-| Tooling project (PT)               | Requirements → high-fidelity prototypes → regular **customer check-ins**; discovery-to-delivery ownership with technical partners |
-| UX Maturity          | Americas Level 4 – governance, templates, training that **productized** UX practice for stakeholders                        |
-| CIP CIM (Global Services)          | With UX team, improved **strategic CIP dashboards** so GS president could quickly identify main issues and efficiency/efficacy gains; automated **UX relevance** **intake / quality gate** in ServiceNow                           |
+| Area                               | Achievement                                                                                                                       |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| Role (official)                    | Applied Research & Design Analyst – Bosch Brasil (January 2023 – present); Applied Research Expert & Project Champion at GS/BDU       |
+| International                      | Two trips to Germany (2024, 2025) for role-related work                                                                           |
+| CO2 Tracking (GS/Applied Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand — a discovery outcome that stopped low-value work            |
+| Tooling project (PT)               | Requirements → high-fidelity prototypes → regular **customer check-ins**; discovery-to-delivery ownership with technical partners |
+| UX Maturity          | Americas Level 4 – governance, templates, training that **productized** UX practice for stakeholders                        |
+| CIP CIM (Global Services)          | With UX team, improved **strategic CIP dashboards** so GS president could quickly identify main issues and efficiency/efficacy gains; automated **UX relevance** **intake / quality gate** in ServiceNow                           |
 | Collaboration                      | Tutor of Digital Talent Academy Students                                                                                          |
 
 ---
@@ -1009,8 +1009,8 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 <p class="dissertation-pbi-intro"><span class="thesis-emphasis">My dissertation asks whether **Agentic AI** behaves like humans—grounded in how/why users construct **trust** in unfamiliar e-commerce sites.</span></p>
 
-- **Normality first:** Shapiro-Wilk on attribute score distributions before choosing inferential tests.
-- **Python → Power BI:** Offline scripts compute **Welch** (Human–AI), **paired t-tests** (Human–Human), and **independent t-tests** (AI–AI) with **Cohen's d** and **Benjamini-Hochberg FDR**; results imported into Power BI for reporting.
+- **Normality first:** Shapiro-Wilk on attribute score distributions before choosing inferential tests.
+- **Python → Power BI:** Offline scripts compute **Welch** (Human–AI), **paired t-tests** (Human–Human), and **independent t-tests** (AI–AI) with **Cohen's d** and **Benjamini-Hochberg FDR**; results imported into Power BI for reporting.
 - **Descriptive + visual:** DAX measures for **mean, SD, variance, standard error, and CI bounds**; 50+ chart structures (boxplots, forest plots, small multiples) aligned with InfoVis coursework.
 
 <div class="dissertation-pbi-row">
@@ -1062,7 +1062,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## Data Visualization – MSc InfoVis: PNAD Contínua (Power BI)
 
-- **MSc Information Visualization (Unicamp, Grade A):** Card et al. pipeline—raw data → tables → **visual structures**; **visual mapping** (expressiveness & effectiveness); **multivariate** techniques (composition, small multiples, dimension handling).
+- **MSc Information Visualization (Unicamp, Grade A):** Card et al. pipeline—raw data → tables → **visual structures**; **visual mapping** (expressiveness & effectiveness); **multivariate** techniques (composition, small multiples, dimension handling).
 - **PNAD Contínua (Power BI):** Sankey, choropleth, and faceted encodings for education–employment trajectories and socioeconomic patterns—the same structural choices behind executive dashboards.
 
 <div class="infovis-split">
@@ -1299,8 +1299,8 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## InfoVis – Text & Graph Visualization (PhraseNets)
 
-- **Course topics → analyst skills:** **Views & interaction** (filtering, detail-on-demand); **graphs & trees** (network layout); **text visualization** (co-occurrence, patterns/outliers)—how to encode data and enable exploration.
-- **PhraseNets project:** Web network viz for word relationships—structure that bar/line charts cannot show.
+- **Course topics → analyst skills:** **Views & interaction** (filtering, detail-on-demand); **graphs & trees** (network layout); **text visualization** (co-occurrence, patterns/outliers)—how to encode data and enable exploration.
+- **PhraseNets project:** Web network viz for word relationships—structure that bar/line charts cannot show.
 - **Payoff for data work:** Mapping variables to marks, choosing the right structure for the question—not just charts, but effective visual communication.
 
 <div class="phrase-net-row">
@@ -1340,39 +1340,39 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 <!-- Slide 21 – Future (Career) -->
 
 <style scoped>
-.future-career-wrap {
-  display: flex !important; flex-direction: column !important;
-  justify-content: center !important; align-items: center !important;
-  min-height: 55vh !important; width: 100% !important; margin-top: 0.75rem !important;
-  gap: 1rem !important;
-}
-.future-career-wrap p { margin: 0 !important; text-align: center !important; }
-.future-career-wrap img {
-  width: 38% !important; max-width: 38% !important; height: auto !important;
-  display: block !important; margin: 10px auto 0 !important;
-  border: none !important; box-shadow: none !important;
-}
-.future-po-bullets {
-  max-width: 85% !important; text-align: left !important; font-size: 0.95em !important;
+.future-career-wrap {
+  display: flex !important; flex-direction: column !important;
+  justify-content: center !important; align-items: center !important;
+  min-height: 55vh !important; width: 100% !important; margin-top: 0.75rem !important;
+  gap: 1rem !important;
+}
+.future-career-wrap p { margin: 0 !important; text-align: center !important; }
+.future-career-wrap img {
+  width: 38% !important; max-width: 38% !important; height: auto !important;
+  display: block !important; margin: 10px auto 0 !important;
+  border: none !important; box-shadow: none !important;
+}
+.future-po-bullets {
+  max-width: 85% !important; text-align: left !important; font-size: 0.95em !important;
 }
 </style>
 
-## Future – How I Work
-
-- **What I bring:** discovery → prototypes → stakeholder check-ins; intake/quality gates; outcome metrics (CSI/NPS).
-
-<div class="future-career-wrap">
-<div class="future-po-bullets">
-
-| Competency              | Evidence from my work                                     |
-| ----------------------- | --------------------------------------------------------- |
-| Discovery & validation  | Tooling PT requirements → prototypes → customer check-ins |
-| Prioritization / intake | CIP CIM: ServiceNow UX relevance scoring + GS strategic CIP dashboard evaluation with UX team                   |
-| Stakeholder enablement  | Americas UX Maturity Level 4 (templates, training)  |
-| Outcome ownership       | CSI 4.86 / NPS 9.94 avg. (2024–2025)                      |
-
-</div>
-<p><img src="../../../pictures/diagrams/future-career-path.png" alt="Diagram future-career-path: Prioritized career paths" /></p>
+## Future – How I Work
+
+- **What I bring:** discovery → prototypes → stakeholder check-ins; intake/quality gates; outcome metrics (CSI/NPS).
+
+<div class="future-career-wrap">
+<div class="future-po-bullets">
+
+| Competency              | Evidence from my work                                     |
+| ----------------------- | --------------------------------------------------------- |
+| Discovery & validation  | Tooling PT requirements → prototypes → customer check-ins |
+| Prioritization / intake | CIP CIM: ServiceNow UX relevance scoring + GS strategic CIP dashboard evaluation with UX team                   |
+| Stakeholder enablement  | Americas UX Maturity Level 4 (templates, training)  |
+| Outcome ownership       | CSI 4.86 / NPS 9.94 avg. (2024–2025)                      |
+
+</div>
+<p><img src="../../../pictures/diagrams/future-career-path.png" alt="Diagram future-career-path: Prioritized career paths" /></p>
 </div>
 
 <!-- Diagram: future-career-path (mermaid/diagrams.md). Export to future-career-path.png -->

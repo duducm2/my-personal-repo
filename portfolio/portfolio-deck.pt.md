@@ -440,8 +440,8 @@ img[src*="story-flow"] {
 
 ## Software confiável e centrado no humano para serviços complexos
 
-- Acredito que software em organizações de serviço deve ser **confiável, utilizável e útil**, especialmente quando afeta pessoas reais e negócios.
-- Meu trabalho centra **tecnologia**, **gestão de projetos** e **Pesquisa Aplicada**: trazendo evidência e necessidades dos usuários para como construímos e entregamos.
+- Acredito que software em organizações de serviço deve ser **confiável, utilizável e útil**, especialmente quando afeta pessoas reais e negócios.
+- Meu trabalho centra **tecnologia**, **gestão de projetos** e **Pesquisa Aplicada**: trazendo evidência e necessidades dos usuários para como construímos e entregamos.
 - Este portfólio percorre essa história.
 
 <p><img src="../pictures/diagrams/story-flow.png" alt="Diagram story-flow: Why story flow" /></p>
@@ -661,14 +661,14 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 <p class="americas-img"><img src="../pictures/work/americas-team-2025.jpg" alt="Americas Team 2025 - UX Maturity Level 4" /></p>
 </div>
 
-| Área                               | Conquista                                                                                                                        |
-| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| Cargo                               | Pesquisa Aplicada e Tecnologia – Bosch Brasil (jan 2023 – atual); Especialista em Pesquisa Aplicada e Project Champion na GS/BDU            |
-| Internacional                      | Realizei duas viagens à Alemanha (2024, 2025) por trabalho relacionado ao cargo                                                                            |
-| Rastreamento CO2 (GS/Pesquisa Aplicada) | Conduzi prospecção de mercado para telemetria CO2; achado: falta de demanda de mercado                                                               |
-| Projeto tooling (PT)               | **Liderei** a entrega técnica e gestão do projeto de requisitos a protótipos de alta fidelidade, com check-ins regulares com clientes. |
-| Maturidade em UX          | **Liderei** as Américas ao Nível 4 – governança, templates, treinamento                                                                          |
-| CIP CIM (Global Services)          | Com equipe de UX, avaliei **dashboards estratégicos de CIP** de todas as iniciativas na GS—UX mais clara para a liderança identificar problemas e ganhos de eficiência/eficácia; **relevância em UX** automatizada no ServiceNow (pesos por propriedades) |
+| Área                               | Conquista                                                                                                                        |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Cargo                               | Pesquisa Aplicada e Tecnologia – Bosch Brasil (jan 2023 – atual); Especialista em Pesquisa Aplicada e Project Champion na GS/BDU            |
+| Internacional                      | Realizei duas viagens à Alemanha (2024, 2025) por trabalho relacionado ao cargo                                                                            |
+| Rastreamento CO2 (GS/Pesquisa Aplicada) | Conduzi prospecção de mercado para telemetria CO2; achado: falta de demanda de mercado                                                               |
+| Projeto tooling (PT)               | **Liderei** a entrega técnica e gestão do projeto de requisitos a protótipos de alta fidelidade, com check-ins regulares com clientes. |
+| Maturidade em UX          | **Liderei** as Américas ao Nível 4 – governança, templates, treinamento                                                                          |
+| CIP CIM (Global Services)          | Com equipe de UX, avaliei **dashboards estratégicos de CIP** de todas as iniciativas na GS—UX mais clara para a liderança identificar problemas e ganhos de eficiência/eficácia; **relevância em UX** automatizada no ServiceNow (pesos por propriedades) |
 | Colaboração                      | Sou tutor de estudantes da Digital Talent Academy                                                                                           |
 
 ---
@@ -1009,8 +1009,8 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 <p class="dissertation-pbi-intro"><span class="thesis-emphasis">Minha dissertação pergunta se **Agentic AI** se comporta como humanos—fundamentada em como/por que usuários constroem **confiança** em sites de e-commerce desconhecidos.</span></p>
 
-- **Normalidade primeiro:** Shapiro-Wilk nas distribuições de scores por atributo antes de escolher testes inferenciais.
-- **Python → Power BI:** Scripts offline calculam **Welch** (Humano–IA), **t pareado** (Humano–Humano) e **t independente** (IA–IA) com **d de Cohen** e **FDR Benjamini-Hochberg**; resultados importados ao Power BI para reporting.
+- **Normalidade primeiro:** Shapiro-Wilk nas distribuições de scores por atributo antes de escolher testes inferenciais.
+- **Python → Power BI:** Scripts offline calculam **Welch** (Humano–IA), **t pareado** (Humano–Humano) e **t independente** (IA–IA) com **d de Cohen** e **FDR Benjamini-Hochberg**; resultados importados ao Power BI para reporting.
 - **Descritivo + visual:** Medidas DAX para **média, DP, variância, erro padrão e limites de IC**; 50+ estruturas de gráficos (boxplots, forest plots, small multiples) alinhadas ao curso de InfoVis.
 
 <div class="dissertation-pbi-row">
@@ -1062,7 +1062,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## Visualização de dados – InfoVis (Mestrado): PNAD Contínua (Power BI)
 
-- **Visualização da Informação (Unicamp, nota A):** Pipeline de Card et al.—dados brutos → tabelas → **estruturas visuais**; **mapeamento visual** (expressividade e efetividade); técnicas **multivariadas** (composição, small multiples, redução de dimensões).
+- **Visualização da Informação (Unicamp, nota A):** Pipeline de Card et al.—dados brutos → tabelas → **estruturas visuais**; **mapeamento visual** (expressividade e efetividade); técnicas **multivariadas** (composição, small multiples, redução de dimensões).
 - **PNAD Contínua (Power BI):** Codificações Sankey, coropleta e facetadas para trajetórias educação–emprego e padrões socioeconômicos—as mesmas decisões estruturais em dashboards executivos.
 
 <div class="infovis-split">
@@ -1299,8 +1299,8 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## InfoVis – Visualização de textos e grafos (PhraseNets)
 
-- **Tópicos do curso → skills de analista:** **Visões e interação** (filtros, detalhes sob demanda); **grafos e árvores** (layout de redes); **visualização de textos** (coocorrência, padrões/outliers)—como codificar dados e permitir exploração.
-- **Projeto PhraseNets:** Viz web em rede para relações entre palavras—estrutura que gráficos de barras/linhas não mostram.
+- **Tópicos do curso → skills de analista:** **Visões e interação** (filtros, detalhes sob demanda); **grafos e árvores** (layout de redes); **visualização de textos** (coocorrência, padrões/outliers)—como codificar dados e permitir exploração.
+- **Projeto PhraseNets:** Viz web em rede para relações entre palavras—estrutura que gráficos de barras/linhas não mostram.
 - **Ganho para trabalho com dados:** Mapear variáveis a marcas e escolher a estrutura certa para a pergunta—não só gráficos, mas comunicação visual eficaz.
 
 <div class="phrase-net-row">
@@ -1340,22 +1340,22 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 <!-- Slide 21 – Future (Career) -->
 
 <style scoped>
-.future-career-wrap {
-  display: flex !important; justify-content: center !important; align-items: center !important;
-  min-height: 62vh !important; width: 100% !important; margin-top: 0.75rem !important;
-}
-.future-career-wrap p { margin: 0 !important; text-align: center !important; }
-.future-career-wrap img {
-  width: 43% !important; max-width: 43% !important; height: auto !important;
-  display: block !important; margin: 20px auto 0 !important;
-  border: none !important; box-shadow: none !important;
+.future-career-wrap {
+  display: flex !important; justify-content: center !important; align-items: center !important;
+  min-height: 62vh !important; width: 100% !important; margin-top: 0.75rem !important;
+}
+.future-career-wrap p { margin: 0 !important; text-align: center !important; }
+.future-career-wrap img {
+  width: 43% !important; max-width: 43% !important; height: auto !important;
+  display: block !important; margin: 20px auto 0 !important;
+  border: none !important; box-shadow: none !important;
 }
 </style>
 
-## Futuro – Aspirações de Carreira, Tipos de Vaga e Caminhos Priorizados para Liderança
-
-<div class="future-career-wrap">
-<p><img src="../pictures/diagrams/future-career-path.png" alt="Diagrama future-career-path: Caminhos priorizados para liderança, incluindo AI Scrum Master" /></p>
+## Futuro – Aspirações de Carreira, Tipos de Vaga e Caminhos Priorizados para Liderança
+
+<div class="future-career-wrap">
+<p><img src="../pictures/diagrams/future-career-path.png" alt="Diagrama future-career-path: Caminhos priorizados para liderança, incluindo AI Scrum Master" /></p>
 </div>
 
 <!-- Diagram: future-career-path (mermaid/diagrams.md). Export to future-career-path.png -->

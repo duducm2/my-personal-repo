@@ -51,7 +51,7 @@
     [#strong[CIP CIM (Global Services):] #strong[relevância em UX] e #strong[classificação de dados] com #strong[IA] no #strong[ServiceNow] (pesos por propriedades); #strong[método apoiado por IA]; avaliei #strong[dashboards estratégicos de CIP] na GS para liderança identificar problemas e ganhos de eficiência/eficácia.],
     [#strong[Projeto tooling (Power Tools):] entrega de requisitos a protótipos; check-ins regulares; progresso acompanhado para decisões.],
     [#strong[Data Insights (Power Tools B2B):] registros do call center com #strong[teoria fundamentada straussiana]—#strong[Python com IA] para manipulação e categorização; #strong[validação com stakeholders]; insights no #strong[Power BI] (finanças, transporte de materiais, logística e mais).],
-    [Apoiei Américas ao #strong[Nível 4 de Maturidade UX]: governança, templates e treinamento mensurável.],
+    [Apoiei Américas ao #strong[Nível 4 de Maturidade UX]: governança, templates, treinamento; #strong[dashboard Power BI] de auditoria com ingestão automática de #strong[Microsoft Lists] para acompanhar #strong[documentação de gestão de projetos].],
     [#strong[IA agêntica:] uso diário de #strong[VS Code] para pesquisa, análise e resolução de problemas no pipeline.],
     [#strong[Internacional e mentoria:] duas viagens à Alemanha (2024, 2025); tutor na SENAI Digital Talent Academy.],
   )),

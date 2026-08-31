@@ -440,8 +440,8 @@ img[src*="story-flow"] {
 
 ## Evidence that turns complex services into better decisions
 
-- I believe decisions should be **evidence-based**—often starting in **Excel** and **CSV** before scaling to BI and code.
-- My work centers **data analysis**, **experimentation**, and **Applied Research**: measuring outcomes and feeding insight into delivery.
+- I believe decisions should be **evidence-based**—often starting in **Excel** and **CSV** before scaling to BI and code.
+- My work centers **data analysis**, **experimentation**, and **Applied Research**: measuring outcomes and feeding insight into delivery.
 - This portfolio shows that path through real projects and metrics.
 
 <p><img src="../../../pictures/diagrams/story-flow.png" alt="Diagram story-flow: Why story flow" /></p>
@@ -661,21 +661,21 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 <p class="americas-img"><img src="../../../pictures/work/americas-team-2025.jpg" alt="Americas Team 2025 - UX Maturity Level 4" /></p>
 </div>
 
-| Area                               | Achievement                                                                                                                        |
-| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| Role                               | Applied Research & Design Analyst – Bosch Brasil (January 2023 – present); Applied Research Expert & Project Champion at GS/BDU            |
-| Excel & CSV                        | Advanced **Excel** (formulas, VBA, database-style workbooks, shortcuts); heavy **CSV** use; **3rd place, Bosch Talent Forum 2018** (Excel macro) |
-| Metrics & BI                       | Power BI dashboards for project/resource oversight; **CSI 4.86 / NPS 9.94** avg. across my projects (2024–2025)                         |
-| International                      | Two trips to Germany (2024, 2025) for role-related work                                                                            |
-| CO2 Tracking (GS/Applied Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand — a data-informed stop                                       |
-| Tooling project (PT)               | Requirements through high-fidelity prototypes with regular customer check-ins; progress and feedback tracked for decisions         |
-| Data Insights (Power Tools B2B)    | Call-center records analyzed with Straussian grounded theory (datasets, Python, AI); **open → axial → selective coding**; controlled semantic categories; stakeholder-validated insights in Power BI—finance, material transport, logistics, and more |
-| UX Maturity                        | Americas Level 4 – governance, templates, training that made UX practice measurable                                                |
-| CIP CIM (Global Services)          | Automated **UX relevance** in ServiceNow (data manipulation, property-based weights); with UX team, evaluated **strategic CIP dashboards** so GS leadership could quickly spot main issues and efficiency/efficacy improvements                                           |
-| MSc Information Visualization      | **Grade A** (Unicamp)—visual structures & mapping, multivariate data, views/interaction, graphs/trees, text viz; **PNAD Contínua** Power BI + **PhraseNets** web project                                                                                           |
-| Dissertation (TrustMate stats)     | Shapiro-Wilk normality checks; Python **Welch/paired t-tests**, **Cohen's d**, **FDR** → Power BI; mean, SD, variance, SE, CI + graphical analysis; **descriptive vs inferential** split (sample → population)                                                                                                               |
-| Research methods                   | MSc coursework + practice: descriptive vs inferential reasoning (sample → population); grounded theory, **IPA**, phenomenology, PAR; connects to Data Insights (Straussian grounded theory)                                                                                                                       |
-| Augmented analytics                | Daily **VS Code** + **Python**/AI in analysis pipeline—augmented-analytics mindset for faster insight extraction                                                                                           |
+| Area                               | Achievement                                                                                                                        |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Role                               | Applied Research & Design Analyst – Bosch Brasil (January 2023 – present); Applied Research Expert & Project Champion at GS/BDU            |
+| Excel & CSV                        | Advanced **Excel** (formulas, VBA, database-style workbooks, shortcuts); heavy **CSV** use; **3rd place, Bosch Talent Forum 2018** (Excel macro) |
+| Metrics & BI                       | Power BI dashboards for project/resource oversight; **CSI 4.86 / NPS 9.94** avg. across my projects (2024–2025)                         |
+| International                      | Two trips to Germany (2024, 2025) for role-related work                                                                            |
+| CO2 Tracking (GS/Applied Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand — a data-informed stop                                       |
+| Tooling project (PT)               | Requirements through high-fidelity prototypes with regular customer check-ins; progress and feedback tracked for decisions         |
+| Data Insights (Power Tools B2B)    | Call-center records analyzed with Straussian grounded theory (datasets, Python, AI); **open → axial → selective coding**; controlled semantic categories; stakeholder-validated insights in Power BI—finance, material transport, logistics, and more |
+| UX Maturity                        | Americas Level 4 – governance, templates, training; **Power BI audit dashboard** auto-fetching **Microsoft Lists** data to track **project-management document** fulfillment                                                |
+| CIP CIM (Global Services)          | Automated **UX relevance** in ServiceNow (data manipulation, property-based weights); with UX team, evaluated **strategic CIP dashboards** so GS leadership could quickly spot main issues and efficiency/efficacy improvements                                           |
+| MSc Information Visualization      | **Grade A** (Unicamp)—visual structures & mapping, multivariate data, views/interaction, graphs/trees, text viz; **PNAD Contínua** Power BI + **PhraseNets** web project                                                                                           |
+| Dissertation (TrustMate stats)     | Shapiro-Wilk normality checks; Python **Welch/paired t-tests**, **Cohen's d**, **FDR** → Power BI; mean, SD, variance, SE, CI + graphical analysis; **descriptive vs inferential** split (sample → population)                                                                                                               |
+| Research methods                   | MSc coursework + practice: descriptive vs inferential reasoning (sample → population); grounded theory, **IPA**, phenomenology, PAR; connects to Data Insights (Straussian grounded theory)                                                                                                                       |
+| Augmented analytics                | Daily **VS Code** + **Python**/AI in analysis pipeline—augmented-analytics mindset for faster insight extraction                                                                                           |
 | Collaboration                      | Tutor of Digital Talent Academy Students                                                                                           |
 
 ---
@@ -1016,8 +1016,8 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 <p class="dissertation-pbi-intro"><span class="thesis-emphasis">My dissertation asks whether **Agentic AI** behaves like humans—grounded in how/why users construct **trust** in unfamiliar e-commerce sites.</span></p>
 
-- **Normality first:** Shapiro-Wilk on attribute score distributions before choosing inferential tests.
-- **Python → Power BI:** Offline scripts compute **Welch** (Human–AI), **paired t-tests** (Human–Human), and **independent t-tests** (AI–AI) with **Cohen's d** and **Benjamini-Hochberg FDR**; results imported into Power BI for reporting.
+- **Normality first:** Shapiro-Wilk on attribute score distributions before choosing inferential tests.
+- **Python → Power BI:** Offline scripts compute **Welch** (Human–AI), **paired t-tests** (Human–Human), and **independent t-tests** (AI–AI) with **Cohen's d** and **Benjamini-Hochberg FDR**; results imported into Power BI for reporting.
 - **Descriptive + visual:** DAX measures for **mean, SD, variance, standard error, and CI bounds**; 50+ chart structures (boxplots, forest plots, small multiples) aligned with InfoVis coursework.
 
 <div class="dissertation-pbi-row">
@@ -1069,7 +1069,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## Data Visualization – MSc InfoVis: PNAD Contínua (Power BI)
 
-- **MSc Information Visualization (Unicamp, Grade A):** Card et al. pipeline—raw data → tables → **visual structures**; **visual mapping** (expressiveness & effectiveness); **multivariate** techniques (composition, small multiples, dimension handling).
+- **MSc Information Visualization (Unicamp, Grade A):** Card et al. pipeline—raw data → tables → **visual structures**; **visual mapping** (expressiveness & effectiveness); **multivariate** techniques (composition, small multiples, dimension handling).
 - **PNAD Contínua (Power BI):** Sankey, choropleth, and faceted encodings for education–employment trajectories and socioeconomic patterns—the same structural choices behind executive dashboards.
 
 <div class="infovis-split">
@@ -1306,8 +1306,8 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## InfoVis – Text & Graph Visualization (PhraseNets)
 
-- **Course topics → analyst skills:** **Views & interaction** (filtering, detail-on-demand); **graphs & trees** (network layout); **text visualization** (co-occurrence, patterns/outliers)—how to encode data and enable exploration.
-- **PhraseNets project:** Web network viz for word relationships—structure that bar/line charts cannot show.
+- **Course topics → analyst skills:** **Views & interaction** (filtering, detail-on-demand); **graphs & trees** (network layout); **text visualization** (co-occurrence, patterns/outliers)—how to encode data and enable exploration.
+- **PhraseNets project:** Web network viz for word relationships—structure that bar/line charts cannot show.
 - **Payoff for data work:** Mapping variables to marks, choosing the right structure for the question—not just charts, but effective visual communication.
 
 <div class="phrase-net-row">
@@ -1347,44 +1347,44 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 <!-- Slide 21 – Future (Career) -->
 
 <style scoped>
-.future-career-wrap {
-  display: flex !important; flex-direction: column !important;
-  justify-content: center !important; align-items: center !important;
-  min-height: 55vh !important; width: 100% !important; margin-top: 0.75rem !important;
-  gap: 1rem !important;
-}
-.future-career-wrap p { margin: 0 !important; text-align: center !important; }
-.future-career-wrap img {
-  width: 38% !important; max-width: 38% !important; height: auto !important;
-  display: block !important; margin: 10px auto 0 !important;
-  border: none !important; box-shadow: none !important;
-}
-.future-po-bullets {
-  max-width: 85% !important; text-align: left !important; font-size: 0.95em !important;
+.future-career-wrap {
+  display: flex !important; flex-direction: column !important;
+  justify-content: center !important; align-items: center !important;
+  min-height: 55vh !important; width: 100% !important; margin-top: 0.75rem !important;
+  gap: 1rem !important;
+}
+.future-career-wrap p { margin: 0 !important; text-align: center !important; }
+.future-career-wrap img {
+  width: 38% !important; max-width: 38% !important; height: auto !important;
+  display: block !important; margin: 10px auto 0 !important;
+  border: none !important; box-shadow: none !important;
+}
+.future-po-bullets {
+  max-width: 85% !important; text-align: left !important; font-size: 0.95em !important;
 }
 </style>
 
-## Future – How I Work with Data
-
-- **What I bring:** **Excel** & **CSV** fluency; dashboards & outcome metrics (CSI/NPS); experimentation/ML in research; method-driven intake gates.
-
-<div class="future-career-wrap">
-<div class="future-po-bullets">
-
-| Competency              | Evidence from my work                                     |
-| ----------------------- | --------------------------------------------------------- |
-| Metrics & BI            | Power BI dashboards; CSI 4.86 / NPS 9.94 avg. (2024–2025) |
-| Inferential statistics  | Dissertation: normality checks → Welch/paired t-tests, Cohen's d, FDR (Python → Power BI) |
-| Data-informed intake    | CIP CIM: ServiceNow UX relevance scoring + GS strategic CIP dashboard evaluation with UX team                   |
-| Qualitative → BI analytics | Data Insights: Straussian grounded theory on B2B call-center records → Power BI dashboards |
-| Research methods        | MSc coursework + practice: descriptive vs inferential reasoning (sample → population); grounded theory, **IPA**, phenomenology, PAR; connects to Data Insights (Straussian grounded theory) |
-| Visualization & encoding | MSc InfoVis: visual mapping, multivariate structures, views/interaction—PNAD Power BI + PhraseNets |
-| Descriptive & diagnostic analytics | Dashboards/KPIs, diagnostic drill-down—descriptive and diagnostic focus, not predictive ML pipelines |
-| Research rigor          | Bias-aware design: selection, confirmation, and procedural bias awareness in analysis |
-| Measurable practice     | Americas UX Maturity Level 4 (templates, training)        |
-
-</div>
-<p><img src="../../../pictures/diagrams/future-career-path.png" alt="Diagram future-career-path: Prioritized career paths" /></p>
+## Future – How I Work with Data
+
+- **What I bring:** **Excel** & **CSV** fluency; dashboards & outcome metrics (CSI/NPS); experimentation/ML in research; method-driven intake gates.
+
+<div class="future-career-wrap">
+<div class="future-po-bullets">
+
+| Competency              | Evidence from my work                                     |
+| ----------------------- | --------------------------------------------------------- |
+| Metrics & BI            | Power BI dashboards; CSI 4.86 / NPS 9.94 avg. (2024–2025) |
+| Inferential statistics  | Dissertation: normality checks → Welch/paired t-tests, Cohen's d, FDR (Python → Power BI) |
+| Data-informed intake    | CIP CIM: ServiceNow UX relevance scoring + GS strategic CIP dashboard evaluation with UX team                   |
+| Qualitative → BI analytics | Data Insights: Straussian grounded theory on B2B call-center records → Power BI dashboards |
+| Research methods        | MSc coursework + practice: descriptive vs inferential reasoning (sample → population); grounded theory, **IPA**, phenomenology, PAR; connects to Data Insights (Straussian grounded theory) |
+| Visualization & encoding | MSc InfoVis: visual mapping, multivariate structures, views/interaction—PNAD Power BI + PhraseNets |
+| Descriptive & diagnostic analytics | Dashboards/KPIs, diagnostic drill-down—descriptive and diagnostic focus, not predictive ML pipelines |
+| Research rigor          | Bias-aware design: selection, confirmation, and procedural bias awareness in analysis |
+| Measurable practice     | Americas UX Maturity Level 4 (templates, training)        |
+
+</div>
+<p><img src="../../../pictures/diagrams/future-career-path.png" alt="Diagram future-career-path: Prioritized career paths" /></p>
 </div>
 
 <!-- Diagram: future-career-path (mermaid/diagrams.md). Export to future-career-path.png -->

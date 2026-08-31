@@ -440,8 +440,8 @@ img[src*="story-flow"] {
 
 ## Trustworthy, human-centered software for complex services
 
-- I believe software in service organizations should be **trustworthy, usable, and usefull**, especially when it affects real people and businesses.
-- My work centers **technology**, **project management**, and **Applied Research**: bringing evidence and user needs into how we build and deliver.
+- I believe software in service organizations should be **trustworthy, usable, and usefull**, especially when it affects real people and businesses.
+- My work centers **technology**, **project management**, and **Applied Research**: bringing evidence and user needs into how we build and deliver.
 - This portfolio walks through that story.
 
 <p><img src="../pictures/diagrams/story-flow.png" alt="Diagram story-flow: Why story flow" /></p>
@@ -661,14 +661,14 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 <p class="americas-img"><img src="../pictures/work/americas-team-2025.jpg" alt="Americas Team 2025 - UX Maturity Level 4" /></p>
 </div>
 
-| Area                               | Achievement                                                                                                                        |
-| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| Role                               | Applied Research & Technology – Bosch Brasil (January 2023 – present); Applied Research Expert & Project Champion at GS/BDU            |
-| International                      | Two trips to Germany (2024, 2025) for role-related work                                                                            |
-| CO2 Tracking (GS/Applied Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand                                                               |
-| Tooling project (PT)               | Led technical delivery and project management from requirements through high-fidelity prototypes, with regular customer check-ins. |
-| UX Maturity          | Led Americas to Level 4 – governance, templates, training                                                                          |
-| CIP CIM (Global Services)          | With UX team, evaluated **strategic CIP dashboards** for all GS initiatives—clearer UX so leadership could quickly spot main issues and efficiency/efficacy gains; automated **UX relevance** in ServiceNow (property-based weights) |
+| Area                               | Achievement                                                                                                                        |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Role                               | Applied Research & Technology – Bosch Brasil (January 2023 – present); Applied Research Expert & Project Champion at GS/BDU            |
+| International                      | Two trips to Germany (2024, 2025) for role-related work                                                                            |
+| CO2 Tracking (GS/Applied Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand                                                               |
+| Tooling project (PT)               | Led technical delivery and project management from requirements through high-fidelity prototypes, with regular customer check-ins. |
+| UX Maturity          | Led Americas to Level 4 – governance, templates, training                                                                          |
+| CIP CIM (Global Services)          | With UX team, evaluated **strategic CIP dashboards** for all GS initiatives—clearer UX so leadership could quickly spot main issues and efficiency/efficacy gains; automated **UX relevance** in ServiceNow (property-based weights) |
 | Collaboration                      | Tutor of Digital Talent Academy Students                                                                                           |
 
 ---
@@ -1009,8 +1009,8 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 <p class="dissertation-pbi-intro"><span class="thesis-emphasis">My dissertation asks whether **Agentic AI** behaves like humans—grounded in how/why users construct **trust** in unfamiliar e-commerce sites.</span></p>
 
-- **Normality first:** Shapiro-Wilk on attribute score distributions before choosing inferential tests.
-- **Python → Power BI:** Offline scripts compute **Welch** (Human–AI), **paired t-tests** (Human–Human), and **independent t-tests** (AI–AI) with **Cohen's d** and **Benjamini-Hochberg FDR**; results imported into Power BI for reporting.
+- **Normality first:** Shapiro-Wilk on attribute score distributions before choosing inferential tests.
+- **Python → Power BI:** Offline scripts compute **Welch** (Human–AI), **paired t-tests** (Human–Human), and **independent t-tests** (AI–AI) with **Cohen's d** and **Benjamini-Hochberg FDR**; results imported into Power BI for reporting.
 - **Descriptive + visual:** DAX measures for **mean, SD, variance, standard error, and CI bounds**; 50+ chart structures (boxplots, forest plots, small multiples) aligned with InfoVis coursework.
 
 <div class="dissertation-pbi-row">
@@ -1062,7 +1062,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## Data Visualization – MSc InfoVis: PNAD Contínua (Power BI)
 
-- **MSc Information Visualization (Unicamp, Grade A):** Card et al. pipeline—raw data → tables → **visual structures**; **visual mapping** (expressiveness & effectiveness); **multivariate** techniques (composition, small multiples, dimension handling).
+- **MSc Information Visualization (Unicamp, Grade A):** Card et al. pipeline—raw data → tables → **visual structures**; **visual mapping** (expressiveness & effectiveness); **multivariate** techniques (composition, small multiples, dimension handling).
 - **PNAD Contínua (Power BI):** Sankey, choropleth, and faceted encodings for education–employment trajectories and socioeconomic patterns—the same structural choices behind executive dashboards.
 
 <div class="infovis-split">
@@ -1299,8 +1299,8 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## InfoVis – Text & Graph Visualization (PhraseNets)
 
-- **Course topics → analyst skills:** **Views & interaction** (filtering, detail-on-demand); **graphs & trees** (network layout); **text visualization** (co-occurrence, patterns/outliers)—how to encode data and enable exploration.
-- **PhraseNets project:** Web network viz for word relationships—structure that bar/line charts cannot show.
+- **Course topics → analyst skills:** **Views & interaction** (filtering, detail-on-demand); **graphs & trees** (network layout); **text visualization** (co-occurrence, patterns/outliers)—how to encode data and enable exploration.
+- **PhraseNets project:** Web network viz for word relationships—structure that bar/line charts cannot show.
 - **Payoff for data work:** Mapping variables to marks, choosing the right structure for the question—not just charts, but effective visual communication.
 
 <div class="phrase-net-row">
@@ -1340,22 +1340,22 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 <!-- Slide 21 – Future (Career) -->
 
 <style scoped>
-.future-career-wrap {
-  display: flex !important; justify-content: center !important; align-items: center !important;
-  min-height: 62vh !important; width: 100% !important; margin-top: 0.75rem !important;
-}
-.future-career-wrap p { margin: 0 !important; text-align: center !important; }
-.future-career-wrap img {
-  width: 43% !important; max-width: 43% !important; height: auto !important;
-  display: block !important; margin: 20px auto 0 !important;
-  border: none !important; box-shadow: none !important;
+.future-career-wrap {
+  display: flex !important; justify-content: center !important; align-items: center !important;
+  min-height: 62vh !important; width: 100% !important; margin-top: 0.75rem !important;
+}
+.future-career-wrap p { margin: 0 !important; text-align: center !important; }
+.future-career-wrap img {
+  width: 43% !important; max-width: 43% !important; height: auto !important;
+  display: block !important; margin: 20px auto 0 !important;
+  border: none !important; box-shadow: none !important;
 }
 </style>
 
-## Future – Career Aspirations, Vacancy Types & Prioritized Paths to Leadership
-
-<div class="future-career-wrap">
-<p><img src="../pictures/diagrams/future-career-path.png" alt="Diagram future-career-path: Prioritized paths to leadership, including AI Scrum Master" /></p>
+## Future – Career Aspirations, Vacancy Types & Prioritized Paths to Leadership
+
+<div class="future-career-wrap">
+<p><img src="../pictures/diagrams/future-career-path.png" alt="Diagram future-career-path: Prioritized paths to leadership, including AI Scrum Master" /></p>
 </div>
 
 <!-- Diagram: future-career-path (mermaid/diagrams.md). Export to future-career-path.png -->

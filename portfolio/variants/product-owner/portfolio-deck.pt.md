@@ -440,8 +440,8 @@ img[src*="story-flow"] {
 
 ## Da descoberta à entrega para produtos confiáveis e centrados no humano
 
-- Acredito que produtos em organizações de serviço devem ser **confiáveis, utilizáveis e úteis**, especialmente quando afetam pessoas reais e negócios.
-- Meu trabalho conecta **necessidades de stakeholders**, **priorização** e **Pesquisa Aplicada**: trazendo evidência sobre o que construímos, por quê e em qual ordem.
+- Acredito que produtos em organizações de serviço devem ser **confiáveis, utilizáveis e úteis**, especialmente quando afetam pessoas reais e negócios.
+- Meu trabalho conecta **necessidades de stakeholders**, **priorização** e **Pesquisa Aplicada**: trazendo evidência sobre o que construímos, por quê e em qual ordem.
 - Este portfólio mostra esse caminho descoberta → entrega por meio de projetos reais.
 
 <p><img src="../../../pictures/diagrams/story-flow.png" alt="Diagram story-flow: Why story flow" /></p>
@@ -661,14 +661,14 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 <p class="americas-img"><img src="../../../pictures/work/americas-team-2025.jpg" alt="Americas Team 2025 - UX Maturity Level 4" /></p>
 </div>
 
-| Área                               | Conquista                                                                                                                       |
-| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| Cargo (oficial)                    | Analista de Pesquisa Aplicada e Design – Bosch Brasil (jan 2023 – atual); Especialista em Pesquisa Aplicada e Project Champion na GS/BDU       |
-| Internacional                      | Realizei duas viagens à Alemanha (2024, 2025) por trabalho relacionado ao cargo                                                                           |
-| Rastreamento CO2 (GS/Pesquisa Aplicada) | Conduzi prospecção de mercado para telemetria CO2; achado: falta de demanda — resultado de descoberta que interrompeu trabalho de baixo valor            |
-| Projeto tooling (PT)               | Conduzi de requisitos a protótipos de alta fidelidade com **check-ins regulares com clientes**; ownership descoberta→entrega com parceiros técnicos |
-| Maturidade em UX          | Apoiei as Américas a atingir Nível 4 – governança, templates, treinamento que **produtizaram** a prática de UX para stakeholders                        |
-| CIP CIM (Global Services)          | Com equipe de UX, melhorei **dashboards estratégicos de CIP** para o presidente da GS identificar problemas e ganhos de eficiência/eficácia; **gate de entrada / qualidade** de **relevância em UX** automatizado no ServiceNow                           |
+| Área                               | Conquista                                                                                                                       |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| Cargo (oficial)                    | Analista de Pesquisa Aplicada e Design – Bosch Brasil (jan 2023 – atual); Especialista em Pesquisa Aplicada e Project Champion na GS/BDU       |
+| Internacional                      | Realizei duas viagens à Alemanha (2024, 2025) por trabalho relacionado ao cargo                                                                           |
+| Rastreamento CO2 (GS/Pesquisa Aplicada) | Conduzi prospecção de mercado para telemetria CO2; achado: falta de demanda — resultado de descoberta que interrompeu trabalho de baixo valor            |
+| Projeto tooling (PT)               | Conduzi de requisitos a protótipos de alta fidelidade com **check-ins regulares com clientes**; ownership descoberta→entrega com parceiros técnicos |
+| Maturidade em UX          | Apoiei as Américas a atingir Nível 4 – governança, templates, treinamento que **produtizaram** a prática de UX para stakeholders                        |
+| CIP CIM (Global Services)          | Com equipe de UX, melhorei **dashboards estratégicos de CIP** para o presidente da GS identificar problemas e ganhos de eficiência/eficácia; **gate de entrada / qualidade** de **relevância em UX** automatizado no ServiceNow                           |
 | Colaboração                      | Sou tutor de estudantes da Digital Talent Academy                                                                                          |
 
 ---
@@ -1009,8 +1009,8 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 <p class="dissertation-pbi-intro"><span class="thesis-emphasis">Minha dissertação pergunta se **Agentic AI** se comporta como humanos—fundamentada em como/por que usuários constroem **confiança** em sites de e-commerce desconhecidos.</span></p>
 
-- **Normalidade primeiro:** Shapiro-Wilk nas distribuições de scores por atributo antes de escolher testes inferenciais.
-- **Python → Power BI:** Scripts offline calculam **Welch** (Humano–IA), **t pareado** (Humano–Humano) e **t independente** (IA–IA) com **d de Cohen** e **FDR Benjamini-Hochberg**; resultados importados ao Power BI para reporting.
+- **Normalidade primeiro:** Shapiro-Wilk nas distribuições de scores por atributo antes de escolher testes inferenciais.
+- **Python → Power BI:** Scripts offline calculam **Welch** (Humano–IA), **t pareado** (Humano–Humano) e **t independente** (IA–IA) com **d de Cohen** e **FDR Benjamini-Hochberg**; resultados importados ao Power BI para reporting.
 - **Descritivo + visual:** Medidas DAX para **média, DP, variância, erro padrão e limites de IC**; 50+ estruturas de gráficos (boxplots, forest plots, small multiples) alinhadas ao curso de InfoVis.
 
 <div class="dissertation-pbi-row">
@@ -1062,7 +1062,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## Visualização de dados – InfoVis (Mestrado): PNAD Contínua (Power BI)
 
-- **Visualização da Informação (Unicamp, nota A):** Pipeline de Card et al.—dados brutos → tabelas → **estruturas visuais**; **mapeamento visual** (expressividade e efetividade); técnicas **multivariadas** (composição, small multiples, redução de dimensões).
+- **Visualização da Informação (Unicamp, nota A):** Pipeline de Card et al.—dados brutos → tabelas → **estruturas visuais**; **mapeamento visual** (expressividade e efetividade); técnicas **multivariadas** (composição, small multiples, redução de dimensões).
 - **PNAD Contínua (Power BI):** Codificações Sankey, coropleta e facetadas para trajetórias educação–emprego e padrões socioeconômicos—as mesmas decisões estruturais em dashboards executivos.
 
 <div class="infovis-split">
@@ -1299,8 +1299,8 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## InfoVis – Visualização de textos e grafos (PhraseNets)
 
-- **Tópicos do curso → skills de analista:** **Visões e interação** (filtros, detalhes sob demanda); **grafos e árvores** (layout de redes); **visualização de textos** (coocorrência, padrões/outliers)—como codificar dados e permitir exploração.
-- **Projeto PhraseNets:** Viz web em rede para relações entre palavras—estrutura que gráficos de barras/linhas não mostram.
+- **Tópicos do curso → skills de analista:** **Visões e interação** (filtros, detalhes sob demanda); **grafos e árvores** (layout de redes); **visualização de textos** (coocorrência, padrões/outliers)—como codificar dados e permitir exploração.
+- **Projeto PhraseNets:** Viz web em rede para relações entre palavras—estrutura que gráficos de barras/linhas não mostram.
 - **Ganho para trabalho com dados:** Mapear variáveis a marcas e escolher a estrutura certa para a pergunta—não só gráficos, mas comunicação visual eficaz.
 
 <div class="phrase-net-row">
@@ -1340,39 +1340,39 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 <!-- Slide 21 – Future (Career) -->
 
 <style scoped>
-.future-career-wrap {
-  display: flex !important; flex-direction: column !important;
-  justify-content: center !important; align-items: center !important;
-  min-height: 55vh !important; width: 100% !important; margin-top: 0.75rem !important;
-  gap: 1rem !important;
-}
-.future-career-wrap p { margin: 0 !important; text-align: center !important; }
-.future-career-wrap img {
-  width: 38% !important; max-width: 38% !important; height: auto !important;
-  display: block !important; margin: 10px auto 0 !important;
-  border: none !important; box-shadow: none !important;
-}
-.future-po-bullets {
-  max-width: 85% !important; text-align: left !important; font-size: 0.95em !important;
+.future-career-wrap {
+  display: flex !important; flex-direction: column !important;
+  justify-content: center !important; align-items: center !important;
+  min-height: 55vh !important; width: 100% !important; margin-top: 0.75rem !important;
+  gap: 1rem !important;
+}
+.future-career-wrap p { margin: 0 !important; text-align: center !important; }
+.future-career-wrap img {
+  width: 38% !important; max-width: 38% !important; height: auto !important;
+  display: block !important; margin: 10px auto 0 !important;
+  border: none !important; box-shadow: none !important;
+}
+.future-po-bullets {
+  max-width: 85% !important; text-align: left !important; font-size: 0.95em !important;
 }
 </style>
 
-## Futuro – Como Trabalho
-
-- **O que trago:** descoberta → protótipos → check-ins com stakeholders; gates de entrada/qualidade; métricas de resultado (CSI/NPS).
-
-<div class="future-career-wrap">
-<div class="future-po-bullets">
-
-| Competência              | Evidência do meu trabalho                                     |
-| ----------------------- | --------------------------------------------------------- |
-| Descoberta e validação  | Tooling PT requisitos → protótipos → check-ins com clientes |
-| Priorização / entrada | CIP CIM: pontuação de relevância em UX no ServiceNow + avaliação de dashboards estratégicos de CIP na GS com equipe de UX                   |
-| Habilitação de stakeholders  | Nível 4 de Maturidade em UX nas Américas (templates, treinamento)  |
-| Ownership de resultados       | CSI 4,86 / NPS 9,94 méd. (2024–2025)                      |
-
-</div>
-<p><img src="../../../pictures/diagrams/future-career-path.png" alt="Diagrama future-career-path: Caminhos de carreira priorizados" /></p>
+## Futuro – Como Trabalho
+
+- **O que trago:** descoberta → protótipos → check-ins com stakeholders; gates de entrada/qualidade; métricas de resultado (CSI/NPS).
+
+<div class="future-career-wrap">
+<div class="future-po-bullets">
+
+| Competência              | Evidência do meu trabalho                                     |
+| ----------------------- | --------------------------------------------------------- |
+| Descoberta e validação  | Tooling PT requisitos → protótipos → check-ins com clientes |
+| Priorização / entrada | CIP CIM: pontuação de relevância em UX no ServiceNow + avaliação de dashboards estratégicos de CIP na GS com equipe de UX                   |
+| Habilitação de stakeholders  | Nível 4 de Maturidade em UX nas Américas (templates, treinamento)  |
+| Ownership de resultados       | CSI 4,86 / NPS 9,94 méd. (2024–2025)                      |
+
+</div>
+<p><img src="../../../pictures/diagrams/future-career-path.png" alt="Diagrama future-career-path: Caminhos de carreira priorizados" /></p>
 </div>
 
 <!-- Diagram: future-career-path (mermaid/diagrams.md). Export to future-career-path.png -->

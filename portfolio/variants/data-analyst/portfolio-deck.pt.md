@@ -440,8 +440,8 @@ img[src*="story-flow"] {
 
 ## Evidência que transforma serviços complexos em melhores decisões
 
-- Acredito que decisões devem ser **baseadas em evidência**—muitas vezes começando em **Excel** e **CSV** antes de escalar para BI e código.
-- Meu trabalho centra **análise de dados**, **experimentação** e **Pesquisa Aplicada**: mensurar resultados e alimentar a entrega com insight.
+- Acredito que decisões devem ser **baseadas em evidência**—muitas vezes começando em **Excel** e **CSV** antes de escalar para BI e código.
+- Meu trabalho centra **análise de dados**, **experimentação** e **Pesquisa Aplicada**: mensurar resultados e alimentar a entrega com insight.
 - Este portfólio mostra esse caminho por meio de projetos reais e métricas.
 
 <p><img src="../../../pictures/diagrams/story-flow.png" alt="Diagram story-flow: Why story flow" /></p>
@@ -661,21 +661,21 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 <p class="americas-img"><img src="../../../pictures/work/americas-team-2025.jpg" alt="Americas Team 2025 - UX Maturity Level 4" /></p>
 </div>
 
-| Área                               | Conquista                                                                                                                        |
-| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| Cargo                               | Analista de Pesquisa Aplicada e Design – Bosch Brasil (jan 2023 – atual); Especialista em Pesquisa Aplicada e Project Champion na GS/BDU            |
-| Excel e CSV                        | **Excel** avançado (fórmulas, VBA, planilhas como banco de dados, atalhos); uso intenso de **CSV**; **3º lugar, Fórum de talentos Bosch 2018** (macro Excel) |
-| Métricas e BI                       | Dashboards Power BI para projetos/recursos; **CSI 4,86 / NPS 9,94** méd. nos meus projetos (2024–2025)                         |
-| Internacional                      | Realizei duas viagens à Alemanha (2024, 2025) por trabalho relacionado ao cargo                                                                            |
-| Rastreamento CO2 (GS/Pesquisa Aplicada) | Conduzi prospecção de mercado para telemetria CO2; achado: falta de demanda — interrupção baseada em dados                                       |
-| Projeto tooling (PT)               | Requisitos a protótipos de alta fidelidade com check-ins regulares; progresso e feedback acompanhados para decisões         |
-| Data Insights (Power Tools B2B)    | Registros do call center analisados com teoria fundamentada straussiana (datasets, Python, IA); codificação **aberta → axial → seletiva**; categorias semânticas controladas; insights validados com stakeholders no Power BI—finanças, transporte de materiais, logística e mais |
-| Maturidade em UX                        | Nível 4 nas Américas – governança, templates, treinamento que tornaram a prática de UX mensurável                                                |
-| CIP CIM (Global Services)          | **Relevância em UX** automatizada no ServiceNow (manipulação de dados, pesos por propriedades); com equipe de UX, avaliei **dashboards estratégicos de CIP** para a liderança da GS identificar problemas e melhorias de eficiência/eficácia                                           |
-| Visualização da Informação (Mestrado)      | **Nota A** (Unicamp)—estruturas visuais e mapeamento, dados multivariados, visões/interação, grafos/árvores, viz de textos; **PNAD Contínua** Power BI + projeto web **PhraseNets**                                                                                           |
-| Dissertação (TrustMate estatística)     | Testes de normalidade Shapiro-Wilk; **t de Welch/pareado**, **d de Cohen**, **FDR** (Python → Power BI); média, DP, variância, EE, IC + análise gráfica; divisão **descritivo vs inferencial** (amostra → população)                                                                                                               |
-| Métodos de pesquisa                   | Disciplinas do mestrado + prática: raciocínio descritivo vs inferencial (amostra → população); teoria fundamentada, **IPA**, fenomenologia, PAR; conecta ao Data Insights (TFD straussiana)                                                                                                                       |
-| Análise aumentada (augmented)                | Uso diário de **VS Code** + **Python**/IA no pipeline analítico—mindset de análise aumentada para extrair insight mais rápido                                                                                           |
+| Área                               | Conquista                                                                                                                        |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Cargo                               | Analista de Pesquisa Aplicada e Design – Bosch Brasil (jan 2023 – atual); Especialista em Pesquisa Aplicada e Project Champion na GS/BDU            |
+| Excel e CSV                        | **Excel** avançado (fórmulas, VBA, planilhas como banco de dados, atalhos); uso intenso de **CSV**; **3º lugar, Fórum de talentos Bosch 2018** (macro Excel) |
+| Métricas e BI                       | Dashboards Power BI para projetos/recursos; **CSI 4,86 / NPS 9,94** méd. nos meus projetos (2024–2025)                         |
+| Internacional                      | Realizei duas viagens à Alemanha (2024, 2025) por trabalho relacionado ao cargo                                                                            |
+| Rastreamento CO2 (GS/Pesquisa Aplicada) | Conduzi prospecção de mercado para telemetria CO2; achado: falta de demanda — interrupção baseada em dados                                       |
+| Projeto tooling (PT)               | Requisitos a protótipos de alta fidelidade com check-ins regulares; progresso e feedback acompanhados para decisões         |
+| Data Insights (Power Tools B2B)    | Registros do call center analisados com teoria fundamentada straussiana (datasets, Python, IA); codificação **aberta → axial → seletiva**; categorias semânticas controladas; insights validados com stakeholders no Power BI—finanças, transporte de materiais, logística e mais |
+| Maturidade em UX                        | Nível 4 nas Américas – governança, templates, treinamento; **dashboard Power BI** de auditoria com ingestão automática de **Microsoft Lists** para **documentação de gestão de projetos**                                                |
+| CIP CIM (Global Services)          | **Relevância em UX** automatizada no ServiceNow (manipulação de dados, pesos por propriedades); com equipe de UX, avaliei **dashboards estratégicos de CIP** para a liderança da GS identificar problemas e melhorias de eficiência/eficácia                                           |
+| Visualização da Informação (Mestrado)      | **Nota A** (Unicamp)—estruturas visuais e mapeamento, dados multivariados, visões/interação, grafos/árvores, viz de textos; **PNAD Contínua** Power BI + projeto web **PhraseNets**                                                                                           |
+| Dissertação (TrustMate estatística)     | Testes de normalidade Shapiro-Wilk; **t de Welch/pareado**, **d de Cohen**, **FDR** (Python → Power BI); média, DP, variância, EE, IC + análise gráfica; divisão **descritivo vs inferencial** (amostra → população)                                                                                                               |
+| Métodos de pesquisa                   | Disciplinas do mestrado + prática: raciocínio descritivo vs inferencial (amostra → população); teoria fundamentada, **IPA**, fenomenologia, PAR; conecta ao Data Insights (TFD straussiana)                                                                                                                       |
+| Análise aumentada (augmented)                | Uso diário de **VS Code** + **Python**/IA no pipeline analítico—mindset de análise aumentada para extrair insight mais rápido                                                                                           |
 | Colaboração                      | Sou tutor de estudantes da Digital Talent Academy                                                                                           |
 
 ---
@@ -1016,8 +1016,8 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 <p class="dissertation-pbi-intro"><span class="thesis-emphasis">Minha dissertação pergunta se **Agentic AI** se comporta como humanos—fundamentada em como/por que usuários constroem **confiança** em sites de e-commerce desconhecidos.</span></p>
 
-- **Normalidade primeiro:** Shapiro-Wilk nas distribuições de scores por atributo antes de escolher testes inferenciais.
-- **Python → Power BI:** Scripts offline calculam **Welch** (Humano–IA), **t pareado** (Humano–Humano) e **t independente** (IA–IA) com **d de Cohen** e **FDR Benjamini-Hochberg**; resultados importados ao Power BI para reporting.
+- **Normalidade primeiro:** Shapiro-Wilk nas distribuições de scores por atributo antes de escolher testes inferenciais.
+- **Python → Power BI:** Scripts offline calculam **Welch** (Humano–IA), **t pareado** (Humano–Humano) e **t independente** (IA–IA) com **d de Cohen** e **FDR Benjamini-Hochberg**; resultados importados ao Power BI para reporting.
 - **Descritivo + visual:** Medidas DAX para **média, DP, variância, erro padrão e limites de IC**; 50+ estruturas de gráficos (boxplots, forest plots, small multiples) alinhadas ao curso de InfoVis.
 
 <div class="dissertation-pbi-row">
@@ -1069,7 +1069,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## Visualização de dados – InfoVis (Mestrado): PNAD Contínua (Power BI)
 
-- **Visualização da Informação (Unicamp, nota A):** Pipeline de Card et al.—dados brutos → tabelas → **estruturas visuais**; **mapeamento visual** (expressividade e efetividade); técnicas **multivariadas** (composição, small multiples, redução de dimensões).
+- **Visualização da Informação (Unicamp, nota A):** Pipeline de Card et al.—dados brutos → tabelas → **estruturas visuais**; **mapeamento visual** (expressividade e efetividade); técnicas **multivariadas** (composição, small multiples, redução de dimensões).
 - **PNAD Contínua (Power BI):** Codificações Sankey, coropleta e facetadas para trajetórias educação–emprego e padrões socioeconômicos—as mesmas decisões estruturais em dashboards executivos.
 
 <div class="infovis-split">
@@ -1306,8 +1306,8 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## InfoVis – Visualização de textos e grafos (PhraseNets)
 
-- **Tópicos do curso → skills de analista:** **Visões e interação** (filtros, detalhes sob demanda); **grafos e árvores** (layout de redes); **visualização de textos** (coocorrência, padrões/outliers)—como codificar dados e permitir exploração.
-- **Projeto PhraseNets:** Viz web em rede para relações entre palavras—estrutura que gráficos de barras/linhas não mostram.
+- **Tópicos do curso → skills de analista:** **Visões e interação** (filtros, detalhes sob demanda); **grafos e árvores** (layout de redes); **visualização de textos** (coocorrência, padrões/outliers)—como codificar dados e permitir exploração.
+- **Projeto PhraseNets:** Viz web em rede para relações entre palavras—estrutura que gráficos de barras/linhas não mostram.
 - **Ganho para trabalho com dados:** Mapear variáveis a marcas e escolher a estrutura certa para a pergunta—não só gráficos, mas comunicação visual eficaz.
 
 <div class="phrase-net-row">
@@ -1347,44 +1347,44 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 <!-- Slide 21 – Future (Career) -->
 
 <style scoped>
-.future-career-wrap {
-  display: flex !important; flex-direction: column !important;
-  justify-content: center !important; align-items: center !important;
-  min-height: 55vh !important; width: 100% !important; margin-top: 0.75rem !important;
-  gap: 1rem !important;
-}
-.future-career-wrap p { margin: 0 !important; text-align: center !important; }
-.future-career-wrap img {
-  width: 38% !important; max-width: 38% !important; height: auto !important;
-  display: block !important; margin: 10px auto 0 !important;
-  border: none !important; box-shadow: none !important;
-}
-.future-po-bullets {
-  max-width: 85% !important; text-align: left !important; font-size: 0.95em !important;
+.future-career-wrap {
+  display: flex !important; flex-direction: column !important;
+  justify-content: center !important; align-items: center !important;
+  min-height: 55vh !important; width: 100% !important; margin-top: 0.75rem !important;
+  gap: 1rem !important;
+}
+.future-career-wrap p { margin: 0 !important; text-align: center !important; }
+.future-career-wrap img {
+  width: 38% !important; max-width: 38% !important; height: auto !important;
+  display: block !important; margin: 10px auto 0 !important;
+  border: none !important; box-shadow: none !important;
+}
+.future-po-bullets {
+  max-width: 85% !important; text-align: left !important; font-size: 0.95em !important;
 }
 </style>
 
-## Futuro – Como trabalho com dados
-
-- **O que trago:** fluência em **Excel** e **CSV**; dashboards e métricas de resultado (CSI/NPS); experimentação/ML na pesquisa; gates de entrada orientados por método.
-
-<div class="future-career-wrap">
-<div class="future-po-bullets">
-
-| Competência              | Evidência do meu trabalho                                     |
-| ----------------------- | --------------------------------------------------------- |
-| Métricas e BI            | Dashboards Power BI; CSI 4,86 / NPS 9,94 méd. (2024–2025) |
-| Estatística inferencial  | Dissertação: testes de normalidade → t de Welch/pareado, d de Cohen, FDR (Python → Power BI) |
-| Entrada baseada em dados    | CIP CIM: pontuação de relevância em UX no ServiceNow + avaliação de dashboards estratégicos de CIP na GS com equipe de UX                   |
-| Análise qualitativa → BI | Data Insights: teoria fundamentada straussiana em registros B2B do call center → dashboards Power BI |
-| Métodos de pesquisa        | Disciplinas do mestrado + prática: raciocínio descritivo vs inferencial (amostra → população); teoria fundamentada, **IPA**, fenomenologia, PAR; conecta ao Data Insights (TFD straussiana) |
-| Visualização e codificação | InfoVis (Mestrado): mapeamento visual, estruturas multivariadas, visões/interação—PNAD Power BI + PhraseNets |
-| Análise descritiva e diagnóstica | Dashboards/KPIs, drill-down diagnóstico—foco descritivo e diagnóstico, não pipelines preditivos de ML |
-| Rigor em pesquisa          | Desenho consciente de viés: seleção, confirmação e viés procedural na análise |
-| Prática mensurável     | Nível 4 de Maturidade em UX nas Américas (templates, treinamento)        |
-
-</div>
-<p><img src="../../../pictures/diagrams/future-career-path.png" alt="Diagrama future-career-path: Caminhos de carreira priorizados" /></p>
+## Futuro – Como trabalho com dados
+
+- **O que trago:** fluência em **Excel** e **CSV**; dashboards e métricas de resultado (CSI/NPS); experimentação/ML na pesquisa; gates de entrada orientados por método.
+
+<div class="future-career-wrap">
+<div class="future-po-bullets">
+
+| Competência              | Evidência do meu trabalho                                     |
+| ----------------------- | --------------------------------------------------------- |
+| Métricas e BI            | Dashboards Power BI; CSI 4,86 / NPS 9,94 méd. (2024–2025) |
+| Estatística inferencial  | Dissertação: testes de normalidade → t de Welch/pareado, d de Cohen, FDR (Python → Power BI) |
+| Entrada baseada em dados    | CIP CIM: pontuação de relevância em UX no ServiceNow + avaliação de dashboards estratégicos de CIP na GS com equipe de UX                   |
+| Análise qualitativa → BI | Data Insights: teoria fundamentada straussiana em registros B2B do call center → dashboards Power BI |
+| Métodos de pesquisa        | Disciplinas do mestrado + prática: raciocínio descritivo vs inferencial (amostra → população); teoria fundamentada, **IPA**, fenomenologia, PAR; conecta ao Data Insights (TFD straussiana) |
+| Visualização e codificação | InfoVis (Mestrado): mapeamento visual, estruturas multivariadas, visões/interação—PNAD Power BI + PhraseNets |
+| Análise descritiva e diagnóstica | Dashboards/KPIs, drill-down diagnóstico—foco descritivo e diagnóstico, não pipelines preditivos de ML |
+| Rigor em pesquisa          | Desenho consciente de viés: seleção, confirmação e viés procedural na análise |
+| Prática mensurável     | Nível 4 de Maturidade em UX nas Américas (templates, treinamento)        |
+
+</div>
+<p><img src="../../../pictures/diagrams/future-career-path.png" alt="Diagrama future-career-path: Caminhos de carreira priorizados" /></p>
 </div>
 
 <!-- Diagram: future-career-path (mermaid/diagrams.md). Export to future-career-path.png -->
