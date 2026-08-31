@@ -669,13 +669,13 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 | International                      | Two trips to Germany (2024, 2025) for role-related work                                                                            |
 | CO2 Tracking (GS/Applied Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand — a data-informed stop                                       |
 | Tooling project (PT)               | Requirements through high-fidelity prototypes with regular customer check-ins; progress and feedback tracked for decisions         |
-| Data Insights (Power Tools B2B)    | Call-center records analyzed with Strauss grounded theory (datasets, Python, AI); **open → axial → selective coding**; controlled semantic categories; stakeholder-validated insights in Power BI—finance, conveyor delivery, and more |
+| Data Insights (Power Tools B2B)    | Call-center records analyzed with Straussian grounded theory (datasets, Python, AI); **open → axial → selective coding**; controlled semantic categories; stakeholder-validated insights in Power BI—finance, material transport, logistics, and more |
 | UX Maturity                        | Americas Level 4 – governance, templates, training that made UX practice measurable                                                |
 | CIP CIM (Global Services)          | Automated **UX relevance** in ServiceNow (data manipulation, property-based weights); with UX team, evaluated **strategic CIP dashboards** so GS leadership could quickly spot main issues and efficiency/efficacy improvements                                           |
 | MSc Information Visualization      | **Grade A** (Unicamp)—visual structures & mapping, multivariate data, views/interaction, graphs/trees, text viz; **PNAD Contínua** Power BI + **PhraseNets** web project                                                                                           |
 | Dissertation (TrustMate stats)     | Shapiro-Wilk normality checks; Python **Welch/paired t-tests**, **Cohen's d**, **FDR** → Power BI; mean, SD, variance, SE, CI + graphical analysis; **descriptive vs inferential** split (sample → population)                                                                                                               |
-| Research methods                   | MSc coursework + practice: descriptive vs inferential reasoning (sample → population); grounded theory, **IPA**, phenomenology, PAR; connects to Data Insights (Strauss GT)                                                                                                                       |
-| Augmented analytics                | Daily **Cursor IDE** + **Python**/AI in analysis pipeline—augmented-analytics mindset for faster insight extraction                                                                                           |
+| Research methods                   | MSc coursework + practice: descriptive vs inferential reasoning (sample → population); grounded theory, **IPA**, phenomenology, PAR; connects to Data Insights (Straussian grounded theory)                                                                                                                       |
+| Augmented analytics                | Daily **VS Code** + **Python**/AI in analysis pipeline—augmented-analytics mindset for faster insight extraction                                                                                           |
 | Collaboration                      | Tutor of Digital Talent Academy Students                                                                                           |
 
 ---
@@ -1376,8 +1376,8 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 | Metrics & BI            | Power BI dashboards; CSI 4.86 / NPS 9.94 avg. (2024–2025) |
 | Inferential statistics  | Dissertation: normality checks → Welch/paired t-tests, Cohen's d, FDR (Python → Power BI) |
 | Data-informed intake    | CIP CIM: ServiceNow UX relevance scoring + GS strategic CIP dashboard evaluation with UX team                   |
-| Qualitative → BI analytics | Data Insights: Strauss grounded theory on B2B call-center records → Power BI dashboards |
-| Research methods        | MSc coursework + practice: descriptive vs inferential reasoning (sample → population); grounded theory, **IPA**, phenomenology, PAR; connects to Data Insights (Strauss GT) |
+| Qualitative → BI analytics | Data Insights: Straussian grounded theory on B2B call-center records → Power BI dashboards |
+| Research methods        | MSc coursework + practice: descriptive vs inferential reasoning (sample → population); grounded theory, **IPA**, phenomenology, PAR; connects to Data Insights (Straussian grounded theory) |
 | Visualization & encoding | MSc InfoVis: visual mapping, multivariate structures, views/interaction—PNAD Power BI + PhraseNets |
 | Descriptive & diagnostic analytics | Dashboards/KPIs, diagnostic drill-down—descriptive and diagnostic focus, not predictive ML pipelines |
 | Research rigor          | Bias-aware design: selection, confirmation, and procedural bias awareness in analysis |

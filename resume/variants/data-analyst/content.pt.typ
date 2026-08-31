@@ -42,7 +42,7 @@
 
 #let skills = (
   ("Core", "Núcleo:", ("Excel (fórmulas, VBA, bases de dados)", "Análise de dados e CSV", "Visualização, BI e InfoVis", "Python / SQL / Estatística", "Pesquisa Aplicada")),
-  ("Tech", "Tecnologias:", ("Excel", "VBA", "CSV", "Power BI", "Python", "SQL", "Matplotlib", "Seaborn", "Azure", "Cursor IDE", "Git", "GitHub", "React", "Figma", "ServiceNow", "Bitbucket", "HTML", "CSS", "Mermaid", "VS Code")),
+  ("Tech", "Tecnologias:", ("Excel", "VBA", "CSV", "Power BI", "Python", "SQL", "Matplotlib", "Seaborn", "Azure", "Git", "GitHub", "React", "Figma", "ServiceNow", "Bitbucket", "HTML", "CSS", "Mermaid", "VS Code")),
 )
 
 #let experience = (
@@ -50,9 +50,9 @@
     [Dashboards #strong[Power BI] para projetos/recursos; #strong[CSI 4,86 / NPS 9,94] méd. nos meus projetos (2024–2025).],
     [#strong[CIP CIM (Global Services):] #strong[Relevância em UX] automatizada no #strong[ServiceNow] (dados, pesos por propriedades); avaliei #strong[dashboards estratégicos de CIP] na GS para liderança identificar problemas e ganhos de eficiência/eficácia.],
     [#strong[Projeto tooling (Power Tools):] entrega de requisitos a protótipos; check-ins regulares; progresso acompanhado para decisões.],
-    [#strong[Data Insights (Power Tools B2B):] Registros do call center com #strong[GT Strauss]—datasets, #strong[Python] e IA; #strong[validação com stakeholders]; insights no #strong[Power BI] (finanças, esteira transportadora e mais).],
+    [#strong[Data Insights (Power Tools B2B):] Registros do call center com #strong[teoria fundamentada straussiana]—datasets, #strong[Python] e IA; #strong[validação com stakeholders]; insights no #strong[Power BI] (finanças, transporte de materiais, logística e mais).],
     [Apoiei Américas ao #strong[Nível 4 de Maturidade UX]: governança, templates e treinamento mensurável.],
-    [#strong[IA agêntica:] uso diário de #strong[Cursor IDE] para pesquisa, análise e resolução de problemas no pipeline.],
+    [#strong[IA agêntica:] uso diário de #strong[VS Code] para pesquisa, análise e resolução de problemas no pipeline.],
     [#strong[Internacional e mentoria:] duas viagens à Alemanha (2024, 2025); tutor na SENAI Digital Talent Academy.],
   )),
   ("Jan 2020 – Dez 2022", "Bosch Brasil", "Desenvolvedor Web", (

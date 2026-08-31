@@ -42,7 +42,7 @@
 
 #let skills = (
   ("Core", "Core:", ("Excel (formulas, VBA, databases)", "Data analysis & CSV", "Visualization, BI & InfoVis", "Python / SQL / Statistics", "Applied Research")),
-  ("Tech", "Tech:", ("Excel", "VBA", "CSV", "Power BI", "Python", "SQL", "Matplotlib", "Seaborn", "Azure", "Cursor IDE", "Git", "GitHub", "React", "Figma", "ServiceNow", "Bitbucket", "HTML", "CSS", "Mermaid", "VS Code")),
+  ("Tech", "Tech:", ("Excel", "VBA", "CSV", "Power BI", "Python", "SQL", "Matplotlib", "Seaborn", "Azure", "Git", "GitHub", "React", "Figma", "ServiceNow", "Bitbucket", "HTML", "CSS", "Mermaid", "VS Code")),
 )
 
 #let experience = (
@@ -50,9 +50,9 @@
     [#strong[Power BI] dashboards for project/resource oversight; #strong[CSI 4.86 / NPS 9.94] avg. across my projects (2024–2025).],
     [#strong[CIP CIM (Global Services):] Automated #strong[UX relevance] in #strong[ServiceNow] (data manipulation, property-based weights); evaluated GS #strong[strategic CIP dashboards] so leadership could quickly spot main issues and efficiency/efficacy gains.],
     [#strong[Tooling project (Power Tools):] delivery from requirements through prototypes; regular check-ins; progress tracked for decisions.],
-    [#strong[Data Insights (Power Tools B2B):] Analyzed call-center records with #strong[Strauss grounded theory]—datasets, #strong[Python], and AI to dismantle data into categories; constant #strong[stakeholder validation]; business insights in #strong[Power BI] (finance, conveyor delivery, and more).],
+    [#strong[Data Insights (Power Tools B2B):] Analyzed call-center records with #strong[Straussian grounded theory]—datasets, #strong[Python], and AI to dismantle data into categories; constant #strong[stakeholder validation]; business insights in #strong[Power BI] (finance, material transport, logistics, and more).],
     [Supported Americas to #strong[UX Maturity Level 4]: governance, templates, training that made UX practice measurable.],
-    [#strong[Agentic AI:] daily #strong[Cursor IDE] use for research, analysis, and problem-solving across the pipeline.],
+    [#strong[Agentic AI:] daily #strong[VS Code] use for research, analysis, and problem-solving across the pipeline.],
     [#strong[International & Mentorship:] two trips to Germany (2024, 2025); tutor at SENAI Digital Talent Academy.],
   )),
   ("Jan 2020 – Dec 2022", "Bosch Brasil", "Web Developer", (

@@ -42,7 +42,7 @@
 
 #let skills = (
   ("Core", "Núcleo:", ("Pesquisa Aplicada", "Gestão de Projetos", "Melhoria Contínua (CIP)", "Sistemas de IA")),
-  ("Tech", "Tecnologias:", ("Power BI", "Python", "React", "Figma", "SQL", "Matplotlib", "Seaborn", "Git", "GitHub", "Cursor IDE", "Azure", "Bitbucket", "HTML", "CSS", "Mermaid", "VS Code", "Excel", "VBA", "AutoHotkey")),
+  ("Tech", "Tecnologias:", ("Power BI", "Python", "React", "Figma", "SQL", "Matplotlib", "Seaborn", "Git", "GitHub", "Azure", "Bitbucket", "HTML", "CSS", "Mermaid", "VS Code", "Excel", "VBA", "AutoHotkey")),
 )
 
 #let experience = (
@@ -51,7 +51,7 @@
     [#strong[CIP CIM / Global Services:] Com equipe de UX, avaliei #strong[dashboards estratégicos de CIP] para a liderança da GS identificar rapidamente problemas e ganhos de eficiência/eficácia; pontuação automatizada de #strong[relevância em UX] no #strong[ServiceNow] com pesos por propriedades.],
     [#strong[Projeto tooling (Power Tools):] apoiei a entrega técnica e gestão do projeto de requisitos a protótipos de alta fidelidade; check-ins regulares com clientes.],
     [Desenvolvi dashboards Power BI para acompanhamento de projetos/recursos e treinamentos.],
-    [#strong[IA agêntica:] uso diário com #strong[Cursor IDE] e gestão de contexto para pesquisa, análise e resolução de problemas. Entrego Pesquisa Aplicada com eficiência no pipeline e artefatos.],
+    [#strong[IA agêntica:] uso diário com #strong[VS Code] e gestão de contexto para pesquisa, análise e resolução de problemas. Entrego Pesquisa Aplicada com eficiência no pipeline e artefatos.],
     [#strong[Internacional e mentoria:] duas viagens à Alemanha (2024, 2025); tutor na SENAI Digital Talent Academy.],
   )),
   ("Jan 2020 – Dez 2022", "Bosch Brasil", "Desenvolvedor Web", (

@@ -669,13 +669,13 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 | Internacional                      | Realizei duas viagens à Alemanha (2024, 2025) por trabalho relacionado ao cargo                                                                            |
 | Rastreamento CO2 (GS/Pesquisa Aplicada) | Conduzi prospecção de mercado para telemetria CO2; achado: falta de demanda — interrupção baseada em dados                                       |
 | Projeto tooling (PT)               | Requisitos a protótipos de alta fidelidade com check-ins regulares; progresso e feedback acompanhados para decisões         |
-| Data Insights (Power Tools B2B)    | Registros do call center analisados com teoria fundamentada de Strauss (datasets, Python, IA); codificação **aberta → axial → seletiva**; categorias semânticas controladas; insights validados com stakeholders no Power BI—finanças, entrega com esteira transportadora e mais |
+| Data Insights (Power Tools B2B)    | Registros do call center analisados com teoria fundamentada straussiana (datasets, Python, IA); codificação **aberta → axial → seletiva**; categorias semânticas controladas; insights validados com stakeholders no Power BI—finanças, transporte de materiais, logística e mais |
 | Maturidade em UX                        | Nível 4 nas Américas – governança, templates, treinamento que tornaram a prática de UX mensurável                                                |
 | CIP CIM (Global Services)          | **Relevância em UX** automatizada no ServiceNow (manipulação de dados, pesos por propriedades); com equipe de UX, avaliei **dashboards estratégicos de CIP** para a liderança da GS identificar problemas e melhorias de eficiência/eficácia                                           |
 | Visualização da Informação (Mestrado)      | **Nota A** (Unicamp)—estruturas visuais e mapeamento, dados multivariados, visões/interação, grafos/árvores, viz de textos; **PNAD Contínua** Power BI + projeto web **PhraseNets**                                                                                           |
 | Dissertação (TrustMate estatística)     | Testes de normalidade Shapiro-Wilk; **t de Welch/pareado**, **d de Cohen**, **FDR** (Python → Power BI); média, DP, variância, EE, IC + análise gráfica; divisão **descritivo vs inferencial** (amostra → população)                                                                                                               |
-| Métodos de pesquisa                   | Disciplinas do mestrado + prática: raciocínio descritivo vs inferencial (amostra → população); teoria fundamentada, **IPA**, fenomenologia, PAR; conecta ao Data Insights (GT Strauss)                                                                                                                       |
-| Análise aumentada (augmented)                | Uso diário de **Cursor IDE** + **Python**/IA no pipeline analítico—mindset de análise aumentada para extrair insight mais rápido                                                                                           |
+| Métodos de pesquisa                   | Disciplinas do mestrado + prática: raciocínio descritivo vs inferencial (amostra → população); teoria fundamentada, **IPA**, fenomenologia, PAR; conecta ao Data Insights (TFD straussiana)                                                                                                                       |
+| Análise aumentada (augmented)                | Uso diário de **VS Code** + **Python**/IA no pipeline analítico—mindset de análise aumentada para extrair insight mais rápido                                                                                           |
 | Colaboração                      | Sou tutor de estudantes da Digital Talent Academy                                                                                           |
 
 ---
@@ -1376,8 +1376,8 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 | Métricas e BI            | Dashboards Power BI; CSI 4,86 / NPS 9,94 méd. (2024–2025) |
 | Estatística inferencial  | Dissertação: testes de normalidade → t de Welch/pareado, d de Cohen, FDR (Python → Power BI) |
 | Entrada baseada em dados    | CIP CIM: pontuação de relevância em UX no ServiceNow + avaliação de dashboards estratégicos de CIP na GS com equipe de UX                   |
-| Análise qualitativa → BI | Data Insights: teoria fundamentada de Strauss em registros B2B do call center → dashboards Power BI |
-| Métodos de pesquisa        | Disciplinas do mestrado + prática: raciocínio descritivo vs inferencial (amostra → população); teoria fundamentada, **IPA**, fenomenologia, PAR; conecta ao Data Insights (GT Strauss) |
+| Análise qualitativa → BI | Data Insights: teoria fundamentada straussiana em registros B2B do call center → dashboards Power BI |
+| Métodos de pesquisa        | Disciplinas do mestrado + prática: raciocínio descritivo vs inferencial (amostra → população); teoria fundamentada, **IPA**, fenomenologia, PAR; conecta ao Data Insights (TFD straussiana) |
 | Visualização e codificação | InfoVis (Mestrado): mapeamento visual, estruturas multivariadas, visões/interação—PNAD Power BI + PhraseNets |
 | Análise descritiva e diagnóstica | Dashboards/KPIs, drill-down diagnóstico—foco descritivo e diagnóstico, não pipelines preditivos de ML |
 | Rigor em pesquisa          | Desenho consciente de viés: seleção, confirmação e viés procedural na análise |

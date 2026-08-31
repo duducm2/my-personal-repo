@@ -218,16 +218,16 @@ def main() -> int:
     ]
     if len(g_core) != 4:
         issues.append(f"general Core skills want 4 got {len(g_core)}")
-    if len(g_tech) != 19:
-        issues.append(f"general Tech skills want 19 got {len(g_tech)}")
+    if len(g_tech) != 18:
+        issues.append(f"general Tech skills want 18 got {len(g_tech)}")
     if len(po_core) != 5:
         issues.append(f"PO Core skills want 5 got {len(po_core)}")
-    if len(po_tech) != 20:
-        issues.append(f"PO Tech skills want 20 got {len(po_tech)}")
+    if len(po_tech) != 19:
+        issues.append(f"PO Tech skills want 19 got {len(po_tech)}")
     if len(ds_core) != 5:
         issues.append(f"DA Core skills want 5 got {len(ds_core)}")
-    if len(ds_tech) != 20:
-        issues.append(f"DA Tech skills want 20 got {len(ds_tech)}")
+    if len(ds_tech) != 19:
+        issues.append(f"DA Tech skills want 19 got {len(ds_tech)}")
     ok.append("skills.csv counts match resume baselines")
 
     edu = load("education.csv")

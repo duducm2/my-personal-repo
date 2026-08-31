@@ -42,7 +42,7 @@
 
 #let skills = (
   ("Core", "Core:", ("Applied Research", "Project Management", "Continuous Improvement (CIP)", "AI Systems")),
-  ("Tech", "Tech:", ("Power BI", "Python", "React", "Figma", "SQL", "Matplotlib", "Seaborn", "Git", "GitHub", "Cursor IDE", "Azure", "Bitbucket", "HTML", "CSS", "Mermaid", "VS Code", "Excel", "VBA", "AutoHotkey")),
+  ("Tech", "Tech:", ("Power BI", "Python", "React", "Figma", "SQL", "Matplotlib", "Seaborn", "Git", "GitHub", "Azure", "Bitbucket", "HTML", "CSS", "Mermaid", "VS Code", "Excel", "VBA", "AutoHotkey")),
 )
 
 #let experience = (
@@ -51,7 +51,7 @@
     [#strong[CIP CIM / Global Services:] With UX team, evaluated #strong[strategic CIP dashboards] so GS leadership could quickly spot main issues and efficiency/efficacy gains; automated #strong[UX relevance] scoring in #strong[ServiceNow] with property-based weights.],
     [#strong[Tooling project (Power Tools):] supported technical delivery and project management from requirements through high-fidelity prototypes; regular customer check-ins.],
     [Power BI dashboards for project/resource oversight and training tracking.],
-    [#strong[Agentic AI:] use daily with #strong[Cursor IDE] and context management for research, analysis, and problem-solving. Delivering Applied Research efficiently across pipeline and artifacts.],
+    [#strong[Agentic AI:] use daily with #strong[VS Code] and context management for research, analysis, and problem-solving. Delivering Applied Research efficiently across pipeline and artifacts.],
     [#strong[International & Mentorship:] two trips to Germany (2024, 2025); tutor at SENAI Digital Talent Academy.],
   )),
   ("Jan 2020 – Dec 2022", "Bosch Brasil", "Web Developer", (
