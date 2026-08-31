@@ -30,18 +30,23 @@
 
 #show strong: it => text(weight: "bold", fill: highlight-blue)[#it]
 
-#let sec-title-above = if compact-layout { 0.42em } else { 0.5em }
-#let sec-title-below = if compact-layout { 0.48em } else { 0.62em }
-#let exp-role-above = if compact-layout { 0.45em } else { 0.55em }
-#let exp-role-below = if compact-layout { 0.32em } else { 0.42em }
+#let sec-title-above = if compact-layout { 0.48em } else { 0.58em }
+#let sec-title-below = if compact-layout { 0.54em } else { 0.68em }
+#let exp-role-above = if compact-layout { 0.52em } else { 0.62em }
+#let exp-role-below = if compact-layout { 0.34em } else { 0.44em }
+#let role-title-above = if compact-layout { 0.14em } else { 0.16em }
+#let role-title-below = if compact-layout { 0.24em } else { 0.28em }
 #let bullet-above = if compact-layout { 0.38em } else { 0.5em }
-#let edu-above = if compact-layout { 0.4em } else { 0.48em }
+#let edu-above = if compact-layout { 0.46em } else { 0.54em }
 #let edu-thesis-above = if compact-layout { 0.3em } else { 0.38em }
-#let divider-above = if compact-layout { 0.34em } else { 0.42em }
-#let divider-below = if compact-layout { 0.22em } else { 0.28em }
-#let pub-above = if compact-layout { 0.34em } else { 0.42em }
-#let add-above = if compact-layout { 0.3em } else { 0.38em }
+#let divider-above = if compact-layout { 0.38em } else { 0.46em }
+#let divider-below = if compact-layout { 0.24em } else { 0.3em }
+#let pub-above = if compact-layout { 0.38em } else { 0.46em }
+#let add-above = if compact-layout { 0.34em } else { 0.42em }
 #let footer-above = if compact-layout { 0.45em } else { 0.55em }
+#let sidebar-head-above = if compact-layout { 0.36em } else { 0.38em }
+#let sidebar-head-below = if compact-layout { 0.24em } else { 0.26em }
+#let sidebar-head-line = if compact-layout { 0.48em } else { 0.52em }
 
 #let section-title(body) = {
   set text(size: 9pt, weight: "bold", fill: highlight-blue)
@@ -50,8 +55,8 @@
 
 #let sidebar-heading(body) = {
   set text(size: 9pt, weight: "bold", fill: highlight-blue)
-  block(above: 0.3em, below: 0.2em)[#block(body)]
-  block(below: 0.45em)[#line(length: 1.5em, stroke: (paint: highlight-blue, thickness: 0.5pt))]
+  block(above: sidebar-head-above, below: sidebar-head-below)[#block(body)]
+  block(below: sidebar-head-line)[#line(length: 1.5em, stroke: (paint: highlight-blue, thickness: 0.5pt))]
 }
 
 #let sidebar-text(body) = {
@@ -148,10 +153,10 @@
     #block(below: 0.35em)[
       #line(length: 2.5em, stroke: (paint: highlight-blue, thickness: 0.6pt))
     ]
-    #block(below: 0.5em)[
+    #block(below: 0.6em)[
       #text(size: 12pt, fill: highlight-blue)[#upper(tagline)]
     ]
-    #block(below: 0.55em)[
+    #block(below: 0.6em)[
       #line(length: 100%, stroke: (paint: gray, thickness: 0.4pt))
     ]
     #section-title[#ui.experience]
@@ -161,7 +166,7 @@
           #text(weight: "bold", fill: highlight-blue)[#company]
           #text(weight: "bold", fill: rgb("#555555"))[#date]
         ]
-        #block(above: 0.12em, below: 0.22em)[#text(style: "italic", fill: highlight-blue)[#title]]
+        #block(above: role-title-above, below: role-title-below)[#text(style: "italic", fill: highlight-blue)[#title]]
         #for b in bullets [#bullet-item[#b]]
       ]
     ]
