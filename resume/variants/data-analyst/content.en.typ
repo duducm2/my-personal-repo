@@ -60,7 +60,7 @@
     [Data-backed UI delivery and teamwork-driven shipping of web solutions.],
   )),
   ("Jan 2019 – Dec 2019", "Bosch Magyarország (Hungary)", "Digitization Support Analyst", (
-    [Digitized Business Excellence workflows in #strong[Kanban]; internal tools and process clarity.],
+    [Digitized Business Excellence workflows in #strong[Kanban]; internal tools.],
     [#strong[Full-stack web development:] VS Code, #strong[SQL Server], Windows Server (IIS).],
   )),
   ("Jan 2017 – Nov 2018", "Bosch Brasil (Campinas)", "Intern", (

@@ -60,7 +60,7 @@
     [Entrega de UI apoiada por dados e shipping de soluções web em equipe.],
   )),
   ("Jan 2019 – Dez 2019", "Bosch Magyarország (Hungary)", "Analista de Suporte à Digitalização", (
-    [Digitalizei fluxos Business Excellence em #strong[Kanban]; ferramentas internas e clareza de processo.],
+    [Digitalizei fluxos Business Excellence em #strong[Kanban]; ferramentas internas.],
     [#strong[Desenvolvimento web full-stack:] VS Code, #strong[SQL Server], Windows Server (IIS).],
   )),
   ("Jan 2017 – Nov 2018", "Bosch Brasil (Campinas)", "Estagiário", (
