@@ -22,7 +22,7 @@ Your task is to **find, evaluate, and rank real job opportunities** where I am a
 
 ### Professional summary
 
-Data analyst with ~8 years at Bosch (intern → web developer → applied research & design analyst). Turns applied research and delivery into **measurable insight**. Strong in **Excel** (advanced formulas, VBA, database-style workbooks, shortcuts), **CSV** pipelines, **Power BI**, **Python/SQL**, experimentation, and outcome metrics (CSI/NPS). Master's in Technology at Unicamp (completing September 2026, Grade A coursework). Published research on trust measurement (IHC 2025, ISSRE 2025).
+Data analyst with ~8 years at Bosch (intern → web developer → applied research & design analyst). Turns applied research and delivery into **measurable insight**. Strong in **Excel** (advanced formulas, VBA, database-style workbooks, shortcuts), **CSV** pipelines, **Power BI**, **Python/SQL/Statistics**, **descriptive & inferential statistics**, and MSc **Information Visualization** (Grade A). Qualitative→BI work with **Strauss grounded theory** (open/axial/selective coding). Dissertation inferential pipeline: Welch/paired t-tests, Cohen's d, FDR (Python → Power BI). Outcome metrics (CSI/NPS). Master's in Technology at Unicamp (completing September 2026, Grade A coursework). Published research on trust measurement (IHC 2025, ISSRE 2025).
 
 ### Core strengths to match against job descriptions
 
@@ -32,11 +32,16 @@ Data analyst with ~8 years at Bosch (intern → web developer → applied resear
 | **CSV & data wrangling**         | Daily CSV workflows; data-informed triage and reporting                                                         |
 | **BI & dashboards**              | Power BI for project/resource oversight and training tracking                                                   |
 | **SQL & databases**              | SQL Server (full-stack period); SQL in current stack                                                            |
-| **Python & visualization**       | Python, Matplotlib, Seaborn; dissertation uses experimentation + ML                                             |
+| **Python & visualization**       | Python, Matplotlib, Seaborn; inferential statistics + EDA in dissertation and analysis work                     |
+| **Inferential statistics**       | Shapiro-Wilk normality checks; Welch/paired t-tests, Cohen's d, Benjamini-Hochberg FDR; Python → Power BI       |
+| **Qualitative → BI analytics**   | Strauss grounded theory on B2B call-center records; open → axial → selective coding → Power BI dashboards       |
+| **Research methods**             | Descriptive vs inferential reasoning (sample → population); GT, IPA, phenomenology, PAR                         |
+| **InfoVis & data storytelling**  | MSc InfoVis (Grade A, Unicamp); Card et al. visual structures; stakeholder-facing dashboards                    |
+| **Augmented analytics**          | Daily Cursor IDE + Python/AI in analysis pipeline; AI-assisted categorization and insight extraction            |
 | **Metrics & experimentation**    | CSI 4.86 / NPS 9.94 avg. on projects (2024–2025); method-driven quality gates                                   |
 | **Applied research → decisions** | ServiceNow/CIP integration; relevance evaluation; stakeholder check-ins                                         |
 | **Agile delivery context**       | Scrum, Kanban; global collaboration (Germany trips 2024–2025)                                                   |
-| **Tools**                        | Power BI, Excel, VBA, CSV, Python, SQL, Azure, Git, ServiceNow, VS Code                                         |
+| **Tools**                        | Power BI, Excel, VBA, CSV, Python, SQL, Azure, Git, ServiceNow, VS Code, Cursor IDE                             |
 
 ### Experience timeline (for seniority calibration)
 

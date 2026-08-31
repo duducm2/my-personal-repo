@@ -1007,7 +1007,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## Data Visualization – Dissertation Power BI
 
-<p class="dissertation-pbi-intro"><span class="thesis-emphasis">My dissertation asks whether **Agentic AI** behaves like humans.</span></p>
+<p class="dissertation-pbi-intro"><span class="thesis-emphasis">My dissertation asks whether **Agentic AI** behaves like humans—grounded in how/why users construct **trust** in unfamiliar e-commerce sites.</span></p>
 
 - **Normality first:** Shapiro-Wilk on attribute score distributions before choosing inferential tests.
 - **Python → Power BI:** Offline scripts compute **Welch** (Human–AI), **paired t-tests** (Human–Human), and **independent t-tests** (AI–AI) with **Cohen's d** and **Benjamini-Hochberg FDR**; results imported into Power BI for reporting.

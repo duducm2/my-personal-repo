@@ -11,7 +11,7 @@ fields:
     - **Normality first:** Shapiro-Wilk on attribute score distributions before choosing inferential tests.
     - **Python → Power BI:** Offline scripts compute **Welch** (Human–AI), **paired t-tests** (Human–Human), and **independent t-tests** (AI–AI) with **Cohen's d** and **Benjamini-Hochberg FDR**; results imported into Power BI for reporting.
     - **Descriptive + visual:** DAX measures for **mean, SD, variance, standard error, and CI bounds**; 50+ chart structures (boxplots, forest plots, small multiples) aligned with InfoVis coursework.
-  dissertation_pbi_intro: "My dissertation asks whether **Agentic AI** behaves like humans."
+  dissertation_pbi_intro: "My dissertation asks whether **Agentic AI** behaves like humans—grounded in how/why users construct **trust** in unfamiliar e-commerce sites."
   email: "edu.evangelista.figueiredo@gmail.com"
   future_career_body: |
     ## Future – Career Aspirations, Vacancy Types & Prioritized Paths to Leadership

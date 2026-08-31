@@ -34,7 +34,7 @@
 )
 
 #let profile = [
-  Data analyst turning Applied Research into #strong[measurable insight]: advanced #strong[Excel] (formulas, VBA, database-style workbooks, shortcuts), #strong[CSV] pipelines, Power BI, Python/SQL, and MSc #strong[Information Visualization] (Grade A). Uses CSI/NPS to prioritize outcomes. Master's in Technology (#strong[completing September 2026]) with #strong[Grade A across all coursework].
+  Data analyst turning Applied Research into #strong[measurable insight]: advanced #strong[Excel] (formulas, VBA, database-style workbooks, shortcuts), #strong[CSV] pipelines, Power BI, Python/SQL, #strong[descriptive & inferential statistics], and MSc #strong[Information Visualization] (Grade A). Uses CSI/NPS to prioritize outcomes. Master's in Technology (#strong[completing September 2026]) with #strong[Grade A across all coursework].
 ]
 
 #let languages = "Portuguese (Native)   English (Fluent)"
