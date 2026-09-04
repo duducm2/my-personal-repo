@@ -51,7 +51,7 @@
     [#strong[CIP CIM / Global Services:] Com equipe de UX, melhorei #strong[dashboards estratégicos de CIP] para clareza em nível de presidência da GS; #strong[gate de entrada e qualidade] de #strong[relevância em UX] automatizado no ServiceNow.],
     [Apoiei as Américas a atingir #strong[Nível 4 de Maturidade em UX]: governança, templates e treinamento que #strong[produtizaram] a prática de UX.],
     [Evidência de resultados: #strong[CSI 4,86 / NPS 9,94] méd. (2024–2025); Power BI para projetos e recursos.],
-    [#strong[Internacional e mentoria:] duas viagens à Alemanha (2024, 2025); tutor na SENAI Digital Talent Academy.],
+    [#strong[Internacional e mentoria:] duas viagens à Alemanha (2024, 2025); tutor na SENAI Digital Talent Academy; #strong[treinamento de ferramentas de IA] para #strong[100+] pessoas (satisfação #strong[4,88]/5).],
   )),
   ("Jan 2020 – Dez 2022", "Bosch Brasil", "Desenvolvedor Web", (
     [Entreguei soluções web internas e para clientes em #strong[Scrum e Kanban]; colaborei com design, pesquisa e engenharia.],

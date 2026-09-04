@@ -357,10 +357,11 @@ def main() -> int:
         "outcomes-2024-2025",
         "infovis-msc",
         "dissertation-trustmate-stats",
+        "ai-tools-training",
     ):
         if not any(r["id"] == pid for r in projects):
             issues.append(f"projects.csv missing {pid}")
-    ok.append("projects.csv: tooling/CIP/maturity/outcomes")
+    ok.append("projects.csv: tooling/CIP/maturity/outcomes/AI training")
 
     # Narrative field coverage
     required_fields = [

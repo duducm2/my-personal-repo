@@ -669,7 +669,7 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 | Tooling project (PT)               | Requirements → high-fidelity prototypes → regular **customer check-ins**; discovery-to-delivery ownership with technical partners |
 | UX Maturity          | Americas Level 4 – governance, templates, training that **productized** UX practice for stakeholders                        |
 | CIP CIM (Global Services)          | With UX team, improved **strategic CIP dashboards** so GS president could quickly identify main issues and efficiency/efficacy gains; automated **UX relevance** **intake / quality gate** in ServiceNow                           |
-| Collaboration                      | Tutor of Digital Talent Academy Students                                                                                          |
+| Collaboration                      | Tutor of Digital Talent Academy Students; **AI tools training** for **100+** people (**4.88**/5 satisfaction)                                                                                          |
 
 ---
 

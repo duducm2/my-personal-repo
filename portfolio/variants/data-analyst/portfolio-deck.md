@@ -676,7 +676,7 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 | Dissertation (TrustMate stats)     | Shapiro-Wilk normality checks; Python **Welch/paired t-tests**, **Cohen's d**, **FDR** → Power BI; mean, SD, variance, SE, CI + graphical analysis; **descriptive vs inferential** split (sample → population)                                                                                                               |
 | Research methods                   | MSc coursework + practice: descriptive vs inferential reasoning (sample → population); grounded theory, **IPA**, phenomenology, PAR; connects to Data Insights (Straussian grounded theory)                                                                                                                       |
 | Augmented analytics                | Daily **VS Code** + **Python**/AI in analysis pipeline—augmented-analytics mindset for faster insight extraction                                                                                           |
-| Collaboration                      | Tutor of Digital Talent Academy Students                                                                                           |
+| Collaboration                      | Tutor of Digital Talent Academy Students; **AI tools training** for **100+** people (**4.88**/5 satisfaction)                                                                                           |
 
 ---
 

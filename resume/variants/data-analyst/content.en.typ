@@ -53,7 +53,7 @@
     [#strong[Data Insights (Power Tools B2B):] #strong[Straussian grounded theory] on call-center records—#strong[AI-assisted Python] for manipulation and categorization; #strong[stakeholder validation]; #strong[Power BI] insights (finance, material transport, logistics, and more).],
     [Supported Americas to #strong[UX Maturity Level 4]: governance, templates, training; #strong[Power BI audit dashboard] auto-fetching #strong[Microsoft Lists] data to track #strong[project-management document] fulfillment.],
     [#strong[Agentic AI:] daily #strong[VS Code] use for research, analysis, and problem-solving across the pipeline.],
-    [#strong[International & Mentorship:] two trips to Germany (2024, 2025); tutor at SENAI Digital Talent Academy.],
+    [#strong[International & Mentorship:] two trips to Germany (2024, 2025); tutor at SENAI Digital Talent Academy; #strong[AI tools training] for #strong[100+] people (#strong[4.88]/5 satisfaction).],
   )),
   ("Jan 2020 – Dec 2022", "Bosch Brasil", "Web Developer", (
     [Front-end (React) and Applied Research in #strong[Scrum and Kanban]; customer-facing and internal tools.],

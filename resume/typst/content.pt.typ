@@ -52,7 +52,7 @@
     [#strong[Projeto tooling (Power Tools):] apoiei a entrega técnica e gestão do projeto de requisitos a protótipos de alta fidelidade; check-ins regulares com clientes.],
     [Desenvolvi dashboards Power BI para acompanhamento de projetos/recursos e treinamentos.],
     [#strong[IA agêntica:] uso diário com #strong[VS Code] e gestão de contexto para pesquisa, análise e resolução de problemas. Entrego Pesquisa Aplicada com eficiência no pipeline e artefatos.],
-    [#strong[Internacional e mentoria:] duas viagens à Alemanha (2024, 2025); tutor na SENAI Digital Talent Academy.],
+    [#strong[Internacional e mentoria:] duas viagens à Alemanha (2024, 2025); tutor na SENAI Digital Talent Academy; #strong[treinamento de ferramentas de IA] para #strong[100+] pessoas (satisfação #strong[4,88]/5).],
   )),
   ("Jan 2020 – Dez 2022", "Bosch Brasil", "Desenvolvedor Web", (
     [Atuei em desenvolvimento front-end, React, Scrum, Kanban e Pesquisa Aplicada; soluções web e entrega em equipe.],

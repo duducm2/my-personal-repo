@@ -669,7 +669,7 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 | Projeto tooling (PT)               | **Liderei** a entrega técnica e gestão do projeto de requisitos a protótipos de alta fidelidade, com check-ins regulares com clientes. |
 | Maturidade em UX          | **Liderei** as Américas ao Nível 4 – governança, templates, treinamento                                                                          |
 | CIP CIM (Global Services)          | Com equipe de UX, avaliei **dashboards estratégicos de CIP** de todas as iniciativas na GS—UX mais clara para a liderança identificar problemas e ganhos de eficiência/eficácia; **relevância em UX** automatizada no ServiceNow (pesos por propriedades) |
-| Colaboração                      | Sou tutor de estudantes da Digital Talent Academy                                                                                           |
+| Colaboração                      | Sou tutor de estudantes da Digital Talent Academy; **treinamento de ferramentas de IA** para **100+** pessoas (satisfação **4,88**/5)                                                                                           |
 
 ---
 

@@ -669,7 +669,7 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 | Tooling project (PT)               | Led technical delivery and project management from requirements through high-fidelity prototypes, with regular customer check-ins. |
 | UX Maturity          | Led Americas to Level 4 – governance, templates, training                                                                          |
 | CIP CIM (Global Services)          | With UX team, evaluated **strategic CIP dashboards** for all GS initiatives—clearer UX so leadership could quickly spot main issues and efficiency/efficacy gains; automated **UX relevance** in ServiceNow (property-based weights) |
-| Collaboration                      | Tutor of Digital Talent Academy Students                                                                                           |
+| Collaboration                      | Tutor of Digital Talent Academy Students; **AI tools training** for **100+** people (**4.88**/5 satisfaction)                                                                                           |
 
 ---
 

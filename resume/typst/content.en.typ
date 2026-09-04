@@ -52,7 +52,7 @@
     [#strong[Tooling project (Power Tools):] supported technical delivery and project management from requirements through high-fidelity prototypes; regular customer check-ins.],
     [Power BI dashboards for project/resource oversight and training tracking.],
     [#strong[Agentic AI:] use daily with #strong[VS Code] and context management for research, analysis, and problem-solving. Delivering Applied Research efficiently across pipeline and artifacts.],
-    [#strong[International & Mentorship:] two trips to Germany (2024, 2025); tutor at SENAI Digital Talent Academy.],
+    [#strong[International & Mentorship:] two trips to Germany (2024, 2025); tutor at SENAI Digital Talent Academy; #strong[AI tools training] for #strong[100+] people (#strong[4.88]/5 satisfaction).],
   )),
   ("Jan 2020 – Dec 2022", "Bosch Brasil", "Web Developer", (
     [Front-end development, React, Scrum, Kanban, Applied Research; web solutions and teamwork-driven delivery.],
