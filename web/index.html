@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Career cockpit</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero">
+        <p class="eyebrow">Read-only · Somente leitura</p>
+        <h1 class="brand">Career cockpit</h1>
+        <p class="subtitle">
+          Overview of projects, education, and roles — PT and EN side by side.
+          Click Copy on any field to paste elsewhere (e.g. LinkedIn).
+        </p>
+      </header>
+
+      <main>
+        <section class="section" aria-labelledby="projects-heading">
+          <h2 id="projects-heading" class="section-title">
+            Projects <span class="section-title-pt">Projetos</span>
+          </h2>
+          <div id="projects-root" class="cockpit-grid"></div>
+        </section>
+
+        <section class="section" aria-labelledby="education-heading">
+          <h2 id="education-heading" class="section-title">
+            Education <span class="section-title-pt">Formação</span>
+          </h2>
+          <div id="education-root" class="cockpit-grid"></div>
+        </section>
+
+        <section class="section" aria-labelledby="experience-heading">
+          <h2 id="experience-heading" class="section-title">
+            Experience <span class="section-title-pt">Experiência</span>
+          </h2>
+          <div id="experience-root" class="cockpit-grid"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,221 @@
+/* Flat dark + bright gold — matched to my-home cockpit aesthetic */
+:root {
+  --bg: #121212;
+  --panel: #1e1e1e;
+  --text: #f2f2f2;
+  --muted: #888;
+  --gold: #f1c40f;
+  --line: #2a2a2a;
+  --input: #252528;
+  --ok: #2ecc71;
+  --radius: 6px;
+  --font: "Segoe UI", system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  color: var(--text);
+  font-family: var(--font);
+  background: var(--bg);
+  font-size: 14px;
+}
+
+.page {
+  width: min(1200px, calc(100% - 28px));
+  margin: 0 auto;
+  padding: 14px 0 48px;
+}
+
+.hero {
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.eyebrow {
+  margin: 0 0 4px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 11px;
+  color: var(--gold);
+  font-weight: 650;
+}
+
+.brand {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.subtitle {
+  margin: 8px 0 0;
+  max-width: 62ch;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.section {
+  margin-bottom: 22px;
+}
+
+.section-title {
+  margin: 0 0 10px;
+  font-size: 15px;
+  font-weight: 650;
+  color: var(--gold);
+  letter-spacing: 0.02em;
+}
+
+.section-title-pt {
+  color: var(--muted);
+  font-weight: 500;
+  margin-left: 6px;
+}
+
+.cockpit-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+@media (max-width: 900px) {
+  .cockpit-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 10px 12px 12px;
+  min-width: 0;
+}
+
+.panel-heading {
+  margin: 0 0 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.35;
+  color: var(--text);
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: minmax(110px, 140px) 1fr 1fr;
+  gap: 8px;
+  align-items: start;
+  padding: 8px 0;
+  border-top: 1px solid transparent;
+}
+
+.field-row + .field-row {
+  border-top-color: var(--line);
+}
+
+@media (max-width: 700px) {
+  .field-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.field-label {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-top: 4px;
+}
+
+.field-label-en {
+  font-size: 11px;
+  font-weight: 650;
+  color: var(--gold);
+}
+
+.field-label-pt {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.field-cell {
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+  min-width: 0;
+  background: var(--input);
+  border-radius: 4px;
+  padding: 6px 6px 6px 8px;
+}
+
+.field-value {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.4;
+  color: var(--text);
+}
+
+.field-value.empty {
+  color: var(--muted);
+}
+
+.lang-tag {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 2px;
+}
+
+.copy-btn {
+  flex-shrink: 0;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--text);
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 11px;
+  font-family: inherit;
+  cursor: pointer;
+  line-height: 1.2;
+}
+
+.copy-btn:hover:not(:disabled) {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.copy-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.copy-btn.ok {
+  border-color: var(--ok);
+  color: var(--ok);
+}
+
+.copy-btn.err {
+  border-color: #e74c3c;
+  color: #e74c3c;
+}
