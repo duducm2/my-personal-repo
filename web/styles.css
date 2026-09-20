@@ -93,6 +93,10 @@ body {
   gap: 10px;
 }
 
+.cockpit-grid-single {
+  grid-template-columns: 1fr;
+}
+
 @media (max-width: 900px) {
   .cockpit-grid {
     grid-template-columns: 1fr;

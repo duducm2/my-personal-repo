@@ -42,6 +42,28 @@ def main() -> int:
                 issues.append(f"profile missing {k}")
         ok.append("profile.csv: contact fields present")
 
+    about = load("about_linkedin.csv")
+    if len(about) != 1:
+        issues.append(f"about_linkedin want 1 got {len(about)}")
+    elif "analista de dados" not in about[0].get("text_pt", "").lower():
+        issues.append("about_linkedin PT missing analista de dados")
+    else:
+        ok.append("about_linkedin.csv: LinkedIn Sobre summary")
+
+    titles = load("target_titles.csv")
+    if len(titles) != 11:
+        issues.append(f"target_titles want 11 got {len(titles)}")
+    for tid in (
+        "da-headline",
+        "da-title-data-analyst",
+        "po-headline",
+        "po-title-product-owner",
+        "general-headline",
+    ):
+        if not any(t.get("id") == tid for t in titles):
+            issues.append(f"target_titles missing {tid}")
+    ok.append("target_titles.csv: DA / PO / general CV titles")
+
     exp = load("experience.csv")
     exp_ids = {r["id"] for r in exp}
     expected_roles = {
@@ -242,6 +264,34 @@ def main() -> int:
         issues.append("master's institution missing September 2026 completion")
     ok.append("education.csv: 3 degrees + dissertation detail + completion date")
 
+    edu_li = load("education_linkedin.csv")
+    if len(edu_li) != 4:
+        issues.append(f"education_linkedin want 4 got {len(edu_li)}")
+    for eid in (
+        "unicamp-msc-2023",
+        "unicamp-ads-2015",
+        "etec-informatics-2012",
+        "emesf-fundamental-2008",
+    ):
+        if not any(e.get("id") == eid for e in edu_li):
+            issues.append(f"education_linkedin missing {eid}")
+    ok.append("education_linkedin.csv: Unicamp MSc/ADS, ETEC, EMESF")
+
+    exp_li = load("experience_linkedin.csv")
+    if len(exp_li) != 6:
+        issues.append(f"experience_linkedin want 6 got {len(exp_li)}")
+    for eid in (
+        "bosch-br-researcher-designer-2023",
+        "bosch-br-web-developer-2021",
+        "bosch-br-cip-analyst-2020",
+        "bosch-hu-digitization-2019",
+        "bosch-intern-2017",
+        "unicamp-scholarship-2015",
+    ):
+        if not any(e.get("id") == eid for e in exp_li):
+            issues.append(f"experience_linkedin missing {eid}")
+    ok.append("experience_linkedin.csv: Bosch BR/HU + Unicamp scholarship")
+
     # Bilingual label registry
     if not (CANON / "schema.csv").exists():
         issues.append("schema.csv missing")
@@ -344,9 +394,68 @@ def main() -> int:
     ok.append("publications.csv: IHC + ISSRE present")
 
     add = load("additional.csv")
-    if len(add) != 2:
-        issues.append(f"additional want 2 got {len(add)}")
-    ok.append("additional.csv: Talent Forum, Hospitalhaços")
+    if len(add) != 4:
+        issues.append(f"additional want 4 got {len(add)}")
+    ok.append("additional.csv: Talent Forum, X-Games, Sharing Successes, Hospitalhaços")
+
+    rec = load("recognitions.csv")
+    if len(rec) != 3:
+        issues.append(f"recognitions want 3 got {len(rec)}")
+    for rid in (
+        "bosch-talent-forum-2018",
+        "x-games-brazil-2018",
+        "sharing-successes-2017",
+    ):
+        if not any(r.get("id") == rid for r in rec):
+            issues.append(f"recognitions missing {rid}")
+    ok.append("recognitions.csv: Talent Forum, X-Games, Sharing Successes")
+
+    courses = load("courses.csv")
+    if len(courses) != 7:
+        issues.append(f"courses want 7 got {len(courses)}")
+    for cid in (
+        "academic-writing",
+        "innovation-creativity-bosch",
+        "innovation-tech-transfer",
+        "scientific-research",
+        "storytelling",
+        "storytelling-valeria-aguiar",
+        "im-ux1-experience-design-thinking",
+    ):
+        if not any(c.get("id") == cid for c in courses):
+            issues.append(f"courses missing {cid}")
+    ok.append("courses.csv: Unicamp + Bosch courses")
+
+    competences = load("competences.csv")
+    if len(competences) != 40:
+        issues.append(f"competences want 40 got {len(competences)}")
+    for cid in ("ai-systems", "power-bi", "project-management", "figma", "english"):
+        if not any(c.get("id") == cid for c in competences):
+            issues.append(f"competences missing {cid}")
+    ok.append("competences.csv: LinkedIn skills snapshot")
+
+    volunteering = load("volunteering.csv")
+    if len(volunteering) != 1:
+        issues.append(f"volunteering want 1 got {len(volunteering)}")
+    if not any(v.get("id") == "hospitalhacos-it-assistant" for v in volunteering):
+        issues.append("volunteering missing hospitalhacos-it-assistant")
+    ok.append("volunteering.csv: Hospitalhaços IT Assistant")
+
+    certifications = load("certifications.csv")
+    if len(certifications) != 7:
+        issues.append(f"certifications want 7 got {len(certifications)}")
+    for cid in (
+        "ieee-hfsd-trustmate-2025",
+        "sbc-ihc-2025",
+        "unicamp-scientific-writing-ai-2023",
+        "udemy-react-complete-guide-2021",
+        "unicamp-ads-technologist-2020",
+        "etec-informatics-technician-2012",
+        "aecomp-basic-electrical",
+    ):
+        if not any(c.get("id") == cid for c in certifications):
+            issues.append(f"certifications missing {cid}")
+    ok.append("certifications.csv: IEEE, SBC, Unicamp, Udemy, ETEC, Ae Comp")
 
     projects = load("projects.csv")
     for pid in (

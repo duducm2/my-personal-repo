@@ -12,14 +12,30 @@
         <p class="eyebrow">Read-only · Somente leitura</p>
         <h1 class="brand">Career cockpit</h1>
         <p class="subtitle">
-          Overview of projects, education, roles, and languages — PT and EN side
-          by side. Click Copy on any field to paste elsewhere (e.g. LinkedIn).
+          Overview of projects, education, roles, languages, recognitions,
+          courses, skills, volunteering, and certifications — PT and EN side by
+          side. Click Copy on any field to paste elsewhere (e.g. LinkedIn).
           Collapse / expand all panels:
           <kbd>Shift+E</kbd>
         </p>
       </header>
 
       <main>
+        <section class="section" aria-labelledby="about-heading">
+          <h2 id="about-heading" class="section-title">
+            About <span class="section-title-pt">Sobre</span>
+          </h2>
+          <div id="about-root" class="cockpit-grid cockpit-grid-single"></div>
+        </section>
+
+        <section class="section" aria-labelledby="titles-heading">
+          <h2 id="titles-heading" class="section-title">
+            Possible titles
+            <span class="section-title-pt">Títulos possíveis</span>
+          </h2>
+          <div id="titles-root" class="cockpit-grid"></div>
+        </section>
+
         <section class="section" aria-labelledby="projects-heading">
           <h2 id="projects-heading" class="section-title">
             Projects <span class="section-title-pt">Projetos</span>
@@ -29,7 +45,8 @@
 
         <section class="section" aria-labelledby="education-heading">
           <h2 id="education-heading" class="section-title">
-            Education <span class="section-title-pt">Formação</span>
+            Education
+            <span class="section-title-pt">Formação acadêmica</span>
           </h2>
           <div id="education-root" class="cockpit-grid"></div>
         </section>
@@ -46,6 +63,43 @@
             Languages <span class="section-title-pt">Idiomas</span>
           </h2>
           <div id="languages-root" class="cockpit-grid"></div>
+        </section>
+
+        <section class="section" aria-labelledby="recognitions-heading">
+          <h2 id="recognitions-heading" class="section-title">
+            Honors & awards
+            <span class="section-title-pt">Reconhecimentos e prêmios</span>
+          </h2>
+          <div id="recognitions-root" class="cockpit-grid"></div>
+        </section>
+
+        <section class="section" aria-labelledby="courses-heading">
+          <h2 id="courses-heading" class="section-title">
+            Courses <span class="section-title-pt">Cursos</span>
+          </h2>
+          <div id="courses-root" class="cockpit-grid"></div>
+        </section>
+
+        <section class="section" aria-labelledby="competences-heading">
+          <h2 id="competences-heading" class="section-title">
+            Skills <span class="section-title-pt">Competências</span>
+          </h2>
+          <div id="competences-root" class="cockpit-grid"></div>
+        </section>
+
+        <section class="section" aria-labelledby="volunteering-heading">
+          <h2 id="volunteering-heading" class="section-title">
+            Volunteering <span class="section-title-pt">Voluntariado</span>
+          </h2>
+          <div id="volunteering-root" class="cockpit-grid"></div>
+        </section>
+
+        <section class="section" aria-labelledby="certifications-heading">
+          <h2 id="certifications-heading" class="section-title">
+            Licenses & certifications
+            <span class="section-title-pt">Licenças e certificados</span>
+          </h2>
+          <div id="certifications-root" class="cockpit-grid"></div>
         </section>
       </main>
     </div>

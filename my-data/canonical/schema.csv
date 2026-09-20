@@ -16,6 +16,21 @@ profile.csv,location_en,Location (EN),Localização (EN)
 profile.csv,location_pt,Location (PT),Localização (PT)
 profile.csv,languages_en,Languages (EN),Idiomas (EN)
 profile.csv,languages_pt,Languages (PT),Idiomas (PT)
+about_linkedin.csv,id,About ID,ID do sobre
+about_linkedin.csv,sort_order,Sort order,Ordem
+about_linkedin.csv,text_en,About (EN),Sobre (EN)
+about_linkedin.csv,text_pt,About (PT),Sobre (PT)
+target_titles.csv,id,Title ID,ID do título
+target_titles.csv,sort_order,Sort order,Ordem
+target_titles.csv,path,Career path key,Chave da trilha
+target_titles.csv,path_label_en,Career path (EN),Trilha (EN)
+target_titles.csv,path_label_pt,Career path (PT),Trilha (PT)
+target_titles.csv,kind_en,Kind (EN),Tipo (EN)
+target_titles.csv,kind_pt,Kind (PT),Tipo (PT)
+target_titles.csv,title_en,Title (EN),Título (EN)
+target_titles.csv,title_pt,Title (PT),Título (PT)
+target_titles.csv,source_en,Source (EN),Fonte (EN)
+target_titles.csv,source_pt,Source (PT),Fonte (PT)
 experience.csv,id,Experience ID,ID da experiência
 experience.csv,sort_order,Sort order,Ordem
 experience.csv,start_date,Start date,Data início
@@ -44,6 +59,42 @@ education.csv,institution_en,Institution (EN),Instituição (EN)
 education.csv,institution_pt,Institution (PT),Instituição (PT)
 education.csv,detail_en,Detail (EN),Detalhe (EN)
 education.csv,detail_pt,Detail (PT),Detalhe (PT)
+education_linkedin.csv,id,Education ID,ID da formação
+education_linkedin.csv,sort_order,Sort order,Ordem
+education_linkedin.csv,institution_en,Institution (EN),Instituição (EN)
+education_linkedin.csv,institution_pt,Institution (PT),Instituição (PT)
+education_linkedin.csv,degree_en,Degree (EN),Grau (EN)
+education_linkedin.csv,degree_pt,Degree (PT),Grau (PT)
+education_linkedin.csv,field_en,Field of study (EN),Área de estudo (EN)
+education_linkedin.csv,field_pt,Field of study (PT),Área de estudo (PT)
+education_linkedin.csv,date_display_en,Date display (EN),Data (EN)
+education_linkedin.csv,date_display_pt,Date display (PT),Data (PT)
+education_linkedin.csv,activities_en,Activities and societies (EN),Atividades e grupos (EN)
+education_linkedin.csv,activities_pt,Activities and societies (PT),Atividades e grupos (PT)
+education_linkedin.csv,description_en,Description (EN),Descrição (EN)
+education_linkedin.csv,description_pt,Description (PT),Descrição (PT)
+education_linkedin.csv,skills_en,Skills (EN),Competências (EN)
+education_linkedin.csv,skills_pt,Skills (PT),Competências (PT)
+experience_linkedin.csv,id,Experience ID,ID da experiência
+experience_linkedin.csv,sort_order,Sort order,Ordem
+experience_linkedin.csv,company_en,Company (EN),Empresa (EN)
+experience_linkedin.csv,company_pt,Company (PT),Empresa (PT)
+experience_linkedin.csv,title_en,Title (EN),Cargo (EN)
+experience_linkedin.csv,title_pt,Title (PT),Cargo (PT)
+experience_linkedin.csv,employment_type_en,Employment type (EN),Tipo de emprego (EN)
+experience_linkedin.csv,employment_type_pt,Employment type (PT),Tipo de emprego (PT)
+experience_linkedin.csv,date_display_en,Date display (EN),Data (EN)
+experience_linkedin.csv,date_display_pt,Date display (PT),Data (PT)
+experience_linkedin.csv,location_en,Location (EN),Local (EN)
+experience_linkedin.csv,location_pt,Location (PT),Local (PT)
+experience_linkedin.csv,work_arrangement_en,Work arrangement (EN),Modelo de trabalho (EN)
+experience_linkedin.csv,work_arrangement_pt,Work arrangement (PT),Modelo de trabalho (PT)
+experience_linkedin.csv,description_en,Description (EN),Descrição (EN)
+experience_linkedin.csv,description_pt,Description (PT),Descrição (PT)
+experience_linkedin.csv,skills_en,Skills (EN),Competências (EN)
+experience_linkedin.csv,skills_pt,Skills (PT),Competências (PT)
+experience_linkedin.csv,media_en,Media (EN),Mídia (EN)
+experience_linkedin.csv,media_pt,Media (PT),Mídia (PT)
 publications.csv,sort_order,Sort order,Ordem
 publications.csv,venue_en,Venue (EN),Veículo (EN)
 publications.csv,venue_pt,Venue (PT),Veículo (PT)
@@ -52,6 +103,59 @@ publications.csv,citation_pt,Citation (PT),Citação (PT)
 additional.csv,sort_order,Sort order,Ordem
 additional.csv,text_en,Text (EN),Texto (EN)
 additional.csv,text_pt,Text (PT),Texto (PT)
+recognitions.csv,id,Recognition ID,ID do reconhecimento
+recognitions.csv,sort_order,Sort order,Ordem
+recognitions.csv,title_en,Title (EN),Título (EN)
+recognitions.csv,title_pt,Title (PT),Título (PT)
+recognitions.csv,issuer_en,Issuer (EN),Emitido por (EN)
+recognitions.csv,issuer_pt,Issuer (PT),Emitido por (PT)
+recognitions.csv,date_display_en,Date display (EN),Data (EN)
+recognitions.csv,date_display_pt,Date display (PT),Data (PT)
+recognitions.csv,associated_with,Associated with,Associado a
+recognitions.csv,description_en,Description (EN),Descrição (EN)
+recognitions.csv,description_pt,Description (PT),Descrição (PT)
+courses.csv,id,Course ID,ID do curso
+courses.csv,sort_order,Sort order,Ordem
+courses.csv,title_en,Title (EN),Título (EN)
+courses.csv,title_pt,Title (PT),Título (PT)
+courses.csv,associated_en,Associated with (EN),Associado a (EN)
+courses.csv,associated_pt,Associated with (PT),Associado a (PT)
+competences.csv,id,Competence ID,ID da competência
+competences.csv,sort_order,Sort order,Ordem
+competences.csv,category_en,Category (EN),Categoria (EN)
+competences.csv,category_pt,Category (PT),Categoria (PT)
+competences.csv,name_en,Name (EN),Nome (EN)
+competences.csv,name_pt,Name (PT),Nome (PT)
+competences.csv,associated_en,Associated with (EN),Associado a (EN)
+competences.csv,associated_pt,Associated with (PT),Associado a (PT)
+competences.csv,endorsements,Endorsements,Recomendações
+competences.csv,linkedin_assessment,LinkedIn skill assessment,Avaliação LinkedIn
+volunteering.csv,id,Volunteering ID,ID do voluntariado
+volunteering.csv,sort_order,Sort order,Ordem
+volunteering.csv,title_en,Title (EN),Título (EN)
+volunteering.csv,title_pt,Title (PT),Título (PT)
+volunteering.csv,organization_en,Organization (EN),Organização (EN)
+volunteering.csv,organization_pt,Organization (PT),Organização (PT)
+volunteering.csv,date_display_en,Date display (EN),Data (EN)
+volunteering.csv,date_display_pt,Date display (PT),Data (PT)
+volunteering.csv,cause_en,Cause (EN),Causa (EN)
+volunteering.csv,cause_pt,Cause (PT),Causa (PT)
+volunteering.csv,description_en,Description (EN),Descrição (EN)
+volunteering.csv,description_pt,Description (PT),Descrição (PT)
+certifications.csv,id,Certification ID,ID do certificado
+certifications.csv,sort_order,Sort order,Ordem
+certifications.csv,title_en,Title (EN),Título (EN)
+certifications.csv,title_pt,Title (PT),Título (PT)
+certifications.csv,issuer_en,Issuer (EN),Emitido por (EN)
+certifications.csv,issuer_pt,Issuer (PT),Emitido por (PT)
+certifications.csv,issued_en,Issued date (EN),Emitido em (EN)
+certifications.csv,issued_pt,Issued date (PT),Emitido em (PT)
+certifications.csv,expires_en,Expiration date (EN),Expira em (EN)
+certifications.csv,expires_pt,Expiration date (PT),Expira em (PT)
+certifications.csv,credential_id,Credential ID,Código da credencial
+certifications.csv,skills_en,Skills (EN),Competências (EN)
+certifications.csv,skills_pt,Skills (PT),Competências (PT)
+certifications.csv,credential_file,Credential file,Arquivo da credencial
 projects.csv,id,Project ID,ID do projeto
 projects.csv,name_en,Name (EN),Nome (EN)
 projects.csv,name_pt,Name (PT),Nome (PT)
