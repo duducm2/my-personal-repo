@@ -190,10 +190,44 @@
     }
   }
 
+  function isTypingTarget(el) {
+    if (!el) return false;
+    const tag = el.tagName;
+    return (
+      tag === "INPUT" ||
+      tag === "TEXTAREA" ||
+      tag === "SELECT" ||
+      el.isContentEditable
+    );
+  }
+
+  function togglePanelsCollapsed() {
+    const collapsed = document.body.classList.toggle("panels-collapsed");
+    document.body.setAttribute("aria-expanded", collapsed ? "false" : "true");
+  }
+
+  function initKeyboard() {
+    document.addEventListener("keydown", (event) => {
+      if (
+        !event.shiftKey ||
+        event.ctrlKey ||
+        event.metaKey ||
+        event.altKey ||
+        isTypingTarget(document.activeElement)
+      ) {
+        return;
+      }
+      if (event.key.toLowerCase() !== "e") return;
+      event.preventDefault();
+      togglePanelsCollapsed();
+    });
+  }
+
   function init() {
     renderProjects(document.getElementById("projects-root"));
     renderEducation(document.getElementById("education-root"));
     renderExperience(document.getElementById("experience-root"));
+    initKeyboard();
   }
 
   if (document.readyState === "loading") {
