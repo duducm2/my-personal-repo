@@ -490,6 +490,12 @@ def main() -> int:
     ):
         if not any(r["id"] == pid for r in projects):
             issues.append(f"projects.csv missing {pid}")
+    for need in ("summary_en", "summary_detail_en", "summary_pt", "summary_detail_pt"):
+        if need not in (projects[0] if projects else {}):
+            issues.append(f"projects.csv missing column {need}")
+    di = next((r for r in projects if r["id"] == "data-insights-pt"), None)
+    if di and not (di.get("summary_detail_en") or "").strip():
+        issues.append("data-insights-pt summary_detail_en empty")
     ok.append("projects.csv: tooling/CIP/maturity/outcomes/AI training/AgriTech")
 
     # Narrative field coverage

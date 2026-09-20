@@ -1,12 +1,12 @@
-id,sort_order,path,path_label_en,path_label_pt,kind_en,kind_pt,title_en,title_pt,source_en,source_pt
-da-headline,1,data-analyst,Data analyst,Analista de dados,LinkedIn headline,Headline do LinkedIn,"Data Analyst | AI for Data Manipulation, Validation & Applied Insights","Analista de Dados | IA para Manipulação, Checagem de Dados e Insights Aplicados",CV tagline (data-analyst),Linha de apresentação do CV (data-analyst)
-da-title-data-analyst,2,data-analyst,Data analyst,Analista de dados,Job title,Cargo,Data Analyst,Analista de Dados,CV career path,Trilha do CV
-da-title-senior,3,data-analyst,Data analyst,Analista de dados,Job title,Cargo,Senior Data Analyst,Analista de Dados Sênior,Target level from job-search profile,Nível-alvo do perfil de busca
-da-title-lead,4,data-analyst,Data analyst,Analista de dados,Job title,Cargo,Lead Data Analyst,Analista de Dados Líder,Equivalent senior analytics title,Cargo sênior equivalente
-da-title-business,5,data-analyst,Data analyst,Analista de dados,Job title,Cargo,Business Data Analyst,Analista de Dados de Negócio,Equivalent senior analytics title,Cargo sênior equivalente
-po-headline,6,product-owner,Product owner,Product owner,LinkedIn headline,Headline do LinkedIn,"Discovery, Delivery & Stakeholder Outcomes","Descoberta, Entrega e Resultados com Stakeholders",CV tagline (product-owner),Linha de apresentação do CV (product-owner)
-po-title-product-owner,7,product-owner,Product owner,Product owner,Job title,Cargo,Product Owner,Product Owner,CV career path,Trilha do CV
-po-title-product-analyst,8,product-owner,Product owner,Product owner,Job title,Cargo,Product Analyst,Analista de Produto,Discovery & delivery framing,Framing descoberta e entrega
-po-title-technical-po,9,product-owner,Product owner,Product owner,Job title,Cargo,Technical Product Owner,Product Owner Técnico,Discovery & delivery framing,Framing descoberta e entrega
-general-headline,10,general,General,Geral,LinkedIn headline,Headline do LinkedIn,"Applied Research, Technology & Project Management","Pesquisa Aplicada, Tecnologia e Gestão de Projetos",CV tagline (general),Linha de apresentação do CV (geral)
-general-title-applied-research,11,general,General,Geral,Job title,Cargo,Applied Research & Design Analyst,Analista de Pesquisa Aplicada e Design,Current CV role title,Cargo atual no CV
+id,sort_order,path,path_label_en,path_label_detail_en,path_label_pt,path_label_detail_pt,kind_en,kind_detail_en,kind_pt,kind_detail_pt,title_en,title_detail_en,title_pt,title_detail_pt,source_en,source_detail_en,source_pt,source_detail_pt
+da-headline,1,data-analyst,Data analyst,,Analista de dados,,LinkedIn headline,,Headline do LinkedIn,,"Data Analyst | AI for Data Manipulation, Validation & Applied Insights",,"Analista de Dados | IA para Manipulação, Checagem de Dados e Insights Aplicados",,CV tagline (data-analyst),,Linha de apresentação do CV (data-analyst),
+da-title-data-analyst,2,data-analyst,Data analyst,,Analista de dados,,Job title,,Cargo,,Data Analyst,,Analista de Dados,,CV career path,,Trilha do CV,
+da-title-senior,3,data-analyst,Data analyst,,Analista de dados,,Job title,,Cargo,,Senior Data Analyst,,Analista de Dados Sênior,,Target level from job-search profile,,Nível-alvo do perfil de busca,
+da-title-lead,4,data-analyst,Data analyst,,Analista de dados,,Job title,,Cargo,,Lead Data Analyst,,Analista de Dados Líder,,Equivalent senior analytics title,,Cargo sênior equivalente,
+da-title-business,5,data-analyst,Data analyst,,Analista de dados,,Job title,,Cargo,,Business Data Analyst,,Analista de Dados de Negócio,,Equivalent senior analytics title,,Cargo sênior equivalente,
+po-headline,6,product-owner,Product owner,,Product owner,,LinkedIn headline,,Headline do LinkedIn,,"Discovery, Delivery & Stakeholder Outcomes",,"Descoberta, Entrega e Resultados com Stakeholders",,CV tagline (product-owner),,Linha de apresentação do CV (product-owner),
+po-title-product-owner,7,product-owner,Product owner,,Product owner,,Job title,,Cargo,,Product Owner,,Product Owner,,CV career path,,Trilha do CV,
+po-title-product-analyst,8,product-owner,Product owner,,Product owner,,Job title,,Cargo,,Product Analyst,,Analista de Produto,,Discovery & delivery framing,,Framing descoberta e entrega,
+po-title-technical-po,9,product-owner,Product owner,,Product owner,,Job title,,Cargo,,Technical Product Owner,,Product Owner Técnico,,Discovery & delivery framing,,Framing descoberta e entrega,
+general-headline,10,general,General,,Geral,,LinkedIn headline,,Headline do LinkedIn,,"Applied Research, Technology & Project Management",,"Pesquisa Aplicada, Tecnologia e Gestão de Projetos",,CV tagline (general),,Linha de apresentação do CV (geral),
+general-title-applied-research,11,general,General,,Geral,,Job title,,Cargo,,Applied Research & Design Analyst,,Analista de Pesquisa Aplicada e Design,,Current CV role title,,Cargo atual no CV,

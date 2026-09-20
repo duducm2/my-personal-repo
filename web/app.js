@@ -1,6 +1,7 @@
 (() => {
   const labels = window.CAREER_LABELS;
   const LANG_KEY = "career-cockpit-lang";
+  const DETAIL_KEY = "career-cockpit-detail";
   const COLLECTION_KEYS = [
     "about",
     "targetTitles",
@@ -15,8 +16,21 @@
     "certifications",
   ];
 
-  /** CSV column sets (must match python/canonical_store.py). */
-  const SCHEMAS = {
+  const STRUCTURAL = new Set([
+    "id",
+    "sort_order",
+    "path",
+    "csi",
+    "nps",
+    "endorsements",
+    "linkedin_assessment",
+    "credential_id",
+    "credential_file",
+    "associated_with",
+  ]);
+
+  /** Base (summary) columns — must match python/canonical_store._BASE */
+  const BASE_SCHEMAS = {
     about: ["id", "sort_order", "text_en", "text_pt"],
     targetTitles: [
       "id",
@@ -154,6 +168,34 @@
       "credential_file",
     ],
   };
+
+  function expandColumns(cols) {
+    const out = [];
+    for (const c of cols) {
+      out.push(c);
+      if (STRUCTURAL.has(c)) continue;
+      if (c.endsWith("_en")) out.push(c.slice(0, -3) + "_detail_en");
+      else if (c.endsWith("_pt")) out.push(c.slice(0, -3) + "_detail_pt");
+    }
+    return out;
+  }
+
+  const SCHEMAS = {};
+  for (const key of Object.keys(BASE_SCHEMAS)) {
+    SCHEMAS[key] = expandColumns(BASE_SCHEMAS[key]);
+  }
+
+  function detailTwin(col) {
+    if (!col || STRUCTURAL.has(col)) return null;
+    if (col.endsWith("_en")) return col.slice(0, -3) + "_detail_en";
+    if (col.endsWith("_pt")) return col.slice(0, -3) + "_detail_pt";
+    return null;
+  }
+
+  function activeCol(col) {
+    if (!detailMode) return col;
+    return detailTwin(col) || col;
+  }
 
   /** Editable field rows: bilingual pairs or mono (same value both cells). */
   const FIELD_SPECS = {
@@ -335,6 +377,7 @@
   let state = {};
   let dirty = false;
   let saving = false;
+  let detailMode = false;
 
   function plainText(text) {
     if (text == null || text === "") return "";
@@ -371,6 +414,32 @@
       /* ignore */
     }
     document.documentElement.lang = mode === "en" ? "en" : "pt-BR";
+  }
+
+  function updateDetailIndicator() {
+    const el = document.getElementById("detail-mode-label");
+    if (!el) return;
+    const en = getLangMode() === "en";
+    el.textContent = detailMode
+      ? en
+        ? "Detail"
+        : "Detalhado"
+      : en
+        ? "Summary"
+        : "Resumo";
+  }
+
+  function setDetailMode(next, rerender) {
+    detailMode = !!next;
+    document.body.classList.toggle("detail-mode", detailMode);
+    document.body.classList.toggle("summary-mode", !detailMode);
+    try {
+      localStorage.setItem(DETAIL_KEY, detailMode ? "detail" : "summary");
+    } catch {
+      /* ignore */
+    }
+    updateDetailIndicator();
+    if (rerender) renderAll();
   }
 
   function setDirty(next) {
@@ -474,9 +543,10 @@
     tag.className = "lang-tag";
     tag.textContent = lang;
 
+    const useTall = tall || detailMode;
     const input = document.createElement("textarea");
-    input.className = "field-input" + (tall ? " tall" : "");
-    input.rows = tall ? 4 : 2;
+    input.className = "field-input" + (useTall ? " tall" : "");
+    input.rows = useTall ? 6 : 2;
     input.value = cell(row[key]);
     input.addEventListener("input", () => {
       row[key] = input.value;
@@ -508,16 +578,16 @@
     rowEl.append(labelEl);
 
     if (spec.mono) {
+      const key = activeCol(spec.mono);
       rowEl.append(
-        createEditableCell("PT", row, spec.mono, spec.tall),
-        createEditableCell("EN", row, spec.mono, spec.tall),
+        createEditableCell("PT", row, key, spec.tall),
+        createEditableCell("EN", row, key, spec.tall),
       );
-      // Keep both cells in sync for mono fields
       const inputs = rowEl.querySelectorAll(".field-input");
       inputs.forEach((input) => {
         input.addEventListener("input", () => {
           const v = input.value;
-          row[spec.mono] = v;
+          row[key] = v;
           inputs.forEach((other) => {
             if (other !== input) other.value = v;
           });
@@ -525,8 +595,8 @@
       });
     } else {
       rowEl.append(
-        createEditableCell("PT", row, spec.pt, spec.tall),
-        createEditableCell("EN", row, spec.en, spec.tall),
+        createEditableCell("PT", row, activeCol(spec.pt), spec.tall),
+        createEditableCell("EN", row, activeCol(spec.en), spec.tall),
       );
     }
     return rowEl;
@@ -639,9 +709,9 @@
         : [];
     }
     if (state.about.length === 0) {
-      state.about = [
-        { id: "about", sort_order: "1", text_en: "", text_pt: "" },
-      ];
+      state.about = [blankRow("about")];
+      state.about[0].id = "linkedin-about";
+      state.about[0].sort_order = "1";
     }
   }
 
@@ -715,21 +785,29 @@
       if (event.code === "Digit1") {
         event.preventDefault();
         setLangMode("pt");
+        updateDetailIndicator();
         return;
       }
       if (event.code === "Digit2") {
         event.preventDefault();
         setLangMode("en");
+        updateDetailIndicator();
         return;
       }
       if (event.code === "Digit0") {
         event.preventDefault();
         setLangMode("both");
+        updateDetailIndicator();
         return;
       }
       if (event.key.toLowerCase() === "e") {
         event.preventDefault();
         togglePanelsCollapsed();
+        return;
+      }
+      if (event.key.toLowerCase() === "d") {
+        event.preventDefault();
+        setDetailMode(!detailMode, true);
       }
     });
   }
@@ -745,8 +823,19 @@
     setLangMode(mode);
   }
 
+  function initDetailMode() {
+    let detail = false;
+    try {
+      detail = localStorage.getItem(DETAIL_KEY) === "detail";
+    } catch {
+      /* ignore */
+    }
+    setDetailMode(detail, false);
+  }
+
   async function init() {
     initLangMode();
+    initDetailMode();
     const saveBtn = document.getElementById("save-btn");
     if (saveBtn) saveBtn.addEventListener("click", () => saveAll());
     wireAddButtons();

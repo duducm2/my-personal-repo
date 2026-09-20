@@ -87,6 +87,21 @@ body {
   min-height: 1em;
 }
 
+.detail-mode-label {
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 3px 7px;
+}
+
+body.detail-mode .detail-mode-label {
+  border-color: var(--gold);
+}
+
 .save-status.ok {
   color: var(--ok);
 }

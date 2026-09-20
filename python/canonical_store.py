@@ -7,8 +7,24 @@ import tempfile
 from pathlib import Path
 from typing import Any
 
-# collection key → (filename, ordered columns)
-COLLECTIONS: dict[str, tuple[str, list[str]]] = {
+# Columns that do not get a parallel *_detail_* twin
+STRUCTURAL_COLS = frozenset(
+    {
+        "id",
+        "sort_order",
+        "path",
+        "csi",
+        "nps",
+        "endorsements",
+        "linkedin_assessment",
+        "credential_id",
+        "credential_file",
+        "associated_with",
+    }
+)
+
+# Base (summary) column order per collection — detail twins inserted after each _en/_pt
+_BASE: dict[str, tuple[str, list[str]]] = {
     "about": (
         "about_linkedin.csv",
         ["id", "sort_order", "text_en", "text_pt"],
@@ -171,6 +187,34 @@ COLLECTIONS: dict[str, tuple[str, list[str]]] = {
             "credential_file",
         ],
     ),
+}
+
+
+def expand_columns(cols: list[str]) -> list[str]:
+    out: list[str] = []
+    for c in cols:
+        out.append(c)
+        if c in STRUCTURAL_COLS:
+            continue
+        if c.endswith("_en"):
+            out.append(c[: -len("_en")] + "_detail_en")
+        elif c.endswith("_pt"):
+            out.append(c[: -len("_pt")] + "_detail_pt")
+    return out
+
+
+def detail_twin(col: str) -> str | None:
+    if col in STRUCTURAL_COLS:
+        return None
+    if col.endswith("_en"):
+        return col[: -len("_en")] + "_detail_en"
+    if col.endswith("_pt"):
+        return col[: -len("_pt")] + "_detail_pt"
+    return None
+
+
+COLLECTIONS: dict[str, tuple[str, list[str]]] = {
+    key: (filename, expand_columns(cols)) for key, (filename, cols) in _BASE.items()
 }
 
 
