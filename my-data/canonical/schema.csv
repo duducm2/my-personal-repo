@@ -20,6 +20,12 @@ about_linkedin.csv,id,About ID,ID do sobre
 about_linkedin.csv,sort_order,Sort order,Ordem
 about_linkedin.csv,text_en,About (EN),Sobre (EN)
 about_linkedin.csv,text_pt,About (PT),Sobre (PT)
+languages.csv,id,Language ID,ID do idioma
+languages.csv,sort_order,Sort order,Ordem
+languages.csv,name_en,Name (EN),Nome (EN)
+languages.csv,name_pt,Name (PT),Nome (PT)
+languages.csv,level_en,Proficiency (EN),Proficiência (EN)
+languages.csv,level_pt,Proficiency (PT),Proficiência (PT)
 target_titles.csv,id,Title ID,ID do título
 target_titles.csv,sort_order,Sort order,Ordem
 target_titles.csv,path,Career path key,Chave da trilha

@@ -30,6 +30,7 @@ After changing column structure, run: `python scripts/migrate_bilingual_labels.p
 | ------------------------- | ------------------------------------------------------------------------ |
 | `profile.csv`             | Name, contact, location_en/pt, languages_en/pt                           |
 | `about_linkedin.csv`      | LinkedIn Sobre / About summary                                           |
+| `languages.csv`           | LinkedIn languages (name + proficiency EN/PT)                            |
 | `target_titles.csv`       | Possible headlines/titles by CV career path (DA / PO / general)          |
 | `experience.csv`          | Jobs — titles and date display in EN/PT (resume)                         |
 | `experience_linkedin.csv` | LinkedIn Experiência (roles, locations, descriptions)                    |

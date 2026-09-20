@@ -1,19 +1,367 @@
 (() => {
-  const data = window.CAREER_DATA;
-  const EMPTY = "—";
+  const labels = window.CAREER_LABELS;
+  const LANG_KEY = "career-cockpit-lang";
+  const COLLECTION_KEYS = [
+    "about",
+    "targetTitles",
+    "projects",
+    "education",
+    "experience",
+    "languages",
+    "recognitions",
+    "courses",
+    "competences",
+    "volunteering",
+    "certifications",
+  ];
+
+  /** CSV column sets (must match python/canonical_store.py). */
+  const SCHEMAS = {
+    about: ["id", "sort_order", "text_en", "text_pt"],
+    targetTitles: [
+      "id",
+      "sort_order",
+      "path",
+      "path_label_en",
+      "path_label_pt",
+      "kind_en",
+      "kind_pt",
+      "title_en",
+      "title_pt",
+      "source_en",
+      "source_pt",
+    ],
+    projects: [
+      "id",
+      "name_en",
+      "name_pt",
+      "summary_en",
+      "summary_pt",
+      "csi",
+      "nps",
+      "notes_en",
+      "notes_pt",
+    ],
+    education: [
+      "id",
+      "sort_order",
+      "institution_en",
+      "institution_pt",
+      "degree_en",
+      "degree_pt",
+      "field_en",
+      "field_pt",
+      "date_display_en",
+      "date_display_pt",
+      "activities_en",
+      "activities_pt",
+      "description_en",
+      "description_pt",
+      "skills_en",
+      "skills_pt",
+    ],
+    experience: [
+      "id",
+      "sort_order",
+      "company_en",
+      "company_pt",
+      "title_en",
+      "title_pt",
+      "employment_type_en",
+      "employment_type_pt",
+      "date_display_en",
+      "date_display_pt",
+      "location_en",
+      "location_pt",
+      "work_arrangement_en",
+      "work_arrangement_pt",
+      "description_en",
+      "description_pt",
+      "skills_en",
+      "skills_pt",
+      "media_en",
+      "media_pt",
+    ],
+    languages: ["id", "sort_order", "name_en", "name_pt", "level_en", "level_pt"],
+    recognitions: [
+      "id",
+      "sort_order",
+      "title_en",
+      "title_pt",
+      "issuer_en",
+      "issuer_pt",
+      "date_display_en",
+      "date_display_pt",
+      "associated_with",
+      "description_en",
+      "description_pt",
+    ],
+    courses: [
+      "id",
+      "sort_order",
+      "title_en",
+      "title_pt",
+      "associated_en",
+      "associated_pt",
+    ],
+    competences: [
+      "id",
+      "sort_order",
+      "category_en",
+      "category_pt",
+      "name_en",
+      "name_pt",
+      "associated_en",
+      "associated_pt",
+      "endorsements",
+      "linkedin_assessment",
+    ],
+    volunteering: [
+      "id",
+      "sort_order",
+      "title_en",
+      "title_pt",
+      "organization_en",
+      "organization_pt",
+      "date_display_en",
+      "date_display_pt",
+      "cause_en",
+      "cause_pt",
+      "description_en",
+      "description_pt",
+    ],
+    certifications: [
+      "id",
+      "sort_order",
+      "title_en",
+      "title_pt",
+      "issuer_en",
+      "issuer_pt",
+      "issued_en",
+      "issued_pt",
+      "expires_en",
+      "expires_pt",
+      "credential_id",
+      "skills_en",
+      "skills_pt",
+      "credential_file",
+    ],
+  };
+
+  /** Editable field rows: bilingual pairs or mono (same value both cells). */
+  const FIELD_SPECS = {
+    about: [{ label: "aboutText", pt: "text_pt", en: "text_en", tall: true }],
+    targetTitles: [
+      { label: "targetTitle", pt: "title_pt", en: "title_en", tall: true },
+      { label: "careerPath", pt: "path_label_pt", en: "path_label_en" },
+      { label: "careerPathId", mono: "path" },
+      { label: "titleKind", pt: "kind_pt", en: "kind_en" },
+      { label: "titleSource", pt: "source_pt", en: "source_en" },
+    ],
+    projects: [
+      { label: "projectName", pt: "name_pt", en: "name_en" },
+      { label: "projectDescription", pt: "summary_pt", en: "summary_en", tall: true },
+      { label: "projectNotes", pt: "notes_pt", en: "notes_en", tall: true },
+      { label: "projectCsi", mono: "csi" },
+      { label: "projectNps", mono: "nps" },
+    ],
+    education: [
+      { label: "degree", pt: "degree_pt", en: "degree_en" },
+      { label: "institution", pt: "institution_pt", en: "institution_en" },
+      { label: "fieldOfStudy", pt: "field_pt", en: "field_en" },
+      { label: "dateRange", pt: "date_display_pt", en: "date_display_en" },
+      { label: "activities", pt: "activities_pt", en: "activities_en", tall: true },
+      {
+        label: "educationDescription",
+        pt: "description_pt",
+        en: "description_en",
+        tall: true,
+      },
+      { label: "relatedSkills", pt: "skills_pt", en: "skills_en" },
+    ],
+    experience: [
+      { label: "jobTitle", pt: "title_pt", en: "title_en" },
+      { label: "company", pt: "company_pt", en: "company_en" },
+      {
+        label: "employmentType",
+        pt: "employment_type_pt",
+        en: "employment_type_en",
+      },
+      { label: "dateRange", pt: "date_display_pt", en: "date_display_en" },
+      { label: "location", pt: "location_pt", en: "location_en" },
+      {
+        label: "workArrangement",
+        pt: "work_arrangement_pt",
+        en: "work_arrangement_en",
+      },
+      {
+        label: "experienceDescription",
+        pt: "description_pt",
+        en: "description_en",
+        tall: true,
+      },
+      { label: "relatedSkills", pt: "skills_pt", en: "skills_en" },
+      { label: "media", pt: "media_pt", en: "media_en" },
+    ],
+    languages: [
+      { label: "language", pt: "name_pt", en: "name_en" },
+      { label: "proficiency", pt: "level_pt", en: "level_en" },
+    ],
+    recognitions: [
+      { label: "recognitionTitle", pt: "title_pt", en: "title_en" },
+      { label: "issuer", pt: "issuer_pt", en: "issuer_en" },
+      { label: "recognitionDate", pt: "date_display_pt", en: "date_display_en" },
+      { label: "associatedWith", mono: "associated_with" },
+      {
+        label: "recognitionDescription",
+        pt: "description_pt",
+        en: "description_en",
+        tall: true,
+      },
+    ],
+    courses: [
+      { label: "courseTitle", pt: "title_pt", en: "title_en" },
+      { label: "associatedWith", pt: "associated_pt", en: "associated_en" },
+    ],
+    competences: [
+      { label: "competenceName", pt: "name_pt", en: "name_en" },
+      { label: "competenceCategory", pt: "category_pt", en: "category_en" },
+      { label: "associatedWith", pt: "associated_pt", en: "associated_en" },
+      { label: "endorsements", mono: "endorsements" },
+      { label: "linkedinAssessment", mono: "linkedin_assessment" },
+    ],
+    volunteering: [
+      { label: "volunteerTitle", pt: "title_pt", en: "title_en" },
+      { label: "organization", pt: "organization_pt", en: "organization_en" },
+      { label: "dateRange", pt: "date_display_pt", en: "date_display_en" },
+      { label: "cause", pt: "cause_pt", en: "cause_en" },
+      {
+        label: "volunteerDescription",
+        pt: "description_pt",
+        en: "description_en",
+        tall: true,
+      },
+    ],
+    certifications: [
+      { label: "certificationTitle", pt: "title_pt", en: "title_en" },
+      { label: "issuer", pt: "issuer_pt", en: "issuer_en" },
+      { label: "issuedOn", pt: "issued_pt", en: "issued_en" },
+      { label: "expiresOn", pt: "expires_pt", en: "expires_en" },
+      { label: "credentialId", mono: "credential_id" },
+      { label: "relatedSkills", pt: "skills_pt", en: "skills_en" },
+      { label: "credentialFile", mono: "credential_file" },
+    ],
+  };
+
+  const SECTION_META = {
+    about: { root: "about-root", title: { en: "About", pt: "Sobre" }, canAdd: false },
+    targetTitles: {
+      root: "titles-root",
+      titleKey: { en: "title_en", pt: "title_pt" },
+      canAdd: true,
+    },
+    projects: {
+      root: "projects-root",
+      titleKey: { en: "name_en", pt: "name_pt" },
+      canAdd: true,
+    },
+    education: {
+      root: "education-root",
+      titleKey: { en: "degree_en", pt: "degree_pt" },
+      canAdd: true,
+    },
+    experience: {
+      root: "experience-root",
+      titleKey: { en: "title_en", pt: "title_pt" },
+      canAdd: true,
+    },
+    languages: {
+      root: "languages-root",
+      titleKey: { en: "name_en", pt: "name_pt" },
+      canAdd: true,
+    },
+    recognitions: {
+      root: "recognitions-root",
+      titleKey: { en: "title_en", pt: "title_pt" },
+      canAdd: true,
+    },
+    courses: {
+      root: "courses-root",
+      titleKey: { en: "title_en", pt: "title_pt" },
+      canAdd: true,
+    },
+    competences: {
+      root: "competences-root",
+      titleKey: { en: "name_en", pt: "name_pt" },
+      canAdd: true,
+    },
+    volunteering: {
+      root: "volunteering-root",
+      titleKey: { en: "title_en", pt: "title_pt" },
+      canAdd: true,
+    },
+    certifications: {
+      root: "certifications-root",
+      titleKey: { en: "title_en", pt: "title_pt" },
+      canAdd: true,
+    },
+  };
+
+  let state = {};
+  let dirty = false;
+  let saving = false;
 
   function stripMarkdown(text) {
     if (text == null || text === "") return "";
     return String(text).replace(/\*\*/g, "");
   }
 
-  function displayValue(raw) {
-    const cleaned = stripMarkdown(raw);
-    return cleaned === "" ? EMPTY : cleaned;
+  function cell(v) {
+    return v == null ? "" : String(v);
   }
 
-  function isEmpty(raw) {
-    return raw == null || String(raw).trim() === "";
+  function getLangMode() {
+    if (document.body.classList.contains("lang-pt")) return "pt";
+    if (document.body.classList.contains("lang-en")) return "en";
+    return "both";
+  }
+
+  function setLangMode(mode) {
+    document.body.classList.remove("lang-pt", "lang-en");
+    if (mode === "pt" || mode === "en") {
+      document.body.classList.add(`lang-${mode}`);
+    }
+    try {
+      localStorage.setItem(LANG_KEY, mode);
+    } catch {
+      /* ignore */
+    }
+    document.documentElement.lang = mode === "en" ? "en" : "pt-BR";
+  }
+
+  function setDirty(next) {
+    dirty = next;
+    const btn = document.getElementById("save-btn");
+    if (btn) btn.disabled = !dirty || saving;
+    document.body.classList.toggle("is-dirty", dirty);
+  }
+
+  function setSaveStatus(text, kind) {
+    const el = document.getElementById("save-status");
+    if (!el) return;
+    el.textContent = text || "";
+    el.classList.remove("ok", "err");
+    if (kind) el.classList.add(kind);
+  }
+
+  function blankRow(collection) {
+    const row = {};
+    for (const col of SCHEMAS[collection]) row[col] = "";
+    row.id = `${collection}-${Date.now()}`;
+    if ("sort_order" in row) {
+      row.sort_order = String((state[collection] || []).length + 1);
+    }
+    return row;
   }
 
   function copyViaTextarea(text) {
@@ -43,9 +391,11 @@
 
   async function copyWithFeedback(text, button) {
     const original = button.dataset.label || button.textContent;
+    const okLabel = getLangMode() === "en" ? "Copied" : "Copiado";
+    const errLabel = getLangMode() === "en" ? "Error" : "Erro";
     try {
       await copyText(text);
-      button.textContent = "Copiado";
+      button.textContent = okLabel;
       button.classList.add("ok");
       button.classList.remove("err");
       setTimeout(() => {
@@ -53,7 +403,7 @@
         button.classList.remove("ok");
       }, 1200);
     } catch {
-      button.textContent = "Erro";
+      button.textContent = errLabel;
       button.classList.add("err");
       button.classList.remove("ok");
       setTimeout(() => {
@@ -63,379 +413,231 @@
     }
   }
 
-  function createCopyButton(raw) {
+  function createCopyButton(getValue) {
     const btn = document.createElement("button");
     btn.type = "button";
     btn.className = "copy-btn";
     btn.dataset.label = "Copy";
     btn.textContent = "Copy";
-
-    if (isEmpty(raw)) {
-      btn.disabled = true;
-      btn.title = "No value to copy";
-      return btn;
-    }
-
-    const text = stripMarkdown(raw);
     btn.title = "Copy to clipboard";
-    btn.addEventListener("click", () => copyWithFeedback(text, btn));
+    btn.addEventListener("click", () => {
+      const text = stripMarkdown(getValue());
+      if (!text.trim()) return;
+      copyWithFeedback(text, btn);
+    });
     return btn;
   }
 
-  function createFieldCell(lang, raw) {
-    const cell = document.createElement("div");
-    cell.className = "field-cell";
+  function createEditableCell(lang, row, key, tall) {
+    const cellEl = document.createElement("div");
+    cellEl.className =
+      "field-cell " + (lang === "PT" ? "field-cell-pt" : "field-cell-en");
 
     const wrap = document.createElement("div");
-    wrap.style.minWidth = "0";
-    wrap.style.flex = "1";
+    wrap.className = "field-edit-wrap";
 
     const tag = document.createElement("span");
     tag.className = "lang-tag";
     tag.textContent = lang;
 
-    const value = document.createElement("p");
-    value.className = "field-value" + (isEmpty(raw) ? " empty" : "");
-    value.textContent = displayValue(raw);
+    const input = document.createElement("textarea");
+    input.className = "field-input" + (tall ? " tall" : "");
+    input.rows = tall ? 4 : 2;
+    input.value = cell(row[key]);
+    input.addEventListener("input", () => {
+      row[key] = input.value;
+      setDirty(true);
+      setSaveStatus("");
+    });
 
-    wrap.append(tag, value);
-    cell.append(wrap, createCopyButton(raw));
-    return cell;
+    wrap.append(tag, input);
+    cellEl.append(wrap, createCopyButton(() => row[key]));
+    return cellEl;
   }
 
-  function createFieldRow(label, ptValue, enValue) {
-    const row = document.createElement("div");
-    row.className = "field-row";
+  function createFieldRow(label, row, spec) {
+    const rowEl = document.createElement("div");
+    rowEl.className = "field-row";
 
     const labelEl = document.createElement("div");
     labelEl.className = "field-label";
-
     const en = document.createElement("span");
     en.className = "field-label-en";
-    en.textContent = label.en;
-
+    en.textContent = labels[label].en;
     const pt = document.createElement("span");
     pt.className = "field-label-pt";
-    pt.textContent = label.pt;
-
+    pt.textContent = labels[label].pt;
     labelEl.append(en, pt);
-    row.append(
-      labelEl,
-      createFieldCell("PT", ptValue),
-      createFieldCell("EN", enValue),
-    );
-    return row;
+    rowEl.append(labelEl);
+
+    if (spec.mono) {
+      rowEl.append(
+        createEditableCell("PT", row, spec.mono, spec.tall),
+        createEditableCell("EN", row, spec.mono, spec.tall),
+      );
+      // Keep both cells in sync for mono fields
+      const inputs = rowEl.querySelectorAll(".field-input");
+      inputs.forEach((input) => {
+        input.addEventListener("input", () => {
+          const v = input.value;
+          row[spec.mono] = v;
+          inputs.forEach((other) => {
+            if (other !== input) other.value = v;
+          });
+        });
+      });
+    } else {
+      rowEl.append(
+        createEditableCell("PT", row, spec.pt, spec.tall),
+        createEditableCell("EN", row, spec.en, spec.tall),
+      );
+    }
+    return rowEl;
   }
 
-  function createPanel(title, fields) {
+  function panelTitle(collection, row, meta) {
+    if (meta.title) return meta.title;
+    const en = cell(row[meta.titleKey.en]) || cell(row.id) || "New";
+    const pt = cell(row[meta.titleKey.pt]) || cell(row.id) || "Novo";
+    return { en, pt };
+  }
+
+  function createPanel(collection, row, index) {
+    const meta = SECTION_META[collection];
     const article = document.createElement("article");
     article.className = "panel";
+    article.dataset.id = row.id;
+
+    const head = document.createElement("div");
+    head.className = "panel-head";
 
     const heading = document.createElement("h3");
     heading.className = "panel-heading";
-    heading.textContent = title;
+    const title = panelTitle(collection, row, meta);
+    const en = document.createElement("span");
+    en.className = "panel-heading-en";
+    en.textContent = title.en;
+    const pt = document.createElement("span");
+    pt.className = "panel-heading-pt";
+    pt.textContent = title.pt;
+    heading.append(en, pt);
 
-    article.append(heading);
-    for (const field of fields) {
-      article.append(createFieldRow(field.label, field.pt, field.en));
+    head.append(heading);
+
+    if (collection !== "about") {
+      const del = document.createElement("button");
+      del.type = "button";
+      del.className = "panel-delete";
+      del.title = "Delete";
+      del.setAttribute("aria-label", "Delete");
+      del.textContent = "✕";
+      del.addEventListener("click", () => {
+        const msg =
+          getLangMode() === "en"
+            ? "Delete this record?"
+            : "Excluir este registro?";
+        if (!confirm(msg)) return;
+        state[collection].splice(index, 1);
+        setDirty(true);
+        setSaveStatus("");
+        renderAll();
+      });
+      head.append(del);
+    }
+
+    article.append(head);
+
+    for (const spec of FIELD_SPECS[collection]) {
+      article.append(createFieldRow(spec.label, row, spec));
     }
     return article;
   }
 
-  function renderAbout(root) {
+  function renderSection(collection) {
+    const meta = SECTION_META[collection];
+    const root = document.getElementById(meta.root);
+    if (!root) return;
     root.replaceChildren();
-    const { labels, about } = data;
-    root.append(
-      createPanel("Sobre / About", [
-        { label: labels.aboutText, pt: about.text_pt, en: about.text_en },
-      ]),
-    );
+    const rows = state[collection] || [];
+    rows.forEach((row, i) => root.append(createPanel(collection, row, i)));
   }
 
-  function renderTargetTitles(root) {
-    root.replaceChildren();
-    const { labels } = data;
-    for (const t of data.targetTitles) {
-      const title = t.title_en || t.title_pt || t.id;
-      root.append(
-        createPanel(title, [
-          { label: labels.targetTitle, pt: t.title_pt, en: t.title_en },
-          {
-            label: labels.careerPath,
-            pt: t.path_pt,
-            en: t.path_en,
-          },
-          { label: labels.titleKind, pt: t.kind_pt, en: t.kind_en },
-          {
-            label: labels.titleSource,
-            pt: t.source_pt,
-            en: t.source_en,
-          },
-        ]),
-      );
+  function renderAll() {
+    for (const key of COLLECTION_KEYS) renderSection(key);
+  }
+
+  function wireAddButtons() {
+    document.querySelectorAll("[data-add-collection]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const collection = btn.getAttribute("data-add-collection");
+        if (!SECTION_META[collection]?.canAdd) return;
+        state[collection].push(blankRow(collection));
+        setDirty(true);
+        setSaveStatus("");
+        renderSection(collection);
+        const root = document.getElementById(SECTION_META[collection].root);
+        const last = root?.lastElementChild;
+        if (last) {
+          last.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          const firstInput = last.querySelector(".field-input");
+          if (firstInput) firstInput.focus();
+        }
+      });
+    });
+  }
+
+  async function loadState() {
+    const res = await fetch("/api/state");
+    if (!res.ok) throw new Error(`GET /api/state failed (${res.status})`);
+    const payload = await res.json();
+    const collections = payload.collections || {};
+    state = {};
+    for (const key of COLLECTION_KEYS) {
+      state[key] = Array.isArray(collections[key])
+        ? collections[key].map((row) => {
+            const out = {};
+            for (const col of SCHEMAS[key]) out[col] = cell(row[col]);
+            return out;
+          })
+        : [];
+    }
+    if (state.about.length === 0) {
+      state.about = [
+        { id: "about", sort_order: "1", text_en: "", text_pt: "" },
+      ];
     }
   }
 
-  function renderProjects(root) {
-    root.replaceChildren();
-    const { labels } = data;
-    for (const p of data.projects) {
-      const title = p.name_en || p.name_pt || p.id;
-      root.append(
-        createPanel(title, [
-          { label: labels.projectName, pt: p.name_pt, en: p.name_en },
-          {
-            label: labels.projectDescription,
-            pt: p.summary_pt,
-            en: p.summary_en,
-          },
-          { label: labels.projectStart, pt: p.start_pt, en: p.start_en },
-          { label: labels.projectEnd, pt: p.end_pt, en: p.end_en },
-        ]),
+  async function saveAll() {
+    if (saving || !dirty) return;
+    saving = true;
+    setDirty(true);
+    const btn = document.getElementById("save-btn");
+    if (btn) btn.disabled = true;
+    setSaveStatus(getLangMode() === "en" ? "Saving…" : "Salvando…");
+    try {
+      const res = await fetch("/api/state", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ collections: state }),
+      });
+      const payload = await res.json().catch(() => ({}));
+      if (!res.ok || payload.ok === false) {
+        throw new Error(payload.error || `HTTP ${res.status}`);
+      }
+      setDirty(false);
+      setSaveStatus(getLangMode() === "en" ? "Saved." : "Salvo.", "ok");
+    } catch (err) {
+      setSaveStatus(
+        (getLangMode() === "en" ? "Error: " : "Erro: ") +
+          (err.message || String(err)),
+        "err",
       );
-    }
-  }
-
-  function renderEducation(root) {
-    root.replaceChildren();
-    const { labels } = data;
-    for (const e of data.education) {
-      const title = e.degree_en || e.degree_pt || e.id;
-      root.append(
-        createPanel(title, [
-          { label: labels.degree, pt: e.degree_pt, en: e.degree_en },
-          {
-            label: labels.institution,
-            pt: e.institution_pt,
-            en: e.institution_en,
-          },
-          {
-            label: labels.fieldOfStudy,
-            pt: e.field_pt,
-            en: e.field_en,
-          },
-          { label: labels.dateRange, pt: e.date_pt, en: e.date_en },
-          {
-            label: labels.activities,
-            pt: e.activities_pt,
-            en: e.activities_en,
-          },
-          {
-            label: labels.educationDescription,
-            pt: e.description_pt,
-            en: e.description_en,
-          },
-          {
-            label: labels.relatedSkills,
-            pt: e.skills_pt,
-            en: e.skills_en,
-          },
-        ]),
-      );
-    }
-  }
-
-  function renderExperience(root) {
-    root.replaceChildren();
-    const { labels } = data;
-    for (const x of data.experience) {
-      const title = x.title_en || x.title_pt || x.id;
-      root.append(
-        createPanel(title, [
-          { label: labels.jobTitle, pt: x.title_pt, en: x.title_en },
-          {
-            label: labels.company,
-            pt: x.company_pt,
-            en: x.company_en,
-          },
-          {
-            label: labels.employmentType,
-            pt: x.employment_type_pt,
-            en: x.employment_type_en,
-          },
-          { label: labels.dateRange, pt: x.date_pt, en: x.date_en },
-          {
-            label: labels.location,
-            pt: x.location_pt,
-            en: x.location_en,
-          },
-          {
-            label: labels.workArrangement,
-            pt: x.work_arrangement_pt,
-            en: x.work_arrangement_en,
-          },
-          {
-            label: labels.experienceDescription,
-            pt: x.description_pt,
-            en: x.description_en,
-          },
-          {
-            label: labels.relatedSkills,
-            pt: x.skills_pt,
-            en: x.skills_en,
-          },
-          { label: labels.media, pt: x.media_pt, en: x.media_en },
-        ]),
-      );
-    }
-  }
-
-  function renderLanguages(root) {
-    root.replaceChildren();
-    const { labels } = data;
-    for (const lang of data.languages) {
-      const title = lang.name_en || lang.name_pt || lang.id;
-      root.append(
-        createPanel(title, [
-          { label: labels.language, pt: lang.name_pt, en: lang.name_en },
-          { label: labels.proficiency, pt: lang.level_pt, en: lang.level_en },
-        ]),
-      );
-    }
-  }
-
-  function renderRecognitions(root) {
-    root.replaceChildren();
-    const { labels } = data;
-    for (const r of data.recognitions) {
-      const title = r.title_en || r.title_pt || r.id;
-      root.append(
-        createPanel(title, [
-          { label: labels.recognitionTitle, pt: r.title_pt, en: r.title_en },
-          { label: labels.issuer, pt: r.issuer_pt, en: r.issuer_en },
-          { label: labels.recognitionDate, pt: r.date_pt, en: r.date_en },
-          {
-            label: labels.associatedWith,
-            pt: r.associated_with,
-            en: r.associated_with,
-          },
-          {
-            label: labels.recognitionDescription,
-            pt: r.description_pt,
-            en: r.description_en,
-          },
-        ]),
-      );
-    }
-  }
-
-  function renderCourses(root) {
-    root.replaceChildren();
-    const { labels } = data;
-    for (const c of data.courses) {
-      const title = c.title_en || c.title_pt || c.id;
-      root.append(
-        createPanel(title, [
-          { label: labels.courseTitle, pt: c.title_pt, en: c.title_en },
-          {
-            label: labels.associatedWith,
-            pt: c.associated_pt,
-            en: c.associated_en,
-          },
-        ]),
-      );
-    }
-  }
-
-  function renderCompetences(root) {
-    root.replaceChildren();
-    const { labels } = data;
-    for (const c of data.competences) {
-      const title = c.name_en || c.name_pt || c.id;
-      const assessmentEn = c.linkedin_assessment
-        ? "Passed LinkedIn skill assessment"
-        : null;
-      const assessmentPt = c.linkedin_assessment
-        ? "Passou na avaliação de competências do LinkedIn"
-        : null;
-      const endorsementsEn =
-        c.endorsements != null ? String(c.endorsements) : null;
-      const endorsementsPt = endorsementsEn;
-      root.append(
-        createPanel(title, [
-          { label: labels.competenceName, pt: c.name_pt, en: c.name_en },
-          {
-            label: labels.competenceCategory,
-            pt: c.category_pt,
-            en: c.category_en,
-          },
-          {
-            label: labels.associatedWith,
-            pt: c.associated_pt,
-            en: c.associated_en,
-          },
-          {
-            label: labels.endorsements,
-            pt: endorsementsPt,
-            en: endorsementsEn,
-          },
-          {
-            label: labels.linkedinAssessment,
-            pt: assessmentPt,
-            en: assessmentEn,
-          },
-        ]),
-      );
-    }
-  }
-
-  function renderVolunteering(root) {
-    root.replaceChildren();
-    const { labels } = data;
-    for (const v of data.volunteering) {
-      const title = v.title_en || v.title_pt || v.id;
-      root.append(
-        createPanel(title, [
-          { label: labels.volunteerTitle, pt: v.title_pt, en: v.title_en },
-          {
-            label: labels.organization,
-            pt: v.organization_pt,
-            en: v.organization_en,
-          },
-          { label: labels.dateRange, pt: v.date_pt, en: v.date_en },
-          { label: labels.cause, pt: v.cause_pt, en: v.cause_en },
-          {
-            label: labels.volunteerDescription,
-            pt: v.description_pt,
-            en: v.description_en,
-          },
-        ]),
-      );
-    }
-  }
-
-  function renderCertifications(root) {
-    root.replaceChildren();
-    const { labels } = data;
-    for (const c of data.certifications) {
-      const title = c.title_en || c.title_pt || c.id;
-      root.append(
-        createPanel(title, [
-          {
-            label: labels.certificationTitle,
-            pt: c.title_pt,
-            en: c.title_en,
-          },
-          { label: labels.issuer, pt: c.issuer_pt, en: c.issuer_en },
-          { label: labels.issuedOn, pt: c.issued_pt, en: c.issued_en },
-          { label: labels.expiresOn, pt: c.expires_pt, en: c.expires_en },
-          {
-            label: labels.credentialId,
-            pt: c.credential_id,
-            en: c.credential_id,
-          },
-          {
-            label: labels.relatedSkills,
-            pt: c.skills_pt,
-            en: c.skills_en,
-          },
-          {
-            label: labels.credentialFile,
-            pt: c.credential_file,
-            en: c.credential_file,
-          },
-        ]),
-      );
+      setDirty(true);
+    } finally {
+      saving = false;
+      const saveBtn = document.getElementById("save-btn");
+      if (saveBtn) saveBtn.disabled = !dirty;
     }
   }
 
@@ -457,6 +659,12 @@
 
   function initKeyboard() {
     document.addEventListener("keydown", (event) => {
+      if ((event.ctrlKey || event.metaKey) && event.key === "Enter") {
+        event.preventDefault();
+        saveAll();
+        return;
+      }
+
       if (
         !event.shiftKey ||
         event.ctrlKey ||
@@ -466,25 +674,64 @@
       ) {
         return;
       }
-      if (event.key.toLowerCase() !== "e") return;
-      event.preventDefault();
-      togglePanelsCollapsed();
+
+      if (event.code === "Digit1") {
+        event.preventDefault();
+        setLangMode("pt");
+        return;
+      }
+      if (event.code === "Digit2") {
+        event.preventDefault();
+        setLangMode("en");
+        return;
+      }
+      if (event.code === "Digit0") {
+        event.preventDefault();
+        setLangMode("both");
+        return;
+      }
+      if (event.key.toLowerCase() === "e") {
+        event.preventDefault();
+        togglePanelsCollapsed();
+      }
     });
   }
 
-  function init() {
-    renderAbout(document.getElementById("about-root"));
-    renderTargetTitles(document.getElementById("titles-root"));
-    renderProjects(document.getElementById("projects-root"));
-    renderEducation(document.getElementById("education-root"));
-    renderExperience(document.getElementById("experience-root"));
-    renderLanguages(document.getElementById("languages-root"));
-    renderRecognitions(document.getElementById("recognitions-root"));
-    renderCourses(document.getElementById("courses-root"));
-    renderCompetences(document.getElementById("competences-root"));
-    renderVolunteering(document.getElementById("volunteering-root"));
-    renderCertifications(document.getElementById("certifications-root"));
+  function initLangMode() {
+    let mode = "both";
+    try {
+      const saved = localStorage.getItem(LANG_KEY);
+      if (saved === "pt" || saved === "en" || saved === "both") mode = saved;
+    } catch {
+      /* ignore */
+    }
+    setLangMode(mode);
+  }
+
+  async function init() {
+    initLangMode();
+    const saveBtn = document.getElementById("save-btn");
+    if (saveBtn) saveBtn.addEventListener("click", () => saveAll());
+    wireAddButtons();
     initKeyboard();
+    window.addEventListener("beforeunload", (e) => {
+      if (!dirty) return;
+      e.preventDefault();
+      e.returnValue = "";
+    });
+
+    try {
+      await loadState();
+      renderAll();
+      setDirty(false);
+      setSaveStatus("");
+    } catch (err) {
+      setSaveStatus(
+        (getLangMode() === "en" ? "Load error: " : "Erro ao carregar: ") +
+          (err.message || String(err)),
+        "err",
+      );
+    }
   }
 
   if (document.readyState === "loading") {

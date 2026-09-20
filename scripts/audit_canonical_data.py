@@ -50,6 +50,16 @@ def main() -> int:
     else:
         ok.append("about_linkedin.csv: LinkedIn Sobre summary")
 
+    langs = load("languages.csv")
+    if len(langs) < 2:
+        issues.append(f"languages want >=2 got {len(langs)}")
+    else:
+        ids = {r.get("id") for r in langs}
+        if "pt" not in ids or "en" not in ids:
+            issues.append("languages.csv missing pt/en")
+        else:
+            ok.append("languages.csv: Portuguese + English")
+
     titles = load("target_titles.csv")
     if len(titles) != 11:
         issues.append(f"target_titles want 11 got {len(titles)}")
@@ -248,8 +258,8 @@ def main() -> int:
         issues.append(f"PO Tech skills want 19 got {len(po_tech)}")
     if len(ds_core) != 5:
         issues.append(f"DA Core skills want 5 got {len(ds_core)}")
-    if len(ds_tech) != 19:
-        issues.append(f"DA Tech skills want 19 got {len(ds_tech)}")
+    if len(ds_tech) != 20:
+        issues.append(f"DA Tech skills want 20 got {len(ds_tech)}")
     ok.append("skills.csv counts match resume baselines")
 
     edu = load("education.csv")
@@ -427,9 +437,18 @@ def main() -> int:
     ok.append("courses.csv: Unicamp + Bosch courses")
 
     competences = load("competences.csv")
-    if len(competences) != 40:
-        issues.append(f"competences want 40 got {len(competences)}")
-    for cid in ("ai-systems", "power-bi", "project-management", "figma", "english"):
+    if len(competences) != 43:
+        issues.append(f"competences want 43 got {len(competences)}")
+    for cid in (
+        "ai-systems",
+        "power-bi",
+        "project-management",
+        "figma",
+        "english",
+        "autohotkey",
+        "python",
+        "mnemonics",
+    ):
         if not any(c.get("id") == cid for c in competences):
             issues.append(f"competences missing {cid}")
     ok.append("competences.csv: LinkedIn skills snapshot")
@@ -467,10 +486,11 @@ def main() -> int:
         "infovis-msc",
         "dissertation-trustmate-stats",
         "ai-tools-training",
+        "agritech-iot-cattle",
     ):
         if not any(r["id"] == pid for r in projects):
             issues.append(f"projects.csv missing {pid}")
-    ok.append("projects.csv: tooling/CIP/maturity/outcomes/AI training")
+    ok.append("projects.csv: tooling/CIP/maturity/outcomes/AI training/AgriTech")
 
     # Narrative field coverage
     required_fields = [
