@@ -531,7 +531,8 @@
     return btn;
   }
 
-  function createEditableCell(lang, row, key, tall) {
+  function createEditableCell(lang, row, baseKey, tall) {
+    const key = activeCol(baseKey);
     const cellEl = document.createElement("div");
     cellEl.className =
       "field-cell " + (lang === "PT" ? "field-cell-pt" : "field-cell-en");
@@ -547,7 +548,12 @@
     const input = document.createElement("textarea");
     input.className = "field-input" + (useTall ? " tall" : "");
     input.rows = useTall ? 6 : 2;
-    input.value = cell(row[key]);
+    let shown = cell(row[key]);
+    if (detailMode && !shown.trim() && key !== baseKey) {
+      shown = cell(row[baseKey]);
+      if (shown.trim()) row[key] = shown;
+    }
+    input.value = shown;
     input.addEventListener("input", () => {
       row[key] = input.value;
       setDirty(true);
@@ -578,10 +584,11 @@
     rowEl.append(labelEl);
 
     if (spec.mono) {
-      const key = activeCol(spec.mono);
+      const baseKey = spec.mono;
+      const key = activeCol(baseKey);
       rowEl.append(
-        createEditableCell("PT", row, key, spec.tall),
-        createEditableCell("EN", row, key, spec.tall),
+        createEditableCell("PT", row, baseKey, spec.tall),
+        createEditableCell("EN", row, baseKey, spec.tall),
       );
       const inputs = rowEl.querySelectorAll(".field-input");
       inputs.forEach((input) => {
@@ -595,8 +602,8 @@
       });
     } else {
       rowEl.append(
-        createEditableCell("PT", row, activeCol(spec.pt), spec.tall),
-        createEditableCell("EN", row, activeCol(spec.en), spec.tall),
+        createEditableCell("PT", row, spec.pt, spec.tall),
+        createEditableCell("EN", row, spec.en, spec.tall),
       );
     }
     return rowEl;
