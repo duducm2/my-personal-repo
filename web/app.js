@@ -82,7 +82,14 @@
       "media_en",
       "media_pt",
     ],
-    languages: ["id", "sort_order", "name_en", "name_pt", "level_en", "level_pt"],
+    languages: [
+      "id",
+      "sort_order",
+      "name_en",
+      "name_pt",
+      "level_en",
+      "level_pt",
+    ],
     recognitions: [
       "id",
       "sort_order",
@@ -160,7 +167,12 @@
     ],
     projects: [
       { label: "projectName", pt: "name_pt", en: "name_en" },
-      { label: "projectDescription", pt: "summary_pt", en: "summary_en", tall: true },
+      {
+        label: "projectDescription",
+        pt: "summary_pt",
+        en: "summary_en",
+        tall: true,
+      },
       { label: "projectNotes", pt: "notes_pt", en: "notes_en", tall: true },
       { label: "projectCsi", mono: "csi" },
       { label: "projectNps", mono: "nps" },
@@ -170,7 +182,12 @@
       { label: "institution", pt: "institution_pt", en: "institution_en" },
       { label: "fieldOfStudy", pt: "field_pt", en: "field_en" },
       { label: "dateRange", pt: "date_display_pt", en: "date_display_en" },
-      { label: "activities", pt: "activities_pt", en: "activities_en", tall: true },
+      {
+        label: "activities",
+        pt: "activities_pt",
+        en: "activities_en",
+        tall: true,
+      },
       {
         label: "educationDescription",
         pt: "description_pt",
@@ -210,7 +227,11 @@
     recognitions: [
       { label: "recognitionTitle", pt: "title_pt", en: "title_en" },
       { label: "issuer", pt: "issuer_pt", en: "issuer_en" },
-      { label: "recognitionDate", pt: "date_display_pt", en: "date_display_en" },
+      {
+        label: "recognitionDate",
+        pt: "date_display_pt",
+        en: "date_display_en",
+      },
       { label: "associatedWith", mono: "associated_with" },
       {
         label: "recognitionDescription",
@@ -254,7 +275,11 @@
   };
 
   const SECTION_META = {
-    about: { root: "about-root", title: { en: "About", pt: "Sobre" }, canAdd: false },
+    about: {
+      root: "about-root",
+      title: { en: "About", pt: "Sobre" },
+      canAdd: false,
+    },
     targetTitles: {
       root: "titles-root",
       titleKey: { en: "title_en", pt: "title_pt" },
@@ -311,9 +336,18 @@
   let dirty = false;
   let saving = false;
 
-  function stripMarkdown(text) {
+  function plainText(text) {
     if (text == null || text === "") return "";
-    return String(text).replace(/\*\*/g, "");
+    return String(text)
+      .replace(/\*\*/g, "")
+      .replace(/→/g, "->")
+      .replace(/←/g, "<-")
+      .replace(/[—–−]/g, "-")
+      .replace(/·/g, " - ")
+      .replace(/…/g, "...")
+      .replace(/[\u2018\u2019]/g, "'")
+      .replace(/[\u201c\u201d]/g, '"')
+      .replace(/ {2,}/g, " ");
   }
 
   function cell(v) {
@@ -421,7 +455,7 @@
     btn.textContent = "Copy";
     btn.title = "Copy to clipboard";
     btn.addEventListener("click", () => {
-      const text = stripMarkdown(getValue());
+      const text = plainText(getValue());
       if (!text.trim()) return;
       copyWithFeedback(text, btn);
     });
@@ -451,7 +485,10 @@
     });
 
     wrap.append(tag, input);
-    cellEl.append(wrap, createCopyButton(() => row[key]));
+    cellEl.append(
+      wrap,
+      createCopyButton(() => row[key]),
+    );
     return cellEl;
   }
 

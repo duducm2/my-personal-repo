@@ -261,4 +261,22 @@ def _cell(value: Any) -> str:
         return ""
     if isinstance(value, bool):
         return "true" if value else ""
-    return str(value).strip()
+    return _plain(str(value).strip())
+
+
+def _plain(text: str) -> str:
+    """Strip markdown/styling so cockpit copy-paste stays plain."""
+    t = text.replace("**", "")
+    t = t.replace("→", "->").replace("←", "<-")
+    t = t.replace("—", "-").replace("–", "-").replace("−", "-")
+    t = t.replace("·", " - ")
+    t = t.replace("…", "...")
+    t = (
+        t.replace("\u2018", "'")
+        .replace("\u2019", "'")
+        .replace("\u201c", '"')
+        .replace("\u201d", '"')
+    )
+    while "  " in t:
+        t = t.replace("  ", " ")
+    return t
