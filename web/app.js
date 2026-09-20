@@ -190,6 +190,20 @@
     }
   }
 
+  function renderLanguages(root) {
+    root.replaceChildren();
+    const { labels } = data;
+    for (const lang of data.languages) {
+      const title = lang.name_en || lang.name_pt || lang.id;
+      root.append(
+        createPanel(title, [
+          { label: labels.language, pt: lang.name_pt, en: lang.name_en },
+          { label: labels.proficiency, pt: lang.level_pt, en: lang.level_en },
+        ]),
+      );
+    }
+  }
+
   function isTypingTarget(el) {
     if (!el) return false;
     const tag = el.tagName;
@@ -227,6 +241,7 @@
     renderProjects(document.getElementById("projects-root"));
     renderEducation(document.getElementById("education-root"));
     renderExperience(document.getElementById("experience-root"));
+    renderLanguages(document.getElementById("languages-root"));
     initKeyboard();
   }
 

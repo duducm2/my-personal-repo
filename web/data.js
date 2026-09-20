@@ -1,4 +1,4 @@
-/** Hardcoded snapshot from my-data/canonical (projects, education, experience). */
+/** Hardcoded snapshot from my-data/canonical (projects, education, experience, languages). */
 window.CAREER_DATA = {
   labels: {
     projectName: { en: "Project Name", pt: "Nome do projeto" },
@@ -15,6 +15,8 @@ window.CAREER_DATA = {
     jobTitle: { en: "Job Title", pt: "Cargo" },
     company: { en: "Company", pt: "Empresa" },
     dateRange: { en: "Date Range", pt: "Período" },
+    language: { en: "Language", pt: "Idioma" },
+    proficiency: { en: "Proficiency", pt: "Proficiência" },
   },
 
   projects: [
@@ -175,6 +177,23 @@ window.CAREER_DATA = {
       company: "Bosch Brasil (Campinas)",
       date_en: "Jan 2017 – Nov 2018",
       date_pt: "Jan 2017 – Nov 2018",
+    },
+  ],
+
+  languages: [
+    {
+      id: "pt",
+      name_en: "Portuguese",
+      name_pt: "Português",
+      level_en: "Native",
+      level_pt: "Nativo",
+    },
+    {
+      id: "en",
+      name_en: "English",
+      name_pt: "Inglês",
+      level_en: "Fluent",
+      level_pt: "Fluente",
     },
   ],
 };
