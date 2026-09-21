@@ -59,4 +59,32 @@ window.CAREER_LABELS = {
   titleKind: { en: "Type", pt: "Tipo" },
   titleSource: { en: "Source", pt: "Fonte" },
   recordId: { en: "ID", pt: "ID" },
+  companyName: { en: "Company", pt: "Empresa" },
+  companyCategory: { en: "Category", pt: "Categoria" },
+  companyCity: { en: "City", pt: "Cidade" },
+  companyRegion: { en: "Region", pt: "Região" },
+  companyPriority: { en: "Priority", pt: "Prioridade" },
+  companyStatus: { en: "Status", pt: "Status" },
+  companyWebsite: { en: "Website", pt: "Website" },
+  companyNotes: { en: "Notes", pt: "Notas" },
+  fitDataAnalyst: {
+    en: "Fit: Data Analyst (yes/no)",
+    pt: "Fit: Data Analyst (sim/não)",
+  },
+  fitProductOwner: {
+    en: "Fit: Product Owner (yes/no)",
+    pt: "Fit: Product Owner (sim/não)",
+  },
+  fitDigitalSolutionArchitect: {
+    en: "Fit: Digital Solution Architect (yes/no)",
+    pt: "Fit: Digital Solution Architect (sim/não)",
+  },
+  skillsMatch: {
+    en: "Matching skills (DA / path)",
+    pt: "Competências alinhadas (DA / trilha)",
+  },
+  fitWhy: {
+    en: "Why this path fits",
+    pt: "Por que a trilha encaixa",
+  },
 };

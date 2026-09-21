@@ -61,18 +61,20 @@ def main() -> int:
             ok.append("languages.csv: Portuguese + English")
 
     titles = load("target_titles.csv")
-    if len(titles) != 11:
-        issues.append(f"target_titles want 11 got {len(titles)}")
+    if len(titles) != 15:
+        issues.append(f"target_titles want 15 got {len(titles)}")
     for tid in (
         "da-headline",
         "da-title-data-analyst",
         "po-headline",
         "po-title-product-owner",
         "general-headline",
+        "dsa-headline",
+        "dsa-title-mid-dsa",
     ):
         if not any(t.get("id") == tid for t in titles):
             issues.append(f"target_titles missing {tid}")
-    ok.append("target_titles.csv: DA / PO / general CV titles")
+    ok.append("target_titles.csv: DA / PO / general / DSA CV titles")
 
     exp = load("experience.csv")
     exp_ids = {r["id"] for r in exp}
@@ -112,7 +114,12 @@ def main() -> int:
         if b["experience_id"] not in exp_ids:
             issues.append(f"orphan bullet experience_id={b['experience_id']}")
     for eid in exp_ids:
-        for var in ("general", "product-owner", "data-analyst"):
+        for var in (
+            "general",
+            "product-owner",
+            "data-analyst",
+            "digital-solution-architect",
+        ):
             n = sum(
                 1 for b in bullets if b["experience_id"] == eid and b["variant"] == var
             )
@@ -123,15 +130,19 @@ def main() -> int:
         ("bosch-ar-2023", "general"): 6,
         ("bosch-ar-2023", "product-owner"): 5,
         ("bosch-ar-2023", "data-analyst"): 7,
+        ("bosch-ar-2023", "digital-solution-architect"): 6,
         ("bosch-web-2020", "general"): 2,
         ("bosch-web-2020", "product-owner"): 2,
         ("bosch-web-2020", "data-analyst"): 2,
+        ("bosch-web-2020", "digital-solution-architect"): 2,
         ("bosch-hu-2019", "general"): 2,
         ("bosch-hu-2019", "product-owner"): 2,
         ("bosch-hu-2019", "data-analyst"): 2,
+        ("bosch-hu-2019", "digital-solution-architect"): 2,
         ("bosch-intern-2017", "general"): 1,
         ("bosch-intern-2017", "product-owner"): 1,
         ("bosch-intern-2017", "data-analyst"): 1,
+        ("bosch-intern-2017", "digital-solution-architect"): 1,
     }
     for key, want in expected_counts.items():
         got = sum(
@@ -160,6 +171,9 @@ def main() -> int:
         ("data-analyst", "CSI 4.86"),
         ("data-analyst", "Excel"),
         ("data-analyst", "CSV"),
+        ("digital-solution-architect", "ServiceNow"),
+        ("digital-solution-architect", "Azure"),
+        ("digital-solution-architect", "Digitization"),
     ]
     all_bullet_text = {
         "general": " ".join(
@@ -176,6 +190,11 @@ def main() -> int:
             b.get("text_en", b.get("text", ""))
             for b in bullets
             if b["variant"] == "data-analyst"
+        ),
+        "digital-solution-architect": " ".join(
+            b.get("text_en", b.get("text", ""))
+            for b in bullets
+            if b["variant"] == "digital-solution-architect"
         ),
     }
     nars = {
@@ -260,6 +279,20 @@ def main() -> int:
         issues.append(f"DA Core skills want 5 got {len(ds_core)}")
     if len(ds_tech) != 20:
         issues.append(f"DA Tech skills want 20 got {len(ds_tech)}")
+    dsa_core = [
+        s
+        for s in skills
+        if s["variant"] == "digital-solution-architect" and s["category"] == "Core"
+    ]
+    dsa_tech = [
+        s
+        for s in skills
+        if s["variant"] == "digital-solution-architect" and s["category"] == "Tech"
+    ]
+    if len(dsa_core) != 5:
+        issues.append(f"DSA Core skills want 5 got {len(dsa_core)}")
+    if len(dsa_tech) != 18:
+        issues.append(f"DSA Tech skills want 18 got {len(dsa_tech)}")
     ok.append("skills.csv counts match resume baselines")
 
     edu = load("education.csv")
@@ -324,6 +357,7 @@ def main() -> int:
         ("general", "future_career_style"),
         ("product-owner", "future_career_style"),
         ("data-analyst", "future_career_style"),
+        ("digital-solution-architect", "future_career_style"),
         ("general", "future_intro"),  # intentionally empty in EN and PT
     }
     narratives_rows = load("narratives.csv")
@@ -498,6 +532,114 @@ def main() -> int:
         issues.append("data-insights-pt summary_detail_en empty")
     ok.append("projects.csv: tooling/CIP/maturity/outcomes/AI training/AgriTech")
 
+    companies_path = CANON / "companies.csv"
+    if not companies_path.exists():
+        issues.append("companies.csv missing")
+    else:
+        companies = load("companies.csv")
+        if len(companies) < 7:
+            issues.append(f"companies.csv expected >= 7 seed rows, got {len(companies)}")
+        for cid in (
+            "ascenty-sumare",
+            "ascenty-campinas",
+            "scala-svcpcp01",
+            "ascenty-paulinia",
+            "cloud-hq-paulinia",
+            "consultimer-dc",
+            "odata-sp02",
+        ):
+            if not any(c.get("id") == cid for c in companies):
+                issues.append(f"companies.csv missing {cid}")
+        for need in (
+            "category_en",
+            "name_en",
+            "city_en",
+            "region_en",
+            "priority",
+            "status",
+            "fit_data_analyst",
+            "fit_product_owner",
+            "fit_digital_solution_architect",
+            "skills_match_en",
+            "fit_why_en",
+            "notes_en",
+            "notes_detail_en",
+        ):
+            if need not in (companies[0] if companies else {}):
+                issues.append(f"companies.csv missing column {need}")
+        multi = [
+            c
+            for c in companies
+            if sum(
+                1
+                for k in (
+                    "fit_data_analyst",
+                    "fit_product_owner",
+                    "fit_digital_solution_architect",
+                )
+                if (c.get(k) or "").strip().lower() in ("yes", "y", "1", "true")
+            )
+            >= 2
+        ]
+        if not multi:
+            issues.append("companies.csv: expected at least one multi-role company")
+        bosch = next((c for c in companies if c.get("id") == "bosch-brasil"), None)
+        if bosch:
+            for k in (
+                "fit_data_analyst",
+                "fit_product_owner",
+                "fit_digital_solution_architect",
+            ):
+                if (bosch.get(k) or "").strip().lower() not in ("yes", "y", "1", "true"):
+                    issues.append(f"bosch-brasil should fit all roles ({k})")
+        for cid in (
+            "eldorado-campinas",
+            "ciandt-campinas",
+            "cpqd-campinas",
+            "cpfl-campinas",
+            "agibank-campinas",
+            "msx-campinas",
+        ):
+            row = next((c for c in companies if c.get("id") == cid), None)
+            if not row:
+                issues.append(f"companies.csv missing regional DA employer {cid}")
+            elif (row.get("fit_data_analyst") or "").strip().lower() not in (
+                "yes",
+                "y",
+                "1",
+                "true",
+            ):
+                issues.append(f"{cid} should have fit_data_analyst=yes")
+            elif not (row.get("skills_match_en") or "").strip():
+                issues.append(f"{cid} missing skills_match_en")
+            elif not (row.get("fit_why_en") or "").strip():
+                issues.append(f"{cid} missing fit_why_en")
+        for cid in (
+            "microsoft-global",
+            "google-global",
+            "gitlab-global",
+            "sap-global",
+            "siemens-global",
+            "bytedance-global",
+            "alibaba-global",
+            "spotify-global",
+        ):
+            row = next((c for c in companies if c.get("id") == cid), None)
+            if not row:
+                issues.append(f"companies.csv missing global enterprise {cid}")
+            elif (row.get("fit_data_analyst") or "").strip().lower() not in (
+                "yes",
+                "y",
+                "1",
+                "true",
+            ):
+                issues.append(f"{cid} should have fit_data_analyst=yes")
+            elif "global enterprise" not in (row.get("category_en") or "").lower():
+                issues.append(f"{cid} should be categorized as Global enterprise")
+        ok.append(
+            "companies.csv: Campinas DC + regional DA + global remote-track enterprises"
+        )
+
     # Narrative field coverage
     required_fields = [
         "tagline",
@@ -528,7 +670,12 @@ def main() -> int:
         "future_career_body",
         "closing_summary",
     ]
-    for var in ("general", "product-owner", "data-analyst"):
+    for var in (
+        "general",
+        "product-owner",
+        "data-analyst",
+        "digital-solution-architect",
+    ):
         for field in required_fields:
             if (var, field) not in nars:
                 issues.append(f"narratives missing {var}/{field}")
@@ -543,6 +690,13 @@ def main() -> int:
     ).read_text(encoding="utf-8")
     gen_resume_ds = (
         ROOT / "resume" / "variants" / "data-analyst" / "content.en.typ"
+    ).read_text(encoding="utf-8")
+    gen_resume_dsa = (
+        ROOT
+        / "resume"
+        / "variants"
+        / "digital-solution-architect"
+        / "content.en.typ"
     ).read_text(encoding="utf-8")
     gen_resume_g_pt = (ROOT / "resume" / "typst" / "content.pt.typ").read_text(
         encoding="utf-8"
@@ -586,6 +740,18 @@ def main() -> int:
                 "CSV",
             ],
         ),
+        (
+            "DSA content.typ",
+            gen_resume_dsa,
+            [
+                "GENERATED",
+                "September 2026",
+                "Digital Solution Architect",
+                "Azure",
+                "ServiceNow",
+                "digitization",
+            ],
+        ),
     ):
         for n in needles:
             if n not in text:
@@ -621,6 +787,13 @@ def main() -> int:
     deck_ds = (
         ROOT / "portfolio" / "variants" / "data-analyst" / "portfolio-deck.en.md"
     ).read_text(encoding="utf-8")
+    deck_dsa = (
+        ROOT
+        / "portfolio"
+        / "variants"
+        / "digital-solution-architect"
+        / "portfolio-deck.en.md"
+    ).read_text(encoding="utf-8")
     deck_g_pt = (ROOT / "portfolio" / "portfolio-deck.pt.md").read_text(
         encoding="utf-8"
     )
@@ -628,6 +801,7 @@ def main() -> int:
         "{{canonical:" in deck_g
         or "{{canonical:" in deck_po
         or "{{canonical:" in deck_ds
+        or "{{canonical:" in deck_dsa
     ):
         issues.append("unresolved {{canonical:}} slots in generated decks")
     for label, deck, needles in (
@@ -668,6 +842,17 @@ def main() -> int:
                 "../../../pictures/",
             ],
         ),
+        (
+            "DSA deck",
+            deck_dsa,
+            [
+                "Why I Design Digital Solutions",
+                "Digital Solution Architect",
+                "Digitization, Architecture Gates",
+                "Cloud Architecture",
+                "../../../pictures/",
+            ],
+        ),
     ):
         for n in needles:
             if n not in deck:
@@ -693,6 +878,8 @@ def main() -> int:
             issues.append(f"PO deck CSI table missing {n!r}")
         if n not in deck_ds:
             issues.append(f"DA deck CSI table missing {n!r}")
+        if n not in deck_dsa:
+            issues.append(f"DSA deck CSI table missing {n!r}")
     ok.append("CSI/NPS project table preserved in all decks")
 
     # Template exists

@@ -47,6 +47,7 @@ After changing column structure, run: `python scripts/migrate_bilingual_labels.p
 | `competences.csv`         | LinkedIn skills / competências (category, associations)                             |
 | `volunteering.csv`        | LinkedIn volunteering (role, org, cause, description)                               |
 | `certifications.csv`      | LinkedIn licenses & certifications                                                  |
+| `companies.csv`           | Target companies (category, city/region, priority, status, role fits DA/PO/DSA, skills match, why-fit, website, notes) |
 | `projects.csv`            | Case evidence (`name_en/pt`, `summary_en/pt`, optional `*_detail_*`, `notes_en/pt`) |
 | `narratives.csv`          | Resume + portfolio copy (`label_en/pt`, `text_en/pt`)                               |
 

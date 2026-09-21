@@ -21,6 +21,172 @@ DEFAULT_PORT = 8770
 ROOT_DIR = Path(__file__).resolve().parent.parent
 WEB_DIR = ROOT_DIR / "web"
 CANONICAL_DIR = ROOT_DIR / "my-data" / "canonical"
+OUTPUT_DIR = ROOT_DIR / "output"
+
+# Career deliverables under output/<variant>/ (resume + portfolio, EN/PT)
+DOWNLOAD_CATALOG: list[dict[str, str]] = [
+    {
+        "variant": "general",
+        "label_en": "General",
+        "label_pt": "Geral",
+        "lang": "en",
+        "kind": "resume",
+        "filename": "CV-Eduardo-Figueiredo-EN.pdf",
+    },
+    {
+        "variant": "general",
+        "label_en": "General",
+        "label_pt": "Geral",
+        "lang": "pt",
+        "kind": "resume",
+        "filename": "CV-Eduardo-Figueiredo-PT.pdf",
+    },
+    {
+        "variant": "product-owner",
+        "label_en": "Product Owner",
+        "label_pt": "Product Owner",
+        "lang": "en",
+        "kind": "resume",
+        "filename": "CV-Eduardo-Figueiredo-EN-product-owner.pdf",
+    },
+    {
+        "variant": "product-owner",
+        "label_en": "Product Owner",
+        "label_pt": "Product Owner",
+        "lang": "pt",
+        "kind": "resume",
+        "filename": "CV-Eduardo-Figueiredo-PT-product-owner.pdf",
+    },
+    {
+        "variant": "data-analyst",
+        "label_en": "Data Analyst",
+        "label_pt": "Analista de Dados",
+        "lang": "en",
+        "kind": "resume",
+        "filename": "CV-Eduardo-Figueiredo-EN-data-analyst.pdf",
+    },
+    {
+        "variant": "data-analyst",
+        "label_en": "Data Analyst",
+        "label_pt": "Analista de Dados",
+        "lang": "pt",
+        "kind": "resume",
+        "filename": "CV-Eduardo-Figueiredo-PT-data-analyst.pdf",
+    },
+    {
+        "variant": "general",
+        "label_en": "General",
+        "label_pt": "Geral",
+        "lang": "en",
+        "kind": "portfolio",
+        "filename": "portfolio-deck-EN.pdf",
+    },
+    {
+        "variant": "general",
+        "label_en": "General",
+        "label_pt": "Geral",
+        "lang": "pt",
+        "kind": "portfolio",
+        "filename": "portfolio-deck-PT.pdf",
+    },
+    {
+        "variant": "product-owner",
+        "label_en": "Product Owner",
+        "label_pt": "Product Owner",
+        "lang": "en",
+        "kind": "portfolio",
+        "filename": "portfolio-deck-product-owner-EN.pdf",
+    },
+    {
+        "variant": "product-owner",
+        "label_en": "Product Owner",
+        "label_pt": "Product Owner",
+        "lang": "pt",
+        "kind": "portfolio",
+        "filename": "portfolio-deck-product-owner-PT.pdf",
+    },
+    {
+        "variant": "data-analyst",
+        "label_en": "Data Analyst",
+        "label_pt": "Analista de Dados",
+        "lang": "en",
+        "kind": "portfolio",
+        "filename": "portfolio-deck-data-analyst-EN.pdf",
+    },
+    {
+        "variant": "data-analyst",
+        "label_en": "Data Analyst",
+        "label_pt": "Analista de Dados",
+        "lang": "pt",
+        "kind": "portfolio",
+        "filename": "portfolio-deck-data-analyst-PT.pdf",
+    },
+    {
+        "variant": "digital-solution-architect",
+        "label_en": "Digital Solution Architect",
+        "label_pt": "Arquiteto de Soluções Digitais",
+        "lang": "en",
+        "kind": "resume",
+        "filename": "CV-Eduardo-Figueiredo-EN-digital-solution-architect.pdf",
+    },
+    {
+        "variant": "digital-solution-architect",
+        "label_en": "Digital Solution Architect",
+        "label_pt": "Arquiteto de Soluções Digitais",
+        "lang": "pt",
+        "kind": "resume",
+        "filename": "CV-Eduardo-Figueiredo-PT-digital-solution-architect.pdf",
+    },
+    {
+        "variant": "digital-solution-architect",
+        "label_en": "Digital Solution Architect",
+        "label_pt": "Arquiteto de Soluções Digitais",
+        "lang": "en",
+        "kind": "portfolio",
+        "filename": "portfolio-deck-digital-solution-architect-EN.pdf",
+    },
+    {
+        "variant": "digital-solution-architect",
+        "label_en": "Digital Solution Architect",
+        "label_pt": "Arquiteto de Soluções Digitais",
+        "lang": "pt",
+        "kind": "portfolio",
+        "filename": "portfolio-deck-digital-solution-architect-PT.pdf",
+    },
+]
+
+
+def list_downloads() -> list[dict[str, Any]]:
+    items: list[dict[str, Any]] = []
+    for entry in DOWNLOAD_CATALOG:
+        path = OUTPUT_DIR / entry["variant"] / entry["filename"]
+        items.append(
+            {
+                **entry,
+                "available": path.is_file(),
+                "url": f"/download/{entry['variant']}/{entry['filename']}",
+                "size": path.stat().st_size if path.is_file() else 0,
+            }
+        )
+    return items
+
+
+def resolve_download(variant: str, filename: str) -> Path | None:
+    if variant not in {e["variant"] for e in DOWNLOAD_CATALOG}:
+        return None
+    allowed = {
+        e["filename"]
+        for e in DOWNLOAD_CATALOG
+        if e["variant"] == variant
+    }
+    if filename not in allowed:
+        return None
+    path = (OUTPUT_DIR / variant / filename).resolve()
+    if not str(path).startswith(str(OUTPUT_DIR.resolve())):
+        return None
+    if not path.is_file():
+        return None
+    return path
 
 
 class CareerHandler(BaseHTTPRequestHandler):
@@ -74,6 +240,12 @@ class CareerHandler(BaseHTTPRequestHandler):
             if path == "/api/state":
                 self._json(200, {"collections": self.store.load_all()})
                 return
+            if path == "/api/downloads":
+                self._json(200, {"items": list_downloads()})
+                return
+            if path.startswith("/download/"):
+                self._serve_download(path)
+                return
             self._serve_static(path)
         except Exception as exc:  # noqa: BLE001
             traceback.print_exc()
@@ -94,6 +266,28 @@ class CareerHandler(BaseHTTPRequestHandler):
         except Exception as exc:  # noqa: BLE001
             traceback.print_exc()
             self._json(500, {"ok": False, "error": str(exc)})
+
+    def _serve_download(self, path: str) -> None:
+        parts = [p for p in unquote(path).split("/") if p]
+        # ["download", variant, filename]
+        if len(parts) != 3 or parts[0] != "download":
+            self._json(404, {"ok": False, "error": "not found"})
+            return
+        file_path = resolve_download(parts[1], parts[2])
+        if file_path is None:
+            self._json(404, {"ok": False, "error": "file not found"})
+            return
+        data = file_path.read_bytes()
+        self.send_response(200)
+        self.send_header("Content-Type", "application/pdf")
+        self.send_header("Content-Length", str(len(data)))
+        self.send_header(
+            "Content-Disposition",
+            f'attachment; filename="{file_path.name}"',
+        )
+        self._cors()
+        self.end_headers()
+        self.wfile.write(data)
 
     def _serve_static(self, path: str) -> None:
         rel = unquote(path.lstrip("/")) or "index.html"

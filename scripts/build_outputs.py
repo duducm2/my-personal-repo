@@ -15,7 +15,7 @@ FONTS = ROOT / "resume" / "typst" / "fonts"
 LANGS = ("en", "pt")
 LANG_SUFFIX = {"en": "EN", "pt": "PT"}
 
-VARIANTS = ("general", "product-owner", "data-analyst")
+VARIANTS = ("general", "product-owner", "data-analyst", "digital-solution-architect")
 
 OUTPUTS = {
     ("general", "en", "resume"): ROOT
@@ -66,18 +66,43 @@ OUTPUTS = {
     / "output"
     / "data-analyst"
     / "portfolio-deck-data-analyst-PT.pdf",
+    ("digital-solution-architect", "en", "resume"): ROOT
+    / "output"
+    / "digital-solution-architect"
+    / "CV-Eduardo-Figueiredo-EN-digital-solution-architect.pdf",
+    ("digital-solution-architect", "pt", "resume"): ROOT
+    / "output"
+    / "digital-solution-architect"
+    / "CV-Eduardo-Figueiredo-PT-digital-solution-architect.pdf",
+    ("digital-solution-architect", "en", "portfolio"): ROOT
+    / "output"
+    / "digital-solution-architect"
+    / "portfolio-deck-digital-solution-architect-EN.pdf",
+    ("digital-solution-architect", "pt", "portfolio"): ROOT
+    / "output"
+    / "digital-solution-architect"
+    / "portfolio-deck-digital-solution-architect-PT.pdf",
 }
 
 RESUME_MAIN = {
     "general": ROOT / "resume" / "typst" / "main.typ",
     "product-owner": ROOT / "resume" / "variants" / "product-owner" / "main.typ",
     "data-analyst": ROOT / "resume" / "variants" / "data-analyst" / "main.typ",
+    "digital-solution-architect": ROOT
+    / "resume"
+    / "variants"
+    / "digital-solution-architect"
+    / "main.typ",
 }
 
 RESUME_CONTENT = {
     "general": ROOT / "resume" / "typst",
     "product-owner": ROOT / "resume" / "variants" / "product-owner",
     "data-analyst": ROOT / "resume" / "variants" / "data-analyst",
+    "digital-solution-architect": ROOT
+    / "resume"
+    / "variants"
+    / "digital-solution-architect",
 }
 
 DECK_SRC = {
@@ -91,6 +116,11 @@ DECK_SRC = {
     / "portfolio"
     / "variants"
     / "data-analyst"
+    / "portfolio-deck.{lang}.md",
+    "digital-solution-architect": ROOT
+    / "portfolio"
+    / "variants"
+    / "digital-solution-architect"
     / "portfolio-deck.{lang}.md",
 }
 

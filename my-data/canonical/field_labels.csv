@@ -2,6 +2,7 @@ domain,key,label_en,label_pt
 variant,general,General,Geral
 variant,product-owner,Discovery & delivery,Descoberta e entrega
 variant,data-analyst,Data analyst,Analista de dados
+variant,digital-solution-architect,Digital Solution Architect,Arquiteto de Soluções Digitais
 skill_category,Core,Core,Núcleo
 skill_category,Tech,Tech,Tecnologias
 narrative_field,tagline,Tagline,Linha de apresentação

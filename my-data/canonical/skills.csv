@@ -70,3 +70,26 @@ data-analyst,Tech,Tech,Tecnologias,17,CSS,CSS
 data-analyst,Tech,Tech,Tecnologias,18,Mermaid,Mermaid
 data-analyst,Tech,Tech,Tecnologias,19,VS Code,VS Code
 data-analyst,Tech,Tech,Tecnologias,20,AutoHotkey,AutoHotkey
+digital-solution-architect,Core,Core,Núcleo,1,Solution & cloud architecture,Arquitetura de soluções e cloud
+digital-solution-architect,Core,Core,Núcleo,2,Digitization & systems design,Digitalização e desenho de sistemas
+digital-solution-architect,Core,Core,Núcleo,3,DevOps / CI-CD & automation,DevOps / CI-CD e automação
+digital-solution-architect,Core,Core,Núcleo,4,Applied Research & quality gates,Pesquisa Aplicada e quality gates
+digital-solution-architect,Core,Core,Núcleo,5,Global stakeholder alignment,Alinhamento com stakeholders globais
+digital-solution-architect,Tech,Tech,Tecnologias,1,Azure,Azure
+digital-solution-architect,Tech,Tech,Tecnologias,2,Python,Python
+digital-solution-architect,Tech,Tech,Tecnologias,3,SQL / SQL Server,SQL / SQL Server
+digital-solution-architect,Tech,Tech,Tecnologias,4,Power BI,Power BI
+digital-solution-architect,Tech,Tech,Tecnologias,5,ServiceNow,ServiceNow
+digital-solution-architect,Tech,Tech,Tecnologias,6,Git,Git
+digital-solution-architect,Tech,Tech,Tecnologias,7,GitHub,GitHub
+digital-solution-architect,Tech,Tech,Tecnologias,8,Bitbucket,Bitbucket
+digital-solution-architect,Tech,Tech,Tecnologias,9,VS Code,VS Code
+digital-solution-architect,Tech,Tech,Tecnologias,10,React,React
+digital-solution-architect,Tech,Tech,Tecnologias,11,Windows Server / IIS,Windows Server / IIS
+digital-solution-architect,Tech,Tech,Tecnologias,12,Docker,Docker
+digital-solution-architect,Tech,Tech,Tecnologias,13,Excel / VBA,Excel / VBA
+digital-solution-architect,Tech,Tech,Tecnologias,14,CSV pipelines,Pipelines CSV
+digital-solution-architect,Tech,Tech,Tecnologias,15,Mermaid,Mermaid
+digital-solution-architect,Tech,Tech,Tecnologias,16,HTML / CSS,HTML / CSS
+digital-solution-architect,Tech,Tech,Tecnologias,17,Figma,Figma
+digital-solution-architect,Tech,Tech,Tecnologias,18,Terraform (IaC),Terraform (IaC)

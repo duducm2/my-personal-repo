@@ -1,0 +1,79 @@
+# GENERATED — portfolio content layer
+variant: digital-solution-architect
+lang: pt
+fields:
+  asset_prefix: "../../../"
+  cip_pipeline_h2: "Presente – Pipeline de método: Evidência → Gate → Dashboard"
+  closing_summary: "Conecto experiência de digitalização, pipelines analíticos e gates de Pesquisa Aplicada em **arquitetura de soluções** que times globais operam—medida por resultados, não por slides."
+  csi_h2: "Presente – Métricas de resultado: CSI e NPS (2024–2025)"
+  deck_title: "Eduardo Figueiredo – Portfólio"
+  dissertation_pbi_bullets: |
+    - **Pipeline inferencial:** Shapiro-Wilk → t de Welch/pareado, d de Cohen, FDR—depois reporting em **Power BI** com 50+ estruturas visuais.
+    - **Por que importa para arquitetos:** desenho de avaliação e métricas honestas antes de escalar features de IA em uma plataforma.
+  dissertation_pbi_intro: "Minha dissertação estuda **confiança** em experiências digitais e como **Agentic AI** se compara ao julgamento humano—ancorando debates de arquitetura em percepção medida do usuário."
+  email: "edu.evangelista.figueiredo@gmail.com"
+  future_career_body: |
+    ## Futuro – Como desenho soluções digitais
+    
+    - **Arquitetura como apoio à decisão:** padrões (serviços, eventos, quality gates) escolhidos por operabilidade—não por moda.
+    - **Fluência cloud e plataforma:** aprofundar landing zones **Azure**, identidade/RBAC e IaC (**Terraform**/ARM) sobre a digitalização e o trabalho com dados já feitos.
+    - **Evidência no ciclo:** manter Pesquisa Aplicada, métricas (**CSI/NPS**) e validação com stakeholders dentro de architecture reviews.
+    - **Seguro por padrão:** identidade, política e observabilidade como preocupações de primeira classe junto de compute e dados.
+    - **Colaboração global:** entrega bilíngue com times distribuídos—já praticada em contextos BR/HU/DE.
+  future_career_style: |
+    .future-career-wrap {
+      display: flex !important; flex-direction: column !important;
+      justify-content: center !important; align-items: center !important;
+      min-height: 55vh !important; width: 100% !important; margin-top: 0.75rem !important;
+      gap: 1rem !important;
+    }
+    .future-career-wrap p { margin: 0 !important; text-align: center !important; }
+    .future-career-wrap img {
+      width: 38% !important; max-width: 38% !important; height: auto !important;
+      display: block !important; margin: 10px auto 0 !important;
+      border: none !important; box-shadow: none !important;
+    }
+    .future-po-bullets {
+      max-width: 85% !important; text-align: left !important; font-size: 0.95em !important;
+    }
+  future_diagram_alt: "Diagrama ai-agile-research: IA e Ágil em Pesquisa Aplicada"
+  future_h2: "Futuro – Arquitetura cloud, digitalização e entrega global"
+  future_intro: "**Plataformas cloud, digitalização e evidência** se encontram em como quero crescer como Arquiteto de Soluções Digitais. O diagrama abaixo é o contexto ágil/pesquisa em que já atuo."
+  infovis_phrasenet_bullets: |
+    - **Grafos, árvores e viz de texto:** codificar relações e coocorrência—útil quando a arquitetura precisa expor estrutura de **eventos** e **dependências**.
+    - **Padrões de interação:** filtragem e detalhe sob demanda como restrições de UX em plataformas de dados.
+  infovis_phrasenet_h2: "InfoVis – Visualização de textos e grafos (PhraseNets)"
+  infovis_pnad_bullets: |
+    - **Visualização da Informação (Mestrado Unicamp, nota A):** estruturas visuais e mapeamento para dados operacionais **multivariados**—habilidades que transferem para arquitetar superfícies analíticas cloud legíveis.
+    - **PNAD Contínua no Power BI:** de tabelas brutas a visões interativas exploráveis por stakeholders.
+  infovis_pnad_h2: "Visualização de dados – InfoVis (Mestrado): PNAD Contínua (Power BI)"
+  lattes_url: "https://lattes.cnpq.br/2708641049892967"
+  linkedin_display: "linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b"
+  linkedin_url: "https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b"
+  orcid_url: "https://orcid.org/0009-0002-5178-6157"
+  phone: "+55 (19) 98176-6583"
+  present_h2: "Presente – Digitalização, gates de arquitetura e entrega (Bosch)"
+  present_table: |
+    | Área | Conquista |
+    |------|-----------|
+    | Digitalização (Bosch HU) | Sistemas web ponta a ponta para Business Excellence em **SQL Server**, **IIS**, **Git**; entrega **Kanban** |
+    | Gates de arquitetura (GS) | **Relevância em UX** automatizada no **ServiceNow**; dashboards **CIP** estratégicos para liderança |
+    | Analytics → insight | **Data Insights**: Teoria Fundamentada + **Python/IA** + **Power BI** em transcrições de call center |
+    | Maturidade e governança | **Nível 4 de Maturidade UX** nas Américas; **Power BI** + **Microsoft Lists** para conformidade documental |
+    | Resultados de entrega | Média **CSI 4,86 / NPS 9,94** (2024–2025); tooling de requisitos a protótipos hi-fi |
+    | Capacitação | Treinamento de **ferramentas de IA** para **100+** pessoas (**4,88**/5); viagens à Alemanha 2024–2025 |
+  relevance_h2: "Presente – Modelo de avaliação de relevância (Baixa / Média / Alta)"
+  tooling_bullet: "- **Projeto tooling para PT:** Liguei requisitos a protótipos hi-fi com **check-ins regulares**—mantendo intenção de negócio e desenho técnico no mesmo fio."
+  tooling_h2: "Arquitetura na entrega – Projeto Tooling para Power Tools"
+  who_contact: "Nova Odessa, SP – Brasil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583"
+  who_impact: "Ajudo times a desenhar soluções de digitalização e analytics que sobrevivem ao contato com produção: limites claros, resultados mensuráveis e architecture reviews baseadas em evidência."
+  who_name: "Eduardo M. de A. Figueiredo"
+  who_role: "Arquiteto de Soluções Digitais | Cloud, Digitalização e Entrega Baseada em Evidência"
+  why_bullets: |
+    - Acredito que arquitetura funciona quando **operações, segurança e evidência** caminham juntas—não quando diagramas ficam só no slide.
+    - Trabalho de digitalização me ensinou a entregar **sistemas ponta a ponta** (dados → app → hosting → Git) sob restrições reais de negócio.
+    - Pesquisa Aplicada na Bosch afiou **gates de método**: pontuação de relevância, dashboards CIP e maturidade UX mensurável.
+    - **Uso Python, SQL, Power BI e IA** para transformar sinal operacional não estruturado em estruturas acionáveis.
+    - Inglês fluente e entrega bilíngue me mantêm efetivo em conversas de **arquitetura global**.
+  why_h1: "Por que desenho soluções digitais"
+  why_h2: "Arquitetura que times globais operam, medem e confiam"

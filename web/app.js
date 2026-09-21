@@ -14,7 +14,12 @@
     "competences",
     "volunteering",
     "certifications",
+    "companies",
   ];
+
+  /** Profile window renders these; companies live in companies.html */
+  const PROFILE_RENDER_KEYS = COLLECTION_KEYS.filter((k) => k !== "companies");
+
 
   const STRUCTURAL = new Set([
     "id",
@@ -27,6 +32,12 @@
     "credential_id",
     "credential_file",
     "associated_with",
+    "priority",
+    "status",
+    "website",
+    "fit_data_analyst",
+    "fit_product_owner",
+    "fit_digital_solution_architect",
   ]);
 
   /** Base (summary) columns — must match python/canonical_store._BASE */
@@ -166,6 +177,30 @@
       "skills_en",
       "skills_pt",
       "credential_file",
+    ],
+    companies: [
+      "id",
+      "sort_order",
+      "category_en",
+      "category_pt",
+      "name_en",
+      "name_pt",
+      "city_en",
+      "city_pt",
+      "region_en",
+      "region_pt",
+      "priority",
+      "status",
+      "fit_data_analyst",
+      "fit_product_owner",
+      "fit_digital_solution_architect",
+      "website",
+      "skills_match_en",
+      "skills_match_pt",
+      "fit_why_en",
+      "fit_why_pt",
+      "notes_en",
+      "notes_pt",
     ],
   };
 
@@ -314,6 +349,21 @@
       { label: "relatedSkills", pt: "skills_pt", en: "skills_en" },
       { label: "credentialFile", mono: "credential_file" },
     ],
+    companies: [
+      { label: "companyName", pt: "name_pt", en: "name_en" },
+      { label: "companyCategory", pt: "category_pt", en: "category_en" },
+      { label: "companyCity", pt: "city_pt", en: "city_en" },
+      { label: "companyRegion", pt: "region_pt", en: "region_en" },
+      { label: "companyPriority", mono: "priority" },
+      { label: "companyStatus", mono: "status" },
+      { label: "fitDataAnalyst", mono: "fit_data_analyst" },
+      { label: "fitProductOwner", mono: "fit_product_owner" },
+      { label: "fitDigitalSolutionArchitect", mono: "fit_digital_solution_architect" },
+      { label: "companyWebsite", mono: "website" },
+      { label: "skillsMatch", pt: "skills_match_pt", en: "skills_match_en", tall: true },
+      { label: "fitWhy", pt: "fit_why_pt", en: "fit_why_en", tall: true },
+      { label: "companyNotes", pt: "notes_pt", en: "notes_en", tall: true },
+    ],
   };
 
   const SECTION_META = {
@@ -372,12 +422,67 @@
       titleKey: { en: "title_en", pt: "title_pt" },
       canAdd: true,
     },
+    companies: {
+      root: "companies-root",
+      titleKey: { en: "name_en", pt: "name_pt" },
+      canAdd: true,
+    },
   };
 
   let state = {};
   let dirty = false;
   let saving = false;
   let detailMode = false;
+  /** Local-only filters for companies (`""` = All). */
+  let companyCategoryFilter = "";
+  let companyRoleFilter = "";
+
+  const COMPANY_ROLES = [
+    {
+      key: "da",
+      field: "fit_data_analyst",
+      shortEn: "DA",
+      shortPt: "DA",
+      en: "Data Analyst",
+      pt: "Data Analyst",
+    },
+    {
+      key: "po",
+      field: "fit_product_owner",
+      shortEn: "PO",
+      shortPt: "PO",
+      en: "Product Owner",
+      pt: "Product Owner",
+    },
+    {
+      key: "dsa",
+      field: "fit_digital_solution_architect",
+      shortEn: "DSA",
+      shortPt: "DSA",
+      en: "Digital Solution Architect",
+      pt: "Digital Solution Architect",
+    },
+  ];
+
+  function isFitYes(value) {
+    return ["yes", "y", "1", "true", "sim"].includes(
+      String(value || "")
+        .trim()
+        .toLowerCase(),
+    );
+  }
+
+  function companyRoleCount(row) {
+    return COMPANY_ROLES.filter((role) => isFitYes(row[role.field])).length;
+  }
+
+  function companyMatchesRoleFilter(row) {
+    if (!companyRoleFilter) return true;
+    if (companyRoleFilter === "multi") return companyRoleCount(row) >= 2;
+    const role = COMPANY_ROLES.find((r) => r.key === companyRoleFilter);
+    if (!role) return true;
+    return isFitYes(row[role.field]);
+  }
 
   function plainText(text) {
     if (text == null || text === "") return "";
@@ -463,6 +568,17 @@
     row.id = `${collection}-${Date.now()}`;
     if ("sort_order" in row) {
       row.sort_order = String((state[collection] || []).length + 1);
+    }
+    if (collection === "companies") {
+      row.priority = "medium";
+      row.status = "researching";
+      row.fit_data_analyst = "no";
+      row.fit_product_owner = "no";
+      row.fit_digital_solution_architect = "no";
+      row.region_en = "Campinas metro";
+      row.region_pt = "Região metropolitana de Campinas";
+      row.region_detail_en = row.region_en;
+      row.region_detail_pt = row.region_pt;
     }
     return row;
   }
@@ -638,6 +754,44 @@
 
     head.append(heading);
 
+    if (collection === "companies") {
+      const badges = document.createElement("div");
+      badges.className = "role-badges";
+      badges.setAttribute("aria-label", "Career path fit");
+      const activeCount = companyRoleCount(row);
+      for (const role of COMPANY_ROLES) {
+        const on = isFitYes(row[role.field]);
+        const badge = document.createElement("span");
+        badge.className = "role-badge" + (on ? " is-on" : " is-off");
+        badge.title = `${role.en} / ${role.pt}`;
+        const en = document.createElement("span");
+        en.className = "role-badge-en";
+        en.textContent = role.shortEn;
+        const pt = document.createElement("span");
+        pt.className = "role-badge-pt";
+        pt.textContent = role.shortPt;
+        badge.append(en, pt);
+        badges.append(badge);
+      }
+      if (activeCount >= 2) {
+        const multi = document.createElement("span");
+        multi.className = "role-badge role-badge-multi is-on";
+        const en = document.createElement("span");
+        en.className = "role-badge-en";
+        en.textContent = `Multi (${activeCount})`;
+        const pt = document.createElement("span");
+        pt.className = "role-badge-pt";
+        pt.textContent = `Multi (${activeCount})`;
+        multi.append(en, pt);
+        multi.title =
+          getLangMode() === "en"
+            ? "Fits multiple career paths"
+            : "Combina com múltiplas trilhas";
+        badges.append(multi);
+      }
+      head.append(badges);
+    }
+
     if (collection !== "about") {
       const del = document.createElement("button");
       del.type = "button";
@@ -651,7 +805,9 @@
             ? "Delete this record?"
             : "Excluir este registro?";
         if (!confirm(msg)) return;
-        state[collection].splice(index, 1);
+        const idx = state[collection].findIndex((r) => r.id === row.id);
+        if (idx < 0) return;
+        state[collection].splice(idx, 1);
         setDirty(true);
         setSaveStatus("");
         renderAll();
@@ -661,10 +817,184 @@
 
     article.append(head);
 
+    if (collection === "companies") {
+      const research = document.createElement("div");
+      research.className = "company-research";
+
+      const skillsKey =
+        getLangMode() === "pt" ? "skills_match_pt" : "skills_match_en";
+      const skillsAlt =
+        getLangMode() === "pt" ? "skills_match_en" : "skills_match_pt";
+      const skillsRaw =
+        cell(row[activeCol(skillsKey)]) ||
+        cell(row[skillsKey]) ||
+        cell(row[skillsAlt]);
+      const skills = skillsRaw
+        .split(/[;|,]/)
+        .map((s) => s.trim())
+        .filter(Boolean);
+      if (skills.length) {
+        const skillsBlock = document.createElement("div");
+        skillsBlock.className = "company-skills";
+        const skillsLabel = document.createElement("div");
+        skillsLabel.className = "company-research-label";
+        const sle = document.createElement("span");
+        sle.className = "filter-chip-en";
+        sle.textContent = "Matching skills";
+        const slp = document.createElement("span");
+        slp.className = "filter-chip-pt";
+        slp.textContent = "Competências alinhadas";
+        skillsLabel.append(sle, slp);
+        const pills = document.createElement("div");
+        pills.className = "skill-pills";
+        for (const skill of skills) {
+          const pill = document.createElement("span");
+          pill.className = "skill-pill";
+          pill.textContent = skill;
+          pills.append(pill);
+        }
+        skillsBlock.append(skillsLabel, pills);
+        research.append(skillsBlock);
+      }
+
+      const whyKey = getLangMode() === "pt" ? "fit_why_pt" : "fit_why_en";
+      const whyAlt = getLangMode() === "pt" ? "fit_why_en" : "fit_why_pt";
+      const whyText =
+        cell(row[activeCol(whyKey)]) ||
+        cell(row[whyKey]) ||
+        cell(row[whyAlt]);
+      if (whyText.trim()) {
+        const whyBlock = document.createElement("div");
+        whyBlock.className = "company-fit-why";
+        const whyLabel = document.createElement("div");
+        whyLabel.className = "company-research-label";
+        const wle = document.createElement("span");
+        wle.className = "filter-chip-en";
+        wle.textContent = "Why this path fits";
+        const wlp = document.createElement("span");
+        wlp.className = "filter-chip-pt";
+        wlp.textContent = "Por que a trilha encaixa";
+        whyLabel.append(wle, wlp);
+        const whyBody = document.createElement("p");
+        whyBody.className = "company-fit-why-text";
+        whyBody.textContent = whyText;
+        whyBlock.append(whyLabel, whyBody);
+        research.append(whyBlock);
+      }
+
+      if (research.childElementCount) article.append(research);
+    }
+
     for (const spec of FIELD_SPECS[collection]) {
       article.append(createFieldRow(spec.label, row, spec));
     }
     return article;
+  }
+
+  function companyCategories() {
+    const seen = new Map();
+    for (const row of state.companies || []) {
+      const key = cell(row.category_en).trim();
+      if (!key) continue;
+      if (!seen.has(key)) {
+        seen.set(key, {
+          en: key,
+          pt: cell(row.category_pt).trim() || key,
+        });
+      }
+    }
+    return [...seen.entries()].sort((a, b) => a[0].localeCompare(b[0]));
+  }
+
+  function renderCompanyFilters() {
+    const root = document.getElementById("companies-filters");
+    if (!root) return;
+    root.replaceChildren();
+
+    const catRow = document.createElement("div");
+    catRow.className = "company-filter-row";
+    const catLabel = document.createElement("span");
+    catLabel.className = "company-filter-label";
+    const catEn = document.createElement("span");
+    catEn.className = "filter-chip-en";
+    catEn.textContent = "Category";
+    const catPt = document.createElement("span");
+    catPt.className = "filter-chip-pt";
+    catPt.textContent = "Categoria";
+    catLabel.append(catEn, catPt);
+    catRow.append(catLabel);
+
+    const cats = companyCategories();
+    const catChips = [{ key: "", en: "All", pt: "Todas" }].concat(
+      cats.map(([key, labels]) => ({
+        key,
+        en: labels.en,
+        pt: labels.pt,
+      })),
+    );
+    for (const chip of catChips) {
+      catRow.append(
+        makeFilterChip(chip, companyCategoryFilter, (key) => {
+          companyCategoryFilter = key;
+          renderSection("companies");
+        }),
+      );
+    }
+    root.append(catRow);
+
+    const roleRow = document.createElement("div");
+    roleRow.className = "company-filter-row";
+    const roleLabel = document.createElement("span");
+    roleLabel.className = "company-filter-label";
+    const roleEn = document.createElement("span");
+    roleEn.className = "filter-chip-en";
+    roleEn.textContent = "Career path";
+    const rolePt = document.createElement("span");
+    rolePt.className = "filter-chip-pt";
+    rolePt.textContent = "Trilha";
+    roleLabel.append(roleEn, rolePt);
+    roleRow.append(roleLabel);
+
+    const roleChips = [
+      { key: "", en: "All paths", pt: "Todas as trilhas" },
+      { key: "da", en: "Data Analyst", pt: "Data Analyst" },
+      { key: "po", en: "Product Owner", pt: "Product Owner" },
+      {
+        key: "dsa",
+        en: "Digital Solution Architect",
+        pt: "Digital Solution Architect",
+      },
+      { key: "multi", en: "Multi-role", pt: "Multi-trilha" },
+    ];
+    for (const chip of roleChips) {
+      roleRow.append(
+        makeFilterChip(chip, companyRoleFilter, (key) => {
+          companyRoleFilter = key;
+          renderSection("companies");
+        }),
+      );
+    }
+    root.append(roleRow);
+  }
+
+  function makeFilterChip(chip, activeKey, onSelect) {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className =
+      "filter-chip" + (activeKey === chip.key ? " is-active" : "");
+    btn.setAttribute(
+      "aria-pressed",
+      activeKey === chip.key ? "true" : "false",
+    );
+    const en = document.createElement("span");
+    en.className = "filter-chip-en";
+    en.textContent = chip.en;
+    const pt = document.createElement("span");
+    pt.className = "filter-chip-pt";
+    pt.textContent = chip.pt;
+    btn.append(en, pt);
+    btn.addEventListener("click", () => onSelect(chip.key));
+    return btn;
   }
 
   function renderSection(collection) {
@@ -673,11 +1003,219 @@
     if (!root) return;
     root.replaceChildren();
     const rows = state[collection] || [];
+
+    if (collection === "companies") {
+      renderCompanyFilters();
+      let filtered = rows;
+      if (companyCategoryFilter) {
+        filtered = filtered.filter(
+          (r) => cell(r.category_en).trim() === companyCategoryFilter,
+        );
+      }
+      filtered = filtered.filter(companyMatchesRoleFilter);
+      if (!filtered.length) {
+        const empty = document.createElement("p");
+        empty.className = "empty-state";
+        empty.textContent =
+          getLangMode() === "en"
+            ? "No companies match these filters."
+            : "Nenhuma empresa corresponde a estes filtros.";
+        root.append(empty);
+        return;
+      }
+      filtered.forEach((row, i) => {
+        const index = rows.indexOf(row);
+        root.append(createPanel(collection, row, index >= 0 ? index : i));
+      });
+      return;
+    }
+
     rows.forEach((row, i) => root.append(createPanel(collection, row, i)));
   }
 
   function renderAll() {
-    for (const key of COLLECTION_KEYS) renderSection(key);
+    renderProfileSummary();
+    for (const key of PROFILE_RENDER_KEYS) renderSection(key);
+  }
+
+  function openCompaniesWindow() {
+    const w = window.open("/companies.html", "career-companies-search");
+    if (w) w.focus();
+    return w;
+  }
+
+  function listPlain(rows, enKey, ptKey, limit) {
+    const items = (rows || []).slice(0, limit || 99);
+    return {
+      en: items.map((r) => cell(r[enKey]) || cell(r.id)).filter(Boolean),
+      pt: items.map((r) => cell(r[ptKey]) || cell(r[enKey]) || cell(r.id)).filter(Boolean),
+    };
+  }
+
+  function renderProfileSummary() {
+    const root = document.getElementById("profile-summary-root");
+    if (!root) return;
+    root.replaceChildren();
+
+    const about = (state.about || [])[0] || {};
+    const titles = listPlain(state.targetTitles, "title_en", "title_pt", 8);
+    const projects = listPlain(state.projects, "name_en", "name_pt", 12);
+    const education = listPlain(state.education, "degree_en", "degree_pt", 8);
+    const experience = (state.experience || []).map((r) => ({
+      en: [cell(r.title_en), cell(r.company_en)].filter(Boolean).join(" @ "),
+      pt: [cell(r.title_pt) || cell(r.title_en), cell(r.company_pt) || cell(r.company_en)]
+        .filter(Boolean)
+        .join(" @ "),
+    }));
+    const languages = (state.languages || []).map((r) => ({
+      en: [cell(r.name_en), cell(r.level_en)].filter(Boolean).join(" — "),
+      pt: [cell(r.name_pt) || cell(r.name_en), cell(r.level_pt) || cell(r.level_en)]
+        .filter(Boolean)
+        .join(" — "),
+    }));
+    const competences = listPlain(state.competences, "name_en", "name_pt", 20);
+    const courses = listPlain(state.courses, "title_en", "title_pt", 10);
+    const recognitions = listPlain(state.recognitions, "title_en", "title_pt", 8);
+    const volunteering = listPlain(state.volunteering, "title_en", "title_pt", 6);
+    const certifications = listPlain(state.certifications, "title_en", "title_pt", 10);
+
+    const sections = [
+      {
+        titleEn: "About",
+        titlePt: "Sobre",
+        en: [cell(about.text_en)].filter(Boolean),
+        pt: [cell(about.text_pt) || cell(about.text_en)].filter(Boolean),
+      },
+      {
+        titleEn: "Target titles",
+        titlePt: "Títulos-alvo",
+        en: titles.en,
+        pt: titles.pt,
+      },
+      {
+        titleEn: "Experience",
+        titlePt: "Experiência",
+        en: experience.map((x) => x.en).filter(Boolean),
+        pt: experience.map((x) => x.pt).filter(Boolean),
+      },
+      {
+        titleEn: "Education",
+        titlePt: "Formação",
+        en: education.en,
+        pt: education.pt,
+      },
+      {
+        titleEn: "Projects",
+        titlePt: "Projetos",
+        en: projects.en,
+        pt: projects.pt,
+      },
+      {
+        titleEn: "Languages",
+        titlePt: "Idiomas",
+        en: languages.map((x) => x.en).filter(Boolean),
+        pt: languages.map((x) => x.pt).filter(Boolean),
+      },
+      {
+        titleEn: "Competences / skills",
+        titlePt: "Competências",
+        en: competences.en,
+        pt: competences.pt,
+      },
+      {
+        titleEn: "Courses",
+        titlePt: "Cursos",
+        en: courses.en,
+        pt: courses.pt,
+      },
+      {
+        titleEn: "Recognitions",
+        titlePt: "Reconhecimentos",
+        en: recognitions.en,
+        pt: recognitions.pt,
+      },
+      {
+        titleEn: "Volunteering",
+        titlePt: "Voluntariado",
+        en: volunteering.en,
+        pt: volunteering.pt,
+      },
+      {
+        titleEn: "Licenses & certifications",
+        titlePt: "Licenças e certificados",
+        en: certifications.en,
+        pt: certifications.pt,
+      },
+    ];
+
+    const grid = document.createElement("div");
+    grid.className = "profile-summary-grid";
+
+    for (const sec of sections) {
+      if (!sec.en.length && !sec.pt.length) continue;
+      const card = document.createElement("article");
+      card.className = "profile-summary-card";
+
+      const h = document.createElement("h3");
+      h.className = "profile-summary-card-title";
+      const he = document.createElement("span");
+      he.className = "panel-heading-en";
+      he.textContent = sec.titleEn;
+      const hp = document.createElement("span");
+      hp.className = "panel-heading-pt";
+      hp.textContent = sec.titlePt;
+      h.append(he, hp);
+      card.append(h);
+
+      const cols = document.createElement("div");
+      cols.className = "profile-summary-cols";
+
+      const enCol = document.createElement("div");
+      enCol.className = "profile-summary-col profile-summary-en";
+      const enLabel = document.createElement("div");
+      enLabel.className = "profile-summary-lang";
+      enLabel.textContent = "EN";
+      enCol.append(enLabel);
+      if (sec.en.length === 1 && sec.en[0].length > 160) {
+        const p = document.createElement("p");
+        p.textContent = sec.en[0];
+        enCol.append(p);
+      } else {
+        const ul = document.createElement("ul");
+        for (const item of sec.en) {
+          const li = document.createElement("li");
+          li.textContent = item;
+          ul.append(li);
+        }
+        enCol.append(ul);
+      }
+
+      const ptCol = document.createElement("div");
+      ptCol.className = "profile-summary-col profile-summary-pt";
+      const ptLabel = document.createElement("div");
+      ptLabel.className = "profile-summary-lang";
+      ptLabel.textContent = "PT";
+      ptCol.append(ptLabel);
+      if (sec.pt.length === 1 && sec.pt[0].length > 160) {
+        const p = document.createElement("p");
+        p.textContent = sec.pt[0];
+        ptCol.append(p);
+      } else {
+        const ul = document.createElement("ul");
+        for (const item of sec.pt) {
+          const li = document.createElement("li");
+          li.textContent = item;
+          ul.append(li);
+        }
+        ptCol.append(ul);
+      }
+
+      cols.append(enCol, ptCol);
+      card.append(cols);
+      grid.append(card);
+    }
+
+    root.append(grid);
   }
 
   function wireAddButtons() {
@@ -685,6 +1223,10 @@
       btn.addEventListener("click", () => {
         const collection = btn.getAttribute("data-add-collection");
         if (!SECTION_META[collection]?.canAdd) return;
+        if (collection === "companies") {
+          companyCategoryFilter = "";
+          companyRoleFilter = "";
+        }
         state[collection].push(blankRow(collection));
         setDirty(true);
         setSaveStatus("");
@@ -815,6 +1357,11 @@
       if (event.key.toLowerCase() === "d") {
         event.preventDefault();
         setDetailMode(!detailMode, true);
+        return;
+      }
+      if (event.key.toLowerCase() === "c") {
+        event.preventDefault();
+        openCompaniesWindow();
       }
     });
   }
@@ -840,11 +1387,118 @@
     setDetailMode(detail, false);
   }
 
+  async function loadDownloads() {
+    const root = document.getElementById("downloads-root");
+    if (!root) return;
+    root.replaceChildren();
+    try {
+      const res = await fetch("/api/downloads");
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const payload = await res.json();
+      renderDownloads(payload.items || []);
+    } catch (err) {
+      const p = document.createElement("p");
+      p.className = "downloads-error";
+      p.textContent =
+        (getLangMode() === "en" ? "Could not load downloads: " : "Falha ao carregar downloads: ") +
+        (err.message || String(err));
+      root.append(p);
+    }
+  }
+
+  function renderDownloads(items) {
+    const root = document.getElementById("downloads-root");
+    if (!root) return;
+    root.replaceChildren();
+
+    const order = [
+      "digital-solution-architect",
+      "data-analyst",
+      "product-owner",
+      "general",
+    ];
+    const byVariant = {};
+    for (const item of items) {
+      if (!byVariant[item.variant]) byVariant[item.variant] = [];
+      byVariant[item.variant].push(item);
+    }
+
+    for (const variant of order) {
+      const group = byVariant[variant];
+      if (!group || !group.length) continue;
+      const card = document.createElement("article");
+      card.className = "download-card";
+
+      const heading = document.createElement("h3");
+      heading.className = "download-card-title";
+      const en = document.createElement("span");
+      en.className = "panel-heading-en";
+      en.textContent = group[0].label_en;
+      const pt = document.createElement("span");
+      pt.className = "panel-heading-pt";
+      pt.textContent = group[0].label_pt;
+      heading.append(en, pt);
+      card.append(heading);
+
+      const resumes = group.filter((i) => i.kind === "resume");
+      const portfolios = group.filter((i) => i.kind === "portfolio");
+
+      card.append(buildDownloadRow("Resume", "Currículo", resumes));
+      card.append(buildDownloadRow("Portfolio", "Portfólio", portfolios));
+      root.append(card);
+    }
+  }
+
+  function buildDownloadRow(labelEn, labelPt, items) {
+    const row = document.createElement("div");
+    row.className = "download-row";
+    const label = document.createElement("div");
+    label.className = "download-row-label";
+    const en = document.createElement("span");
+    en.className = "field-label-en";
+    en.textContent = labelEn;
+    const pt = document.createElement("span");
+    pt.className = "field-label-pt";
+    pt.textContent = labelPt;
+    label.append(en, pt);
+    row.append(label);
+
+    const actions = document.createElement("div");
+    actions.className = "download-actions";
+    for (const item of items) {
+      const a = document.createElement(item.available ? "a" : "span");
+      a.className = "download-btn" + (item.available ? "" : " missing");
+      a.textContent = item.lang.toUpperCase();
+      if (item.available) {
+        a.href = item.url;
+        a.setAttribute("download", item.filename);
+        a.title = item.filename;
+      } else {
+        a.title =
+          getLangMode() === "en"
+            ? "PDF not found — run python scripts/build_outputs.py"
+            : "PDF ausente — rode python scripts/build_outputs.py";
+      }
+      actions.append(a);
+    }
+    row.append(actions);
+    return row;
+  }
+
   async function init() {
+    try {
+      window.name = "career-profile";
+    } catch {
+      /* ignore */
+    }
     initLangMode();
     initDetailMode();
     const saveBtn = document.getElementById("save-btn");
     if (saveBtn) saveBtn.addEventListener("click", () => saveAll());
+    const openCompaniesBtn = document.getElementById("open-companies-btn");
+    if (openCompaniesBtn) {
+      openCompaniesBtn.addEventListener("click", () => openCompaniesWindow());
+    }
     wireAddButtons();
     initKeyboard();
     window.addEventListener("beforeunload", (e) => {
@@ -865,6 +1519,7 @@
         "err",
       );
     }
+    await loadDownloads();
   }
 
   if (document.readyState === "loading") {

@@ -9,18 +9,21 @@ output/
   general/
   product-owner/
   data-analyst/
+  digital-solution-architect/
 ```
 
-## Deliverables (12 PDFs)
+## Deliverables (16 PDFs)
 
-| Folder           | Language | Resume                                       | Portfolio                             |
-| ---------------- | -------- | -------------------------------------------- | ------------------------------------- |
-| `general/`       | EN       | `CV-Eduardo-Figueiredo-EN.pdf`               | `portfolio-deck-EN.pdf`               |
-| `general/`       | PT       | `CV-Eduardo-Figueiredo-PT.pdf`               | `portfolio-deck-PT.pdf`               |
-| `product-owner/` | EN       | `CV-Eduardo-Figueiredo-EN-product-owner.pdf` | `portfolio-deck-product-owner-EN.pdf` |
-| `product-owner/` | PT       | `CV-Eduardo-Figueiredo-PT-product-owner.pdf` | `portfolio-deck-product-owner-PT.pdf` |
-| `data-analyst/`  | EN       | `CV-Eduardo-Figueiredo-EN-data-analyst.pdf`  | `portfolio-deck-data-analyst-EN.pdf`  |
-| `data-analyst/`  | PT       | `CV-Eduardo-Figueiredo-PT-data-analyst.pdf`  | `portfolio-deck-data-analyst-PT.pdf`  |
+| Folder                          | Language | Resume                                                            | Portfolio                                              |
+| ------------------------------- | -------- | ----------------------------------------------------------------- | ------------------------------------------------------ |
+| `general/`                      | EN       | `CV-Eduardo-Figueiredo-EN.pdf`                                    | `portfolio-deck-EN.pdf`                                |
+| `general/`                      | PT       | `CV-Eduardo-Figueiredo-PT.pdf`                                    | `portfolio-deck-PT.pdf`                                |
+| `product-owner/`                | EN       | `CV-Eduardo-Figueiredo-EN-product-owner.pdf`                      | `portfolio-deck-product-owner-EN.pdf`                  |
+| `product-owner/`                | PT       | `CV-Eduardo-Figueiredo-PT-product-owner.pdf`                      | `portfolio-deck-product-owner-PT.pdf`                  |
+| `data-analyst/`                 | EN       | `CV-Eduardo-Figueiredo-EN-data-analyst.pdf`                       | `portfolio-deck-data-analyst-EN.pdf`                   |
+| `data-analyst/`                 | PT       | `CV-Eduardo-Figueiredo-PT-data-analyst.pdf`                       | `portfolio-deck-data-analyst-PT.pdf`                   |
+| `digital-solution-architect/`   | EN       | `CV-Eduardo-Figueiredo-EN-digital-solution-architect.pdf`         | `portfolio-deck-digital-solution-architect-EN.pdf`     |
+| `digital-solution-architect/`   | PT       | `CV-Eduardo-Figueiredo-PT-digital-solution-architect.pdf`         | `portfolio-deck-digital-solution-architect-PT.pdf`     |
 
 ## Build (recommended)
 

@@ -3,18 +3,26 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Career cockpit</title>
+    <title>Eduardo — Career profile</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body class="page-profile">
     <div class="page">
       <header class="hero">
         <div class="hero-top">
           <div>
-            <p class="eyebrow">Editable · CSV · LinkedIn</p>
-            <h1 class="brand">Career cockpit</h1>
+            <p class="eyebrow">
+              <span class="section-title-en">Personal profile · EN + PT</span>
+              <span class="section-title-pt">Perfil pessoal · EN + PT</span>
+            </p>
+            <h1 class="brand">Eduardo Figueiredo</h1>
           </div>
           <div class="hero-actions">
+            <button type="button" id="open-companies-btn" class="nav-btn">
+              <span class="section-title-en">Companies search</span>
+              <span class="section-title-pt">Busca de empresas</span>
+              <kbd>Shift+C</kbd>
+            </button>
             <span id="detail-mode-label" class="detail-mode-label">Resumo</span>
             <span
               id="save-status"
@@ -27,14 +35,46 @@
           </div>
         </div>
         <p class="subtitle">
-          Edit and save to <code>my-data/canonical</code>.
-          <kbd>Ctrl+Enter</kbd> save · <kbd>Shift+D</kbd> summary/detail ·
-          <kbd>Shift+1</kbd> PT · <kbd>Shift+2</kbd> EN ·
-          <kbd>Shift+0</kbd> both · <kbd>Shift+E</kbd> collapse.
+          <span class="section-title-en"
+            >Profile window (this page). Edit and save to
+            <code>my-data/canonical</code>.
+            <kbd>Shift+C</kbd> companies search ·
+            <kbd>Ctrl+Enter</kbd> save · <kbd>Shift+D</kbd> summary/detail ·
+            <kbd>Shift+1</kbd> PT · <kbd>Shift+2</kbd> EN ·
+            <kbd>Shift+0</kbd> both · <kbd>Shift+E</kbd> collapse.</span
+          >
+          <span class="section-title-pt"
+            >Janela de perfil (esta página). Edite e salve em
+            <code>my-data/canonical</code>.
+            <kbd>Shift+C</kbd> busca de empresas ·
+            <kbd>Ctrl+Enter</kbd> salvar · <kbd>Shift+D</kbd> resumo/detalhe ·
+            <kbd>Shift+1</kbd> PT · <kbd>Shift+2</kbd> EN ·
+            <kbd>Shift+0</kbd> ambos · <kbd>Shift+E</kbd> recolher.</span
+          >
         </p>
       </header>
 
       <main>
+        <section class="section" aria-labelledby="profile-summary-heading">
+          <div class="section-head">
+            <h2 id="profile-summary-heading" class="section-title">
+              <span class="section-title-en">Profile summary</span>
+              <span class="section-title-pt">Resumo do perfil</span>
+            </h2>
+          </div>
+          <div id="profile-summary-root" class="profile-summary"></div>
+        </section>
+
+        <section class="section" aria-labelledby="downloads-heading">
+          <div class="section-head">
+            <h2 id="downloads-heading" class="section-title">
+              <span class="section-title-en">Resumes & portfolios</span>
+              <span class="section-title-pt">Currículos e portfólios</span>
+            </h2>
+          </div>
+          <div id="downloads-root" class="downloads-grid"></div>
+        </section>
+
         <section class="section" aria-labelledby="about-heading">
           <div class="section-head">
             <h2 id="about-heading" class="section-title">

@@ -42,7 +42,7 @@
 
 #let skills = (
   ("Core", "Núcleo:", ("Excel (fórmulas, VBA, bases de dados)", "Análise de dados e CSV", "Visualização, BI e InfoVis", "Python / SQL / Estatística", "Pesquisa Aplicada")),
-  ("Tech", "Tecnologias:", ("Excel", "VBA", "CSV", "Power BI", "Python", "SQL", "Matplotlib", "Seaborn", "Azure", "Git", "GitHub", "React", "Figma", "ServiceNow", "Bitbucket", "HTML", "CSS", "Mermaid", "VS Code")),
+  ("Tech", "Tecnologias:", ("Excel", "VBA", "CSV", "Power BI", "Python", "SQL", "Matplotlib", "Seaborn", "Azure", "Git", "GitHub", "React", "Figma", "ServiceNow", "Bitbucket", "HTML", "CSS", "Mermaid", "VS Code", "AutoHotkey")),
 )
 
 #let experience = (
@@ -80,6 +80,8 @@
 )
 
 #let additional = (
-  [3º Lugar – Fórum de talentos Bosch 2018 (projeto com macro Excel).],
-  [Voluntário – ONG Hospitalhaços (Admin).],
+  [3º Lugar – Fórum de Talentos da Bosch 2018 (projeto de estágio Project Model Canvas).],
+  [1º Lugar – X-Games Brazil 2018 (projeto mais criativo; nova consultoria de negócio).],
+  [Prêmio Compartilhando Sucessos – RH Bosch América Latina (2017; novo negócio Bosch LatAm).],
+  [Voluntário – Assistente de TI na ONG Hospitalhaços (dez/2016 – atual).],
 )

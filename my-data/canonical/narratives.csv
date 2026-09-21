@@ -291,7 +291,7 @@ data-analyst,future_career_style,Future career CSS,CSS slide carreira,".future-c
 .future-po-bullets {
   max-width: 85% !important; text-align: left !important; font-size: 0.95em !important;
 }"
-data-analyst,closing_summary,Closing summary,Resumo de encerramento,"I connect data to decisions—from **Excel** formulas and **CSV** wrangling to dashboards and Applied Research—for trustworthy, measurable outcomes. I package insight as actionable narratives for stakeholders—not just exploration.","Conecto dados a decisões—de fórmulas **Excel** e tratamento de **CSV** a dashboards e Pesquisa Aplicada—para resultados confiáveis e mensuráveis. Empacoto insight como narrativas acionáveis para stakeholders—não só exploração."
+data-analyst,closing_summary,Closing summary,Resumo de encerramento,"I connect data to decisions—from **Excel** formulas and **CSV** wrangling to dashboards and Applied Research—for trustworthy, measurable outcomes. I package insight as actionable narratives for stakeholders—not just exploration.",Conecto dados a decisões—de fórmulas **Excel** e tratamento de **CSV** a dashboards e Pesquisa Aplicada—para resultados confiáveis e mensuráveis. Empacoto insight como narrativas acionáveis para stakeholders—não só exploração.
 general,infovis_pnad_h2,InfoVis PNAD heading,Título InfoVis PNAD,Data Visualization – MSc InfoVis: PNAD Contínua (Power BI),Visualização de dados – InfoVis (Mestrado): PNAD Contínua (Power BI)
 general,infovis_pnad_bullets,InfoVis PNAD bullets,Tópicos InfoVis PNAD,"- **MSc Information Visualization (Unicamp, Grade A):** Card et al. pipeline—raw data → tables → **visual structures**; **visual mapping** (expressiveness & effectiveness); **multivariate** techniques (composition, small multiples, dimension handling).
 - **PNAD Contínua (Power BI):** Sankey, choropleth, and faceted encodings for education–employment trajectories and socioeconomic patterns—the same structural choices behind executive dashboards.","- **Visualização da Informação (Unicamp, nota A):** Pipeline de Card et al.—dados brutos → tabelas → **estruturas visuais**; **mapeamento visual** (expressividade e efetividade); técnicas **multivariadas** (composição, small multiples, redução de dimensões).
@@ -322,21 +322,118 @@ data-analyst,infovis_phrasenet_bullets,InfoVis PhraseNets bullets,Tópicos InfoV
 - **Payoff for data work:** Mapping variables to marks, choosing the right structure for the question—not just charts, but effective visual communication.","- **Tópicos do curso → skills de analista:** **Visões e interação** (filtros, detalhes sob demanda); **grafos e árvores** (layout de redes); **visualização de textos** (coocorrência, padrões/outliers)—como codificar dados e permitir exploração.
 - **Projeto PhraseNets:** Viz web em rede para relações entre palavras—estrutura que gráficos de barras/linhas não mostram.
 - **Ganho para trabalho com dados:** Mapear variáveis a marcas e escolher a estrutura certa para a pergunta—não só gráficos, mas comunicação visual eficaz."
-general,dissertation_pbi_intro,Dissertation PBI intro,Intro dissertação PBI,"My dissertation asks whether **Agentic AI** behaves like humans—grounded in how/why users construct **trust** in unfamiliar e-commerce sites.","Minha dissertação pergunta se **Agentic AI** se comporta como humanos—fundamentada em como/por que usuários constroem **confiança** em sites de e-commerce desconhecidos."
+general,dissertation_pbi_intro,Dissertation PBI intro,Intro dissertação PBI,My dissertation asks whether **Agentic AI** behaves like humans—grounded in how/why users construct **trust** in unfamiliar e-commerce sites.,Minha dissertação pergunta se **Agentic AI** se comporta como humanos—fundamentada em como/por que usuários constroem **confiança** em sites de e-commerce desconhecidos.
 general,dissertation_pbi_bullets,Dissertation PBI bullets,Tópicos dissertação PBI,"- **Normality first:** Shapiro-Wilk on attribute score distributions before choosing inferential tests.
 - **Python → Power BI:** Offline scripts compute **Welch** (Human–AI), **paired t-tests** (Human–Human), and **independent t-tests** (AI–AI) with **Cohen's d** and **Benjamini-Hochberg FDR**; results imported into Power BI for reporting.
 - **Descriptive + visual:** DAX measures for **mean, SD, variance, standard error, and CI bounds**; 50+ chart structures (boxplots, forest plots, small multiples) aligned with InfoVis coursework.","- **Normalidade primeiro:** Shapiro-Wilk nas distribuições de scores por atributo antes de escolher testes inferenciais.
 - **Python → Power BI:** Scripts offline calculam **Welch** (Humano–IA), **t pareado** (Humano–Humano) e **t independente** (IA–IA) com **d de Cohen** e **FDR Benjamini-Hochberg**; resultados importados ao Power BI para reporting.
 - **Descritivo + visual:** Medidas DAX para **média, DP, variância, erro padrão e limites de IC**; 50+ estruturas de gráficos (boxplots, forest plots, small multiples) alinhadas ao curso de InfoVis."
-product-owner,dissertation_pbi_intro,Dissertation PBI intro,Intro dissertação PBI,"My dissertation asks whether **Agentic AI** behaves like humans—grounded in how/why users construct **trust** in unfamiliar e-commerce sites.","Minha dissertação pergunta se **Agentic AI** se comporta como humanos—fundamentada em como/por que usuários constroem **confiança** em sites de e-commerce desconhecidos."
+product-owner,dissertation_pbi_intro,Dissertation PBI intro,Intro dissertação PBI,My dissertation asks whether **Agentic AI** behaves like humans—grounded in how/why users construct **trust** in unfamiliar e-commerce sites.,Minha dissertação pergunta se **Agentic AI** se comporta como humanos—fundamentada em como/por que usuários constroem **confiança** em sites de e-commerce desconhecidos.
 product-owner,dissertation_pbi_bullets,Dissertation PBI bullets,Tópicos dissertação PBI,"- **Normality first:** Shapiro-Wilk on attribute score distributions before choosing inferential tests.
 - **Python → Power BI:** Offline scripts compute **Welch** (Human–AI), **paired t-tests** (Human–Human), and **independent t-tests** (AI–AI) with **Cohen's d** and **Benjamini-Hochberg FDR**; results imported into Power BI for reporting.
 - **Descriptive + visual:** DAX measures for **mean, SD, variance, standard error, and CI bounds**; 50+ chart structures (boxplots, forest plots, small multiples) aligned with InfoVis coursework.","- **Normalidade primeiro:** Shapiro-Wilk nas distribuições de scores por atributo antes de escolher testes inferenciais.
 - **Python → Power BI:** Scripts offline calculam **Welch** (Humano–IA), **t pareado** (Humano–Humano) e **t independente** (IA–IA) com **d de Cohen** e **FDR Benjamini-Hochberg**; resultados importados ao Power BI para reporting.
 - **Descritivo + visual:** Medidas DAX para **média, DP, variância, erro padrão e limites de IC**; 50+ estruturas de gráficos (boxplots, forest plots, small multiples) alinhadas ao curso de InfoVis."
-data-analyst,dissertation_pbi_intro,Dissertation PBI intro,Intro dissertação PBI,"My dissertation asks whether **Agentic AI** behaves like humans—grounded in how/why users construct **trust** in unfamiliar e-commerce sites.","Minha dissertação pergunta se **Agentic AI** se comporta como humanos—fundamentada em como/por que usuários constroem **confiança** em sites de e-commerce desconhecidos."
+data-analyst,dissertation_pbi_intro,Dissertation PBI intro,Intro dissertação PBI,My dissertation asks whether **Agentic AI** behaves like humans—grounded in how/why users construct **trust** in unfamiliar e-commerce sites.,Minha dissertação pergunta se **Agentic AI** se comporta como humanos—fundamentada em como/por que usuários constroem **confiança** em sites de e-commerce desconhecidos.
 data-analyst,dissertation_pbi_bullets,Dissertation PBI bullets,Tópicos dissertação PBI,"- **Normality first:** Shapiro-Wilk on attribute score distributions before choosing inferential tests.
 - **Python → Power BI:** Offline scripts compute **Welch** (Human–AI), **paired t-tests** (Human–Human), and **independent t-tests** (AI–AI) with **Cohen's d** and **Benjamini-Hochberg FDR**; results imported into Power BI for reporting.
 - **Descriptive + visual:** DAX measures for **mean, SD, variance, standard error, and CI bounds**; 50+ chart structures (boxplots, forest plots, small multiples) aligned with InfoVis coursework.","- **Normalidade primeiro:** Shapiro-Wilk nas distribuições de scores por atributo antes de escolher testes inferenciais.
 - **Python → Power BI:** Scripts offline calculam **Welch** (Humano–IA), **t pareado** (Humano–Humano) e **t independente** (IA–IA) com **d de Cohen** e **FDR Benjamini-Hochberg**; resultados importados ao Power BI para reporting.
 - **Descritivo + visual:** Medidas DAX para **média, DP, variância, erro padrão e limites de IC**; 50+ estruturas de gráficos (boxplots, forest plots, small multiples) alinhadas ao curso de InfoVis."
+digital-solution-architect,tagline,Tagline,Linha de apresentação,"Digital Solution Architect | Cloud, Digitization & Evidence-Based Delivery","Arquiteto de Soluções Digitais | Cloud, Digitalização e Entrega Baseada em Evidência"
+digital-solution-architect,profile,Profile summary,Resumo do perfil,"Digital solution architect mindset: I design and review **digitization** and analytics solutions that global teams can operate—**Azure**-aware platforms, **Python/SQL** data paths, **DevOps** automation habits, and **Applied Research** quality gates (ServiceNow relevance scoring, CIP dashboards). **Full-stack** background (React, SQL Server, IIS) plus Power BI and AI-assisted pipelines. Master's in Technology (**completing September 2026**) with **Grade A across all coursework**. Uses CSI/NPS to keep architecture honest about outcomes.","**Atuo com mentalidade de arquiteto de soluções digitais:** desenho e reviso soluções de **digitalização** e analytics que times globais operam—plataformas com consciência **Azure**, caminhos de dados **Python/SQL**, hábitos de **DevOps** e quality gates de **Pesquisa Aplicada** (relevância no ServiceNow, dashboards CIP). Base **full-stack** (React, SQL Server, IIS) mais Power BI e pipelines com IA. Mestrado em Tecnologia (**conclusão set/2026**) com **nota A em todas as disciplinas**. **Uso** CSI/NPS para manter a arquitetura honesta quanto a resultados."
+digital-solution-architect,deck_title,Deck title,Título do portfólio,Eduardo Figueiredo – Portfolio,Eduardo Figueiredo – Portfólio
+digital-solution-architect,why_h1,Why slide heading,Título slide Por quê,Why I Design Digital Solutions,Por que desenho soluções digitais
+digital-solution-architect,why_h2,Why slide subheading,Subtítulo slide Por quê,"Architecture that global teams can run, measure, and trust","Arquitetura que times globais operam, medem e confiam"
+digital-solution-architect,why_bullets,Why slide bullets,Tópicos slide Por quê,"- I believe architecture succeeds when **operations, security, and evidence** travel together—not when diagrams stay on slides.
+- Digitization work taught me to ship **end-to-end systems** (data store → app → hosting → Git) under real business constraints.
+- Applied Research at Bosch sharpened **method gates**: relevance scoring, CIP dashboards, and measurable UX maturity.
+- I use **Python, SQL, Power BI, and AI** to turn unstructured operational signal into structures architects and leaders can act on.
+- Fluent English and bilingual delivery keep me effective in **global architecture** conversations.","- Acredito que arquitetura funciona quando **operações, segurança e evidência** caminham juntas—não quando diagramas ficam só no slide.
+- Trabalho de digitalização me ensinou a entregar **sistemas ponta a ponta** (dados → app → hosting → Git) sob restrições reais de negócio.
+- Pesquisa Aplicada na Bosch afiou **gates de método**: pontuação de relevância, dashboards CIP e maturidade UX mensurável.
+- **Uso Python, SQL, Power BI e IA** para transformar sinal operacional não estruturado em estruturas acionáveis.
+- Inglês fluente e entrega bilíngue me mantêm efetivo em conversas de **arquitetura global**."
+digital-solution-architect,who_role,Who slide role,Papel slide Quem sou,"Digital Solution Architect | Cloud, Digitization & Evidence-Based Delivery","Arquiteto de Soluções Digitais | Cloud, Digitalização e Entrega Baseada em Evidência"
+digital-solution-architect,who_impact,Who slide impact,Impacto slide Quem sou,"I help teams design digitization and analytics solutions that survive contact with production: clear boundaries, measurable outcomes, and architecture reviews grounded in evidence.","Ajudo times a desenhar soluções de digitalização e analytics que sobrevivem ao contato com produção: limites claros, resultados mensuráveis e architecture reviews baseadas em evidência."
+digital-solution-architect,present_h2,Present slide heading,Título slide Presente,"Present – Digitization, Architecture Gates & Delivery (Bosch)","Presente – Digitalização, gates de arquitetura e entrega (Bosch)"
+digital-solution-architect,present_table,Present achievements table,Tabela de conquistas,"| Area | Achievement |
+|------|-------------|
+| Digitization (Bosch HU) | End-to-end web systems for Business Excellence on **SQL Server**, **IIS**, **Git**; **Kanban** delivery |
+| Architecture gates (GS) | Automated **UX relevance** in **ServiceNow**; strategic **CIP** dashboards for leadership clarity |
+| Analytics → insight | **Data Insights**: Grounded Theory + **Python/AI** + **Power BI** on call-center transcripts |
+| Maturity & governance | Americas **UX Maturity Level 4**; **Power BI** + **Microsoft Lists** document compliance |
+| Delivery outcomes | Avg **CSI 4.86 / NPS 9.94** (2024–2025); tooling from requirements to hi-fi prototypes |
+| Enablement | **AI tools** training for **100+** people (**4.88**/5); Germany trips 2024–2025 |","| Área | Conquista |
+|------|-----------|
+| Digitalização (Bosch HU) | Sistemas web ponta a ponta para Business Excellence em **SQL Server**, **IIS**, **Git**; entrega **Kanban** |
+| Gates de arquitetura (GS) | **Relevância em UX** automatizada no **ServiceNow**; dashboards **CIP** estratégicos para liderança |
+| Analytics → insight | **Data Insights**: Teoria Fundamentada + **Python/IA** + **Power BI** em transcrições de call center |
+| Maturidade e governança | **Nível 4 de Maturidade UX** nas Américas; **Power BI** + **Microsoft Lists** para conformidade documental |
+| Resultados de entrega | Média **CSI 4,86 / NPS 9,94** (2024–2025); tooling de requisitos a protótipos hi-fi |
+| Capacitação | Treinamento de **ferramentas de IA** para **100+** pessoas (**4,88**/5); viagens à Alemanha 2024–2025 |"
+digital-solution-architect,cip_pipeline_h2,CIP pipeline heading,Título pipeline CIP,Present – Method Pipeline: Evidence → Gate → Dashboard,Presente – Pipeline de método: Evidência → Gate → Dashboard
+digital-solution-architect,relevance_h2,Relevance model heading,Título modelo de relevância,Present – Relevance evaluation model (Low / Medium / High),Presente – Modelo de avaliação de relevância (Baixa / Média / Alta)
+digital-solution-architect,csi_h2,CSI/NPS heading,Título CSI/NPS,Present – Outcome Metrics: CSI & NPS (2024–2025),Presente – Métricas de resultado: CSI e NPS (2024–2025)
+digital-solution-architect,tooling_h2,Tooling project heading,Título projeto tooling,Architecture in Delivery – Tooling Project for Power Tools,Arquitetura na entrega – Projeto Tooling para Power Tools
+digital-solution-architect,tooling_bullet,Tooling bullet,Item projeto tooling,- **Tooling project for PT:** Bridged requirements to high-fidelity prototypes with **regular customer check-ins**—keeping business intent and technical design in one thread.,- **Projeto tooling para PT:** Liguei requisitos a protótipos hi-fi com **check-ins regulares**—mantendo intenção de negócio e desenho técnico no mesmo fio.
+digital-solution-architect,infovis_pnad_h2,InfoVis PNAD heading,Título InfoVis PNAD,Data Visualization – MSc InfoVis: PNAD Contínua (Power BI),Visualização de dados – InfoVis (Mestrado): PNAD Contínua (Power BI)
+digital-solution-architect,infovis_pnad_bullets,InfoVis PNAD bullets,Tópicos InfoVis PNAD,"- **MSc Information Visualization (Unicamp, Grade A):** visual structures and mapping for **multivariate** operational data—skills that transfer to architecting readable cloud analytics surfaces.
+- **PNAD Contínua in Power BI:** from raw tables to interactive views stakeholders can explore.","- **Visualização da Informação (Mestrado Unicamp, nota A):** estruturas visuais e mapeamento para dados operacionais **multivariados**—habilidades que transferem para arquitetar superfícies analíticas cloud legíveis.
+- **PNAD Contínua no Power BI:** de tabelas brutas a visões interativas exploráveis por stakeholders."
+digital-solution-architect,infovis_phrasenet_h2,InfoVis PhraseNets heading,Título InfoVis PhraseNets,InfoVis – Text & Graph Visualization (PhraseNets),InfoVis – Visualização de textos e grafos (PhraseNets)
+digital-solution-architect,infovis_phrasenet_bullets,InfoVis PhraseNets bullets,Tópicos InfoVis PhraseNets,"- **Graphs, trees, and text viz:** encoding relationships and co-occurrence—useful when architecture must expose **event** and **dependency** structure.
+- **Interaction patterns:** filtering and detail-on-demand as UX constraints on data platforms.","- **Grafos, árvores e viz de texto:** codificar relações e coocorrência—útil quando a arquitetura precisa expor estrutura de **eventos** e **dependências**.
+- **Padrões de interação:** filtragem e detalhe sob demanda como restrições de UX em plataformas de dados."
+digital-solution-architect,dissertation_pbi_intro,Dissertation PBI intro,Intro dissertação PBI,My dissertation studies **trust** in digital experiences and how **Agentic AI** compares to human judgment—grounding architecture debates in measured user perception.,Minha dissertação estuda **confiança** em experiências digitais e como **Agentic AI** se compara ao julgamento humano—ancorando debates de arquitetura em percepção medida do usuário.
+digital-solution-architect,dissertation_pbi_bullets,Dissertation PBI bullets,Tópicos dissertação PBI,"- **Inferential pipeline:** Shapiro-Wilk → Welch/paired t-tests, Cohen's d, FDR—then **Power BI** reporting with 50+ visual structures.
+- **Why it matters for architects:** evaluation design and honest metrics before scaling AI features on a platform.","- **Pipeline inferencial:** Shapiro-Wilk → t de Welch/pareado, d de Cohen, FDR—depois reporting em **Power BI** com 50+ estruturas visuais.
+- **Por que importa para arquitetos:** desenho de avaliação e métricas honestas antes de escalar features de IA em uma plataforma."
+digital-solution-architect,future_h2,Future slide heading,Título slide Futuro,"Future – Cloud Architecture, Digitization & Global Delivery","Futuro – Arquitetura cloud, digitalização e entrega global"
+digital-solution-architect,future_intro,Future intro,Introdução slide Futuro,"**Cloud platforms, digitization, and evidence** meet in how I want to grow as a Digital Solution Architect. The diagram below is the agile/research operating context I already work in.","**Plataformas cloud, digitalização e evidência** se encontram em como quero crescer como Arquiteto de Soluções Digitais. O diagrama abaixo é o contexto ágil/pesquisa em que já atuo."
+digital-solution-architect,future_diagram_alt,Future diagram alt text,Texto alt diagrama Futuro,Diagram ai-agile-research: AI and Agile in Applied Research,Diagrama ai-agile-research: IA e Ágil em Pesquisa Aplicada
+digital-solution-architect,future_career_body,Future career body,Corpo slide carreira,"## Future – How I Design Digital Solutions
+
+- **Architecture as decision support:** patterns (services, events, quality gates) chosen for operability—not fashion.
+- **Cloud & platform fluency:** deepen **Azure** landing zones, identity/RBAC, and IaC (**Terraform**/ARM) on top of existing digitization and data work.
+- **Evidence in the loop:** keep Applied Research, metrics (**CSI/NPS**), and stakeholder validation inside architecture reviews.
+- **Secure by default:** identity, policy, and observability as first-class concerns alongside compute and data.
+- **Global collaboration:** bilingual delivery with distributed teams—already practiced across BR/HU/DE contexts.
+","## Futuro – Como desenho soluções digitais
+
+- **Arquitetura como apoio à decisão:** padrões (serviços, eventos, quality gates) escolhidos por operabilidade—não por moda.
+- **Fluência cloud e plataforma:** aprofundar landing zones **Azure**, identidade/RBAC e IaC (**Terraform**/ARM) sobre a digitalização e o trabalho com dados já feitos.
+- **Evidência no ciclo:** manter Pesquisa Aplicada, métricas (**CSI/NPS**) e validação com stakeholders dentro de architecture reviews.
+- **Seguro por padrão:** identidade, política e observabilidade como preocupações de primeira classe junto de compute e dados.
+- **Colaboração global:** entrega bilíngue com times distribuídos—já praticada em contextos BR/HU/DE.
+"
+digital-solution-architect,future_career_style,Future career CSS,CSS slide carreira,".future-career-wrap {
+  display: flex !important; flex-direction: column !important;
+  justify-content: center !important; align-items: center !important;
+  min-height: 55vh !important; width: 100% !important; margin-top: 0.75rem !important;
+  gap: 1rem !important;
+}
+.future-career-wrap p { margin: 0 !important; text-align: center !important; }
+.future-career-wrap img {
+  width: 38% !important; max-width: 38% !important; height: auto !important;
+  display: block !important; margin: 10px auto 0 !important;
+  border: none !important; box-shadow: none !important;
+}
+.future-po-bullets {
+  max-width: 85% !important; text-align: left !important; font-size: 0.95em !important;
+}",".future-career-wrap {
+  display: flex !important; flex-direction: column !important;
+  justify-content: center !important; align-items: center !important;
+  min-height: 55vh !important; width: 100% !important; margin-top: 0.75rem !important;
+  gap: 1rem !important;
+}
+.future-career-wrap p { margin: 0 !important; text-align: center !important; }
+.future-career-wrap img {
+  width: 38% !important; max-width: 38% !important; height: auto !important;
+  display: block !important; margin: 10px auto 0 !important;
+  border: none !important; box-shadow: none !important;
+}
+.future-po-bullets {
+  max-width: 85% !important; text-align: left !important; font-size: 0.95em !important;
+}"
+digital-solution-architect,closing_summary,Closing summary,Resumo de encerramento,"I connect digitization experience, analytics pipelines, and Applied Research gates into **solution architecture** that global teams can operate—measured by outcomes, not slideware.","Conecto experiência de digitalização, pipelines analíticos e gates de Pesquisa Aplicada em **arquitetura de soluções** que times globais operam—medida por resultados, não por slides."
