@@ -150,7 +150,7 @@ def render_resume(
 
     tagline = narrative(nars, variant, "tagline")
     profile_text = typst_profile_blocks(narrative(nars, variant, "profile"), lang)
-    compact_layout = lang == "pt"
+    compact_layout = True  # Hard rule: all resumes target a single A4 page.
 
     core = sorted(
         [r for r in skills_all if r["category"] == "Core"],

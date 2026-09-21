@@ -1,5 +1,6 @@
 // =============================================================================
 // RESUME LAYOUT — Do not edit for content changes. Edit content.typ only.
+// HARD RULE: every resume must fit on ONE A4 page (compact-layout always on).
 // Two-column grid (32% Sidebar / 68% Main) per refactor_cv_layout_e4f9a2 plan.
 // =============================================================================
 

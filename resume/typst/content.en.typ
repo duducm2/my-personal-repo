@@ -1,4 +1,4 @@
-// =============================================================================
+﻿// =============================================================================
 // GENERATED from my-data/canonical — do not edit by hand.
 // Variant: general, lang: en. Re-run: python scripts/generate_from_canonical.py
 // Layout: main.typ (do not change layout here).
@@ -15,7 +15,7 @@
 #let orcid = "ORCID"
 #let orcid-url = "https://orcid.org/0009-0002-5178-6157"
 #let location = "Nova Odessa, SP - Brazil"
-#let compact-layout = false
+#let compact-layout = true
 
 #let ui = (
   contact: "Contact",

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -12,23 +12,20 @@
         <div class="hero-top">
           <div>
             <p class="eyebrow">
-              <span class="section-title-en"
-                >Search window · not the profile</span
-              >
-              <span class="section-title-pt"
-                >Janela de busca · não o perfil</span
-              >
+              <span class="section-title-en">Search · bento map</span>
             </p>
             <h1 class="brand">
               <span class="section-title-en">Target companies</span>
-              <span class="section-title-pt">Empresas-alvo</span>
             </h1>
           </div>
           <div class="hero-actions">
             <button type="button" id="open-profile-btn" class="nav-btn">
               <span class="section-title-en">Eduardo profile</span>
-              <span class="section-title-pt">Perfil Eduardo</span>
               <kbd>Shift+P</kbd>
+            </button>
+            <button type="button" id="open-jobs-btn" class="nav-btn">
+              <span class="section-title-en">Job openings</span>
+              <kbd>Shift+J</kbd>
             </button>
             <span
               id="save-status"
@@ -36,22 +33,16 @@
               aria-live="polite"
             ></span>
             <button type="button" id="save-btn" class="save-btn" disabled>
-              Salvar
+              Save
             </button>
           </div>
         </div>
         <p class="subtitle">
           <span class="section-title-en"
-            >Search and filter target companies. Profile data stays in the
-            Eduardo window (<kbd>Shift+P</kbd>). <kbd>Shift+1</kbd> PT ·
-            <kbd>Shift+2</kbd> EN · <kbd>Shift+0</kbd> both ·
-            <kbd>Ctrl+Enter</kbd> save.</span
-          >
-          <span class="section-title-pt"
-            >Busque e filtre empresas-alvo. O perfil fica na janela do Eduardo
-            (<kbd>Shift+P</kbd>). <kbd>Shift+1</kbd> PT · <kbd>Shift+2</kbd> EN
-            · <kbd>Shift+0</kbd> ambos · <kbd>Ctrl+Enter</kbd> salvar.</span
-          >
+            >Click a tile for the full dossier. UI stays English.
+            <kbd>Shift+P</kbd> profile · <kbd>Shift+J</kbd> jobs ·
+            <kbd>Shift+1</kbd>/<kbd>2</kbd>/<kbd>0</kbd> field values (PT / EN / both) ·
+            <kbd>Ctrl+Enter</kbd> save · <kbd>Esc</kbd> close modal.</span>
         </p>
       </header>
 
@@ -60,35 +51,54 @@
           class="section company-search-section"
           aria-label="Company search"
         >
-          <div class="company-search-bar">
-            <label class="company-search-label" for="company-search-input">
-              <span class="filter-chip-en">Search</span>
-              <span class="filter-chip-pt">Buscar</span>
-            </label>
-            <input
-              id="company-search-input"
-              class="company-search-input"
-              type="search"
-              autocomplete="off"
-              placeholder="Name, city, skills, notes, website…"
-            />
-            <button type="button" id="company-add-btn" class="add-btn">
-              + Add
-            </button>
+          <div class="company-search-sticky">
+            <div class="company-search-bar">
+              <label class="company-search-label" for="company-search-input">
+                <span class="filter-chip-en">Search</span>
+              </label>
+              <input
+                id="company-search-input"
+                class="company-search-input"
+                type="search"
+                autocomplete="off"
+                placeholder="Name, city, skills, notes, website…"
+              />
+              <button type="button" id="company-add-btn" class="add-btn">
+                + Add
+              </button>
+            </div>
+
+            <div
+              id="companies-filters"
+              class="company-filters"
+              role="group"
+              aria-label="Company filters"
+            ></div>
+
+            <p id="company-result-count" class="company-result-count"></p>
           </div>
 
-          <div
-            id="companies-filters"
-            class="company-filters"
-            role="group"
-            aria-label="Company filters"
-          ></div>
-
-          <p id="company-result-count" class="company-result-count"></p>
-          <div id="companies-results" class="company-results"></div>
+          <div id="companies-results" class="company-bento"></div>
         </section>
       </main>
     </div>
+
+    <dialog id="company-modal" class="company-modal" aria-labelledby="company-modal-title">
+      <div class="company-modal-inner">
+        <header class="company-modal-head">
+          <h2 id="company-modal-title" class="company-modal-title"></h2>
+          <button
+            type="button"
+            id="company-modal-close"
+            class="company-modal-close"
+            aria-label="Close"
+          >
+            ✕
+          </button>
+        </header>
+        <div id="company-modal-body" class="company-modal-body"></div>
+      </div>
+    </dialog>
 
     <script src="companies-app.js"></script>
   </body>

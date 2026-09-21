@@ -1,0 +1,92 @@
+id,sort_order,company,company_key,role_title,career_path,job_url,status,priority,work_mode,location,source,found_on,applied_on,next_action,next_action_date,salary_range,fit_interest,skills_gap,job_description,notes,contact_person,contact_note
+job-bosch-001,1,bosch,bosch,PRODUCT OWNER SR - PROJETOS S/4HANA,po,https://jobs.smartrecruiters.com/BoschGroup/744000110377325-product-owner-sr-projetos-s-4hana?trid=78213a3f-df44-4484-80e3-5cc61c646da9&rsid=f5316a20-cd56-483c-85cf-c25269a6dfef,closed,low,unknown,,company_site,,,,,,1,I needed to have knowledge in SAP,"Descrição da empresa
+
+Sobre a Bosch: Seja em áreas de mobilidade, bens de consumo, tecnologia industrial, energia e de construção ou no desenvolvimento de novos modelos de negócios: A Bosch faz uma contribuição decisiva para melhorar a qualidade de vida desta geração e das que virão. Isto só é possível com um network global de mais de 410 mil colaboradores altamente comprometidos, que quebram barreiras todos os dias.
+
+
+
+Sobre a BISB: Somos a Bosch Soluções Integradas, uma intrastartup do grupo Bosch focada em soluções digitais, IoT e AIoT. Nossa cultura é dedicada à agilidade e à inovação, em um ambiente onde a criatividade, o dinamismo e o protagonismo prevalecem. Buscamos pessoas com espírito empreendedor e de inovação para contribuir com o nosso propósito de desenvolver novas soluções e escalá-las no mercado. 👩🏻‍💻",I needed to have knowledge in SAP,,
+job-bosch-002,2,bosch,bosch,Senior Data Engineer,da,https://jobs.smartrecruiters.com/BoschGroup/744000140311089-senior-data-engineer-35446-?trid=78213a3f-df44-4484-80e3-5cc61c646da9&rsid=f5316a20-cd56-483c-85cf-c25269a6dfef,closed,low,unknown,,company_site,,,,,,1,I needed to know about Data Bricks,"Descrição do emprego
+
+Responsibilities:
+
+
+
+Develop and maintain data pipelines using Azure Data Factory.
+
+Design and optimize data models in SQL Server.
+
+Configure and manage Integration Runtime and connections in Azure Data Factory.
+
+Implement and monitor ETL/ELT processes in Azure Cloud.
+
+Configure and optimize data environments in Azure Cloud.
+
+Implement CI/CD and automate deployments using Azure DevOps.
+
+Ensure data security, quality, and compliance.
+
+Qualificações
+
+Proven experience with Azure Data Factory, Databricks and Integration Pipelines
+
+Strong knowledge of Azure Cloud, including Azure Virtual Network and Cloud Configuration.
+
+Experience with SQL Server and Oracle.
+
+Strong knowledge of T-SQL, PL/SQL and query optimization.
+
+Hands-on experience with SSIS, Knime, Pentaho or similar ETL tool.
+
+Configuration and management of Integration Runtime.
+
+Hands-on experience with Azure DevOps for CI/CD.
+
+Proficiency in Python for automation and API integration.
+
+Hands-on experience with PySpark.
+
+Strong knowledge of multi-dimensional(Snowflake, Star Schema) and relational data modeling.
+
+Understanding of Data Lake/Delta Lake, Data Marts and Warehouse architecture.
+
+Hands-on experience with Microsoft Fabric, including Data Engineering and Data Warehouse workloads.
+
+ • Hands-on experience with Power BI for data modeling, semantic layer development and performance optimization.
+
+
+
+Desirable: Understanding of machine learning and data science tool integration.
+
+Desirable: Java, or C#.
+
+Fluent English",I needed to know about Data Bricks,,
+job-levva-003,3,levva,levva,(untitled role),other,https://www.linkedin.com/jobs/view/4452391795/,paused,medium,unknown,,linkedin,,,Review JD & decide,,,3,,,Smoke test note,,
+job-levva-004,4,levva,levva,(untitled role),other,https://www.linkedin.com/jobs/view/4449189767/,paused,medium,unknown,,linkedin,,,Review JD & decide,,,3,,,,,
+job-bosch-005,5,bosch,bosch,IT PRODUCT OWNER,po,https://jobs.smartrecruiters.com/BoschGroup/744000144780020-it-product-owner-35575?trid=78213a3f-df44-4484-80e3-5cc61c646da9&rsid=f5316a20-cd56-483c-85cf-c25269a6dfef,closed,low,unknown,,company_site,,,,,,1,,"We are seeking a strategic and customer-focused IT Product Owner to support the vision, roadmap, and
+
+delivery of our Distributor and Branch Product Information Portal.
+
+This platform supports the full product lifecycle, including Product Information, Training, Marketing, Sales, and Warranty applications, serving both internal stakeholders and external customers.
+
+
+
+A key initial focus of this role will be to support the business transition from JCI to Bosch,
+
+ensuring continuity, optimization, and enhancement of the portal experience during this critical
+
+transformation.
+
+
+
+The Product Owner will drive alignment across Product Manager and Development teams
+
+while maintaining strong delivery execution in an agile environment.
+
+They will be working closely with the product manager, development teams, and customers to deliver high-value solutions. This individual will work under the product manager, from ideation through delivery, leveraging
+
+innovative thinking and emerging technologies (including AI) to continuously enhance the platform
+
+and deliver measurable business impact.
+
+This individual will work daily with our development teams to manage the work and will work with the business regularly on user acceptance testing and quality assurance.",,,

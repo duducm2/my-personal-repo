@@ -23,6 +23,10 @@ WEB_DIR = ROOT_DIR / "web"
 CANONICAL_DIR = ROOT_DIR / "my-data" / "canonical"
 OUTPUT_DIR = ROOT_DIR / "output"
 
+# Hard product rule: every resume PDF must fit on a single A4 page.
+RESUME_MAX_PAGES = 1
+RESUME_PAPER = "A4"
+
 # Career deliverables under output/<variant>/ (resume + portfolio, EN/PT)
 DOWNLOAD_CATALOG: list[dict[str, str]] = [
     {
@@ -156,19 +160,46 @@ DOWNLOAD_CATALOG: list[dict[str, str]] = [
 ]
 
 
+def pdf_page_count(path: Path) -> int | None:
+    """Best-effort page count without extra dependencies."""
+    try:
+        data = path.read_bytes()
+    except OSError:
+        return None
+    import re
+
+    # Match /Type /Page but not /Type /Pages
+    pages = len(re.findall(rb"/Type\s*/Page(?![s\w])", data))
+    return pages if pages > 0 else None
+
+
 def list_downloads() -> list[dict[str, Any]]:
     items: list[dict[str, Any]] = []
     for entry in DOWNLOAD_CATALOG:
         path = OUTPUT_DIR / entry["variant"] / entry["filename"]
-        items.append(
-            {
-                **entry,
-                "available": path.is_file(),
-                "url": f"/download/{entry['variant']}/{entry['filename']}",
-                "size": path.stat().st_size if path.is_file() else 0,
-            }
-        )
+        available = path.is_file()
+        page_count = pdf_page_count(path) if available else None
+        item: dict[str, Any] = {
+            **entry,
+            "available": available,
+            "url": f"/download/{entry['variant']}/{entry['filename']}",
+            "view_url": f"/download/{entry['variant']}/{entry['filename']}?inline=1",
+            "size": path.stat().st_size if available else 0,
+            "page_count": page_count,
+        }
+        if entry["kind"] == "resume":
+            item["one_page_ok"] = page_count == RESUME_MAX_PAGES if page_count else None
+            item["max_pages"] = RESUME_MAX_PAGES
+        items.append(item)
     return items
+
+
+def resume_policy() -> dict[str, Any]:
+    return {
+        "max_pages": RESUME_MAX_PAGES,
+        "paper": RESUME_PAPER,
+        "note_en": "All resumes are limited to 1 page (A4).",
+    }
 
 
 def resolve_download(variant: str, filename: str) -> Path | None:
@@ -241,7 +272,13 @@ class CareerHandler(BaseHTTPRequestHandler):
                 self._json(200, {"collections": self.store.load_all()})
                 return
             if path == "/api/downloads":
-                self._json(200, {"items": list_downloads()})
+                self._json(
+                    200,
+                    {
+                        "items": list_downloads(),
+                        "resume_policy": resume_policy(),
+                    },
+                )
                 return
             if path.startswith("/download/"):
                 self._serve_download(path)
@@ -268,7 +305,8 @@ class CareerHandler(BaseHTTPRequestHandler):
             self._json(500, {"ok": False, "error": str(exc)})
 
     def _serve_download(self, path: str) -> None:
-        parts = [p for p in unquote(path).split("/") if p]
+        parsed = urlparse(self.path)
+        parts = [p for p in unquote(parsed.path).split("/") if p]
         # ["download", variant, filename]
         if len(parts) != 3 or parts[0] != "download":
             self._json(404, {"ok": False, "error": "not found"})
@@ -278,12 +316,14 @@ class CareerHandler(BaseHTTPRequestHandler):
             self._json(404, {"ok": False, "error": "file not found"})
             return
         data = file_path.read_bytes()
+        inline = "inline=1" in (parsed.query or "")
+        disposition = "inline" if inline else "attachment"
         self.send_response(200)
         self.send_header("Content-Type", "application/pdf")
         self.send_header("Content-Length", str(len(data)))
         self.send_header(
             "Content-Disposition",
-            f'attachment; filename="{file_path.name}"',
+            f'{disposition}; filename="{file_path.name}"',
         )
         self._cors()
         self.end_headers()

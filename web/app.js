@@ -15,11 +15,18 @@
     "volunteering",
     "certifications",
     "companies",
+    "jobOpenings",
+    "jobPlatforms",
+    "jobCommunities",
   ];
 
-  /** Profile window renders these; companies live in companies.html */
-  const PROFILE_RENDER_KEYS = COLLECTION_KEYS.filter((k) => k !== "companies");
-
+  /** Profile window renders these; companies/jobs live in their own windows */
+  const PROFILE_RENDER_KEYS = COLLECTION_KEYS.filter(
+    (k) =>
+      !["companies", "jobOpenings", "jobPlatforms", "jobCommunities"].includes(
+        k,
+      ),
+  );
 
   const STRUCTURAL = new Set([
     "id",
@@ -202,6 +209,33 @@
       "notes_en",
       "notes_pt",
     ],
+    jobOpenings: [
+      "id",
+      "sort_order",
+      "company",
+      "company_key",
+      "role_title",
+      "career_path",
+      "job_url",
+      "status",
+      "priority",
+      "work_mode",
+      "location",
+      "source",
+      "found_on",
+      "applied_on",
+      "next_action",
+      "next_action_date",
+      "salary_range",
+      "fit_interest",
+      "skills_gap",
+      "job_description",
+      "notes",
+      "contact_person",
+      "contact_note",
+    ],
+    jobPlatforms: ["id", "sort_order", "company_key", "label", "url"],
+    jobCommunities: ["id", "sort_order", "name", "url", "notes"],
   };
 
   function expandColumns(cols) {
@@ -358,9 +392,17 @@
       { label: "companyStatus", mono: "status" },
       { label: "fitDataAnalyst", mono: "fit_data_analyst" },
       { label: "fitProductOwner", mono: "fit_product_owner" },
-      { label: "fitDigitalSolutionArchitect", mono: "fit_digital_solution_architect" },
+      {
+        label: "fitDigitalSolutionArchitect",
+        mono: "fit_digital_solution_architect",
+      },
       { label: "companyWebsite", mono: "website" },
-      { label: "skillsMatch", pt: "skills_match_pt", en: "skills_match_en", tall: true },
+      {
+        label: "skillsMatch",
+        pt: "skills_match_pt",
+        en: "skills_match_en",
+        tall: true,
+      },
       { label: "fitWhy", pt: "fit_why_pt", en: "fit_why_en", tall: true },
       { label: "companyNotes", pt: "notes_pt", en: "notes_en", tall: true },
     ],
@@ -369,7 +411,7 @@
   const SECTION_META = {
     about: {
       root: "about-root",
-      title: { en: "About", pt: "Sobre" },
+      title: { en: "About", pt: "About" },
       canAdd: false,
     },
     targetTitles: {
@@ -508,7 +550,7 @@
     return "both";
   }
 
-  function setLangMode(mode) {
+  function setLangMode(mode, rerender) {
     document.body.classList.remove("lang-pt", "lang-en");
     if (mode === "pt" || mode === "en") {
       document.body.classList.add(`lang-${mode}`);
@@ -518,20 +560,15 @@
     } catch {
       /* ignore */
     }
-    document.documentElement.lang = mode === "en" ? "en" : "pt-BR";
+    // Document lang stays English — UI chrome is always EN; mode only toggles values.
+    document.documentElement.lang = "en";
+    if (rerender) renderAll();
   }
 
   function updateDetailIndicator() {
     const el = document.getElementById("detail-mode-label");
     if (!el) return;
-    const en = getLangMode() === "en";
-    el.textContent = detailMode
-      ? en
-        ? "Detail"
-        : "Detalhado"
-      : en
-        ? "Summary"
-        : "Resumo";
+    el.textContent = detailMode ? "Detail" : "Summary";
   }
 
   function setDetailMode(next, rerender) {
@@ -610,8 +647,8 @@
 
   async function copyWithFeedback(text, button) {
     const original = button.dataset.label || button.textContent;
-    const okLabel = getLangMode() === "en" ? "Copied" : "Copiado";
-    const errLabel = getLangMode() === "en" ? "Error" : "Erro";
+    const okLabel = "Copied";
+    const errLabel = "Error";
     try {
       await copyText(text);
       button.textContent = okLabel;
@@ -693,10 +730,7 @@
     const en = document.createElement("span");
     en.className = "field-label-en";
     en.textContent = labels[label].en;
-    const pt = document.createElement("span");
-    pt.className = "field-label-pt";
-    pt.textContent = labels[label].pt;
-    labelEl.append(en, pt);
+    labelEl.append(en);
     rowEl.append(labelEl);
 
     if (spec.mono) {
@@ -728,7 +762,7 @@
   function panelTitle(collection, row, meta) {
     if (meta.title) return meta.title;
     const en = cell(row[meta.titleKey.en]) || cell(row.id) || "New";
-    const pt = cell(row[meta.titleKey.pt]) || cell(row.id) || "Novo";
+    const pt = cell(row[meta.titleKey.pt]) || cell(row.id) || "New";
     return { en, pt };
   }
 
@@ -763,30 +797,15 @@
         const on = isFitYes(row[role.field]);
         const badge = document.createElement("span");
         badge.className = "role-badge" + (on ? " is-on" : " is-off");
-        badge.title = `${role.en} / ${role.pt}`;
-        const en = document.createElement("span");
-        en.className = "role-badge-en";
-        en.textContent = role.shortEn;
-        const pt = document.createElement("span");
-        pt.className = "role-badge-pt";
-        pt.textContent = role.shortPt;
-        badge.append(en, pt);
+        badge.title = role.en;
+        badge.textContent = role.shortEn;
         badges.append(badge);
       }
       if (activeCount >= 2) {
         const multi = document.createElement("span");
         multi.className = "role-badge role-badge-multi is-on";
-        const en = document.createElement("span");
-        en.className = "role-badge-en";
-        en.textContent = `Multi (${activeCount})`;
-        const pt = document.createElement("span");
-        pt.className = "role-badge-pt";
-        pt.textContent = `Multi (${activeCount})`;
-        multi.append(en, pt);
-        multi.title =
-          getLangMode() === "en"
-            ? "Fits multiple career paths"
-            : "Combina com múltiplas trilhas";
+        multi.textContent = `Multi (${activeCount})`;
+        multi.title = "Fits multiple career paths";
         badges.append(multi);
       }
       head.append(badges);
@@ -800,10 +819,7 @@
       del.setAttribute("aria-label", "Delete");
       del.textContent = "✕";
       del.addEventListener("click", () => {
-        const msg =
-          getLangMode() === "en"
-            ? "Delete this record?"
-            : "Excluir este registro?";
+        const msg = "Delete this record?";
         if (!confirm(msg)) return;
         const idx = state[collection].findIndex((r) => r.id === row.id);
         if (idx < 0) return;
@@ -838,13 +854,7 @@
         skillsBlock.className = "company-skills";
         const skillsLabel = document.createElement("div");
         skillsLabel.className = "company-research-label";
-        const sle = document.createElement("span");
-        sle.className = "filter-chip-en";
-        sle.textContent = "Matching skills";
-        const slp = document.createElement("span");
-        slp.className = "filter-chip-pt";
-        slp.textContent = "Competências alinhadas";
-        skillsLabel.append(sle, slp);
+        skillsLabel.textContent = "Matching skills";
         const pills = document.createElement("div");
         pills.className = "skill-pills";
         for (const skill of skills) {
@@ -860,21 +870,13 @@
       const whyKey = getLangMode() === "pt" ? "fit_why_pt" : "fit_why_en";
       const whyAlt = getLangMode() === "pt" ? "fit_why_en" : "fit_why_pt";
       const whyText =
-        cell(row[activeCol(whyKey)]) ||
-        cell(row[whyKey]) ||
-        cell(row[whyAlt]);
+        cell(row[activeCol(whyKey)]) || cell(row[whyKey]) || cell(row[whyAlt]);
       if (whyText.trim()) {
         const whyBlock = document.createElement("div");
         whyBlock.className = "company-fit-why";
         const whyLabel = document.createElement("div");
         whyLabel.className = "company-research-label";
-        const wle = document.createElement("span");
-        wle.className = "filter-chip-en";
-        wle.textContent = "Why this path fits";
-        const wlp = document.createElement("span");
-        wlp.className = "filter-chip-pt";
-        wlp.textContent = "Por que a trilha encaixa";
-        whyLabel.append(wle, wlp);
+        whyLabel.textContent = "Why this path fits";
         const whyBody = document.createElement("p");
         whyBody.className = "company-fit-why-text";
         whyBody.textContent = whyText;
@@ -915,17 +917,11 @@
     catRow.className = "company-filter-row";
     const catLabel = document.createElement("span");
     catLabel.className = "company-filter-label";
-    const catEn = document.createElement("span");
-    catEn.className = "filter-chip-en";
-    catEn.textContent = "Category";
-    const catPt = document.createElement("span");
-    catPt.className = "filter-chip-pt";
-    catPt.textContent = "Categoria";
-    catLabel.append(catEn, catPt);
+    catLabel.textContent = "Category";
     catRow.append(catLabel);
 
     const cats = companyCategories();
-    const catChips = [{ key: "", en: "All", pt: "Todas" }].concat(
+    const catChips = [{ key: "", en: "All", pt: "All" }].concat(
       cats.map(([key, labels]) => ({
         key,
         en: labels.en,
@@ -946,17 +942,11 @@
     roleRow.className = "company-filter-row";
     const roleLabel = document.createElement("span");
     roleLabel.className = "company-filter-label";
-    const roleEn = document.createElement("span");
-    roleEn.className = "filter-chip-en";
-    roleEn.textContent = "Career path";
-    const rolePt = document.createElement("span");
-    rolePt.className = "filter-chip-pt";
-    rolePt.textContent = "Trilha";
-    roleLabel.append(roleEn, rolePt);
+    roleLabel.textContent = "Career path";
     roleRow.append(roleLabel);
 
     const roleChips = [
-      { key: "", en: "All paths", pt: "Todas as trilhas" },
+      { key: "", en: "All paths", pt: "All paths" },
       { key: "da", en: "Data Analyst", pt: "Data Analyst" },
       { key: "po", en: "Product Owner", pt: "Product Owner" },
       {
@@ -964,7 +954,7 @@
         en: "Digital Solution Architect",
         pt: "Digital Solution Architect",
       },
-      { key: "multi", en: "Multi-role", pt: "Multi-trilha" },
+      { key: "multi", en: "Multi-role", pt: "Multi-role" },
     ];
     for (const chip of roleChips) {
       roleRow.append(
@@ -982,17 +972,8 @@
     btn.type = "button";
     btn.className =
       "filter-chip" + (activeKey === chip.key ? " is-active" : "");
-    btn.setAttribute(
-      "aria-pressed",
-      activeKey === chip.key ? "true" : "false",
-    );
-    const en = document.createElement("span");
-    en.className = "filter-chip-en";
-    en.textContent = chip.en;
-    const pt = document.createElement("span");
-    pt.className = "filter-chip-pt";
-    pt.textContent = chip.pt;
-    btn.append(en, pt);
+    btn.setAttribute("aria-pressed", activeKey === chip.key ? "true" : "false");
+    btn.textContent = getLangMode() === "pt" ? chip.pt || chip.en : chip.en;
     btn.addEventListener("click", () => onSelect(chip.key));
     return btn;
   }
@@ -1016,10 +997,7 @@
       if (!filtered.length) {
         const empty = document.createElement("p");
         empty.className = "empty-state";
-        empty.textContent =
-          getLangMode() === "en"
-            ? "No companies match these filters."
-            : "Nenhuma empresa corresponde a estes filtros.";
+        empty.textContent = "No companies match these filters.";
         root.append(empty);
         return;
       }
@@ -1039,16 +1017,20 @@
   }
 
   function openCompaniesWindow() {
-    const w = window.open("/companies.html", "career-companies-search");
-    if (w) w.focus();
-    return w;
+    location.assign("/companies.html");
+  }
+
+  function openJobsWindow() {
+    location.assign("/jobs.html");
   }
 
   function listPlain(rows, enKey, ptKey, limit) {
     const items = (rows || []).slice(0, limit || 99);
     return {
       en: items.map((r) => cell(r[enKey]) || cell(r.id)).filter(Boolean),
-      pt: items.map((r) => cell(r[ptKey]) || cell(r[enKey]) || cell(r.id)).filter(Boolean),
+      pt: items
+        .map((r) => cell(r[ptKey]) || cell(r[enKey]) || cell(r.id))
+        .filter(Boolean),
     };
   }
 
@@ -1063,21 +1045,42 @@
     const education = listPlain(state.education, "degree_en", "degree_pt", 8);
     const experience = (state.experience || []).map((r) => ({
       en: [cell(r.title_en), cell(r.company_en)].filter(Boolean).join(" @ "),
-      pt: [cell(r.title_pt) || cell(r.title_en), cell(r.company_pt) || cell(r.company_en)]
+      pt: [
+        cell(r.title_pt) || cell(r.title_en),
+        cell(r.company_pt) || cell(r.company_en),
+      ]
         .filter(Boolean)
         .join(" @ "),
     }));
     const languages = (state.languages || []).map((r) => ({
       en: [cell(r.name_en), cell(r.level_en)].filter(Boolean).join(" — "),
-      pt: [cell(r.name_pt) || cell(r.name_en), cell(r.level_pt) || cell(r.level_en)]
+      pt: [
+        cell(r.name_pt) || cell(r.name_en),
+        cell(r.level_pt) || cell(r.level_en),
+      ]
         .filter(Boolean)
         .join(" — "),
     }));
     const competences = listPlain(state.competences, "name_en", "name_pt", 20);
     const courses = listPlain(state.courses, "title_en", "title_pt", 10);
-    const recognitions = listPlain(state.recognitions, "title_en", "title_pt", 8);
-    const volunteering = listPlain(state.volunteering, "title_en", "title_pt", 6);
-    const certifications = listPlain(state.certifications, "title_en", "title_pt", 10);
+    const recognitions = listPlain(
+      state.recognitions,
+      "title_en",
+      "title_pt",
+      8,
+    );
+    const volunteering = listPlain(
+      state.volunteering,
+      "title_en",
+      "title_pt",
+      6,
+    );
+    const certifications = listPlain(
+      state.certifications,
+      "title_en",
+      "title_pt",
+      10,
+    );
 
     const sections = [
       {
@@ -1158,13 +1161,7 @@
 
       const h = document.createElement("h3");
       h.className = "profile-summary-card-title";
-      const he = document.createElement("span");
-      he.className = "panel-heading-en";
-      he.textContent = sec.titleEn;
-      const hp = document.createElement("span");
-      hp.className = "panel-heading-pt";
-      hp.textContent = sec.titlePt;
-      h.append(he, hp);
+      h.textContent = sec.titleEn;
       card.append(h);
 
       const cols = document.createElement("div");
@@ -1270,7 +1267,7 @@
     setDirty(true);
     const btn = document.getElementById("save-btn");
     if (btn) btn.disabled = true;
-    setSaveStatus(getLangMode() === "en" ? "Saving…" : "Salvando…");
+    setSaveStatus("Saving…");
     try {
       const res = await fetch("/api/state", {
         method: "PUT",
@@ -1282,13 +1279,9 @@
         throw new Error(payload.error || `HTTP ${res.status}`);
       }
       setDirty(false);
-      setSaveStatus(getLangMode() === "en" ? "Saved." : "Salvo.", "ok");
+      setSaveStatus("Saved.", "ok");
     } catch (err) {
-      setSaveStatus(
-        (getLangMode() === "en" ? "Error: " : "Erro: ") +
-          (err.message || String(err)),
-        "err",
-      );
+      setSaveStatus("Error: " + (err.message || String(err)), "err");
       setDirty(true);
     } finally {
       saving = false;
@@ -1333,20 +1326,17 @@
 
       if (event.code === "Digit1") {
         event.preventDefault();
-        setLangMode("pt");
-        updateDetailIndicator();
+        setLangMode("pt", true);
         return;
       }
       if (event.code === "Digit2") {
         event.preventDefault();
-        setLangMode("en");
-        updateDetailIndicator();
+        setLangMode("en", true);
         return;
       }
       if (event.code === "Digit0") {
         event.preventDefault();
-        setLangMode("both");
-        updateDetailIndicator();
+        setLangMode("both", true);
         return;
       }
       if (event.key.toLowerCase() === "e") {
@@ -1362,6 +1352,11 @@
       if (event.key.toLowerCase() === "c") {
         event.preventDefault();
         openCompaniesWindow();
+        return;
+      }
+      if (event.key.toLowerCase() === "j") {
+        event.preventDefault();
+        openJobsWindow();
       }
     });
   }
@@ -1395,18 +1390,55 @@
       const res = await fetch("/api/downloads");
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const payload = await res.json();
-      renderDownloads(payload.items || []);
+      renderDownloads(payload.items || [], payload.resume_policy || null);
     } catch (err) {
       const p = document.createElement("p");
       p.className = "downloads-error";
       p.textContent =
-        (getLangMode() === "en" ? "Could not load downloads: " : "Falha ao carregar downloads: ") +
-        (err.message || String(err));
+        "Could not load downloads: " + (err.message || String(err));
       root.append(p);
     }
   }
 
-  function renderDownloads(items) {
+  function openResumeViewer(item) {
+    const dialog = document.getElementById("resume-viewer-modal");
+    const frame = document.getElementById("resume-viewer-frame");
+    const title = document.getElementById("resume-viewer-title");
+    const dl = document.getElementById("resume-viewer-download");
+    if (!dialog || !frame || !title || !dl) return;
+    const pages = item.page_count != null ? ` · ${item.page_count} page` : "";
+    title.textContent = `${item.label_en} · ${item.lang.toUpperCase()}${pages}`;
+    frame.src = item.view_url || item.url + "?inline=1";
+    dl.href = item.url;
+    dl.setAttribute("download", item.filename);
+    if (typeof dialog.showModal === "function" && !dialog.open) {
+      dialog.showModal();
+    }
+  }
+
+  function closeResumeViewer() {
+    const dialog = document.getElementById("resume-viewer-modal");
+    const frame = document.getElementById("resume-viewer-frame");
+    if (frame) frame.src = "about:blank";
+    if (dialog && dialog.open) dialog.close();
+  }
+
+  function wireResumeViewer() {
+    const dialog = document.getElementById("resume-viewer-modal");
+    const closeBtn = document.getElementById("resume-viewer-close");
+    if (closeBtn) closeBtn.addEventListener("click", () => closeResumeViewer());
+    if (dialog) {
+      dialog.addEventListener("close", () => {
+        const frame = document.getElementById("resume-viewer-frame");
+        if (frame) frame.src = "about:blank";
+      });
+      dialog.addEventListener("click", (e) => {
+        if (e.target === dialog) closeResumeViewer();
+      });
+    }
+  }
+
+  function renderDownloads(items, policy) {
     const root = document.getElementById("downloads-root");
     if (!root) return;
     root.replaceChildren();
@@ -1431,25 +1463,23 @@
 
       const heading = document.createElement("h3");
       heading.className = "download-card-title";
-      const en = document.createElement("span");
-      en.className = "panel-heading-en";
-      en.textContent = group[0].label_en;
-      const pt = document.createElement("span");
-      pt.className = "panel-heading-pt";
-      pt.textContent = group[0].label_pt;
-      heading.append(en, pt);
+      heading.textContent = group[0].label_en;
       card.append(heading);
 
       const resumes = group.filter((i) => i.kind === "resume");
       const portfolios = group.filter((i) => i.kind === "portfolio");
 
-      card.append(buildDownloadRow("Resume", "Currículo", resumes));
-      card.append(buildDownloadRow("Portfolio", "Portfólio", portfolios));
+      card.append(
+        buildDownloadRow("Resume", resumes, { isResume: true, policy }),
+      );
+      card.append(
+        buildDownloadRow("Portfolio", portfolios, { isResume: false }),
+      );
       root.append(card);
     }
   }
 
-  function buildDownloadRow(labelEn, labelPt, items) {
+  function buildDownloadRow(labelEn, items, opts) {
     const row = document.createElement("div");
     row.className = "download-row";
     const label = document.createElement("div");
@@ -1457,47 +1487,84 @@
     const en = document.createElement("span");
     en.className = "field-label-en";
     en.textContent = labelEn;
-    const pt = document.createElement("span");
-    pt.className = "field-label-pt";
-    pt.textContent = labelPt;
-    label.append(en, pt);
+    label.append(en);
+    if (opts?.isResume) {
+      const hint = document.createElement("span");
+      hint.className = "download-row-hint";
+      hint.textContent = "1-page limit";
+      label.append(hint);
+    }
     row.append(label);
 
     const actions = document.createElement("div");
     actions.className = "download-actions";
     for (const item of items) {
+      const group = document.createElement("div");
+      group.className = "download-lang-group";
+
+      if (opts?.isResume && item.available) {
+        const viewBtn = document.createElement("button");
+        viewBtn.type = "button";
+        viewBtn.className = "download-btn download-btn-view";
+        viewBtn.textContent = `View ${item.lang.toUpperCase()}`;
+        if (item.page_count != null) {
+          viewBtn.title = `${item.filename} · ${item.page_count} page(s)`;
+          if (item.one_page_ok === false) {
+            viewBtn.classList.add("page-over");
+          } else if (item.one_page_ok === true) {
+            viewBtn.classList.add("page-ok");
+          }
+        }
+        viewBtn.addEventListener("click", () => openResumeViewer(item));
+        group.append(viewBtn);
+      }
+
       const a = document.createElement(item.available ? "a" : "span");
       a.className = "download-btn" + (item.available ? "" : " missing");
-      a.textContent = item.lang.toUpperCase();
+      a.textContent = item.available
+        ? `DL ${item.lang.toUpperCase()}`
+        : item.lang.toUpperCase();
       if (item.available) {
         a.href = item.url;
         a.setAttribute("download", item.filename);
         a.title = item.filename;
       } else {
-        a.title =
-          getLangMode() === "en"
-            ? "PDF not found — run python scripts/build_outputs.py"
-            : "PDF ausente — rode python scripts/build_outputs.py";
+        a.title = "PDF not found — run python scripts/build_outputs.py";
       }
-      actions.append(a);
+      group.append(a);
+
+      if (opts?.isResume && item.page_count != null) {
+        const badge = document.createElement("span");
+        badge.className =
+          "page-count-badge" +
+          (item.one_page_ok === false
+            ? " is-bad"
+            : item.one_page_ok
+              ? " is-ok"
+              : "");
+        badge.textContent = `${item.page_count}p`;
+        group.append(badge);
+      }
+
+      actions.append(group);
     }
     row.append(actions);
     return row;
   }
 
   async function init() {
-    try {
-      window.name = "career-profile";
-    } catch {
-      /* ignore */
-    }
     initLangMode();
     initDetailMode();
+    wireResumeViewer();
     const saveBtn = document.getElementById("save-btn");
     if (saveBtn) saveBtn.addEventListener("click", () => saveAll());
     const openCompaniesBtn = document.getElementById("open-companies-btn");
     if (openCompaniesBtn) {
       openCompaniesBtn.addEventListener("click", () => openCompaniesWindow());
+    }
+    const openJobsBtn = document.getElementById("open-jobs-btn");
+    if (openJobsBtn) {
+      openJobsBtn.addEventListener("click", () => openJobsWindow());
     }
     wireAddButtons();
     initKeyboard();
@@ -1513,11 +1580,7 @@
       setDirty(false);
       setSaveStatus("");
     } catch (err) {
-      setSaveStatus(
-        (getLangMode() === "en" ? "Load error: " : "Erro ao carregar: ") +
-          (err.message || String(err)),
-        "err",
-      );
+      setSaveStatus("Load error: " + (err.message || String(err)), "err");
     }
     await loadDownloads();
   }

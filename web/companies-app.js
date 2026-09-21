@@ -1,7 +1,5 @@
 (() => {
   const LANG_KEY = "career-cockpit-lang";
-  const WIN_NAME_PROFILE = "career-profile";
-  const WIN_NAME_COMPANIES = "career-companies-search";
 
   const FIT_FIELDS = [
     {
@@ -34,7 +32,7 @@
   let query = "";
   let categoryFilter = "";
   let roleFilter = "";
-  let expandedId = "";
+  let openCompanyId = "";
 
   function cell(v) {
     return v == null ? "" : String(v);
@@ -64,8 +62,9 @@
     } catch {
       /* ignore */
     }
-    document.documentElement.lang = mode === "en" ? "en" : "pt-BR";
+    document.documentElement.lang = "en";
     render();
+    if (openCompanyId) fillModal();
   }
 
   function setDirty(next) {
@@ -84,9 +83,11 @@
   }
 
   function openProfileWindow() {
-    const w = window.open("/", "career-profile");
-    if (w) w.focus();
-    return w;
+    location.assign("/");
+  }
+
+  function openJobsWindow() {
+    location.assign("/jobs.html");
   }
 
   function roleCount(row) {
@@ -164,15 +165,32 @@
     btn.className =
       "filter-chip" + (activeKey === chip.key ? " is-active" : "");
     btn.setAttribute("aria-pressed", activeKey === chip.key ? "true" : "false");
-    const en = document.createElement("span");
-    en.className = "filter-chip-en";
-    en.textContent = chip.en;
-    const pt = document.createElement("span");
-    pt.className = "filter-chip-pt";
-    pt.textContent = chip.pt;
-    btn.append(en, pt);
+    btn.textContent = getLangMode() === "pt" ? chip.pt || chip.en : chip.en;
     btn.addEventListener("click", () => onSelect(chip.key));
     return btn;
+  }
+
+  function appendEn(parent, text, className) {
+    const wrap = document.createElement("div");
+    if (className) wrap.className = className;
+    wrap.textContent = text || "";
+    parent.append(wrap);
+    return wrap;
+  }
+
+  /** Content values only — EN/PT spans switched by CSS lang mode. */
+  function appendValues(parent, enText, ptText, className) {
+    const wrap = document.createElement("div");
+    if (className) wrap.className = className;
+    const en = document.createElement("span");
+    en.className = "panel-heading-en";
+    en.textContent = enText || "";
+    const pt = document.createElement("span");
+    pt.className = "panel-heading-pt";
+    pt.textContent = ptText || enText || "";
+    wrap.append(en, pt);
+    parent.append(wrap);
+    return wrap;
   }
 
   function renderFilters() {
@@ -184,15 +202,9 @@
     catRow.className = "company-filter-row";
     const catLabel = document.createElement("span");
     catLabel.className = "company-filter-label";
-    const ce = document.createElement("span");
-    ce.className = "filter-chip-en";
-    ce.textContent = "Category";
-    const cp = document.createElement("span");
-    cp.className = "filter-chip-pt";
-    cp.textContent = "Categoria";
-    catLabel.append(ce, cp);
+    appendEn(catLabel, "Category");
     catRow.append(catLabel);
-    const catChips = [{ key: "", en: "All", pt: "Todas" }].concat(
+    const catChips = [{ key: "", en: "All", pt: "All" }].concat(
       categories().map(([key, labels]) => ({
         key,
         en: labels.en,
@@ -213,16 +225,10 @@
     roleRow.className = "company-filter-row";
     const roleLabel = document.createElement("span");
     roleLabel.className = "company-filter-label";
-    const re = document.createElement("span");
-    re.className = "filter-chip-en";
-    re.textContent = "Career path";
-    const rp = document.createElement("span");
-    rp.className = "filter-chip-pt";
-    rp.textContent = "Trilha";
-    roleLabel.append(re, rp);
+    appendEn(roleLabel, "Career path");
     roleRow.append(roleLabel);
     const roleChips = [
-      { key: "", en: "All paths", pt: "Todas as trilhas" },
+      { key: "", en: "All paths", pt: "All paths" },
       { key: "da", en: "Data Analyst", pt: "Data Analyst" },
       { key: "po", en: "Product Owner", pt: "Product Owner" },
       {
@@ -230,7 +236,7 @@
         en: "Digital Solution Architect",
         pt: "Digital Solution Architect",
       },
-      { key: "multi", en: "Multi-role", pt: "Multi-trilha" },
+      { key: "multi", en: "Multi-role", pt: "Multi-role" },
     ];
     for (const chip of roleChips) {
       roleRow.append(
@@ -243,62 +249,56 @@
     root.append(roleRow);
   }
 
-  function pick(row, enKey, ptKey) {
-    const mode = getLangMode();
-    if (mode === "pt") return cell(row[ptKey]) || cell(row[enKey]);
-    if (mode === "en") return cell(row[enKey]) || cell(row[ptKey]);
-    return { en: cell(row[enKey]), pt: cell(row[ptKey]) || cell(row[enKey]) };
+  function tileSpanClass(row) {
+    const multi = roleCount(row) >= 2;
+    const high = cell(row.priority).toLowerCase() === "high";
+    return multi || high ? " company-tile-wide" : "";
   }
 
-  function appendBilingual(parent, enText, ptText, className) {
-    const wrap = document.createElement("div");
-    wrap.className = className || "";
-    const en = document.createElement("span");
-    en.className = "panel-heading-en";
-    en.textContent = enText || "";
-    const pt = document.createElement("span");
-    pt.className = "panel-heading-pt";
-    pt.textContent = ptText || enText || "";
-    wrap.append(en, pt);
-    parent.append(wrap);
-  }
-
-  function renderResultCard(row) {
-    const article = document.createElement("article");
-    article.className =
-      "company-result" + (expandedId === row.id ? " is-open" : "");
-    article.dataset.id = row.id;
-
-    const head = document.createElement("button");
-    head.type = "button";
-    head.className = "company-result-head";
-    head.addEventListener("click", () => {
-      expandedId = expandedId === row.id ? "" : row.id;
-      renderResults();
-    });
+  function renderTile(row) {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className =
+      "company-tile" +
+      tileSpanClass(row) +
+      (openCompanyId === row.id ? " is-active" : "");
+    btn.dataset.id = row.id;
+    btn.addEventListener("click", () => openModal(row.id));
 
     const title = document.createElement("div");
-    title.className = "company-result-title";
-    appendBilingual(
+    title.className = "company-tile-title";
+    appendValues(
       title,
       cell(row.name_en) || row.id,
       cell(row.name_pt) || cell(row.name_en) || row.id,
     );
 
     const meta = document.createElement("div");
-    meta.className = "company-result-meta";
-    const city = pick(row, "city_en", "city_pt");
-    const cat = pick(row, "category_en", "category_pt");
-    if (typeof city === "string") {
-      meta.textContent = [city, cat, row.priority, row.status]
+    meta.className = "company-tile-meta";
+    appendValues(
+      meta,
+      [cell(row.city_en), cell(row.category_en)].filter(Boolean).join(" · "),
+      [
+        cell(row.city_pt) || cell(row.city_en),
+        cell(row.category_pt) || cell(row.category_en),
+      ]
         .filter(Boolean)
-        .join(" · ");
-    } else {
-      appendBilingual(
-        meta,
-        [city.en, cat.en, row.priority, row.status].filter(Boolean).join(" · "),
-        [city.pt, cat.pt, row.priority, row.status].filter(Boolean).join(" · "),
-      );
+        .join(" · "),
+    );
+
+    const chips = document.createElement("div");
+    chips.className = "company-tile-chips";
+    if (row.priority) {
+      const p = document.createElement("span");
+      p.className = "company-chip company-chip-priority";
+      p.textContent = row.priority;
+      chips.append(p);
+    }
+    if (row.status) {
+      const s = document.createElement("span");
+      s.className = "company-chip";
+      s.textContent = row.status;
+      chips.append(s);
     }
 
     const badges = document.createElement("div");
@@ -311,120 +311,16 @@
       badge.title = fit.en;
       badges.append(badge);
     }
-    if (roleCount(row) >= 2) {
+    const rc = roleCount(row);
+    if (rc >= 2) {
       const multi = document.createElement("span");
       multi.className = "role-badge role-badge-multi is-on";
-      multi.textContent = `Multi (${roleCount(row)})`;
+      multi.textContent = `Multi (${rc})`;
       badges.append(multi);
     }
 
-    head.append(title, meta, badges);
-    article.append(head);
-
-    if (expandedId === row.id) {
-      const body = document.createElement("div");
-      body.className = "company-result-body";
-
-      const skillsRaw =
-        getLangMode() === "pt"
-          ? cell(row.skills_match_pt) || cell(row.skills_match_en)
-          : cell(row.skills_match_en) || cell(row.skills_match_pt);
-      const skills = skillsRaw
-        .split(/[;|,]/)
-        .map((s) => s.trim())
-        .filter(Boolean);
-      if (skills.length) {
-        const skillsBlock = document.createElement("div");
-        skillsBlock.className = "company-skills";
-        const lab = document.createElement("div");
-        lab.className = "company-research-label";
-        appendBilingual(lab, "Matching skills", "Competências alinhadas");
-        const pills = document.createElement("div");
-        pills.className = "skill-pills";
-        for (const s of skills) {
-          const pill = document.createElement("span");
-          pill.className = "skill-pill";
-          pill.textContent = s;
-          pills.append(pill);
-        }
-        skillsBlock.append(lab, pills);
-        body.append(skillsBlock);
-      }
-
-      const why =
-        getLangMode() === "pt"
-          ? cell(row.fit_why_pt) || cell(row.fit_why_en)
-          : cell(row.fit_why_en) || cell(row.fit_why_pt);
-      if (why) {
-        const whyBlock = document.createElement("div");
-        whyBlock.className = "company-fit-why";
-        const lab = document.createElement("div");
-        lab.className = "company-research-label";
-        appendBilingual(lab, "Why this path fits", "Por que a trilha encaixa");
-        const p = document.createElement("p");
-        p.className = "company-fit-why-text";
-        p.textContent = why;
-        whyBlock.append(lab, p);
-        body.append(whyBlock);
-      }
-
-      if (row.website) {
-        const link = document.createElement("a");
-        link.className = "company-result-link";
-        link.href = row.website;
-        link.target = "_blank";
-        link.rel = "noopener noreferrer";
-        link.textContent = row.website;
-        body.append(link);
-      }
-
-      const editRow = document.createElement("div");
-      editRow.className = "company-result-edit";
-      for (const field of [
-        { key: "status", labelEn: "Status", labelPt: "Status" },
-        { key: "priority", labelEn: "Priority", labelPt: "Prioridade" },
-      ]) {
-        const label = document.createElement("label");
-        label.className = "company-edit-field";
-        const lab = document.createElement("span");
-        appendBilingual(lab, field.labelEn, field.labelPt);
-        const input = document.createElement("input");
-        input.className = "field-input";
-        input.value = cell(row[field.key]);
-        input.addEventListener("input", () => {
-          row[field.key] = input.value;
-          setDirty(true);
-          setSaveStatus("");
-        });
-        label.append(lab, input);
-        editRow.append(label);
-      }
-      body.append(editRow);
-
-      const noteLabel = document.createElement("label");
-      noteLabel.className = "company-edit-field company-edit-notes";
-      const nl = document.createElement("span");
-      appendBilingual(nl, "Search notes", "Notas de busca");
-      const ta = document.createElement("textarea");
-      ta.className = "field-input tall";
-      ta.rows = 3;
-      ta.value =
-        getLangMode() === "pt"
-          ? cell(row.notes_pt) || cell(row.notes_en)
-          : cell(row.notes_en);
-      ta.addEventListener("input", () => {
-        if (getLangMode() === "pt") row.notes_pt = ta.value;
-        else row.notes_en = ta.value;
-        setDirty(true);
-        setSaveStatus("");
-      });
-      noteLabel.append(nl, ta);
-      body.append(noteLabel);
-
-      article.append(body);
-    }
-
-    return article;
+    btn.append(title, meta, chips, badges);
+    return btn;
   }
 
   function renderResults() {
@@ -434,22 +330,286 @@
     root.replaceChildren();
     const rows = filteredRows();
     if (countEl) {
-      const en = `${rows.length} result${rows.length === 1 ? "" : "s"}`;
-      const pt = `${rows.length} resultado${rows.length === 1 ? "" : "s"}`;
       countEl.replaceChildren();
-      appendBilingual(countEl, en, pt);
+      countEl.textContent = `${rows.length} compan${rows.length === 1 ? "y" : "ies"}`;
     }
     if (!rows.length) {
       const empty = document.createElement("p");
-      empty.className = "empty-state";
-      empty.textContent =
-        getLangMode() === "en"
-          ? "No companies match this search."
-          : "Nenhuma empresa corresponde a esta busca.";
+      empty.className = "empty-state company-bento-empty";
+      empty.textContent = "No companies match this search.";
       root.append(empty);
       return;
     }
-    for (const row of rows) root.append(renderResultCard(row));
+    for (const row of rows) root.append(renderTile(row));
+  }
+
+  function currentOpenRow() {
+    return companies.find((r) => r.id === openCompanyId) || null;
+  }
+
+  function openModal(id) {
+    openCompanyId = id;
+    const dialog = document.getElementById("company-modal");
+    fillModal();
+    if (dialog && typeof dialog.showModal === "function") {
+      if (!dialog.open) dialog.showModal();
+    }
+    renderResults();
+  }
+
+  function closeModal() {
+    openCompanyId = "";
+    const dialog = document.getElementById("company-modal");
+    if (dialog && dialog.open) dialog.close();
+    renderResults();
+  }
+
+  function fillModal() {
+    const row = currentOpenRow();
+    const titleEl = document.getElementById("company-modal-title");
+    const body = document.getElementById("company-modal-body");
+    if (!titleEl || !body) return;
+    titleEl.replaceChildren();
+    body.replaceChildren();
+    if (!row) return;
+
+    appendValues(
+      titleEl,
+      cell(row.name_en) || row.id,
+      cell(row.name_pt) || cell(row.name_en) || row.id,
+    );
+
+    const badges = document.createElement("div");
+    badges.className = "role-badges company-modal-badges";
+    for (const fit of FIT_FIELDS) {
+      const on = isFitYes(row[fit.field]);
+      const badge = document.createElement("span");
+      badge.className = "role-badge" + (on ? " is-on" : " is-off");
+      badge.textContent = `${fit.short}: ${on ? "yes" : "no"}`;
+      badge.title = fit.en;
+      badges.append(badge);
+    }
+    if (roleCount(row) >= 2) {
+      const multi = document.createElement("span");
+      multi.className = "role-badge role-badge-multi is-on";
+      multi.textContent = `Multi (${roleCount(row)})`;
+      badges.append(multi);
+    }
+    body.append(badges);
+
+    const facts = document.createElement("div");
+    facts.className = "company-modal-facts";
+    const factPairs = [
+      {
+        labelEn: "Category",
+        labelPt: "Categoria",
+        en: cell(row.category_en),
+        pt: cell(row.category_pt) || cell(row.category_en),
+      },
+      {
+        labelEn: "City",
+        labelPt: "Cidade",
+        en: cell(row.city_en),
+        pt: cell(row.city_pt) || cell(row.city_en),
+      },
+      {
+        labelEn: "Region",
+        labelPt: "Região",
+        en: cell(row.region_en),
+        pt: cell(row.region_pt) || cell(row.region_en),
+      },
+    ];
+    for (const fact of factPairs) {
+      if (!fact.en && !fact.pt) continue;
+      const block = document.createElement("div");
+      block.className = "company-modal-fact";
+      const lab = document.createElement("div");
+      lab.className = "company-research-label";
+      appendEn(lab, fact.labelEn);
+      const val = document.createElement("div");
+      val.className = "company-modal-fact-value";
+      appendValues(val, fact.en, fact.pt);
+      block.append(lab, val);
+      facts.append(block);
+    }
+    body.append(facts);
+
+    if (row.website) {
+      const link = document.createElement("a");
+      link.className = "company-result-link";
+      link.href = row.website;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.textContent = row.website;
+      body.append(link);
+    }
+
+    const skillsEn = cell(row.skills_match_en);
+    const skillsPt = cell(row.skills_match_pt) || skillsEn;
+    const skillsRaw =
+      getLangMode() === "pt"
+        ? skillsPt
+        : getLangMode() === "en"
+          ? skillsEn || skillsPt
+          : skillsEn || skillsPt;
+    const skills = skillsRaw
+      .split(/[;|,]/)
+      .map((s) => s.trim())
+      .filter(Boolean);
+    if (skills.length) {
+      const skillsBlock = document.createElement("div");
+      skillsBlock.className = "company-skills";
+      const lab = document.createElement("div");
+      lab.className = "company-research-label";
+      appendEn(lab, "Matching skills");
+      const pills = document.createElement("div");
+      pills.className = "skill-pills";
+      for (const s of skills) {
+        const pill = document.createElement("span");
+        pill.className = "skill-pill";
+        pill.textContent = s;
+        pills.append(pill);
+      }
+      skillsBlock.append(lab, pills);
+      body.append(skillsBlock);
+    }
+
+    const whyEn = cell(row.fit_why_en);
+    const whyPt = cell(row.fit_why_pt) || whyEn;
+    if (whyEn || whyPt) {
+      const whyBlock = document.createElement("div");
+      whyBlock.className = "company-fit-why";
+      const lab = document.createElement("div");
+      lab.className = "company-research-label";
+      appendEn(lab, "Why this path fits");
+      whyBlock.append(lab);
+      if (getLangMode() === "both") {
+        const cols = document.createElement("div");
+        cols.className = "company-modal-bilingual";
+        for (const side of [
+          { tag: "EN", text: whyEn },
+          { tag: "PT", text: whyPt },
+        ]) {
+          const p = document.createElement("p");
+          p.className = "company-fit-why-text";
+          const tag = document.createElement("span");
+          tag.className = "profile-summary-lang";
+          tag.textContent = side.tag;
+          const txt = document.createElement("span");
+          txt.textContent = side.text;
+          p.append(tag, document.createElement("br"), txt);
+          cols.append(p);
+        }
+        whyBlock.append(cols);
+      } else {
+        const p = document.createElement("p");
+        p.className = "company-fit-why-text";
+        p.textContent = getLangMode() === "pt" ? whyPt : whyEn;
+        whyBlock.append(p);
+      }
+      body.append(whyBlock);
+    }
+
+    const editRow = document.createElement("div");
+    editRow.className = "company-result-edit";
+    for (const field of [
+      { key: "status", labelEn: "Status", labelPt: "Status" },
+      { key: "priority", labelEn: "Priority", labelPt: "Priority" },
+    ]) {
+      const label = document.createElement("label");
+      label.className = "company-edit-field";
+      const lab = document.createElement("span");
+      appendEn(lab, field.labelEn);
+      const input = document.createElement("input");
+      input.className = "field-input";
+      input.value = cell(row[field.key]);
+      input.addEventListener("input", () => {
+        row[field.key] = input.value;
+        setDirty(true);
+        setSaveStatus("");
+        renderResults();
+      });
+      label.append(lab, input);
+      editRow.append(label);
+    }
+    body.append(editRow);
+
+    const notesBlock = document.createElement("div");
+    notesBlock.className = "company-modal-notes";
+    if (getLangMode() === "both") {
+      for (const side of [
+        { key: "notes_en", tag: "EN" },
+        { key: "notes_pt", tag: "PT" },
+      ]) {
+        const label = document.createElement("label");
+        label.className = "company-edit-field";
+        const lab = document.createElement("span");
+        lab.className = "profile-summary-lang";
+        lab.textContent = side.tag + " notes";
+        const ta = document.createElement("textarea");
+        ta.className = "field-input tall";
+        ta.rows = 4;
+        ta.value = cell(row[side.key]);
+        ta.addEventListener("input", () => {
+          row[side.key] = ta.value;
+          setDirty(true);
+          setSaveStatus("");
+        });
+        label.append(lab, ta);
+        notesBlock.append(label);
+      }
+    } else {
+      const key = getLangMode() === "pt" ? "notes_pt" : "notes_en";
+      const label = document.createElement("label");
+      label.className = "company-edit-field";
+      const lab = document.createElement("span");
+      appendEn(lab, "Notes");
+      const ta = document.createElement("textarea");
+      ta.className = "field-input tall";
+      ta.rows = 4;
+      ta.value =
+        getLangMode() === "pt"
+          ? cell(row.notes_pt) || cell(row.notes_en)
+          : cell(row.notes_en);
+      ta.addEventListener("input", () => {
+        row[key] = ta.value;
+        setDirty(true);
+        setSaveStatus("");
+      });
+      label.append(lab, ta);
+      notesBlock.append(label);
+    }
+    body.append(notesBlock);
+
+    // Fit toggles for search curation
+    const fitEdit = document.createElement("div");
+    fitEdit.className = "company-modal-fits";
+    const fitLab = document.createElement("div");
+    fitLab.className = "company-research-label";
+    appendEn(fitLab, "Path fit (yes/no)");
+    fitEdit.append(fitLab);
+    const fitRow = document.createElement("div");
+    fitRow.className = "company-result-edit";
+    for (const fit of FIT_FIELDS) {
+      const label = document.createElement("label");
+      label.className = "company-edit-field";
+      const lab = document.createElement("span");
+      lab.textContent = fit.short;
+      const input = document.createElement("input");
+      input.className = "field-input";
+      input.value = cell(row[fit.field]) || "no";
+      input.addEventListener("input", () => {
+        row[fit.field] = input.value;
+        setDirty(true);
+        setSaveStatus("");
+        fillModal();
+        renderResults();
+      });
+      label.append(lab, input);
+      fitRow.append(label);
+    }
+    fitEdit.append(fitRow);
+    body.append(fitEdit);
   }
 
   function render() {
@@ -463,13 +623,21 @@
       id,
       sort_order: String(companies.length + 1),
       category_en: "",
+      category_detail_en: "",
       category_pt: "",
-      name_en: "",
-      name_pt: "",
+      category_detail_pt: "",
+      name_en: "New company",
+      name_detail_en: "New company",
+      name_pt: "Nova empresa",
+      name_detail_pt: "Nova empresa",
       city_en: "",
+      city_detail_en: "",
       city_pt: "",
+      city_detail_pt: "",
       region_en: "",
+      region_detail_en: "",
       region_pt: "",
+      region_detail_pt: "",
       priority: "medium",
       status: "researching",
       fit_data_analyst: "yes",
@@ -477,11 +645,17 @@
       fit_digital_solution_architect: "no",
       website: "",
       skills_match_en: "",
+      skills_match_detail_en: "",
       skills_match_pt: "",
+      skills_match_detail_pt: "",
       fit_why_en: "",
+      fit_why_detail_en: "",
       fit_why_pt: "",
+      fit_why_detail_pt: "",
       notes_en: "",
+      notes_detail_en: "",
       notes_pt: "",
+      notes_detail_pt: "",
     };
   }
 
@@ -502,7 +676,7 @@
     setDirty(true);
     const btn = document.getElementById("save-btn");
     if (btn) btn.disabled = true;
-    setSaveStatus(getLangMode() === "en" ? "Saving…" : "Salvando…");
+    setSaveStatus("Saving…");
     try {
       collections.companies = companies;
       const res = await fetch("/api/state", {
@@ -515,13 +689,9 @@
         throw new Error(payload.error || `HTTP ${res.status}`);
       }
       setDirty(false);
-      setSaveStatus(getLangMode() === "en" ? "Saved." : "Salvo.", "ok");
+      setSaveStatus("Saved.", "ok");
     } catch (err) {
-      setSaveStatus(
-        (getLangMode() === "en" ? "Error: " : "Erro: ") +
-          (err.message || String(err)),
-        "err",
-      );
+      setSaveStatus("Error: " + (err.message || String(err)), "err");
       setDirty(true);
     } finally {
       saving = false;
@@ -575,6 +745,11 @@
       if (event.key.toLowerCase() === "p") {
         event.preventDefault();
         openProfileWindow();
+        return;
+      }
+      if (event.key.toLowerCase() === "j") {
+        event.preventDefault();
+        openJobsWindow();
       }
     });
   }
@@ -587,21 +762,45 @@
     } catch {
       /* ignore */
     }
-    setLangMode(mode);
-  }
-
-  async function init() {
+    document.body.classList.remove("lang-pt", "lang-en");
+    if (mode === "pt" || mode === "en") {
+      document.body.classList.add(`lang-${mode}`);
+    }
     try {
-      window.name = WIN_NAME_COMPANIES;
+      localStorage.setItem(LANG_KEY, mode);
     } catch {
       /* ignore */
     }
+    document.documentElement.lang = "en";
+  }
+
+  function wireModal() {
+    const dialog = document.getElementById("company-modal");
+    const closeBtn = document.getElementById("company-modal-close");
+    if (closeBtn) closeBtn.addEventListener("click", () => closeModal());
+    if (dialog) {
+      dialog.addEventListener("close", () => {
+        openCompanyId = "";
+        renderResults();
+      });
+      dialog.addEventListener("click", (event) => {
+        if (event.target === dialog) closeModal();
+      });
+    }
+  }
+
+  async function init() {
     initLangMode();
+    wireModal();
     const saveBtn = document.getElementById("save-btn");
     if (saveBtn) saveBtn.addEventListener("click", () => saveAll());
     const profileBtn = document.getElementById("open-profile-btn");
     if (profileBtn) {
       profileBtn.addEventListener("click", () => openProfileWindow());
+    }
+    const jobsBtn = document.getElementById("open-jobs-btn");
+    if (jobsBtn) {
+      jobsBtn.addEventListener("click", () => openJobsWindow());
     }
     const search = document.getElementById("company-search-input");
     if (search) {
@@ -616,13 +815,13 @@
       addBtn.addEventListener("click", () => {
         const row = blankCompany();
         companies.push(row);
-        expandedId = row.id;
         categoryFilter = "";
         roleFilter = "";
         query = "";
         if (search) search.value = "";
         setDirty(true);
         render();
+        openModal(row.id);
       });
     }
     initKeyboard();
@@ -638,11 +837,7 @@
       setDirty(false);
       setSaveStatus("");
     } catch (err) {
-      setSaveStatus(
-        (getLangMode() === "en" ? "Load error: " : "Erro ao carregar: ") +
-          (err.message || String(err)),
-        "err",
-      );
+      setSaveStatus("Load error: " + (err.message || String(err)), "err");
     }
   }
 

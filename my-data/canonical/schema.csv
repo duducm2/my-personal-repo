@@ -303,3 +303,36 @@ companies.csv,notes_en,Notes (EN),Notas (EN)
 companies.csv,notes_detail_en,Detail: notes (EN),Detalhe: notes (EN)
 companies.csv,notes_pt,Notes (PT),Notas (PT)
 companies.csv,notes_detail_pt,Detail: notes (PT),Detalhe: notes (PT)
+job_openings.csv,id,Opening ID,ID da vaga
+job_openings.csv,sort_order,Sort order,Ordem
+job_openings.csv,company,Company,Empresa
+job_openings.csv,company_key,Company key,Chave da empresa
+job_openings.csv,role_title,Role title,Cargo
+job_openings.csv,career_path,Career path (da/po/dsa/other),Trilha (da/po/dsa/other)
+job_openings.csv,job_url,Job URL,URL da vaga
+job_openings.csv,status,Status,Status
+job_openings.csv,priority,Priority,Prioridade
+job_openings.csv,work_mode,Work mode,Modelo de trabalho
+job_openings.csv,location,Location,Local
+job_openings.csv,source,Source,Fonte
+job_openings.csv,found_on,Found on,Encontrada em
+job_openings.csv,applied_on,Applied on,Candidatado em
+job_openings.csv,next_action,Next action,Próxima ação
+job_openings.csv,next_action_date,Next action date,Data da próxima ação
+job_openings.csv,salary_range,Salary range,Faixa salarial
+job_openings.csv,fit_interest,Interest (1-5),Interesse (1-5)
+job_openings.csv,skills_gap,Skills gap / blockers,Lacunas / bloqueios
+job_openings.csv,job_description,Job description,Descrição da vaga
+job_openings.csv,notes,Notes,Notas
+job_openings.csv,contact_person,Contact person,Contato
+job_openings.csv,contact_note,Contact note,Nota do contato
+job_platforms.csv,id,Platform ID,ID da plataforma
+job_platforms.csv,sort_order,Sort order,Ordem
+job_platforms.csv,company_key,Company key,Chave da empresa
+job_platforms.csv,label,Label,Rótulo
+job_platforms.csv,url,URL,URL
+job_communities.csv,id,Community ID,ID da comunidade
+job_communities.csv,sort_order,Sort order,Ordem
+job_communities.csv,name,Name,Nome
+job_communities.csv,url,URL,URL
+job_communities.csv,notes,Notes,Notas

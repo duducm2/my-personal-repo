@@ -138,6 +138,27 @@ def run(cmd: list[str], *, cwd: Path = ROOT) -> None:
     subprocess.run(cmd, cwd=cwd, check=True)
 
 
+def pdf_page_count(path: Path) -> int:
+    import re
+
+    data = path.read_bytes()
+    return len(re.findall(rb"/Type\s*/Page(?![s\w])", data))
+
+
+def assert_resume_one_page(path: Path, *, strict: bool) -> None:
+    pages = pdf_page_count(path)
+    if pages == 1:
+        print(f"  ok 1-page: {path.relative_to(ROOT)}")
+        return
+    msg = (
+        f"Resume page limit violated: {path.relative_to(ROOT)} "
+        f"has {pages} page(s); hard limit is 1 A4 page."
+    )
+    if strict:
+        raise SystemExit(msg)
+    print(f"  WARN {msg}")
+
+
 def generate(lang_arg: str) -> None:
     run(
         [
@@ -205,6 +226,11 @@ def main() -> int:
         action="store_true",
         help="Skip audit_canonical_data.py after generate",
     )
+    parser.add_argument(
+        "--strict-pages",
+        action="store_true",
+        help="Fail the build if any resume is not exactly 1 A4 page",
+    )
     args = parser.parse_args()
     langs = LANGS if args.lang == "all" else (args.lang,)
 
@@ -217,6 +243,10 @@ def main() -> int:
     for lang in langs:
         for variant in VARIANTS:
             compile_resume(variant, lang)
+            assert_resume_one_page(
+                OUTPUTS[(variant, lang, "resume")],
+                strict=args.strict_pages,
+            )
             compile_portfolio(variant, lang)
 
     for legacy in LEGACY_PDFS:
