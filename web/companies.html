@@ -45,11 +45,25 @@
           <span class="section-title-en"
             >Click a tile for the full dossier. UI stays English.
             <kbd>Shift+J</kbd> portals · <kbd>Shift+P</kbd> profile ·
-            <kbd>Shift+O</kbd> openings ·
-            <kbd>Shift+1</kbd>/<kbd>2</kbd>/<kbd>0</kbd> field values (PT / EN / both) ·
-            <kbd>Ctrl+Enter</kbd> save · <kbd>Esc</kbd> close modal / home.</span>
+            <kbd>Shift+O</kbd> openings · <kbd>Alt+S</kbd> search ·
+            <kbd>Shift+1</kbd>/<kbd>2</kbd>/<kbd>0</kbd> field values (PT / EN /
+            both) · <kbd>Ctrl+Enter</kbd> save · <kbd>Esc</kbd> close search /
+            modal / home.</span
+          >
         </p>
       </header>
+
+      <div id="search-bar" class="cockpit-search-bar" aria-hidden="true">
+        <input
+          id="company-search-input"
+          class="cockpit-search-input"
+          type="search"
+          autocomplete="off"
+          spellcheck="false"
+          placeholder="Name, city, skills, notes, website…"
+          title="Search (Alt+S)"
+        />
+      </div>
 
       <main>
         <section
@@ -57,17 +71,7 @@
           aria-label="Company search"
         >
           <div class="company-search-sticky">
-            <div class="company-search-bar">
-              <label class="company-search-label" for="company-search-input">
-                <span class="filter-chip-en">Search</span>
-              </label>
-              <input
-                id="company-search-input"
-                class="company-search-input"
-                type="search"
-                autocomplete="off"
-                placeholder="Name, city, skills, notes, website…"
-              />
+            <div class="company-toolbar">
               <button type="button" id="company-add-btn" class="add-btn">
                 + Add
               </button>
@@ -88,7 +92,11 @@
       </main>
     </div>
 
-    <dialog id="company-modal" class="company-modal" aria-labelledby="company-modal-title">
+    <dialog
+      id="company-modal"
+      class="company-modal"
+      aria-labelledby="company-modal-title"
+    >
       <div class="company-modal-inner">
         <header class="company-modal-head">
           <h2 id="company-modal-title" class="company-modal-title"></h2>

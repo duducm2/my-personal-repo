@@ -1,6 +1,11 @@
 (() => {
   const FIT_PATHS = [
-    { key: "da", short: "DA", label: "Data Analyst", field: "fit_data_analyst" },
+    {
+      key: "da",
+      short: "DA",
+      label: "Data Analyst",
+      field: "fit_data_analyst",
+    },
     {
       key: "po",
       short: "PO",
@@ -45,9 +50,7 @@
     const k = cell(kind).toLowerCase();
     if (k === "third_party") {
       return {
-        label: atsName
-          ? `[Third-Party ATS] ${atsName}`
-          : "[Third-Party ATS]",
+        label: atsName ? `[Third-Party ATS] ${atsName}` : "[Third-Party ATS]",
         className: "company-chip company-chip-ats",
       };
     }
@@ -77,6 +80,63 @@
 
   function openOpeningsWindow() {
     location.assign("/jobs.html");
+  }
+
+  function searchBarEl() {
+    return document.getElementById("search-bar");
+  }
+
+  function searchInputEl() {
+    return document.getElementById("portal-search-input");
+  }
+
+  function isSearchBarOpen() {
+    return !!searchBarEl()?.classList.contains("is-open");
+  }
+
+  function showSearchBar() {
+    const bar = searchBarEl();
+    if (!bar) return;
+    bar.classList.add("is-open");
+    bar.setAttribute("aria-hidden", "false");
+  }
+
+  function hideSearchBar() {
+    const bar = searchBarEl();
+    if (!bar) return;
+    bar.classList.remove("is-open");
+    bar.setAttribute("aria-hidden", "true");
+    const inp = searchInputEl();
+    if (inp && document.activeElement === inp) inp.blur();
+  }
+
+  function focusSearch() {
+    const inp = searchInputEl();
+    if (!inp) return;
+    showSearchBar();
+    requestAnimationFrame(() => {
+      inp.focus({ preventScroll: true });
+      inp.select();
+    });
+  }
+
+  function toggleSearchBar() {
+    const bar = searchBarEl();
+    if (!bar) return;
+    if (bar.classList.contains("is-open")) {
+      const inp = searchInputEl();
+      if (inp && document.activeElement === inp && !(inp.value || "").trim()) {
+        hideSearchBar();
+        return;
+      }
+      focusSearch();
+      return;
+    }
+    focusSearch();
+  }
+
+  function dismissSearchBar() {
+    hideSearchBar();
   }
 
   function makeChip(chip, activeKey, onPick) {
@@ -215,7 +275,16 @@
           const isLocal =
             region.includes("campinas") ||
             (region.includes("brazil") && !region.includes("global"));
-          if (isLocal && !region.includes("united states") && !region.includes("germany") && !region.includes("china") && !region.includes("sweden") && !region.includes("netherlands") && !region.includes("australia") && !region.includes("remote")) {
+          if (
+            isLocal &&
+            !region.includes("united states") &&
+            !region.includes("germany") &&
+            !region.includes("china") &&
+            !region.includes("sweden") &&
+            !region.includes("netherlands") &&
+            !region.includes("australia") &&
+            !region.includes("remote")
+          ) {
             return false;
           }
         }
@@ -278,7 +347,9 @@
         : cell(row.scope).toLowerCase() === "international"
           ? "International"
           : cell(row.scope);
-    meta.textContent = [scopeLabel, cell(row.notes)].filter(Boolean).join(" · ");
+    meta.textContent = [scopeLabel, cell(row.notes)]
+      .filter(Boolean)
+      .join(" · ");
 
     const chips = document.createElement("div");
     chips.className = "company-tile-chips";
@@ -288,7 +359,10 @@
     tagEl.textContent = tag.label;
     chips.append(tagEl);
 
-    if (cell(row.ats_url) && cell(row.system_kind).toLowerCase() === "third_party") {
+    if (
+      cell(row.ats_url) &&
+      cell(row.system_kind).toLowerCase() === "third_party"
+    ) {
       const atsLink = document.createElement("a");
       atsLink.className = "portal-ats-link";
       atsLink.href = row.ats_url;
@@ -414,7 +488,22 @@
 
   function initKeyboard() {
     document.addEventListener("keydown", (event) => {
+      if (event.altKey && !event.ctrlKey && !event.metaKey && !event.shiftKey) {
+        const isS =
+          event.code === "KeyS" || (event.key || "").toLowerCase() === "s";
+        if (isS) {
+          event.preventDefault();
+          event.stopPropagation();
+          toggleSearchBar();
+          return;
+        }
+      }
       if (event.key === "Escape") {
+        if (isSearchBarOpen()) {
+          event.preventDefault();
+          dismissSearchBar();
+          return;
+        }
         event.preventDefault();
         openPortalsHome();
         return;
@@ -492,8 +581,17 @@
       search.addEventListener("input", () => {
         query = search.value;
         renderResults();
+        if ((search.value || "").trim()) showSearchBar();
       });
-      search.focus();
+      search.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape") return;
+        event.preventDefault();
+        event.stopPropagation();
+        dismissSearchBar();
+      });
+      search.addEventListener("blur", () => {
+        if (!(search.value || "").trim()) hideSearchBar();
+      });
     }
 
     try {

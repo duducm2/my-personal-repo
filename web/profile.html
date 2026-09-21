@@ -29,6 +29,9 @@
               <span class="section-title-en">Openings</span>
               <kbd>Shift+O</kbd>
             </button>
+            <span id="lang-mode-label" class="detail-mode-label"
+              >EN values</span
+            >
             <span id="detail-mode-label" class="detail-mode-label"
               >Summary</span
             >
@@ -45,14 +48,22 @@
         <p class="subtitle">
           <span class="section-title-en"
             >Profile. Edit and save to <code>my-data/canonical</code>. UI stays
-            English. <kbd>Shift+1</kbd>/<kbd>2</kbd>/<kbd>0</kbd> switch field
-            values (PT / EN / both). <kbd>Shift+J</kbd> portals ·
+            English. <kbd>Shift+1</kbd> Portuguese · <kbd>Shift+2</kbd> English
+            · <kbd>Shift+0</kbd> both (fields + resumes). Career path chips
+            filter titles and resumes. <kbd>Shift+J</kbd> portals ·
             <kbd>Shift+C</kbd> companies · <kbd>Shift+O</kbd> openings ·
             <kbd>Ctrl+Enter</kbd> save · <kbd>Shift+D</kbd> summary/detail ·
             <kbd>Shift+E</kbd> collapse · <kbd>Esc</kbd> home.</span
           >
         </p>
       </header>
+
+      <div
+        id="path-filters"
+        class="company-filters profile-path-filters"
+        role="group"
+        aria-label="Career path filter"
+      ></div>
 
       <main>
         <section class="section" aria-labelledby="profile-summary-heading">

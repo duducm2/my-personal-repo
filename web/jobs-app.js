@@ -43,6 +43,63 @@
     return v == null ? "" : String(v);
   }
 
+  function searchBarEl() {
+    return document.getElementById("search-bar");
+  }
+
+  function searchInputEl() {
+    return document.getElementById("job-search-input");
+  }
+
+  function isSearchBarOpen() {
+    return !!searchBarEl()?.classList.contains("is-open");
+  }
+
+  function showSearchBar() {
+    const bar = searchBarEl();
+    if (!bar) return;
+    bar.classList.add("is-open");
+    bar.setAttribute("aria-hidden", "false");
+  }
+
+  function hideSearchBar() {
+    const bar = searchBarEl();
+    if (!bar) return;
+    bar.classList.remove("is-open");
+    bar.setAttribute("aria-hidden", "true");
+    const inp = searchInputEl();
+    if (inp && document.activeElement === inp) inp.blur();
+  }
+
+  function focusSearch() {
+    const inp = searchInputEl();
+    if (!inp) return;
+    showSearchBar();
+    requestAnimationFrame(() => {
+      inp.focus({ preventScroll: true });
+      inp.select();
+    });
+  }
+
+  function toggleSearchBar() {
+    const bar = searchBarEl();
+    if (!bar) return;
+    if (bar.classList.contains("is-open")) {
+      const inp = searchInputEl();
+      if (inp && document.activeElement === inp && !(inp.value || "").trim()) {
+        hideSearchBar();
+        return;
+      }
+      focusSearch();
+      return;
+    }
+    focusSearch();
+  }
+
+  function dismissSearchBar() {
+    hideSearchBar();
+  }
+
   function getLangMode() {
     if (document.body.classList.contains("lang-pt")) return "pt";
     if (document.body.classList.contains("lang-en")) return "en";
@@ -666,7 +723,22 @@
         saveAll();
         return;
       }
+      if (event.altKey && !event.ctrlKey && !event.metaKey && !event.shiftKey) {
+        const isS =
+          event.code === "KeyS" || (event.key || "").toLowerCase() === "s";
+        if (isS) {
+          event.preventDefault();
+          event.stopPropagation();
+          toggleSearchBar();
+          return;
+        }
+      }
       if (event.key === "Escape") {
+        if (isSearchBarOpen()) {
+          event.preventDefault();
+          dismissSearchBar();
+          return;
+        }
         const dialog = document.getElementById("job-modal");
         if (dialog && dialog.open) {
           closeModal();
@@ -771,6 +843,16 @@
       search.addEventListener("input", () => {
         query = search.value;
         renderResults();
+        if ((search.value || "").trim()) showSearchBar();
+      });
+      search.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape") return;
+        event.preventDefault();
+        event.stopPropagation();
+        dismissSearchBar();
+      });
+      search.addEventListener("blur", () => {
+        if (!(search.value || "").trim()) hideSearchBar();
       });
     }
 

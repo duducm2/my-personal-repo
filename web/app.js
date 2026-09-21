@@ -2,6 +2,7 @@
   const labels = window.CAREER_LABELS;
   const LANG_KEY = "career-cockpit-lang";
   const DETAIL_KEY = "career-cockpit-detail";
+  const PATH_KEY = "career-cockpit-path";
   const COLLECTION_KEYS = [
     "about",
     "targetTitles",
@@ -510,9 +511,33 @@
   let dirty = false;
   let saving = false;
   let detailMode = false;
+  /** Profile career path filter (`""` = All). */
+  let pathFilter = "";
   /** Local-only filters for companies (`""` = All). */
   let companyCategoryFilter = "";
   let companyRoleFilter = "";
+
+  const CAREER_PATHS = [
+    {
+      key: "data-analyst",
+      short: "DA",
+      en: "Data Analyst",
+      pt: "Data Analyst",
+    },
+    {
+      key: "product-owner",
+      short: "PO",
+      en: "Product Owner",
+      pt: "Product Owner",
+    },
+    {
+      key: "digital-solution-architect",
+      short: "DSA",
+      en: "Digital Solution Architect",
+      pt: "Digital Solution Architect",
+    },
+    { key: "general", short: "GEN", en: "General", pt: "General" },
+  ];
 
   const COMPANY_ROLES = [
     {
@@ -579,6 +604,8 @@
     return v == null ? "" : String(v);
   }
 
+  let downloadsCache = { items: [], policy: null };
+
   function getLangMode() {
     if (document.body.classList.contains("lang-pt")) return "pt";
     if (document.body.classList.contains("lang-en")) return "en";
@@ -586,18 +613,32 @@
   }
 
   function setLangMode(mode, rerender) {
+    const next =
+      mode === "pt" || mode === "en" || mode === "both" ? mode : "en";
     document.body.classList.remove("lang-pt", "lang-en");
-    if (mode === "pt" || mode === "en") {
-      document.body.classList.add(`lang-${mode}`);
+    if (next === "pt" || next === "en") {
+      document.body.classList.add(`lang-${next}`);
     }
     try {
-      localStorage.setItem(LANG_KEY, mode);
+      localStorage.setItem(LANG_KEY, next);
     } catch {
       /* ignore */
     }
     // Document lang stays English — UI chrome is always EN; mode only toggles values.
     document.documentElement.lang = "en";
-    if (rerender) renderAll();
+    updateLangIndicator();
+    if (rerender) {
+      renderAll();
+      renderDownloads(downloadsCache.items, downloadsCache.policy);
+    }
+  }
+
+  function updateLangIndicator() {
+    const el = document.getElementById("lang-mode-label");
+    if (!el) return;
+    const mode = getLangMode();
+    el.textContent =
+      mode === "pt" ? "PT values" : mode === "en" ? "EN values" : "EN + PT";
   }
 
   function updateDetailIndicator() {
@@ -651,6 +692,16 @@
       row.region_pt = "Região metropolitana de Campinas";
       row.region_detail_en = row.region_en;
       row.region_detail_pt = row.region_pt;
+    }
+    if (collection === "targetTitles" && pathFilter) {
+      const pathMeta = CAREER_PATHS.find((p) => p.key === pathFilter);
+      row.path = pathFilter;
+      if (pathMeta) {
+        row.path_label_en = pathMeta.en;
+        row.path_label_pt = pathMeta.pt;
+        row.path_label_detail_en = pathMeta.en;
+        row.path_label_detail_pt = pathMeta.pt;
+      }
     }
     return row;
   }
@@ -768,27 +819,49 @@
     labelEl.append(en);
     rowEl.append(labelEl);
 
+    const mode = getLangMode();
     if (spec.mono) {
-      const baseKey = spec.mono;
-      const key = activeCol(baseKey);
-      rowEl.append(
-        createEditableCell("PT", row, baseKey, spec.tall),
-        createEditableCell("EN", row, baseKey, spec.tall),
-      );
-      const inputs = rowEl.querySelectorAll(".field-input");
-      inputs.forEach((input) => {
-        input.addEventListener("input", () => {
-          const v = input.value;
-          row[key] = v;
-          inputs.forEach((other) => {
-            if (other !== input) other.value = v;
+      if (mode === "both") {
+        const baseKey = spec.mono;
+        const key = activeCol(baseKey);
+        rowEl.append(
+          createEditableCell("PT", row, baseKey, spec.tall),
+          createEditableCell("EN", row, baseKey, spec.tall),
+        );
+        const inputs = rowEl.querySelectorAll(".field-input");
+        inputs.forEach((input) => {
+          input.addEventListener("input", () => {
+            const v = input.value;
+            row[key] = v;
+            inputs.forEach((other) => {
+              if (other !== input) other.value = v;
+            });
           });
         });
-      });
-    } else {
+      } else {
+        rowEl.append(
+          createEditableCell(
+            mode === "pt" ? "PT" : "EN",
+            row,
+            spec.mono,
+            spec.tall,
+          ),
+        );
+      }
+    } else if (mode === "both") {
       rowEl.append(
         createEditableCell("PT", row, spec.pt, spec.tall),
         createEditableCell("EN", row, spec.en, spec.tall),
+      );
+    } else {
+      const baseKey = mode === "pt" ? spec.pt : spec.en;
+      rowEl.append(
+        createEditableCell(
+          mode === "pt" ? "PT" : "EN",
+          row,
+          baseKey,
+          spec.tall,
+        ),
       );
     }
     return rowEl;
@@ -1043,12 +1116,80 @@
       return;
     }
 
+    if (collection === "targetTitles") {
+      const filtered = rows.filter((r) => matchesPathFilter(r.path));
+      if (!filtered.length) {
+        const empty = document.createElement("p");
+        empty.className = "empty-state";
+        empty.textContent = pathFilter
+          ? "No titles for this career path."
+          : "No titles yet.";
+        root.append(empty);
+        return;
+      }
+      filtered.forEach((row, i) => {
+        const index = rows.indexOf(row);
+        root.append(createPanel(collection, row, index >= 0 ? index : i));
+      });
+      return;
+    }
+
     rows.forEach((row, i) => root.append(createPanel(collection, row, i)));
   }
 
   function renderAll() {
+    renderPathFilters();
     renderProfileSummary();
     for (const key of PROFILE_RENDER_KEYS) renderSection(key);
+  }
+
+  function matchesPathFilter(pathValue) {
+    if (!pathFilter) return true;
+    return cell(pathValue).trim() === pathFilter;
+  }
+
+  function setPathFilter(key) {
+    pathFilter = key || "";
+    try {
+      localStorage.setItem(PATH_KEY, pathFilter);
+    } catch {
+      /* ignore */
+    }
+    renderAll();
+    renderDownloads(downloadsCache.items, downloadsCache.policy);
+  }
+
+  function initPathFilter() {
+    let saved = "";
+    try {
+      saved = localStorage.getItem(PATH_KEY) || "";
+    } catch {
+      /* ignore */
+    }
+    const known = CAREER_PATHS.some((p) => p.key === saved);
+    pathFilter = known ? saved : "";
+  }
+
+  function renderPathFilters() {
+    const root = document.getElementById("path-filters");
+    if (!root) return;
+    root.replaceChildren();
+
+    const row = document.createElement("div");
+    row.className = "company-filter-row";
+    const label = document.createElement("span");
+    label.className = "company-filter-label";
+    label.textContent = "Career path";
+    row.append(label);
+
+    const chips = [
+      { key: "", en: "All paths", pt: "All paths" },
+      ...CAREER_PATHS.map((p) => ({ key: p.key, en: p.en, pt: p.pt })),
+    ];
+    for (const chip of chips) {
+      row.append(makeFilterChip(chip, pathFilter, (key) => setPathFilter(key)));
+    }
+    root.append(row);
   }
 
   function openCompaniesWindow() {
@@ -1079,7 +1220,10 @@
     root.replaceChildren();
 
     const about = (state.about || [])[0] || {};
-    const titles = listPlain(state.targetTitles, "title_en", "title_pt", 8);
+    const titleRows = (state.targetTitles || []).filter((r) =>
+      matchesPathFilter(r.path),
+    );
+    const titles = listPlain(titleRows, "title_en", "title_pt", 8);
     const projects = listPlain(state.projects, "name_en", "name_pt", 12);
     const education = listPlain(state.education, "degree_en", "degree_pt", 8);
     const experience = (state.experience || []).map((r) => ({
@@ -1206,47 +1350,35 @@
       const cols = document.createElement("div");
       cols.className = "profile-summary-cols";
 
-      const enCol = document.createElement("div");
-      enCol.className = "profile-summary-col profile-summary-en";
-      const enLabel = document.createElement("div");
-      enLabel.className = "profile-summary-lang";
-      enLabel.textContent = "EN";
-      enCol.append(enLabel);
-      if (sec.en.length === 1 && sec.en[0].length > 160) {
-        const p = document.createElement("p");
-        p.textContent = sec.en[0];
-        enCol.append(p);
-      } else {
-        const ul = document.createElement("ul");
-        for (const item of sec.en) {
-          const li = document.createElement("li");
-          li.textContent = item;
-          ul.append(li);
+      const mode = getLangMode();
+      const addCol = (lang, items) => {
+        const col = document.createElement("div");
+        col.className =
+          "profile-summary-col " +
+          (lang === "pt" ? "profile-summary-pt" : "profile-summary-en");
+        const langLabel = document.createElement("div");
+        langLabel.className = "profile-summary-lang";
+        langLabel.textContent = lang === "pt" ? "PT" : "EN";
+        col.append(langLabel);
+        if (items.length === 1 && items[0].length > 160) {
+          const p = document.createElement("p");
+          p.textContent = items[0];
+          col.append(p);
+        } else {
+          const ul = document.createElement("ul");
+          for (const item of items) {
+            const li = document.createElement("li");
+            li.textContent = item;
+            ul.append(li);
+          }
+          col.append(ul);
         }
-        enCol.append(ul);
-      }
+        cols.append(col);
+      };
 
-      const ptCol = document.createElement("div");
-      ptCol.className = "profile-summary-col profile-summary-pt";
-      const ptLabel = document.createElement("div");
-      ptLabel.className = "profile-summary-lang";
-      ptLabel.textContent = "PT";
-      ptCol.append(ptLabel);
-      if (sec.pt.length === 1 && sec.pt[0].length > 160) {
-        const p = document.createElement("p");
-        p.textContent = sec.pt[0];
-        ptCol.append(p);
-      } else {
-        const ul = document.createElement("ul");
-        for (const item of sec.pt) {
-          const li = document.createElement("li");
-          li.textContent = item;
-          ul.append(li);
-        }
-        ptCol.append(ul);
-      }
+      if (mode === "both" || mode === "en") addCol("en", sec.en);
+      if (mode === "both" || mode === "pt") addCol("pt", sec.pt);
 
-      cols.append(enCol, ptCol);
       card.append(cols);
       grid.append(card);
     }
@@ -1266,6 +1398,9 @@
         state[collection].push(blankRow(collection));
         setDirty(true);
         setSaveStatus("");
+        if (collection === "targetTitles") {
+          renderProfileSummary();
+        }
         renderSection(collection);
         const root = document.getElementById(SECTION_META[collection].root);
         const last = root?.lastElementChild;
@@ -1374,17 +1509,17 @@
         return;
       }
 
-      if (event.code === "Digit1") {
+      if (event.code === "Digit1" || event.code === "Numpad1") {
         event.preventDefault();
         setLangMode("pt", true);
         return;
       }
-      if (event.code === "Digit2") {
+      if (event.code === "Digit2" || event.code === "Numpad2") {
         event.preventDefault();
         setLangMode("en", true);
         return;
       }
-      if (event.code === "Digit0") {
+      if (event.code === "Digit0" || event.code === "Numpad0") {
         event.preventDefault();
         setLangMode("both", true);
         return;
@@ -1417,7 +1552,7 @@
   }
 
   function initLangMode() {
-    let mode = "both";
+    let mode = "en";
     try {
       const saved = localStorage.getItem(LANG_KEY);
       if (saved === "pt" || saved === "en" || saved === "both") mode = saved;
@@ -1445,8 +1580,13 @@
       const res = await fetch("/api/downloads");
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const payload = await res.json();
-      renderDownloads(payload.items || [], payload.resume_policy || null);
+      downloadsCache = {
+        items: payload.items || [],
+        policy: payload.resume_policy || null,
+      };
+      renderDownloads(downloadsCache.items, downloadsCache.policy);
     } catch (err) {
+      downloadsCache = { items: [], policy: null };
       const p = document.createElement("p");
       p.className = "downloads-error";
       p.textContent =
@@ -1503,9 +1643,10 @@
       "data-analyst",
       "product-owner",
       "general",
-    ];
+    ].filter((variant) => matchesPathFilter(variant));
     const byVariant = {};
     for (const item of items) {
+      if (!matchesPathFilter(item.variant)) continue;
       if (!byVariant[item.variant]) byVariant[item.variant] = [];
       byVariant[item.variant].push(item);
     }
@@ -1532,6 +1673,15 @@
       );
       root.append(card);
     }
+
+    if (!root.childElementCount) {
+      const empty = document.createElement("p");
+      empty.className = "empty-state";
+      empty.textContent = pathFilter
+        ? "No resumes or portfolios for this career path."
+        : "No resume or portfolio files found.";
+      root.append(empty);
+    }
   }
 
   function buildDownloadRow(labelEn, items, opts) {
@@ -1553,7 +1703,14 @@
 
     const actions = document.createElement("div");
     actions.className = "download-actions";
-    for (const item of items) {
+    const mode = getLangMode();
+    const filtered =
+      mode === "both"
+        ? items || []
+        : (items || []).filter(
+            (item) => String(item.lang || "").toLowerCase() === mode,
+          );
+    for (const item of filtered) {
       const group = document.createElement("div");
       group.className = "download-lang-group";
 
@@ -1603,6 +1760,16 @@
 
       actions.append(group);
     }
+    if (!filtered.length) {
+      const empty = document.createElement("span");
+      empty.className = "download-btn missing";
+      empty.textContent = mode === "both" ? "—" : mode.toUpperCase();
+      empty.title =
+        mode === "both"
+          ? "No files for this variant"
+          : `No ${mode.toUpperCase()} file for this variant`;
+      actions.append(empty);
+    }
     row.append(actions);
     return row;
   }
@@ -1610,6 +1777,7 @@
   async function init() {
     initLangMode();
     initDetailMode();
+    initPathFilter();
     wireResumeViewer();
     const saveBtn = document.getElementById("save-btn");
     if (saveBtn) saveBtn.addEventListener("click", () => saveAll());

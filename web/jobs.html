@@ -43,13 +43,26 @@
         </div>
         <p class="subtitle">
           <span class="section-title-en"
-            >Track live openings. Click a tile to edit the dossier.
-            UI stays English.
-            <kbd>Shift+J</kbd> portals · <kbd>Shift+P</kbd> profile ·
-            <kbd>Shift+C</kbd> companies ·
-            <kbd>Ctrl+Enter</kbd> save · <kbd>Esc</kbd> close modal / home.</span>
+            >Track live openings. Click a tile to edit the dossier. UI stays
+            English. <kbd>Shift+J</kbd> portals · <kbd>Shift+P</kbd> profile ·
+            <kbd>Shift+C</kbd> companies · <kbd>Alt+S</kbd> search ·
+            <kbd>Ctrl+Enter</kbd> save · <kbd>Esc</kbd> close search / modal /
+            home.</span
+          >
         </p>
       </header>
+
+      <div id="search-bar" class="cockpit-search-bar" aria-hidden="true">
+        <input
+          id="job-search-input"
+          class="cockpit-search-input"
+          type="search"
+          autocomplete="off"
+          spellcheck="false"
+          placeholder="Company, role, skills gap, notes, URL…"
+          title="Search (Alt+S)"
+        />
+      </div>
 
       <main>
         <section
@@ -57,17 +70,7 @@
           aria-label="Job openings"
         >
           <div class="company-search-sticky">
-            <div class="company-search-bar">
-              <label class="company-search-label" for="job-search-input">
-                <span class="filter-chip-en">Search</span>
-              </label>
-              <input
-                id="job-search-input"
-                class="company-search-input"
-                type="search"
-                autocomplete="off"
-                placeholder="Company, role, skills gap, notes, URL…"
-              />
+            <div class="company-toolbar">
               <button type="button" id="job-add-btn" class="add-btn">
                 + Add
               </button>
@@ -89,7 +92,9 @@
         <section class="section" aria-labelledby="job-links-heading">
           <div class="section-head">
             <h2 id="job-links-heading" class="section-title">
-              <span class="section-title-en">Watch pages &amp; communities</span>
+              <span class="section-title-en"
+                >Watch pages &amp; communities</span
+              >
             </h2>
           </div>
           <div id="job-links-root" class="job-links-grid"></div>
@@ -97,7 +102,11 @@
       </main>
     </div>
 
-    <dialog id="job-modal" class="company-modal" aria-labelledby="job-modal-title">
+    <dialog
+      id="job-modal"
+      class="company-modal"
+      aria-labelledby="job-modal-title"
+    >
       <div class="company-modal-inner">
         <header class="company-modal-head">
           <h2 id="job-modal-title" class="company-modal-title"></h2>

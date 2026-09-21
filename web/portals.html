@@ -39,10 +39,22 @@
             Proprietary vs Third-Party ATS. UI stays English.
             <kbd>Shift+J</kbd> portals (home) · <kbd>Shift+O</kbd> openings ·
             <kbd>Shift+C</kbd> companies · <kbd>Shift+P</kbd> profile ·
-            <kbd>Esc</kbd> home.</span
+            <kbd>Alt+S</kbd> search · <kbd>Esc</kbd> close search / home.</span
           >
         </p>
       </header>
+
+      <div id="search-bar" class="cockpit-search-bar" aria-hidden="true">
+        <input
+          id="portal-search-input"
+          class="cockpit-search-input"
+          type="search"
+          autocomplete="off"
+          spellcheck="false"
+          placeholder="Portal, ATS, notes…"
+          title="Search (Alt+S)"
+        />
+      </div>
 
       <main>
         <section
@@ -50,19 +62,6 @@
           aria-label="Market portals"
         >
           <div class="company-search-sticky">
-            <div class="company-search-bar">
-              <label class="company-search-label" for="portal-search-input">
-                <span class="filter-chip-en">Search</span>
-              </label>
-              <input
-                id="portal-search-input"
-                class="company-search-input"
-                type="search"
-                autocomplete="off"
-                placeholder="Portal, ATS, notes…"
-              />
-            </div>
-
             <div
               id="portals-filters"
               class="company-filters"
