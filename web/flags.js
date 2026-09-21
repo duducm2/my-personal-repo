@@ -70,6 +70,10 @@
   const BR_PRESENCE_RE =
     /\b(brazil|brasil|campinas|são paulo|sao paulo|sp metro|nova odessa|sumaré|sumare|paulínia|paulinia|barão geraldo|barao geraldo|techno park)\b/i;
 
+  /** Campinas metro / RMC — close to Nova Odessa home base. */
+  const NEAR_HOME_RE =
+    /\b(campinas|rmc|campinas metro|nova odessa|sumaré|sumare|paulínia|paulinia|hortolândia|hortolandia|jaguariúna|jaguariuna|indaiatuba|valinhos|vinhedo|americana|limeira|santa bárbara|santa barbara d'?oeste|barão geraldo|barao geraldo|techno park|unicamp)\b/i;
+
   function textOf(...parts) {
     return parts
       .flat()
@@ -80,6 +84,10 @@
 
   function hasBrazilPresence(text) {
     return BR_PRESENCE_RE.test(text || "");
+  }
+
+  function isNearHome(...parts) {
+    return NEAR_HOME_RE.test(textOf(...parts));
   }
 
   function detectPrimary(text) {
@@ -100,6 +108,7 @@
    *   codes: string[],
    *   brazilPresence: boolean,
    *   brazilIndustry: boolean,
+   *   nearHome: boolean,
    *   labels: string[]
    * }}
    */
@@ -107,6 +116,7 @@
     const text = textOf(...parts);
     let primary = detectPrimary(text);
     const brazilPresence = hasBrazilPresence(text);
+    const nearHome = isNearHome(text);
 
     // Scope shorthand used by portals
     const lower = text.toLowerCase();
@@ -125,6 +135,7 @@
       codes,
       brazilPresence,
       brazilIndustry,
+      nearHome,
       labels: codes.map((c) => COUNTRY_META[c]?.name || c.toUpperCase()),
     };
   }
@@ -133,10 +144,10 @@
     return `${FLAG_BASE}/${code}.svg`;
   }
 
-  function makeFlagImg(code, { title } = {}) {
+  function makeFlagImg(code, { title, className } = {}) {
     const meta = COUNTRY_META[code] || { name: code.toUpperCase(), code };
     const img = document.createElement("img");
-    img.className = "flag-img";
+    img.className = className || "flag-img";
     img.src = flagUrl(code);
     img.alt = "";
     img.loading = "lazy";
@@ -146,14 +157,39 @@
     return img;
   }
 
+  /** House + Campinas emblem tag for RMC / near-home employers. */
+  function renderNearHomeTag() {
+    const tag = document.createElement("span");
+    tag.className = "near-home-tag";
+    tag.title = "Near home — Campinas metro / RMC";
+    tag.append(
+      makeFlagImg("house", {
+        title: "Near home",
+        className: "flag-img flag-img-icon",
+      }),
+      makeFlagImg("campinas", {
+        title: "Campinas metro",
+        className: "flag-img flag-img-campinas",
+      }),
+    );
+    const label = document.createElement("span");
+    label.className = "near-home-label";
+    label.textContent = "Near home";
+    tag.append(label);
+    return tag;
+  }
+
   /**
    * Compact flag row for tiles. Optional BR industry cue when HQ ≠ Brazil
    * but text indicates ops / market in Brazil.
    */
-  function renderFlagRow(resolved, { showBrazilCue = true } = {}) {
+  function renderFlagRow(
+    resolved,
+    { showBrazilCue = true, showNearHome = true } = {},
+  ) {
     const wrap = document.createElement("div");
     wrap.className = "country-flags";
-    if (!resolved || !resolved.codes.length) {
+    if (!resolved || (!resolved.codes.length && !resolved.nearHome)) {
       wrap.hidden = true;
       return wrap;
     }
@@ -178,7 +214,16 @@
       wrap.append(cue);
     }
 
-    wrap.title = resolved.labels.join(" · ");
+    if (showNearHome && resolved.nearHome) {
+      wrap.append(renderNearHomeTag());
+    }
+
+    wrap.title = [
+      ...resolved.labels,
+      resolved.nearHome ? "Near home (Campinas metro)" : "",
+    ]
+      .filter(Boolean)
+      .join(" · ");
     return wrap;
   }
 
@@ -195,8 +240,10 @@
     COUNTRY_META,
     resolveCountries,
     hasBrazilPresence,
+    isNearHome,
     flagUrl,
     makeFlagImg,
+    renderNearHomeTag,
     renderFlagRow,
     prependFlags,
   };

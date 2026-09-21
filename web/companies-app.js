@@ -211,6 +211,7 @@
     if (geoFilter === "br") return geo.primary === "br" || geo.brazilPresence;
     if (geoFilter === "br_industry") return geo.brazilIndustry;
     if (geoFilter === "intl") return geo.primary && geo.primary !== "br";
+    if (geoFilter === "near_home") return geo.nearHome;
     return true;
   }
 
@@ -390,6 +391,7 @@
     geoRow.append(geoLabel);
     for (const chip of [
       { key: "", en: "All" },
+      { key: "near_home", en: "Near home (Campinas)" },
       { key: "br", en: "Brazil" },
       { key: "br_industry", en: "BR industry (foreign HQ)" },
       { key: "intl", en: "International HQ" },

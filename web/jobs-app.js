@@ -280,7 +280,9 @@
       companies.find((c) => cell(c.id).toLowerCase() === key) ||
       companies.find((c) => {
         const id = cell(c.id).toLowerCase();
-        return key && (id === key || id.startsWith(key + "-") || id.includes(key));
+        return (
+          key && (id === key || id.startsWith(key + "-") || id.includes(key))
+        );
       }) ||
       companies.find(
         (c) =>
@@ -651,8 +653,8 @@
     const del = document.createElement("button");
     del.type = "button";
     del.className = "panel-delete";
-    del.innerHTML = "Delete opening <kbd>Shift+Del</kbd>";
-    del.title = "Delete opening (Shift+Delete)";
+    del.textContent = "Delete opening";
+    del.title = "Delete opening";
     del.addEventListener("click", () => deleteOpening(row.id));
     actions.append(del);
     body.append(actions);

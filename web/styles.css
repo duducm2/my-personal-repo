@@ -1370,6 +1370,42 @@ body.lang-en .field-row {
   border-color: var(--line);
 }
 
+.near-home-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 9px;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #121212;
+  background: linear-gradient(90deg, #f1c40f 0%, #f7e7a1 100%);
+  border: 1px solid #d4a90a;
+  border-radius: 2px;
+  padding: 1px 4px 1px 2px;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.near-home-tag .flag-img-icon {
+  width: 12px;
+  height: 12px;
+  object-fit: contain;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.near-home-tag .flag-img-campinas {
+  width: 16px;
+  height: 11px;
+  object-fit: cover;
+}
+
+.near-home-label {
+  margin-left: 1px;
+}
+
 .portal-card {
   text-decoration: none;
   color: inherit;
