@@ -15,17 +15,22 @@
     "volunteering",
     "certifications",
     "companies",
+    "jobPortals",
     "jobOpenings",
     "jobPlatforms",
     "jobCommunities",
   ];
 
-  /** Profile window renders these; companies/jobs live in their own windows */
+  /** Profile window renders these; companies/jobs/portals live in their own windows */
   const PROFILE_RENDER_KEYS = COLLECTION_KEYS.filter(
     (k) =>
-      !["companies", "jobOpenings", "jobPlatforms", "jobCommunities"].includes(
-        k,
-      ),
+      ![
+        "companies",
+        "jobPortals",
+        "jobOpenings",
+        "jobPlatforms",
+        "jobCommunities",
+      ].includes(k),
   );
 
   const STRUCTURAL = new Set([
@@ -42,9 +47,19 @@
     "priority",
     "status",
     "website",
+    "careers_url",
+    "ats_kind",
+    "ats_name",
+    "ats_url",
     "fit_data_analyst",
     "fit_product_owner",
     "fit_digital_solution_architect",
+    "scope",
+    "job_search_url",
+    "system_kind",
+    "fit_paths",
+    "name",
+    "notes",
   ]);
 
   /** Base (summary) columns — must match python/canonical_store._BASE */
@@ -202,12 +217,28 @@
       "fit_product_owner",
       "fit_digital_solution_architect",
       "website",
+      "careers_url",
+      "ats_kind",
+      "ats_name",
+      "ats_url",
       "skills_match_en",
       "skills_match_pt",
       "fit_why_en",
       "fit_why_pt",
       "notes_en",
       "notes_pt",
+    ],
+    jobPortals: [
+      "id",
+      "sort_order",
+      "scope",
+      "name",
+      "job_search_url",
+      "system_kind",
+      "ats_name",
+      "ats_url",
+      "fit_paths",
+      "notes",
     ],
     jobOpenings: [
       "id",
@@ -397,6 +428,10 @@
         mono: "fit_digital_solution_architect",
       },
       { label: "companyWebsite", mono: "website" },
+      { label: "careersUrl", mono: "careers_url" },
+      { label: "atsKind", mono: "ats_kind" },
+      { label: "atsName", mono: "ats_name" },
+      { label: "atsUrl", mono: "ats_url" },
       {
         label: "skillsMatch",
         pt: "skills_match_pt",
@@ -1020,6 +1055,10 @@
     location.assign("/companies.html");
   }
 
+  function openPortalsWindow() {
+    location.assign("/");
+  }
+
   function openJobsWindow() {
     location.assign("/jobs.html");
   }
@@ -1314,6 +1353,17 @@
         return;
       }
 
+      if (event.key === "Escape") {
+        const resumeDialog = document.getElementById("resume-viewer-modal");
+        if (resumeDialog && resumeDialog.open) {
+          closeResumeViewer();
+          return;
+        }
+        event.preventDefault();
+        openPortalsWindow();
+        return;
+      }
+
       if (
         !event.shiftKey ||
         event.ctrlKey ||
@@ -1355,6 +1405,11 @@
         return;
       }
       if (event.key.toLowerCase() === "j") {
+        event.preventDefault();
+        openPortalsWindow();
+        return;
+      }
+      if (event.key.toLowerCase() === "o") {
         event.preventDefault();
         openJobsWindow();
       }
@@ -1561,6 +1616,10 @@
     const openCompaniesBtn = document.getElementById("open-companies-btn");
     if (openCompaniesBtn) {
       openCompaniesBtn.addEventListener("click", () => openCompaniesWindow());
+    }
+    const openPortalsBtn = document.getElementById("open-portals-btn");
+    if (openPortalsBtn) {
+      openPortalsBtn.addEventListener("click", () => openPortalsWindow());
     }
     const openJobsBtn = document.getElementById("open-jobs-btn");
     if (openJobsBtn) {

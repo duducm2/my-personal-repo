@@ -291,6 +291,10 @@ companies.csv,fit_data_analyst,Fit: Data Analyst (yes/no),Fit: Data Analyst (sim
 companies.csv,fit_product_owner,Fit: Product Owner (yes/no),Fit: Product Owner (sim/não)
 companies.csv,fit_digital_solution_architect,Fit: Digital Solution Architect (yes/no),Fit: Digital Solution Architect (sim/não)
 companies.csv,website,Website,Website
+companies.csv,careers_url,Careers URL,URL de carreiras
+companies.csv,ats_kind,ATS kind (proprietary/third_party),Tipo de ATS (proprio/terceiro)
+companies.csv,ats_name,ATS name,Nome do ATS
+companies.csv,ats_url,ATS URL,URL do ATS
 companies.csv,skills_match_en,Matching skills (EN),Competências alinhadas (EN)
 companies.csv,skills_match_detail_en,Detail: matching skills (EN),Detalhe: competências alinhadas (EN)
 companies.csv,skills_match_pt,Matching skills (PT),Competências alinhadas (PT)
@@ -336,3 +340,13 @@ job_communities.csv,sort_order,Sort order,Ordem
 job_communities.csv,name,Name,Nome
 job_communities.csv,url,URL,URL
 job_communities.csv,notes,Notes,Notas
+job_portals.csv,id,Portal ID,ID do portal
+job_portals.csv,sort_order,Sort order,Ordem
+job_portals.csv,scope,Scope (brazil/international),Escopo (brazil/international)
+job_portals.csv,name,Name,Nome
+job_portals.csv,job_search_url,Job search URL,URL de busca
+job_portals.csv,system_kind,System kind (proprietary/third_party),Tipo de sistema
+job_portals.csv,ats_name,ATS name,Nome do ATS
+job_portals.csv,ats_url,ATS URL,URL do ATS
+job_portals.csv,fit_paths,Fit paths (da;po;dsa),Trilhas (da;po;dsa)
+job_portals.csv,notes,Notes,Notas

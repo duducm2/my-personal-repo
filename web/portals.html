@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Job portals — Home</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="page-portals">
+    <div class="page">
+      <header class="hero">
+        <div class="hero-top">
+          <div>
+            <p class="eyebrow">
+              <span class="section-title-en">Cockpit home · search boards</span>
+            </p>
+            <h1 class="brand">
+              <span class="section-title-en">Job portals</span>
+            </h1>
+          </div>
+          <div class="hero-actions">
+            <button type="button" id="open-openings-btn" class="nav-btn">
+              <span class="section-title-en">Openings</span>
+              <kbd>Shift+O</kbd>
+            </button>
+            <button type="button" id="open-companies-btn" class="nav-btn">
+              <span class="section-title-en">Companies</span>
+              <kbd>Shift+C</kbd>
+            </button>
+            <button type="button" id="open-profile-btn" class="nav-btn">
+              <span class="section-title-en">Profile</span>
+              <kbd>Shift+P</kbd>
+            </button>
+          </div>
+        </div>
+        <p class="subtitle">
+          <span class="section-title-en"
+            >Brazil and international boards plus target-company careers, tagged
+            Proprietary vs Third-Party ATS. UI stays English.
+            <kbd>Shift+J</kbd> portals (home) · <kbd>Shift+O</kbd> openings ·
+            <kbd>Shift+C</kbd> companies · <kbd>Shift+P</kbd> profile ·
+            <kbd>Esc</kbd> home.</span
+          >
+        </p>
+      </header>
+
+      <main>
+        <section
+          class="section company-search-section"
+          aria-label="Market portals"
+        >
+          <div class="company-search-sticky">
+            <div class="company-search-bar">
+              <label class="company-search-label" for="portal-search-input">
+                <span class="filter-chip-en">Search</span>
+              </label>
+              <input
+                id="portal-search-input"
+                class="company-search-input"
+                type="search"
+                autocomplete="off"
+                placeholder="Portal, ATS, notes…"
+              />
+            </div>
+
+            <div
+              id="portals-filters"
+              class="company-filters"
+              role="group"
+              aria-label="Portal filters"
+            ></div>
+
+            <p id="portal-result-count" class="company-result-count"></p>
+          </div>
+
+          <h2 class="portals-section-title">
+            <span class="section-title-en">Market portals</span>
+          </h2>
+          <div id="portals-results" class="company-bento"></div>
+        </section>
+
+        <section
+          class="section company-search-section portals-companies-section"
+          aria-label="Target company careers"
+        >
+          <h2 class="portals-section-title">
+            <span class="section-title-en">Target company careers</span>
+          </h2>
+          <p id="company-careers-count" class="company-result-count"></p>
+          <div id="company-careers-results" class="company-bento"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="portals-app.js"></script>
+  </body>
+</html>

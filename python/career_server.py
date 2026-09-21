@@ -330,7 +330,10 @@ class CareerHandler(BaseHTTPRequestHandler):
         self.wfile.write(data)
 
     def _serve_static(self, path: str) -> None:
-        rel = unquote(path.lstrip("/")) or "index.html"
+        rel = unquote(path.lstrip("/")) or "portals.html"
+        # Job Portals is the cockpit home; profile lives at /profile.html
+        if rel in ("", "index.html"):
+            rel = "portals.html"
         if ".." in rel.replace("\\", "/").split("/"):
             self._json(400, {"ok": False, "error": "invalid path"})
             return
@@ -339,7 +342,9 @@ class CareerHandler(BaseHTTPRequestHandler):
             self._json(400, {"ok": False, "error": "invalid path"})
             return
         if file_path.is_dir():
-            file_path = file_path / "index.html"
+            file_path = (file_path / "portals.html").resolve()
+            if not file_path.is_file():
+                file_path = (WEB_DIR / "portals.html").resolve()
         if not file_path.is_file():
             self._json(404, {"ok": False, "error": "not found"})
             return

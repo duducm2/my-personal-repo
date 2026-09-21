@@ -83,6 +83,10 @@
   }
 
   function openProfileWindow() {
+    location.assign("/profile.html");
+  }
+
+  function openPortalsWindow() {
     location.assign("/");
   }
 
@@ -444,6 +448,42 @@
       body.append(link);
     }
 
+    const careersUrl = cell(row.careers_url);
+    if (careersUrl) {
+      const careers = document.createElement("a");
+      careers.className = "company-result-link";
+      careers.href = careersUrl;
+      careers.target = "_blank";
+      careers.rel = "noopener noreferrer";
+      careers.textContent = "Careers: " + careersUrl;
+      body.append(careers);
+    }
+
+    const atsKind = cell(row.ats_kind).toLowerCase();
+    if (atsKind || cell(row.ats_name)) {
+      const ats = document.createElement("div");
+      ats.className = "company-tile-meta";
+      if (atsKind === "third_party") {
+        ats.textContent = cell(row.ats_name)
+          ? `[Third-Party ATS] ${cell(row.ats_name)}`
+          : "[Third-Party ATS]";
+      } else if (atsKind === "proprietary") {
+        ats.textContent = "[Proprietary System]";
+      } else {
+        ats.textContent = "[Unknown]";
+      }
+      body.append(ats);
+      if (cell(row.ats_url)) {
+        const atsLink = document.createElement("a");
+        atsLink.className = "company-result-link";
+        atsLink.href = row.ats_url;
+        atsLink.target = "_blank";
+        atsLink.rel = "noopener noreferrer";
+        atsLink.textContent = cell(row.ats_name) || row.ats_url;
+        body.append(atsLink);
+      }
+    }
+
     const skillsEn = cell(row.skills_match_en);
     const skillsPt = cell(row.skills_match_pt) || skillsEn;
     const skillsRaw =
@@ -644,6 +684,10 @@
       fit_product_owner: "no",
       fit_digital_solution_architect: "no",
       website: "",
+      careers_url: "",
+      ats_kind: "proprietary",
+      ats_name: "",
+      ats_url: "",
       skills_match_en: "",
       skills_match_detail_en: "",
       skills_match_pt: "",
@@ -718,6 +762,16 @@
         saveAll();
         return;
       }
+      if (event.key === "Escape") {
+        const dialog = document.getElementById("company-modal");
+        if (dialog && dialog.open) {
+          closeModal();
+          return;
+        }
+        event.preventDefault();
+        openPortalsWindow();
+        return;
+      }
       if (
         !event.shiftKey ||
         event.ctrlKey ||
@@ -748,6 +802,11 @@
         return;
       }
       if (event.key.toLowerCase() === "j") {
+        event.preventDefault();
+        openPortalsWindow();
+        return;
+      }
+      if (event.key.toLowerCase() === "o") {
         event.preventDefault();
         openJobsWindow();
       }
@@ -797,6 +856,10 @@
     const profileBtn = document.getElementById("open-profile-btn");
     if (profileBtn) {
       profileBtn.addEventListener("click", () => openProfileWindow());
+    }
+    const portalsBtn = document.getElementById("open-portals-btn");
+    if (portalsBtn) {
+      portalsBtn.addEventListener("click", () => openPortalsWindow());
     }
     const jobsBtn = document.getElementById("open-jobs-btn");
     if (jobsBtn) {

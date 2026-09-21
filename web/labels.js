@@ -66,6 +66,10 @@ window.CAREER_LABELS = {
   companyPriority: { en: "Priority", pt: "Prioridade" },
   companyStatus: { en: "Status", pt: "Status" },
   companyWebsite: { en: "Website", pt: "Website" },
+  careersUrl: { en: "Careers URL", pt: "URL de carreiras" },
+  atsKind: { en: "ATS kind", pt: "Tipo de ATS" },
+  atsName: { en: "ATS name", pt: "Nome do ATS" },
+  atsUrl: { en: "ATS URL", pt: "URL do ATS" },
   companyNotes: { en: "Notes", pt: "Notas" },
   fitDataAnalyst: {
     en: "Fit: Data Analyst (yes/no)",

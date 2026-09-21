@@ -666,6 +666,16 @@
         saveAll();
         return;
       }
+      if (event.key === "Escape") {
+        const dialog = document.getElementById("job-modal");
+        if (dialog && dialog.open) {
+          closeModal();
+          return;
+        }
+        event.preventDefault();
+        location.assign("/");
+        return;
+      }
       if (
         !event.shiftKey ||
         event.ctrlKey ||
@@ -692,12 +702,22 @@
       }
       if (event.key.toLowerCase() === "p") {
         event.preventDefault();
-        location.assign("/");
+        location.assign("/profile.html");
         return;
       }
       if (event.key.toLowerCase() === "c") {
         event.preventDefault();
         location.assign("/companies.html");
+        return;
+      }
+      if (event.key.toLowerCase() === "j") {
+        event.preventDefault();
+        location.assign("/");
+        return;
+      }
+      if (event.key.toLowerCase() === "o") {
+        event.preventDefault();
+        location.assign("/jobs.html");
       }
     });
   }
@@ -737,8 +757,11 @@
     if (saveBtn) saveBtn.addEventListener("click", () => saveAll());
 
     document
-      .getElementById("open-profile-btn")
+      .getElementById("open-portals-btn")
       ?.addEventListener("click", () => location.assign("/"));
+    document
+      .getElementById("open-profile-btn")
+      ?.addEventListener("click", () => location.assign("/profile.html"));
     document
       .getElementById("open-companies-btn")
       ?.addEventListener("click", () => location.assign("/companies.html"));

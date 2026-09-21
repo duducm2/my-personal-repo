@@ -47,7 +47,8 @@ After changing column structure, run: `python scripts/migrate_bilingual_labels.p
 | `competences.csv`         | LinkedIn skills / competências (category, associations)                             |
 | `volunteering.csv`        | LinkedIn volunteering (role, org, cause, description)                               |
 | `certifications.csv`      | LinkedIn licenses & certifications                                                  |
-| `companies.csv`           | Target companies (category, city/region, priority, status, role fits DA/PO/DSA, skills match, why-fit, website, notes) |
+| `companies.csv`           | Target companies (category, city/region, priority, status, role fits DA/PO/DSA, skills match, why-fit, website, careers URL, ATS tags, notes) |
+| `job_portals.csv`         | Curated Brazil / international job portals (search URL, proprietary vs third-party ATS, path fit) |
 | `job_openings.csv`        | Live job openings tracker (role, status, path, work mode, next action, skills gap, JD, contacts) |
 | `job_platforms.csv`       | Career / company watch pages linked by `company_key` |
 | `job_communities.csv`     | Communities that surface openings (Alumni, etc.) |

@@ -1148,6 +1148,36 @@ body.lang-en .field-row {
   margin-top: auto;
 }
 
+.portal-card {
+  text-decoration: none;
+  color: inherit;
+}
+
+.portal-card:visited {
+  color: inherit;
+}
+
+.portal-ats-link {
+  font-size: 10px;
+  color: var(--gold);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.portals-section-title {
+  margin: 18px 0 8px;
+  font-size: 15px;
+  font-weight: 650;
+}
+
+.portals-companies-section {
+  margin-top: 8px;
+}
+
+.company-chip-ats {
+  border-color: color-mix(in srgb, var(--text) 25%, var(--line));
+}
+
 .company-modal {
   border: 1px solid var(--line);
   border-radius: var(--radius);
