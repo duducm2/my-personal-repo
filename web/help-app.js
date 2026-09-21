@@ -29,12 +29,12 @@
       const k = (event.key || "").toLowerCase();
       if (k === "j") {
         event.preventDefault();
-        location.assign("/");
+        location.assign("/portals.html");
         return;
       }
       if (k === "o") {
         event.preventDefault();
-        location.assign("/jobs.html");
+        location.assign("/");
         return;
       }
       if (k === "c") {
@@ -58,10 +58,10 @@
     initKeyboard();
     document
       .getElementById("open-portals-btn")
-      ?.addEventListener("click", () => location.assign("/"));
+      ?.addEventListener("click", () => location.assign("/portals.html"));
     document
       .getElementById("open-openings-btn")
-      ?.addEventListener("click", () => location.assign("/jobs.html"));
+      ?.addEventListener("click", () => location.assign("/"));
     document
       .getElementById("open-companies-btn")
       ?.addEventListener("click", () => location.assign("/companies.html"));

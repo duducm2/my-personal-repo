@@ -58,6 +58,8 @@ STRUCTURAL_COLS = frozenset(
         "job_search_url",
         "system_kind",
         "fit_paths",
+        # Companies remote policy
+        "home_office",
     }
 )
 
@@ -240,6 +242,7 @@ _BASE: dict[str, tuple[str, list[str]]] = {
             "region_pt",
             "priority",
             "status",
+            "home_office",
             "fit_data_analyst",
             "fit_product_owner",
             "fit_digital_solution_architect",

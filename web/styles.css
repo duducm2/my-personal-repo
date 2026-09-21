@@ -1291,6 +1291,85 @@ body.lang-en .field-row {
   margin-top: auto;
 }
 
+.tile-flag-title {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  min-width: 0;
+}
+
+.tile-flag-title .company-tile-title {
+  flex: 1;
+  min-width: 0;
+}
+
+.country-flags {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.country-flags-modal {
+  margin: 0 0 8px;
+}
+
+.flag-img {
+  width: 18px;
+  height: 12px;
+  object-fit: cover;
+  border-radius: 1px;
+  border: 1px solid var(--line);
+  display: block;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+}
+
+.brazil-presence {
+  font-size: 9px;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #121212;
+  background: #f1c40f;
+  border: 1px solid #d4a90a;
+  border-radius: 2px;
+  padding: 1px 4px;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.home-office-flag {
+  font-size: 9px;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  padding: 1px 4px;
+  line-height: 1.2;
+  white-space: nowrap;
+  border: 1px solid var(--line);
+}
+
+.home-office-flag.is-yes {
+  color: #0b2e1a;
+  background: #2ecc71;
+  border-color: #27ae60;
+}
+
+.home-office-flag.is-hybrid {
+  color: #1a2a3a;
+  background: #5dade2;
+  border-color: #3498db;
+}
+
+.home-office-flag.is-no {
+  color: var(--muted);
+  background: var(--input);
+  border-color: var(--line);
+}
+
 .portal-card {
   text-decoration: none;
   color: inherit;

@@ -269,6 +269,44 @@
     return high || hot ? " company-tile-wide" : "";
   }
 
+  function resolveOpeningGeo(row) {
+    const parts = [row.location, row.company, row.notes, row.source];
+    const key = cell(row.company_key).toLowerCase();
+    const name = cell(row.company).toLowerCase();
+    const companies = Array.isArray(collections.companies)
+      ? collections.companies
+      : [];
+    const linked =
+      companies.find((c) => cell(c.id).toLowerCase() === key) ||
+      companies.find((c) => {
+        const id = cell(c.id).toLowerCase();
+        return key && (id === key || id.startsWith(key + "-") || id.includes(key));
+      }) ||
+      companies.find(
+        (c) =>
+          name &&
+          (cell(c.name_en).toLowerCase().includes(name) ||
+            cell(c.name_pt).toLowerCase().includes(name)),
+      );
+    if (linked) {
+      parts.push(
+        linked.region_en,
+        linked.region_pt,
+        linked.city_en,
+        linked.city_pt,
+        linked.notes_en,
+        linked.notes_pt,
+      );
+    }
+    if (
+      !cell(row.location) &&
+      /gupy|catho|infojobs|vagas/i.test(cell(row.source))
+    ) {
+      parts.push("brazil");
+    }
+    return window.CountryFlags.resolveCountries(...parts);
+  }
+
   function renderTile(row) {
     const btn = document.createElement("button");
     btn.type = "button";
@@ -282,6 +320,9 @@
     const title = document.createElement("div");
     title.className = "company-tile-title";
     title.textContent = cell(row.role_title) || "(untitled role)";
+
+    const geo = resolveOpeningGeo(row);
+    window.CountryFlags.prependFlags(btn, title, geo);
 
     const meta = document.createElement("div");
     meta.className = "company-tile-meta";
@@ -311,9 +352,9 @@
         "Next: " +
         cell(row.next_action) +
         (cell(row.next_action_date) ? ` · ${cell(row.next_action_date)}` : "");
-      btn.append(title, meta, chips, next);
+      btn.append(meta, chips, next);
     } else {
-      btn.append(title, meta, chips);
+      btn.append(meta, chips);
     }
     return btn;
   }
@@ -790,8 +831,7 @@
           closeModal();
           return;
         }
-        event.preventDefault();
-        location.assign("/");
+        // Already on openings home — nothing further
         return;
       }
       if (event.altKey || mod || typing) return;
@@ -840,12 +880,12 @@
       }
       if (event.key.toLowerCase() === "j") {
         event.preventDefault();
-        location.assign("/");
+        location.assign("/portals.html");
         return;
       }
       if (event.key.toLowerCase() === "o") {
         event.preventDefault();
-        location.assign("/jobs.html");
+        location.assign("/");
         return;
       }
       if (event.key.toLowerCase() === "h") {
@@ -891,7 +931,7 @@
 
     document
       .getElementById("open-portals-btn")
-      ?.addEventListener("click", () => location.assign("/"));
+      ?.addEventListener("click", () => location.assign("/portals.html"));
     document
       .getElementById("open-profile-btn")
       ?.addEventListener("click", () => location.assign("/profile.html"));

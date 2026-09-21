@@ -1197,11 +1197,11 @@
   }
 
   function openPortalsWindow() {
-    location.assign("/");
+    location.assign("/portals.html");
   }
 
   function openJobsWindow() {
-    location.assign("/jobs.html");
+    location.assign("/");
   }
 
   function listPlain(rows, enKey, ptKey, limit) {
@@ -1568,7 +1568,7 @@
           return;
         }
         event.preventDefault();
-        openPortalsWindow();
+        openJobsWindow();
         return;
       }
 

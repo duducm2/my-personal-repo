@@ -25,6 +25,8 @@
     },
   ];
 
+  const HOME_OFFICE_OPTIONS = ["yes", "hybrid", "no", "unknown"];
+
   let collections = {};
   let companies = [];
   let dirty = false;
@@ -32,6 +34,8 @@
   let query = "";
   let categoryFilter = "";
   let roleFilter = "";
+  let geoFilter = "";
+  let homeOfficeFilter = "";
   let openCompanyId = "";
 
   function cell(v) {
@@ -87,11 +91,11 @@
   }
 
   function openPortalsWindow() {
-    location.assign("/");
+    location.assign("/portals.html");
   }
 
   function openJobsWindow() {
-    location.assign("/jobs.html");
+    location.assign("/");
   }
 
   function searchBarEl() {
@@ -181,11 +185,78 @@
       row.fit_why_pt,
       row.notes_en,
       row.notes_pt,
+      row.home_office,
       row.id,
     ]
       .map(cell)
       .join("\n")
       .toLowerCase();
+  }
+
+  function companyGeo(row) {
+    return window.CountryFlags.resolveCountries(
+      row.region_en,
+      row.region_pt,
+      row.city_en,
+      row.city_pt,
+      row.notes_en,
+      row.notes_pt,
+      row.category_en,
+    );
+  }
+
+  function matchesGeo(row) {
+    if (!geoFilter) return true;
+    const geo = companyGeo(row);
+    if (geoFilter === "br") return geo.primary === "br" || geo.brazilPresence;
+    if (geoFilter === "br_industry") return geo.brazilIndustry;
+    if (geoFilter === "intl") return geo.primary && geo.primary !== "br";
+    return true;
+  }
+
+  function homeOfficeValue(row) {
+    const v = cell(row.home_office).toLowerCase();
+    return HOME_OFFICE_OPTIONS.includes(v) ? v : "unknown";
+  }
+
+  function acceptsHomeOffice(row) {
+    return homeOfficeValue(row) === "yes" || homeOfficeValue(row) === "hybrid";
+  }
+
+  function homeOfficeLabel(value) {
+    if (value === "yes") return "Home office";
+    if (value === "hybrid") return "Hybrid HO";
+    if (value === "no") return "Onsite";
+    return "";
+  }
+
+  function appendHomeOfficeFlag(parent, row) {
+    const value = homeOfficeValue(row);
+    const label = homeOfficeLabel(value);
+    if (!label) return null;
+    const el = document.createElement("span");
+    el.className =
+      "home-office-flag" +
+      (value === "yes"
+        ? " is-yes"
+        : value === "hybrid"
+          ? " is-hybrid"
+          : " is-no");
+    el.textContent = label;
+    el.title =
+      value === "yes"
+        ? "Normally accepts home office / remote"
+        : value === "hybrid"
+          ? "Hybrid or remote by team/role"
+          : "Typically onsite / limited remote";
+    parent.append(el);
+    return el;
+  }
+
+  function matchesHomeOffice(row) {
+    if (!homeOfficeFilter) return true;
+    if (homeOfficeFilter === "accepts") return acceptsHomeOffice(row);
+    return homeOfficeValue(row) === homeOfficeFilter;
   }
 
   function filteredRows() {
@@ -194,6 +265,8 @@
       rows = rows.filter((r) => cell(r.category_en).trim() === categoryFilter);
     }
     rows = rows.filter(matchesRole);
+    rows = rows.filter(matchesGeo);
+    rows = rows.filter(matchesHomeOffice);
     const q = query.trim().toLowerCase();
     if (q) {
       const parts = q.split(/\s+/).filter(Boolean);
@@ -308,6 +381,50 @@
       );
     }
     root.append(roleRow);
+
+    const geoRow = document.createElement("div");
+    geoRow.className = "company-filter-row";
+    const geoLabel = document.createElement("span");
+    geoLabel.className = "company-filter-label";
+    appendEn(geoLabel, "Country");
+    geoRow.append(geoLabel);
+    for (const chip of [
+      { key: "", en: "All" },
+      { key: "br", en: "Brazil" },
+      { key: "br_industry", en: "BR industry (foreign HQ)" },
+      { key: "intl", en: "International HQ" },
+    ]) {
+      geoRow.append(
+        makeChip(chip, geoFilter, (key) => {
+          geoFilter = key;
+          render();
+        }),
+      );
+    }
+    root.append(geoRow);
+
+    const hoRow = document.createElement("div");
+    hoRow.className = "company-filter-row";
+    const hoLabel = document.createElement("span");
+    hoLabel.className = "company-filter-label";
+    appendEn(hoLabel, "Home office");
+    hoRow.append(hoLabel);
+    for (const chip of [
+      { key: "", en: "All" },
+      { key: "accepts", en: "Accepts HO" },
+      { key: "yes", en: "Remote / HO" },
+      { key: "hybrid", en: "Hybrid" },
+      { key: "no", en: "Onsite" },
+      { key: "unknown", en: "Unknown" },
+    ]) {
+      hoRow.append(
+        makeChip(chip, homeOfficeFilter, (key) => {
+          homeOfficeFilter = key;
+          render();
+        }),
+      );
+    }
+    root.append(hoRow);
   }
 
   function tileSpanClass(row) {
@@ -333,6 +450,17 @@
       cell(row.name_en) || row.id,
       cell(row.name_pt) || cell(row.name_en) || row.id,
     );
+
+    const geo = companyGeo(row);
+    const flagTitle = window.CountryFlags.prependFlags(btn, title, geo);
+    const flagRow = flagTitle.querySelector(".country-flags");
+    if (flagRow) appendHomeOfficeFlag(flagRow, row);
+    else {
+      const wrap = document.createElement("div");
+      wrap.className = "country-flags";
+      appendHomeOfficeFlag(wrap, row);
+      if (wrap.childNodes.length) flagTitle.insertBefore(wrap, title);
+    }
 
     const meta = document.createElement("div");
     meta.className = "company-tile-meta";
@@ -380,7 +508,7 @@
       badges.append(multi);
     }
 
-    btn.append(title, meta, chips, badges);
+    btn.append(meta, chips, badges);
     return btn;
   }
 
@@ -439,6 +567,12 @@
       cell(row.name_en) || row.id,
       cell(row.name_pt) || cell(row.name_en) || row.id,
     );
+
+    const geo = companyGeo(row);
+    const flagRow = window.CountryFlags.renderFlagRow(geo);
+    flagRow.classList.add("country-flags-modal");
+    appendHomeOfficeFlag(flagRow, row);
+    body.append(flagRow);
 
     const badges = document.createElement("div");
     badges.className = "role-badges company-modal-badges";
@@ -629,6 +763,27 @@
       label.append(lab, input);
       editRow.append(label);
     }
+    const hoLabel = document.createElement("label");
+    hoLabel.className = "company-edit-field";
+    const hoLab = document.createElement("span");
+    appendEn(hoLab, "Home office");
+    const hoSelect = document.createElement("select");
+    hoSelect.className = "field-input";
+    for (const opt of HOME_OFFICE_OPTIONS) {
+      const o = document.createElement("option");
+      o.value = opt;
+      o.textContent = opt;
+      if (homeOfficeValue(row) === opt) o.selected = true;
+      hoSelect.append(o);
+    }
+    hoSelect.addEventListener("change", () => {
+      row.home_office = hoSelect.value;
+      setDirty(true);
+      setSaveStatus("");
+      renderResults();
+    });
+    hoLabel.append(hoLab, hoSelect);
+    editRow.append(hoLabel);
     body.append(editRow);
 
     const notesBlock = document.createElement("div");
@@ -737,6 +892,7 @@
       region_detail_pt: "",
       priority: "medium",
       status: "researching",
+      home_office: "unknown",
       fit_data_analyst: "yes",
       fit_product_owner: "no",
       fit_digital_solution_architect: "no",
@@ -841,7 +997,7 @@
           return;
         }
         event.preventDefault();
-        openPortalsWindow();
+        openJobsWindow();
         return;
       }
       if (
@@ -969,6 +1125,8 @@
         companies.push(row);
         categoryFilter = "";
         roleFilter = "";
+        geoFilter = "";
+        homeOfficeFilter = "";
         query = "";
         if (search) search.value = "";
         setDirty(true);

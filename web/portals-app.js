@@ -67,7 +67,7 @@
   }
 
   function openPortalsHome() {
-    location.assign("/");
+    location.assign("/portals.html");
   }
 
   function openProfileWindow() {
@@ -79,7 +79,7 @@
   }
 
   function openOpeningsWindow() {
-    location.assign("/jobs.html");
+    location.assign("/");
   }
 
   function searchBarEl() {
@@ -339,6 +339,13 @@
     title.className = "company-tile-title";
     title.textContent = cell(row.name) || row.id;
 
+    const geo = window.CountryFlags.resolveCountries(
+      row.scope,
+      row.name,
+      row.notes,
+    );
+    window.CountryFlags.prependFlags(card, title, geo);
+
     const meta = document.createElement("div");
     meta.className = "company-tile-meta";
     const scopeLabel =
@@ -373,7 +380,7 @@
       chips.append(atsLink);
     }
 
-    card.append(title, meta, chips);
+    card.append(meta, chips);
     appendPathChips(card, parseFitPaths(row.fit_paths), "paths");
     return card;
   }
@@ -391,6 +398,31 @@
     const title = document.createElement("div");
     title.className = "company-tile-title";
     title.textContent = cell(row.name_en) || cell(row.name_pt) || row.id;
+
+    const geo = window.CountryFlags.resolveCountries(
+      row.region_en,
+      row.region_pt,
+      row.city_en,
+      row.city_pt,
+      row.notes_en,
+      row.notes_pt,
+      row.category_en,
+    );
+    const flagTitle = window.CountryFlags.prependFlags(card, title, geo);
+    const flagRow = flagTitle.querySelector(".country-flags");
+    const ho = cell(row.home_office).toLowerCase();
+    if (ho === "yes" || ho === "hybrid") {
+      const cue = document.createElement("span");
+      cue.className =
+        "home-office-flag" + (ho === "yes" ? " is-yes" : " is-hybrid");
+      cue.textContent = ho === "yes" ? "Home office" : "Hybrid HO";
+      cue.title =
+        ho === "yes"
+          ? "Normally accepts home office / remote"
+          : "Hybrid or remote by team/role";
+      if (flagRow) flagRow.append(cue);
+      else flagTitle.insertBefore(cue, title);
+    }
 
     const meta = document.createElement("div");
     meta.className = "company-tile-meta";
@@ -434,7 +466,7 @@
       chips.append(fb);
     }
 
-    card.append(title, meta, chips);
+    card.append(meta, chips);
     appendPathChips(card, row, "fits");
     return card;
   }
@@ -505,7 +537,7 @@
           return;
         }
         event.preventDefault();
-        openPortalsHome();
+        openOpeningsWindow();
         return;
       }
       if (
