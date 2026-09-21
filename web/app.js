@@ -1205,13 +1205,55 @@
   }
 
   function listPlain(rows, enKey, ptKey, limit) {
-    const items = (rows || []).slice(0, limit || 99);
-    return {
-      en: items.map((r) => cell(r[enKey]) || cell(r.id)).filter(Boolean),
-      pt: items
-        .map((r) => cell(r[ptKey]) || cell(r[enKey]) || cell(r.id))
-        .filter(Boolean),
-    };
+    return (rows || [])
+      .slice(0, limit || 99)
+      .map((r) => ({
+        id: r.id,
+        en: cell(r[enKey]) || cell(r.id),
+        pt: cell(r[ptKey]) || cell(r[enKey]) || cell(r.id),
+      }))
+      .filter((x) => x.en || x.pt);
+  }
+
+  function jumpToProfileTarget(opts) {
+    const { headingId, rowId } = opts || {};
+    let target = null;
+    if (rowId) {
+      target = document.querySelector(
+        `.panel[data-id="${CSS.escape(String(rowId))}"]`,
+      );
+    }
+    if (!target && headingId) {
+      const heading = document.getElementById(headingId);
+      target = heading?.closest(".section") || heading;
+    }
+    if (!target) return;
+
+    document.body.classList.remove("panels-collapsed");
+    document.body.setAttribute("aria-expanded", "true");
+
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+    target.classList.remove("profile-jump-flash");
+    // reflow so animation can retrigger
+    void target.offsetWidth;
+    target.classList.add("profile-jump-flash");
+    window.setTimeout(
+      () => target.classList.remove("profile-jump-flash"),
+      1400,
+    );
+
+    if (rowId) {
+      const input = target.querySelector(".field-input");
+      if (input) {
+        window.setTimeout(() => {
+          try {
+            input.focus({ preventScroll: true });
+          } catch {
+            input.focus();
+          }
+        }, 350);
+      }
+    }
   }
 
   function renderProfileSummary() {
@@ -1227,6 +1269,7 @@
     const projects = listPlain(state.projects, "name_en", "name_pt", 12);
     const education = listPlain(state.education, "degree_en", "degree_pt", 8);
     const experience = (state.experience || []).map((r) => ({
+      id: r.id,
       en: [cell(r.title_en), cell(r.company_en)].filter(Boolean).join(" @ "),
       pt: [
         cell(r.title_pt) || cell(r.title_en),
@@ -1236,6 +1279,7 @@
         .join(" @ "),
     }));
     const languages = (state.languages || []).map((r) => ({
+      id: r.id,
       en: [cell(r.name_en), cell(r.level_en)].filter(Boolean).join(" — "),
       pt: [
         cell(r.name_pt) || cell(r.name_en),
@@ -1265,93 +1309,93 @@
       10,
     );
 
+    const aboutEn = cell(about.text_en);
+    const aboutPt = cell(about.text_pt) || aboutEn;
     const sections = [
       {
         titleEn: "About",
-        titlePt: "Sobre",
-        en: [cell(about.text_en)].filter(Boolean),
-        pt: [cell(about.text_pt) || cell(about.text_en)].filter(Boolean),
+        headingId: "about-heading",
+        items: about.id
+          ? [{ id: about.id, en: aboutEn, pt: aboutPt }].filter(
+              (x) => x.en || x.pt,
+            )
+          : [],
       },
       {
         titleEn: "Target titles",
-        titlePt: "Títulos-alvo",
-        en: titles.en,
-        pt: titles.pt,
+        headingId: "titles-heading",
+        items: titles,
       },
       {
         titleEn: "Experience",
-        titlePt: "Experiência",
-        en: experience.map((x) => x.en).filter(Boolean),
-        pt: experience.map((x) => x.pt).filter(Boolean),
+        headingId: "experience-heading",
+        items: experience.filter((x) => x.en || x.pt),
       },
       {
         titleEn: "Education",
-        titlePt: "Formação",
-        en: education.en,
-        pt: education.pt,
+        headingId: "education-heading",
+        items: education,
       },
       {
         titleEn: "Projects",
-        titlePt: "Projetos",
-        en: projects.en,
-        pt: projects.pt,
+        headingId: "projects-heading",
+        items: projects,
       },
       {
         titleEn: "Languages",
-        titlePt: "Idiomas",
-        en: languages.map((x) => x.en).filter(Boolean),
-        pt: languages.map((x) => x.pt).filter(Boolean),
+        headingId: "languages-heading",
+        items: languages.filter((x) => x.en || x.pt),
       },
       {
         titleEn: "Competences / skills",
-        titlePt: "Competências",
-        en: competences.en,
-        pt: competences.pt,
+        headingId: "competences-heading",
+        items: competences,
       },
       {
         titleEn: "Courses",
-        titlePt: "Cursos",
-        en: courses.en,
-        pt: courses.pt,
+        headingId: "courses-heading",
+        items: courses,
       },
       {
         titleEn: "Recognitions",
-        titlePt: "Reconhecimentos",
-        en: recognitions.en,
-        pt: recognitions.pt,
+        headingId: "recognitions-heading",
+        items: recognitions,
       },
       {
         titleEn: "Volunteering",
-        titlePt: "Voluntariado",
-        en: volunteering.en,
-        pt: volunteering.pt,
+        headingId: "volunteering-heading",
+        items: volunteering,
       },
       {
         titleEn: "Licenses & certifications",
-        titlePt: "Licenças e certificados",
-        en: certifications.en,
-        pt: certifications.pt,
+        headingId: "certifications-heading",
+        items: certifications,
       },
     ];
 
     const grid = document.createElement("div");
-    grid.className = "profile-summary-grid";
+    grid.className = "profile-summary-grid profile-map-grid";
 
     for (const sec of sections) {
-      if (!sec.en.length && !sec.pt.length) continue;
+      if (!sec.items.length) continue;
       const card = document.createElement("article");
-      card.className = "profile-summary-card";
+      card.className = "profile-summary-card profile-map-card";
 
-      const h = document.createElement("h3");
-      h.className = "profile-summary-card-title";
+      const h = document.createElement("button");
+      h.type = "button";
+      h.className = "profile-summary-card-title profile-map-section-btn";
       h.textContent = sec.titleEn;
+      h.title = `Jump to ${sec.titleEn}`;
+      h.addEventListener("click", () =>
+        jumpToProfileTarget({ headingId: sec.headingId }),
+      );
       card.append(h);
 
       const cols = document.createElement("div");
       cols.className = "profile-summary-cols";
 
       const mode = getLangMode();
-      const addCol = (lang, items) => {
+      const addCol = (lang) => {
         const col = document.createElement("div");
         col.className =
           "profile-summary-col " +
@@ -1360,15 +1404,44 @@
         langLabel.className = "profile-summary-lang";
         langLabel.textContent = lang === "pt" ? "PT" : "EN";
         col.append(langLabel);
-        if (items.length === 1 && items[0].length > 160) {
-          const p = document.createElement("p");
-          p.textContent = items[0];
-          col.append(p);
+
+        const items = sec.items
+          .map((item) => ({
+            id: item.id,
+            text: lang === "pt" ? item.pt || item.en : item.en || item.pt,
+          }))
+          .filter((x) => x.text);
+
+        if (items.length === 1 && items[0].text.length > 160) {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "profile-map-item profile-map-item-block";
+          btn.textContent = items[0].text;
+          btn.title = `Jump to ${sec.titleEn}`;
+          btn.addEventListener("click", () =>
+            jumpToProfileTarget({
+              headingId: sec.headingId,
+              rowId: items[0].id,
+            }),
+          );
+          col.append(btn);
         } else {
           const ul = document.createElement("ul");
+          ul.className = "profile-map-list";
           for (const item of items) {
             const li = document.createElement("li");
-            li.textContent = item;
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "profile-map-item";
+            btn.textContent = item.text;
+            btn.title = `Jump to this ${sec.titleEn.slice(0, -1) || "item"}`;
+            btn.addEventListener("click", () =>
+              jumpToProfileTarget({
+                headingId: sec.headingId,
+                rowId: item.id,
+              }),
+            );
+            li.append(btn);
             ul.append(li);
           }
           col.append(ul);
@@ -1376,8 +1449,8 @@
         cols.append(col);
       };
 
-      if (mode === "both" || mode === "en") addCol("en", sec.en);
-      if (mode === "both" || mode === "pt") addCol("pt", sec.pt);
+      if (mode === "both" || mode === "en") addCol("en");
+      if (mode === "both" || mode === "pt") addCol("pt");
 
       card.append(cols);
       grid.append(card);
