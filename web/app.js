@@ -1620,6 +1620,11 @@
       if (event.key.toLowerCase() === "o") {
         event.preventDefault();
         openJobsWindow();
+        return;
+      }
+      if (event.key.toLowerCase() === "h") {
+        event.preventDefault();
+        location.assign("/help.html");
       }
     });
   }
@@ -1866,6 +1871,9 @@
     if (openJobsBtn) {
       openJobsBtn.addEventListener("click", () => openJobsWindow());
     }
+    document
+      .getElementById("open-help-btn")
+      ?.addEventListener("click", () => location.assign("/help.html"));
     wireAddButtons();
     initKeyboard();
     window.addEventListener("beforeunload", (e) => {

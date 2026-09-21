@@ -846,6 +846,11 @@
       if (event.key.toLowerCase() === "o") {
         event.preventDefault();
         location.assign("/jobs.html");
+        return;
+      }
+      if (event.key.toLowerCase() === "h") {
+        event.preventDefault();
+        location.assign("/help.html");
       }
     });
   }
@@ -893,6 +898,9 @@
     document
       .getElementById("open-companies-btn")
       ?.addEventListener("click", () => location.assign("/companies.html"));
+    document
+      .getElementById("open-help-btn")
+      ?.addEventListener("click", () => location.assign("/help.html"));
 
     const search = document.getElementById("job-search-input");
     if (search) {

@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Keyboard shortcuts — Help</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="page-help">
+    <div class="page">
+      <header class="hero">
+        <div class="hero-top">
+          <div>
+            <p class="eyebrow">
+              <span class="section-title-en">Reference · cockpit map</span>
+            </p>
+            <h1 class="brand">
+              <span class="section-title-en">Keyboard shortcuts</span>
+            </h1>
+          </div>
+          <div class="hero-actions">
+            <button type="button" id="open-portals-btn" class="nav-btn">
+              <span class="section-title-en">Job portals</span>
+              <kbd>Shift+J</kbd>
+            </button>
+            <button type="button" id="open-openings-btn" class="nav-btn">
+              <span class="section-title-en">Openings</span>
+              <kbd>Shift+O</kbd>
+            </button>
+            <button type="button" id="open-companies-btn" class="nav-btn">
+              <span class="section-title-en">Companies</span>
+              <kbd>Shift+C</kbd>
+            </button>
+            <button type="button" id="open-profile-btn" class="nav-btn">
+              <span class="section-title-en">Profile</span>
+              <kbd>Shift+P</kbd>
+            </button>
+          </div>
+        </div>
+        <p class="subtitle">
+          <span class="section-title-en"
+            >All cockpit shortcuts in one place. Letter chords need
+            <kbd>Shift</kbd> unless noted. Ignored while typing in fields.
+            <kbd>Esc</kbd> closes overlays, then returns home.</span
+          >
+        </p>
+      </header>
+
+      <main class="help-main">
+        <section class="help-section" aria-labelledby="help-nav-h">
+          <h2 id="help-nav-h" class="section-title">
+            <span class="section-title-en">Navigation</span>
+          </h2>
+          <p class="help-lede">Everywhere (when not typing in a field).</p>
+          <table class="help-table">
+            <thead>
+              <tr>
+                <th scope="col">Shortcut</th>
+                <th scope="col">Action</th>
+                <th scope="col">Where</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><kbd>Shift+J</kbd></td>
+                <td>Job portals (home)</td>
+                <td>All pages</td>
+              </tr>
+              <tr>
+                <td><kbd>Shift+O</kbd></td>
+                <td>Job openings</td>
+                <td>All pages</td>
+              </tr>
+              <tr>
+                <td><kbd>Shift+C</kbd></td>
+                <td>Target companies</td>
+                <td>All pages</td>
+              </tr>
+              <tr>
+                <td><kbd>Shift+P</kbd></td>
+                <td>Career profile</td>
+                <td>All pages</td>
+              </tr>
+              <tr>
+                <td><kbd>Shift+H</kbd></td>
+                <td>This help page</td>
+                <td>All pages</td>
+              </tr>
+              <tr>
+                <td><kbd>Esc</kbd></td>
+                <td>
+                  Close search / modal / resume viewer; otherwise go home
+                </td>
+                <td>All pages</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="help-section" aria-labelledby="help-search-h">
+          <h2 id="help-search-h" class="section-title">
+            <span class="section-title-en">Search</span>
+          </h2>
+          <table class="help-table">
+            <thead>
+              <tr>
+                <th scope="col">Shortcut</th>
+                <th scope="col">Action</th>
+                <th scope="col">Where</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><kbd>Alt+S</kbd></td>
+                <td>Show / hide search bar and focus it</td>
+                <td>Portals · Companies · Openings</td>
+              </tr>
+              <tr>
+                <td><kbd>Esc</kbd></td>
+                <td>Dismiss search (when open)</td>
+                <td>Same</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="help-section" aria-labelledby="help-lang-h">
+          <h2 id="help-lang-h" class="section-title">
+            <span class="section-title-en">Language &amp; display</span>
+          </h2>
+          <table class="help-table">
+            <thead>
+              <tr>
+                <th scope="col">Shortcut</th>
+                <th scope="col">Action</th>
+                <th scope="col">Where</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><kbd>Shift+1</kbd></td>
+                <td>Portuguese field values (and resumes on Profile)</td>
+                <td>Profile · Companies · Openings</td>
+              </tr>
+              <tr>
+                <td><kbd>Shift+2</kbd></td>
+                <td>English field values</td>
+                <td>Profile · Companies · Openings</td>
+              </tr>
+              <tr>
+                <td><kbd>Shift+0</kbd></td>
+                <td>Show both languages</td>
+                <td>Profile · Companies · Openings</td>
+              </tr>
+              <tr>
+                <td><kbd>Shift+D</kbd></td>
+                <td>Toggle summary / detail</td>
+                <td>Profile</td>
+              </tr>
+              <tr>
+                <td><kbd>Shift+E</kbd></td>
+                <td>Collapse / expand panels</td>
+                <td>Profile</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="help-section" aria-labelledby="help-crud-h">
+          <h2 id="help-crud-h" class="section-title">
+            <span class="section-title-en">Openings CRUD</span>
+          </h2>
+          <p class="help-lede">Job openings board only.</p>
+          <table class="help-table">
+            <thead>
+              <tr>
+                <th scope="col">Shortcut</th>
+                <th scope="col">Action</th>
+                <th scope="col">Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><kbd>N</kbd> · <kbd>Shift+N</kbd></td>
+                <td>Add new opening and open dossier</td>
+                <td>Not while typing</td>
+              </tr>
+              <tr>
+                <td><kbd>Ctrl+S</kbd> · <kbd>Ctrl+Enter</kbd></td>
+                <td>Save (update) all openings</td>
+                <td>Works while typing</td>
+              </tr>
+              <tr>
+                <td><kbd>Shift+Delete</kbd></td>
+                <td>Delete the open dossier</td>
+                <td>Confirms first; modal must be open</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="help-section" aria-labelledby="help-save-h">
+          <h2 id="help-save-h" class="section-title">
+            <span class="section-title-en">Save</span>
+          </h2>
+          <table class="help-table">
+            <thead>
+              <tr>
+                <th scope="col">Shortcut</th>
+                <th scope="col">Action</th>
+                <th scope="col">Where</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><kbd>Ctrl+Enter</kbd></td>
+                <td>Save changes to canonical CSVs</td>
+                <td>Profile · Companies · Openings</td>
+              </tr>
+              <tr>
+                <td><kbd>Ctrl+S</kbd></td>
+                <td>Same as save</td>
+                <td>Openings</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="help-section help-legend" aria-labelledby="help-scope-h">
+          <h2 id="help-scope-h" class="section-title">
+            <span class="section-title-en">Pages</span>
+          </h2>
+          <ul class="help-pages">
+            <li>
+              <a href="/">Job portals</a> — home · boards &amp; ATS careers
+            </li>
+            <li>
+              <a href="/jobs.html">Job openings</a> — pipeline bento board
+            </li>
+            <li>
+              <a href="/companies.html">Target companies</a> — search dossiers
+            </li>
+            <li>
+              <a href="/profile.html">Career profile</a> — fields &amp; resumes
+            </li>
+          </ul>
+        </section>
+      </main>
+    </div>
+
+    <script src="help-app.js"></script>
+  </body>
+</html>

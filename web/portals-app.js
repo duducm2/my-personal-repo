@@ -536,6 +536,11 @@
       if (k === "p") {
         event.preventDefault();
         openProfileWindow();
+        return;
+      }
+      if (k === "h") {
+        event.preventDefault();
+        location.assign("/help.html");
       }
     });
   }
@@ -575,6 +580,9 @@
     document
       .getElementById("open-openings-btn")
       ?.addEventListener("click", () => openOpeningsWindow());
+    document
+      .getElementById("open-help-btn")
+      ?.addEventListener("click", () => location.assign("/help.html"));
 
     const search = document.getElementById("portal-search-input");
     if (search) {

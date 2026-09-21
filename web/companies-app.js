@@ -881,6 +881,11 @@
       if (event.key.toLowerCase() === "o") {
         event.preventDefault();
         openJobsWindow();
+        return;
+      }
+      if (event.key.toLowerCase() === "h") {
+        event.preventDefault();
+        location.assign("/help.html");
       }
     });
   }
@@ -937,6 +942,9 @@
     if (jobsBtn) {
       jobsBtn.addEventListener("click", () => openJobsWindow());
     }
+    document
+      .getElementById("open-help-btn")
+      ?.addEventListener("click", () => location.assign("/help.html"));
     const search = document.getElementById("company-search-input");
     if (search) {
       search.addEventListener("input", () => {
