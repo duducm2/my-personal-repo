@@ -610,19 +610,42 @@
     const del = document.createElement("button");
     del.type = "button";
     del.className = "panel-delete";
-    del.textContent = "Delete opening";
-    del.addEventListener("click", () => {
-      if (!confirm("Delete this job opening?")) return;
-      const idx = openings.findIndex((r) => r.id === row.id);
-      if (idx < 0) return;
-      openings.splice(idx, 1);
-      setDirty(true);
-      setSaveStatus("");
-      closeModal();
-      render();
-    });
+    del.innerHTML = "Delete opening <kbd>Shift+Del</kbd>";
+    del.title = "Delete opening (Shift+Delete)";
+    del.addEventListener("click", () => deleteOpening(row.id));
     actions.append(del);
     body.append(actions);
+  }
+
+  function addOpening() {
+    const row = blankOpening();
+    openings.unshift(row);
+    setDirty(true);
+    setSaveStatus("");
+    statusFilter = "";
+    pathFilter = "";
+    priorityFilter = "";
+    query = "";
+    const search = document.getElementById("job-search-input");
+    if (search) search.value = "";
+    hideSearchBar();
+    render();
+    openModal(row.id);
+    return row;
+  }
+
+  function deleteOpening(id, { confirmDelete = true } = {}) {
+    const targetId = id || openJobId;
+    if (!targetId) return false;
+    if (confirmDelete && !confirm("Delete this job opening?")) return false;
+    const idx = openings.findIndex((r) => r.id === targetId);
+    if (idx < 0) return false;
+    openings.splice(idx, 1);
+    setDirty(true);
+    setSaveStatus("");
+    if (openJobId === targetId) closeModal();
+    else render();
+    return true;
   }
 
   function blankOpening() {
@@ -718,12 +741,36 @@
 
   function initKeyboard() {
     document.addEventListener("keydown", (event) => {
-      if ((event.ctrlKey || event.metaKey) && event.key === "Enter") {
+      const mod = event.ctrlKey || event.metaKey;
+      const typing = isTypingTarget(document.activeElement);
+      const dialog = document.getElementById("job-modal");
+      const modalOpen = !!(dialog && dialog.open);
+
+      // Save / update — works while typing
+      if (
+        mod &&
+        !event.altKey &&
+        (event.key === "Enter" || (event.key || "").toLowerCase() === "s")
+      ) {
         event.preventDefault();
         saveAll();
         return;
       }
-      if (event.altKey && !event.ctrlKey && !event.metaKey && !event.shiftKey) {
+
+      // Delete open dossier — Shift+Delete (works while typing in modal)
+      if (
+        modalOpen &&
+        event.shiftKey &&
+        !mod &&
+        !event.altKey &&
+        (event.key === "Delete" || event.code === "Delete")
+      ) {
+        event.preventDefault();
+        deleteOpening(openJobId);
+        return;
+      }
+
+      if (event.altKey && !mod && !event.shiftKey) {
         const isS =
           event.code === "KeyS" || (event.key || "").toLowerCase() === "s";
         if (isS) {
@@ -739,8 +786,7 @@
           dismissSearchBar();
           return;
         }
-        const dialog = document.getElementById("job-modal");
-        if (dialog && dialog.open) {
+        if (modalOpen) {
           closeModal();
           return;
         }
@@ -748,15 +794,20 @@
         location.assign("/");
         return;
       }
+      if (event.altKey || mod || typing) return;
+
+      // Add new opening
       if (
-        !event.shiftKey ||
-        event.ctrlKey ||
-        event.metaKey ||
-        event.altKey ||
-        isTypingTarget(document.activeElement)
+        !event.shiftKey &&
+        (event.key.toLowerCase() === "n" || event.code === "KeyN")
       ) {
+        event.preventDefault();
+        addOpening();
         return;
       }
+
+      if (!event.shiftKey) return;
+
       if (event.code === "Digit1") {
         event.preventDefault();
         setLangMode("pt");
@@ -770,6 +821,11 @@
       if (event.code === "Digit0") {
         event.preventDefault();
         setLangMode("both");
+        return;
+      }
+      if (event.key.toLowerCase() === "n") {
+        event.preventDefault();
+        addOpening();
         return;
       }
       if (event.key.toLowerCase() === "p") {
@@ -856,17 +912,9 @@
       });
     }
 
-    document.getElementById("job-add-btn")?.addEventListener("click", () => {
-      const row = blankOpening();
-      openings.unshift(row);
-      setDirty(true);
-      setSaveStatus("");
-      statusFilter = "";
-      pathFilter = "";
-      priorityFilter = "";
-      render();
-      openModal(row.id);
-    });
+    document
+      .getElementById("job-add-btn")
+      ?.addEventListener("click", () => addOpening());
 
     try {
       await loadState();
