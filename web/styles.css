@@ -40,8 +40,8 @@ body {
 }
 
 .hero {
-  margin-bottom: 10px;
-  padding-bottom: 8px;
+  margin-bottom: 4px;
+  padding-bottom: 4px;
   border-bottom: 1px solid var(--line);
 }
 
@@ -1150,19 +1150,41 @@ body.lang-en .field-row {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 6px;
+  margin-bottom: 0;
 }
 
 .company-search-sticky {
   position: sticky;
   top: 0;
   z-index: 20;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "filters toolbar"
+    "count toolbar";
+  column-gap: 12px;
+  row-gap: 4px;
+  align-items: start;
   background: color-mix(in srgb, var(--bg) 92%, transparent);
   backdrop-filter: blur(6px);
-  padding: 6px 0 8px;
-  margin-bottom: 8px;
+  padding: 2px 0 6px;
+  margin-bottom: 6px;
   border-bottom: 1px solid var(--line);
+}
+
+.company-search-sticky > .company-toolbar {
+  grid-area: toolbar;
+}
+
+.company-search-sticky > .company-filters {
+  grid-area: filters;
+  margin-bottom: 0;
+}
+
+.company-search-sticky > .company-result-count {
+  grid-area: count;
 }
 
 .company-search-bar {
@@ -1654,7 +1676,7 @@ body.lang-en .field-row {
 
 /* --- Job openings board --- */
 .page-jobs .hero {
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 .job-tile-next {
