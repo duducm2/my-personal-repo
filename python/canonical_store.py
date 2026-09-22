@@ -50,6 +50,10 @@ STRUCTURAL_COLS = frozenset(
         "notes",
         "contact_person",
         "contact_note",
+        "is_new",
+        "match_score",
+        "match_reason",
+        "recommended_resume",
         "label",
         "url",
         "name",
@@ -302,6 +306,10 @@ _BASE: dict[str, tuple[str, list[str]]] = {
             "notes",
             "contact_person",
             "contact_note",
+            "is_new",
+            "match_score",
+            "match_reason",
+            "recommended_resume",
         ],
     ),
     "jobPlatforms": (
@@ -365,6 +373,27 @@ class CanonicalStore:
             out[key] = self._read_csv(filename, columns)
         return out
 
+    def load_prompt_context(self) -> dict[str, list[dict[str, str]]]:
+        """Read-only CSV bundles used by the job openings prompt generator.
+
+        These files sit beside the cockpit collections but are not part of
+        PUT /api/state validation.
+        """
+        target_titles = self._read_csv(
+            COLLECTIONS["targetTitles"][0], COLLECTIONS["targetTitles"][1]
+        )
+        experience = self._read_csv(
+            COLLECTIONS["experience"][0], COLLECTIONS["experience"][1]
+        )
+        return {
+            "profile": self._read_csv_loose("profile.csv"),
+            "skills": self._read_csv_loose("skills.csv"),
+            "narratives": self._read_csv_loose("narratives.csv"),
+            "targetTitles": target_titles,
+            "experience": experience,
+            "experienceBullets": self._read_csv_loose("experience_bullets.csv"),
+        }
+
     def save_all(self, collections: dict[str, Any]) -> dict[str, Any]:
         if not isinstance(collections, dict):
             raise ValueError("collections must be an object")
@@ -409,6 +438,19 @@ class CanonicalStore:
             rows: list[dict[str, str]] = []
             for raw in reader:
                 rows.append({col: _cell(raw.get(col)) for col in columns})
+            return rows
+
+    def _read_csv_loose(self, filename: str) -> list[dict[str, str]]:
+        """Read a CSV using whatever headers are on disk (prompt-context files)."""
+        path = self.canonical_dir / filename
+        if not path.exists():
+            return []
+        with path.open(encoding="utf-8", newline="") as f:
+            reader = csv.DictReader(f)
+            fieldnames = list(reader.fieldnames or [])
+            rows: list[dict[str, str]] = []
+            for raw in reader:
+                rows.append({col: _cell(raw.get(col)) for col in fieldnames})
             return rows
 
     def _write_csv(

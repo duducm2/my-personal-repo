@@ -5,10 +5,17 @@
     { key: "dsa", short: "DSA", label: "Digital Solution Architect" },
   ];
 
+  const SCOPE_OPTIONS = ["brazil", "international"];
+  const SYSTEM_KIND_OPTIONS = ["proprietary", "third_party", "unknown"];
+
+  let collections = {};
   let portals = [];
+  let dirty = false;
+  let saving = false;
   let query = "";
   let scopeFilter = "";
   let pathFilter = "";
+  let openPortalId = "";
 
   function cell(v) {
     return v == null ? "" : String(v);
@@ -40,6 +47,21 @@
       label: "[Unknown]",
       className: "company-chip",
     };
+  }
+
+  function setDirty(next) {
+    dirty = next;
+    const btn = document.getElementById("save-btn");
+    if (btn) btn.disabled = !dirty || saving;
+    document.body.classList.toggle("is-dirty", dirty);
+  }
+
+  function setSaveStatus(text, kind) {
+    const el = document.getElementById("save-status");
+    if (!el) return;
+    el.textContent = text || "";
+    el.classList.remove("ok", "err");
+    if (kind) el.classList.add(kind);
   }
 
   function openPortalsHome() {
@@ -206,6 +228,7 @@
           row.system_kind,
           row.scope,
           row.fit_paths,
+          row.id,
         ]
           .map(cell)
           .join(" ");
@@ -228,14 +251,12 @@
   }
 
   function renderPortalCard(row) {
-    const url = cell(row.job_search_url);
-    const card = document.createElement(url ? "a" : "div");
-    card.className = "company-tile portal-card";
-    if (url) {
-      card.href = url;
-      card.target = "_blank";
-      card.rel = "noopener noreferrer";
-    }
+    const card = document.createElement("button");
+    card.type = "button";
+    card.className =
+      "company-tile portal-card" +
+      (openPortalId === row.id ? " is-active" : "");
+    card.addEventListener("click", () => openModal(row.id));
 
     const title = document.createElement("div");
     title.className = "company-tile-title";
@@ -316,9 +337,393 @@
     renderResults();
   }
 
+  function currentOpenRow() {
+    return portals.find((r) => r.id === openPortalId) || null;
+  }
+
+  function openModal(id) {
+    openPortalId = id;
+    const dialog = document.getElementById("portal-modal");
+    fillModal();
+    if (dialog && typeof dialog.showModal === "function") {
+      if (!dialog.open) dialog.showModal();
+    }
+    renderResults();
+  }
+
+  function closeModal() {
+    openPortalId = "";
+    const dialog = document.getElementById("portal-modal");
+    if (dialog && dialog.open) dialog.close();
+    renderResults();
+  }
+
+  function fieldLabel(text) {
+    const lab = document.createElement("span");
+    lab.textContent = text;
+    return lab;
+  }
+
+  function bindTextField(row, key, input, { rerender = false } = {}) {
+    input.addEventListener("input", () => {
+      row[key] = input.value;
+      setDirty(true);
+      setSaveStatus("");
+      if (key === "name") {
+        const titleEl = document.getElementById("portal-modal-title");
+        if (titleEl) titleEl.textContent = cell(row.name) || row.id;
+      }
+      if (rerender) {
+        fillModal();
+        renderResults();
+      } else {
+        renderResults();
+      }
+    });
+  }
+
+  function fillModal() {
+    const row = currentOpenRow();
+    const titleEl = document.getElementById("portal-modal-title");
+    const body = document.getElementById("portal-modal-body");
+    if (!titleEl || !body) return;
+    if (!row) {
+      titleEl.textContent = "";
+      body.replaceChildren();
+      return;
+    }
+
+    titleEl.textContent = cell(row.name) || row.id;
+    body.replaceChildren();
+
+    const editGrid = document.createElement("div");
+    editGrid.className = "company-result-edit";
+
+    const idLabel = document.createElement("label");
+    idLabel.className = "company-edit-field";
+    idLabel.append(fieldLabel("ID"));
+    const idInput = document.createElement("input");
+    idInput.className = "field-input";
+    idInput.value = cell(row.id);
+    idInput.addEventListener("input", () => {
+      const nextId = idInput.value.trim() || row.id;
+      if (portals.some((p) => p !== row && p.id === nextId)) {
+        setSaveStatus("ID already exists.", "err");
+        return;
+      }
+      const wasOpen = openPortalId === row.id;
+      row.id = nextId;
+      if (wasOpen) openPortalId = nextId;
+      setDirty(true);
+      setSaveStatus("");
+      titleEl.textContent = cell(row.name) || row.id;
+      renderResults();
+    });
+    idLabel.append(idInput);
+    editGrid.append(idLabel);
+
+    const nameLabel = document.createElement("label");
+    nameLabel.className = "company-edit-field";
+    nameLabel.append(fieldLabel("Name"));
+    const nameInput = document.createElement("input");
+    nameInput.className = "field-input";
+    nameInput.value = cell(row.name);
+    bindTextField(row, "name", nameInput);
+    nameLabel.append(nameInput);
+    editGrid.append(nameLabel);
+
+    const sortLabel = document.createElement("label");
+    sortLabel.className = "company-edit-field";
+    sortLabel.append(fieldLabel("Sort order"));
+    const sortInput = document.createElement("input");
+    sortInput.className = "field-input";
+    sortInput.type = "number";
+    sortInput.value = cell(row.sort_order);
+    sortInput.addEventListener("input", () => {
+      row.sort_order = sortInput.value;
+      setDirty(true);
+      setSaveStatus("");
+      renderResults();
+    });
+    sortLabel.append(sortInput);
+    editGrid.append(sortLabel);
+
+    const scopeLabel = document.createElement("label");
+    scopeLabel.className = "company-edit-field";
+    scopeLabel.append(fieldLabel("Scope"));
+    const scopeSelect = document.createElement("select");
+    scopeSelect.className = "field-input";
+    for (const opt of SCOPE_OPTIONS) {
+      const o = document.createElement("option");
+      o.value = opt;
+      o.textContent = opt === "brazil" ? "Brazil" : "International";
+      if (cell(row.scope).toLowerCase() === opt) o.selected = true;
+      scopeSelect.append(o);
+    }
+    if (!SCOPE_OPTIONS.includes(cell(row.scope).toLowerCase())) {
+      const o = document.createElement("option");
+      o.value = cell(row.scope);
+      o.textContent = cell(row.scope) || "(blank)";
+      o.selected = true;
+      scopeSelect.append(o);
+    }
+    scopeSelect.addEventListener("change", () => {
+      row.scope = scopeSelect.value;
+      setDirty(true);
+      setSaveStatus("");
+      renderResults();
+    });
+    scopeLabel.append(scopeSelect);
+    editGrid.append(scopeLabel);
+
+    const kindLabel = document.createElement("label");
+    kindLabel.className = "company-edit-field";
+    kindLabel.append(fieldLabel("System kind"));
+    const kindSelect = document.createElement("select");
+    kindSelect.className = "field-input";
+    for (const opt of SYSTEM_KIND_OPTIONS) {
+      const o = document.createElement("option");
+      o.value = opt;
+      o.textContent = opt;
+      if (cell(row.system_kind).toLowerCase() === opt) o.selected = true;
+      kindSelect.append(o);
+    }
+    if (!SYSTEM_KIND_OPTIONS.includes(cell(row.system_kind).toLowerCase())) {
+      const o = document.createElement("option");
+      o.value = cell(row.system_kind);
+      o.textContent = cell(row.system_kind) || "(blank)";
+      o.selected = true;
+      kindSelect.append(o);
+    }
+    kindSelect.addEventListener("change", () => {
+      row.system_kind = kindSelect.value;
+      setDirty(true);
+      setSaveStatus("");
+      fillModal();
+      renderResults();
+    });
+    kindLabel.append(kindSelect);
+    editGrid.append(kindLabel);
+
+    body.append(editGrid);
+
+    const urls = document.createElement("div");
+    urls.className = "company-result-edit";
+
+    const urlLabel = document.createElement("label");
+    urlLabel.className = "company-edit-field";
+    urlLabel.append(fieldLabel("Job search URL"));
+    const urlInput = document.createElement("input");
+    urlInput.className = "field-input";
+    urlInput.value = cell(row.job_search_url);
+    bindTextField(row, "job_search_url", urlInput);
+    urlLabel.append(urlInput);
+    urls.append(urlLabel);
+
+    const atsNameLabel = document.createElement("label");
+    atsNameLabel.className = "company-edit-field";
+    atsNameLabel.append(fieldLabel("ATS name"));
+    const atsNameInput = document.createElement("input");
+    atsNameInput.className = "field-input";
+    atsNameInput.value = cell(row.ats_name);
+    bindTextField(row, "ats_name", atsNameInput, { rerender: true });
+    atsNameLabel.append(atsNameInput);
+    urls.append(atsNameLabel);
+
+    const atsUrlLabel = document.createElement("label");
+    atsUrlLabel.className = "company-edit-field";
+    atsUrlLabel.append(fieldLabel("ATS URL"));
+    const atsUrlInput = document.createElement("input");
+    atsUrlInput.className = "field-input";
+    atsUrlInput.value = cell(row.ats_url);
+    bindTextField(row, "ats_url", atsUrlInput, { rerender: true });
+    atsUrlLabel.append(atsUrlInput);
+    urls.append(atsUrlLabel);
+
+    const pathsLabel = document.createElement("label");
+    pathsLabel.className = "company-edit-field";
+    pathsLabel.append(fieldLabel("Fit paths (da;po;dsa)"));
+    const pathsInput = document.createElement("input");
+    pathsInput.className = "field-input";
+    pathsInput.value = cell(row.fit_paths);
+    pathsInput.addEventListener("input", () => {
+      row.fit_paths = pathsInput.value;
+      setDirty(true);
+      setSaveStatus("");
+      renderResults();
+    });
+    pathsLabel.append(pathsInput);
+    urls.append(pathsLabel);
+
+    body.append(urls);
+
+    if (cell(row.job_search_url)) {
+      const openLink = document.createElement("a");
+      openLink.className = "company-result-link";
+      openLink.href = row.job_search_url;
+      openLink.target = "_blank";
+      openLink.rel = "noopener noreferrer";
+      openLink.textContent = "Open URL: " + row.job_search_url;
+      body.append(openLink);
+    }
+
+    appendPathChips(body, parseFitPaths(row.fit_paths));
+
+    const notesLabel = document.createElement("label");
+    notesLabel.className = "company-edit-field";
+    notesLabel.append(fieldLabel("Notes"));
+    const notesInput = document.createElement("textarea");
+    notesInput.className = "field-input tall";
+    notesInput.rows = 4;
+    notesInput.value = cell(row.notes);
+    notesInput.addEventListener("input", () => {
+      row.notes = notesInput.value;
+      setDirty(true);
+      setSaveStatus("");
+      renderResults();
+    });
+    notesLabel.append(notesInput);
+    body.append(notesLabel);
+
+    const actions = document.createElement("div");
+    actions.className = "job-modal-actions";
+    const del = document.createElement("button");
+    del.type = "button";
+    del.className = "panel-delete";
+    del.textContent = "Delete portal";
+    del.title = "Delete portal (Shift+Delete)";
+    del.addEventListener("click", () => deletePortal(row.id));
+    actions.append(del);
+    body.append(actions);
+  }
+
+  function blankPortal() {
+    const maxSort = portals.reduce(
+      (m, p) => Math.max(m, Number(cell(p.sort_order) || 0)),
+      0,
+    );
+    return {
+      id: `portal-${Date.now()}`,
+      sort_order: String(maxSort + 1),
+      scope: "brazil",
+      name: "New portal",
+      job_search_url: "",
+      system_kind: "proprietary",
+      ats_name: "",
+      ats_url: "",
+      fit_paths: "da;po;dsa",
+      notes: "",
+    };
+  }
+
+  function addPortal() {
+    const row = blankPortal();
+    portals.push(row);
+    scopeFilter = "";
+    pathFilter = "";
+    query = "";
+    const search = searchInputEl();
+    if (search) search.value = "";
+    setDirty(true);
+    setSaveStatus("");
+    render();
+    openModal(row.id);
+  }
+
+  function deletePortal(id, { confirmDelete = true } = {}) {
+    if (!id) return false;
+    if (confirmDelete && !confirm("Delete this job portal?")) return false;
+    const idx = portals.findIndex((p) => p.id === id);
+    if (idx < 0) return false;
+    portals.splice(idx, 1);
+    if (openPortalId === id) closeModal();
+    setDirty(true);
+    setSaveStatus("");
+    render();
+    return true;
+  }
+
+  async function loadState() {
+    const res = await fetch("/api/state");
+    if (!res.ok) throw new Error(`GET /api/state failed (${res.status})`);
+    const payload = await res.json();
+    collections = payload.collections || {};
+    portals = Array.isArray(collections.jobPortals)
+      ? collections.jobPortals.map((row) => ({ ...row }))
+      : [];
+    collections.jobPortals = portals;
+  }
+
+  async function saveAll() {
+    if (saving || !dirty) return;
+    saving = true;
+    setDirty(true);
+    const btn = document.getElementById("save-btn");
+    if (btn) btn.disabled = true;
+    setSaveStatus("Saving…");
+    try {
+      collections.jobPortals = portals;
+      const res = await fetch("/api/state", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ collections }),
+      });
+      const payload = await res.json().catch(() => ({}));
+      if (!res.ok || payload.ok === false) {
+        throw new Error(payload.error || `HTTP ${res.status}`);
+      }
+      setDirty(false);
+      setSaveStatus("Saved.", "ok");
+    } catch (err) {
+      setSaveStatus("Error: " + (err.message || String(err)), "err");
+      setDirty(true);
+    } finally {
+      saving = false;
+      const saveBtn = document.getElementById("save-btn");
+      if (saveBtn) saveBtn.disabled = !dirty;
+    }
+  }
+
+  function isTypingTarget(el) {
+    if (!el) return false;
+    const tag = el.tagName;
+    return (
+      tag === "INPUT" ||
+      tag === "TEXTAREA" ||
+      tag === "SELECT" ||
+      el.isContentEditable
+    );
+  }
+
   function initKeyboard() {
     document.addEventListener("keydown", (event) => {
-      if (event.altKey && !event.ctrlKey && !event.metaKey && !event.shiftKey) {
+      const mod = event.ctrlKey || event.metaKey;
+      const dialog = document.getElementById("portal-modal");
+      const modalOpen = !!(dialog && dialog.open);
+
+      if (
+        mod &&
+        !event.altKey &&
+        (event.key === "Enter" || (event.key || "").toLowerCase() === "s")
+      ) {
+        event.preventDefault();
+        saveAll();
+        return;
+      }
+
+      if (
+        modalOpen &&
+        event.shiftKey &&
+        !mod &&
+        !event.altKey &&
+        (event.key === "Delete" || event.code === "Delete")
+      ) {
+        event.preventDefault();
+        deletePortal(openPortalId);
+        return;
+      }
+
+      if (event.altKey && !mod && !event.shiftKey) {
         const isS =
           event.code === "KeyS" || (event.key || "").toLowerCase() === "s";
         if (isS) {
@@ -329,6 +734,10 @@
         }
       }
       if (event.key === "Escape") {
+        if (modalOpen) {
+          closeModal();
+          return;
+        }
         if (isSearchBarOpen()) {
           event.preventDefault();
           dismissSearchBar();
@@ -375,29 +784,27 @@
     });
   }
 
-  function isTypingTarget(el) {
-    if (!el) return false;
-    const tag = el.tagName;
-    return (
-      tag === "INPUT" ||
-      tag === "TEXTAREA" ||
-      tag === "SELECT" ||
-      el.isContentEditable
-    );
-  }
-
-  async function loadState() {
-    const res = await fetch("/api/state");
-    if (!res.ok) throw new Error(`GET /api/state failed (${res.status})`);
-    const payload = await res.json();
-    const collections = payload.collections || {};
-    portals = Array.isArray(collections.jobPortals)
-      ? collections.jobPortals.map((row) => ({ ...row }))
-      : [];
+  function wireModal() {
+    const dialog = document.getElementById("portal-modal");
+    const closeBtn = document.getElementById("portal-modal-close");
+    if (closeBtn) closeBtn.addEventListener("click", () => closeModal());
+    if (dialog) {
+      dialog.addEventListener("close", () => {
+        openPortalId = "";
+        renderResults();
+      });
+      dialog.addEventListener("click", (event) => {
+        if (event.target === dialog) closeModal();
+      });
+    }
   }
 
   async function init() {
     initKeyboard();
+    wireModal();
+    document
+      .getElementById("save-btn")
+      ?.addEventListener("click", () => saveAll());
     document
       .getElementById("open-profile-btn")
       ?.addEventListener("click", () => openProfileWindow());
@@ -410,6 +817,9 @@
     document
       .getElementById("open-help-btn")
       ?.addEventListener("click", () => location.assign("/help.html"));
+    document
+      .getElementById("portal-add-btn")
+      ?.addEventListener("click", () => addPortal());
 
     const search = document.getElementById("portal-search-input");
     if (search) {
@@ -429,14 +839,23 @@
       });
     }
 
+    window.addEventListener("beforeunload", (e) => {
+      if (!dirty) return;
+      e.preventDefault();
+      e.returnValue = "";
+    });
+
     try {
       await loadState();
       render();
+      setDirty(false);
+      setSaveStatus("");
     } catch (err) {
       const count = document.getElementById("portal-result-count");
       if (count) {
         count.textContent = "Load error: " + (err.message || String(err));
       }
+      setSaveStatus("Load error: " + (err.message || String(err)), "err");
     }
   }
 

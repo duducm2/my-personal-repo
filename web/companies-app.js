@@ -978,6 +978,30 @@
     }
     fitEdit.append(fitRow);
     body.append(fitEdit);
+
+    const actions = document.createElement("div");
+    actions.className = "job-modal-actions";
+    const del = document.createElement("button");
+    del.type = "button";
+    del.className = "panel-delete";
+    del.textContent = "Delete company";
+    del.title = "Delete company (Shift+Delete)";
+    del.addEventListener("click", () => deleteCompany(row.id));
+    actions.append(del);
+    body.append(actions);
+  }
+
+  function deleteCompany(id, { confirmDelete = true } = {}) {
+    if (!id) return false;
+    if (confirmDelete && !confirm("Delete this company?")) return false;
+    const idx = companies.findIndex((c) => c.id === id);
+    if (idx < 0) return false;
+    companies.splice(idx, 1);
+    if (openCompanyId === id) closeModal();
+    setDirty(true);
+    setSaveStatus("");
+    render();
+    return true;
   }
 
   function render() {
@@ -1087,12 +1111,33 @@
 
   function initKeyboard() {
     document.addEventListener("keydown", (event) => {
-      if ((event.ctrlKey || event.metaKey) && event.key === "Enter") {
+      const mod = event.ctrlKey || event.metaKey;
+      const dialog = document.getElementById("company-modal");
+      const modalOpen = !!(dialog && dialog.open);
+
+      if (
+        mod &&
+        !event.altKey &&
+        (event.key === "Enter" || (event.key || "").toLowerCase() === "s")
+      ) {
         event.preventDefault();
         saveAll();
         return;
       }
-      if (event.altKey && !event.ctrlKey && !event.metaKey && !event.shiftKey) {
+
+      if (
+        modalOpen &&
+        event.shiftKey &&
+        !mod &&
+        !event.altKey &&
+        (event.key === "Delete" || event.code === "Delete")
+      ) {
+        event.preventDefault();
+        deleteCompany(openCompanyId);
+        return;
+      }
+
+      if (event.altKey && !mod && !event.shiftKey) {
         const isS =
           event.code === "KeyS" || (event.key || "").toLowerCase() === "s";
         if (isS) {
@@ -1103,14 +1148,13 @@
         }
       }
       if (event.key === "Escape") {
+        if (modalOpen) {
+          closeModal();
+          return;
+        }
         if (isSearchBarOpen()) {
           event.preventDefault();
           dismissSearchBar();
-          return;
-        }
-        const dialog = document.getElementById("company-modal");
-        if (dialog && dialog.open) {
-          closeModal();
           return;
         }
         event.preventDefault();

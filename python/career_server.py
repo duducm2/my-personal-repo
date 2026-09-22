@@ -205,11 +205,7 @@ def resume_policy() -> dict[str, Any]:
 def resolve_download(variant: str, filename: str) -> Path | None:
     if variant not in {e["variant"] for e in DOWNLOAD_CATALOG}:
         return None
-    allowed = {
-        e["filename"]
-        for e in DOWNLOAD_CATALOG
-        if e["variant"] == variant
-    }
+    allowed = {e["filename"] for e in DOWNLOAD_CATALOG if e["variant"] == variant}
     if filename not in allowed:
         return None
     path = (OUTPUT_DIR / variant / filename).resolve()
@@ -270,6 +266,9 @@ class CareerHandler(BaseHTTPRequestHandler):
                 return
             if path == "/api/state":
                 self._json(200, {"collections": self.store.load_all()})
+                return
+            if path == "/api/prompt-context":
+                self._json(200, self.store.load_prompt_context())
                 return
             if path == "/api/downloads":
                 self._json(

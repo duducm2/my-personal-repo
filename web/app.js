@@ -61,6 +61,10 @@
     "fit_paths",
     "name",
     "notes",
+    "is_new",
+    "match_score",
+    "match_reason",
+    "recommended_resume",
   ]);
 
   /** Base (summary) columns — must match python/canonical_store._BASE */
@@ -265,6 +269,10 @@
       "notes",
       "contact_person",
       "contact_note",
+      "is_new",
+      "match_score",
+      "match_reason",
+      "recommended_resume",
     ],
     jobPlatforms: ["id", "sort_order", "company_key", "label", "url"],
     jobCommunities: ["id", "sort_order", "name", "url", "notes"],

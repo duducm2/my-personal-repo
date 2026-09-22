@@ -72,6 +72,20 @@
               <button type="button" id="job-add-btn" class="add-btn">
                 + Add
               </button>
+              <button type="button" id="job-prompt-btn" class="add-btn">
+                Generate prompt
+              </button>
+              <button type="button" id="job-import-btn" class="add-btn">
+                Import openings
+              </button>
+              <button
+                type="button"
+                id="job-bulk-btn"
+                class="add-btn"
+                aria-pressed="false"
+              >
+                Bulk
+              </button>
             </div>
 
             <div
@@ -100,6 +114,44 @@
       </main>
     </div>
 
+    <div
+      id="job-bulk-bar"
+      class="job-bulk-bar"
+      hidden
+      aria-label="Bulk actions"
+    >
+      <span id="job-bulk-count" class="job-bulk-count">0 selected</span>
+      <button type="button" id="job-bulk-select-all" class="nav-btn">
+        Select all visible
+      </button>
+      <button type="button" id="job-bulk-deselect" class="nav-btn">
+        Deselect all
+      </button>
+      <button type="button" id="job-bulk-saved" class="nav-btn">
+        Mark saved
+      </button>
+      <button type="button" id="job-bulk-watching" class="nav-btn">
+        Mark watching
+      </button>
+      <button type="button" id="job-bulk-excluded" class="nav-btn">
+        Mark excluded
+      </button>
+      <button type="button" id="job-bulk-clear-new" class="nav-btn">
+        Clear new tag
+      </button>
+      <button type="button" id="job-bulk-delete" class="panel-delete">
+        Delete selected
+      </button>
+    </div>
+
+    <div
+      id="job-toast"
+      class="job-toast"
+      hidden
+      role="status"
+      aria-live="polite"
+    ></div>
+
     <dialog
       id="job-modal"
       class="company-modal"
@@ -118,6 +170,118 @@
           </button>
         </header>
         <div id="job-modal-body" class="company-modal-body"></div>
+      </div>
+    </dialog>
+
+    <dialog
+      id="prompt-modal"
+      class="company-modal"
+      aria-labelledby="prompt-modal-title"
+    >
+      <div class="company-modal-inner">
+        <header class="company-modal-head">
+          <h2 id="prompt-modal-title" class="company-modal-title">
+            Generate openings prompt
+          </h2>
+          <button
+            type="button"
+            id="prompt-modal-close"
+            class="company-modal-close"
+            aria-label="Close"
+          >
+            ✕
+          </button>
+        </header>
+        <div class="company-modal-body">
+          <p class="job-modal-hint">
+            Paste unstructured job listings from a company careers page. The
+            prompt bundles your profile context, existing openings for that
+            company, and strict JSON output instructions for your AI companion.
+          </p>
+          <div class="company-result-edit job-modal-grid">
+            <label class="company-edit-field">
+              <span class="company-research-label">Company</span>
+              <select id="prompt-company" class="field-input"></select>
+            </label>
+            <label class="company-edit-field">
+              <span class="company-research-label">Career path context</span>
+              <select id="prompt-path" class="field-input">
+                <option value="da">Data Analyst</option>
+                <option value="po">Product Owner</option>
+                <option value="dsa">Digital Solution Architect</option>
+                <option value="other">Other / general</option>
+              </select>
+            </label>
+          </div>
+          <label class="company-edit-field">
+            <span class="company-research-label"
+              >Unstructured job data (paste from careers page)</span
+            >
+            <textarea
+              id="prompt-raw"
+              class="field-input tall"
+              rows="12"
+              placeholder="Paste job titles, locations, and descriptions here…"
+            ></textarea>
+          </label>
+          <div class="job-modal-actions">
+            <button type="button" id="prompt-copy-btn" class="save-btn">
+              Copy prompt
+            </button>
+            <span
+              id="prompt-status"
+              class="save-status"
+              aria-live="polite"
+            ></span>
+          </div>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog
+      id="import-modal"
+      class="company-modal"
+      aria-labelledby="import-modal-title"
+    >
+      <div class="company-modal-inner">
+        <header class="company-modal-head">
+          <h2 id="import-modal-title" class="company-modal-title">
+            Import openings
+          </h2>
+          <button
+            type="button"
+            id="import-modal-close"
+            class="company-modal-close"
+            aria-label="Close"
+          >
+            ✕
+          </button>
+        </header>
+        <div class="company-modal-body">
+          <p class="job-modal-hint">
+            Paste the JSON array returned by your AI companion. Invalid
+            formatting triggers an AI-fix prompt copied to your clipboard.
+          </p>
+          <label class="company-edit-field">
+            <span class="company-research-label">AI output (JSON)</span>
+            <textarea
+              id="import-raw"
+              class="field-input tall"
+              rows="14"
+              placeholder='[{"role_title":"…","company_key":"bosch",…}]'
+            ></textarea>
+          </label>
+          <div class="job-modal-actions">
+            <button type="button" id="import-run-btn" class="save-btn">
+              Import
+            </button>
+            <span
+              id="import-status"
+              class="save-status"
+              aria-live="polite"
+            ></span>
+          </div>
+        </div>
       </div>
     </dialog>
 

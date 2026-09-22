@@ -1,11 +1,13 @@
-id,sort_order,company,company_key,role_title,career_path,job_url,status,priority,work_mode,location,source,found_on,applied_on,next_action,next_action_date,salary_range,fit_interest,skills_gap,job_description,notes,contact_person,contact_note
+id,sort_order,company,company_key,role_title,career_path,job_url,status,priority,work_mode,location,source,found_on,applied_on,next_action,next_action_date,salary_range,fit_interest,skills_gap,job_description,notes,contact_person,contact_note,is_new,match_score,match_reason,recommended_resume
+job-bosch-brasil-1790108580705-1,6,Bosch,bosch-brasil,Data Analyst - Campinas,da,https://example.com/jobs/da-bosch,saved,high,hybrid,"Campinas, SP",company_site,2026-09-22,,,,,4,,"SQL, Power BI, Python",,,,1,8,Strong SQL/Power BI overlap,data-analyst
+job-bosch-brasil-1790108580705-2,7,Bosch,bosch-brasil,IT Business Analyst,other,,excluded,low,onsite,"Campinas, SP",company_site,2026-09-22,,,,,2,,SAP focus,,,,1,3,Weak overlap,general
 job-bosch-001,1,bosch,bosch,PRODUCT OWNER SR - PROJETOS S/4HANA,po,https://jobs.smartrecruiters.com/BoschGroup/744000110377325-product-owner-sr-projetos-s-4hana?trid=78213a3f-df44-4484-80e3-5cc61c646da9&rsid=f5316a20-cd56-483c-85cf-c25269a6dfef,closed,low,unknown,,company_site,,,,,,1,I needed to have knowledge in SAP,"Descrição da empresa
 
 Sobre a Bosch: Seja em áreas de mobilidade, bens de consumo, tecnologia industrial, energia e de construção ou no desenvolvimento de novos modelos de negócios: A Bosch faz uma contribuição decisiva para melhorar a qualidade de vida desta geração e das que virão. Isto só é possível com um network global de mais de 410 mil colaboradores altamente comprometidos, que quebram barreiras todos os dias.
 
 
 
-Sobre a BISB: Somos a Bosch Soluções Integradas, uma intrastartup do grupo Bosch focada em soluções digitais, IoT e AIoT. Nossa cultura é dedicada à agilidade e à inovação, em um ambiente onde a criatividade, o dinamismo e o protagonismo prevalecem. Buscamos pessoas com espírito empreendedor e de inovação para contribuir com o nosso propósito de desenvolver novas soluções e escalá-las no mercado. 👩🏻‍💻",I needed to have knowledge in SAP,,
+Sobre a BISB: Somos a Bosch Soluções Integradas, uma intrastartup do grupo Bosch focada em soluções digitais, IoT e AIoT. Nossa cultura é dedicada à agilidade e à inovação, em um ambiente onde a criatividade, o dinamismo e o protagonismo prevalecem. Buscamos pessoas com espírito empreendedor e de inovação para contribuir com o nosso propósito de desenvolver novas soluções e escalá-las no mercado. 👩🏻‍💻",I needed to have knowledge in SAP,,,,,,
 job-bosch-002,2,bosch,bosch,Senior Data Engineer,da,https://jobs.smartrecruiters.com/BoschGroup/744000140311089-senior-data-engineer-35446-?trid=78213a3f-df44-4484-80e3-5cc61c646da9&rsid=f5316a20-cd56-483c-85cf-c25269a6dfef,closed,low,unknown,,company_site,,,,,,1,I needed to know about Data Bricks,"Descrição do emprego
 
 Responsibilities:
@@ -60,9 +62,9 @@ Desirable: Understanding of machine learning and data science tool integration.
 
 Desirable: Java, or C#.
 
-Fluent English",I needed to know about Data Bricks,,
-job-levva-003,3,levva,levva,(untitled role),other,https://www.linkedin.com/jobs/view/4452391795/,paused,medium,unknown,,linkedin,,,Review JD & decide,,,3,,,Smoke test note,,
-job-levva-004,4,levva,levva,(untitled role),other,https://www.linkedin.com/jobs/view/4449189767/,paused,medium,unknown,,linkedin,,,Review JD & decide,,,3,,,,,
+Fluent English",I needed to know about Data Bricks,,,,,,
+job-levva-003,3,levva,levva,(untitled role),other,https://www.linkedin.com/jobs/view/4452391795/,paused,medium,unknown,,linkedin,,,Review JD & decide,,,3,,,Smoke test note,,,,,,
+job-levva-004,4,levva,levva,(untitled role),other,https://www.linkedin.com/jobs/view/4449189767/,paused,medium,unknown,,linkedin,,,Review JD & decide,,,3,,,,,,,,,
 job-bosch-005,5,bosch,bosch,IT PRODUCT OWNER,po,https://jobs.smartrecruiters.com/BoschGroup/744000144780020-it-product-owner-35575?trid=78213a3f-df44-4484-80e3-5cc61c646da9&rsid=f5316a20-cd56-483c-85cf-c25269a6dfef,closed,low,unknown,,company_site,,,,,,1,,"We are seeking a strategic and customer-focused IT Product Owner to support the vision, roadmap, and
 
 delivery of our Distributor and Branch Product Information Portal.
@@ -89,4 +91,4 @@ innovative thinking and emerging technologies (including AI) to continuously enh
 
 and deliver measurable business impact.
 
-This individual will work daily with our development teams to manage the work and will work with the business regularly on user acceptance testing and quality assurance.",,,
+This individual will work daily with our development teams to manage the work and will work with the business regularly on user acceptance testing and quality assurance.",,,,,,,
