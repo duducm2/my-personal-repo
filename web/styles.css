@@ -1493,6 +1493,16 @@ body.lang-en .field-row {
   border-color: color-mix(in srgb, var(--text) 25%, var(--line));
 }
 
+.company-chip-watch {
+  border-color: color-mix(in srgb, #5b8def 45%, var(--line));
+  color: #5b8def;
+}
+
+.company-chip-community {
+  border-color: color-mix(in srgb, #3cb371 45%, var(--line));
+  color: #3cb371;
+}
+
 .company-modal {
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -1659,14 +1669,6 @@ body.lang-en .field-row {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   gap: 8px;
-}
-
-.portal-watch-blurb {
-  margin: 0 0 10px;
-  font-size: 13px;
-  line-height: 1.4;
-  color: var(--muted);
-  max-width: 52rem;
 }
 
 .job-link-card {

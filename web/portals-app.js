@@ -205,6 +205,54 @@
     root.append(pathRow);
   }
 
+  function cardKindTag(kind) {
+    if (kind === "watch") {
+      return {
+        label: "[Watch page]",
+        className: "company-chip company-chip-watch",
+      };
+    }
+    if (kind === "community") {
+      return {
+        label: "[Community]",
+        className: "company-chip company-chip-community",
+      };
+    }
+    return null;
+  }
+
+  function watchAndCommunityCards() {
+    const watch = platforms.map((p) => ({
+      card_kind: "watch",
+      id: cell(p.id),
+      sort_order: cell(p.sort_order) || "0",
+      name: cell(p.label) || cell(p.company_key) || cell(p.id),
+      job_search_url: cell(p.url),
+      scope: "",
+      notes: cell(p.company_key)
+        ? `Employer / campus · ${cell(p.company_key)}`
+        : "",
+      system_kind: "",
+      ats_name: "",
+      ats_url: "",
+      fit_paths: "da;po;dsa",
+    }));
+    const comm = communities.map((c) => ({
+      card_kind: "community",
+      id: cell(c.id),
+      sort_order: cell(c.sort_order) || "0",
+      name: cell(c.name) || cell(c.id),
+      job_search_url: cell(c.url),
+      scope: "",
+      notes: cell(c.notes),
+      system_kind: "",
+      ats_name: "",
+      ats_url: "",
+      fit_paths: "da;po;dsa",
+    }));
+    return [...watch, ...comm];
+  }
+
   function matchesQuery(haystack) {
     const q = query.trim().toLowerCase();
     if (!q) return true;
@@ -212,17 +260,25 @@
   }
 
   function filteredPortals() {
-    return portals
+    const market = portals.map((row) => ({ ...row, card_kind: "portal" }));
+    const extra = watchAndCommunityCards();
+    return [...market, ...extra]
       .slice()
-      .sort(
-        (a, b) =>
-          Number(cell(a.sort_order) || 0) - Number(cell(b.sort_order) || 0),
-      )
+      .sort((a, b) => {
+        const kindRank = (k) => (k === "portal" ? 0 : k === "watch" ? 1 : 2);
+        const kr = kindRank(a.card_kind) - kindRank(b.card_kind);
+        if (kr) return kr;
+        return (
+          Number(cell(a.sort_order) || 0) - Number(cell(b.sort_order) || 0)
+        );
+      })
       .filter((row) => {
         const scope = cell(row.scope).toLowerCase();
-        if (scopeFilter && scope !== scopeFilter) return false;
+        if (scopeFilter && scope && scope !== scopeFilter) return false;
         const paths = parseFitPaths(row.fit_paths);
-        if (pathFilter && !paths.includes(pathFilter)) return false;
+        if (pathFilter && paths.length && !paths.includes(pathFilter)) {
+          return false;
+        }
         const hay = [
           row.name,
           row.notes,
@@ -231,6 +287,7 @@
           row.scope,
           row.fit_paths,
           row.id,
+          row.card_kind,
         ]
           .map(cell)
           .join(" ");
@@ -252,13 +309,38 @@
     parent.append(wrap);
   }
 
+  function openCardUrl(row) {
+    const url = cell(row.job_search_url);
+    if (!url) return;
+    window.open(url, "_blank", "noopener,noreferrer");
+  }
+
   function renderPortalCard(row) {
+    const isLinkCard =
+      row.card_kind === "watch" || row.card_kind === "community";
     const card = document.createElement("button");
     card.type = "button";
     card.className =
       "company-tile portal-card" +
-      (openPortalId === row.id ? " is-active" : "");
-    card.addEventListener("click", () => openModal(row.id));
+      (openPortalId === row.id && !isLinkCard ? " is-active" : "");
+    card.addEventListener("click", (event) => {
+      if (isLinkCard) {
+        event.preventDefault();
+        openCardUrl(row);
+        return;
+      }
+      if (event.ctrlKey || event.metaKey) {
+        event.preventDefault();
+        openCardUrl(row);
+        return;
+      }
+      openModal(row.id);
+    });
+    if (cell(row.job_search_url)) {
+      card.title = isLinkCard
+        ? "Click to open"
+        : "Click to edit · Ctrl/Cmd+click to open";
+    }
 
     const title = document.createElement("div");
     title.className = "company-tile-title";
@@ -285,11 +367,19 @@
 
     const chips = document.createElement("div");
     chips.className = "company-tile-chips";
-    const tag = systemTag(row.system_kind, row.ats_name);
-    const tagEl = document.createElement("span");
-    tagEl.className = tag.className;
-    tagEl.textContent = tag.label;
-    chips.append(tagEl);
+    const special = cardKindTag(row.card_kind);
+    if (special) {
+      const tagEl = document.createElement("span");
+      tagEl.className = special.className;
+      tagEl.textContent = special.label;
+      chips.append(tagEl);
+    } else {
+      const tag = systemTag(row.system_kind, row.ats_name);
+      const tagEl = document.createElement("span");
+      tagEl.className = tag.className;
+      tagEl.textContent = tag.label;
+      chips.append(tagEl);
+    }
 
     if (
       cell(row.ats_url) &&
@@ -306,7 +396,9 @@
     }
 
     card.append(meta, chips);
-    appendPathChips(card, parseFitPaths(row.fit_paths));
+    if (!isLinkCard) {
+      appendPathChips(card, parseFitPaths(row.fit_paths));
+    }
     return card;
   }
 
@@ -321,91 +413,22 @@
     if (!portalRows.length) {
       const empty = document.createElement("p");
       empty.className = "company-bento-empty muted";
-      empty.textContent = "No market portals match these filters.";
+      empty.textContent = "No portals match these filters.";
       portalRoot.append(empty);
     } else {
       for (const row of portalRows) portalRoot.append(renderPortalCard(row));
     }
 
     if (portalCount) {
-      portalCount.textContent = `${portalRows.length} market portal${
+      portalCount.textContent = `${portalRows.length} portal${
         portalRows.length === 1 ? "" : "s"
       }`;
-    }
-  }
-
-  function renderWatchPages() {
-    const root = document.getElementById("portal-watch-root");
-    if (!root) return;
-    root.replaceChildren();
-
-    const byCompany = new Map();
-    for (const p of platforms) {
-      const key = cell(p.company_key) || "other";
-      if (!byCompany.has(key)) byCompany.set(key, []);
-      byCompany.get(key).push(p);
-    }
-
-    for (const [key, list] of [...byCompany.entries()].sort((a, b) =>
-      a[0].localeCompare(b[0]),
-    )) {
-      const card = document.createElement("article");
-      card.className = "job-link-card";
-      const h = document.createElement("h3");
-      h.textContent = key;
-      card.append(h);
-      const ul = document.createElement("ul");
-      for (const p of list) {
-        const li = document.createElement("li");
-        const a = document.createElement("a");
-        a.href = cell(p.url);
-        a.target = "_blank";
-        a.rel = "noopener noreferrer";
-        a.textContent = cell(p.label) || cell(p.url);
-        li.append(a);
-        ul.append(li);
-      }
-      card.append(ul);
-      root.append(card);
-    }
-
-    if (communities.length) {
-      const card = document.createElement("article");
-      card.className = "job-link-card";
-      const h = document.createElement("h3");
-      h.textContent = "Communities";
-      card.append(h);
-      const ul = document.createElement("ul");
-      for (const c of communities) {
-        const li = document.createElement("li");
-        if (cell(c.url)) {
-          const a = document.createElement("a");
-          a.href = cell(c.url);
-          a.target = "_blank";
-          a.rel = "noopener noreferrer";
-          a.textContent = cell(c.name);
-          li.append(a);
-        } else {
-          li.textContent = cell(c.name);
-        }
-        ul.append(li);
-      }
-      card.append(ul);
-      root.append(card);
-    }
-
-    if (!platforms.length && !communities.length) {
-      const empty = document.createElement("p");
-      empty.className = "company-bento-empty";
-      empty.textContent = "No direct watch pages or communities yet.";
-      root.append(empty);
     }
   }
 
   function render() {
     renderFilters();
     renderResults();
-    renderWatchPages();
   }
 
   function currentOpenRow() {
