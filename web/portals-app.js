@@ -315,6 +315,40 @@
     window.open(url, "_blank", "noopener,noreferrer");
   }
 
+  const CARD_SEL = "#portals-results .company-tile";
+
+  function moveCardFocus(delta) {
+    return !!window.CardNav?.move(CARD_SEL, delta);
+  }
+
+  function clearPortalFilters() {
+    scopeFilter = "";
+    pathFilter = "";
+    query = "";
+    const search = searchInputEl();
+    if (search) search.value = "";
+    hideSearchBar();
+    render();
+    window.CardNav?.focusFirst(CARD_SEL);
+  }
+
+  function focusedPortalCard() {
+    const el = document.activeElement;
+    if (!el || !el.classList.contains("company-tile")) return null;
+    const root = document.getElementById("portals-results");
+    if (!root || !root.contains(el)) return null;
+    return el;
+  }
+
+  function openFocusedPortal() {
+    const card = focusedPortalCard();
+    if (!card) return false;
+    const url = cell(card.dataset.url);
+    if (!url) return false;
+    window.open(url, "_blank", "noopener,noreferrer");
+    return true;
+  }
+
   function renderPortalCard(row) {
     const isLinkCard =
       row.card_kind === "watch" || row.card_kind === "community";
@@ -323,6 +357,9 @@
     card.className =
       "company-tile portal-card" +
       (openPortalId === row.id && !isLinkCard ? " is-active" : "");
+    card.dataset.id = cell(row.id);
+    card.dataset.url = cell(row.job_search_url);
+    card.dataset.kind = cell(row.card_kind) || "portal";
     card.addEventListener("click", (event) => {
       if (isLinkCard) {
         event.preventDefault();
@@ -338,8 +375,8 @@
     });
     if (cell(row.job_search_url)) {
       card.title = isLinkCard
-        ? "Click to open"
-        : "Click to edit · Ctrl/Cmd+click to open";
+        ? "Click / Ctrl+Enter to open"
+        : "Click to edit · Ctrl/Cmd+click or Ctrl+Enter to open";
     }
 
     const title = document.createElement("div");
@@ -802,14 +839,18 @@
   function initKeyboard() {
     document.addEventListener("keydown", (event) => {
       const mod = event.ctrlKey || event.metaKey;
+      const typing = isTypingTarget(document.activeElement);
       const dialog = document.getElementById("portal-modal");
       const modalOpen = !!(dialog && dialog.open);
 
-      if (
-        mod &&
-        !event.altKey &&
-        (event.key === "Enter" || (event.key || "").toLowerCase() === "s")
-      ) {
+      if (mod && !event.altKey && event.key === "Enter") {
+        event.preventDefault();
+        if (!modalOpen && openFocusedPortal()) return;
+        saveAll();
+        return;
+      }
+
+      if (mod && !event.altKey && (event.key || "").toLowerCase() === "s") {
         event.preventDefault();
         saveAll();
         return;
@@ -833,7 +874,7 @@
         if (isS) {
           event.preventDefault();
           event.stopPropagation();
-          toggleSearchBar();
+          clearPortalFilters();
           return;
         }
       }
@@ -851,12 +892,41 @@
         openOpeningsWindow();
         return;
       }
+
+      if (
+        !modalOpen &&
+        !typing &&
+        !mod &&
+        !event.altKey &&
+        (event.key === "ArrowRight" ||
+          event.key === "ArrowDown" ||
+          event.key === "ArrowLeft" ||
+          event.key === "ArrowUp")
+      ) {
+        const delta =
+          event.key === "ArrowRight" || event.key === "ArrowDown" ? 1 : -1;
+        if (moveCardFocus(delta)) {
+          event.preventDefault();
+          return;
+        }
+      }
+
+      if (
+        !modalOpen &&
+        !typing &&
+        window.CardNav?.isJumpKey(event) &&
+        window.CardNav.jumpPrefix(CARD_SEL, event.key)
+      ) {
+        event.preventDefault();
+        return;
+      }
+
       if (
         !event.shiftKey ||
         event.ctrlKey ||
         event.metaKey ||
         event.altKey ||
-        isTypingTarget(document.activeElement)
+        typing
       ) {
         return;
       }

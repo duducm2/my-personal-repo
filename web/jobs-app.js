@@ -147,6 +147,8 @@
     hideSearchBar();
   }
 
+  const CARD_SEL = "#jobs-results .company-tile";
+
   function clearJobFilters() {
     statusFilter = "";
     pathFilter = "";
@@ -156,6 +158,11 @@
     if (search) search.value = "";
     hideSearchBar();
     render();
+    window.CardNav?.focusFirst(CARD_SEL);
+  }
+
+  function moveCardFocus(delta) {
+    return !!window.CardNav?.move(CARD_SEL, delta);
   }
 
   function getLangMode() {
@@ -1624,11 +1631,40 @@
         clearJobFilters();
         return;
       }
+
+      if (
+        !modalOpen &&
+        !typing &&
+        !mod &&
+        !event.altKey &&
+        (event.key === "ArrowRight" ||
+          event.key === "ArrowDown" ||
+          event.key === "ArrowLeft" ||
+          event.key === "ArrowUp")
+      ) {
+        const delta =
+          event.key === "ArrowRight" || event.key === "ArrowDown" ? 1 : -1;
+        if (moveCardFocus(delta)) {
+          event.preventDefault();
+          return;
+        }
+      }
+
+      if (
+        !modalOpen &&
+        !typing &&
+        window.CardNav?.isJumpKey(event) &&
+        window.CardNav.jumpPrefix(CARD_SEL, event.key)
+      ) {
+        event.preventDefault();
+        return;
+      }
+
       if (event.altKey || mod || typing) return;
 
-      // Add new opening
+      // Add new opening — Shift+N only (plain letters jump cards)
       if (
-        !event.shiftKey &&
+        event.shiftKey &&
         (event.key.toLowerCase() === "n" || event.code === "KeyN")
       ) {
         event.preventDefault();

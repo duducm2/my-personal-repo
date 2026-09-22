@@ -157,6 +157,26 @@
     hideSearchBar();
   }
 
+  const CARD_SEL = "#companies-results .company-tile";
+
+  function moveCardFocus(delta) {
+    return !!window.CardNav?.move(CARD_SEL, delta);
+  }
+
+  function clearCompanyFilters() {
+    categoryFilter = "";
+    roleFilter = "";
+    geoFilter = "";
+    homeOfficeFilter = "";
+    growthFilter = "";
+    query = "";
+    const search = searchInputEl();
+    if (search) search.value = "";
+    hideSearchBar();
+    render();
+    window.CardNav?.focusFirst(CARD_SEL);
+  }
+
   function roleCount(row) {
     return FIT_FIELDS.filter((f) => isFitYes(row[f.field])).length;
   }
@@ -1112,6 +1132,7 @@
   function initKeyboard() {
     document.addEventListener("keydown", (event) => {
       const mod = event.ctrlKey || event.metaKey;
+      const typing = isTypingTarget(document.activeElement);
       const dialog = document.getElementById("company-modal");
       const modalOpen = !!(dialog && dialog.open);
 
@@ -1143,7 +1164,7 @@
         if (isS) {
           event.preventDefault();
           event.stopPropagation();
-          toggleSearchBar();
+          clearCompanyFilters();
           return;
         }
       }
@@ -1161,12 +1182,41 @@
         openJobsWindow();
         return;
       }
+
+      if (
+        !modalOpen &&
+        !typing &&
+        !mod &&
+        !event.altKey &&
+        (event.key === "ArrowRight" ||
+          event.key === "ArrowDown" ||
+          event.key === "ArrowLeft" ||
+          event.key === "ArrowUp")
+      ) {
+        const delta =
+          event.key === "ArrowRight" || event.key === "ArrowDown" ? 1 : -1;
+        if (moveCardFocus(delta)) {
+          event.preventDefault();
+          return;
+        }
+      }
+
+      if (
+        !modalOpen &&
+        !typing &&
+        window.CardNav?.isJumpKey(event) &&
+        window.CardNav.jumpPrefix(CARD_SEL, event.key)
+      ) {
+        event.preventDefault();
+        return;
+      }
+
       if (
         !event.shiftKey ||
         event.ctrlKey ||
         event.metaKey ||
         event.altKey ||
-        isTypingTarget(document.activeElement)
+        typing
       ) {
         return;
       }
