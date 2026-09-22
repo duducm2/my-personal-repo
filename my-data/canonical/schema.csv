@@ -288,6 +288,7 @@ companies.csv,region_detail_pt,Detail: region (PT),Detalhe: region (PT)
 companies.csv,priority,Priority,Prioridade
 companies.csv,status,Status,Status
 companies.csv,home_office,Home office (yes/hybrid/no/unknown),Home office (sim/híbrido/não/desconhecido)
+companies.csv,growth,Growth (high/moderate/unknown),Crescimento (alto/moderado/desconhecido)
 companies.csv,fit_data_analyst,Fit: Data Analyst (yes/no),Fit: Data Analyst (sim/não)
 companies.csv,fit_product_owner,Fit: Product Owner (yes/no),Fit: Product Owner (sim/não)
 companies.csv,fit_digital_solution_architect,Fit: Digital Solution Architect (yes/no),Fit: Digital Solution Architect (sim/não)

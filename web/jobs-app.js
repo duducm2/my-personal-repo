@@ -269,14 +269,13 @@
     return high || hot ? " company-tile-wide" : "";
   }
 
-  function resolveOpeningGeo(row) {
-    const parts = [row.location, row.company, row.notes, row.source];
+  function resolveLinkedCompany(row) {
     const key = cell(row.company_key).toLowerCase();
     const name = cell(row.company).toLowerCase();
     const companies = Array.isArray(collections.companies)
       ? collections.companies
       : [];
-    const linked =
+    return (
       companies.find((c) => cell(c.id).toLowerCase() === key) ||
       companies.find((c) => {
         const id = cell(c.id).toLowerCase();
@@ -289,7 +288,14 @@
           name &&
           (cell(c.name_en).toLowerCase().includes(name) ||
             cell(c.name_pt).toLowerCase().includes(name)),
-      );
+      ) ||
+      null
+    );
+  }
+
+  function resolveOpeningGeo(row) {
+    const parts = [row.location, row.company, row.notes, row.source];
+    const linked = resolveLinkedCompany(row);
     if (linked) {
       parts.push(
         linked.region_en,
@@ -309,6 +315,25 @@
     return window.CountryFlags.resolveCountries(...parts);
   }
 
+  function appendGrowthFlag(parent, company) {
+    if (!company || cell(company.growth).toLowerCase() !== "high") return;
+    const cue = document.createElement("span");
+    cue.className = "growth-tag";
+    cue.title =
+      "Strong recent growth (revenue, hiring, or capex) based on 2025–2026 public signals";
+    const img = document.createElement("img");
+    img.className = "flag-img flag-img-icon";
+    img.src = "flags/growth.svg";
+    img.alt = "";
+    img.width = 12;
+    img.height = 12;
+    const label = document.createElement("span");
+    label.className = "growth-label";
+    label.textContent = "Growing";
+    cue.append(img, label);
+    parent.append(cue);
+  }
+
   function renderTile(row) {
     const btn = document.createElement("button");
     btn.type = "button";
@@ -324,7 +349,16 @@
     title.textContent = cell(row.role_title) || "(untitled role)";
 
     const geo = resolveOpeningGeo(row);
-    window.CountryFlags.prependFlags(btn, title, geo);
+    const flagTitle = window.CountryFlags.prependFlags(btn, title, geo);
+    const flagRow = flagTitle.querySelector(".country-flags");
+    const linked = resolveLinkedCompany(row);
+    if (flagRow) appendGrowthFlag(flagRow, linked);
+    else if (linked && cell(linked.growth).toLowerCase() === "high") {
+      const wrap = document.createElement("div");
+      wrap.className = "country-flags";
+      appendGrowthFlag(wrap, linked);
+      if (wrap.childNodes.length) flagTitle.insertBefore(wrap, title);
+    }
 
     const meta = document.createElement("div");
     meta.className = "company-tile-meta";
@@ -485,6 +519,7 @@
     el.className = "field-input" + (opts.tall ? " tall" : "");
     if (opts.tall) el.rows = opts.rows || 4;
     if (opts.type) el.type = opts.type;
+    if (opts.placeholder) el.placeholder = opts.placeholder;
     el.value = cell(row[key]);
     el.addEventListener("input", () => {
       row[key] = el.value;
@@ -555,8 +590,18 @@
     const grid = document.createElement("div");
     grid.className = "company-result-edit job-modal-grid";
 
-    grid.append(fieldBlock("Company", textInput(row, "company")));
-    grid.append(fieldBlock("Role title", textInput(row, "role_title")));
+    grid.append(
+      fieldBlock(
+        "Company",
+        textInput(row, "company", { placeholder: "Company name" }),
+      ),
+    );
+    grid.append(
+      fieldBlock(
+        "Role title",
+        textInput(row, "role_title", { placeholder: "Job title" }),
+      ),
+    );
     grid.append(
       fieldBlock("Career path", selectInput(row, "career_path", PATH_OPTIONS)),
     );
@@ -569,7 +614,12 @@
     grid.append(
       fieldBlock("Work mode", selectInput(row, "work_mode", WORK_MODE_OPTIONS)),
     );
-    grid.append(fieldBlock("Location", textInput(row, "location")));
+    grid.append(
+      fieldBlock(
+        "Location",
+        textInput(row, "location", { placeholder: "City, country, remote…" }),
+      ),
+    );
     grid.append(
       fieldBlock("Source", selectInput(row, "source", SOURCE_OPTIONS)),
     );
@@ -579,22 +629,42 @@
     grid.append(
       fieldBlock("Applied on", textInput(row, "applied_on", { type: "date" })),
     );
-    grid.append(fieldBlock("Next action", textInput(row, "next_action")));
+    grid.append(
+      fieldBlock(
+        "Next action",
+        textInput(row, "next_action", { placeholder: "What to do next" }),
+      ),
+    );
     grid.append(
       fieldBlock(
         "Next action date",
         textInput(row, "next_action_date", { type: "date" }),
       ),
     );
-    grid.append(fieldBlock("Salary range", textInput(row, "salary_range")));
+    grid.append(
+      fieldBlock(
+        "Salary range",
+        textInput(row, "salary_range", { placeholder: "e.g. R$ 12–15k" }),
+      ),
+    );
     grid.append(
       fieldBlock(
         "Interest (1–5)",
         textInput(row, "fit_interest", { type: "number" }),
       ),
     );
-    grid.append(fieldBlock("Contact person", textInput(row, "contact_person")));
-    grid.append(fieldBlock("Contact note", textInput(row, "contact_note")));
+    grid.append(
+      fieldBlock(
+        "Contact person",
+        textInput(row, "contact_person", { placeholder: "Name" }),
+      ),
+    );
+    grid.append(
+      fieldBlock(
+        "Contact note",
+        textInput(row, "contact_note", { placeholder: "How you know them" }),
+      ),
+    );
     body.append(grid);
 
     if (cell(row.job_url)) {
@@ -606,21 +676,41 @@
       link.textContent = "Open posting →";
       body.append(link);
     }
-    body.append(fieldBlock("Job URL", textInput(row, "job_url")));
+    body.append(
+      fieldBlock(
+        "Job URL",
+        textInput(row, "job_url", { placeholder: "https://…" }),
+      ),
+    );
     body.append(
       fieldBlock(
         "Skills gap / blockers",
-        textInput(row, "skills_gap", { tall: true, rows: 3 }),
+        textInput(row, "skills_gap", {
+          tall: true,
+          rows: 3,
+          placeholder: "What you still need…",
+        }),
       ),
     );
     body.append(
       fieldBlock(
         "Job description",
-        textInput(row, "job_description", { tall: true, rows: 8 }),
+        textInput(row, "job_description", {
+          tall: true,
+          rows: 8,
+          placeholder: "Paste JD here…",
+        }),
       ),
     );
     body.append(
-      fieldBlock("Notes", textInput(row, "notes", { tall: true, rows: 4 })),
+      fieldBlock(
+        "Notes",
+        textInput(row, "notes", {
+          tall: true,
+          rows: 4,
+          placeholder: "Free notes…",
+        }),
+      ),
     );
 
     const related = platforms.filter(

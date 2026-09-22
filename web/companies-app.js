@@ -26,6 +26,7 @@
   ];
 
   const HOME_OFFICE_OPTIONS = ["yes", "hybrid", "no", "unknown"];
+  const GROWTH_OPTIONS = ["high", "moderate", "unknown"];
 
   let collections = {};
   let companies = [];
@@ -36,6 +37,7 @@
   let roleFilter = "";
   let geoFilter = "";
   let homeOfficeFilter = "";
+  let growthFilter = "";
   let openCompanyId = "";
 
   function cell(v) {
@@ -231,6 +233,53 @@
     return "";
   }
 
+  function appendCareerLinks(parent, row, opts = {}) {
+    const careers = cell(row.careers_url);
+    const website = cell(row.website);
+    const atsUrl = cell(row.ats_url);
+    const atsName = cell(row.ats_name);
+    const stop = !!opts.stopPropagation;
+    const links = document.createElement("div");
+    links.className = "portal-direct-links";
+
+    const addLink = (href, text, className, title) => {
+      if (!href) return;
+      const a = document.createElement("a");
+      a.className = className;
+      a.href = href;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      a.textContent = text;
+      a.title = title || href;
+      if (stop) a.addEventListener("click", (e) => e.stopPropagation());
+      links.append(a);
+    };
+
+    if (careers) {
+      addLink(careers, "Careers", "portal-direct-link", careers);
+    } else if (website) {
+      addLink(website, "Website", "portal-direct-link", website);
+    }
+
+    if (atsUrl) {
+      const same =
+        careers && atsUrl.replace(/\/$/, "") === careers.replace(/\/$/, "");
+      addLink(
+        atsUrl,
+        same
+          ? atsName
+            ? `Apply · ${atsName}`
+            : "Apply board"
+          : `Board · ${atsName || "ATS"}`,
+        "portal-direct-link portal-direct-link-ats",
+        atsUrl,
+      );
+    }
+
+    if (links.childNodes.length) parent.append(links);
+    return links;
+  }
+
   function appendHomeOfficeFlag(parent, row) {
     const value = homeOfficeValue(row);
     const label = homeOfficeLabel(value);
@@ -254,10 +303,42 @@
     return el;
   }
 
+  function growthValue(row) {
+    const v = cell(row.growth).toLowerCase();
+    return GROWTH_OPTIONS.includes(v) ? v : "unknown";
+  }
+
+  function appendGrowthFlag(parent, row) {
+    if (growthValue(row) !== "high") return null;
+    const el = document.createElement("span");
+    el.className = "growth-tag";
+    el.title =
+      "Strong recent growth (revenue, hiring, or capex) based on 2025–2026 public signals";
+    const img = document.createElement("img");
+    img.className = "flag-img flag-img-icon";
+    img.src = "flags/growth.svg";
+    img.alt = "";
+    img.width = 12;
+    img.height = 12;
+    const label = document.createElement("span");
+    label.className = "growth-label";
+    label.textContent = "Growing";
+    el.append(img, label);
+    parent.append(el);
+    return el;
+  }
+
   function matchesHomeOffice(row) {
     if (!homeOfficeFilter) return true;
     if (homeOfficeFilter === "accepts") return acceptsHomeOffice(row);
     return homeOfficeValue(row) === homeOfficeFilter;
+  }
+
+  function matchesGrowth(row) {
+    if (!growthFilter) return true;
+    if (growthFilter === "high") return growthValue(row) === "high";
+    if (growthFilter === "moderate") return growthValue(row) === "moderate";
+    return growthValue(row) === growthFilter;
   }
 
   function filteredRows() {
@@ -268,6 +349,7 @@
     rows = rows.filter(matchesRole);
     rows = rows.filter(matchesGeo);
     rows = rows.filter(matchesHomeOffice);
+    rows = rows.filter(matchesGrowth);
     const q = query.trim().toLowerCase();
     if (q) {
       const parts = q.split(/\s+/).filter(Boolean);
@@ -427,6 +509,27 @@
       );
     }
     root.append(hoRow);
+
+    const growthRow = document.createElement("div");
+    growthRow.className = "company-filter-row";
+    const growthLabel = document.createElement("span");
+    growthLabel.className = "company-filter-label";
+    appendEn(growthLabel, "Growth");
+    growthRow.append(growthLabel);
+    for (const chip of [
+      { key: "", en: "All" },
+      { key: "high", en: "Growing" },
+      { key: "moderate", en: "Steady" },
+      { key: "unknown", en: "Unknown" },
+    ]) {
+      growthRow.append(
+        makeChip(chip, growthFilter, (key) => {
+          growthFilter = key;
+          render();
+        }),
+      );
+    }
+    root.append(growthRow);
   }
 
   function tileSpanClass(row) {
@@ -456,11 +559,14 @@
     const geo = companyGeo(row);
     const flagTitle = window.CountryFlags.prependFlags(btn, title, geo);
     const flagRow = flagTitle.querySelector(".country-flags");
-    if (flagRow) appendHomeOfficeFlag(flagRow, row);
-    else {
+    if (flagRow) {
+      appendHomeOfficeFlag(flagRow, row);
+      appendGrowthFlag(flagRow, row);
+    } else {
       const wrap = document.createElement("div");
       wrap.className = "country-flags";
       appendHomeOfficeFlag(wrap, row);
+      appendGrowthFlag(wrap, row);
       if (wrap.childNodes.length) flagTitle.insertBefore(wrap, title);
     }
 
@@ -511,6 +617,7 @@
     }
 
     btn.append(meta, chips, badges);
+    appendCareerLinks(btn, row, { stopPropagation: true });
     return btn;
   }
 
@@ -574,6 +681,7 @@
     const flagRow = window.CountryFlags.renderFlagRow(geo);
     flagRow.classList.add("country-flags-modal");
     appendHomeOfficeFlag(flagRow, row);
+    appendGrowthFlag(flagRow, row);
     body.append(flagRow);
 
     const badges = document.createElement("div");
@@ -637,20 +745,11 @@
       link.href = row.website;
       link.target = "_blank";
       link.rel = "noopener noreferrer";
-      link.textContent = row.website;
+      link.textContent = "Website: " + row.website;
       body.append(link);
     }
 
-    const careersUrl = cell(row.careers_url);
-    if (careersUrl) {
-      const careers = document.createElement("a");
-      careers.className = "company-result-link";
-      careers.href = careersUrl;
-      careers.target = "_blank";
-      careers.rel = "noopener noreferrer";
-      careers.textContent = "Careers: " + careersUrl;
-      body.append(careers);
-    }
+    appendCareerLinks(body, row);
 
     const atsKind = cell(row.ats_kind).toLowerCase();
     if (atsKind || cell(row.ats_name)) {
@@ -661,20 +760,13 @@
           ? `[Third-Party ATS] ${cell(row.ats_name)}`
           : "[Third-Party ATS]";
       } else if (atsKind === "proprietary") {
-        ats.textContent = "[Proprietary System]";
+        ats.textContent = cell(row.ats_name)
+          ? `[Proprietary] ${cell(row.ats_name)}`
+          : "[Proprietary System]";
       } else {
         ats.textContent = "[Unknown]";
       }
       body.append(ats);
-      if (cell(row.ats_url)) {
-        const atsLink = document.createElement("a");
-        atsLink.className = "company-result-link";
-        atsLink.href = row.ats_url;
-        atsLink.target = "_blank";
-        atsLink.rel = "noopener noreferrer";
-        atsLink.textContent = cell(row.ats_name) || row.ats_url;
-        body.append(atsLink);
-      }
     }
 
     const skillsEn = cell(row.skills_match_en);
@@ -786,6 +878,28 @@
     });
     hoLabel.append(hoLab, hoSelect);
     editRow.append(hoLabel);
+
+    const growthLabel = document.createElement("label");
+    growthLabel.className = "company-edit-field";
+    const growthLab = document.createElement("span");
+    appendEn(growthLab, "Growth");
+    const growthSelect = document.createElement("select");
+    growthSelect.className = "field-input";
+    for (const opt of GROWTH_OPTIONS) {
+      const o = document.createElement("option");
+      o.value = opt;
+      o.textContent = opt;
+      if (growthValue(row) === opt) o.selected = true;
+      growthSelect.append(o);
+    }
+    growthSelect.addEventListener("change", () => {
+      row.growth = growthSelect.value;
+      setDirty(true);
+      setSaveStatus("");
+      renderResults();
+    });
+    growthLabel.append(growthLab, growthSelect);
+    editRow.append(growthLabel);
     body.append(editRow);
 
     const notesBlock = document.createElement("div");
@@ -895,6 +1009,7 @@
       priority: "medium",
       status: "researching",
       home_office: "unknown",
+      growth: "unknown",
       fit_data_analyst: "yes",
       fit_product_owner: "no",
       fit_digital_solution_architect: "no",

@@ -207,8 +207,6 @@ body.is-dirty .eyebrow::after {
   display: block;
 }
 
-
-
 .role-badges {
   display: flex;
   flex-wrap: wrap;
@@ -556,7 +554,6 @@ body.is-dirty .eyebrow::after {
   font-size: 11px;
 }
 
-
 /* UI chrome is always English. Language mode only toggles field VALUE columns. */
 .section-title-pt,
 .field-label-pt,
@@ -586,7 +583,6 @@ body:not(.lang-pt):not(.lang-en) .filter-chip-pt,
 body:not(.lang-pt):not(.lang-en) .role-badge-pt {
   display: none !important;
 }
-
 
 /* 12-col bento system — denser than 2-up */
 .cockpit-grid {
@@ -1370,6 +1366,36 @@ body.lang-en .field-row {
   border-color: var(--line);
 }
 
+.growth-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 9px;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #0b2e1a;
+  background: #a8e6c1;
+  border: 1px solid #27ae60;
+  border-radius: 2px;
+  padding: 1px 4px 1px 2px;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.growth-tag .flag-img-icon {
+  width: 12px;
+  height: 12px;
+  object-fit: contain;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.growth-label {
+  margin-left: 1px;
+}
+
 .near-home-tag {
   display: inline-flex;
   align-items: center;
@@ -1417,19 +1443,48 @@ body.lang-en .field-row {
 
 .portal-ats-link {
   font-size: 10px;
-  color: var(--gold);
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--ink);
   text-decoration: underline;
   text-underline-offset: 2px;
+}
+
+.portal-direct-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.portal-direct-link {
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+  background: var(--input);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 3px 7px;
+  text-decoration: none;
+  line-height: 1.2;
+}
+
+.portal-direct-link:hover {
+  border-color: var(--ink);
+}
+
+.portal-direct-link-ats {
+  background: #e8f5ee;
+  border-color: #27ae60;
+  color: #0b2e1a;
 }
 
 .portals-section-title {
   margin: 18px 0 8px;
   font-size: 15px;
   font-weight: 650;
-}
-
-.portals-companies-section {
-  margin-top: 8px;
 }
 
 .company-chip-ats {
@@ -1640,8 +1695,69 @@ body.lang-en .field-row {
 .job-modal-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 8px;
+  gap: 10px 12px;
   margin-bottom: 10px;
+}
+
+.company-modal .company-edit-field {
+  gap: 5px;
+}
+
+.company-modal .company-research-label {
+  color: color-mix(in srgb, var(--text) 72%, var(--muted));
+  margin-bottom: 0;
+}
+
+.company-modal .field-input {
+  box-sizing: border-box;
+  padding: 8px 10px;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background: #0f0f10;
+  color: #f2f2f2;
+  font-size: 13px;
+  line-height: 1.4;
+  min-height: 36px;
+  white-space: normal;
+  color-scheme: dark;
+  caret-color: var(--gold);
+}
+
+.company-modal .field-input.tall {
+  min-height: 96px;
+  white-space: pre-wrap;
+}
+
+.company-modal .field-input::placeholder {
+  color: #9a9a9a;
+  opacity: 1;
+}
+
+.company-modal .field-input:hover {
+  border-color: #888;
+  background: #121214;
+}
+
+.company-modal .field-input:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 2px rgba(241, 196, 15, 0.35);
+  background: #161618;
+}
+
+.company-modal select.field-input {
+  cursor: pointer;
+  appearance: auto;
+}
+
+.company-modal input[type="date"].field-input,
+.company-modal input[type="number"].field-input {
+  min-height: 34px;
+}
+
+/* Job dossier: a bit wider for readable fields */
+#job-modal.company-modal {
+  width: min(860px, calc(100% - 24px));
 }
 
 .job-related-platforms {

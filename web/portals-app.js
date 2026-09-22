@@ -1,41 +1,17 @@
 (() => {
   const FIT_PATHS = [
-    {
-      key: "da",
-      short: "DA",
-      label: "Data Analyst",
-      field: "fit_data_analyst",
-    },
-    {
-      key: "po",
-      short: "PO",
-      label: "Product Owner",
-      field: "fit_product_owner",
-    },
-    {
-      key: "dsa",
-      short: "DSA",
-      label: "Digital Solution Architect",
-      field: "fit_digital_solution_architect",
-    },
+    { key: "da", short: "DA", label: "Data Analyst" },
+    { key: "po", short: "PO", label: "Product Owner" },
+    { key: "dsa", short: "DSA", label: "Digital Solution Architect" },
   ];
 
   let portals = [];
-  let companies = [];
   let query = "";
   let scopeFilter = "";
   let pathFilter = "";
 
   function cell(v) {
     return v == null ? "" : String(v);
-  }
-
-  function isFitYes(value) {
-    return ["yes", "y", "1", "true", "sim"].includes(
-      String(value || "")
-        .trim()
-        .toLowerCase(),
-    );
   }
 
   function parseFitPaths(raw) {
@@ -237,85 +213,11 @@
       });
   }
 
-  function filteredCompanies() {
-    return companies
-      .slice()
-      .sort(
-        (a, b) =>
-          Number(cell(a.sort_order) || 0) - Number(cell(b.sort_order) || 0),
-      )
-      .filter((row) => {
-        if (pathFilter) {
-          const fit = FIT_PATHS.find((f) => f.key === pathFilter);
-          if (!fit || !isFitYes(row[fit.field])) return false;
-        }
-        if (scopeFilter === "brazil") {
-          const region = (
-            cell(row.region_en) +
-            " " +
-            cell(row.category_en)
-          ).toLowerCase();
-          const isIntl =
-            region.includes("united states") ||
-            region.includes("germany") ||
-            region.includes("china") ||
-            region.includes("sweden") ||
-            region.includes("netherlands") ||
-            region.includes("australia") ||
-            region.includes("remote-first") ||
-            region.includes("global enterprise");
-          if (isIntl && !region.includes("brazil")) return false;
-        }
-        if (scopeFilter === "international") {
-          const region = (
-            cell(row.region_en) +
-            " " +
-            cell(row.category_en)
-          ).toLowerCase();
-          const isLocal =
-            region.includes("campinas") ||
-            (region.includes("brazil") && !region.includes("global"));
-          if (
-            isLocal &&
-            !region.includes("united states") &&
-            !region.includes("germany") &&
-            !region.includes("china") &&
-            !region.includes("sweden") &&
-            !region.includes("netherlands") &&
-            !region.includes("australia") &&
-            !region.includes("remote")
-          ) {
-            return false;
-          }
-        }
-        const hay = [
-          row.name_en,
-          row.name_pt,
-          row.city_en,
-          row.region_en,
-          row.category_en,
-          row.careers_url,
-          row.website,
-          row.ats_name,
-          row.ats_kind,
-          row.notes_en,
-        ]
-          .map(cell)
-          .join(" ");
-        return matchesQuery(hay);
-      });
-  }
-
-  function appendPathChips(parent, pathsOrFits, mode) {
+  function appendPathChips(parent, paths) {
     const wrap = document.createElement("div");
     wrap.className = "role-badges";
     for (const fit of FIT_PATHS) {
-      let on = false;
-      if (mode === "paths") {
-        on = pathsOrFits.includes(fit.key);
-      } else {
-        on = isFitYes(pathsOrFits[fit.field]);
-      }
+      const on = paths.includes(fit.key);
       const badge = document.createElement("span");
       badge.className = "role-badge" + (on ? " is-on" : " is-off");
       badge.textContent = fit.short;
@@ -381,105 +283,16 @@
     }
 
     card.append(meta, chips);
-    appendPathChips(card, parseFitPaths(row.fit_paths), "paths");
-    return card;
-  }
-
-  function renderCompanyCard(row) {
-    const careers = cell(row.careers_url) || cell(row.website);
-    const card = document.createElement(careers ? "a" : "div");
-    card.className = "company-tile portal-card";
-    if (careers) {
-      card.href = careers;
-      card.target = "_blank";
-      card.rel = "noopener noreferrer";
-    }
-
-    const title = document.createElement("div");
-    title.className = "company-tile-title";
-    title.textContent = cell(row.name_en) || cell(row.name_pt) || row.id;
-
-    const geo = window.CountryFlags.resolveCountries(
-      row.region_en,
-      row.region_pt,
-      row.city_en,
-      row.city_pt,
-      row.notes_en,
-      row.notes_pt,
-      row.category_en,
-    );
-    const flagTitle = window.CountryFlags.prependFlags(card, title, geo);
-    const flagRow = flagTitle.querySelector(".country-flags");
-    const ho = cell(row.home_office).toLowerCase();
-    if (ho === "yes" || ho === "hybrid") {
-      const cue = document.createElement("span");
-      cue.className =
-        "home-office-flag" + (ho === "yes" ? " is-yes" : " is-hybrid");
-      cue.textContent = ho === "yes" ? "Home office" : "Hybrid HO";
-      cue.title =
-        ho === "yes"
-          ? "Normally accepts home office / remote"
-          : "Hybrid or remote by team/role";
-      if (flagRow) flagRow.append(cue);
-      else flagTitle.insertBefore(cue, title);
-    }
-
-    const meta = document.createElement("div");
-    meta.className = "company-tile-meta";
-    meta.textContent = [cell(row.city_en), cell(row.category_en)]
-      .filter(Boolean)
-      .join(" · ");
-
-    const chips = document.createElement("div");
-    chips.className = "company-tile-chips";
-    const tag = systemTag(row.ats_kind, row.ats_name);
-    const tagEl = document.createElement("span");
-    tagEl.className = tag.className;
-    tagEl.textContent = tag.label;
-    chips.append(tagEl);
-
-    if (cell(row.priority)) {
-      const p = document.createElement("span");
-      p.className = "company-chip company-chip-priority";
-      p.textContent = row.priority;
-      chips.append(p);
-    }
-
-    if (
-      cell(row.ats_url) &&
-      cell(row.ats_kind).toLowerCase() === "third_party"
-    ) {
-      const atsLink = document.createElement("a");
-      atsLink.className = "portal-ats-link";
-      atsLink.href = row.ats_url;
-      atsLink.target = "_blank";
-      atsLink.rel = "noopener noreferrer";
-      atsLink.textContent = cell(row.ats_name) || "ATS";
-      atsLink.addEventListener("click", (e) => e.stopPropagation());
-      chips.append(atsLink);
-    }
-
-    if (!cell(row.careers_url) && cell(row.website)) {
-      const fb = document.createElement("span");
-      fb.className = "company-chip";
-      fb.textContent = "website fallback";
-      chips.append(fb);
-    }
-
-    card.append(meta, chips);
-    appendPathChips(card, row, "fits");
+    appendPathChips(card, parseFitPaths(row.fit_paths));
     return card;
   }
 
   function renderResults() {
     const portalRoot = document.getElementById("portals-results");
-    const companyRoot = document.getElementById("company-careers-results");
     const portalCount = document.getElementById("portal-result-count");
-    const companyCount = document.getElementById("company-careers-count");
-    if (!portalRoot || !companyRoot) return;
+    if (!portalRoot) return;
 
     const portalRows = filteredPortals();
-    const companyRows = filteredCompanies();
 
     portalRoot.replaceChildren();
     if (!portalRows.length) {
@@ -491,24 +304,9 @@
       for (const row of portalRows) portalRoot.append(renderPortalCard(row));
     }
 
-    companyRoot.replaceChildren();
-    if (!companyRows.length) {
-      const empty = document.createElement("p");
-      empty.className = "company-bento-empty muted";
-      empty.textContent = "No target companies match these filters.";
-      companyRoot.append(empty);
-    } else {
-      for (const row of companyRows) companyRoot.append(renderCompanyCard(row));
-    }
-
     if (portalCount) {
       portalCount.textContent = `${portalRows.length} market portal${
         portalRows.length === 1 ? "" : "s"
-      }`;
-    }
-    if (companyCount) {
-      companyCount.textContent = `${companyRows.length} company career link${
-        companyRows.length === 1 ? "" : "s"
       }`;
     }
   }
@@ -595,9 +393,6 @@
     const collections = payload.collections || {};
     portals = Array.isArray(collections.jobPortals)
       ? collections.jobPortals.map((row) => ({ ...row }))
-      : [];
-    companies = Array.isArray(collections.companies)
-      ? collections.companies.map((row) => ({ ...row }))
       : [];
   }
 

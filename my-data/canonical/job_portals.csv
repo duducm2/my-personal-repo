@@ -20,6 +20,6 @@ glassdoor-intl,25,international,Glassdoor,https://www.glassdoor.com/Job/index.ht
 flexjobs,26,international,FlexJobs,https://www.flexjobs.com/search,proprietary,,,da;po,Curated flexible/remote; paid board.
 smartrecruiters-board,27,international,SmartRecruiters Job Board,https://jobs.smartrecruiters.com/,third_party,SmartRecruiters,https://www.smartrecruiters.com/,da;po;dsa,Public ATS board used by many enterprises.
 greenhouse,28,international,Greenhouse,https://www.greenhouse.com/,third_party,Greenhouse,https://www.greenhouse.com/,da;po;dsa,Company boards: boards.greenhouse.io/<company>.
-lever,29,international,Lever,https://www.lever.co/,third_party,Lever,https://www.lever.co/,da;po;dsa,Company boards: jobs.lever.co/<company>.
-ashby,30,international,Ashby,https://www.ashbyhq.com/,third_party,Ashby,https://www.ashbyhq.com/,da;po;dsa,Company boards: jobs.ashbyhq.com/<company>.
+lever,29,international,Lever,https://jobs.lever.co/,third_party,Lever,https://www.lever.co/,da;po;dsa,Company boards: jobs.lever.co/<company> (e.g. CI&T Spotify).
+ashby,30,international,Ashby,https://www.ashbyhq.com/,third_party,Ashby,https://www.ashbyhq.com/,da;po;dsa,Company boards: jobs.ashbyhq.com/<company> (e.g. Nubank).
 workday,31,international,Workday Recruiting,https://www.workday.com/en-us/products/human-capital-management/recruiting.html,third_party,Workday,https://www.workday.com/,da;po;dsa,Company careers often on *.myworkdayjobs.com.
