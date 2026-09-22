@@ -59,10 +59,10 @@ PATCH: dict[str, tuple[str | None, str, str, str]] = {
         "https://padtec.gupy.io/",
     ),
     "venturus-campinas": (
-        "https://venturus.gupy.io/",
-        "third_party",
-        "Gupy",
-        "https://venturus.gupy.io/",
+        "https://www.venturus.org.br/en/venturus/career",
+        "proprietary",
+        "",
+        "",
     ),
     "grupo-boticario": (
         "https://grupoboticario.gupy.io/",
@@ -71,10 +71,10 @@ PATCH: dict[str, tuple[str | None, str, str, str]] = {
         "https://grupoboticario.gupy.io/",
     ),
     "natura-co": (
-        "https://natura.gupy.io/",
+        "https://carreiras.natura.com.br/",
         "third_party",
-        "Gupy",
-        "https://natura.gupy.io/",
+        "Workday",
+        "https://natura.wd501.myworkdayjobs.com/pt-BR/NaturaCarreiras/",
     ),
     "sicredi": (
         "https://sicredi.gupy.io/",
@@ -120,7 +120,7 @@ PATCH: dict[str, tuple[str | None, str, str, str]] = {
         "https://portal.gupy.io/job-search?jobName=Ascenty",
     ),
     "odata-sp02": (
-        "https://odatacolocation.com/carreiras/",
+        "https://odatacolocation.com/trabalhe-conosco/",
         "third_party",
         "Gupy",
         "https://portal.gupy.io/job-search?jobName=ODATA",
@@ -157,7 +157,7 @@ PATCH: dict[str, tuple[str | None, str, str, str]] = {
         "https://jobs.lever.co/spotify",
     ),
     "ifood-brasil": (
-        "https://carreiras.ifood.com.br/",
+        "https://job-boards.greenhouse.io/ifoodcarreiras",
         "third_party",
         "Greenhouse",
         "https://job-boards.greenhouse.io/ifoodcarreiras",
