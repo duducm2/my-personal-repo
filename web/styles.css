@@ -110,11 +110,13 @@ body.detail-mode .detail-mode-label {
   color: #e74c3c;
 }
 
-body.is-dirty .eyebrow::after {
+body.is-dirty .brand::after {
   content: " · unsaved";
   color: #e74c3c;
-  text-transform: none;
-  letter-spacing: 0;
+  font-size: 0.55em;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  vertical-align: middle;
 }
 
 .section-head {
@@ -1657,6 +1659,14 @@ body.lang-en .field-row {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   gap: 8px;
+}
+
+.portal-watch-blurb {
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--muted);
+  max-width: 52rem;
 }
 
 .job-link-card {

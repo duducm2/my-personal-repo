@@ -10,6 +10,8 @@
 
   let collections = {};
   let portals = [];
+  let platforms = [];
+  let communities = [];
   let dirty = false;
   let saving = false;
   let query = "";
@@ -332,9 +334,78 @@
     }
   }
 
+  function renderWatchPages() {
+    const root = document.getElementById("portal-watch-root");
+    if (!root) return;
+    root.replaceChildren();
+
+    const byCompany = new Map();
+    for (const p of platforms) {
+      const key = cell(p.company_key) || "other";
+      if (!byCompany.has(key)) byCompany.set(key, []);
+      byCompany.get(key).push(p);
+    }
+
+    for (const [key, list] of [...byCompany.entries()].sort((a, b) =>
+      a[0].localeCompare(b[0]),
+    )) {
+      const card = document.createElement("article");
+      card.className = "job-link-card";
+      const h = document.createElement("h3");
+      h.textContent = key;
+      card.append(h);
+      const ul = document.createElement("ul");
+      for (const p of list) {
+        const li = document.createElement("li");
+        const a = document.createElement("a");
+        a.href = cell(p.url);
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        a.textContent = cell(p.label) || cell(p.url);
+        li.append(a);
+        ul.append(li);
+      }
+      card.append(ul);
+      root.append(card);
+    }
+
+    if (communities.length) {
+      const card = document.createElement("article");
+      card.className = "job-link-card";
+      const h = document.createElement("h3");
+      h.textContent = "Communities";
+      card.append(h);
+      const ul = document.createElement("ul");
+      for (const c of communities) {
+        const li = document.createElement("li");
+        if (cell(c.url)) {
+          const a = document.createElement("a");
+          a.href = cell(c.url);
+          a.target = "_blank";
+          a.rel = "noopener noreferrer";
+          a.textContent = cell(c.name);
+          li.append(a);
+        } else {
+          li.textContent = cell(c.name);
+        }
+        ul.append(li);
+      }
+      card.append(ul);
+      root.append(card);
+    }
+
+    if (!platforms.length && !communities.length) {
+      const empty = document.createElement("p");
+      empty.className = "company-bento-empty";
+      empty.textContent = "No direct watch pages or communities yet.";
+      root.append(empty);
+    }
+  }
+
   function render() {
     renderFilters();
     renderResults();
+    renderWatchPages();
   }
 
   function currentOpenRow() {
@@ -651,7 +722,15 @@
     portals = Array.isArray(collections.jobPortals)
       ? collections.jobPortals.map((row) => ({ ...row }))
       : [];
+    platforms = Array.isArray(collections.jobPlatforms)
+      ? collections.jobPlatforms.map((row) => ({ ...row }))
+      : [];
+    communities = Array.isArray(collections.jobCommunities)
+      ? collections.jobCommunities.map((row) => ({ ...row }))
+      : [];
     collections.jobPortals = portals;
+    collections.jobPlatforms = platforms;
+    collections.jobCommunities = communities;
   }
 
   async function saveAll() {
@@ -663,6 +742,8 @@
     setSaveStatus("Saving…");
     try {
       collections.jobPortals = portals;
+      collections.jobPlatforms = platforms;
+      collections.jobCommunities = communities;
       const res = await fetch("/api/state", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
