@@ -159,7 +159,7 @@
     const bar = searchBarEl();
     if (!bar) return;
     if (bar.classList.contains("is-open")) {
-      hideSearchBar();
+        hideSearchBar();
       return;
     }
     focusSearch();
@@ -2797,9 +2797,9 @@
             return;
           }
           if (isS) {
-            event.preventDefault();
-            saveAll();
-            return;
+        event.preventDefault();
+        saveAll();
+        return;
           }
         }
       }
@@ -2955,8 +2955,8 @@
         }
         event.preventDefault();
         clearJobFilters();
-        return;
-      }
+          return;
+        }
 
       if (
         !modalOpen &&
@@ -2972,8 +2972,8 @@
           event.key === "ArrowRight" || event.key === "ArrowDown" ? 1 : -1;
         if (moveCardFocus(delta)) {
           event.preventDefault();
-          return;
-        }
+        return;
+      }
       }
 
       if (
