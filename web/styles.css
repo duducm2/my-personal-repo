@@ -2288,6 +2288,90 @@ body.lang-en .field-row {
   color: var(--muted);
 }
 
+.job-form-answers {
+  margin: 14px 0 10px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--panel) 88%, #2a2a30);
+}
+
+.job-form-answers-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.job-form-answers-head .company-research-label {
+  margin: 0;
+  font-size: 11px;
+}
+
+.job-form-answer-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.job-form-answer-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr) auto;
+  gap: 8px 10px;
+  align-items: start;
+  padding: 6px 0;
+  border-top: 1px solid color-mix(in srgb, var(--line) 80%, transparent);
+}
+
+.job-form-answer-row:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.job-form-answer-label {
+  font-size: 11px;
+  font-weight: 650;
+  color: color-mix(in srgb, var(--text) 85%, var(--muted));
+  line-height: 1.3;
+}
+
+.job-form-answer-note {
+  margin-top: 2px;
+  font-size: 10px;
+  color: var(--muted);
+  line-height: 1.35;
+}
+
+.job-form-answer-value {
+  font-size: 12px;
+  line-height: 1.35;
+  color: var(--text);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.job-form-answer-value.is-empty {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.job-form-answer-copy {
+  justify-self: end;
+  flex-shrink: 0;
+}
+
+@media (max-width: 720px) {
+  .job-form-answer-row {
+    grid-template-columns: 1fr auto;
+  }
+
+  .job-form-answer-value {
+    grid-column: 1 / -1;
+  }
+}
+
 .job-url-block {
   margin: 10px 0;
   padding: 10px;

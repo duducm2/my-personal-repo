@@ -926,7 +926,7 @@
         !modalOpen &&
         !typing &&
         window.CardNav?.isJumpKey(event) &&
-        window.CardNav.jumpPrefix(CARD_SEL, event.key)
+        window.CardNav.jumpInContext(CARD_SEL, FILTER_SEL, event.key)
       ) {
         event.preventDefault();
         return;

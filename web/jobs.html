@@ -81,6 +81,24 @@
               </button>
               <button
                 type="button"
+                id="job-form-prompt-btn"
+                class="add-btn"
+                title="Generate form prompt (Shift+F)"
+              >
+                Generate form prompt
+                <kbd class="btn-kbd">⇧F</kbd>
+              </button>
+              <button
+                type="button"
+                id="job-form-import-btn"
+                class="add-btn"
+                title="Import form result (Shift+A)"
+              >
+                Import form result
+                <kbd class="btn-kbd">⇧A</kbd>
+              </button>
+              <button
+                type="button"
                 id="job-bulk-btn"
                 class="add-btn"
                 aria-pressed="false"
@@ -329,6 +347,175 @@
             </button>
             <span
               id="import-status"
+              class="save-status"
+              aria-live="polite"
+            ></span>
+          </div>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog
+      id="form-prompt-modal"
+      class="company-modal"
+      aria-labelledby="form-prompt-modal-title"
+    >
+      <div class="company-modal-inner">
+        <header class="company-modal-head">
+          <h2 id="form-prompt-modal-title" class="company-modal-title">
+            Generate form-fill prompt
+          </h2>
+          <button
+            type="button"
+            id="form-prompt-modal-close"
+            class="company-modal-close"
+            aria-label="Close"
+          >
+            ✕
+          </button>
+        </header>
+        <div class="company-modal-body">
+          <p class="job-modal-hint">
+            Paste ATS application page text. The prompt matches required fields
+            against your profile, education, and experience so your AI companion
+            can return copy-ready answers for this opening.
+          </p>
+          <div class="company-result-edit job-modal-grid">
+            <label class="company-edit-field">
+              <span class="company-research-label">Opening</span>
+              <select id="form-prompt-opening" class="field-input"></select>
+            </label>
+            <fieldset class="company-edit-field prompt-path-fieldset">
+              <legend class="company-research-label">
+                Career path context
+              </legend>
+              <div
+                id="form-prompt-paths"
+                class="prompt-path-checks"
+                role="group"
+                aria-label="Career path context"
+              >
+                <label class="prompt-path-check">
+                  <input
+                    type="checkbox"
+                    name="form-prompt-path"
+                    value="da"
+                  />
+                  Data Analyst
+                </label>
+                <label class="prompt-path-check">
+                  <input type="checkbox" name="form-prompt-path" value="po" />
+                  Product Owner
+                </label>
+                <label class="prompt-path-check">
+                  <input
+                    type="checkbox"
+                    name="form-prompt-path"
+                    value="dsa"
+                    checked
+                  />
+                  Digital Solution Architect
+                </label>
+                <label class="prompt-path-check">
+                  <input type="checkbox" name="form-prompt-path" value="other" />
+                  Other / general
+                </label>
+              </div>
+            </fieldset>
+          </div>
+          <label class="company-edit-field">
+            <span class="company-research-label"
+              >ATS / application page text</span
+            >
+            <textarea
+              id="form-prompt-raw"
+              class="field-input tall"
+              rows="12"
+              placeholder="Paste field labels and instructions from the application form…"
+            ></textarea>
+          </label>
+          <div class="job-modal-actions">
+            <button type="button" id="form-prompt-copy-btn" class="save-btn">
+              Copy prompt
+            </button>
+            <button
+              type="button"
+              id="form-prompt-stay-btn"
+              class="nav-btn"
+              hidden
+            >
+              Stay open
+            </button>
+            <span
+              id="form-prompt-status"
+              class="save-status"
+              aria-live="polite"
+            ></span>
+          </div>
+          <div
+            id="form-prompt-close-bar"
+            class="prompt-close-bar"
+            hidden
+            role="progressbar"
+            aria-valuemin="0"
+            aria-valuemax="3"
+            aria-valuenow="3"
+            aria-label="Closing modal"
+          >
+            <div
+              id="form-prompt-close-bar-fill"
+              class="prompt-close-bar-fill"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog
+      id="form-import-modal"
+      class="company-modal"
+      aria-labelledby="form-import-modal-title"
+    >
+      <div class="company-modal-inner">
+        <header class="company-modal-head">
+          <h2 id="form-import-modal-title" class="company-modal-title">
+            Import form result
+          </h2>
+          <button
+            type="button"
+            id="form-import-modal-close"
+            class="company-modal-close"
+            aria-label="Close"
+          >
+            ✕
+          </button>
+        </header>
+        <div class="company-modal-body">
+          <p class="job-modal-hint">
+            Paste the JSON object returned by your AI companion. A successful
+            import fills this opening’s Application form answers panel and saves
+            automatically.
+          </p>
+          <label class="company-edit-field">
+            <span class="company-research-label">AI output (JSON)</span>
+            <textarea
+              id="form-import-raw"
+              class="field-input tall"
+              rows="14"
+              placeholder='{"opening_id":"…","fields":[{"key":"first_name","label":"Nome","value":"…"}]}'
+            ></textarea>
+          </label>
+          <div class="job-modal-actions">
+            <button
+              type="button"
+              id="form-import-run-btn"
+              class="save-btn"
+              title="Import (Ctrl+Enter)"
+            >
+              Import
+            </button>
+            <span
+              id="form-import-status"
               class="save-status"
               aria-live="polite"
             ></span>

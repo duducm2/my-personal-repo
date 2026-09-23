@@ -112,11 +112,28 @@
     return true;
   }
 
-  function jumpPrefix(selector, ch) {
-    const prefix = String(ch || "")
+  function filterLabel(chip) {
+    if (!chip) return "";
+    const en = chip.querySelector(".filter-chip-en, .section-title-en");
+    if (en && en.textContent.trim()) return en.textContent.trim();
+    const clone = chip.cloneNode(true);
+    clone
+      .querySelectorAll(".filter-chip-pt, kbd, .btn-kbd")
+      .forEach((el) => el.remove());
+    return String(clone.textContent || "")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+  function normalizeJumpChar(ch) {
+    return String(ch || "")
       .toLowerCase()
       .normalize("NFD")
       .replace(/\p{M}/gu, "");
+  }
+
+  function jumpPrefix(selector, ch) {
+    const prefix = normalizeJumpChar(ch);
     if (!prefix || prefix.length !== 1) return false;
     if (!/[\p{L}\p{N}]/u.test(prefix)) return false;
 
@@ -140,6 +157,39 @@
     return true;
   }
 
+  function jumpFilterPrefix(filterRootSel, ch) {
+    const prefix = normalizeJumpChar(ch);
+    if (!prefix || prefix.length !== 1) return false;
+    if (!/[\p{L}\p{N}]/u.test(prefix)) return false;
+
+    const chips = filterChips(filterRootSel);
+    if (!chips.length) return false;
+
+    const matches = chips.filter((chip) => {
+      const t = filterLabel(chip)
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/\p{M}/gu, "");
+      return t.startsWith(prefix);
+    });
+    if (!matches.length) return false;
+
+    const active = document.activeElement;
+    const cur = matches.indexOf(active);
+    const next = matches[(cur + 1) % matches.length];
+    next.focus({ preventScroll: false });
+    lastFilter = next;
+    return true;
+  }
+
+  function jumpInContext(cardSel, filterRootSel, ch) {
+    const active = document.activeElement;
+    if (inFilters(active, filterRootSel)) {
+      return jumpFilterPrefix(filterRootSel, ch);
+    }
+    return jumpPrefix(cardSel, ch);
+  }
+
   function isJumpKey(event) {
     if (event.ctrlKey || event.metaKey || event.altKey || event.shiftKey) {
       return false;
@@ -150,12 +200,15 @@
 
   window.CardNav = {
     titleOf,
+    filterLabel,
     focusFirst,
     move,
     moveFilters,
     moveInContext,
     toggleCardsFilters,
     jumpPrefix,
+    jumpFilterPrefix,
+    jumpInContext,
     isJumpKey,
   };
 })();

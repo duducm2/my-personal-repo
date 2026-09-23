@@ -275,6 +275,8 @@
       "recommended_resume",
       "result",
       "result_on",
+      "application_answers",
+      "application_form_raw",
     ],
     jobPlatforms: ["id", "sort_order", "company_key", "label", "url"],
     jobCommunities: ["id", "sort_order", "name", "url", "notes"],

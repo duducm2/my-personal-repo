@@ -76,6 +76,8 @@
     "recommended_resume",
     "result",
     "result_on",
+    "application_answers",
+    "application_form_raw",
   ];
   const PATH_TO_VARIANT = {
     da: "data-analyst",
@@ -966,6 +968,8 @@
       ),
     );
 
+    renderFormAnswersPanel(row, body);
+
     const related = platforms.filter(
       (p) => cell(p.company_key) === cell(row.company_key),
     );
@@ -1073,6 +1077,8 @@
       recommended_resume: "",
       result: "",
       result_on: "",
+      application_answers: "",
+      application_form_raw: "",
     };
   }
 
@@ -1480,6 +1486,8 @@
     row.is_new = "1";
     row.result = "";
     row.result_on = "";
+    row.application_answers = "";
+    row.application_form_raw = "";
     if (!cell(row.role_title)) {
       throw new Error(`Row ${index} missing role_title`);
     }
@@ -1527,6 +1535,8 @@
       recommended_resume: "data-analyst",
       result: "",
       result_on: "",
+      application_answers: "",
+      application_form_raw: "",
     };
     return [
       "The Job Openings importer rejected my last AI output. Fix and re-deliver.",
@@ -1648,6 +1658,688 @@
     }
   }
 
+  function parseApplicationAnswers(raw) {
+    const text = cell(raw).trim();
+    if (!text) return null;
+    try {
+      const data = JSON.parse(text);
+      if (!data || typeof data !== "object") return null;
+      const fields = Array.isArray(data.fields) ? data.fields : null;
+      if (!fields) return null;
+      return {
+        opening_id: cell(data.opening_id),
+        fields: fields
+          .filter((f) => f && typeof f === "object")
+          .map((f) => ({
+            key: cell(f.key),
+            label: cell(f.label) || cell(f.key),
+            value: cell(f.value),
+            source: cell(f.source),
+            note: cell(f.note),
+          })),
+      };
+    } catch {
+      return null;
+    }
+  }
+
+  function selectedFormPromptPaths() {
+    return [
+      ...document.querySelectorAll(
+        '#form-prompt-paths input[type="checkbox"][name="form-prompt-path"]:checked',
+      ),
+    ].map((el) => cell(el.value).toLowerCase());
+  }
+
+  function fillFormPromptOpeningSelect() {
+    const sel = document.getElementById("form-prompt-opening");
+    if (!sel) return;
+    const prev = cell(sel.value) || openJobId;
+    sel.replaceChildren();
+    const rows = openings.slice().sort((a, b) => {
+      const ca = cell(a.company).localeCompare(cell(b.company));
+      if (ca) return ca;
+      return cell(a.role_title).localeCompare(cell(b.role_title));
+    });
+    if (!rows.length) {
+      const o = document.createElement("option");
+      o.value = "";
+      o.textContent = "(no openings)";
+      sel.append(o);
+      return;
+    }
+    for (const row of rows) {
+      const o = document.createElement("option");
+      o.value = cell(row.id);
+      o.textContent =
+        (cell(row.company) || cell(row.company_key) || "?") +
+        " · " +
+        (cell(row.role_title) || "(untitled)");
+      sel.append(o);
+    }
+    if (prev && [...sel.options].some((o) => o.value === prev)) {
+      sel.value = prev;
+    }
+    syncFormPromptPathsFromOpening();
+    syncFormPromptRawFromOpening();
+  }
+
+  function syncFormPromptPathsFromOpening() {
+    const id = cell(document.getElementById("form-prompt-opening")?.value);
+    const row = openings.find((r) => cell(r.id) === id);
+    const path = cell(row?.career_path).toLowerCase() || "dsa";
+    for (const el of document.querySelectorAll(
+      '#form-prompt-paths input[name="form-prompt-path"]',
+    )) {
+      el.checked = cell(el.value).toLowerCase() === path;
+    }
+    if (
+      !document.querySelector(
+        '#form-prompt-paths input[name="form-prompt-path"]:checked',
+      )
+    ) {
+      const dsa = document.querySelector(
+        '#form-prompt-paths input[name="form-prompt-path"][value="dsa"]',
+      );
+      if (dsa) dsa.checked = true;
+    }
+  }
+
+  function syncFormPromptRawFromOpening() {
+    const id = cell(document.getElementById("form-prompt-opening")?.value);
+    const row = openings.find((r) => cell(r.id) === id);
+    const rawEl = document.getElementById("form-prompt-raw");
+    if (!rawEl || !row) return;
+    if (!cell(rawEl.value).trim() && cell(row.application_form_raw)) {
+      rawEl.value = cell(row.application_form_raw);
+    }
+  }
+
+  function buildFormFillInstructions(openingId, careerPaths) {
+    const paths = careerPaths.length
+      ? careerPaths.join(" | ")
+      : "da | po | dsa | other";
+    return [
+      "=== AIB FORM-FILL INSTRUCTIONS (mandatory) ===",
+      "1. Read ATS / APPLICATION PAGE TEXT and list every distinct form field",
+      "   (required and optional) by its on-page label.",
+      "2. Resolve each field from PROFILE / EDUCATION / EXPERIENCE / NARRATIVES.",
+      "   Prefer exact stored values. Never invent email, phone, or URLs.",
+      "3. Split full_name into first_name / last_name when the form asks for them.",
+      "4. For email confirmation fields, repeat the same email value.",
+      "5. For phone country / dial code, derive from profile phone when present",
+      "   (e.g. +55). Leave empty when unknown.",
+      "6. For education / experience multi-entry blocks, summarize concise",
+      "   paste-ready text from the context (institution, degree, dates;",
+      "   title, company, dates, short description).",
+      `7. Prefer narratives/skills for career paths: ${paths}.`,
+      "8. For résumé / file upload fields, set value to empty string and put a",
+      "   short note like: Upload manually — use recommended_resume variant.",
+      "9. Match label language to the page (PT or EN). Keep key as snake_case English.",
+      "10. Return ONLY one JSON object (no markdown fences, no prose):",
+      '    { "opening_id": "' +
+        openingId +
+        '", "fields": [ { "key", "label", "value", "source", "note?" } ] }',
+      "11. Include every visible form field. Use empty value when unknown.",
+      "12. opening_id must equal the selected opening id provided above.",
+    ].join("\n");
+  }
+
+  async function buildFormFillPrompt(openingId, careerPaths, rawFormText) {
+    const paths = (Array.isArray(careerPaths) ? careerPaths : [careerPaths])
+      .map((p) => cell(p).toLowerCase())
+      .filter(Boolean);
+    const effectivePaths = paths.length ? paths : ["dsa"];
+    const opening =
+      openings.find((r) => cell(r.id) === cell(openingId)) || null;
+    if (!opening) throw new Error("Opening not found");
+
+    const ctx = await fetchPromptContext();
+    const variants = new Set(
+      effectivePaths.map((p) => PATH_TO_VARIANT[p] || "general"),
+    );
+    variants.add("general");
+
+    const skills = (ctx.skills || []).filter((s) =>
+      variants.has(cell(s.variant) || "general"),
+    );
+    const narratives = (ctx.narratives || []).filter((n) =>
+      variants.has(cell(n.variant) || "general"),
+    );
+    const experience = (ctx.experience || []).slice(0, 8);
+    const education = (ctx.education || []).slice(0, 8);
+    const profile = (ctx.profile && ctx.profile[0]) || {};
+
+    const focusLabel = effectivePaths
+      .map((p) => `${pathLabel(p)} (${PATH_TO_VARIANT[p] || "general"})`)
+      .join("; ");
+
+    const lines = [];
+    lines.push(
+      "You are my AI companion (AIB) for ATS application form field extraction.",
+    );
+    lines.push("");
+    lines.push("=== SELECTED OPENING ===");
+    lines.push(`opening_id: ${cell(opening.id)}`);
+    lines.push(`company: ${cell(opening.company)}`);
+    lines.push(`company_key: ${cell(opening.company_key)}`);
+    lines.push(`role_title: ${cell(opening.role_title)}`);
+    lines.push(`career_path: ${cell(opening.career_path)}`);
+    lines.push(`location: ${cell(opening.location)}`);
+    lines.push(`job_url: ${cell(opening.job_url)}`);
+    lines.push(
+      `recommended_resume: ${cell(opening.recommended_resume) || "(none)"}`,
+    );
+    lines.push("");
+    lines.push("=== PROFILE CONTEXT ===");
+    lines.push(
+      `Name: ${cell(profile.display_name) || cell(profile.full_name)}`,
+    );
+    lines.push(`Full name: ${cell(profile.full_name)}`);
+    lines.push(
+      `Location: ${cell(profile.location_en) || cell(profile.location_pt)}`,
+    );
+    lines.push(
+      `Languages: ${cell(profile.languages_en) || cell(profile.languages_pt)}`,
+    );
+    lines.push(`Email: ${cell(profile.email)}`);
+    lines.push(`Phone: ${cell(profile.phone)}`);
+    lines.push(`LinkedIn: ${cell(profile.linkedin_url)}`);
+    lines.push(`Lattes: ${cell(profile.lattes_url)}`);
+    lines.push(`ORCID: ${cell(profile.orcid_url)}`);
+    lines.push(`Career path focus: ${focusLabel}`);
+    lines.push("");
+
+    const tagline = narratives.find((n) => cell(n.field) === "tagline");
+    const summary = narratives.find((n) => cell(n.field) === "profile");
+    if (tagline || summary) {
+      lines.push("=== NARRATIVES (for hiring message / motivation) ===");
+      if (tagline) {
+        lines.push(`Tagline: ${cell(tagline.text_en)}`);
+      }
+      if (summary) {
+        lines.push(`Summary: ${cell(summary.text_en)}`);
+      }
+      lines.push("");
+    }
+
+    if (education.length) {
+      lines.push("=== EDUCATION ===");
+      for (const e of education) {
+        lines.push(
+          `- ${cell(e.institution_en) || cell(e.institution_pt)} | ${cell(e.degree_en) || cell(e.degree_pt)} | ${cell(e.field_en) || cell(e.field_pt)} | ${cell(e.date_display_en) || cell(e.date_display_pt)}`,
+        );
+      }
+      lines.push("");
+    }
+
+    if (experience.length) {
+      lines.push("=== EXPERIENCE (recent) ===");
+      for (const e of experience) {
+        lines.push(
+          `- ${cell(e.title_en) || cell(e.title_pt)} @ ${cell(e.company_en) || cell(e.company_pt)} | ${cell(e.date_display_en) || cell(e.date_display_pt)} | ${cell(e.location_en) || cell(e.location_pt)}`,
+        );
+        const desc = cell(e.description_en) || cell(e.description_pt);
+        if (desc) lines.push(`  ${desc.slice(0, 280)}`);
+      }
+      lines.push("");
+    }
+
+    if (skills.length) {
+      lines.push("=== SKILLS (path-filtered) ===");
+      lines.push(
+        skills
+          .slice(0, 40)
+          .map((s) => cell(s.label_en) || cell(s.label_pt))
+          .filter(Boolean)
+          .join(", "),
+      );
+      lines.push("");
+    }
+
+    lines.push("=== ATS / APPLICATION PAGE TEXT ===");
+    lines.push(cell(rawFormText).trim() || "(empty)");
+    lines.push("");
+    lines.push(buildFormFillInstructions(cell(opening.id), effectivePaths));
+    return lines.join("\n");
+  }
+
+  async function handleCopyFormPrompt() {
+    const openingId = cell(
+      document.getElementById("form-prompt-opening")?.value,
+    );
+    const careerPaths = selectedFormPromptPaths();
+    const rawText = cell(document.getElementById("form-prompt-raw")?.value);
+    const status = document.getElementById("form-prompt-status");
+    if (!openingId) {
+      if (status) {
+        status.textContent = "Pick an opening first.";
+        status.className = "save-status err";
+      }
+      return;
+    }
+    if (!careerPaths.length) {
+      if (status) {
+        status.textContent = "Pick at least one career path.";
+        status.className = "save-status err";
+      }
+      return;
+    }
+    if (!rawText.trim()) {
+      if (status) {
+        status.textContent = "Paste ATS / application page text first.";
+        status.className = "save-status err";
+      }
+      return;
+    }
+    const opening = openings.find((r) => cell(r.id) === openingId);
+    if (opening) {
+      opening.application_form_raw = rawText;
+      setDirty(true);
+    }
+    if (status) {
+      status.textContent = "Building prompt…";
+      status.className = "save-status";
+    }
+    try {
+      const prompt = await buildFormFillPrompt(openingId, careerPaths, rawText);
+      const ok = await copyText(prompt);
+      if (ok) {
+        if (status) {
+          status.textContent = "Prompt copied — closing in 3s…";
+          status.className = "save-status ok";
+        }
+        showToast("Form prompt copied — paste into your AI companion", 2500);
+        startFormPromptAutoClose();
+      } else {
+        const rawEl = document.getElementById("form-prompt-raw");
+        if (rawEl) {
+          rawEl.value = prompt;
+          rawEl.focus();
+          rawEl.select();
+        }
+        if (status) {
+          status.textContent =
+            "Clipboard blocked — prompt filled in the box; press Ctrl+C.";
+          status.className = "save-status ok";
+        }
+        showToast("Prompt ready — press Ctrl+C to copy", 3500);
+        cancelFormPromptAutoClose();
+      }
+    } catch (err) {
+      if (status) {
+        status.textContent = "Error: " + (err.message || String(err));
+        status.className = "save-status err";
+      }
+    }
+  }
+
+  function parseFormImportPayload(text) {
+    const cleaned = stripMarkdownFences(text);
+    if (!cleaned) throw new Error("Empty form import payload");
+    let data;
+    try {
+      data = JSON.parse(cleaned);
+    } catch (err) {
+      throw new Error("Invalid JSON: " + (err.message || String(err)));
+    }
+    if (Array.isArray(data)) {
+      throw new Error(
+        "Expected a JSON object with fields[], not an array (openings import shape).",
+      );
+    }
+    if (!data || typeof data !== "object") {
+      throw new Error("Expected a JSON object");
+    }
+    if (!Array.isArray(data.fields)) {
+      throw new Error('Missing "fields" array');
+    }
+    const fields = [];
+    for (let i = 0; i < data.fields.length; i++) {
+      const f = data.fields[i];
+      if (!f || typeof f !== "object") {
+        throw new Error(`fields[${i}] is not an object`);
+      }
+      const key = cell(f.key);
+      const label = cell(f.label) || key;
+      if (!key && !label) {
+        throw new Error(`fields[${i}] missing key/label`);
+      }
+      fields.push({
+        key: key || `field_${i + 1}`,
+        label,
+        value: cell(f.value),
+        source: cell(f.source),
+        note: cell(f.note),
+      });
+    }
+    return {
+      opening_id: cell(data.opening_id),
+      fields,
+    };
+  }
+
+  function applyFormAnswers(payload) {
+    let openingId = cell(payload.opening_id);
+    if (!openingId) openingId = openJobId;
+    if (!openingId) {
+      openingId = cell(document.getElementById("form-prompt-opening")?.value);
+    }
+    let row = openings.find((r) => cell(r.id) === openingId) || null;
+    if (!row && openJobId) {
+      row = openings.find((r) => cell(r.id) === openJobId) || null;
+      openingId = openJobId;
+    }
+    if (!row) {
+      throw new Error(
+        "No matching opening for opening_id — open a dossier or set opening_id.",
+      );
+    }
+    row.application_answers = JSON.stringify({
+      opening_id: cell(row.id),
+      fields: payload.fields,
+    });
+    collections.jobOpenings = openings;
+    setDirty(true);
+    return row;
+  }
+
+  async function failFormImportWithAiFix(errorMsg, brokenInput) {
+    const sample = {
+      opening_id:
+        openJobId || "bosch-brasil-mid-level-digital-solution-architect-33992",
+      fields: [
+        {
+          key: "first_name",
+          label: "Nome",
+          value: "Eduardo",
+          source: "profile.full_name",
+        },
+        {
+          key: "last_name",
+          label: "Sobrenome",
+          value: "Matos de Assis Figueiredo",
+          source: "profile.full_name",
+        },
+        {
+          key: "email",
+          label: "E-mail",
+          value: "edu.evangelista.figueiredo@gmail.com",
+          source: "profile.email",
+        },
+        {
+          key: "resume",
+          label: "Currículo",
+          value: "",
+          source: "",
+          note: "Upload manually — use recommended_resume variant",
+        },
+      ],
+    };
+    const fixPrompt = [
+      "The Job Openings form-fill importer rejected my last AI output. Fix and re-deliver.",
+      "",
+      "IMPORT ERROR",
+      errorMsg,
+      "",
+      "BROKEN INPUT (truncated)",
+      String(brokenInput || "").slice(0, 4000),
+      "",
+      "WHAT YOU MUST DO",
+      "- Return ONLY a valid JSON object (no markdown fences, no commentary).",
+      '- Shape: { "opening_id": string, "fields": [ { "key", "label", "value", "source", "note?" } ] }',
+      "- Use empty strings for unknown values. Never invent email/phone.",
+      "",
+      "EXAMPLE",
+      JSON.stringify(sample, null, 2),
+    ].join("\n");
+    const status = document.getElementById("form-import-status");
+    const ok = await copyText(fixPrompt);
+    if (status) {
+      status.textContent = ok
+        ? "Import failed — AI fix prompt copied."
+        : "Import failed — could not copy fix prompt: " + errorMsg;
+      status.className = "save-status err";
+    }
+    showToast(
+      ok ? "Form import failed — fix prompt copied" : "Form import failed",
+      3500,
+    );
+  }
+
+  async function handleImportFormRun() {
+    const raw = cell(document.getElementById("form-import-raw")?.value);
+    const status = document.getElementById("form-import-status");
+    if (!raw.trim()) {
+      if (status) {
+        status.textContent = "Paste AI JSON first.";
+        status.className = "save-status err";
+      }
+      return;
+    }
+    try {
+      const payload = parseFormImportPayload(raw);
+      const row = applyFormAnswers(payload);
+      if (status) {
+        status.textContent = `Imported ${payload.fields.length} fields. Saving…`;
+        status.className = "save-status";
+      }
+      const saved = await saveAll();
+      if (saved) {
+        if (status) {
+          status.textContent = `Imported ${payload.fields.length} fields and saved.`;
+          status.className = "save-status ok";
+        }
+        showToast(`Form answers saved (${payload.fields.length} fields)`, 2500);
+        const dialog = document.getElementById("form-import-modal");
+        if (dialog && dialog.open) dialog.close();
+        openModal(row.id);
+        const panel = document.getElementById("job-form-answers");
+        if (panel)
+          panel.scrollIntoView({ block: "nearest", behavior: "smooth" });
+      } else if (status) {
+        status.textContent = "Answers applied, but save failed — press Ctrl+S.";
+        status.className = "save-status err";
+        openModal(row.id);
+      }
+    } catch (err) {
+      await failFormImportWithAiFix(err.message || String(err), raw);
+    }
+  }
+
+  function cancelFormPromptAutoClose(opts = {}) {
+    const keepStatus = !!opts.keepStatus;
+    if (promptAutoCloseTimer) {
+      clearTimeout(promptAutoCloseTimer);
+      promptAutoCloseTimer = null;
+    }
+    if (promptAutoCloseTick) {
+      clearInterval(promptAutoCloseTick);
+      promptAutoCloseTick = null;
+    }
+    promptAutoCloseSecondsLeft = 0;
+    const bar = document.getElementById("form-prompt-close-bar");
+    const fill = document.getElementById("form-prompt-close-bar-fill");
+    const stayBtn = document.getElementById("form-prompt-stay-btn");
+    if (bar) {
+      bar.hidden = true;
+      bar.classList.remove("is-running");
+      bar.setAttribute("aria-valuenow", "3");
+    }
+    if (fill) fill.style.animation = "none";
+    if (stayBtn) stayBtn.hidden = true;
+    if (!keepStatus) {
+      const status = document.getElementById("form-prompt-status");
+      if (status && /closing in/i.test(status.textContent || "")) {
+        status.textContent = "Prompt copied.";
+        status.className = "save-status ok";
+      }
+    }
+  }
+
+  function startFormPromptAutoClose() {
+    cancelPromptAutoClose({ keepStatus: true });
+    cancelFormPromptAutoClose({ keepStatus: true });
+    const bar = document.getElementById("form-prompt-close-bar");
+    const fill = document.getElementById("form-prompt-close-bar-fill");
+    const stayBtn = document.getElementById("form-prompt-stay-btn");
+    const status = document.getElementById("form-prompt-status");
+    promptAutoCloseSecondsLeft = 3;
+    if (stayBtn) stayBtn.hidden = false;
+    if (bar) {
+      bar.hidden = false;
+      bar.setAttribute("aria-valuenow", "3");
+      bar.classList.remove("is-running");
+      if (fill) {
+        fill.style.animation = "none";
+        void fill.offsetWidth;
+        fill.style.animation = "";
+      }
+      bar.classList.add("is-running");
+    }
+    if (status) {
+      status.textContent = "Prompt copied — closing in 3s…";
+      status.className = "save-status ok";
+    }
+    promptAutoCloseTick = setInterval(() => {
+      promptAutoCloseSecondsLeft = Math.max(0, promptAutoCloseSecondsLeft - 1);
+      if (bar) {
+        bar.setAttribute("aria-valuenow", String(promptAutoCloseSecondsLeft));
+      }
+      if (status && promptAutoCloseSecondsLeft > 0) {
+        status.textContent = `Prompt copied — closing in ${promptAutoCloseSecondsLeft}s…`;
+      }
+    }, 1000);
+    promptAutoCloseTimer = setTimeout(() => {
+      promptAutoCloseTimer = null;
+      cancelFormPromptAutoClose({ keepStatus: true });
+      closeFormPromptModal();
+    }, 3000);
+  }
+
+  function openFormPromptModal() {
+    fillFormPromptOpeningSelect();
+    const dialog = document.getElementById("form-prompt-modal");
+    const status = document.getElementById("form-prompt-status");
+    cancelFormPromptAutoClose({ keepStatus: true });
+    if (status) {
+      status.textContent = "";
+      status.className = "save-status";
+    }
+    if (dialog && typeof dialog.showModal === "function" && !dialog.open) {
+      dialog.showModal();
+    }
+  }
+
+  function closeFormPromptModal() {
+    cancelFormPromptAutoClose({ keepStatus: true });
+    const dialog = document.getElementById("form-prompt-modal");
+    if (dialog && dialog.open) dialog.close();
+  }
+
+  function openFormImportModal() {
+    const dialog = document.getElementById("form-import-modal");
+    const status = document.getElementById("form-import-status");
+    if (status) {
+      status.textContent = "";
+      status.className = "save-status";
+    }
+    if (dialog && typeof dialog.showModal === "function" && !dialog.open) {
+      dialog.showModal();
+    }
+  }
+
+  function closeFormImportModal() {
+    const dialog = document.getElementById("form-import-modal");
+    if (dialog && dialog.open) dialog.close();
+  }
+
+  function renderFormAnswersPanel(row, parent) {
+    const section = document.createElement("section");
+    section.id = "job-form-answers";
+    section.className = "job-form-answers";
+    section.setAttribute("aria-label", "Application form answers");
+
+    const head = document.createElement("div");
+    head.className = "job-form-answers-head";
+    const title = document.createElement("h3");
+    title.className = "company-research-label";
+    title.textContent = "Application form answers";
+    head.append(title);
+
+    const parsed = parseApplicationAnswers(row.application_answers);
+    if (!parsed || !parsed.fields.length) {
+      const hint = document.createElement("p");
+      hint.className = "job-modal-hint";
+      hint.textContent =
+        "No form answers yet. Generate a form prompt from the ATS page, then import the AI JSON.";
+      const gen = document.createElement("button");
+      gen.type = "button";
+      gen.className = "nav-btn";
+      gen.textContent = "Generate form prompt";
+      gen.addEventListener("click", () => openFormPromptModal());
+      head.append(gen);
+      section.append(head, hint);
+      parent.append(section);
+      return;
+    }
+
+    const clearBtn = document.createElement("button");
+    clearBtn.type = "button";
+    clearBtn.className = "nav-btn";
+    clearBtn.textContent = "Clear answers";
+    clearBtn.addEventListener("click", () => {
+      row.application_answers = "";
+      setDirty(true);
+      setSaveStatus("");
+      fillModal();
+    });
+    head.append(clearBtn);
+    section.append(head);
+
+    const list = document.createElement("div");
+    list.className = "job-form-answer-list";
+    for (const field of parsed.fields) {
+      const rowEl = document.createElement("div");
+      rowEl.className = "job-form-answer-row";
+      const meta = document.createElement("div");
+      meta.className = "job-form-answer-meta";
+      const lab = document.createElement("div");
+      lab.className = "job-form-answer-label";
+      lab.textContent = field.label || field.key;
+      meta.append(lab);
+      if (field.note) {
+        const note = document.createElement("div");
+        note.className = "job-form-answer-note";
+        note.textContent = field.note;
+        meta.append(note);
+      }
+      const val = document.createElement("div");
+      val.className = "job-form-answer-value";
+      val.textContent = field.value || "(empty)";
+      if (!field.value) val.classList.add("is-empty");
+      const copyBtn = document.createElement("button");
+      copyBtn.type = "button";
+      copyBtn.className = "nav-btn job-form-answer-copy";
+      copyBtn.textContent = "Copy";
+      copyBtn.disabled = !field.value;
+      copyBtn.title = field.value
+        ? `Copy ${field.label || field.key}`
+        : "Nothing to copy";
+      copyBtn.addEventListener("click", async () => {
+        const ok = await copyText(field.value);
+        showToast(
+          ok ? `Copied: ${field.label || field.key}` : "Copy failed",
+          1800,
+        );
+      });
+      rowEl.append(meta, val, copyBtn);
+      list.append(rowEl);
+    }
+    section.append(list);
+    parent.append(section);
+  }
+
   function cancelPromptAutoClose(opts = {}) {
     const keepStatus = !!opts.keepStatus;
     if (promptAutoCloseTimer) {
@@ -1679,6 +2371,7 @@
   }
 
   function startPromptAutoClose() {
+    cancelFormPromptAutoClose({ keepStatus: true });
     cancelPromptAutoClose({ keepStatus: true });
     const bar = document.getElementById("prompt-close-bar");
     const fill = document.getElementById("prompt-close-bar-fill");
@@ -1914,6 +2607,13 @@
         const isEnter = event.key === "Enter" || event.code === "Enter";
         const isS = key === "s";
         if (isEnter || isS) {
+          const formImportOpen =
+            !!document.getElementById("form-import-modal")?.open;
+          if (isEnter && formImportOpen) {
+            event.preventDefault();
+            handleImportFormRun();
+            return;
+          }
           const importOpen = !!document.getElementById("import-modal")?.open;
           if (isEnter && importOpen) {
             event.preventDefault();
@@ -1991,6 +2691,34 @@
         return;
       }
 
+      // Generate form prompt — Shift+F
+      if (
+        !typing &&
+        !mod &&
+        !event.altKey &&
+        event.shiftKey &&
+        event.code === "KeyF"
+      ) {
+        event.preventDefault();
+        event.stopPropagation();
+        openFormPromptModal();
+        return;
+      }
+
+      // Import form result — Shift+A
+      if (
+        !typing &&
+        !mod &&
+        !event.altKey &&
+        event.shiftKey &&
+        event.code === "KeyA"
+      ) {
+        event.preventDefault();
+        event.stopPropagation();
+        openFormImportModal();
+        return;
+      }
+
       if (event.altKey && !mod && !event.shiftKey) {
         const isS =
           event.code === "KeyS" || (event.key || "").toLowerCase() === "s";
@@ -2010,6 +2738,18 @@
         }
       }
       if (event.key === "Escape") {
+        const formPromptOpen =
+          document.getElementById("form-prompt-modal")?.open;
+        if (formPromptOpen) {
+          closeFormPromptModal();
+          return;
+        }
+        const formImportOpen =
+          document.getElementById("form-import-modal")?.open;
+        if (formImportOpen) {
+          closeFormImportModal();
+          return;
+        }
         const promptOpen = document.getElementById("prompt-modal")?.open;
         if (promptOpen) {
           closePromptModal();
@@ -2065,7 +2805,7 @@
         !modalOpen &&
         !typing &&
         window.CardNav?.isJumpKey(event) &&
-        window.CardNav.jumpPrefix(CARD_SEL, event.key)
+        window.CardNav.jumpInContext(CARD_SEL, FILTER_SEL, event.key)
       ) {
         event.preventDefault();
         return;
@@ -2170,6 +2910,46 @@
     document
       .getElementById("import-run-btn")
       ?.addEventListener("click", () => handleImportRun());
+
+    const formPromptDialog = document.getElementById("form-prompt-modal");
+    document
+      .getElementById("form-prompt-modal-close")
+      ?.addEventListener("click", () => closeFormPromptModal());
+    if (formPromptDialog) {
+      formPromptDialog.addEventListener("click", (e) => {
+        if (e.target === formPromptDialog) closeFormPromptModal();
+      });
+    }
+    document
+      .getElementById("form-prompt-copy-btn")
+      ?.addEventListener("click", () => handleCopyFormPrompt());
+    document
+      .getElementById("form-prompt-stay-btn")
+      ?.addEventListener("click", () => cancelFormPromptAutoClose());
+    document
+      .getElementById("form-prompt-opening")
+      ?.addEventListener("change", () => {
+        syncFormPromptPathsFromOpening();
+        const rawEl = document.getElementById("form-prompt-raw");
+        const id = cell(document.getElementById("form-prompt-opening")?.value);
+        const row = openings.find((r) => cell(r.id) === id);
+        if (rawEl && row) {
+          rawEl.value = cell(row.application_form_raw);
+        }
+      });
+
+    const formImportDialog = document.getElementById("form-import-modal");
+    document
+      .getElementById("form-import-modal-close")
+      ?.addEventListener("click", () => closeFormImportModal());
+    if (formImportDialog) {
+      formImportDialog.addEventListener("click", (e) => {
+        if (e.target === formImportDialog) closeFormImportModal();
+      });
+    }
+    document
+      .getElementById("form-import-run-btn")
+      ?.addEventListener("click", () => handleImportFormRun());
   }
 
   async function init() {
@@ -2220,6 +3000,12 @@
     document
       .getElementById("job-import-btn")
       ?.addEventListener("click", () => openImportModal());
+    document
+      .getElementById("job-form-prompt-btn")
+      ?.addEventListener("click", () => openFormPromptModal());
+    document
+      .getElementById("job-form-import-btn")
+      ?.addEventListener("click", () => openFormImportModal());
     document
       .getElementById("job-bulk-btn")
       ?.addEventListener("click", () => setBulkMode(!bulkMode));

@@ -312,6 +312,8 @@ _BASE: dict[str, tuple[str, list[str]]] = {
             "recommended_resume",
             "result",
             "result_on",
+            "application_answers",
+            "application_form_raw",
         ],
     ),
     "jobPlatforms": (
@@ -394,6 +396,9 @@ class CanonicalStore:
             "targetTitles": target_titles,
             "experience": experience,
             "experienceBullets": self._read_csv_loose("experience_bullets.csv"),
+            "education": self._read_csv(
+                COLLECTIONS["education"][0], COLLECTIONS["education"][1]
+            ),
         }
 
     def save_all(self, collections: dict[str, Any]) -> dict[str, Any]:
