@@ -159,7 +159,7 @@
     const bar = searchBarEl();
     if (!bar) return;
     if (bar.classList.contains("is-open")) {
-        hideSearchBar();
+      hideSearchBar();
       return;
     }
     focusSearch();
@@ -649,6 +649,28 @@
     return v === "1" || v === "true" || v === "yes" || v === "y";
   }
 
+  function statusLabel(status) {
+    const s = cell(status);
+    if (!s) return "Unknown";
+    return s.charAt(0).toUpperCase() + s.slice(1).toLowerCase();
+  }
+
+  function groupRowsByStatus(rows) {
+    const by = new Map();
+    for (const row of rows) {
+      const key = cell(row.status).toLowerCase() || "unknown";
+      if (!by.has(key)) by.set(key, []);
+      by.get(key).push(row);
+    }
+    const order = STATUS_OPTIONS.slice();
+    for (const key of by.keys()) {
+      if (!order.includes(key)) order.push(key);
+    }
+    return order
+      .filter((key) => by.has(key))
+      .map((key) => ({ status: key, rows: by.get(key) }));
+  }
+
   function renderResults() {
     const root = document.getElementById("jobs-results");
     const countEl = document.getElementById("job-result-count");
@@ -665,7 +687,25 @@
       root.append(empty);
       return;
     }
-    for (const row of rows) root.append(renderTile(row));
+    for (const group of groupRowsByStatus(rows)) {
+      const head = document.createElement("div");
+      head.className =
+        "job-status-group-head" +
+        (group.status !== "unknown"
+          ? ` job-status-group-head--${statusTone(group.status)}`
+          : "");
+      head.setAttribute("role", "heading");
+      head.setAttribute("aria-level", "3");
+      const title = document.createElement("span");
+      title.className = "job-status-group-title";
+      title.textContent = statusLabel(group.status);
+      const count = document.createElement("span");
+      count.className = "job-status-group-count";
+      count.textContent = String(group.rows.length);
+      head.append(title, count);
+      root.append(head);
+      for (const row of group.rows) root.append(renderTile(row));
+    }
   }
 
   function render() {
@@ -2797,9 +2837,9 @@
             return;
           }
           if (isS) {
-        event.preventDefault();
-        saveAll();
-        return;
+            event.preventDefault();
+            saveAll();
+            return;
           }
         }
       }
@@ -2955,8 +2995,8 @@
         }
         event.preventDefault();
         clearJobFilters();
-          return;
-        }
+        return;
+      }
 
       if (
         !modalOpen &&
@@ -2972,8 +3012,8 @@
           event.key === "ArrowRight" || event.key === "ArrowDown" ? 1 : -1;
         if (moveCardFocus(delta)) {
           event.preventDefault();
-        return;
-      }
+          return;
+        }
       }
 
       if (

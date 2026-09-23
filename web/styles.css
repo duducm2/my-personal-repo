@@ -2303,6 +2303,55 @@ body.lang-en .field-row {
   opacity: 0.85;
 }
 
+.job-status-group-head {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 6px 0 0;
+  padding: 6px 0 2px;
+  border-bottom: 1px solid var(--line);
+}
+
+.job-status-group-head:first-child {
+  margin-top: 0;
+}
+
+.job-status-group-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.job-status-group-count {
+  font-size: 10px;
+  font-weight: 650;
+  color: var(--muted);
+  opacity: 0.85;
+}
+
+.job-status-group-head--watch .job-status-group-title {
+  color: #85c1e9;
+}
+
+.job-status-group-head--active .job-status-group-title {
+  color: var(--gold);
+}
+
+.job-status-group-head--hot .job-status-group-title {
+  color: #8fd49c;
+}
+
+.job-status-group-head--muted .job-status-group-title {
+  color: var(--muted);
+}
+
+.job-status-group-head--cold .job-status-group-title {
+  color: #95a5a6;
+}
+
 .job-tile-match {
   margin-left: auto;
   display: inline-flex;
