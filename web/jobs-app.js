@@ -1664,6 +1664,36 @@
         return;
       }
 
+      // Generate prompt — Shift+R
+      if (
+        !modalOpen &&
+        !typing &&
+        !mod &&
+        !event.altKey &&
+        event.shiftKey &&
+        event.code === "KeyR"
+      ) {
+        event.preventDefault();
+        event.stopPropagation();
+        openPromptModal();
+        return;
+      }
+
+      // Import openings — Shift+I
+      if (
+        !modalOpen &&
+        !typing &&
+        !mod &&
+        !event.altKey &&
+        event.shiftKey &&
+        event.code === "KeyI"
+      ) {
+        event.preventDefault();
+        event.stopPropagation();
+        openImportModal();
+        return;
+      }
+
       if (event.altKey && !mod && !event.shiftKey) {
         const isS =
           event.code === "KeyS" || (event.key || "").toLowerCase() === "s";

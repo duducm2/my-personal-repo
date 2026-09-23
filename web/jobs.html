@@ -61,11 +61,23 @@
               <button type="button" id="job-add-btn" class="add-btn">
                 + Add
               </button>
-              <button type="button" id="job-prompt-btn" class="add-btn">
+              <button
+                type="button"
+                id="job-prompt-btn"
+                class="add-btn"
+                title="Generate prompt (Shift+R)"
+              >
                 Generate prompt
+                <kbd class="btn-kbd">⇧R</kbd>
               </button>
-              <button type="button" id="job-import-btn" class="add-btn">
+              <button
+                type="button"
+                id="job-import-btn"
+                class="add-btn"
+                title="Import openings (Shift+I)"
+              >
                 Import openings
+                <kbd class="btn-kbd">⇧I</kbd>
               </button>
               <button
                 type="button"
@@ -182,7 +194,9 @@
               <select id="prompt-company" class="field-input"></select>
             </label>
             <fieldset class="company-edit-field prompt-path-fieldset">
-              <legend class="company-research-label">Career path context</legend>
+              <legend class="company-research-label">
+                Career path context
+              </legend>
               <div
                 id="prompt-paths"
                 class="prompt-path-checks"
@@ -190,7 +204,12 @@
                 aria-label="Career path context"
               >
                 <label class="prompt-path-check">
-                  <input type="checkbox" name="prompt-path" value="da" checked />
+                  <input
+                    type="checkbox"
+                    name="prompt-path"
+                    value="da"
+                    checked
+                  />
                   Data Analyst
                 </label>
                 <label class="prompt-path-check">

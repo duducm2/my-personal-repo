@@ -141,11 +141,22 @@ body.is-dirty .brand::after {
   font-family: inherit;
   cursor: pointer;
   flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .add-btn:hover {
   border-color: var(--gold);
   color: var(--gold);
+}
+
+.add-btn .btn-kbd {
+  font-size: 9px;
+  font-family: inherit;
+  opacity: 0.7;
+  font-weight: 500;
+  letter-spacing: 0.02em;
 }
 
 .company-filters {
