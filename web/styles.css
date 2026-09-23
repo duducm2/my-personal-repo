@@ -1819,6 +1819,39 @@ body.lang-en .field-row {
   padding: 4px 10px;
 }
 
+.prompt-path-fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+.prompt-path-fieldset > .company-research-label,
+.prompt-path-fieldset > legend {
+  padding: 0;
+  margin-bottom: 6px;
+}
+
+.prompt-path-checks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+}
+
+.prompt-path-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text);
+  cursor: pointer;
+  user-select: none;
+}
+
+.prompt-path-check input {
+  accent-color: var(--gold);
+}
+
 @media (max-width: 900px) {
   .job-link-card {
     grid-column: span 6;

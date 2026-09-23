@@ -1012,7 +1012,10 @@
     });
   }
 
-  function buildAiInstructions() {
+  function buildAiInstructions(careerPaths) {
+    const paths = careerPaths.length
+      ? careerPaths.join(" | ")
+      : "da | po | dsa | other";
     return [
       "=== AIB PROCESSING INSTRUCTIONS (mandatory) ===",
       "1. Extract every distinct job opening from the UNSTRUCTURED JOB DATA below.",
@@ -1020,7 +1023,8 @@
       "   (same role_title + company + location, or same job_url).",
       "3. For each kept opening, set match_score (1-10) vs the PROFILE CONTEXT and",
       "   explain it briefly in match_reason.",
-      "4. Set career_path to exactly one of: da | po | dsa | other.",
+      `4. Set career_path to exactly one of the selected contexts: ${paths}.`,
+      "   Prefer the best-fitting selected path for each opening.",
       "5. Set recommended_resume to exactly one of:",
       "   general | data-analyst | product-owner | digital-solution-architect.",
       '6. Set is_new to "1", status to "saved", source to "company_site" unless',
@@ -1035,7 +1039,19 @@
     ].join("\n");
   }
 
-  async function buildJobPrompt(companyKey, careerPath, rawText) {
+  function pathSlugFor(careerPath) {
+    if (careerPath === "da") return "data-analyst";
+    if (careerPath === "po") return "product-owner";
+    if (careerPath === "dsa") return "digital-solution-architect";
+    return "";
+  }
+
+  async function buildJobPrompt(companyKey, careerPaths, rawText) {
+    const paths = (Array.isArray(careerPaths) ? careerPaths : [careerPaths])
+      .map((p) => cell(p).toLowerCase())
+      .filter(Boolean);
+    const effectivePaths = paths.length ? paths : ["da"];
+
     const ctx = await fetchPromptContext();
     const companies = Array.isArray(collections.companies)
       ? collections.companies
@@ -1044,30 +1060,36 @@
     const companyName = company
       ? cell(company.name_en) || companyKey
       : companyKey;
-    const variant = PATH_TO_VARIANT[careerPath] || "general";
-    const profile = (ctx.profile && ctx.profile[0]) || {};
-    const skills = (ctx.skills || []).filter(
-      (s) => cell(s.variant) === variant || cell(s.variant) === "general",
+
+    const variants = new Set(
+      effectivePaths.map((p) => PATH_TO_VARIANT[p] || "general"),
     );
-    const narratives = (ctx.narratives || []).filter(
-      (n) => cell(n.variant) === variant,
+    variants.add("general");
+
+    const skills = (ctx.skills || []).filter((s) =>
+      variants.has(cell(s.variant) || "general"),
     );
-    const pathSlug =
-      careerPath === "da"
-        ? "data-analyst"
-        : careerPath === "po"
-          ? "product-owner"
-          : careerPath === "dsa"
-            ? "digital-solution-architect"
-            : "";
+    const narratives = (ctx.narratives || []).filter((n) =>
+      variants.has(cell(n.variant) || "general"),
+    );
+    const pathSlugs = new Set(
+      effectivePaths.map(pathSlugFor).filter(Boolean).concat(effectivePaths),
+    );
     const titles = (ctx.targetTitles || []).filter((t) => {
+      if (effectivePaths.includes("other") && effectivePaths.length === 1) {
+        return true;
+      }
       const p = cell(t.path);
-      if (!pathSlug) return true;
-      return p === pathSlug || p === careerPath;
+      return pathSlugs.has(p);
     });
     const experience = (ctx.experience || []).slice(0, 6);
     const existing = existingOpeningsForCompany(companyKey);
 
+    const focusLabel = effectivePaths
+      .map((p) => `${pathLabel(p)} (${PATH_TO_VARIANT[p] || "general"})`)
+      .join("; ");
+
+    const profile = (ctx.profile && ctx.profile[0]) || {};
     const lines = [];
     lines.push("You are my AI companion (AIB) for job-opening extraction.");
     lines.push("");
@@ -1079,7 +1101,7 @@
     lines.push(`Languages: ${cell(profile.languages_en)}`);
     lines.push(`Email: ${cell(profile.email)}`);
     lines.push(`LinkedIn: ${cell(profile.linkedin_url)}`);
-    lines.push(`Career path focus: ${pathLabel(careerPath)} (${variant})`);
+    lines.push(`Career path focus: ${focusLabel}`);
     lines.push("");
 
     const tagline = narratives.find((n) => cell(n.field) === "tagline");
@@ -1141,19 +1163,33 @@
     lines.push("=== UNSTRUCTURED JOB DATA ===");
     lines.push(rawText.trim() || "(empty)");
     lines.push("");
-    lines.push(buildAiInstructions());
+    lines.push(buildAiInstructions(effectivePaths));
     return lines.join("\n");
+  }
+
+  function selectedPromptPaths() {
+    return [
+      ...document.querySelectorAll(
+        '#prompt-paths input[type="checkbox"][name="prompt-path"]:checked',
+      ),
+    ].map((el) => cell(el.value).toLowerCase());
   }
 
   async function handleCopyPrompt() {
     const companyKey = cell(document.getElementById("prompt-company")?.value);
-    const careerPath =
-      cell(document.getElementById("prompt-path")?.value) || "da";
+    const careerPaths = selectedPromptPaths();
     const rawText = cell(document.getElementById("prompt-raw")?.value);
     const status = document.getElementById("prompt-status");
     if (!companyKey) {
       if (status) {
         status.textContent = "Pick a company first.";
+        status.className = "save-status err";
+      }
+      return;
+    }
+    if (!careerPaths.length) {
+      if (status) {
+        status.textContent = "Pick at least one career path.";
         status.className = "save-status err";
       }
       return;
@@ -1170,7 +1206,7 @@
       status.className = "save-status";
     }
     try {
-      const prompt = await buildJobPrompt(companyKey, careerPath, rawText);
+      const prompt = await buildJobPrompt(companyKey, careerPaths, rawText);
       const ok = await copyText(prompt);
       if (ok) {
         if (status) {
