@@ -237,9 +237,7 @@
               class="field-input"
               rows="4"
               placeholder="Add more bullets to skip (role types, locations, keywords)…"
-            >
-- nothing non IT related</textarea
-            >
+            >- nothing non IT related</textarea>
           </label>
           <label class="company-edit-field">
             <span class="company-research-label"
@@ -256,11 +254,31 @@
             <button type="button" id="prompt-copy-btn" class="save-btn">
               Copy prompt
             </button>
+            <button
+              type="button"
+              id="prompt-stay-btn"
+              class="nav-btn"
+              hidden
+            >
+              Stay open
+            </button>
             <span
               id="prompt-status"
               class="save-status"
               aria-live="polite"
             ></span>
+          </div>
+          <div
+            id="prompt-close-bar"
+            class="prompt-close-bar"
+            hidden
+            role="progressbar"
+            aria-valuemin="0"
+            aria-valuemax="3"
+            aria-valuenow="3"
+            aria-label="Closing modal"
+          >
+            <div id="prompt-close-bar-fill" class="prompt-close-bar-fill"></div>
           </div>
         </div>
       </div>
@@ -287,8 +305,9 @@
         </header>
         <div class="company-modal-body">
           <p class="job-modal-hint">
-            Paste the JSON array returned by your AI companion. Invalid
-            formatting triggers an AI-fix prompt copied to your clipboard.
+            Paste the JSON array returned by your AI companion. A successful
+            import saves automatically. Invalid formatting triggers an AI-fix
+            prompt copied to your clipboard.
           </p>
           <label class="company-edit-field">
             <span class="company-research-label">AI output (JSON)</span>
@@ -300,7 +319,12 @@
             ></textarea>
           </label>
           <div class="job-modal-actions">
-            <button type="button" id="import-run-btn" class="save-btn">
+            <button
+              type="button"
+              id="import-run-btn"
+              class="save-btn"
+              title="Import (Ctrl+Enter)"
+            >
               Import
             </button>
             <span

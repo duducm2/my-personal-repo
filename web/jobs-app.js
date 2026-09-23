@@ -85,6 +85,9 @@
   let bulkMode = false;
   let selectedIds = new Set();
   let promptContextCache = null;
+  let promptAutoCloseTimer = null;
+  let promptAutoCloseSecondsLeft = 0;
+  let promptAutoCloseTick = null;
 
   function cell(v) {
     return v == null ? "" : String(v);
@@ -399,7 +402,27 @@
     parent.append(cue);
   }
 
+  function statusTone(status) {
+    const s = cell(status).toLowerCase();
+    if (s === "offer" || s === "interviewing") return "hot";
+    if (s === "applied" || s === "subscribed") return "active";
+    if (s === "watching" || s === "saved") return "watch";
+    if (s === "paused") return "muted";
+    if (s === "closed" || s === "rejected" || s === "excluded") return "cold";
+    return "default";
+  }
+
+  function makeTileChip(text, className) {
+    const c = document.createElement("span");
+    c.className = className;
+    c.textContent = text;
+    return c;
+  }
+
   function renderTile(row) {
+    const status = cell(row.status).toLowerCase();
+    const priority = cell(row.priority).toLowerCase();
+    const matchScore = cell(row.match_score);
     const wrap = document.createElement("div");
     wrap.className =
       "job-tile-wrap" +
@@ -426,7 +449,10 @@
 
     const btn = document.createElement("button");
     btn.type = "button";
-    btn.className = "company-tile job-tile";
+    btn.className =
+      "company-tile job-tile" +
+      (status ? ` job-tile--${statusTone(status)}` : "") +
+      (priority === "high" ? " job-tile--high" : "");
     btn.addEventListener("click", () => {
       if (bulkMode) {
         if (selectedIds.has(row.id)) selectedIds.delete(row.id);
@@ -438,18 +464,43 @@
       openModal(row.id);
     });
 
-    const title = document.createElement("div");
-    title.className = "company-tile-title";
-    title.textContent = cell(row.role_title) || "(untitled role)";
-
+    const top = document.createElement("div");
+    top.className = "job-tile-top";
+    if (status) {
+      top.append(
+        makeTileChip(
+          status,
+          `job-tile-status job-tile-status--${statusTone(status)}`,
+        ),
+      );
+    }
     if (isNewOpening(row)) {
       const badge = document.createElement("span");
       badge.className = "job-new-badge";
       const companyLabel =
         cell(row.company) || cell(row.company_key) || "import";
-      badge.textContent = `New for ${companyLabel}`;
-      title.prepend(badge);
+      badge.textContent = `New · ${companyLabel}`;
+      badge.title = `New for ${companyLabel}`;
+      top.append(badge);
     }
+    if (matchScore) {
+      const match = document.createElement("span");
+      match.className = "job-tile-match";
+      match.title = "Match score";
+      const n = document.createElement("span");
+      n.className = "job-tile-match-n";
+      n.textContent = matchScore;
+      const l = document.createElement("span");
+      l.className = "job-tile-match-l";
+      l.textContent = "match";
+      match.append(n, l);
+      top.append(match);
+    }
+    if (top.childNodes.length) btn.append(top);
+
+    const title = document.createElement("div");
+    title.className = "company-tile-title";
+    title.textContent = cell(row.role_title) || "(untitled role)";
 
     const geo = resolveOpeningGeo(row);
     const flagTitle = window.CountryFlags.prependFlags(btn, title, geo);
@@ -464,40 +515,61 @@
     }
 
     const meta = document.createElement("div");
-    meta.className = "company-tile-meta";
-    meta.textContent = [cell(row.company), cell(row.location)]
-      .filter(Boolean)
-      .join(" · ");
+    meta.className = "company-tile-meta job-tile-meta";
+    const companyName = cell(row.company);
+    const location = cell(row.location);
+    if (companyName) {
+      const co = document.createElement("span");
+      co.className = "job-tile-company";
+      co.textContent = companyName;
+      meta.append(co);
+    }
+    if (location) {
+      if (companyName) {
+        const sep = document.createElement("span");
+        sep.className = "job-tile-sep";
+        sep.textContent = "·";
+        sep.setAttribute("aria-hidden", "true");
+        meta.append(sep);
+      }
+      const loc = document.createElement("span");
+      loc.className = "job-tile-location";
+      loc.textContent = location;
+      meta.append(loc);
+    }
 
     const chips = document.createElement("div");
-    chips.className = "company-tile-chips";
-    for (const [val, cls] of [
-      [row.status, "company-chip"],
-      [row.priority, "company-chip company-chip-priority"],
-      [row.work_mode, "company-chip"],
-      [pathLabel(row.career_path), "company-chip"],
-      [
-        cell(row.match_score) ? `match ${cell(row.match_score)}` : "",
-        "company-chip company-chip-match",
-      ],
-    ]) {
-      if (!cell(val)) continue;
-      const c = document.createElement("span");
-      c.className = cls;
-      c.textContent = val;
-      chips.append(c);
+    chips.className = "company-tile-chips job-tile-chips";
+    if (priority) {
+      chips.append(
+        makeTileChip(
+          priority,
+          `company-chip company-chip-priority job-chip-priority--${priority}`,
+        ),
+      );
     }
+    if (cell(row.work_mode)) {
+      chips.append(makeTileChip(cell(row.work_mode), "company-chip"));
+    }
+    const path = pathLabel(row.career_path);
+    if (path) chips.append(makeTileChip(path, "company-chip"));
+
+    btn.append(meta);
+    if (chips.childNodes.length) btn.append(chips);
 
     if (cell(row.next_action)) {
       const next = document.createElement("div");
       next.className = "job-tile-next";
-      next.textContent =
-        "Next: " +
+      const label = document.createElement("span");
+      label.className = "job-tile-next-label";
+      label.textContent = "Next";
+      const body = document.createElement("span");
+      body.className = "job-tile-next-body";
+      body.textContent =
         cell(row.next_action) +
         (cell(row.next_action_date) ? ` · ${cell(row.next_action_date)}` : "");
-      btn.append(meta, chips, next);
-    } else {
-      btn.append(meta, chips);
+      next.append(label, body);
+      btn.append(next);
     }
     wrap.append(btn);
     return wrap;
@@ -1245,10 +1317,11 @@
       const ok = await copyText(prompt);
       if (ok) {
         if (status) {
-          status.textContent = "Prompt copied.";
+          status.textContent = "Prompt copied — closing in 3s…";
           status.className = "save-status ok";
         }
         showToast("Prompt copied — paste into your AI companion", 2500);
+        startPromptAutoClose();
       } else {
         // Restricted browser clipboard: select raw field with prompt for manual Ctrl+C
         const rawEl = document.getElementById("prompt-raw");
@@ -1263,6 +1336,7 @@
           status.className = "save-status ok";
         }
         showToast("Prompt ready — press Ctrl+C to copy", 3500);
+        cancelPromptAutoClose();
       }
     } catch (err) {
       if (status) {
@@ -1467,15 +1541,95 @@
     try {
       const result = await importOpenings(raw);
       if (status) {
-        status.textContent = `Imported ${result.imported} (skipped ${result.skipped} duplicates). Save to persist.`;
-        status.className = "save-status ok";
+        status.textContent = `Imported ${result.imported} (skipped ${result.skipped} duplicates). Saving…`;
+        status.className = "save-status";
       }
-      showToast(`Imported ${result.imported} openings`, 2500);
-      const dialog = document.getElementById("import-modal");
-      if (dialog && dialog.open) dialog.close();
+      const saved = await saveAll();
+      if (saved) {
+        if (status) {
+          status.textContent = `Imported ${result.imported} (skipped ${result.skipped} duplicates) and saved.`;
+          status.className = "save-status ok";
+        }
+        showToast(`Imported ${result.imported} openings and saved`, 2500);
+        const dialog = document.getElementById("import-modal");
+        if (dialog && dialog.open) dialog.close();
+      } else if (status) {
+        status.textContent = `Imported ${result.imported}, but save failed — press Ctrl+S.`;
+        status.className = "save-status err";
+      }
     } catch (err) {
       await failImportWithAiFix(err.message || String(err), raw);
     }
+  }
+
+  function cancelPromptAutoClose(opts = {}) {
+    const keepStatus = !!opts.keepStatus;
+    if (promptAutoCloseTimer) {
+      clearTimeout(promptAutoCloseTimer);
+      promptAutoCloseTimer = null;
+    }
+    if (promptAutoCloseTick) {
+      clearInterval(promptAutoCloseTick);
+      promptAutoCloseTick = null;
+    }
+    promptAutoCloseSecondsLeft = 0;
+    const bar = document.getElementById("prompt-close-bar");
+    const fill = document.getElementById("prompt-close-bar-fill");
+    const stayBtn = document.getElementById("prompt-stay-btn");
+    if (bar) {
+      bar.hidden = true;
+      bar.classList.remove("is-running");
+      bar.setAttribute("aria-valuenow", "3");
+    }
+    if (fill) fill.style.animation = "none";
+    if (stayBtn) stayBtn.hidden = true;
+    if (!keepStatus) {
+      const status = document.getElementById("prompt-status");
+      if (status && /closing in/i.test(status.textContent || "")) {
+        status.textContent = "Prompt copied.";
+        status.className = "save-status ok";
+      }
+    }
+  }
+
+  function startPromptAutoClose() {
+    cancelPromptAutoClose({ keepStatus: true });
+    const bar = document.getElementById("prompt-close-bar");
+    const fill = document.getElementById("prompt-close-bar-fill");
+    const stayBtn = document.getElementById("prompt-stay-btn");
+    const status = document.getElementById("prompt-status");
+    promptAutoCloseSecondsLeft = 3;
+    if (stayBtn) stayBtn.hidden = false;
+    if (bar) {
+      bar.hidden = false;
+      bar.setAttribute("aria-valuenow", "3");
+      // Restart CSS animation
+      bar.classList.remove("is-running");
+      if (fill) {
+        fill.style.animation = "none";
+        void fill.offsetWidth;
+        fill.style.animation = "";
+      }
+      bar.classList.add("is-running");
+    }
+    if (status) {
+      status.textContent = "Prompt copied — closing in 3s…";
+      status.className = "save-status ok";
+    }
+    promptAutoCloseTick = setInterval(() => {
+      promptAutoCloseSecondsLeft = Math.max(0, promptAutoCloseSecondsLeft - 1);
+      if (bar) {
+        bar.setAttribute("aria-valuenow", String(promptAutoCloseSecondsLeft));
+      }
+      if (status && promptAutoCloseSecondsLeft > 0) {
+        status.textContent = `Prompt copied — closing in ${promptAutoCloseSecondsLeft}s…`;
+      }
+    }, 1000);
+    promptAutoCloseTimer = setTimeout(() => {
+      promptAutoCloseTimer = null;
+      cancelPromptAutoClose({ keepStatus: true });
+      closePromptModal();
+    }, 3000);
   }
 
   function openPromptModal() {
@@ -1483,6 +1637,7 @@
     const dialog = document.getElementById("prompt-modal");
     const status = document.getElementById("prompt-status");
     const ignoreEl = document.getElementById("prompt-ignore");
+    cancelPromptAutoClose({ keepStatus: true });
     if (ignoreEl && !cell(ignoreEl.value).trim()) {
       ignoreEl.value = "- nothing non IT related";
     }
@@ -1496,6 +1651,7 @@
   }
 
   function closePromptModal() {
+    cancelPromptAutoClose({ keepStatus: true });
     const dialog = document.getElementById("prompt-modal");
     if (dialog && dialog.open) dialog.close();
   }
@@ -1560,9 +1716,9 @@
     render();
   }
 
-  function bulkDeleteSelected() {
+  async function bulkDeleteSelected() {
     if (!selectedIds.size) return;
-    if (!confirm(`Delete ${selectedIds.size} selected opening(s)?`)) return;
+    const count = selectedIds.size;
     openings = openings.filter((r) => !selectedIds.has(r.id));
     collections.jobOpenings = openings;
     selectedIds.clear();
@@ -1570,6 +1726,12 @@
     setSaveStatus("");
     render();
     updateBulkBar();
+    const saved = await saveAll();
+    if (saved) {
+      showToast(`Deleted ${count} opening${count === 1 ? "" : "s"}`, 2200);
+    } else {
+      showToast(`Deleted ${count} — save failed, press Ctrl+S`, 3500);
+    }
   }
 
   function bulkSelectAllVisible() {
@@ -1660,19 +1822,29 @@
       const dialog = document.getElementById("job-modal");
       const modalOpen = !!(dialog && dialog.open);
 
-      // Save — Ctrl/Cmd+S always; Ctrl/Cmd+Enter saves and closes open dossier
-      if (
-        mod &&
-        !event.altKey &&
-        (event.key === "Enter" || (event.key || "").toLowerCase() === "s")
-      ) {
-        event.preventDefault();
-        if (event.key === "Enter" && modalOpen) {
-          saveAll({ closeModal: true });
-        } else {
-          saveAll();
+      // Save — Ctrl/Cmd+S always; Ctrl/Cmd+Enter: import / save+close dossier
+      if (mod && !event.altKey) {
+        const key = (event.key || "").toLowerCase();
+        const isEnter = event.key === "Enter" || event.code === "Enter";
+        const isS = key === "s";
+        if (isEnter || isS) {
+          const importOpen = !!document.getElementById("import-modal")?.open;
+          if (isEnter && importOpen) {
+            event.preventDefault();
+            handleImportRun();
+            return;
+          }
+          if (isEnter && modalOpen) {
+            event.preventDefault();
+            saveAll({ closeModal: true });
+            return;
+          }
+          if (isS) {
+            event.preventDefault();
+            saveAll();
+            return;
+          }
         }
-        return;
       }
 
       // Delete open dossier — Shift+Delete (works while typing in modal)
@@ -1896,6 +2068,9 @@
     document
       .getElementById("prompt-copy-btn")
       ?.addEventListener("click", () => handleCopyPrompt());
+    document
+      .getElementById("prompt-stay-btn")
+      ?.addEventListener("click", () => cancelPromptAutoClose());
 
     const importDialog = document.getElementById("import-modal");
     document

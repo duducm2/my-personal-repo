@@ -1691,11 +1691,33 @@ body.lang-en .field-row {
 }
 
 .job-tile-next {
-  margin-top: 6px;
+  margin-top: auto;
+  padding-top: 6px;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  width: 100%;
   font-size: 10px;
-  line-height: 1.35;
+  line-height: 1.3;
   color: var(--gold);
   text-align: left;
+  border-top: 1px solid color-mix(in srgb, var(--line) 85%, transparent);
+}
+
+.job-tile-next-label {
+  flex-shrink: 0;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--gold) 70%, var(--muted));
+}
+
+.job-tile-next-body {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .job-links-grid {
@@ -1828,6 +1850,35 @@ body.lang-en .field-row {
   width: auto;
   height: auto;
   padding: 4px 10px;
+}
+
+.prompt-close-bar {
+  margin-top: 10px;
+  height: 3px;
+  border-radius: 2px;
+  background: color-mix(in srgb, var(--line) 80%, transparent);
+  overflow: hidden;
+}
+
+.prompt-close-bar-fill {
+  height: 100%;
+  width: 100%;
+  background: var(--ok);
+  transform-origin: left center;
+  transform: scaleX(1);
+}
+
+.prompt-close-bar.is-running .prompt-close-bar-fill {
+  animation: prompt-close-drain 3s linear forwards;
+}
+
+@keyframes prompt-close-drain {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
 }
 
 .prompt-path-fieldset {
@@ -1974,6 +2025,193 @@ body.lang-en .field-row {
 }
 
 /* --- Job openings manager: prompt / import / bulk --- */
+.job-tile {
+  position: relative;
+  gap: 5px;
+  padding: 8px 10px 9px;
+  min-height: 0;
+  overflow: hidden;
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--panel) 92%, #2a2a30) 0%,
+      var(--panel) 100%
+    );
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.job-tile::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--line);
+}
+
+.job-tile--watch::before {
+  background: #5dade2;
+}
+
+.job-tile--active::before {
+  background: var(--gold);
+}
+
+.job-tile--hot::before {
+  background: var(--ok);
+}
+
+.job-tile--muted::before {
+  background: #7f8c8d;
+}
+
+.job-tile--cold::before {
+  background: #95a5a6;
+  opacity: 0.55;
+}
+
+.job-tile--high {
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--gold) 18%, transparent);
+}
+
+.job-tile:hover {
+  border-color: color-mix(in srgb, var(--gold) 45%, var(--line));
+}
+
+.job-tile .company-tile-title {
+  font-size: 12.5px;
+  font-weight: 650;
+  line-height: 1.25;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.job-tile-top {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+  min-width: 0;
+}
+
+.job-tile-status {
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 1px 5px;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1.3;
+  flex-shrink: 0;
+}
+
+.job-tile-status--watch {
+  border-color: color-mix(in srgb, #5dade2 45%, var(--line));
+  color: #85c1e9;
+  background: color-mix(in srgb, #5dade2 12%, transparent);
+}
+
+.job-tile-status--active {
+  border-color: color-mix(in srgb, var(--gold) 45%, var(--line));
+  color: var(--gold);
+  background: color-mix(in srgb, var(--gold) 12%, transparent);
+}
+
+.job-tile-status--hot {
+  border-color: color-mix(in srgb, var(--ok) 45%, var(--line));
+  color: #8fd49c;
+  background: color-mix(in srgb, var(--ok) 12%, transparent);
+}
+
+.job-tile-status--muted {
+  color: var(--muted);
+}
+
+.job-tile-status--cold {
+  color: #95a5a6;
+  opacity: 0.85;
+}
+
+.job-tile-match {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 3px;
+  flex-shrink: 0;
+  padding: 1px 5px;
+  border-radius: 2px;
+  border: 1px solid color-mix(in srgb, #3a7a4a 55%, var(--line));
+  background: color-mix(in srgb, #2ecc71 8%, transparent);
+  line-height: 1.2;
+}
+
+.job-tile-match-n {
+  font-size: 11px;
+  font-weight: 700;
+  color: #8fd49c;
+  font-variant-numeric: tabular-nums;
+}
+
+.job-tile-match-l {
+  font-size: 8px;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, #8fd49c 70%, var(--muted));
+}
+
+.job-tile-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 5px;
+  min-width: 0;
+}
+
+.job-tile-company {
+  color: color-mix(in srgb, var(--text) 78%, var(--muted));
+  font-weight: 550;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.job-tile-sep {
+  color: var(--line);
+}
+
+.job-tile-location {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.job-tile-chips {
+  margin-top: 1px;
+}
+
+.job-chip-priority--high {
+  border-color: color-mix(in srgb, var(--gold) 55%, var(--line));
+  color: var(--gold);
+  background: color-mix(in srgb, var(--gold) 10%, transparent);
+}
+
+.job-chip-priority--medium {
+  color: color-mix(in srgb, var(--text) 65%, var(--muted));
+}
+
+.job-chip-priority--low {
+  opacity: 0.75;
+}
+
 .job-tile-wrap {
   grid-column: span 3;
   position: relative;
@@ -1992,9 +2230,10 @@ body.lang-en .field-row {
   width: 100%;
 }
 
-.job-tile-wrap.is-selected > .company-tile {
+.job-tile-wrap.is-selected > .company-tile,
+.job-tile-wrap.is-active > .company-tile {
   border-color: var(--gold);
-  box-shadow: 0 0 0 1px var(--gold);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--gold) 55%, transparent);
 }
 
 .job-tile-check {
@@ -2009,16 +2248,21 @@ body.lang-en .field-row {
 
 .job-new-badge {
   display: inline-block;
-  margin-right: 6px;
-  padding: 1px 6px;
-  border-radius: 999px;
-  font-size: 9px;
+  max-width: 42%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 1px 5px;
+  border-radius: 2px;
+  font-size: 8px;
   font-weight: 700;
   letter-spacing: 0.03em;
   text-transform: uppercase;
   color: #121212;
   background: var(--gold);
   vertical-align: middle;
+  flex-shrink: 1;
+  min-width: 0;
 }
 
 .company-chip-match {
