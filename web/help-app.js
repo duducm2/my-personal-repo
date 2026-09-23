@@ -32,7 +32,7 @@
         location.assign("/portals.html");
         return;
       }
-      if (k === "o") {
+      if (k === "g" || event.code === "KeyG") {
         event.preventDefault();
         location.assign("/");
         return;

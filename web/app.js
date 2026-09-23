@@ -1625,7 +1625,7 @@
         openPortalsWindow();
         return;
       }
-      if (event.key.toLowerCase() === "o") {
+      if (event.key.toLowerCase() === "g" || event.code === "KeyG") {
         event.preventDefault();
         openJobsWindow();
         return;

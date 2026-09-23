@@ -844,13 +844,19 @@
 
     const actions = document.createElement("div");
     actions.className = "job-modal-actions";
+    const save = document.createElement("button");
+    save.type = "button";
+    save.className = "save-btn";
+    save.textContent = "Save";
+    save.title = "Save and close (Ctrl+Enter)";
+    save.addEventListener("click", () => saveAll({ closeModal: true }));
     const del = document.createElement("button");
     del.type = "button";
     del.className = "panel-delete";
     del.textContent = "Delete opening";
     del.title = "Delete opening";
     del.addEventListener("click", () => deleteOpening(row.id));
-    actions.append(del);
+    actions.append(save, del);
     body.append(actions);
   }
 
@@ -1522,8 +1528,12 @@
     collections.jobCommunities = communities;
   }
 
-  async function saveAll() {
-    if (saving || !dirty) return;
+  async function saveAll(opts = {}) {
+    if (saving) return false;
+    if (!dirty) {
+      if (opts.closeModal) closeModal();
+      return true;
+    }
     saving = true;
     setDirty(true);
     const btn = document.getElementById("save-btn");
@@ -1544,9 +1554,12 @@
       }
       setDirty(false);
       setSaveStatus("Saved.", "ok");
+      if (opts.closeModal) closeModal();
+      return true;
     } catch (err) {
       setSaveStatus("Error: " + (err.message || String(err)), "err");
       setDirty(true);
+      return false;
     } finally {
       saving = false;
       const saveBtn = document.getElementById("save-btn");
@@ -1572,14 +1585,18 @@
       const dialog = document.getElementById("job-modal");
       const modalOpen = !!(dialog && dialog.open);
 
-      // Save / update — works while typing
+      // Save — Ctrl/Cmd+S always; Ctrl/Cmd+Enter saves and closes open dossier
       if (
         mod &&
         !event.altKey &&
         (event.key === "Enter" || (event.key || "").toLowerCase() === "s")
       ) {
         event.preventDefault();
-        saveAll();
+        if (event.key === "Enter" && modalOpen) {
+          saveAll({ closeModal: true });
+        } else {
+          saveAll();
+        }
         return;
       }
 
@@ -1725,7 +1742,7 @@
         location.assign("/portals.html");
         return;
       }
-      if (event.key.toLowerCase() === "o") {
+      if (event.key.toLowerCase() === "g" || event.code === "KeyG") {
         event.preventDefault();
         location.assign("/");
         return;

@@ -181,15 +181,32 @@
               <span class="company-research-label">Company</span>
               <select id="prompt-company" class="field-input"></select>
             </label>
-            <label class="company-edit-field">
-              <span class="company-research-label">Career path context</span>
-              <select id="prompt-path" class="field-input">
-                <option value="da">Data Analyst</option>
-                <option value="po">Product Owner</option>
-                <option value="dsa">Digital Solution Architect</option>
-                <option value="other">Other / general</option>
-              </select>
-            </label>
+            <fieldset class="company-edit-field prompt-path-fieldset">
+              <legend class="company-research-label">Career path context</legend>
+              <div
+                id="prompt-paths"
+                class="prompt-path-checks"
+                role="group"
+                aria-label="Career path context"
+              >
+                <label class="prompt-path-check">
+                  <input type="checkbox" name="prompt-path" value="da" checked />
+                  Data Analyst
+                </label>
+                <label class="prompt-path-check">
+                  <input type="checkbox" name="prompt-path" value="po" />
+                  Product Owner
+                </label>
+                <label class="prompt-path-check">
+                  <input type="checkbox" name="prompt-path" value="dsa" />
+                  Digital Solution Architect
+                </label>
+                <label class="prompt-path-check">
+                  <input type="checkbox" name="prompt-path" value="other" />
+                  Other / general
+                </label>
+              </div>
+            </fieldset>
           </div>
           <label class="company-edit-field">
             <span class="company-research-label"

@@ -311,10 +311,27 @@
     parent.append(wrap);
   }
 
+  function openUrlInNewTab(url) {
+    const href = cell(url);
+    if (!href) return false;
+    // Avoid noopener so we can focus the tab; drop opener for safety.
+    const win = window.open(href, "_blank");
+    if (!win) return false;
+    try {
+      win.opener = null;
+    } catch {
+      /* ignore */
+    }
+    try {
+      win.focus();
+    } catch {
+      /* ignore */
+    }
+    return true;
+  }
+
   function openCardUrl(row) {
-    const url = cell(row.job_search_url);
-    if (!url) return;
-    window.open(url, "_blank", "noopener,noreferrer");
+    return openUrlInNewTab(row.job_search_url);
   }
 
   function moveCardFocus(delta) {
@@ -332,10 +349,7 @@
   function openFocusedPortal() {
     const card = focusedPortalCard();
     if (!card) return false;
-    const url = cell(card.dataset.url);
-    if (!url) return false;
-    window.open(url, "_blank", "noopener,noreferrer");
-    return true;
+    return openUrlInNewTab(card.dataset.url);
   }
 
   function renderPortalCard(row) {
@@ -674,13 +688,19 @@
 
     const actions = document.createElement("div");
     actions.className = "job-modal-actions";
+    const save = document.createElement("button");
+    save.type = "button";
+    save.className = "save-btn";
+    save.textContent = "Save";
+    save.title = "Save and close (Ctrl+Enter)";
+    save.addEventListener("click", () => saveAll({ closeModal: true }));
     const del = document.createElement("button");
     del.type = "button";
     del.className = "panel-delete";
     del.textContent = "Delete portal";
     del.title = "Delete portal (Shift+Delete)";
     del.addEventListener("click", () => deletePortal(row.id));
-    actions.append(del);
+    actions.append(save, del);
     body.append(actions);
   }
 
@@ -750,8 +770,12 @@
     collections.jobCommunities = communities;
   }
 
-  async function saveAll() {
-    if (saving || !dirty) return;
+  async function saveAll(opts = {}) {
+    if (saving) return false;
+    if (!dirty) {
+      if (opts.closeModal) closeModal();
+      return true;
+    }
     saving = true;
     setDirty(true);
     const btn = document.getElementById("save-btn");
@@ -772,9 +796,12 @@
       }
       setDirty(false);
       setSaveStatus("Saved.", "ok");
+      if (opts.closeModal) closeModal();
+      return true;
     } catch (err) {
       setSaveStatus("Error: " + (err.message || String(err)), "err");
       setDirty(true);
+      return false;
     } finally {
       saving = false;
       const saveBtn = document.getElementById("save-btn");
@@ -802,7 +829,11 @@
 
       if (mod && !event.altKey && event.key === "Enter") {
         event.preventDefault();
-        if (!modalOpen && openFocusedPortal()) return;
+        if (modalOpen) {
+          saveAll({ closeModal: true });
+          return;
+        }
+        if (openFocusedPortal()) return;
         saveAll();
         return;
       }
@@ -916,7 +947,7 @@
         openPortalsHome();
         return;
       }
-      if (k === "o") {
+      if (k === "g" || event.code === "KeyG") {
         event.preventDefault();
         openOpeningsWindow();
         return;
