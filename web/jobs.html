@@ -61,42 +61,60 @@
               <button type="button" id="job-add-btn" class="add-btn">
                 + Add
               </button>
-              <button
-                type="button"
-                id="job-prompt-btn"
-                class="add-btn"
-                title="Generate prompt (Shift+R)"
+              <div
+                class="toolbar-group"
+                role="group"
+                aria-label="Openings extract"
               >
-                Generate prompt
-                <kbd class="btn-kbd">⇧R</kbd>
-              </button>
-              <button
-                type="button"
-                id="job-import-btn"
-                class="add-btn"
-                title="Import openings (Shift+I)"
+                <span class="toolbar-group-label">Openings</span>
+                <div class="toolbar-group-btns">
+                  <button
+                    type="button"
+                    id="job-prompt-btn"
+                    class="add-btn"
+                    title="Generate prompt (Shift+R)"
+                  >
+                    Generate prompt
+                    <kbd class="btn-kbd">⇧R</kbd>
+                  </button>
+                  <button
+                    type="button"
+                    id="job-import-btn"
+                    class="add-btn"
+                    title="Import openings (Shift+I)"
+                  >
+                    Import openings
+                    <kbd class="btn-kbd">⇧I</kbd>
+                  </button>
+                </div>
+              </div>
+              <div
+                class="toolbar-group"
+                role="group"
+                aria-label="Application form fill"
               >
-                Import openings
-                <kbd class="btn-kbd">⇧I</kbd>
-              </button>
-              <button
-                type="button"
-                id="job-form-prompt-btn"
-                class="add-btn"
-                title="Generate form prompt (Shift+F)"
-              >
-                Generate form prompt
-                <kbd class="btn-kbd">⇧F</kbd>
-              </button>
-              <button
-                type="button"
-                id="job-form-import-btn"
-                class="add-btn"
-                title="Import form result (Shift+A)"
-              >
-                Import form result
-                <kbd class="btn-kbd">⇧A</kbd>
-              </button>
+                <span class="toolbar-group-label">Form fill</span>
+                <div class="toolbar-group-btns">
+                  <button
+                    type="button"
+                    id="job-form-prompt-btn"
+                    class="add-btn"
+                    title="Generate form prompt (Shift+F)"
+                  >
+                    Generate form prompt
+                    <kbd class="btn-kbd">⇧F</kbd>
+                  </button>
+                  <button
+                    type="button"
+                    id="job-form-import-btn"
+                    class="add-btn"
+                    title="Import form result (Shift+A)"
+                  >
+                    Import form result
+                    <kbd class="btn-kbd">⇧A</kbd>
+                  </button>
+                </div>
+              </div>
               <button
                 type="button"
                 id="job-bulk-btn"
@@ -255,7 +273,9 @@
               class="field-input"
               rows="4"
               placeholder="Add more bullets to skip (role types, locations, keywords)…"
-            >- nothing non IT related</textarea>
+            >
+- nothing non IT related</textarea
+            >
           </label>
           <label class="company-edit-field">
             <span class="company-research-label"
@@ -272,12 +292,7 @@
             <button type="button" id="prompt-copy-btn" class="save-btn">
               Copy prompt
             </button>
-            <button
-              type="button"
-              id="prompt-stay-btn"
-              class="nav-btn"
-              hidden
-            >
+            <button type="button" id="prompt-stay-btn" class="nav-btn" hidden>
               Stay open
             </button>
             <span
@@ -396,11 +411,7 @@
                 aria-label="Career path context"
               >
                 <label class="prompt-path-check">
-                  <input
-                    type="checkbox"
-                    name="form-prompt-path"
-                    value="da"
-                  />
+                  <input type="checkbox" name="form-prompt-path" value="da" />
                   Data Analyst
                 </label>
                 <label class="prompt-path-check">
@@ -417,7 +428,11 @@
                   Digital Solution Architect
                 </label>
                 <label class="prompt-path-check">
-                  <input type="checkbox" name="form-prompt-path" value="other" />
+                  <input
+                    type="checkbox"
+                    name="form-prompt-path"
+                    value="other"
+                  />
                   Other / general
                 </label>
               </div>
