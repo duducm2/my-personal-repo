@@ -1209,7 +1209,11 @@
         if (isF) {
           event.preventDefault();
           event.stopPropagation();
-          window.CardNav?.toggleCardsFilters(CARD_SEL, FILTER_SEL);
+          window.CardNav?.toggleCardsFilters(
+            CARD_SEL,
+            FILTER_SEL,
+            "#company-modal[open] .field-input, #company-modal[open] select.field-input, #company-modal[open] textarea.field-input",
+          );
           return;
         }
       }

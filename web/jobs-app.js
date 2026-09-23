@@ -1171,26 +1171,58 @@
     return getLangMode() === "pt" ? "pt" : "en";
   }
 
+  function joinFsPath(root, ...parts) {
+    const base = cell(root).replace(/[\\/]+$/, "");
+    const sep = base.includes("\\") ? "\\" : "/";
+    return [base, ...parts.map((p) => cell(p).replace(/^[/\\]+/, ""))].join(
+      sep,
+    );
+  }
+
   async function resolveResumeFile(variant) {
     const v = cell(variant);
     if (!v || !RESUME_OPTIONS.includes(v)) return null;
+    // Always refresh — build status / abs_path can change without a full reload
+    downloadsCache = null;
     const data = await fetchDownloads();
     const items = Array.isArray(data.items) ? data.items : [];
+    const outputDir = cell(data.output_dir);
     const lang = preferredResumeLang();
     const resumes = items.filter(
-      (it) =>
-        cell(it.kind) === "resume" &&
-        cell(it.variant) === v &&
-        it.available !== false,
+      (it) => cell(it.kind) === "resume" && cell(it.variant) === v,
     );
+    if (!resumes.length) return { error: "unknown_variant" };
     const preferred =
-      resumes.find((it) => cell(it.lang) === lang) || resumes[0] || null;
-    if (!preferred || !cell(preferred.abs_path)) return null;
+      resumes.find((it) => cell(it.lang) === lang) ||
+      resumes.find((it) => it.available !== false) ||
+      resumes[0];
+    const available = preferred && preferred.available !== false;
+    let absPath = cell(preferred?.abs_path);
+    if (
+      !absPath &&
+      outputDir &&
+      preferred &&
+      cell(preferred.filename) &&
+      cell(preferred.variant)
+    ) {
+      absPath = joinFsPath(
+        outputDir,
+        cell(preferred.variant),
+        cell(preferred.filename),
+      );
+    }
+    if (!available && !absPath) {
+      return { error: "missing_pdf", variant: v };
+    }
+    if (!absPath) {
+      return { error: "no_abs_path", variant: v };
+    }
     return {
-      absPath: cell(preferred.abs_path),
+      absPath,
       filename: cell(preferred.filename),
-      lang: cell(preferred.lang),
+      lang: cell(preferred.lang) || lang,
       url: cell(preferred.url),
+      available: !!available,
     };
   }
 
@@ -2302,6 +2334,7 @@
   function openFormImportModal() {
     const dialog = document.getElementById("form-import-modal");
     const status = document.getElementById("form-import-status");
+    const rawEl = document.getElementById("form-import-raw");
     if (status) {
       status.textContent = "";
       status.className = "save-status";
@@ -2309,6 +2342,11 @@
     if (dialog && typeof dialog.showModal === "function" && !dialog.open) {
       dialog.showModal();
     }
+    requestAnimationFrame(() => {
+      if (!rawEl) return;
+      rawEl.focus();
+      rawEl.select();
+    });
   }
 
   function closeFormImportModal() {
@@ -2391,14 +2429,22 @@
 
       resolveResumeFile(resumeChoice)
         .then((file) => {
-          if (!file) {
-            pathEl.textContent =
-              "PDF not found under output/ — build resumes first";
+          if (!file || file.error || !file.absPath) {
+            const err = file?.error || "missing_pdf";
+            if (err === "no_abs_path") {
+              pathEl.textContent =
+                "Restart the career cockpit server, then reopen this dossier";
+            } else if (err === "unknown_variant") {
+              pathEl.textContent = `Unknown résumé variant: ${resumeChoice}`;
+            } else {
+              pathEl.textContent =
+                "PDF not found under output/ — run: python scripts/build_outputs.py";
+            }
             pathEl.classList.add("is-missing");
             return;
           }
           pathEl.textContent = file.absPath;
-          pathEl.title = `${file.filename} (${file.lang.toUpperCase()})`;
+          pathEl.title = `${file.filename} (${String(file.lang || "").toUpperCase()})`;
           pathCopy.disabled = false;
           pathCopy.addEventListener("click", async () => {
             const ok = await copyText(file.absPath);
@@ -2557,6 +2603,7 @@
   function openImportModal() {
     const dialog = document.getElementById("import-modal");
     const status = document.getElementById("import-status");
+    const rawEl = document.getElementById("import-raw");
     if (status) {
       status.textContent = "";
       status.className = "save-status";
@@ -2564,6 +2611,11 @@
     if (dialog && typeof dialog.showModal === "function" && !dialog.open) {
       dialog.showModal();
     }
+    requestAnimationFrame(() => {
+      if (!rawEl) return;
+      rawEl.focus();
+      rawEl.select();
+    });
   }
 
   function closeImportModal() {
@@ -2852,7 +2904,11 @@
         if (isF) {
           event.preventDefault();
           event.stopPropagation();
-          window.CardNav?.toggleCardsFilters(CARD_SEL, FILTER_SEL);
+          window.CardNav?.toggleCardsFilters(
+            CARD_SEL,
+            FILTER_SEL,
+            "#job-modal[open] .field-input, #job-modal[open] select.field-input, #job-modal[open] textarea.field-input",
+          );
           return;
         }
       }

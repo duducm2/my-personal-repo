@@ -277,6 +277,7 @@ class CareerHandler(BaseHTTPRequestHandler):
                     {
                         "items": list_downloads(),
                         "resume_policy": resume_policy(),
+                        "output_dir": str(OUTPUT_DIR.resolve()),
                     },
                 )
                 return

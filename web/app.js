@@ -1567,7 +1567,10 @@
 
   function initKeyboard() {
     document.addEventListener("keydown", (event) => {
-      if ((event.ctrlKey || event.metaKey) && event.key === "Enter") {
+      const mod = event.ctrlKey || event.metaKey;
+      const typing = isTypingTarget(document.activeElement);
+
+      if (mod && event.key === "Enter") {
         event.preventDefault();
         saveAll();
         return;
@@ -1584,12 +1587,25 @@
         return;
       }
 
+      if (event.altKey && !mod && !event.shiftKey) {
+        const isF =
+          event.code === "KeyF" || (event.key || "").toLowerCase() === "f";
+        if (isF) {
+          event.preventDefault();
+          event.stopPropagation();
+          window.CardNav?.toggleFiltersMain(
+            "#path-filters",
+            "main .field-input",
+          );
+          return;
+        }
+      }
+
       if (
         !event.shiftKey ||
-        event.ctrlKey ||
-        event.metaKey ||
+        mod ||
         event.altKey ||
-        isTypingTarget(document.activeElement)
+        typing
       ) {
         return;
       }

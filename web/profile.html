@@ -26,12 +26,6 @@
             <button type="button" id="open-help-btn" class="nav-btn">
               <span class="section-title-en">Help</span>
             </button>
-            <span id="lang-mode-label" class="detail-mode-label"
-              >EN values</span
-            >
-            <span id="detail-mode-label" class="detail-mode-label"
-              >Summary</span
-            >
             <span
               id="save-status"
               class="save-status"
@@ -44,12 +38,23 @@
         </div>
       </header>
 
-      <div
-        id="path-filters"
-        class="company-filters profile-path-filters"
-        role="group"
-        aria-label="Career path filter"
-      ></div>
+      <div class="profile-sticky-chrome">
+        <div
+          id="path-filters"
+          class="company-filters profile-path-filters"
+          role="group"
+          aria-label="Career path filter"
+        ></div>
+        <div class="profile-mode-rail" aria-live="polite">
+          <span id="lang-mode-label" class="detail-mode-label">EN values</span>
+          <span
+            id="detail-mode-label"
+            class="detail-mode-label"
+            title="Toggle with Shift+D"
+            >Summary</span
+          >
+        </div>
+      </div>
 
       <main>
         <section class="section" aria-labelledby="profile-summary-heading">
@@ -290,6 +295,7 @@
     </dialog>
 
     <script src="labels.js"></script>
+    <script src="card-nav.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

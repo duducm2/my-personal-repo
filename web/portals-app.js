@@ -885,7 +885,11 @@
         if (isF) {
           event.preventDefault();
           event.stopPropagation();
-          window.CardNav?.toggleCardsFilters(CARD_SEL, FILTER_SEL);
+          window.CardNav?.toggleCardsFilters(
+            CARD_SEL,
+            FILTER_SEL,
+            "#portal-modal[open] .field-input, #portal-modal[open] select.field-input, #portal-modal[open] textarea.field-input",
+          );
           return;
         }
       }

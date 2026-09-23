@@ -80,36 +80,54 @@
     return move(cardSel, delta);
   }
 
-  function toggleCardsFilters(cardSel, filterRootSel) {
+  function inMain(el, mainEls) {
+    return !!(el && mainEls.includes(el));
+  }
+
+  function focusEl(el, asFilter) {
+    if (!el) return false;
+    el.focus({ preventScroll: false });
+    if (asFilter) lastFilter = el;
+    else lastCard = el;
+    return true;
+  }
+
+  /**
+   * Toggle focus between filter chips and the "main" area.
+   * mainSel: cards (default) or field inputs when a modal/profile editor is active.
+   * fieldSel: when this matches any elements (e.g. open modal fields), those win over cards.
+   */
+  function toggleCardsFilters(cardSel, filterRootSel, fieldSel) {
     const active = document.activeElement;
     const chips = filterChips(filterRootSel);
-    const cards = list(cardSel);
-    if (!chips.length && !cards.length) return false;
+    const fields = fieldSel ? list(fieldSel) : [];
+    const cards = cardSel ? list(cardSel) : [];
+    const mains = fields.length ? fields : cards;
+    if (!chips.length && !mains.length) return false;
 
-    const onCard = inCards(active, cardSel);
+    const onMain = inMain(active, mains);
     const onFilter = inFilters(active, filterRootSel);
 
-    if (onCard || (!onFilter && cards.length)) {
-      if (onCard) lastCard = active;
+    if (onMain || (!onFilter && mains.length)) {
+      if (onMain) lastCard = active;
       const target =
         lastFilter && chips.includes(lastFilter) ? lastFilter : chips[0];
-      if (!target) return focusFirst(cardSel);
-      target.focus({ preventScroll: false });
-      lastFilter = target;
-      return true;
+      if (!target) return focusEl(mains[0], false);
+      return focusEl(target, true);
     }
 
     if (onFilter && chips.includes(active)) lastFilter = active;
-    const target = lastCard && cards.includes(lastCard) ? lastCard : cards[0];
+    const target =
+      lastCard && mains.includes(lastCard) ? lastCard : mains[0];
     if (!target) {
       if (!chips[0]) return false;
-      chips[0].focus({ preventScroll: false });
-      lastFilter = chips[0];
-      return true;
+      return focusEl(chips[0], true);
     }
-    target.focus({ preventScroll: false });
-    lastCard = target;
-    return true;
+    return focusEl(target, false);
+  }
+
+  function toggleFiltersMain(filterRootSel, mainSel) {
+    return toggleCardsFilters(null, filterRootSel, mainSel);
   }
 
   function filterLabel(chip) {
@@ -206,6 +224,7 @@
     moveFilters,
     moveInContext,
     toggleCardsFilters,
+    toggleFiltersMain,
     jumpPrefix,
     jumpFilterPrefix,
     jumpInContext,
