@@ -650,13 +650,24 @@
     if (!el) return;
     const mode = getLangMode();
     el.textContent =
-      mode === "pt" ? "PT values" : mode === "en" ? "EN values" : "EN + PT";
+      mode === "pt"
+        ? "Showing PT values"
+        : mode === "en"
+          ? "Showing EN values"
+          : "Showing EN + PT";
   }
 
   function updateDetailIndicator() {
-    const el = document.getElementById("detail-mode-label");
-    if (!el) return;
-    el.textContent = detailMode ? "Detail" : "Summary";
+    const summaryBtn = document.getElementById("detail-mode-summary");
+    const detailBtn = document.getElementById("detail-mode-detail");
+    if (summaryBtn) {
+      summaryBtn.classList.toggle("is-active", !detailMode);
+      summaryBtn.setAttribute("aria-pressed", !detailMode ? "true" : "false");
+    }
+    if (detailBtn) {
+      detailBtn.classList.toggle("is-active", detailMode);
+      detailBtn.setAttribute("aria-pressed", detailMode ? "true" : "false");
+    }
   }
 
   function setDetailMode(next, rerender) {
@@ -1601,12 +1612,7 @@
         }
       }
 
-      if (
-        !event.shiftKey ||
-        mod ||
-        event.altKey ||
-        typing
-      ) {
+      if (!event.shiftKey || mod || event.altKey || typing) {
         return;
       }
 
@@ -1885,6 +1891,18 @@
     initDetailMode();
     initPathFilter();
     wireResumeViewer();
+    document
+      .getElementById("detail-mode-summary")
+      ?.addEventListener("click", () => {
+        if (!detailMode) return;
+        setDetailMode(false, true);
+      });
+    document
+      .getElementById("detail-mode-detail")
+      ?.addEventListener("click", () => {
+        if (detailMode) return;
+        setDetailMode(true, true);
+      });
     const saveBtn = document.getElementById("save-btn");
     if (saveBtn) saveBtn.addEventListener("click", () => saveAll());
     const openCompaniesBtn = document.getElementById("open-companies-btn");
