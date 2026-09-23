@@ -744,6 +744,7 @@
     query = "";
     const search = searchInputEl();
     if (search) search.value = "";
+    hideSearchBar({ focusCard: false });
     setDirty(true);
     setSaveStatus("");
     render();
@@ -854,6 +855,21 @@
       ) {
         event.preventDefault();
         deletePortal(openPortalId);
+        return;
+      }
+
+      // Add new portal — Shift+N
+      if (
+        !modalOpen &&
+        !typing &&
+        !mod &&
+        !event.altKey &&
+        event.shiftKey &&
+        event.code === "KeyN"
+      ) {
+        event.preventDefault();
+        event.stopPropagation();
+        addPortal();
         return;
       }
 

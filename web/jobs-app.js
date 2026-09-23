@@ -857,7 +857,7 @@
     query = "";
     const search = document.getElementById("job-search-input");
     if (search) search.value = "";
-    hideSearchBar();
+    hideSearchBar({ focusCard: false });
     render();
     openModal(row.id);
     return row;
@@ -1588,6 +1588,21 @@
         return;
       }
 
+      // Add new opening — Shift+N (before letter-jump / nav chords)
+      if (
+        !modalOpen &&
+        !typing &&
+        !mod &&
+        !event.altKey &&
+        event.shiftKey &&
+        event.code === "KeyN"
+      ) {
+        event.preventDefault();
+        event.stopPropagation();
+        addOpening();
+        return;
+      }
+
       if (event.altKey && !mod && !event.shiftKey) {
         const isS =
           event.code === "KeyS" || (event.key || "").toLowerCase() === "s";
@@ -1670,16 +1685,6 @@
 
       if (event.altKey || mod || typing) return;
 
-      // Add new opening — Shift+N only (plain letters jump cards)
-      if (
-        event.shiftKey &&
-        (event.key.toLowerCase() === "n" || event.code === "KeyN")
-      ) {
-        event.preventDefault();
-        addOpening();
-        return;
-      }
-
       if (!event.shiftKey) return;
 
       if (event.code === "Digit1") {
@@ -1695,11 +1700,6 @@
       if (event.code === "Digit0") {
         event.preventDefault();
         setLangMode("both");
-        return;
-      }
-      if (event.key.toLowerCase() === "n") {
-        event.preventDefault();
-        addOpening();
         return;
       }
       if (event.key.toLowerCase() === "p") {

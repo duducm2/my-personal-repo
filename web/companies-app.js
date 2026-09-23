@@ -997,6 +997,25 @@
     body.append(actions);
   }
 
+  function addCompany() {
+    const row = blankCompany();
+    companies.push(row);
+    categoryFilter = "";
+    roleFilter = "";
+    geoFilter = "";
+    homeOfficeFilter = "";
+    growthFilter = "";
+    query = "";
+    const search = searchInputEl();
+    if (search) search.value = "";
+    hideSearchBar({ focusCard: false });
+    setDirty(true);
+    setSaveStatus("");
+    render();
+    openModal(row.id);
+    return row;
+  }
+
   function deleteCompany(id, { confirmDelete = true } = {}) {
     if (!id) return false;
     if (confirmDelete && !confirm("Delete this company?")) return false;
@@ -1141,6 +1160,21 @@
       ) {
         event.preventDefault();
         deleteCompany(openCompanyId);
+        return;
+      }
+
+      // Add new company — Shift+N
+      if (
+        !modalOpen &&
+        !typing &&
+        !mod &&
+        !event.altKey &&
+        event.shiftKey &&
+        event.code === "KeyN"
+      ) {
+        event.preventDefault();
+        event.stopPropagation();
+        addCompany();
         return;
       }
 
@@ -1325,19 +1359,7 @@
     }
     const addBtn = document.getElementById("company-add-btn");
     if (addBtn) {
-      addBtn.addEventListener("click", () => {
-        const row = blankCompany();
-        companies.push(row);
-        categoryFilter = "";
-        roleFilter = "";
-        geoFilter = "";
-        homeOfficeFilter = "";
-        query = "";
-        if (search) search.value = "";
-        setDirty(true);
-        render();
-        openModal(row.id);
-      });
+      addBtn.addEventListener("click", () => addCompany());
     }
     initKeyboard();
     window.addEventListener("beforeunload", (e) => {
