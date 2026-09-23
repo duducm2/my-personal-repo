@@ -1063,7 +1063,14 @@
       .map((p) => cell(p).toLowerCase())
       .filter(Boolean);
     const effectivePaths = paths.length ? paths : ["da"];
-    const ignoreRules = cell(ignoreText).trim();
+    const ignoreRules = (() => {
+      const DEFAULT_IGNORE = "- nothing non IT related";
+      const custom = cell(ignoreText).trim();
+      if (!custom) return DEFAULT_IGNORE;
+      const lower = custom.toLowerCase();
+      if (lower.includes("nothing non it related")) return custom;
+      return `${DEFAULT_IGNORE}\n${custom}`;
+    })();
 
     const ctx = await fetchPromptContext();
     const companies = Array.isArray(collections.companies)
@@ -1475,6 +1482,10 @@
     fillPromptCompanySelect();
     const dialog = document.getElementById("prompt-modal");
     const status = document.getElementById("prompt-status");
+    const ignoreEl = document.getElementById("prompt-ignore");
+    if (ignoreEl && !cell(ignoreEl.value).trim()) {
+      ignoreEl.value = "- nothing non IT related";
+    }
     if (status) {
       status.textContent = "";
       status.className = "save-status";
