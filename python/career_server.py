@@ -186,6 +186,7 @@ def list_downloads() -> list[dict[str, Any]]:
             "view_url": f"/download/{entry['variant']}/{entry['filename']}?inline=1",
             "size": path.stat().st_size if available else 0,
             "page_count": page_count,
+            "abs_path": str(path.resolve()) if available else "",
         }
         if entry["kind"] == "resume":
             item["one_page_ok"] = page_count == RESUME_MAX_PAGES if page_count else None

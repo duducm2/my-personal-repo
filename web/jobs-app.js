@@ -101,6 +101,7 @@
   let bulkMode = false;
   let selectedIds = new Set();
   let promptContextCache = null;
+  let downloadsCache = null;
   let promptAutoCloseTimer = null;
   let promptAutoCloseSecondsLeft = 0;
   let promptAutoCloseTick = null;
@@ -1158,6 +1159,41 @@
     return promptContextCache;
   }
 
+  async function fetchDownloads() {
+    if (downloadsCache) return downloadsCache;
+    const res = await fetch("/api/downloads");
+    if (!res.ok) throw new Error(`GET /api/downloads failed (${res.status})`);
+    downloadsCache = await res.json();
+    return downloadsCache;
+  }
+
+  function preferredResumeLang() {
+    return getLangMode() === "pt" ? "pt" : "en";
+  }
+
+  async function resolveResumeFile(variant) {
+    const v = cell(variant);
+    if (!v || !RESUME_OPTIONS.includes(v)) return null;
+    const data = await fetchDownloads();
+    const items = Array.isArray(data.items) ? data.items : [];
+    const lang = preferredResumeLang();
+    const resumes = items.filter(
+      (it) =>
+        cell(it.kind) === "resume" &&
+        cell(it.variant) === v &&
+        it.available !== false,
+    );
+    const preferred =
+      resumes.find((it) => cell(it.lang) === lang) || resumes[0] || null;
+    if (!preferred || !cell(preferred.abs_path)) return null;
+    return {
+      absPath: cell(preferred.abs_path),
+      filename: cell(preferred.filename),
+      lang: cell(preferred.lang),
+      url: cell(preferred.url),
+    };
+  }
+
   function existingOpeningsForCompany(companyKey) {
     const key = cell(companyKey).toLowerCase();
     if (!key) return [];
@@ -1668,6 +1704,7 @@
       if (!fields) return null;
       return {
         opening_id: cell(data.opening_id),
+        recommended_resume: cell(data.recommended_resume),
         fields: fields
           .filter((f) => f && typeof f === "object")
           .map((f) => ({
@@ -1759,6 +1796,7 @@
     const paths = careerPaths.length
       ? careerPaths.join(" | ")
       : "da | po | dsa | other";
+    const resumes = RESUME_OPTIONS.join(" | ");
     return [
       "=== AIB FORM-FILL INSTRUCTIONS (mandatory) ===",
       "1. Read ATS / APPLICATION PAGE TEXT and list every distinct form field",
@@ -1773,15 +1811,21 @@
       "   paste-ready text from the context (institution, degree, dates;",
       "   title, company, dates, short description).",
       `7. Prefer narratives/skills for career paths: ${paths}.`,
-      "8. For résumé / file upload fields, set value to empty string and put a",
-      "   short note like: Upload manually — use recommended_resume variant.",
-      "9. Match label language to the page (PT or EN). Keep key as snake_case English.",
-      "10. Return ONLY one JSON object (no markdown fences, no prose):",
+      "8. Choose exactly one résumé variant to upload for this opening.",
+      `   Set top-level recommended_resume to one of: ${resumes}.`,
+      "   Pick the best match for the role title, career path, and ATS text",
+      "   (not only the current opening.recommended_resume if a better fit exists).",
+      "9. For résumé / file upload fields, set value to empty string and put a",
+      "   note naming the chosen variant, e.g.:",
+      '   "Upload manually — use digital-solution-architect resume".',
+      "10. Match label language to the page (PT or EN). Keep key as snake_case English.",
+      "11. Return ONLY one JSON object (no markdown fences, no prose):",
       '    { "opening_id": "' +
         openingId +
-        '", "fields": [ { "key", "label", "value", "source", "note?" } ] }',
-      "11. Include every visible form field. Use empty value when unknown.",
-      "12. opening_id must equal the selected opening id provided above.",
+        '", "recommended_resume": "<one of the variants>",',
+      '      "fields": [ { "key", "label", "value", "source", "note?" } ] }',
+      "12. Include every visible form field. Use empty value when unknown.",
+      "13. opening_id must equal the selected opening id provided above.",
     ].join("\n");
   }
 
@@ -1828,7 +1872,10 @@
     lines.push(`location: ${cell(opening.location)}`);
     lines.push(`job_url: ${cell(opening.job_url)}`);
     lines.push(
-      `recommended_resume: ${cell(opening.recommended_resume) || "(none)"}`,
+      `recommended_resume (current): ${cell(opening.recommended_resume) || "(none)"}`,
+    );
+    lines.push(
+      `Available résumé variants to choose from: ${RESUME_OPTIONS.join(", ")}`,
     );
     lines.push("");
     lines.push("=== PROFILE CONTEXT ===");
@@ -2015,6 +2062,7 @@
     }
     return {
       opening_id: cell(data.opening_id),
+      recommended_resume: cell(data.recommended_resume),
       fields,
     };
   }
@@ -2035,8 +2083,18 @@
         "No matching opening for opening_id — open a dossier or set opening_id.",
       );
     }
+    const resume = cell(payload.recommended_resume);
+    if (resume) {
+      if (!RESUME_OPTIONS.includes(resume)) {
+        throw new Error(
+          `recommended_resume must be one of: ${RESUME_OPTIONS.join(", ")} (got "${resume}")`,
+        );
+      }
+      row.recommended_resume = resume;
+    }
     row.application_answers = JSON.stringify({
       opening_id: cell(row.id),
+      recommended_resume: cell(row.recommended_resume),
       fields: payload.fields,
     });
     collections.jobOpenings = openings;
@@ -2048,6 +2106,7 @@
     const sample = {
       opening_id:
         openJobId || "bosch-brasil-mid-level-digital-solution-architect-33992",
+      recommended_resume: "digital-solution-architect",
       fields: [
         {
           key: "first_name",
@@ -2072,7 +2131,7 @@
           label: "Currículo",
           value: "",
           source: "",
-          note: "Upload manually — use recommended_resume variant",
+          note: "Upload manually — use digital-solution-architect resume",
         },
       ],
     };
@@ -2087,7 +2146,10 @@
       "",
       "WHAT YOU MUST DO",
       "- Return ONLY a valid JSON object (no markdown fences, no commentary).",
-      '- Shape: { "opening_id": string, "fields": [ { "key", "label", "value", "source", "note?" } ] }',
+      '- Shape: { "opening_id": string, "recommended_resume": one of ' +
+        RESUME_OPTIONS.join(" | ") +
+        ",",
+      '  "fields": [ { "key", "label", "value", "source", "note?" } ] }',
       "- Use empty strings for unknown values. Never invent email/phone.",
       "",
       "EXAMPLE",
@@ -2296,6 +2358,63 @@
     });
     head.append(clearBtn);
     section.append(head);
+
+    const resumeChoice =
+      cell(parsed.recommended_resume) || cell(row.recommended_resume);
+    if (resumeChoice) {
+      const resumeBar = document.createElement("div");
+      resumeBar.className = "job-form-resume-pick";
+      const resumeLab = document.createElement("span");
+      resumeLab.className = "job-form-resume-pick-label";
+      resumeLab.textContent = "Upload this résumé";
+      const resumeVal = document.createElement("strong");
+      resumeVal.textContent = resumeChoice;
+      const pathEl = document.createElement("code");
+      pathEl.className = "job-form-resume-path";
+      pathEl.textContent = "Resolving path…";
+      const pathCopy = document.createElement("button");
+      pathCopy.type = "button";
+      pathCopy.className = "save-btn";
+      pathCopy.textContent = "Copy full path";
+      pathCopy.disabled = true;
+      pathCopy.title = "Copy absolute PDF path for the OS file picker (Ctrl+V)";
+      const nameCopy = document.createElement("button");
+      nameCopy.type = "button";
+      nameCopy.className = "nav-btn";
+      nameCopy.textContent = "Copy name";
+      nameCopy.addEventListener("click", async () => {
+        const ok = await copyText(resumeChoice);
+        showToast(ok ? `Copied: ${resumeChoice}` : "Copy failed", 1800);
+      });
+      resumeBar.append(resumeLab, resumeVal, pathEl, pathCopy, nameCopy);
+      section.append(resumeBar);
+
+      resolveResumeFile(resumeChoice)
+        .then((file) => {
+          if (!file) {
+            pathEl.textContent =
+              "PDF not found under output/ — build resumes first";
+            pathEl.classList.add("is-missing");
+            return;
+          }
+          pathEl.textContent = file.absPath;
+          pathEl.title = `${file.filename} (${file.lang.toUpperCase()})`;
+          pathCopy.disabled = false;
+          pathCopy.addEventListener("click", async () => {
+            const ok = await copyText(file.absPath);
+            showToast(
+              ok
+                ? "Full path copied — paste in the file dialog"
+                : "Copy failed",
+              2200,
+            );
+          });
+        })
+        .catch(() => {
+          pathEl.textContent = "Could not resolve resume path";
+          pathEl.classList.add("is-missing");
+        });
+    }
 
     const list = document.createElement("div");
     list.className = "job-form-answer-list";

@@ -2365,6 +2365,53 @@ body.lang-en .field-row {
   font-size: 11px;
 }
 
+.job-form-resume-pick {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 10px;
+  margin: 0 0 10px;
+  padding: 7px 9px;
+  border: 1px solid color-mix(in srgb, var(--gold) 40%, var(--line));
+  border-radius: 3px;
+  background: color-mix(in srgb, var(--gold) 8%, transparent);
+}
+
+.job-form-resume-pick-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--gold) 75%, var(--muted));
+}
+
+.job-form-resume-pick strong {
+  font-size: 12px;
+  font-weight: 650;
+  color: var(--gold);
+}
+
+.job-form-resume-path {
+  flex: 1 1 100%;
+  display: block;
+  margin: 0;
+  padding: 5px 7px;
+  border-radius: 2px;
+  border: 1px solid var(--line);
+  background: #0f0f10;
+  color: color-mix(in srgb, var(--text) 88%, var(--muted));
+  font-size: 10px;
+  line-height: 1.35;
+  word-break: break-all;
+  font-family: ui-monospace, "Cascadia Mono", "Segoe UI Mono", Consolas, monospace;
+}
+
+.job-form-resume-path.is-missing {
+  color: var(--muted);
+  font-style: italic;
+  font-family: inherit;
+}
+
 .job-form-answer-list {
   display: flex;
   flex-direction: column;
