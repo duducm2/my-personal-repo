@@ -28,32 +28,32 @@ After changing column structure, run: `python scripts/migrate_bilingual_labels.p
 
 ## Data files
 
-| File                      | Contents                                                                            |
-| ------------------------- | ----------------------------------------------------------------------------------- |
-| `profile.csv`             | Name, contact, location_en/pt, languages_en/pt                                      |
-| `about_linkedin.csv`      | LinkedIn Sobre / About summary                                                      |
-| `languages.csv`           | LinkedIn languages (name + proficiency EN/PT)                                       |
-| `target_titles.csv`       | Possible headlines/titles by CV career path (DA / PO / general)                     |
-| `experience.csv`          | Jobs — titles and date display in EN/PT (resume)                                    |
-| `experience_linkedin.csv` | LinkedIn Experiência (roles, locations, descriptions)                               |
-| `experience_bullets.csv`  | Bullets per role × variant (`text_en`, `text_pt`)                                   |
-| `skills.csv`              | Skills with `category_label_en/pt`, `label_en/pt`                                   |
-| `education.csv`           | Degrees for resume (`degree_en/pt`, `institution_en/pt`, `detail_en/pt`)            |
-| `education_linkedin.csv`  | LinkedIn Formação acadêmica (full bilingual detail)                                 |
-| `publications.csv`        | Papers (`venue_en/pt`, `citation_en/pt`)                                            |
-| `additional.csv`          | Awards / misc short lines for resume (`text_en/pt`)                                 |
-| `recognitions.csv`        | LinkedIn honors & awards (full bilingual detail)                                    |
-| `courses.csv`             | LinkedIn courses (`title_en/pt`, `associated_en/pt`)                                |
-| `competences.csv`         | LinkedIn skills / competências (category, associations)                             |
-| `volunteering.csv`        | LinkedIn volunteering (role, org, cause, description)                               |
-| `certifications.csv`      | LinkedIn licenses & certifications                                                  |
+| File                      | Contents                                                                                                                                      |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `profile.csv`             | Name, contact, location_en/pt, languages_en/pt                                                                                                |
+| `about_linkedin.csv`      | LinkedIn Sobre / About summary                                                                                                                |
+| `languages.csv`           | LinkedIn languages (name + proficiency EN/PT)                                                                                                 |
+| `target_titles.csv`       | Possible headlines/titles by CV career path (DA / PO / general)                                                                               |
+| `experience.csv`          | Jobs — titles and date display in EN/PT (resume)                                                                                              |
+| `experience_linkedin.csv` | LinkedIn Experiência (roles, locations, descriptions)                                                                                         |
+| `experience_bullets.csv`  | Bullets per role × variant (`text_en`, `text_pt`)                                                                                             |
+| `skills.csv`              | Skills with `category_label_en/pt`, `label_en/pt`                                                                                             |
+| `education.csv`           | Degrees for resume (`degree_en/pt`, `institution_en/pt`, `detail_en/pt`)                                                                      |
+| `education_linkedin.csv`  | LinkedIn Formação acadêmica (full bilingual detail)                                                                                           |
+| `publications.csv`        | Papers (`venue_en/pt`, `citation_en/pt`)                                                                                                      |
+| `additional.csv`          | Awards / misc short lines for resume (`text_en/pt`)                                                                                           |
+| `recognitions.csv`        | LinkedIn honors & awards (full bilingual detail)                                                                                              |
+| `courses.csv`             | LinkedIn courses (`title_en/pt`, `associated_en/pt`)                                                                                          |
+| `competences.csv`         | LinkedIn skills / competências (category, associations)                                                                                       |
+| `volunteering.csv`        | LinkedIn volunteering (role, org, cause, description)                                                                                         |
+| `certifications.csv`      | LinkedIn licenses & certifications                                                                                                            |
 | `companies.csv`           | Target companies (category, city/region, priority, status, role fits DA/PO/DSA, skills match, why-fit, website, careers URL, ATS tags, notes) |
-| `job_portals.csv`         | Curated Brazil / international job portals (search URL, proprietary vs third-party ATS, path fit) |
-| `job_openings.csv`        | Live job openings tracker (role, status, path, work mode, next action, skills gap, JD, contacts) |
-| `job_platforms.csv`       | Career / company watch pages linked by `company_key` |
-| `job_communities.csv`     | Communities that surface openings (Alumni, etc.) |
-| `projects.csv`            | Case evidence (`name_en/pt`, `summary_en/pt`, optional `*_detail_*`, `notes_en/pt`) |
-| `narratives.csv`          | Resume + portfolio copy (`label_en/pt`, `text_en/pt`)                               |
+| `job_portals.csv`         | Curated Brazil / international job portals (search URL, proprietary vs third-party ATS, path fit)                                             |
+| `job_openings.csv`        | Live job openings tracker (role, status, path, work mode, next action, result/outcome, skills gap, JD, contacts)                              |
+| `job_platforms.csv`       | Career / company watch pages linked by `company_key`                                                                                          |
+| `job_communities.csv`     | Communities that surface openings (Alumni, etc.)                                                                                              |
+| `projects.csv`            | Case evidence (`name_en/pt`, `summary_en/pt`, optional `*_detail_*`, `notes_en/pt`)                                                           |
+| `narratives.csv`          | Resume + portfolio copy (`label_en/pt`, `text_en/pt`)                                                                                         |
 
 **Variants:** `general` | `product-owner` | `data-analyst` (see `field_labels.csv` for bilingual variant names)
 

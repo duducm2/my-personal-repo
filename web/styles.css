@@ -2212,6 +2212,12 @@ body.lang-en .field-row {
   opacity: 0.75;
 }
 
+.job-chip-result {
+  border-color: color-mix(in srgb, #48c9b0 40%, var(--line));
+  color: #7fdbcb;
+  background: color-mix(in srgb, #48c9b0 10%, transparent);
+}
+
 .job-tile-wrap {
   grid-column: span 3;
   position: relative;

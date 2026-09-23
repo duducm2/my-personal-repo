@@ -35,6 +35,17 @@
     "product-owner",
     "digital-solution-architect",
   ];
+  const RESULT_OPTIONS = [
+    { key: "", label: "(none — in progress)" },
+    { key: "hired", label: "Hired" },
+    { key: "offer_declined", label: "Offer declined" },
+    { key: "rejected", label: "Rejected" },
+    { key: "withdrew", label: "Withdrew" },
+    { key: "ghosted", label: "Ghosted" },
+    { key: "position_filled", label: "Position filled" },
+    { key: "not_pursued", label: "Not pursued" },
+    { key: "other", label: "Other" },
+  ];
   const OPENING_FIELDS = [
     "id",
     "sort_order",
@@ -63,6 +74,8 @@
     "match_score",
     "match_reason",
     "recommended_resume",
+    "result",
+    "result_on",
   ];
   const PATH_TO_VARIANT = {
     da: "data-analyst",
@@ -81,6 +94,7 @@
   let statusFilter = "";
   let pathFilter = "";
   let priorityFilter = "";
+  let resultFilter = "";
   let openJobId = "";
   let bulkMode = false;
   let selectedIds = new Set();
@@ -156,6 +170,7 @@
     statusFilter = "";
     pathFilter = "";
     priorityFilter = "";
+    resultFilter = "";
     query = "";
     const search = searchInputEl();
     if (search) search.value = "";
@@ -206,6 +221,12 @@
     return PATH_OPTIONS.find((p) => p.key === key)?.label || key || "Other";
   }
 
+  function resultLabel(key) {
+    const k = cell(key);
+    if (!k) return "";
+    return RESULT_OPTIONS.find((r) => r.key === k)?.label || k;
+  }
+
   function haystack(row) {
     return [
       row.company,
@@ -222,6 +243,7 @@
       row.notes,
       row.contact_person,
       row.job_url,
+      row.result,
       row.id,
     ]
       .map(cell)
@@ -243,6 +265,11 @@
       rows = rows.filter(
         (r) => cell(r.priority).toLowerCase() === priorityFilter,
       );
+    }
+    if (resultFilter === "__none__") {
+      rows = rows.filter((r) => !cell(r.result));
+    } else if (resultFilter) {
+      rows = rows.filter((r) => cell(r.result).toLowerCase() === resultFilter);
     }
     const q = query.trim().toLowerCase();
     if (q) {
@@ -327,6 +354,29 @@
       );
     }
     root.append(priRow);
+
+    const resultRow = document.createElement("div");
+    resultRow.className = "company-filter-row";
+    const resultLab = document.createElement("span");
+    resultLab.className = "company-filter-label";
+    resultLab.textContent = "Result";
+    resultRow.append(resultLab);
+    for (const chip of [
+      { key: "", label: "All" },
+      { key: "__none__", label: "In progress" },
+      ...RESULT_OPTIONS.filter((r) => r.key).map((r) => ({
+        key: r.key,
+        label: r.label,
+      })),
+    ]) {
+      resultRow.append(
+        makeChip(chip, resultFilter, (key) => {
+          resultFilter = key;
+          render();
+        }),
+      );
+    }
+    root.append(resultRow);
   }
 
   function tileSpanClass(row) {
@@ -453,7 +503,14 @@
       "company-tile job-tile" +
       (status ? ` job-tile--${statusTone(status)}` : "") +
       (priority === "high" ? " job-tile--high" : "");
-    btn.addEventListener("click", () => {
+    btn.addEventListener("click", (e) => {
+      const mod = e.ctrlKey || e.metaKey;
+      if (mod && !bulkMode) {
+        e.preventDefault();
+        selectedIds.add(row.id);
+        setBulkMode(true);
+        return;
+      }
       if (bulkMode) {
         if (selectedIds.has(row.id)) selectedIds.delete(row.id);
         else selectedIds.add(row.id);
@@ -553,6 +610,15 @@
     }
     const path = pathLabel(row.career_path);
     if (path) chips.append(makeTileChip(path, "company-chip"));
+    const outcome = resultLabel(row.result);
+    if (outcome) {
+      chips.append(
+        makeTileChip(
+          cell(row.result_on) ? `${outcome} · ${cell(row.result_on)}` : outcome,
+          "company-chip job-chip-result",
+        ),
+      );
+    }
 
     btn.append(meta);
     if (chips.childNodes.length) btn.append(chips);
@@ -655,9 +721,14 @@
       setDirty(true);
       setSaveStatus("");
       if (
-        ["role_title", "company", "status", "priority", "next_action"].includes(
-          key,
-        )
+        [
+          "role_title",
+          "company",
+          "status",
+          "priority",
+          "next_action",
+          "result",
+        ].includes(key)
       ) {
         renderResults();
         const titleEl = document.getElementById("job-modal-title");
@@ -767,6 +838,12 @@
     );
     grid.append(
       fieldBlock("Applied on", textInput(row, "applied_on", { type: "date" })),
+    );
+    grid.append(
+      fieldBlock("Result", selectInput(row, "result", RESULT_OPTIONS)),
+    );
+    grid.append(
+      fieldBlock("Result on", textInput(row, "result_on", { type: "date" })),
     );
     grid.append(
       fieldBlock(
@@ -940,6 +1017,7 @@
     statusFilter = "";
     pathFilter = "";
     priorityFilter = "";
+    resultFilter = "";
     query = "";
     const search = document.getElementById("job-search-input");
     if (search) search.value = "";
@@ -993,6 +1071,8 @@
       match_score: "",
       match_reason: "",
       recommended_resume: "",
+      result: "",
+      result_on: "",
     };
   }
 
@@ -1112,6 +1192,7 @@
       "   general | data-analyst | product-owner | digital-solution-architect.",
       `${n + 3}. Set is_new to "1", status to "saved", source to "company_site" unless`,
       "   another source is obvious, and fill found_on with today's date (YYYY-MM-DD).",
+      "   Leave result and result_on empty (historic outcome is set manually later).",
       `${n + 4}. Return ONLY a JSON array (no markdown fences, no prose before/after).`,
       "   Every object MUST include exactly these keys:",
       OPENING_FIELDS.join(", "),
@@ -1397,6 +1478,8 @@
     if (!row.work_mode) row.work_mode = "unknown";
     if (!row.source) row.source = "company_site";
     row.is_new = "1";
+    row.result = "";
+    row.result_on = "";
     if (!cell(row.role_title)) {
       throw new Error(`Row ${index} missing role_title`);
     }
@@ -1442,6 +1525,8 @@
       match_score: "8",
       match_reason: "Strong SQL/Power BI overlap",
       recommended_resume: "data-analyst",
+      result: "",
+      result_on: "",
     };
     return [
       "The Job Openings importer rejected my last AI output. Fix and re-deliver.",
@@ -1458,6 +1543,7 @@
       OPENING_FIELDS.join(", "),
       "- Use empty strings for unknown optional fields.",
       '- Keep is_new as "1" and status as "saved" for new imports.',
+      "- Leave result and result_on empty for new imports (historic outcome is set later).",
       "",
       "EXAMPLE ROW",
       JSON.stringify(sample, null, 2),

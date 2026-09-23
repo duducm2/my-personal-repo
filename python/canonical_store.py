@@ -310,6 +310,8 @@ _BASE: dict[str, tuple[str, list[str]]] = {
             "match_score",
             "match_reason",
             "recommended_resume",
+            "result",
+            "result_on",
         ],
     ),
     "jobPlatforms": (

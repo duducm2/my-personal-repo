@@ -273,6 +273,8 @@
       "match_score",
       "match_reason",
       "recommended_resume",
+      "result",
+      "result_on",
     ],
     jobPlatforms: ["id", "sort_order", "company_key", "label", "url"],
     jobCommunities: ["id", "sort_order", "name", "url", "notes"],
