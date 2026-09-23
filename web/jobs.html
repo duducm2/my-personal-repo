@@ -539,6 +539,40 @@
       </div>
     </dialog>
 
+    <dialog
+      id="resume-viewer-modal"
+      class="company-modal resume-viewer-modal"
+      aria-labelledby="resume-viewer-title"
+    >
+      <div class="company-modal-inner resume-viewer-inner">
+        <header class="company-modal-head">
+          <h2 id="resume-viewer-title" class="company-modal-title">Resume</h2>
+          <div class="resume-viewer-head-actions">
+            <a
+              id="resume-viewer-download"
+              class="download-btn"
+              href="#"
+              download
+              >Download</a
+            >
+            <button
+              type="button"
+              id="resume-viewer-close"
+              class="company-modal-close"
+              aria-label="Close"
+            >
+              ✕
+            </button>
+          </div>
+        </header>
+        <iframe
+          id="resume-viewer-frame"
+          class="resume-viewer-frame"
+          title="Resume preview"
+        ></iframe>
+      </div>
+    </dialog>
+
     <script src="flags.js"></script>
     <script src="card-nav.js"></script>
     <script src="jobs-app.js"></script>

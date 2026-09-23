@@ -1262,6 +1262,11 @@
       filename: cell(preferred.filename),
       lang: cell(preferred.lang) || lang,
       url: cell(preferred.url),
+      viewUrl:
+        cell(preferred.view_url) ||
+        (cell(preferred.url)
+          ? `${cell(preferred.url)}${cell(preferred.url).includes("?") ? "&" : "?"}inline=1`
+          : ""),
       available: !!available,
     };
   }
@@ -2394,6 +2399,34 @@
     if (dialog && dialog.open) dialog.close();
   }
 
+  function openResumeViewer(item) {
+    const dialog = document.getElementById("resume-viewer-modal");
+    const frame = document.getElementById("resume-viewer-frame");
+    const title = document.getElementById("resume-viewer-title");
+    const dl = document.getElementById("resume-viewer-download");
+    if (!dialog || !frame || !title || !dl) {
+      const url = cell(item?.view_url) || cell(item?.url);
+      if (url) window.open(url, "_blank", "noopener,noreferrer");
+      return;
+    }
+    const lang = cell(item.lang) ? ` · ${String(item.lang).toUpperCase()}` : "";
+    title.textContent = `${cell(item.label) || "Resume"}${lang}`;
+    frame.src = cell(item.view_url) || cell(item.url);
+    dl.href = cell(item.url) || cell(item.view_url);
+    if (item.filename) dl.setAttribute("download", cell(item.filename));
+    else dl.removeAttribute("download");
+    if (typeof dialog.showModal === "function" && !dialog.open) {
+      dialog.showModal();
+    }
+  }
+
+  function closeResumeViewer() {
+    const dialog = document.getElementById("resume-viewer-modal");
+    const frame = document.getElementById("resume-viewer-frame");
+    if (frame) frame.src = "about:blank";
+    if (dialog && dialog.open) dialog.close();
+  }
+
   function renderFormAnswersPanel(row, parent) {
     const section = document.createElement("section");
     section.id = "job-form-answers";
@@ -2452,7 +2485,7 @@
       pathEl.textContent = "Resolving path…";
       const pathCopy = document.createElement("button");
       pathCopy.type = "button";
-      pathCopy.className = "save-btn";
+      pathCopy.className = "nav-btn";
       pathCopy.textContent = "Copy full path";
       pathCopy.disabled = true;
       pathCopy.title = "Copy absolute PDF path for the OS file picker (Ctrl+V)";
@@ -2464,7 +2497,20 @@
         const ok = await copyText(resumeChoice);
         showToast(ok ? `Copied: ${resumeChoice}` : "Copy failed", 1800);
       });
-      resumeBar.append(resumeLab, resumeVal, pathEl, pathCopy, nameCopy);
+      const openBtn = document.createElement("button");
+      openBtn.type = "button";
+      openBtn.className = "save-btn";
+      openBtn.textContent = "Open résumé";
+      openBtn.disabled = true;
+      openBtn.title = "Open the PDF that matches this opening";
+      resumeBar.append(
+        resumeLab,
+        resumeVal,
+        pathEl,
+        openBtn,
+        pathCopy,
+        nameCopy,
+      );
       section.append(resumeBar);
 
       resolveResumeFile(resumeChoice)
@@ -2495,6 +2541,19 @@
               2200,
             );
           });
+          const viewUrl = cell(file.viewUrl) || cell(file.url);
+          if (viewUrl) {
+            openBtn.disabled = false;
+            openBtn.addEventListener("click", () => {
+              openResumeViewer({
+                label: resumeChoice,
+                lang: file.lang,
+                filename: file.filename,
+                view_url: viewUrl,
+                url: cell(file.url) || viewUrl.replace(/[?&]inline=1/, ""),
+              });
+            });
+          }
         })
         .catch(() => {
           pathEl.textContent = "Could not resolve resume path";
@@ -2953,6 +3012,11 @@
         }
       }
       if (event.key === "Escape") {
+        const resumeOpen = document.getElementById("resume-viewer-modal")?.open;
+        if (resumeOpen) {
+          closeResumeViewer();
+          return;
+        }
         const formPromptOpen =
           document.getElementById("form-prompt-modal")?.open;
         if (formPromptOpen) {
@@ -3165,6 +3229,20 @@
     document
       .getElementById("form-import-run-btn")
       ?.addEventListener("click", () => handleImportFormRun());
+
+    const resumeDialog = document.getElementById("resume-viewer-modal");
+    document
+      .getElementById("resume-viewer-close")
+      ?.addEventListener("click", () => closeResumeViewer());
+    if (resumeDialog) {
+      resumeDialog.addEventListener("close", () => {
+        const frame = document.getElementById("resume-viewer-frame");
+        if (frame) frame.src = "about:blank";
+      });
+      resumeDialog.addEventListener("click", (e) => {
+        if (e.target === resumeDialog) closeResumeViewer();
+      });
+    }
   }
 
   async function init() {
