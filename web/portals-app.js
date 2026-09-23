@@ -102,6 +102,7 @@
   }
 
   const CARD_SEL = "#portals-results .company-tile";
+  const FILTER_SEL = "#portals-filters";
 
   function hideSearchBar(opts = {}) {
     const bar = searchBarEl();
@@ -317,7 +318,7 @@
   }
 
   function moveCardFocus(delta) {
-    return !!window.CardNav?.move(CARD_SEL, delta);
+    return !!window.CardNav?.moveInContext(CARD_SEL, FILTER_SEL, delta);
   }
 
   function focusedPortalCard() {
@@ -863,6 +864,14 @@
           event.preventDefault();
           event.stopPropagation();
           toggleSearchBar();
+          return;
+        }
+        const isF =
+          event.code === "KeyF" || (event.key || "").toLowerCase() === "f";
+        if (isF) {
+          event.preventDefault();
+          event.stopPropagation();
+          window.CardNav?.toggleCardsFilters(CARD_SEL, FILTER_SEL);
           return;
         }
       }
