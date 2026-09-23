@@ -1012,31 +1012,43 @@
     });
   }
 
-  function buildAiInstructions(careerPaths) {
+  function buildAiInstructions(careerPaths, hasIgnoreRules) {
     const paths = careerPaths.length
       ? careerPaths.join(" | ")
       : "da | po | dsa | other";
-    return [
+    const steps = [
       "=== AIB PROCESSING INSTRUCTIONS (mandatory) ===",
       "1. Extract every distinct job opening from the UNSTRUCTURED JOB DATA below.",
       "2. Cross-reference EXISTING OPENINGS FOR THIS COMPANY and SKIP duplicates",
       "   (same role_title + company + location, or same job_url).",
-      "3. For each kept opening, set match_score (1-10) vs the PROFILE CONTEXT and",
+    ];
+    let n = 3;
+    if (hasIgnoreRules) {
+      steps.push(
+        `${n}. Honor IGNORE / DO NOT CONSIDER rules strictly: discard any opening`,
+        "   that matches those instructions (role type, title keywords, location,",
+        "   seniority, language, or other criteria). Do not include them in output.",
+      );
+      n += 1;
+    }
+    steps.push(
+      `${n}. For each kept opening, set match_score (1-10) vs the PROFILE CONTEXT and`,
       "   explain it briefly in match_reason.",
-      `4. Set career_path to exactly one of the selected contexts: ${paths}.`,
+      `${n + 1}. Set career_path to exactly one of the selected contexts: ${paths}.`,
       "   Prefer the best-fitting selected path for each opening.",
-      "5. Set recommended_resume to exactly one of:",
+      `${n + 2}. Set recommended_resume to exactly one of:`,
       "   general | data-analyst | product-owner | digital-solution-architect.",
-      '6. Set is_new to "1", status to "saved", source to "company_site" unless',
+      `${n + 3}. Set is_new to "1", status to "saved", source to "company_site" unless`,
       "   another source is obvious, and fill found_on with today's date (YYYY-MM-DD).",
-      "7. Return ONLY a JSON array (no markdown fences, no prose before/after).",
+      `${n + 4}. Return ONLY a JSON array (no markdown fences, no prose before/after).`,
       "   Every object MUST include exactly these keys:",
       OPENING_FIELDS.join(", "),
-      "8. Use empty strings for unknown optional fields. Do not invent job_url values;",
+      `${n + 5}. Use empty strings for unknown optional fields. Do not invent job_url values;`,
       "   leave job_url empty when not present in the source text.",
-      "9. company_key must match the selected company id provided above.",
-      "10. Prefer concise job_description (requirements + responsibilities).",
-    ].join("\n");
+      `${n + 6}. company_key must match the selected company id provided above.`,
+      `${n + 7}. Prefer concise job_description (requirements + responsibilities).`,
+    );
+    return steps.join("\n");
   }
 
   function pathSlugFor(careerPath) {
@@ -1046,11 +1058,12 @@
     return "";
   }
 
-  async function buildJobPrompt(companyKey, careerPaths, rawText) {
+  async function buildJobPrompt(companyKey, careerPaths, rawText, ignoreText) {
     const paths = (Array.isArray(careerPaths) ? careerPaths : [careerPaths])
       .map((p) => cell(p).toLowerCase())
       .filter(Boolean);
     const effectivePaths = paths.length ? paths : ["da"];
+    const ignoreRules = cell(ignoreText).trim();
 
     const ctx = await fetchPromptContext();
     const companies = Array.isArray(collections.companies)
@@ -1160,10 +1173,19 @@
     }
     lines.push("");
 
+    if (ignoreRules) {
+      lines.push("=== IGNORE / DO NOT CONSIDER ===");
+      lines.push(
+        "Do not extract, score, or return openings that match any of these rules:",
+      );
+      lines.push(ignoreRules);
+      lines.push("");
+    }
+
     lines.push("=== UNSTRUCTURED JOB DATA ===");
     lines.push(rawText.trim() || "(empty)");
     lines.push("");
-    lines.push(buildAiInstructions(effectivePaths));
+    lines.push(buildAiInstructions(effectivePaths, !!ignoreRules));
     return lines.join("\n");
   }
 
@@ -1178,6 +1200,7 @@
   async function handleCopyPrompt() {
     const companyKey = cell(document.getElementById("prompt-company")?.value);
     const careerPaths = selectedPromptPaths();
+    const ignoreText = cell(document.getElementById("prompt-ignore")?.value);
     const rawText = cell(document.getElementById("prompt-raw")?.value);
     const status = document.getElementById("prompt-status");
     if (!companyKey) {
@@ -1206,7 +1229,12 @@
       status.className = "save-status";
     }
     try {
-      const prompt = await buildJobPrompt(companyKey, careerPaths, rawText);
+      const prompt = await buildJobPrompt(
+        companyKey,
+        careerPaths,
+        rawText,
+        ignoreText,
+      );
       const ok = await copyText(prompt);
       if (ok) {
         if (status) {

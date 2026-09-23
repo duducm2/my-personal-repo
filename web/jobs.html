@@ -186,7 +186,8 @@
           <p class="job-modal-hint">
             Paste unstructured job listings from a company careers page. The
             prompt bundles your profile context, existing openings for that
-            company, and strict JSON output instructions for your AI companion.
+            company, optional ignore rules, and strict JSON output instructions
+            for your AI companion.
           </p>
           <div class="company-result-edit job-modal-grid">
             <label class="company-edit-field">
@@ -227,6 +228,17 @@
               </div>
             </fieldset>
           </div>
+          <label class="company-edit-field">
+            <span class="company-research-label"
+              >Ignore / do not consider (optional)</span
+            >
+            <textarea
+              id="prompt-ignore"
+              class="field-input"
+              rows="4"
+              placeholder="e.g. Skip internships and apprentice roles; ignore openings outside Brazil/Germany; do not extract “Student” or “Werkstudent” titles…"
+            ></textarea>
+          </label>
           <label class="company-edit-field">
             <span class="company-research-label"
               >Unstructured job data (paste from careers page)</span
