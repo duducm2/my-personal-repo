@@ -519,29 +519,6 @@
     const editGrid = document.createElement("div");
     editGrid.className = "company-result-edit";
 
-    const idLabel = document.createElement("label");
-    idLabel.className = "company-edit-field";
-    idLabel.append(fieldLabel("ID"));
-    const idInput = document.createElement("input");
-    idInput.className = "field-input";
-    idInput.value = cell(row.id);
-    idInput.addEventListener("input", () => {
-      const nextId = idInput.value.trim() || row.id;
-      if (portals.some((p) => p !== row && p.id === nextId)) {
-        setSaveStatus("ID already exists.", "err");
-        return;
-      }
-      const wasOpen = openPortalId === row.id;
-      row.id = nextId;
-      if (wasOpen) openPortalId = nextId;
-      setDirty(true);
-      setSaveStatus("");
-      titleEl.textContent = cell(row.name) || row.id;
-      renderResults();
-    });
-    idLabel.append(idInput);
-    editGrid.append(idLabel);
-
     const nameLabel = document.createElement("label");
     nameLabel.className = "company-edit-field";
     nameLabel.append(fieldLabel("Name"));
@@ -551,22 +528,6 @@
     bindTextField(row, "name", nameInput);
     nameLabel.append(nameInput);
     editGrid.append(nameLabel);
-
-    const sortLabel = document.createElement("label");
-    sortLabel.className = "company-edit-field";
-    sortLabel.append(fieldLabel("Sort order"));
-    const sortInput = document.createElement("input");
-    sortInput.className = "field-input";
-    sortInput.type = "number";
-    sortInput.value = cell(row.sort_order);
-    sortInput.addEventListener("input", () => {
-      row.sort_order = sortInput.value;
-      setDirty(true);
-      setSaveStatus("");
-      renderResults();
-    });
-    sortLabel.append(sortInput);
-    editGrid.append(sortLabel);
 
     const scopeLabel = document.createElement("label");
     scopeLabel.className = "company-edit-field";
@@ -598,13 +559,18 @@
 
     const kindLabel = document.createElement("label");
     kindLabel.className = "company-edit-field";
-    kindLabel.append(fieldLabel("System kind"));
+    kindLabel.append(fieldLabel("Board type"));
     const kindSelect = document.createElement("select");
     kindSelect.className = "field-input";
+    const kindLabels = {
+      proprietary: "Own careers site",
+      third_party: "Third-party ATS",
+      unknown: "Unknown",
+    };
     for (const opt of SYSTEM_KIND_OPTIONS) {
       const o = document.createElement("option");
       o.value = opt;
-      o.textContent = opt;
+      o.textContent = kindLabels[opt] || opt;
       if (cell(row.system_kind).toLowerCase() === opt) o.selected = true;
       kindSelect.append(o);
     }
@@ -662,10 +628,11 @@
 
     const pathsLabel = document.createElement("label");
     pathsLabel.className = "company-edit-field";
-    pathsLabel.append(fieldLabel("Fit paths (da;po;dsa)"));
+    pathsLabel.append(fieldLabel("Career paths"));
     const pathsInput = document.createElement("input");
     pathsInput.className = "field-input";
     pathsInput.value = cell(row.fit_paths);
+    pathsInput.placeholder = "e.g. da;po;dsa";
     pathsInput.addEventListener("input", () => {
       row.fit_paths = pathsInput.value;
       setDirty(true);

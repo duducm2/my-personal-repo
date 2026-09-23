@@ -574,6 +574,12 @@
     el.value = cell(row[key]);
     el.addEventListener("input", () => {
       row[key] = el.value;
+      if (key === "company") {
+        const isNew = String(row.id || "").startsWith("job-new-");
+        if (isNew || !cell(row.company_key)) {
+          row.company_key = slugCompanyKey(el.value);
+        }
+      }
       setDirty(true);
       setSaveStatus("");
       if (
@@ -591,6 +597,16 @@
       }
     });
     return el;
+  }
+
+  function slugCompanyKey(name) {
+    const slug = String(name || "")
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/\p{M}/gu, "")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+    return slug || `company-${Date.now()}`;
   }
 
   function selectInput(row, key, options) {
@@ -641,14 +657,6 @@
     const grid = document.createElement("div");
     grid.className = "company-result-edit job-modal-grid";
 
-    grid.append(
-      fieldBlock(
-        "Company key",
-        textInput(row, "company_key", {
-          placeholder: "e.g. bosch",
-        }),
-      ),
-    );
     grid.append(
       fieldBlock(
         "Company",
