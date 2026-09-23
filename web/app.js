@@ -1576,6 +1576,10 @@
     document.body.setAttribute("aria-expanded", collapsed ? "false" : "true");
   }
 
+  function scrollProfileToTop() {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }
+
   function initKeyboard() {
     document.addEventListener("keydown", (event) => {
       const mod = event.ctrlKey || event.metaKey;
@@ -1584,6 +1588,18 @@
       if (mod && event.key === "Enter") {
         event.preventDefault();
         saveAll();
+        return;
+      }
+
+      if (
+        !typing &&
+        !mod &&
+        !event.altKey &&
+        !event.shiftKey &&
+        (event.key === "Home" || event.code === "Home")
+      ) {
+        event.preventDefault();
+        scrollProfileToTop();
         return;
       }
 
@@ -1920,6 +1936,9 @@
     document
       .getElementById("open-help-btn")
       ?.addEventListener("click", () => location.assign("/help.html"));
+    document
+      .getElementById("scroll-top-btn")
+      ?.addEventListener("click", () => scrollProfileToTop());
     wireAddButtons();
     initKeyboard();
     window.addEventListener("beforeunload", (e) => {

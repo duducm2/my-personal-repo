@@ -207,6 +207,27 @@ body.is-dirty .brand::after {
   margin-left: auto;
 }
 
+.scroll-top-btn {
+  appearance: none;
+  font: inherit;
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 3px 9px;
+  background: color-mix(in srgb, var(--panel) 88%, transparent);
+  cursor: pointer;
+}
+
+.scroll-top-btn:hover,
+.scroll-top-btn:focus-visible {
+  color: var(--text);
+  border-color: color-mix(in srgb, var(--text) 28%, var(--line));
+}
+
 .mode-status-pill {
   font-size: 10px;
   font-weight: 650;
