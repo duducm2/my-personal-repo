@@ -101,13 +101,19 @@
     bar.setAttribute("aria-hidden", "false");
   }
 
-  function hideSearchBar() {
+  const CARD_SEL = "#portals-results .company-tile";
+
+  function hideSearchBar(opts = {}) {
     const bar = searchBarEl();
     if (!bar) return;
+    const wasOpen = bar.classList.contains("is-open");
     bar.classList.remove("is-open");
     bar.setAttribute("aria-hidden", "true");
     const inp = searchInputEl();
     if (inp && document.activeElement === inp) inp.blur();
+    if (wasOpen && opts.focusCard !== false) {
+      window.CardNav?.focusFirst(CARD_SEL);
+    }
   }
 
   function focusSearch() {
@@ -124,12 +130,7 @@
     const bar = searchBarEl();
     if (!bar) return;
     if (bar.classList.contains("is-open")) {
-      const inp = searchInputEl();
-      if (inp && document.activeElement === inp && !(inp.value || "").trim()) {
-        hideSearchBar();
-        return;
-      }
-      focusSearch();
+      hideSearchBar();
       return;
     }
     focusSearch();
@@ -315,21 +316,8 @@
     window.open(url, "_blank", "noopener,noreferrer");
   }
 
-  const CARD_SEL = "#portals-results .company-tile";
-
   function moveCardFocus(delta) {
     return !!window.CardNav?.move(CARD_SEL, delta);
-  }
-
-  function clearPortalFilters() {
-    scopeFilter = "";
-    pathFilter = "";
-    query = "";
-    const search = searchInputEl();
-    if (search) search.value = "";
-    hideSearchBar();
-    render();
-    window.CardNav?.focusFirst(CARD_SEL);
   }
 
   function focusedPortalCard() {
@@ -874,7 +862,7 @@
         if (isS) {
           event.preventDefault();
           event.stopPropagation();
-          clearPortalFilters();
+          toggleSearchBar();
           return;
         }
       }
