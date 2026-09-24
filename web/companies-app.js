@@ -407,6 +407,45 @@
     return growthValue(row) === growthFilter;
   }
 
+  function isPinned(row) {
+    const v = cell(row?.pinned).toLowerCase();
+    return v === "1" || v === "true" || v === "yes" || v === "y";
+  }
+
+  function pinRank(row) {
+    return isPinned(row) ? 0 : 1;
+  }
+
+  function togglePinned(row, event) {
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    row.pinned = isPinned(row) ? "" : "1";
+    setDirty(true);
+    setSaveStatus("");
+    render();
+    if (openCompanyId === row.id) fillModal();
+  }
+
+  function appendPinControl(parent, row, { stopPropagation = true } = {}) {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "pin-btn" + (isPinned(row) ? " is-on" : "");
+    btn.setAttribute("aria-pressed", isPinned(row) ? "true" : "false");
+    btn.title = isPinned(row) ? "Unpin from top" : "Pin to top";
+    btn.textContent = isPinned(row) ? "Pinned" : "Pin";
+    btn.addEventListener("click", (event) => {
+      if (stopPropagation) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      togglePinned(row, event);
+    });
+    parent.append(btn);
+    return btn;
+  }
+
   function filteredRows() {
     let rows = companies.slice();
     if (categoryFilter) {
@@ -424,6 +463,14 @@
         return parts.every((p) => h.includes(p));
       });
     }
+    rows.sort((a, b) => {
+      const pr = pinRank(a) - pinRank(b);
+      if (pr) return pr;
+      const so =
+        Number(cell(a.sort_order) || 0) - Number(cell(b.sort_order) || 0);
+      if (so) return so;
+      return cell(a.name_en).localeCompare(cell(b.name_en));
+    });
     return rows;
   }
 
@@ -611,6 +658,7 @@
     btn.className =
       "company-tile" +
       tileSpanClass(row) +
+      (isPinned(row) ? " is-pinned" : "") +
       (openCompanyId === row.id ? " is-active" : "");
     btn.dataset.id = row.id;
     btn.dataset.url = portalUrl;
@@ -664,6 +712,7 @@
 
     const chips = document.createElement("div");
     chips.className = "company-tile-chips";
+    appendPinControl(chips, row);
     if (row.priority) {
       const p = document.createElement("span");
       p.className = "company-chip company-chip-priority";
@@ -780,6 +829,11 @@
       badges.append(multi);
     }
     body.append(badges);
+
+    const pinRow = document.createElement("div");
+    pinRow.className = "company-tile-chips company-modal-pin";
+    appendPinControl(pinRow, row, { stopPropagation: false });
+    body.append(pinRow);
 
     const facts = document.createElement("div");
     facts.className = "company-modal-facts";
@@ -936,6 +990,32 @@
       label.append(lab, input);
       editRow.append(label);
     }
+    const pinLabel = document.createElement("label");
+    pinLabel.className = "company-edit-field";
+    const pinLab = document.createElement("span");
+    appendEn(pinLab, "Pinned");
+    const pinSelect = document.createElement("select");
+    pinSelect.className = "field-input";
+    for (const opt of [
+      { value: "", label: "No" },
+      { value: "1", label: "Yes — keep on top" },
+    ]) {
+      const o = document.createElement("option");
+      o.value = opt.value;
+      o.textContent = opt.label;
+      if ((isPinned(row) ? "1" : "") === opt.value) o.selected = true;
+      pinSelect.append(o);
+    }
+    pinSelect.addEventListener("change", () => {
+      row.pinned = pinSelect.value;
+      setDirty(true);
+      setSaveStatus("");
+      renderResults();
+      fillModal();
+    });
+    pinLabel.append(pinLab, pinSelect);
+    editRow.append(pinLabel);
+
     const hoLabel = document.createElement("label");
     hoLabel.className = "company-edit-field";
     const hoLab = document.createElement("span");
@@ -1118,6 +1198,7 @@
     return {
       id,
       sort_order: String(companies.length + 1),
+      pinned: "",
       category_en: "",
       category_detail_en: "",
       category_pt: "",

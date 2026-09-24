@@ -269,6 +269,7 @@ certifications.csv,skills_detail_pt,Detail: skills (PT),Detalhe: skills (PT)
 certifications.csv,credential_file,Credential file,Arquivo da credencial
 companies.csv,id,Company ID,ID da empresa
 companies.csv,sort_order,Sort order,Ordem
+companies.csv,pinned,Pinned to top,Fixado no topo
 companies.csv,category_en,Category (EN),Categoria (EN)
 companies.csv,category_detail_en,Detail: category (EN),Detalhe: category (EN)
 companies.csv,category_pt,Category (PT),Categoria (PT)
@@ -344,6 +345,7 @@ job_communities.csv,url,URL,URL
 job_communities.csv,notes,Notes,Notas
 job_portals.csv,id,Portal ID,ID do portal
 job_portals.csv,sort_order,Sort order,Ordem
+job_portals.csv,pinned,Pinned to top,Fixado no topo
 job_portals.csv,scope,Scope (brazil/international),Escopo (brazil/international)
 job_portals.csv,name,Name,Nome
 job_portals.csv,job_search_url,Job search URL,URL de busca

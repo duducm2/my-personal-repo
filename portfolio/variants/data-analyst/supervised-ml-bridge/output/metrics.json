@@ -1,0 +1,55 @@
+{
+  "dataset": "sklearn.load_breast_cancer",
+  "n_train": 455,
+  "n_test": 114,
+  "target_note": "sklearn encoding: 0=malignant, 1=benign; primary metric = malignant recall",
+  "baseline": {
+    "label": "logistic_regression",
+    "accuracy": 0.9824561403508771,
+    "malignant_precision": 0.9761904761904762,
+    "malignant_recall": 0.9761904761904762,
+    "malignant_f1": 0.9761904761904762,
+    "roc_auc_malignant": 0.9953703703703705,
+    "confusion_matrix_labels": [
+      "malignant(0)",
+      "benign(1)"
+    ],
+    "confusion_matrix": [
+      [
+        41,
+        1
+      ],
+      [
+        1,
+        71
+      ]
+    ]
+  },
+  "candidate": {
+    "label": "random_forest_balanced",
+    "accuracy": 0.9473684210526315,
+    "malignant_precision": 0.9090909090909091,
+    "malignant_recall": 0.9523809523809523,
+    "malignant_f1": 0.9302325581395349,
+    "roc_auc_malignant": 0.994378306878307,
+    "confusion_matrix_labels": [
+      "malignant(0)",
+      "benign(1)"
+    ],
+    "confusion_matrix": [
+      [
+        40,
+        2
+      ],
+      [
+        4,
+        68
+      ]
+    ]
+  },
+  "failure_notes": [
+    "Inspect confusion_matrix: false negatives on malignant (class 0) matter most for a safety-oriented metric.",
+    "Single stratified holdout only \u2014 not a substitute for nested CV on a real problem.",
+    "Production starter if served: monitor latency, HTTP/serving errors, and prediction volume before drift tooling."
+  ]
+}

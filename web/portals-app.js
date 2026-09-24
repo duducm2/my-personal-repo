@@ -261,12 +261,59 @@
     return haystack.toLowerCase().includes(q);
   }
 
+  function isPinned(row) {
+    const v = cell(row?.pinned).toLowerCase();
+    return v === "1" || v === "true" || v === "yes" || v === "y";
+  }
+
+  function pinRank(row) {
+    return isPinned(row) ? 0 : 1;
+  }
+
+  function togglePinned(row, event) {
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    if (row.card_kind && row.card_kind !== "portal") return;
+    const target =
+      portals.find((p) => cell(p.id) === cell(row.id)) || null;
+    if (!target) return;
+    target.pinned = isPinned(target) ? "" : "1";
+    setDirty(true);
+    setSaveStatus("");
+    render();
+    if (openPortalId === cell(target.id)) fillModal();
+  }
+
+  function appendPinControl(parent, row, { stopPropagation = true } = {}) {
+    if (row.card_kind && row.card_kind !== "portal") return null;
+    const live = portals.find((p) => cell(p.id) === cell(row.id)) || row;
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "pin-btn" + (isPinned(live) ? " is-on" : "");
+    btn.setAttribute("aria-pressed", isPinned(live) ? "true" : "false");
+    btn.title = isPinned(live) ? "Unpin from top" : "Pin to top";
+    btn.textContent = isPinned(live) ? "Pinned" : "Pin";
+    btn.addEventListener("click", (event) => {
+      if (stopPropagation) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      togglePinned(live, event);
+    });
+    parent.append(btn);
+    return btn;
+  }
+
   function filteredPortals() {
     const market = portals.map((row) => ({ ...row, card_kind: "portal" }));
     const extra = watchAndCommunityCards();
     return [...market, ...extra]
       .slice()
       .sort((a, b) => {
+        const pr = pinRank(a) - pinRank(b);
+        if (pr) return pr;
         const kindRank = (k) => (k === "portal" ? 0 : k === "watch" ? 1 : 2);
         const kr = kindRank(a.card_kind) - kindRank(b.card_kind);
         if (kr) return kr;
@@ -376,6 +423,7 @@
     card.type = "button";
     card.className =
       "company-tile portal-card" +
+      (isPinned(row) ? " is-pinned" : "") +
       (openPortalId === row.id && !isLinkCard ? " is-active" : "");
     card.dataset.id = cell(row.id);
     card.dataset.url = cell(row.job_search_url);
@@ -424,6 +472,7 @@
 
     const chips = document.createElement("div");
     chips.className = "company-tile-chips";
+    appendPinControl(chips, row);
     const special = cardKindTag(row.card_kind);
     if (special) {
       const tagEl = document.createElement("span");
@@ -547,6 +596,11 @@
     titleEl.textContent = cell(row.name) || row.id;
     body.replaceChildren();
 
+    const pinRow = document.createElement("div");
+    pinRow.className = "company-tile-chips company-modal-pin";
+    appendPinControl(pinRow, row, { stopPropagation: false });
+    body.append(pinRow);
+
     const editGrid = document.createElement("div");
     editGrid.className = "company-result-edit";
 
@@ -559,6 +613,31 @@
     bindTextField(row, "name", nameInput);
     nameLabel.append(nameInput);
     editGrid.append(nameLabel);
+
+    const pinLabel = document.createElement("label");
+    pinLabel.className = "company-edit-field";
+    pinLabel.append(fieldLabel("Pinned"));
+    const pinSelect = document.createElement("select");
+    pinSelect.className = "field-input";
+    for (const opt of [
+      { value: "", label: "No" },
+      { value: "1", label: "Yes — keep on top" },
+    ]) {
+      const o = document.createElement("option");
+      o.value = opt.value;
+      o.textContent = opt.label;
+      if ((isPinned(row) ? "1" : "") === opt.value) o.selected = true;
+      pinSelect.append(o);
+    }
+    pinSelect.addEventListener("change", () => {
+      row.pinned = pinSelect.value;
+      setDirty(true);
+      setSaveStatus("");
+      renderResults();
+      fillModal();
+    });
+    pinLabel.append(pinSelect);
+    editGrid.append(pinLabel);
 
     const scopeLabel = document.createElement("label");
     scopeLabel.className = "company-edit-field";
@@ -729,6 +808,7 @@
     return {
       id: `portal-${Date.now()}`,
       sort_order: String(maxSort + 1),
+      pinned: "",
       scope: "brazil",
       name: "New portal",
       job_search_url: "",

@@ -61,11 +61,14 @@ def main() -> int:
             ok.append("languages.csv: Portuguese + English")
 
     titles = load("target_titles.csv")
-    if len(titles) != 15:
-        issues.append(f"target_titles want 15 got {len(titles)}")
+    if len(titles) != 18:
+        issues.append(f"target_titles want 18 got {len(titles)}")
     for tid in (
         "da-headline",
         "da-title-data-analyst",
+        "da-title-data-scientist-pl",
+        "da-title-applied-ds",
+        "da-title-ml-analyst",
         "po-headline",
         "po-title-product-owner",
         "general-headline",
@@ -74,7 +77,7 @@ def main() -> int:
     ):
         if not any(t.get("id") == tid for t in titles):
             issues.append(f"target_titles missing {tid}")
-    ok.append("target_titles.csv: DA / PO / general / DSA CV titles")
+    ok.append("target_titles.csv: DA / DS-bridge / PO / general / DSA CV titles")
 
     exp = load("experience.csv")
     exp_ids = {r["id"] for r in exp}
@@ -275,10 +278,10 @@ def main() -> int:
         issues.append(f"PO Core skills want 5 got {len(po_core)}")
     if len(po_tech) != 19:
         issues.append(f"PO Tech skills want 19 got {len(po_tech)}")
-    if len(ds_core) != 5:
-        issues.append(f"DA Core skills want 5 got {len(ds_core)}")
-    if len(ds_tech) != 20:
-        issues.append(f"DA Tech skills want 20 got {len(ds_tech)}")
+    if len(ds_core) != 6:
+        issues.append(f"DA Core skills want 6 got {len(ds_core)}")
+    if len(ds_tech) != 21:
+        issues.append(f"DA Tech skills want 21 got {len(ds_tech)}")
     dsa_core = [
         s
         for s in skills

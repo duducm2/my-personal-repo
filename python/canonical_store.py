@@ -22,6 +22,7 @@ STRUCTURAL_COLS = frozenset(
         "associated_with",
         "priority",
         "status",
+        "pinned",
         "website",
         "careers_url",
         "ats_kind",
@@ -237,6 +238,7 @@ _BASE: dict[str, tuple[str, list[str]]] = {
         [
             "id",
             "sort_order",
+            "pinned",
             "category_en",
             "category_pt",
             "name_en",
@@ -270,6 +272,7 @@ _BASE: dict[str, tuple[str, list[str]]] = {
         [
             "id",
             "sort_order",
+            "pinned",
             "scope",
             "name",
             "job_search_url",

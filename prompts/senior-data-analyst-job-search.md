@@ -18,7 +18,7 @@ Your task is to **find, evaluate, and rank real job opportunities** where I am a
 **Location:** Nova Odessa, SP, Brazil (Campinas metro area)  
 **Work arrangement:** Open to **onsite/hybrid within Campinas metro** and **remote/home office anywhere in Brazil** (CLT or PJ—flag contract type when known)  
 **Languages:** Portuguese (native), English (fluent)  
-**Target level:** **Senior** Data Analyst (not junior; not pure Data Scientist unless the role is analyst-heavy)
+**Target level:** **Senior** Data Analyst **and** bridge **Data Scientist PL** (see also `prompts/data-scientist-pl-job-search.md`)
 
 ### Professional summary
 
@@ -76,6 +76,7 @@ Find **10–20 high-quality openings** posted in the **last 60 days** (extend to
 - Analista de Inteligência de Negócios Sênior
 - Analytics Analyst (Senior)
 - Business Data Analyst (Senior)
+- Cientista de Dados PL / Data Scientist (Pleno) — **only if** analytics-heavy or mentored applied DS (prefer `data-scientist-pl-job-search.md` for full DS hunt)
 
 **Adjacent titles — include only if ≥60% of responsibilities match my profile:**
 
@@ -83,15 +84,18 @@ Find **10–20 high-quality openings** posted in the **last 60 days** (extend to
 - Analista de Métricas / Product Analytics (analyst track, not PM)
 - Especialista em Excel / BI Developer (if senior and analytics-focused)
 - Data Analyst (if explicitly senior or salary band confirms seniority)
+- Machine Learning Analyst / Applied Data Scientist (bridge titles)
 
 **Exclude unless exceptionally good fit:**
 
-- Data Scientist / Cientista de Dados (modeling-heavy, PhD-preferred)
+- Senior / Principal Data Scientist (modeling-research-heavy, PhD-preferred)
 - Data Engineer / Engenheiro de Dados (pipeline/infra-first)
 - Pure Software Engineer / Dev roles
-- Internship, trainee, or explicitly junior/pleno-only with &lt;3 years required
+- Internship, trainee, or explicitly junior with &lt;3 years required
 - Roles requiring relocation outside Brazil
 - Roles requiring full onsite far from Campinas metro with no remote option
+
+**For every role, note `senior_ds_on_team` = 0|1** when the team has a senior DS/ML lead who reviews models (critical for my DS transition).
 
 ---
 

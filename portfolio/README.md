@@ -95,3 +95,4 @@ This keeps the portfolio deck **code-based, reproducible, and easy to version-co
 - **Template (layout/CSS):** [`templates/portfolio-deck.template.md`](templates/portfolio-deck.template.md) with `{{canonical:…}}` slots.
 - **Generated decks:** `portfolio-deck.{en,pt}.md` (general) and `variants/product-owner/portfolio-deck.{en,pt}.md`. Legacy `portfolio-deck.md` is an EN copy.
 - **Ready-to-send PDFs:** [`../output/`](../output/) only (8 files: EN + PT × general + product-owner) — see [`../output/README.md`](../output/README.md). Build with `python scripts/build_outputs.py`.
+- **DS bridge ML artifact:** [`variants/data-analyst/supervised-ml-bridge/`](variants/data-analyst/supervised-ml-bridge/) — supervised classification baseline → forest + model card (offline portfolio piece).
