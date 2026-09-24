@@ -1,7 +1,24 @@
 id,sort_order,company,company_key,role_title,career_path,job_url,status,priority,work_mode,location,source,found_on,applied_on,next_action,next_action_date,salary_range,fit_interest,skills_gap,job_description,notes,contact_person,contact_note,is_new,match_score,match_reason,recommended_resume,result,result_on,application_answers,application_form_raw
 sidi-01,1,SiDi,sidi-campinas,Analista de Inteligência de Mercado SR,da,,saved,medium,unknown,Recife - PE,company_site,2026-09-23,,,,,,,,,,,1,6,"Aligns with analytics and data manipulation, though might be more marketing-oriented than applied tech research.",data-analyst,,,,
 sidi-02,2,SiDi,sidi-campinas,Arquiteto de Soluções de Software MS,dsa,,saved,medium,unknown,Recife - PE,company_site,2026-09-23,,,,,,,,,,,1,9,"Strong fit for the Digital Solution Architect path, leveraging software quality, cloud, architecture, and DevOps experience.",digital-solution-architect,,,,
-sidi-03,3,SiDi,sidi-campinas,Cientista de Dados PL,da,,saved,medium,unknown,Campinas - SP,company_site,2026-09-23,,,,,,,,,,,1,8,"Excellent match for data, Python, SQL, and AI skills, aligned well with applied research background.",data-analyst,,,,
+sidi-03,3,SiDi,sidi-campinas,Cientista de Dados PL,da,,saved,medium,unknown,Campinas - SP,company_site,2026-09-23,,,,,,,,,,,1,8,"Excellent match for data, Python, SQL, and AI skills, aligned well with applied research background.",data-analyst,,,"{""opening_id"":""sidi-03"",""recommended_resume"":""data-analyst"",""fields"":[{""key"":""presentation"",""label"":""Fale sobre você e sua trajetória profissional, contando como pode ajudar a empresa no desafio descrito na vaga."",""value"":""Sou pesquisador de UX e qualidade de software com background full-stack e foco em pesquisa aplicada. Estou finalizando meu Mestrado em Tecnologia (Sistemas de Informação e Comunicação) pela Unicamp em setembro de 2026. No meu dia a dia de trabalho na Bosch, atuo intensamente com análise de dados, integração de IA agêntica e melhoria contínua, utilizando Python, SQL e Power BI. Para o desafio de Cientista de Dados PL, posso contribuir unindo minha forte capacidade analítica (estatística, Matplotlib, Seaborn) com a habilidade de traduzir dados complexos em insights acionáveis e alinhar stakeholders globais para entregas baseadas em evidências."",""source"":""narratives"",""note"":""Max 1500 characters.""},{""key"":""top_skills"",""label"":""Quais são as suas habilidades mais valiosas para esta vaga? Escolha até 3 habilidades"",""value"":""Python, SQL, Applied Research"",""source"":""skills"",""note"":""Choose exactly 3 skills from the platform UI.""}]}","Apresente-se!
+(etapa opcional)
+
+A empresa deseja saber mais sobre você!
+Fale sobre você e sua trajetória profissional, contando como pode ajudar a empresa no desafio descrito na vaga.
+
+Escreva aqui...
+
+
+0 / 1.500 caracteres
+Quais são as suas habilidades mais valiosas para esta vaga?
+Escolha até 3 habilidades das cadastradas no seu currículo que você gostaria de destacar para o(a) recrutador(a).
+
+
+Você ainda não adicionou habilidades ao seu currículo. Adicione habilidades para poder destacá-las aqui.
+
+A personalização na candidatura faz parte dos compromissos do Manifesto da Experiência da Pessoa Candidata
+Finalizar candidatura"
 sidi-04,4,SiDi,sidi-campinas,Desenvolvedor Android Sênior (MOBILE - PAY),other,,excluded,medium,Hybrid,Manaus - AM,company_site,2026-09-23,,,,,,,,,,,1,4,Background is React and web-focused; native Android development is outside core expertise.,general,,,,
 sidi-05,5,SiDi,sidi-campinas,Desenvolvedor de Software em Processamento de Fala (Keyword Detection) - PL,other,,saved,medium,Hybrid,Campinas - SP,company_site,2026-09-23,,,,,,,,,,,1,7,Combines Python and AI expertise with a personal passion for linguistics and phonetics.,general,,,,
 sidi-06,6,SiDi,sidi-campinas,Desenvolvedor de Software em Processamento de Fala (Keyword Detection) - SR,other,,saved,medium,Hybrid,Campinas - SP,company_site,2026-09-23,,,,,,,,,,,1,7,"High interest due to NLP and linguistics, fitting well with Python and ML logic, though heavily specialized.",general,,,,

@@ -1311,7 +1311,7 @@
         .filter(Boolean)
         .join(" — "),
     }));
-    const competences = listPlain(state.competences, "name_en", "name_pt", 20);
+    const competences = listPlain(state.competences, "name_en", "name_pt");
     const courses = listPlain(state.courses, "title_en", "title_pt", 10);
     const recognitions = listPlain(
       state.recognitions,
