@@ -311,23 +311,40 @@
     parent.append(wrap);
   }
 
-  function openUrlInNewTab(url) {
+  async function openUrlInNewTab(url) {
     const href = cell(url);
     if (!href) return false;
-    // Avoid noopener so we can focus the tab; drop opener for safety.
-    const win = window.open(href, "_blank");
-    if (!win) return false;
+    // Ask the local server to launch a new browser window so Chrome
+    // switches away from the cockpit tab (window.open only adds a background tab).
     try {
-      win.opener = null;
+      const res = await fetch("/api/open-url", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url: href }),
+      });
+      if (res.ok) return true;
+    } catch {
+      /* fall through */
+    }
+    // Fallback when the server is old / offline: still try a client popup window.
+    try {
+      const win = window.open(
+        href,
+        "_blank",
+        "noopener,noreferrer,width=1280,height=900",
+      );
+      if (win) {
+        try {
+          win.focus();
+        } catch {
+          /* ignore */
+        }
+        return true;
+      }
     } catch {
       /* ignore */
     }
-    try {
-      win.focus();
-    } catch {
-      /* ignore */
-    }
-    return true;
+    return false;
   }
 
   function openCardUrl(row) {
@@ -346,7 +363,7 @@
     return el;
   }
 
-  function openFocusedPortal() {
+  async function openFocusedPortal() {
     const card = focusedPortalCard();
     if (!card) return false;
     return openUrlInNewTab(card.dataset.url);
@@ -378,8 +395,8 @@
     });
     if (cell(row.job_search_url)) {
       card.title = isLinkCard
-        ? "Click / Ctrl+Enter to open"
-        : "Click to edit · Ctrl/Cmd+click or Ctrl+Enter to open";
+        ? "Click / Ctrl+Enter to open in a new window"
+        : "Click to edit · Ctrl/Cmd+click or Ctrl+Enter to open in a new window";
     }
 
     const title = document.createElement("div");
@@ -833,8 +850,10 @@
           saveAll({ closeModal: true });
           return;
         }
-        if (openFocusedPortal()) return;
-        saveAll();
+        void (async () => {
+          if (await openFocusedPortal()) return;
+          saveAll();
+        })();
         return;
       }
 

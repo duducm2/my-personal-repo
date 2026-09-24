@@ -5,6 +5,9 @@ from __future__ import annotations
 import argparse
 import json
 import mimetypes
+import os
+import shutil
+import subprocess
 import sys
 import traceback
 import webbrowser
@@ -203,6 +206,57 @@ def resume_policy() -> dict[str, Any]:
     }
 
 
+def _browser_exe_candidates() -> list[Path]:
+    candidates: list[Path] = []
+    if sys.platform == "win32":
+        local = os.environ.get("LOCALAPPDATA", "")
+        pf = os.environ.get("PROGRAMFILES", r"C:\Program Files")
+        pf86 = os.environ.get("PROGRAMFILES(X86)", r"C:\Program Files (x86)")
+        for base in (local, pf, pf86):
+            if not base:
+                continue
+            root = Path(base)
+            candidates.append(root / "Google" / "Chrome" / "Application" / "chrome.exe")
+            candidates.append(
+                root / "Microsoft" / "Edge" / "Application" / "msedge.exe"
+            )
+    for name in (
+        "chrome",
+        "google-chrome",
+        "chromium",
+        "msedge",
+        "microsoft-edge",
+        "chrome.exe",
+        "msedge.exe",
+    ):
+        found = shutil.which(name)
+        if found:
+            candidates.append(Path(found))
+    return candidates
+
+
+def open_url_new_window(url: str) -> dict[str, Any]:
+    """Open http(s) URL in a new browser window (foreground), not a background tab."""
+    parsed = urlparse(url)
+    if parsed.scheme not in ("http", "https") or not parsed.netloc:
+        raise ValueError("only absolute http(s) URLs are allowed")
+
+    for exe in _browser_exe_candidates():
+        if not exe.is_file():
+            continue
+        subprocess.Popen(  # noqa: S603
+            [str(exe), "--new-window", url],
+            close_fds=True,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        )
+        return {"ok": True, "via": exe.name, "mode": "new-window"}
+
+    # Last resort: OS default handler (may still open as a tab).
+    webbrowser.open_new(url)
+    return {"ok": True, "via": "webbrowser", "mode": "open_new"}
+
+
 def resolve_download(variant: str, filename: str) -> Path | None:
     if variant not in {e["variant"] for e in DOWNLOAD_CATALOG}:
         return None
@@ -229,7 +283,7 @@ class CareerHandler(BaseHTTPRequestHandler):
 
     def _cors(self) -> None:
         self.send_header("Access-Control-Allow-Origin", "*")
-        self.send_header("Access-Control-Allow-Methods", "GET, PUT, OPTIONS")
+        self.send_header("Access-Control-Allow-Methods", "GET, PUT, POST, OPTIONS")
         self.send_header("Access-Control-Allow-Headers", "Content-Type")
 
     def _json(self, status: int, payload: Any) -> None:
@@ -298,6 +352,25 @@ class CareerHandler(BaseHTTPRequestHandler):
             body = self._read_json()
             collections = body.get("collections")
             result = self.store.save_all(collections)
+            self._json(200, result)
+        except ValueError as exc:
+            self._json(400, {"ok": False, "error": str(exc)})
+        except Exception as exc:  # noqa: BLE001
+            traceback.print_exc()
+            self._json(500, {"ok": False, "error": str(exc)})
+
+    def do_POST(self) -> None:  # noqa: N802
+        try:
+            path = urlparse(self.path).path
+            if path != "/api/open-url":
+                self._json(404, {"ok": False, "error": "not found"})
+                return
+            body = self._read_json()
+            url = str(body.get("url") or "").strip()
+            if not url:
+                self._json(400, {"ok": False, "error": "url required"})
+                return
+            result = open_url_new_window(url)
             self._json(200, result)
         except ValueError as exc:
             self._json(400, {"ok": False, "error": str(exc)})
