@@ -4,6 +4,7 @@ general,Core,Core,Núcleo,2,Project Management,Gestão de Projetos
 general,Core,Core,Núcleo,3,Continuous Improvement (CIP),Melhoria Contínua (CIP)
 general,Core,Core,Núcleo,4,AI Systems,Sistemas de IA
 general,Core,Core,Núcleo,5,Autodidact,Autodidata
+general,Core,Core,Núcleo,6,Statistics,Estatística
 general,Tech,Tech,Tecnologias,1,Power BI,Power BI
 general,Tech,Tech,Tecnologias,2,Python,Python
 general,Tech,Tech,Tecnologias,3,React,React
@@ -28,6 +29,7 @@ product-owner,Core,Core,Núcleo,3,Prioritization & outcomes,Priorização e resu
 product-owner,Core,Core,Núcleo,4,Applied Research,Pesquisa Aplicada
 product-owner,Core,Core,Núcleo,5,Agile (Scrum / Kanban) / CIP,Ágil (Scrum / Kanban) / CIP
 product-owner,Core,Core,Núcleo,6,Autodidact,Autodidata
+product-owner,Core,Core,Núcleo,7,Statistics,Estatística
 product-owner,Tech,Tech,Tecnologias,1,Power BI,Power BI
 product-owner,Tech,Tech,Tecnologias,2,Python,Python
 product-owner,Tech,Tech,Tecnologias,3,React,React
@@ -79,6 +81,7 @@ digital-solution-architect,Core,Core,Núcleo,3,DevOps / CI-CD & automation,DevOp
 digital-solution-architect,Core,Core,Núcleo,4,Applied Research & quality gates,Pesquisa Aplicada e quality gates
 digital-solution-architect,Core,Core,Núcleo,5,Global stakeholder alignment,Alinhamento com stakeholders globais
 digital-solution-architect,Core,Core,Núcleo,6,Autodidact,Autodidata
+digital-solution-architect,Core,Core,Núcleo,7,Statistics,Estatística
 digital-solution-architect,Tech,Tech,Tecnologias,1,Azure,Azure
 digital-solution-architect,Tech,Tech,Tecnologias,2,Python,Python
 digital-solution-architect,Tech,Tech,Tecnologias,3,SQL / SQL Server,SQL / SQL Server

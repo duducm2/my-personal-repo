@@ -1338,6 +1338,8 @@
       {
         titleEn: "About",
         headingId: "about-heading",
+        span: 12,
+        layout: "prose",
         items: about.id
           ? [{ id: about.id, en: aboutEn, pt: aboutPt }].filter(
               (x) => x.en || x.pt,
@@ -1347,52 +1349,72 @@
       {
         titleEn: "Target titles",
         headingId: "titles-heading",
+        span: 4,
+        layout: "pills",
         items: titles,
-      },
-      {
-        titleEn: "Experience",
-        headingId: "experience-heading",
-        items: experience.filter((x) => x.en || x.pt),
-      },
-      {
-        titleEn: "Education",
-        headingId: "education-heading",
-        items: education,
-      },
-      {
-        titleEn: "Projects",
-        headingId: "projects-heading",
-        items: projects,
       },
       {
         titleEn: "Languages",
         headingId: "languages-heading",
+        span: 4,
+        layout: "pills",
         items: languages.filter((x) => x.en || x.pt),
+      },
+      {
+        titleEn: "Education",
+        headingId: "education-heading",
+        span: 4,
+        layout: "pills",
+        items: education,
+      },
+      {
+        titleEn: "Experience",
+        headingId: "experience-heading",
+        span: 6,
+        layout: "pills",
+        items: experience.filter((x) => x.en || x.pt),
+      },
+      {
+        titleEn: "Projects",
+        headingId: "projects-heading",
+        span: 6,
+        layout: "pills",
+        items: projects,
       },
       {
         titleEn: "Competences / skills",
         headingId: "competences-heading",
+        span: 12,
+        layout: "pills",
         items: competences,
       },
       {
         titleEn: "Courses",
         headingId: "courses-heading",
+        span: 6,
+        layout: "pills",
         items: courses,
+      },
+      {
+        titleEn: "Licenses & certifications",
+        headingId: "certifications-heading",
+        span: 6,
+        layout: "pills",
+        items: certifications,
       },
       {
         titleEn: "Recognitions",
         headingId: "recognitions-heading",
+        span: 6,
+        layout: "pills",
         items: recognitions,
       },
       {
         titleEn: "Volunteering",
         headingId: "volunteering-heading",
+        span: 6,
+        layout: "pills",
         items: volunteering,
-      },
-      {
-        titleEn: "Licenses & certifications",
-        headingId: "certifications-heading",
-        items: certifications,
       },
     ];
 
@@ -1401,8 +1423,12 @@
 
     for (const sec of sections) {
       if (!sec.items.length) continue;
+      const isProse = sec.layout === "prose";
       const card = document.createElement("article");
-      card.className = "profile-summary-card profile-map-card";
+      card.className =
+        "profile-summary-card profile-map-card profile-summary-span-" +
+        (sec.span || 6) +
+        (isProse ? " is-prose" : " is-pills");
 
       const h = document.createElement("button");
       h.type = "button";
@@ -1415,7 +1441,8 @@
       card.append(h);
 
       const cols = document.createElement("div");
-      cols.className = "profile-summary-cols";
+      cols.className =
+        "profile-summary-cols" + (isProse ? "" : " profile-summary-cols--pills");
 
       const mode = getLangMode();
       const addCol = (lang) => {
@@ -1435,7 +1462,7 @@
           }))
           .filter((x) => x.text);
 
-        if (items.length === 1 && items[0].text.length > 160) {
+        if (isProse && items.length === 1) {
           const btn = document.createElement("button");
           btn.type = "button";
           btn.className = "profile-map-item profile-map-item-block";
@@ -1449,13 +1476,12 @@
           );
           col.append(btn);
         } else {
-          const ul = document.createElement("ul");
-          ul.className = "profile-map-list";
+          const wrap = document.createElement("div");
+          wrap.className = "profile-summary-pills";
           for (const item of items) {
-            const li = document.createElement("li");
             const btn = document.createElement("button");
             btn.type = "button";
-            btn.className = "profile-map-item";
+            btn.className = "profile-summary-pill profile-map-item";
             btn.textContent = item.text;
             btn.title = `Jump to this ${sec.titleEn.slice(0, -1) || "item"}`;
             btn.addEventListener("click", () =>
@@ -1464,10 +1490,9 @@
                 rowId: item.id,
               }),
             );
-            li.append(btn);
-            ul.append(li);
+            wrap.append(btn);
           }
-          col.append(ul);
+          col.append(wrap);
         }
         cols.append(col);
       };
