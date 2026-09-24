@@ -286,6 +286,66 @@
     return links;
   }
 
+  function primaryCareersUrl(row) {
+    return (
+      cell(row.careers_url) || cell(row.ats_url) || cell(row.website) || ""
+    );
+  }
+
+  async function openUrlInNewWindow(url) {
+    const href = cell(url);
+    if (!href) return false;
+    try {
+      const res = await fetch("/api/open-url", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url: href }),
+      });
+      if (res.ok) return true;
+    } catch {
+      /* fall through */
+    }
+    try {
+      const win = window.open(
+        href,
+        "_blank",
+        "noopener,noreferrer,width=1280,height=900",
+      );
+      if (win) {
+        try {
+          win.focus();
+        } catch {
+          /* ignore */
+        }
+        return true;
+      }
+    } catch {
+      /* ignore */
+    }
+    return false;
+  }
+
+  function focusedCompanyCard() {
+    const el = document.activeElement;
+    if (!el || !el.classList.contains("company-tile")) return null;
+    const root = document.getElementById("companies-results");
+    if (!root || !root.contains(el)) return null;
+    return el;
+  }
+
+  async function openFocusedCompanyPortal() {
+    const card = focusedCompanyCard();
+    if (!card) return false;
+    const href = cell(card.dataset.url);
+    if (!href) {
+      setSaveStatus("No careers / portal URL for this company", "err");
+      return true;
+    }
+    const ok = await openUrlInNewWindow(href);
+    if (!ok) setSaveStatus("Could not open careers URL", "err");
+    return true;
+  }
+
   function appendHomeOfficeFlag(parent, row) {
     const value = homeOfficeValue(row);
     const label = homeOfficeLabel(value);
@@ -545,6 +605,7 @@
   }
 
   function renderTile(row) {
+    const portalUrl = primaryCareersUrl(row);
     const btn = document.createElement("button");
     btn.type = "button";
     btn.className =
@@ -552,7 +613,19 @@
       tileSpanClass(row) +
       (openCompanyId === row.id ? " is-active" : "");
     btn.dataset.id = row.id;
-    btn.addEventListener("click", () => openModal(row.id));
+    btn.dataset.url = portalUrl;
+    btn.title = portalUrl
+      ? "Click to edit · Ctrl/Cmd+click or Ctrl+Enter to open careers"
+      : "Click to edit";
+    btn.addEventListener("click", (event) => {
+      if (event.ctrlKey || event.metaKey) {
+        event.preventDefault();
+        if (portalUrl) void openUrlInNewWindow(portalUrl);
+        else setSaveStatus("No careers / portal URL for this company", "err");
+        return;
+      }
+      openModal(row.id);
+    });
 
     const title = document.createElement("div");
     title.className = "company-tile-title";
@@ -1176,9 +1249,12 @@
         event.preventDefault();
         if (modalOpen) {
           saveAll({ closeModal: true });
-        } else {
-          saveAll();
+          return;
         }
+        void (async () => {
+          if (await openFocusedCompanyPortal()) return;
+          saveAll();
+        })();
         return;
       }
 
