@@ -35,7 +35,7 @@
 )
 
 #let profile = [
-  Digital solution architect mindset: I design and review #strong[digitization] and analytics solutions that global teams can operate—#strong[Azure]-aware platforms, #strong[Python/SQL] data paths, #strong[DevOps] automation habits, and #strong[Applied Research] quality gates (ServiceNow relevance scoring, CIP dashboards). #strong[Full-stack] background (React, SQL Server, IIS) plus Power BI and AI-assisted pipelines. Master's in Technology (#strong[completing September 2026]) with #strong[Grade A across all coursework]. #v(0.5em) Uses CSI/NPS to keep architecture honest about outcomes.
+  Digital solution architect mindset: I design and review #strong[digitization] and analytics solutions that global teams can operate—#strong[Azure]-aware platforms, #strong[Python/SQL] data paths, #strong[DevOps] automation habits, and #strong[Applied Research] quality gates (ServiceNow relevance scoring, CIP dashboards). #strong[Full-stack] background (React, SQL Server, IIS) plus Power BI and AI-assisted pipelines. Master's in Technology (#strong[approved September 2026; diploma December 2026]) with #strong[Grade A across all coursework]. #v(0.5em) Uses CSI/NPS to keep architecture honest about outcomes.
 ]
 
 #let languages = "Portuguese (Native)   English (Fluent)"
@@ -68,7 +68,7 @@
 )
 
 #let education = (
-  ("Master's in Technology:", [Info & Comm Systems. Unicamp (2023–2026, completing September 2026).], [Dissertation: #strong[perceived trust] in e-commerce (ISO/IEC 25000), human vs #strong[AI-agent] validation #v(0.42em) #strong[inferential stats]—normality checks, #strong[Welch/paired t-tests], #strong[Cohen's d], #strong[FDR] (Python → Power BI) #v(0.42em) descriptive metrics (mean, SD, SE, CI). Coursework (#strong[Grade A in all courses]): Academic Writing, Scientific Research, Innovation & Technology Transfer, #strong[Information Visualization] (visual mapping, multivariate data, interaction, graphs/trees, text viz).]),
+  ("Master's in Technology:", [Info & Comm Systems. Unicamp (2023–2026, approved September 2026; diploma December 2026).], [Dissertation: #strong[perceived trust] in e-commerce (ISO/IEC 25000), human vs #strong[AI-agent] validation #v(0.42em) #strong[inferential stats]—normality checks, #strong[Welch/paired t-tests], #strong[Cohen's d], #strong[FDR] (Python → Power BI) #v(0.42em) descriptive metrics (mean, SD, SE, CI). Coursework (#strong[Grade A in all courses]): Academic Writing, Scientific Research, Innovation & Technology Transfer, #strong[Information Visualization] (visual mapping, multivariate data, interaction, graphs/trees, text viz).]),
   ("Systems Analysis and Development.", "Unicamp (2015–2020).", none),
   ("Technical Degree in Informatics.", "ETEC Bento Quirino (2012–2014).", none),
 )

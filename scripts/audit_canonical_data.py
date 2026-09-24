@@ -304,7 +304,7 @@ def main() -> int:
     if "September 2026" not in inst and "setembro de 2026" not in edu[0].get(
         "institution_pt", ""
     ):
-        issues.append("master's institution missing September 2026 completion")
+        issues.append("master's institution missing September 2026 completed date")
     ok.append("education.csv: 3 degrees + dissertation detail + completion date")
 
     edu_li = load("education_linkedin.csv")

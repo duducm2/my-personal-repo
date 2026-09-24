@@ -107,7 +107,7 @@ def main() -> None:
     fixes = {
         "1": {
             "degree_pt": "Mestrado em Tecnologia:",
-            "institution_pt": "Sist. de Info. e Comunicação. Unicamp (2023–2026, conclusão em setembro de 2026).",
+            "institution_pt": "Sist. de Info. e Comunicação. Unicamp (2023–2026, aprovado em setembro de 2026; diploma em dezembro de 2026).",
         },
         "2": {
             "degree_pt": "Análise e Desenvolvimento de Sistemas.",

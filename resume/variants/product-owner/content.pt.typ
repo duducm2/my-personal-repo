@@ -35,7 +35,7 @@
 )
 
 #let profile = [
-  #strong[Conecto descoberta à entrega]: #strong[esclareço] necessidades, #strong[alinho] stakeholders e #strong[guio] soluções de requisitos à validação. Background em #strong[Pesquisa Aplicada, UX e entrega de projetos] com base full-stack. #v(0.35em) #strong[Uso] dados, CIP e #strong[check-ins com clientes] para priorizar resultados. Mestrado em Tecnologia (#strong[conclusão em setembro de 2026]) com #strong[nota A em todas as disciplinas].
+  #strong[Conecto descoberta à entrega]: #strong[esclareço] necessidades, #strong[alinho] stakeholders e #strong[guio] soluções de requisitos à validação. Background em #strong[Pesquisa Aplicada, UX e entrega de projetos] com base full-stack. #v(0.35em) #strong[Uso] dados, CIP e #strong[check-ins com clientes] para priorizar resultados. Mestrado em Tecnologia (#strong[aprovado set/2026; diploma dez/2026]) com #strong[nota A em todas as disciplinas].
 ]
 
 #let languages = "Português (Nativo)   Inglês (Fluente)"
@@ -67,7 +67,7 @@
 )
 
 #let education = (
-  ("Mestrado em Tecnologia:", [Sist. Info. e Comunicação. Unicamp (2023–2026, conclusão set/2026).], [Dissertação: #strong[confiança percebida] em e-commerce (ISO/IEC 25000), validação humano vs #strong[agente de IA] #v(0.28em) #strong[estatística inferencial]—normalidade, #strong[t de Welch/pareado], #strong[d de Cohen], #strong[FDR] (Python → Power BI) #v(0.28em) métricas descritivas (média, DP, EE, IC). Disciplinas (#strong[nota A]): Escrita Acadêmica, Pesquisa Científica, Inovação, #strong[InfoVis] (mapeamento visual, multivariados, interação, grafos/árvores, viz textos).]),
+  ("Mestrado em Tecnologia:", [Sist. Info. e Comunicação. Unicamp (2023–2026, aprovado set/2026; diploma dez/2026).], [Dissertação: #strong[confiança percebida] em e-commerce (ISO/IEC 25000), validação humano vs #strong[agente de IA] #v(0.28em) #strong[estatística inferencial]—normalidade, #strong[t de Welch/pareado], #strong[d de Cohen], #strong[FDR] (Python → Power BI) #v(0.28em) métricas descritivas (média, DP, EE, IC). Disciplinas (#strong[nota A]): Escrita Acadêmica, Pesquisa Científica, Inovação, #strong[InfoVis] (mapeamento visual, multivariados, interação, grafos/árvores, viz textos).]),
   ("Análise e Desenvolvimento de Sistemas.", "Unicamp (2015–2020).", none),
   ("Técnico em Informática.", "ETEC Bento Quirino (2012–2014).", none),
 )

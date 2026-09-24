@@ -14,14 +14,14 @@ PROFILE_PT = {
         "**soluções centradas no usuário** por meio de **Pesquisa Aplicada, tecnologia e gestão de projetos**. "
         "Formação full-stack e **mentalidade científica**. **Uso** dados, CIP e **IA agêntica** no dia a dia. "
         "**Autodirigido e proativo** em design, front-end, Power BI e Python. "
-        "Mestrado em Tecnologia (**conclusão em setembro de 2026**) com **nota A em todas as disciplinas**. "
+        "Mestrado em Tecnologia (**aprovado set/2026; diploma dez/2026**) com **nota A em todas as disciplinas**. "
         "**Aspiro** a **AI Scrum Master**."
     ),
     "product-owner": (
         "**Conecto descoberta à entrega**: **esclareço** necessidades, **alinho** stakeholders e **guio** soluções "
         "de requisitos à validação. Background em **Pesquisa Aplicada, UX e entrega de projetos** com base full-stack. "
         "**Uso** dados, CIP e **check-ins com clientes** para priorizar resultados. "
-        "Mestrado em Tecnologia (**conclusão em setembro de 2026**) com **nota A em todas as disciplinas**."
+        "Mestrado em Tecnologia (**aprovado set/2026; diploma dez/2026**) com **nota A em todas as disciplinas**."
     ),
 }
 

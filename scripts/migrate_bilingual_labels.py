@@ -574,7 +574,7 @@ def main() -> None:
                 "institution_pt": e.get(
                     "institution_pt",
                     e.get("institution_en", e.get("institution", "")).replace(
-                        "completing September 2026", "conclusão em setembro de 2026"
+                        "approved September 2026 (diploma December 2026)", "aprovado em setembro de 2026 (diploma em dezembro de 2026)"
                     ),
                 ),
                 "detail_en": e.get("detail_en", e.get("detail", "")),

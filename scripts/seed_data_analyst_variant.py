@@ -234,11 +234,11 @@ def upsert_narratives() -> None:
         "profile": (
             "Data analyst turning Applied Research into **measurable insight**: advanced **Excel** "
             "(formulas, VBA, database-style workbooks, shortcuts), **CSV** pipelines, Power BI, and Python/SQL. "
-            "Uses CSI/NPS to prioritize outcomes. Master's in Technology (**completing September 2026**) "
+            "Uses CSI/NPS to prioritize outcomes. Master's in Technology (**approved September 2026; diploma December 2026**) "
             "with **Grade A across all coursework**.",
             "**Atuo como analista de dados** transformando Pesquisa Aplicada em **insight mensurável**: **Excel** avançado "
             "(fórmulas, VBA, planilhas como banco de dados, atalhos), pipelines **CSV**, Power BI e Python/SQL. "
-            "**Uso** CSI/NPS para priorizar resultados. Mestrado em Tecnologia (**conclusão em setembro de 2026**) "
+            "**Uso** CSI/NPS para priorizar resultados. Mestrado em Tecnologia (**aprovado set/2026; diploma dez/2026**) "
             "com **nota A em todas as disciplinas**.",
         ),
         "deck_title": (

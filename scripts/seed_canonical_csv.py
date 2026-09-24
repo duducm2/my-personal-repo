@@ -325,7 +325,7 @@ def main() -> None:
             {
                 "sort_order": "1",
                 "degree": "Master's in Technology:",
-                "institution": "Info & Comm Systems. Unicamp (2023–2026, completing September 2026).",
+                "institution": "Info & Comm Systems. Unicamp (2023–2026, approved September 2026; diploma December 2026).",
                 "detail": "Dissertation: Measuring **perceived trust** in e-commerce websites with a digital evaluation platform (ISO/IEC 25000), using experimentation, ML, and human vs **AI-agent** validation. Coursework (**Grade A in all courses**): Academic Writing, Scientific Research, Innovation & Technology Transfer, Information Visualization.",
             },
             {
@@ -419,13 +419,13 @@ def main() -> None:
         (
             "general",
             "profile",
-            "UX and software-quality researcher helping teams build **user-centered solutions** through **Applied Research, technology, and project management**. Full-stack background and **scientific mindset**. Daily use of data, CIP, and **Agentic AI**. **Self-directed and proactive** across design, front-end, Power BI, and Python. Master's in Technology (**completing September 2026**) with **Grade A across all coursework**. Aspiring **AI Scrum Master**.",
+            "UX and software-quality researcher helping teams build **user-centered solutions** through **Applied Research, technology, and project management**. Full-stack background and **scientific mindset**. Daily use of data, CIP, and **Agentic AI**. **Self-directed and proactive** across design, front-end, Power BI, and Python. Master's in Technology (**approved September 2026; diploma December 2026**) with **Grade A across all coursework**. Aspiring **AI Scrum Master**.",
         ),
         ("product-owner", "tagline", "Discovery, Delivery & Stakeholder Outcomes"),
         (
             "product-owner",
             "profile",
-            "Product-minded professional connecting **discovery to delivery**: clarifying needs, aligning stakeholders, and guiding solutions from requirements through validation. Background in **Applied Research, UX, and project delivery** with a full-stack foundation. Uses data, CIP, and **customer check-ins** to prioritize outcomes. Master's in Technology (**completing September 2026**) with **Grade A across all coursework**.",
+            "Product-minded professional connecting **discovery to delivery**: clarifying needs, aligning stakeholders, and guiding solutions from requirements through validation. Background in **Applied Research, UX, and project delivery** with a full-stack foundation. Uses data, CIP, and **customer check-ins** to prioritize outcomes. Master's in Technology (**approved September 2026; diploma December 2026**) with **Grade A across all coursework**.",
         ),
         # portfolio deck
         ("general", "deck_title", "Eduardo Figueiredo – Portfolio"),

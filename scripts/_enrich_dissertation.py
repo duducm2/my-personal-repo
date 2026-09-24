@@ -76,7 +76,7 @@ def update_edu_li(row):
         "on the same three sites. The study concludes that agents don't replace human evaluation, "
         "but are a promising instrument for automated triage of interface quality—"
         "useful for spotting best and worst attributes before deeper human review. "
-        "Coursework completion sits inside the broader Technology master's timeline toward September 2026."
+        "Master's approved in September 2026; diploma scheduled for December 2026."
     )
     row["description_pt"] = (
         "Dissertação sobre confiança percebida em websites de e-commerce: propus e validei "
@@ -94,7 +94,7 @@ def update_edu_li(row):
         "da FATEC Itapetininga nos mesmos três sites. O estudo conclui que agentes não substituem "
         "a avaliação humana, mas são um instrumento promissor de triagem automatizada da qualidade "
         "da interface—útil para apontar atributos melhores e piores antes de uma revisão humana mais profunda. "
-        "A conclusão das disciplinas fica dentro do cronograma do mestrado em Tecnologia até setembro de 2026."
+        "O mestrado foi aprovado em setembro de 2026 (diploma em dezembro de 2026), após aprovação da dissertação."
     )
     return True
 

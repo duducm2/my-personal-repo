@@ -22,7 +22,7 @@ Your task is to **find, evaluate, and rank real job opportunities** where I am a
 
 ### Professional summary
 
-Data analyst with ~8 years at Bosch (intern → web developer → applied research & design analyst). Turns applied research and delivery into **measurable insight**. Strong in **Excel** (advanced formulas, VBA, database-style workbooks, shortcuts), **CSV** pipelines, **Power BI**, **Python/SQL/Statistics**, **descriptive & inferential statistics**, and MSc **Information Visualization** (Grade A). Qualitative→BI work with **Straussian grounded theory** (open/axial/selective coding). Dissertation inferential pipeline: Welch/paired t-tests, Cohen's d, FDR (Python → Power BI). Outcome metrics (CSI/NPS). Master's in Technology at Unicamp (completing September 2026, Grade A coursework). Published research on trust measurement (IHC 2025, ISSRE 2025).
+Data analyst with ~8 years at Bosch (intern → web developer → applied research & design analyst). Turns applied research and delivery into **measurable insight**. Strong in **Excel** (advanced formulas, VBA, database-style workbooks, shortcuts), **CSV** pipelines, **Power BI**, **Python/SQL/Statistics**, **descriptive & inferential statistics**, and MSc **Information Visualization** (Grade A). Qualitative→BI work with **Straussian grounded theory** (open/axial/selective coding). Dissertation inferential pipeline: Welch/paired t-tests, Cohen's d, FDR (Python → Power BI). Outcome metrics (CSI/NPS). Master's in Technology at Unicamp (approved September 2026, diploma December 2026; Grade A coursework). Published research on trust measurement (IHC 2025, ISSRE 2025).
 
 ### Core strengths to match against job descriptions
 
@@ -52,7 +52,7 @@ Data analyst with ~8 years at Bosch (intern → web developer → applied resear
 
 ### Education
 
-- MSc Technology (Info & Comm Systems), Unicamp — completing Sep 2026
+- MSc Technology (Info & Comm Systems), Unicamp — approved Sep 2026; diploma Dec 2026
 - Systems Analysis & Development, Unicamp (2015–2020)
 - Technical Degree in Informatics, ETEC Bento Quirino
 
