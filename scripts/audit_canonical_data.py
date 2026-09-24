@@ -121,6 +121,7 @@ def main() -> int:
             "general",
             "product-owner",
             "data-analyst",
+            "data-scientist",
             "digital-solution-architect",
         ):
             n = sum(
@@ -133,18 +134,22 @@ def main() -> int:
         ("bosch-ar-2023", "general"): 6,
         ("bosch-ar-2023", "product-owner"): 5,
         ("bosch-ar-2023", "data-analyst"): 7,
-        ("bosch-ar-2023", "digital-solution-architect"): 6,
+        ("bosch-ar-2023", "data-scientist"): 6,
+        ("bosch-ar-2023", "digital-solution-architect"): 5,
         ("bosch-web-2020", "general"): 2,
         ("bosch-web-2020", "product-owner"): 2,
         ("bosch-web-2020", "data-analyst"): 2,
+        ("bosch-web-2020", "data-scientist"): 2,
         ("bosch-web-2020", "digital-solution-architect"): 2,
         ("bosch-hu-2019", "general"): 2,
         ("bosch-hu-2019", "product-owner"): 2,
         ("bosch-hu-2019", "data-analyst"): 2,
+        ("bosch-hu-2019", "data-scientist"): 2,
         ("bosch-hu-2019", "digital-solution-architect"): 2,
         ("bosch-intern-2017", "general"): 1,
         ("bosch-intern-2017", "product-owner"): 1,
         ("bosch-intern-2017", "data-analyst"): 1,
+        ("bosch-intern-2017", "data-scientist"): 1,
         ("bosch-intern-2017", "digital-solution-architect"): 1,
     }
     for key, want in expected_counts.items():
@@ -292,10 +297,24 @@ def main() -> int:
         for s in skills
         if s["variant"] == "digital-solution-architect" and s["category"] == "Tech"
     ]
-    if len(dsa_core) != 5:
-        issues.append(f"DSA Core skills want 5 got {len(dsa_core)}")
+    if len(dsa_core) != 7:
+        issues.append(f"DSA Core skills want 7 got {len(dsa_core)}")
     if len(dsa_tech) != 18:
         issues.append(f"DSA Tech skills want 18 got {len(dsa_tech)}")
+    dsc_core = [
+        s
+        for s in skills
+        if s["variant"] == "data-scientist" and s["category"] == "Core"
+    ]
+    dsc_tech = [
+        s
+        for s in skills
+        if s["variant"] == "data-scientist" and s["category"] == "Tech"
+    ]
+    if len(dsc_core) != 6:
+        issues.append(f"Data Scientist Core skills want 6 got {len(dsc_core)}")
+    if len(dsc_tech) != 13:
+        issues.append(f"Data Scientist Tech skills want 13 got {len(dsc_tech)}")
     ok.append("skills.csv counts match resume baselines")
 
     edu = load("education.csv")

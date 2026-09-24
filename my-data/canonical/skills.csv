@@ -77,9 +77,9 @@ data-analyst,Tech,Tech,Tecnologias,19,VS Code,VS Code
 data-analyst,Tech,Tech,Tecnologias,20,AutoHotkey,AutoHotkey
 data-analyst,Tech,Tech,Tecnologias,21,scikit-learn,scikit-learn
 digital-solution-architect,Core,Core,Núcleo,1,Solution & cloud architecture,Arquitetura de soluções e cloud
-digital-solution-architect,Core,Core,Núcleo,2,Digitization & systems design,Digitalização e desenho de sistemas
-digital-solution-architect,Core,Core,Núcleo,3,DevOps / CI-CD & automation,DevOps / CI-CD e automação
-digital-solution-architect,Core,Core,Núcleo,4,Applied Research & quality gates,Pesquisa Aplicada e quality gates
+digital-solution-architect,Core,Core,Núcleo,2,Digitization & systems,Digitalização e desenho de sistemas
+digital-solution-architect,Core,Core,Núcleo,3,DevOps / CI-CD,DevOps / CI-CD e automação
+digital-solution-architect,Core,Core,Núcleo,4,Applied Research & QA gates,Pesquisa Aplicada e quality gates
 digital-solution-architect,Core,Core,Núcleo,5,Global stakeholder alignment,Alinhamento com stakeholders globais
 digital-solution-architect,Core,Core,Núcleo,6,Autodidact,Autodidata
 digital-solution-architect,Core,Core,Núcleo,7,Statistics,Estatística
@@ -102,31 +102,21 @@ digital-solution-architect,Tech,Tech,Tecnologias,16,HTML / CSS,HTML / CSS
 digital-solution-architect,Tech,Tech,Tecnologias,17,Figma,Figma
 digital-solution-architect,Tech,Tech,Tecnologias,18,Terraform (IaC),Terraform (IaC)
 data-scientist,Core,Core,Núcleo,1,"Excel (formulas, VBA, databases)","Excel (fórmulas, VBA, bases de dados)"
-data-scientist,Core,Core,Núcleo,2,Applied analytics & experimental data,Analytics aplicado e dados experimentais
-data-scientist,Core,Core,Núcleo,3,"Visualization, BI & experiment reporting","Visualizacao, BI e relato de experimentos"
-data-scientist,Core,Core,Núcleo,4,Python / SQL / inferential statistics,Python / SQL / estatistica inferencial
+data-scientist,Core,Core,Núcleo,2,Applied analytics & experiments,Analytics aplicado e experimentos
+data-scientist,Core,Core,Núcleo,3,"Visualization, BI & InfoVis","Visualizacao, BI e InfoVis"
+data-scientist,Core,Core,Núcleo,4,Python / SQL / Statistics,Python / SQL / Estatistica
 data-scientist,Core,Core,Núcleo,5,Applied Research,Pesquisa Aplicada
 data-scientist,Core,Core,Núcleo,6,Autodidact,Autodidata
 data-scientist,Tech,Tech,Tecnologias,1,Excel,Excel
-data-scientist,Tech,Tech,Tecnologias,2,VBA,VBA
-data-scientist,Tech,Tech,Tecnologias,3,CSV,CSV
-data-scientist,Tech,Tech,Tecnologias,4,Power BI,Power BI
-data-scientist,Tech,Tech,Tecnologias,5,Python,Python
-data-scientist,Tech,Tech,Tecnologias,6,SQL,SQL
-data-scientist,Tech,Tech,Tecnologias,7,Matplotlib,Matplotlib
-data-scientist,Tech,Tech,Tecnologias,8,Seaborn,Seaborn
-data-scientist,Tech,Tech,Tecnologias,9,Azure,Azure
-data-scientist,Tech,Tech,Tecnologias,10,Git,Git
-data-scientist,Tech,Tech,Tecnologias,11,GitHub,GitHub
-data-scientist,Tech,Tech,Tecnologias,12,React,React
-data-scientist,Tech,Tech,Tecnologias,13,Figma,Figma
-data-scientist,Tech,Tech,Tecnologias,14,ServiceNow,ServiceNow
-data-scientist,Tech,Tech,Tecnologias,15,Bitbucket,Bitbucket
-data-scientist,Tech,Tech,Tecnologias,16,HTML,HTML
-data-scientist,Tech,Tech,Tecnologias,17,CSS,CSS
-data-scientist,Tech,Tech,Tecnologias,18,Mermaid,Mermaid
-data-scientist,Tech,Tech,Tecnologias,19,VS Code,VS Code
-data-scientist,Tech,Tech,Tecnologias,20,AutoHotkey,AutoHotkey
-data-scientist,Tech,Tech,Tecnologias,21,scikit-learn,scikit-learn
-data-scientist,Core,Core,Nucleo,7,Collaborative learning (help others; learn from seniors),Aprendizado colaborativo (ajudar outros; aprender com seniors)
-data-scientist,Tech,Tech,Tech,22,LLM evaluation / AI-assisted analysis,Avaliacao com LLM / analise assistida por IA
+data-scientist,Tech,Tech,Tecnologias,2,CSV,CSV
+data-scientist,Tech,Tech,Tecnologias,3,Power BI,Power BI
+data-scientist,Tech,Tech,Tecnologias,4,Python,Python
+data-scientist,Tech,Tech,Tecnologias,5,SQL,SQL
+data-scientist,Tech,Tech,Tecnologias,6,Matplotlib,Matplotlib
+data-scientist,Tech,Tech,Tecnologias,7,Seaborn,Seaborn
+data-scientist,Tech,Tech,Tecnologias,8,Azure,Azure
+data-scientist,Tech,Tech,Tecnologias,9,Git,Git
+data-scientist,Tech,Tech,Tecnologias,10,GitHub,GitHub
+data-scientist,Tech,Tech,Tecnologias,11,VS Code,VS Code
+data-scientist,Tech,Tech,Tecnologias,12,scikit-learn,scikit-learn
+data-scientist,Tech,Tech,Tech,13,LLM evaluation,Avaliacao com LLM

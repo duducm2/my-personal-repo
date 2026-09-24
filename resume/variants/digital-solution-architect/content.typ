@@ -5,7 +5,7 @@
 // =============================================================================
 
 #let name = "Eduardo M. de A. Figueiredo"
-#let tagline = "Digital Solution Architect | Cloud, Digitization & Evidence-Based Delivery"
+#let tagline = "Digital Solution Architect | Cloud, Digitization & Delivery"
 #let phone = "+55 (19) 98176-6583"
 #let email = "edu.evangelista.figueiredo@gmail.com"
 #let linkedin = "LinkedIn"
@@ -35,35 +35,34 @@
 )
 
 #let profile = [
-  I design and review digitization and analytics solutions that teams can actually run—Azure-aware platforms, Python/SQL data paths, DevOps habits, and research-backed quality gates (ServiceNow relevance scoring, CIP dashboards). Full-stack background in React, SQL Server, and IIS, plus Power BI and AI-assisted pipelines. Master's in Technology approved September 2026 (diploma December 2026; Grade A across all coursework). I use CSI/NPS so architecture stays tied to outcomes.
+  I design digitization and analytics solutions teams can run—Azure-aware platforms, Python/SQL data paths, CI/CD and quality gates. Bridge research methods with delivery across Global Services and Power Tools. Master's approved Sep 2026 (diploma Dec 2026), Grade A coursework.
 ]
 
 #let languages = "Portuguese (Native)   English (Fluent)"
 
 #let skills = (
-  ("Core", "Core:", ("Solution & cloud architecture", "Digitization & systems design", "DevOps / CI-CD & automation", "Applied Research & quality gates", "Global stakeholder alignment", "Autodidact", "Statistics")),
+  ("Core", "Core:", ("Solution & cloud architecture", "Digitization & systems", "DevOps / CI-CD", "Applied Research & QA gates", "Global stakeholder alignment", "Autodidact", "Statistics")),
   ("Tech", "Tech:", ("Azure", "Python", "SQL / SQL Server", "Power BI", "ServiceNow", "Git", "GitHub", "Bitbucket", "VS Code", "React", "Windows Server / IIS", "Docker", "Excel / VBA", "CSV pipelines", "Mermaid", "HTML / CSS", "Figma", "Terraform (IaC)")),
 )
 
 #let experience = (
   ("Jan 2023 – Present", "Bosch Brasil", "Applied Research & Design Analyst", (
-    [Solution design for Global Services: partnered on strategic CIP dashboards and automated UX relevance scoring in ServiceNow (property-based weights), turning subjective intake into a repeatable quality gate.],
-    [Data Insights (Power Tools): designed a Python + AI coding pipeline over call-center transcripts (Grounded Theory) with Power BI synthesis—analytics patterns for unstructured operational data.],
-    [UX Maturity Level 4 (Americas): governance, templates, training; Power BI audit dashboard auto-fetching Microsoft Lists to track project-management documentation.],
-    [Tooling (Power Tools): end-to-end delivery from requirements to high-fidelity prototypes with customer check-ins—bridging business intent and technical design.],
-    [Daily VS Code + AI for research, method design, and faster iteration across global architecture-adjacent workstreams.],
+    [Solution design for Global Services: CIP dashboards and automated UX relevance scoring in ServiceNow; AI-supported method design for leadership visibility.],
+    [Data Insights (Power Tools): Python + AI coding pipeline over call-center transcripts (Grounded Theory) with Power BI synthesis.],
+    [UX Maturity Level 4 (Americas): governance, templates, training; Power BI audit dashboard auto-fetching Microsoft Lists.],
+    [Daily VS Code + AI for research, method design, and faster iteration on global architecture work.],
     [Average CSI 4.86 / NPS 9.94 (2024–2025); international collaboration with Germany (2024, 2025).],
   )),
   ("Jan 2020 – Dec 2022", "Bosch Brasil", "Web Developer", (
-    [Built React front-ends and internal/customer web solutions in Scrum/Kanban—component boundaries and API-facing delivery habits useful for service-oriented designs.],
+    [Built React front-ends and internal/customer web solutions in Scrum/Kanban—component boundaries and delivery ownership.],
     [Collaborated across design, research, and engineering to ship increments with clear ownership.],
   )),
   ("Jan 2019 – Dec 2019", "Bosch Magyarország (Hungary)", "Digitization Support Analyst", (
-    [Digitization Support Analyst (Budapest): digitizing Business Excellence systems—Kanban delivery of web apps on SQL Server, Windows Server (IIS), Git, and VBA automation.],
-    [End-to-end ownership of internal digital tools: from process need to hosted web system—early solution-architecture practice in a global Bosch context.],
+    [Digitization Support Analyst (Budapest): Business Excellence systems in Kanban—workflow digitization and hosted web tools.],
+    [End-to-end ownership of internal digital tools: from process need to hosted web system (VS Code, SQL Server, IIS).],
   )),
   ("Jan 2017 – Nov 2018", "Bosch Brasil (Campinas)", "Intern", (
-    [Excel/VBA + Access digital systems for Continuous Improvement and Internal Communication; 3rd place, Bosch Talent Forum 2018 (Project Model Canvas tooling).],
+    [Excel/VBA + Access digital systems for Continuous Improvement and Internal Communication; 3rd place, Bosch Talent Forum 2018.],
   )),
 )
 

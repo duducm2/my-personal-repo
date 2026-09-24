@@ -5,7 +5,7 @@
 // =============================================================================
 
 #let name = "Eduardo M. de A. Figueiredo"
-#let tagline = "Arquiteto de Soluções Digitais | Cloud, Digitalização e Entrega Baseada em Evidência"
+#let tagline = "Arquiteto de Solucoes Digitais | Cloud, Digitalizacao e Entrega"
 #let phone = "+55 (19) 98176-6583"
 #let email = "edu.evangelista.figueiredo@gmail.com"
 #let linkedin = "LinkedIn"
@@ -35,7 +35,7 @@
 )
 
 #let profile = [
-  Desenho e reviso soluções de digitalização e analytics que os times consigam operar de verdade—plataformas com consciência Azure, caminhos de dados em Python/SQL, hábitos de DevOps e quality gates baseados em pesquisa (relevância no ServiceNow, dashboards CIP). Base full-stack em React, SQL Server e IIS, além de Power BI e pipelines com IA. Mestrado em Tecnologia aprovado em setembro de 2026 (diploma em dezembro de 2026; notas A). Uso CSI/NPS para a arquitetura continuar ligada a resultados.
+  Desenho solucoes de digitalizacao e analytics que o time opera—plataformas Azure, caminhos Python/SQL, CI/CD e quality gates. Uno metodos de pesquisa com entrega em Global Services e Power Tools. Mestrado aprovado set/2026 (diploma dez/2026), disciplinas nota A.
 ]
 
 #let languages = "Português (Nativo)   Inglês (Fluente)"
@@ -47,23 +47,22 @@
 
 #let experience = (
   ("Jan 2023 – Atual", "Bosch Brasil", "Analista de Pesquisa Aplicada e Design", (
-    [Desenho de solução para Global Services: trabalhei em dashboards estratégicos de CIP e automatizei a pontuação de relevância em UX no ServiceNow (pesos por propriedades), transformando intake subjetivo em quality gate repetível.],
-    [Data Insights (Power Tools): desenhei um pipeline de coding em Python + IA sobre transcrições de call center (Teoria Fundamentada) com síntese em Power BI—padrões analíticos para dados operacionais não estruturados.],
-    [Nível 4 de Maturidade em UX (Américas): governança, templates, treinamento; dashboard Power BI de auditoria buscando Microsoft Lists para acompanhar documentação de gestão de projetos.],
-    [Tooling (Power Tools): entrega ponta a ponta de requisitos a protótipos de alta fidelidade com check-ins com clientes—ligando intenção de negócio e desenho técnico.],
-    [Uso diário de VS Code + IA para pesquisa, desenho de método e iteração mais rápida em frentes globais ligadas à arquitetura.],
+    [Desenho de solucao (Global Services): dashboards CIP e pontuacao UX automatizada no ServiceNow; metodo com IA para a lideranca.],
+    [Data Insights (Power Tools): pipeline Python + IA em transcricoes de call center (Grounded Theory) com sintese em Power BI.],
+    [UX Maturity Level 4 (Americas): governanca, templates, treinamento; dashboard Power BI de auditoria (Microsoft Lists).],
+    [VS Code + IA no dia a dia para pesquisa, metodo e iteracao em frentes globais de arquitetura.],
     [Média CSI 4,86 / NPS 9,94 (2024–2025); colaboração internacional com a Alemanha (2024, 2025).],
   )),
   ("Jan 2020 – Dez 2022", "Bosch Brasil", "Desenvolvedor Web", (
-    [Construí front-ends em React e soluções web internas/para clientes em Scrum/Kanban—limites de componente e hábitos de entrega voltados a API, úteis para desenhos orientados a serviço.],
+    [Front-ends React e solucoes web internas/clientes em Scrum/Kanban—limites de componentes e ownership.],
     [Colaborei com design, pesquisa e engenharia para entregar incrementos com ownership claro.],
   )),
   ("Jan 2019 – Dez 2019", "Bosch Magyarország (Hungary)", "Analista de Suporte à Digitalização", (
-    [Analista de Suporte à Digitalização (Budapeste): digitalização de sistemas de Business Excellence—entrega em Kanban de apps web em SQL Server, Windows Server (IIS), Git e automação VBA.],
-    [Ownership ponta a ponta de ferramentas digitais internas: da necessidade de processo ao sistema web hospedado—prática inicial de arquitetura de soluções em contexto global Bosch.],
+    [Digitalizacao (Budapeste): Business Excellence em Kanban—fluxos e ferramentas web hospedadas.],
+    [Ownership ponta a ponta: da necessidade de processo ao sistema web (VS Code, SQL Server, IIS).],
   )),
   ("Jan 2017 – Nov 2018", "Bosch Brasil (Campinas)", "Estagiário", (
-    [Sistemas digitais Excel/VBA + Access para Melhoria Contínua e Comunicação Interna; 3º lugar no Fórum de Talentos Bosch 2018 (tooling Project Model Canvas).],
+    [Sistemas digitais Excel/VBA + Access para Melhoria Continua e Comunicacao Interna; 3o lugar no Forum de Talentos Bosch 2018.],
   )),
 )
 

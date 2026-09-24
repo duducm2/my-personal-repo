@@ -5,7 +5,7 @@
 // =============================================================================
 
 #let name = "Eduardo M. de A. Figueiredo"
-#let tagline = "Applied researcher moving into Data Scientist pleno — experimental design, statistics, and LLM evaluation; eager to help teammates and learn beside senior data scientists."
+#let tagline = "Applied Data Scientist (pleno) | Stats, Python & LLM evaluation"
 #let phone = "+55 (19) 98176-6583"
 #let email = "edu.evangelista.figueiredo@gmail.com"
 #let linkedin = "LinkedIn"
@@ -35,23 +35,22 @@
 )
 
 #let profile = [
-  I build evidence under ambiguity: experimental design, inferential statistics, and LLM evaluation (TrustMate), plus messy text-to-dashboard pipelines (Data Insights) and CSI/NPS analytics at Bosch. #v(0.5em) Uses Python, SQL, and Power BI every day. Transitioning into Data Scientist pleno with skills I have today — not claiming production ML ownership yet. Ready to contribute on day one, help colleagues ship clearer analyses, and learn supervised modeling and production discipline beside senior data scientists.
+  Applied researcher into Data Scientist pleno: experimental design, inferential stats, LLM evaluation (TrustMate); call-center text to Power BI (Data Insights); CSI/NPS at Bosch. Python, SQL, Power BI daily. Learning supervised modeling with seniors — not claiming production ML yet. Master's approved Sep 2026 (diploma Dec 2026), Grade A coursework.
 ]
 
 #let languages = "Portuguese (Native)   English (Fluent)"
 
 #let skills = (
-  ("Core", "Core:", ("Excel (formulas, VBA, databases)", "Applied analytics & experimental data", "Visualization, BI & experiment reporting", "Python / SQL / inferential statistics", "Applied Research", "Autodidact", "Collaborative learning (help others; learn from seniors)")),
-  ("Tech", "Tech:", ("Excel", "VBA", "CSV", "Power BI", "Python", "SQL", "Matplotlib", "Seaborn", "Azure", "Git", "GitHub", "React", "Figma", "ServiceNow", "Bitbucket", "HTML", "CSS", "Mermaid", "VS Code", "AutoHotkey", "scikit-learn", "LLM evaluation / AI-assisted analysis")),
+  ("Core", "Core:", ("Excel (formulas, VBA, databases)", "Applied analytics & experiments", "Visualization, BI & InfoVis", "Python / SQL / Statistics", "Applied Research", "Autodidact")),
+  ("Tech", "Tech:", ("Excel", "CSV", "Power BI", "Python", "SQL", "Matplotlib", "Seaborn", "Azure", "Git", "GitHub", "VS Code", "scikit-learn", "LLM evaluation")),
 )
 
 #let experience = (
   ("Jan 2023 – Present", "Bosch Brasil", "Applied Research & Design Analyst", (
-    [Power BI + statistical quality signals (CSI/NPS) for project oversight; average CSI 4.86 / NPS 9.94 across my projects (2024-2025).],
-    [CIP CIM (Global Services): AI-assisted UX relevance scoring and data classification in ServiceNow (property-based weights); AI-supported method design; evaluated GS strategic CIP dashboards for leadership on issues and efficiency/efficacy.],
-    [Tooling project (Power Tools): delivery from requirements through prototypes; regular check-ins; progress tracked for decisions.],
-    [Data Insights (Power Tools B2B): Straussian grounded theory on call-center records—AI-assisted Python for manipulation and categorization; stakeholder validation; Power BI insights across finance, material transport, logistics, and related themes.],
-    [Helped the Americas reach UX Maturity Level 4: governance, templates, training; Power BI audit dashboard auto-fetching Microsoft Lists data to track project-management document fulfillment.],
+    [Power BI + CSI/NPS quality signals for project oversight; average CSI 4.86 / NPS 9.94 across my projects (2024-2025).],
+    [CIP CIM (Global Services): AI-assisted UX relevance scoring and data classification in ServiceNow; evaluated GS CIP dashboards for leadership.],
+    [Data Insights (Power Tools B2B): grounded theory on call-center records—AI-assisted Python categorization; stakeholder validation; Power BI insights (finance, logistics, related themes).],
+    [Helped the Americas reach UX Maturity Level 4: governance, templates, training; Power BI audit dashboard auto-fetching Microsoft Lists for PM document fulfillment.],
     [Use agentic AI daily in VS Code for research, analysis, and problem-solving across the pipeline.],
     [Two trips to Germany (2024, 2025); tutor at SENAI Digital Talent Academy; AI tools training for 100+ people (4.88/5 satisfaction).],
   )),

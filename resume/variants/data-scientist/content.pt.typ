@@ -5,7 +5,7 @@
 // =============================================================================
 
 #let name = "Eduardo M. de A. Figueiredo"
-#let tagline = "Pesquisador aplicado rumo a Cientista de Dados pleno — desenho experimental, estatistica e avaliacao com LLM; disposto a ajudar o time e aprender com data scientists seniors."
+#let tagline = "Cientista de Dados aplicado (pleno) | Stats, Python e LLM"
 #let phone = "+55 (19) 98176-6583"
 #let email = "edu.evangelista.figueiredo@gmail.com"
 #let linkedin = "LinkedIn"
@@ -35,23 +35,22 @@
 )
 
 #let profile = [
-  Construo evidencia sob ambiguidade: desenho experimental, estatistica inferencial e avaliacao com LLM (TrustMate), alem de pipelines de texto ate dashboards (Data Insights) e analytics de CSI/NPS na Bosch. #v(0.35em) #strong[Uso] Python, SQL e Power BI no dia a dia. Transicao para Cientista de Dados pleno com as competencias que ja tenho — sem reivindicar ownership de ML em producao ainda. Pronto para contribuir no primeiro dia, ajudar colegas a entregar analises mais claras e aprender modelagem supervisionada e disciplina de producao ao lado de data scientists seniors.
+  Pesquisador aplicado rumo a Cientista de Dados pleno: desenho experimental, estatistica inferencial, avaliacao com LLM (TrustMate); texto de call center a Power BI (Data Insights); CSI/NPS na Bosch. Python, SQL e Power BI no dia a dia. Aprendendo modelagem supervisionada com seniors — sem reivindicar ML em producao. Mestrado aprovado set/2026 (diploma dez/2026), disciplinas nota A.
 ]
 
 #let languages = "Português (Nativo)   Inglês (Fluente)"
 
 #let skills = (
-  ("Core", "Núcleo:", ("Excel (fórmulas, VBA, bases de dados)", "Analytics aplicado e dados experimentais", "Visualizacao, BI e relato de experimentos", "Python / SQL / estatistica inferencial", "Pesquisa Aplicada", "Autodidata", "Aprendizado colaborativo (ajudar outros; aprender com seniors)")),
-  ("Tech", "Tecnologias:", ("Excel", "VBA", "CSV", "Power BI", "Python", "SQL", "Matplotlib", "Seaborn", "Azure", "Git", "GitHub", "React", "Figma", "ServiceNow", "Bitbucket", "HTML", "CSS", "Mermaid", "VS Code", "AutoHotkey", "scikit-learn", "Avaliacao com LLM / analise assistida por IA")),
+  ("Core", "Núcleo:", ("Excel (fórmulas, VBA, bases de dados)", "Analytics aplicado e experimentos", "Visualizacao, BI e InfoVis", "Python / SQL / Estatistica", "Pesquisa Aplicada", "Autodidata")),
+  ("Tech", "Tecnologias:", ("Excel", "CSV", "Power BI", "Python", "SQL", "Matplotlib", "Seaborn", "Azure", "Git", "GitHub", "VS Code", "scikit-learn", "Avaliacao com LLM")),
 )
 
 #let experience = (
   ("Jan 2023 – Atual", "Bosch Brasil", "Analista de Pesquisa Aplicada e Design", (
-    [Power BI + sinais estatisticos de qualidade (CSI/NPS) para acompanhamento de projetos; media CSI 4,86 / NPS 9,94 nos meus projetos (2024-2025).],
-    [CIP CIM (Global Services): pontuação de relevância em UX e classificação de dados assistidas por IA no ServiceNow (pesos por propriedades); desenho de método com apoio de IA; avaliei dashboards estratégicos de CIP da GS para liderança sobre problemas e eficiência/eficácia.],
-    [Projeto tooling (Power Tools): entrega de requisitos a protótipos; check-ins regulares; progresso acompanhado para decisões.],
-    [Data Insights (Power Tools B2B): teoria fundamentada straussiana em registros de call center—Python assistido por IA para manipulação e categorização; validação com stakeholders; insights em Power BI sobre finanças, transporte de material, logística e temas relacionados.],
-    [Apoiei as Américas a atingir o Nível 4 de Maturidade em UX: governança, templates, treinamento; dashboard Power BI de auditoria buscando dados do Microsoft Lists para acompanhar documentação de gestão de projetos.],
+    [Power BI + sinais CSI/NPS para acompanhamento de projetos; media CSI 4,86 / NPS 9,94 nos meus projetos (2024-2025).],
+    [CIP CIM (Global Services): pontuacao de relevancia UX e classificacao de dados assistidas por IA no ServiceNow; avaliei dashboards CIP da GS para lideranca.],
+    [Data Insights (Power Tools B2B): teoria fundamentada em registros de call center—categorizacao em Python assistida por IA; validacao com stakeholders; insights em Power BI (financas, logistica e temas relacionados).],
+    [Apoiei as Americas a atingir o Nivel 4 de Maturidade em UX: governanca, templates, treinamento; dashboard Power BI de auditoria buscando Microsoft Lists para documentacao de gestao.],
     [Uso IA agêntica diariamente no VS Code para pesquisa, análise e resolução de problemas no pipeline.],
     [Duas viagens à Alemanha (2024, 2025); tutor na SENAI Digital Talent Academy; treinamento de ferramentas de IA para 100+ pessoas (satisfação 4,88/5).],
   )),
