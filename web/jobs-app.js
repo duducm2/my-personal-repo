@@ -2746,13 +2746,42 @@
   }
 
   function bulkSetStatus(status) {
-    if (!selectedIds.size) return;
+    const next = cell(status).toLowerCase();
+    if (!selectedIds.size || !STATUS_OPTIONS.includes(next)) return;
+    let n = 0;
     for (const row of openings) {
-      if (selectedIds.has(row.id)) row.status = status;
+      if (selectedIds.has(row.id)) {
+        row.status = next;
+        n += 1;
+      }
     }
+    if (!n) return;
     setDirty(true);
     setSaveStatus("");
     render();
+    showToast(`Set ${n} opening${n === 1 ? "" : "s"} to ${next}`, 2200);
+  }
+
+  function wireBulkStatusSelect() {
+    const sel = document.getElementById("job-bulk-status");
+    if (!sel) return;
+    sel.replaceChildren();
+    const blank = document.createElement("option");
+    blank.value = "";
+    blank.textContent = "Choose…";
+    sel.append(blank);
+    for (const s of STATUS_OPTIONS) {
+      const opt = document.createElement("option");
+      opt.value = s;
+      opt.textContent = s;
+      sel.append(opt);
+    }
+    sel.addEventListener("change", () => {
+      const v = cell(sel.value);
+      if (!v) return;
+      bulkSetStatus(v);
+      sel.value = "";
+    });
   }
 
   function bulkClearNew() {
@@ -2865,39 +2894,51 @@
   }
 
   function initKeyboard() {
+    // Capture phase so Ctrl+Shift+S saves instead of Chrome "Save page as".
+    document.addEventListener(
+      "keydown",
+      (event) => {
+        const mod = event.ctrlKey || event.metaKey;
+        if (
+          !mod ||
+          event.altKey ||
+          !(event.code === "KeyS" || (event.key || "").toLowerCase() === "s")
+        ) {
+          return;
+        }
+        event.preventDefault();
+        event.stopPropagation();
+        saveAll();
+      },
+      true,
+    );
+
     document.addEventListener("keydown", (event) => {
       const mod = event.ctrlKey || event.metaKey;
       const typing = isTypingTarget(document.activeElement);
       const dialog = document.getElementById("job-modal");
       const modalOpen = !!(dialog && dialog.open);
 
-      // Save — Ctrl/Cmd+S always; Ctrl/Cmd+Enter: import / save+close dossier
+      // Ctrl/Cmd+Enter: import / save+close dossier (Ctrl+S handled above)
       if (mod && !event.altKey) {
-        const key = (event.key || "").toLowerCase();
         const isEnter = event.key === "Enter" || event.code === "Enter";
-        const isS = key === "s";
-        if (isEnter || isS) {
+        if (isEnter) {
           const formImportOpen =
             !!document.getElementById("form-import-modal")?.open;
-          if (isEnter && formImportOpen) {
+          if (formImportOpen) {
             event.preventDefault();
             handleImportFormRun();
             return;
           }
           const importOpen = !!document.getElementById("import-modal")?.open;
-          if (isEnter && importOpen) {
+          if (importOpen) {
             event.preventDefault();
             handleImportRun();
             return;
           }
-          if (isEnter && modalOpen) {
+          if (modalOpen) {
             event.preventDefault();
             saveAll({ closeModal: true });
-            return;
-          }
-          if (isS) {
-            event.preventDefault();
-            saveAll();
             return;
           }
         }
@@ -3309,15 +3350,7 @@
     document
       .getElementById("job-bulk-deselect")
       ?.addEventListener("click", () => bulkDeselectAll());
-    document
-      .getElementById("job-bulk-saved")
-      ?.addEventListener("click", () => bulkSetStatus("saved"));
-    document
-      .getElementById("job-bulk-watching")
-      ?.addEventListener("click", () => bulkSetStatus("watching"));
-    document
-      .getElementById("job-bulk-excluded")
-      ?.addEventListener("click", () => bulkSetStatus("excluded"));
+    wireBulkStatusSelect();
     document
       .getElementById("job-bulk-clear-new")
       ?.addEventListener("click", () => bulkClearNew());

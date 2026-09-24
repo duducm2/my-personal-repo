@@ -838,6 +838,24 @@
   }
 
   function initKeyboard() {
+    document.addEventListener(
+      "keydown",
+      (event) => {
+        const mod = event.ctrlKey || event.metaKey;
+        if (
+          !mod ||
+          event.altKey ||
+          !(event.code === "KeyS" || (event.key || "").toLowerCase() === "s")
+        ) {
+          return;
+        }
+        event.preventDefault();
+        event.stopPropagation();
+        saveAll();
+      },
+      true,
+    );
+
     document.addEventListener("keydown", (event) => {
       const mod = event.ctrlKey || event.metaKey;
       const typing = isTypingTarget(document.activeElement);
@@ -858,8 +876,7 @@
       }
 
       if (mod && !event.altKey && (event.key || "").toLowerCase() === "s") {
-        event.preventDefault();
-        saveAll();
+        // Handled in capture listener (Ctrl+S / Ctrl+Shift+S).
         return;
       }
 

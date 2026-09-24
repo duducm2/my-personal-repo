@@ -1148,23 +1148,42 @@
   }
 
   function initKeyboard() {
+    document.addEventListener(
+      "keydown",
+      (event) => {
+        const mod = event.ctrlKey || event.metaKey;
+        if (
+          !mod ||
+          event.altKey ||
+          !(event.code === "KeyS" || (event.key || "").toLowerCase() === "s")
+        ) {
+          return;
+        }
+        event.preventDefault();
+        event.stopPropagation();
+        saveAll();
+      },
+      true,
+    );
+
     document.addEventListener("keydown", (event) => {
       const mod = event.ctrlKey || event.metaKey;
       const typing = isTypingTarget(document.activeElement);
       const dialog = document.getElementById("company-modal");
       const modalOpen = !!(dialog && dialog.open);
 
-      if (
-        mod &&
-        !event.altKey &&
-        (event.key === "Enter" || (event.key || "").toLowerCase() === "s")
-      ) {
+      if (mod && !event.altKey && event.key === "Enter") {
         event.preventDefault();
-        if (event.key === "Enter" && modalOpen) {
+        if (modalOpen) {
           saveAll({ closeModal: true });
         } else {
           saveAll();
         }
+        return;
+      }
+
+      if (mod && !event.altKey && (event.key || "").toLowerCase() === "s") {
+        // Handled in capture listener (Ctrl+S / Ctrl+Shift+S).
         return;
       }
 

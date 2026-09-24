@@ -153,15 +153,14 @@
       <button type="button" id="job-bulk-deselect" class="nav-btn">
         Deselect all
       </button>
-      <button type="button" id="job-bulk-saved" class="nav-btn">
-        Mark saved
-      </button>
-      <button type="button" id="job-bulk-watching" class="nav-btn">
-        Mark watching
-      </button>
-      <button type="button" id="job-bulk-excluded" class="nav-btn">
-        Mark excluded
-      </button>
+      <label class="job-bulk-status">
+        <span class="job-bulk-status-label">Set status</span>
+        <select
+          id="job-bulk-status"
+          class="field-input job-bulk-status-select"
+          aria-label="Set status for selected openings"
+        ></select>
+      </label>
       <button type="button" id="job-bulk-clear-new" class="nav-btn">
         Clear new tag
       </button>
