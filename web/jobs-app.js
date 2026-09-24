@@ -1254,9 +1254,7 @@
     if (!row || !row.id) return;
     const parsed = parseApplicationAnswers(row.application_answers);
     const formUrl =
-      cleanUrlValue(row.form_url) ||
-      cleanUrlValue(parsed?.form_url) ||
-      "";
+      cleanUrlValue(row.form_url) || cleanUrlValue(parsed?.form_url) || "";
     const jobUrl = cleanUrlValue(row.job_url);
     const openUrl = formUrl || jobUrl;
     const hasPayload = !!(parsed && parsed.fields && parsed.fields.length);
@@ -1277,7 +1275,12 @@
       if (!res.ok) throw new Error(data.error || res.statusText);
 
       const extId = window.localStorage.getItem("career-autofill-extension-id");
-      if (extId && typeof chrome !== "undefined" && chrome.runtime && chrome.runtime.sendMessage) {
+      if (
+        extId &&
+        typeof chrome !== "undefined" &&
+        chrome.runtime &&
+        chrome.runtime.sendMessage
+      ) {
         try {
           chrome.runtime.sendMessage(extId, {
             type: "OPEN_SIDEPANEL",
@@ -2566,10 +2569,7 @@
     );
     // Prefer explicit dossier form_url, then import modal, then JSON, never invent.
     const formUrl = cleanUrlValue(
-      formUrlInput ||
-        payload.form_url ||
-        row.form_url ||
-        "",
+      formUrlInput || payload.form_url || row.form_url || "",
     );
     const sourceUrl = cleanUrlValue(
       payload.source_url || row.job_url || formUrl || "",
@@ -2730,7 +2730,10 @@
           status.textContent = `Imported ${payload.fields.length} fields.`;
           status.className = "save-status ok";
         }
-        showToast(`Form answers applied (${payload.fields.length} fields)`, 2500);
+        showToast(
+          `Form answers applied (${payload.fields.length} fields)`,
+          2500,
+        );
         const dialog = document.getElementById("form-import-modal");
         if (dialog && dialog.open) dialog.close();
         openModal(row.id);
@@ -3310,8 +3313,26 @@
     parent.append(section);
   }
 
+  function clearOpeningFormAnswers(row, { refresh = true } = {}) {
+    if (!row || !cell(row.application_answers).trim()) return false;
+    row.application_answers = "";
+    setDirty(true);
+    setSaveStatus("");
+    if (refresh && openJobId && cell(openJobId) === cell(row.id)) {
+      fillModal();
+    }
+    return true;
+  }
+
   function openFormPromptModal() {
     fillFormPromptOpeningSelect();
+    const openingId =
+      cell(document.getElementById("form-prompt-opening")?.value) ||
+      cell(openJobId);
+    const row = openings.find((r) => cell(r.id) === openingId);
+    if (clearOpeningFormAnswers(row, { refresh: true })) {
+      showToast("Cleared previous form answers for a fresh prompt", 2200);
+    }
     const dialog = document.getElementById("form-prompt-modal");
     const status = document.getElementById("form-prompt-status");
     cancelFormPromptAutoClose({ keepStatus: true });
@@ -3347,7 +3368,9 @@
             cell(r.id) ===
             cell(document.getElementById("form-prompt-opening")?.value),
         );
-      const parsed = row ? parseApplicationAnswers(row.application_answers) : null;
+      const parsed = row
+        ? parseApplicationAnswers(row.application_answers)
+        : null;
       formUrlEl.value =
         cleanUrlValue(row?.form_url) ||
         cleanUrlValue(parsed?.form_url) ||
@@ -3462,10 +3485,7 @@
     clearBtn.className = "nav-btn";
     clearBtn.textContent = "Clear answers";
     clearBtn.addEventListener("click", () => {
-      row.application_answers = "";
-      setDirty(true);
-      setSaveStatus("");
-      fillModal();
+      clearOpeningFormAnswers(row, { refresh: true });
     });
     const importBtn = document.createElement("button");
     importBtn.type = "button";
@@ -3486,11 +3506,13 @@
       const urls = document.createElement("div");
       urls.className = "job-form-answer-note";
       const parts = [];
-      const formShown = cleanUrlValue(row.form_url) || cleanUrlValue(parsed.form_url);
+      const formShown =
+        cleanUrlValue(row.form_url) || cleanUrlValue(parsed.form_url);
       if (formShown) {
         parts.push(`Form page: ${formShown}`);
       }
-      const srcShown = cleanUrlValue(parsed.source_url) || cleanUrlValue(row.job_url);
+      const srcShown =
+        cleanUrlValue(parsed.source_url) || cleanUrlValue(row.job_url);
       if (srcShown && srcShown !== formShown) {
         parts.push(`Source page: ${srcShown}`);
       }
