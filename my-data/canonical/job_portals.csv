@@ -33,7 +33,7 @@ bosch-etas,46,,international,ETAS Careers,https://etas.com/careers,proprietary,,
 bosch-rexroth,47,,international,Bosch Rexroth Jobs,https://www.boschrexroth.com/en/us/jobs-and-career/job-opportunities/,proprietary,,,da;po;dsa,Bosch group affiliate careers watch page.
 bosch-research,48,,international,Bosch Research,https://bosch.com/research,proprietary,,,da;po;dsa,Bosch group research / careers watch page.
 bosch-brasil-careers,49,,brazil,Bosch Brasil Carreiras,https://bosch.com.br/carreiras,proprietary,,,da;po;dsa,Bosch Brasil careers watch page.
-portal-1790122112028,50,,brazil,Bosch Smart Recruters ⭐,https://careers.smartrecruiters.com/BoschGroup/brazil,third_party,,,da;po;dsa,
+portal-1790122112028,50,1,brazil,Bosch Smart Recruters ⭐,https://careers.smartrecruiters.com/BoschGroup/brazil,third_party,,,da;po;dsa,
 cnpem,51,,brazil,CNPEM (Gupy),https://cnpem.gupy.io/,third_party,Gupy,https://cnpem.gupy.io/,da;dsa,CNPEM - Brazilian Center for Research in Energy and Materials (Campinas). National labs + Sirius; tech/software/automation specialist openings.
 kryptus,52,,brazil,Kryptus (Gupy),https://kryptus.gupy.io/,third_party,Gupy,https://kryptus.gupy.io/,da;po;dsa,Campinas-rooted cybersecurity / cryptography multinational.
 huawei-careers,53,,brazil,Huawei Careers,https://career.huawei.com/reccampportal/la/index.html,proprietary,,,da;dsa,Huawei LatAm careers portal (career.huawei.com SSL chain often fails automated audits; opens in Chrome). Filter Brazil / Campinas. Techno Park training footprint.

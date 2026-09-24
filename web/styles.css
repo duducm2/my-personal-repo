@@ -1677,18 +1677,41 @@ body.lang-en .field-row {
 }
 
 .pin-btn:hover {
-  border-color: var(--ink, #222);
+  border-color: color-mix(in srgb, var(--gold) 55%, var(--line));
 }
 
 .pin-btn.is-on {
-  border-color: var(--accent, #2a6f97);
-  background: color-mix(in srgb, var(--accent, #2a6f97) 14%, transparent);
-  font-weight: 600;
+  border-color: color-mix(in srgb, var(--gold) 70%, var(--line));
+  background: color-mix(in srgb, var(--gold) 22%, var(--panel));
+  color: var(--gold);
+  font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
 .company-tile.is-pinned {
-  box-shadow: inset 0 0 0 1px
-    color-mix(in srgb, var(--accent, #2a6f97) 40%, transparent);
+  position: relative;
+  border-color: color-mix(in srgb, var(--gold) 55%, var(--line));
+  background: color-mix(in srgb, var(--gold) 9%, var(--panel));
+  box-shadow:
+    inset 3px 0 0 var(--gold),
+    inset 0 0 0 1px color-mix(in srgb, var(--gold) 28%, transparent);
+}
+
+.company-tile.is-pinned .company-tile-title {
+  color: color-mix(in srgb, var(--gold) 35%, var(--text));
+}
+
+.company-tile.is-pinned:hover {
+  border-color: color-mix(in srgb, var(--gold) 75%, var(--line));
+  background: color-mix(in srgb, var(--gold) 14%, var(--panel));
+}
+
+.company-tile.is-pinned:focus-visible,
+.company-tile.is-pinned.is-active {
+  border-color: var(--gold);
+  box-shadow:
+    inset 3px 0 0 var(--gold),
+    inset 0 0 0 1px color-mix(in srgb, var(--gold) 45%, transparent);
 }
 
 .company-modal-pin {
