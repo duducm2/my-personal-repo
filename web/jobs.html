@@ -542,15 +542,31 @@
           <p class="job-modal-hint">
             Paste the JSON object returned by your AI companion. A successful
             import fills this opening’s Application form answers panel and saves
-            automatically.
+            automatically. The Chrome extension matches
+            <strong>form URL</strong> to fill that page.
           </p>
+          <label class="company-edit-field">
+            <span class="company-research-label"
+              >Form page URL (application form)</span
+            >
+            <input
+              id="form-import-form-url"
+              class="field-input"
+              type="url"
+              placeholder="https://job-boards.greenhouse.io/…/jobs/…"
+            />
+            <span class="job-modal-hint" style="margin-top: 4px"
+              >URL of the page you will autofill. Distinct from the job posting
+              source URL when they differ.</span
+            >
+          </label>
           <label class="company-edit-field">
             <span class="company-research-label">AI output (JSON)</span>
             <textarea
               id="form-import-raw"
               class="field-input tall"
               rows="14"
-              placeholder='{"opening_id":"…","fields":[{"key":"first_name","label":"Nome","value":"…"}]}'
+              placeholder='{"opening_id":"…","form_url":"https://…","fields":[{"key":"first_name","label":"Nome","value":"…"}]}'
             ></textarea>
           </label>
           <div class="job-modal-actions">

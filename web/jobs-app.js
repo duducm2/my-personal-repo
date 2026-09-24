@@ -2089,6 +2089,9 @@
       return {
         opening_id: cell(data.opening_id),
         recommended_resume: cell(data.recommended_resume),
+        form_url: cell(data.form_url),
+        source_url: cell(data.source_url),
+        imported_at: cell(data.imported_at),
         fields: fields
           .filter((f) => f && typeof f === "object")
           .map((f) => ({
@@ -2207,9 +2210,13 @@
       '    { "opening_id": "' +
         openingId +
         '", "recommended_resume": "<one of the variants>",',
+      '      "form_url": "<exact URL of the application form page>",',
+      '      "source_url": "<job posting URL if different>",',
       '      "fields": [ { "key", "label", "value", "source", "note?" } ] }',
       "12. Include every visible form field. Use empty value when unknown.",
       "13. opening_id must equal the selected opening id provided above.",
+      "14. form_url must be the page you extracted (application form). source_url",
+      "    is the main job posting URL when it differs from the form page.",
     ].join("\n");
   }
 
@@ -2447,6 +2454,9 @@
     return {
       opening_id: cell(data.opening_id),
       recommended_resume: cell(data.recommended_resume),
+      form_url: cell(data.form_url),
+      source_url: cell(data.source_url),
+      imported_at: cell(data.imported_at),
       fields,
     };
   }
@@ -2476,9 +2486,29 @@
       }
       row.recommended_resume = resume;
     }
+
+    const formUrlInput = cell(
+      document.getElementById("form-import-form-url")?.value,
+    );
+    const formUrl =
+      cell(payload.form_url) || formUrlInput || cell(row.job_url) || "";
+    const sourceUrl =
+      cell(payload.source_url) || cell(row.job_url) || formUrl || "";
+    if (!formUrl) {
+      throw new Error(
+        "form_url required — paste the application form page URL in the import modal (or include form_url in the JSON).",
+      );
+    }
+
+    const importedAt =
+      cell(payload.imported_at) || new Date().toISOString().slice(0, 19);
+
     row.application_answers = JSON.stringify({
       opening_id: cell(row.id),
       recommended_resume: cell(row.recommended_resume),
+      form_url: formUrl,
+      source_url: sourceUrl,
+      imported_at: importedAt,
       fields: payload.fields,
     });
     collections.jobOpenings = openings;
@@ -2491,6 +2521,8 @@
       opening_id:
         openJobId || "bosch-brasil-mid-level-digital-solution-architect-33992",
       recommended_resume: "digital-solution-architect",
+      form_url: "https://example.com/jobs/123/apply",
+      source_url: "https://example.com/jobs/123",
       fields: [
         {
           key: "first_name",
@@ -2533,7 +2565,9 @@
       '- Shape: { "opening_id": string, "recommended_resume": one of ' +
         RESUME_OPTIONS.join(" | ") +
         ",",
+      '  "form_url": string, "source_url"?: string,',
       '  "fields": [ { "key", "label", "value", "source", "note?" } ] }',
+      "- form_url is the application form page URL the Chrome extension will match.",
       "- Use empty strings for unknown values. Never invent email/phone.",
       "",
       "EXAMPLE",
@@ -3217,9 +3251,22 @@
     const dialog = document.getElementById("form-import-modal");
     const status = document.getElementById("form-import-status");
     const rawEl = document.getElementById("form-import-raw");
+    const formUrlEl = document.getElementById("form-import-form-url");
     if (status) {
       status.textContent = "";
       status.className = "save-status";
+    }
+    if (formUrlEl) {
+      const row =
+        openings.find((r) => cell(r.id) === openJobId) ||
+        openings.find(
+          (r) =>
+            cell(r.id) ===
+            cell(document.getElementById("form-prompt-opening")?.value),
+        );
+      const parsed = row ? parseApplicationAnswers(row.application_answers) : null;
+      formUrlEl.value =
+        cell(parsed?.form_url) || cell(row?.job_url) || formUrlEl.value || "";
     }
     if (dialog && typeof dialog.showModal === "function" && !dialog.open) {
       dialog.showModal();
