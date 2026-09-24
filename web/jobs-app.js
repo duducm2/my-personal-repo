@@ -56,6 +56,7 @@
     "role_title",
     "career_path",
     "job_url",
+    "form_url",
     "status",
     "priority",
     "work_mode",
@@ -1092,8 +1093,8 @@
     const urlBlock = document.createElement("div");
     urlBlock.className = "job-url-block";
     const urlField = fieldBlock(
-      "Job URL (paste direct posting link)",
-      textInput(row, "job_url", { placeholder: "https://…" }),
+      "Job posting URL (source page)",
+      textInput(row, "job_url", { placeholder: "https://…/jobs/…" }),
     );
     urlBlock.append(urlField);
     if (cell(row.job_url)) {
@@ -1105,6 +1106,27 @@
       link.textContent = "Open posting →";
       urlBlock.append(link);
     }
+    const formUrlField = fieldBlock(
+      "Application form URL (autofill target — may differ / change)",
+      textInput(row, "form_url", {
+        placeholder: "https://…/apply or …/jobs/…#app",
+      }),
+    );
+    urlBlock.append(formUrlField);
+    if (cell(row.form_url)) {
+      const formLink = document.createElement("a");
+      formLink.className = "company-result-link";
+      formLink.href = cell(row.form_url);
+      formLink.target = "_blank";
+      formLink.rel = "noopener noreferrer";
+      formLink.textContent = "Open form →";
+      urlBlock.append(formLink);
+    }
+    const urlHint = document.createElement("p");
+    urlHint.className = "job-modal-hint";
+    urlHint.textContent =
+      "The Chrome extension matches the application form URL, not the posting URL. Update form URL whenever the ATS redirects or the apply link changes.";
+    urlBlock.append(urlHint);
     body.append(urlBlock);
 
     body.append(
@@ -1214,11 +1236,28 @@
     body.append(actions);
   }
 
+  function cleanUrlValue(raw) {
+    let u = cell(raw).trim();
+    if (!u) return "";
+    const md = u.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    if (md) {
+      const a = md[1].trim();
+      const b = md[2].trim();
+      if (/^https?:\/\//i.test(a)) return a;
+      if (/^https?:\/\//i.test(b) && !/google\.com\/search/i.test(b)) return b;
+    }
+    const found = u.match(/https?:\/\/[^\s\]\)"'<>]+/i);
+    return found ? found[0].replace(/[.,);'"]+$/, "") : u;
+  }
+
   async function startAutofillForOpening(row) {
     if (!row || !row.id) return;
     const parsed = parseApplicationAnswers(row.application_answers);
-    const formUrl = cell(parsed?.form_url).trim();
-    const jobUrl = cell(row.job_url).trim();
+    const formUrl =
+      cleanUrlValue(row.form_url) ||
+      cleanUrlValue(parsed?.form_url) ||
+      "";
+    const jobUrl = cleanUrlValue(row.job_url);
     const openUrl = formUrl || jobUrl;
     const hasPayload = !!(parsed && parsed.fields && parsed.fields.length);
     try {
@@ -1275,22 +1314,18 @@
           "",
           formUrl
             ? `Form page: ${formUrl}`
-            : jobUrl
-              ? `Source page: ${jobUrl}`
-              : "No form/source URL set.",
-          jobUrl && formUrl && jobUrl !== formUrl
-            ? `Source page: ${jobUrl}`
-            : "",
+            : "No application form URL set — edit “Application form URL” on this dossier.",
+          jobUrl && jobUrl !== formUrl ? `Source page: ${jobUrl}` : "",
           "",
           hasPayload
             ? [
-                "1) Confirm the form tab is open.",
+                "1) Confirm the form tab is open (must match Application form URL).",
                 "2) Open Career Cockpit Autofill → side panel.",
-                "3) Click Fill this page (payload must match this URL).",
+                "3) Click Fill this page.",
               ].join("\n")
             : [
-                "1) Generate form prompt (paste ATS page text).",
-                "2) Paste AI JSON via Import form JSON (set form URL).",
+                "1) Set Application form URL on this dossier.",
+                "2) Generate form prompt → Import form JSON.",
                 "3) Then click Fill with extension again.",
               ].join("\n"),
           "",
@@ -1346,6 +1381,7 @@
       role_title: "",
       career_path: "other",
       job_url: "",
+      form_url: "",
       status: "watching",
       priority: "medium",
       work_mode: "unknown",
@@ -1881,6 +1917,7 @@
       role_title: "Data Analyst",
       career_path: "da",
       job_url: "",
+      form_url: "",
       status: "saved",
       priority: "medium",
       work_mode: "hybrid",
@@ -2298,6 +2335,7 @@
     lines.push(`career_path: ${cell(opening.career_path)}`);
     lines.push(`location: ${cell(opening.location)}`);
     lines.push(`job_url: ${cell(opening.job_url)}`);
+    lines.push(`form_url: ${cell(opening.form_url)}`);
     lines.push(
       `recommended_resume (current): ${cell(opening.recommended_resume) || "(none)"}`,
     );
@@ -2526,15 +2564,23 @@
     const formUrlInput = cell(
       document.getElementById("form-import-form-url")?.value,
     );
-    const formUrl =
-      cell(payload.form_url) || formUrlInput || cell(row.job_url) || "";
-    const sourceUrl =
-      cell(payload.source_url) || cell(row.job_url) || formUrl || "";
+    // Prefer explicit dossier form_url, then import modal, then JSON, never invent.
+    const formUrl = cleanUrlValue(
+      formUrlInput ||
+        payload.form_url ||
+        row.form_url ||
+        "",
+    );
+    const sourceUrl = cleanUrlValue(
+      payload.source_url || row.job_url || formUrl || "",
+    );
     if (!formUrl) {
       throw new Error(
-        "form_url required — paste the application form page URL in the import modal (or include form_url in the JSON).",
+        "Application form URL required — set it on the dossier or in the import modal (field “Form page URL”).",
       );
     }
+    // Persist on the opening so autofill matches this URL even if JSON is re-imported later.
+    row.form_url = formUrl;
 
     const importedAt =
       cell(payload.imported_at) || new Date().toISOString().slice(0, 19);
@@ -2899,6 +2945,7 @@
     lines.push(`career_path: ${cell(opening.career_path)}`);
     lines.push(`location: ${cell(opening.location)}`);
     lines.push(`job_url: ${cell(opening.job_url)}`);
+    lines.push(`form_url: ${cell(opening.form_url)}`);
     lines.push(`skills_gap: ${cell(opening.skills_gap)}`);
     lines.push("");
     lines.push("=== JOB / PROJECT DESCRIPTION ===");
@@ -3302,7 +3349,10 @@
         );
       const parsed = row ? parseApplicationAnswers(row.application_answers) : null;
       formUrlEl.value =
-        cell(parsed?.form_url) || cell(row?.job_url) || formUrlEl.value || "";
+        cleanUrlValue(row?.form_url) ||
+        cleanUrlValue(parsed?.form_url) ||
+        formUrlEl.value ||
+        "";
     }
     if (dialog && typeof dialog.showModal === "function" && !dialog.open) {
       dialog.showModal();
@@ -3432,15 +3482,17 @@
     head.append(importBtn, fillExt, clearBtn);
     section.append(head);
 
-    if (parsed.form_url || parsed.source_url) {
+    if (cell(row.form_url) || parsed.form_url || parsed.source_url) {
       const urls = document.createElement("div");
       urls.className = "job-form-answer-note";
       const parts = [];
-      if (parsed.form_url) {
-        parts.push(`Form page: ${parsed.form_url}`);
+      const formShown = cleanUrlValue(row.form_url) || cleanUrlValue(parsed.form_url);
+      if (formShown) {
+        parts.push(`Form page: ${formShown}`);
       }
-      if (parsed.source_url && parsed.source_url !== parsed.form_url) {
-        parts.push(`Source page: ${parsed.source_url}`);
+      const srcShown = cleanUrlValue(parsed.source_url) || cleanUrlValue(row.job_url);
+      if (srcShown && srcShown !== formShown) {
+        parts.push(`Source page: ${srcShown}`);
       }
       if (parsed.imported_at) {
         parts.push(`Imported: ${parsed.imported_at}`);

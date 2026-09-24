@@ -315,7 +315,8 @@ def resolve_download(variant: str, filename: str) -> Path | None:
 
 def _safe_opening_id(opening_id: str) -> str:
     cleaned = "".join(
-        ch if ch.isalnum() or ch in ("-", "_") else "-" for ch in (opening_id or "").strip()
+        ch if ch.isalnum() or ch in ("-", "_") else "-"
+        for ch in (opening_id or "").strip()
     )
     cleaned = cleaned.strip("-_") or "opening"
     return cleaned[:80]
@@ -345,9 +346,7 @@ def build_cover_letter_pdf(payload: dict[str, Any]) -> dict[str, Any]:
     ).strip()
     phone = str(payload.get("phone") or profile.get("phone") or "").strip()
     email = str(payload.get("email") or profile.get("email") or "").strip()
-    linkedin = str(
-        payload.get("linkedin") or profile.get("linkedin_url") or ""
-    ).strip()
+    linkedin = str(payload.get("linkedin") or profile.get("linkedin_url") or "").strip()
     location = str(
         payload.get("location")
         or (profile.get("location_pt") if lang == "pt" else profile.get("location_en"))
@@ -479,9 +478,12 @@ def write_ai_fix_document(kind: str, content: str) -> dict[str, Any]:
     text = str(content or "").strip()
     if not text:
         raise ValueError("content required")
-    safe_kind = "".join(
-        ch if ch.isalnum() or ch in ("-", "_") else "-" for ch in (kind or "fix")
-    ).strip("-") or "fix"
+    safe_kind = (
+        "".join(
+            ch if ch.isalnum() or ch in ("-", "_") else "-" for ch in (kind or "fix")
+        ).strip("-")
+        or "fix"
+    )
     stamp = __import__("datetime").datetime.now().strftime("%Y%m%d-%H%M%S")
     desktop = _desktop_dir()
     path = desktop / f"AI-fix-{safe_kind}-{stamp}.md"
@@ -600,9 +602,7 @@ class CareerHandler(BaseHTTPRequestHandler):
                     self._json(400, {"ok": False, "error": "url or job_id required"})
                     return
                 collections = self.store.load_all()
-                result = find_payload_by_url(
-                    collections, url=url, job_id=job_id
-                )
+                result = find_payload_by_url(collections, url=url, job_id=job_id)
                 self._json(200, result)
                 return
             if path.startswith("/download/"):
@@ -722,15 +722,53 @@ class CareerHandler(BaseHTTPRequestHandler):
                 payload = {
                     "job_id": job_id,
                     "job_url": str(body.get("job_url") or ""),
+                    "form_url": str(body.get("form_url") or ""),
                     "role_title": str(body.get("role_title") or ""),
                     "company": str(body.get("company") or ""),
-                    "set_at": __import__("datetime").datetime.now().isoformat(timespec="seconds"),
+                    "set_at": __import__("datetime")
+                    .datetime.now()
+                    .isoformat(timespec="seconds"),
                 }
                 AUTOFILL_PENDING_PATH.write_text(
                     json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
                     encoding="utf-8",
                 )
                 self._json(200, {"ok": True, "pending": payload})
+                return
+            if path == "/api/autofill/capture-page":
+                body = self._read_json()
+                if not isinstance(body, dict):
+                    raise ValueError("JSON object required")
+                job_id = str(body.get("job_id") or "").strip()
+                raw = str(body.get("raw") or "").strip()
+                form_url = str(body.get("form_url") or body.get("url") or "").strip()
+                if not job_id:
+                    raise ValueError("job_id required")
+                if not raw:
+                    raise ValueError("raw page capture required")
+                collections = self.store.load_all()
+                openings = collections.get("jobOpenings") or []
+                row = next(
+                    (r for r in openings if str(r.get("id") or "") == job_id),
+                    None,
+                )
+                if row is None:
+                    raise ValueError(f"opening not found: {job_id}")
+                row["application_form_raw"] = raw
+                if form_url:
+                    row["form_url"] = form_url
+                # Persist via store
+                result = self.store.save_all(collections)
+                self._json(
+                    200,
+                    {
+                        "ok": True,
+                        "job_id": job_id,
+                        "form_url": row.get("form_url") or "",
+                        "raw_chars": len(raw),
+                        "saved": result,
+                    },
+                )
                 return
             if path != "/api/open-url":
                 self._json(404, {"ok": False, "error": "not found"})

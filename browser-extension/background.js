@@ -6,22 +6,36 @@
 const DEFAULT_COCKPIT = "http://127.0.0.1:8770";
 
 chrome.runtime.onInstalled.addListener(() => {
-  chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: false }).catch(() => {});
+  chrome.sidePanel
+    .setPanelBehavior({ openPanelOnActionClick: false })
+    .catch(() => {});
 });
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   handleMessage(message, sender)
     .then(sendResponse)
-    .catch((err) => sendResponse({ ok: false, error: String(err && err.message ? err.message : err) }));
+    .catch((err) =>
+      sendResponse({
+        ok: false,
+        error: String(err && err.message ? err.message : err),
+      }),
+    );
   return true;
 });
 
-chrome.runtime.onMessageExternal.addListener((message, _sender, sendResponse) => {
-  handleMessage(message, null)
-    .then(sendResponse)
-    .catch((err) => sendResponse({ ok: false, error: String(err && err.message ? err.message : err) }));
-  return true;
-});
+chrome.runtime.onMessageExternal.addListener(
+  (message, _sender, sendResponse) => {
+    handleMessage(message, null)
+      .then(sendResponse)
+      .catch((err) =>
+        sendResponse({
+          ok: false,
+          error: String(err && err.message ? err.message : err),
+        }),
+      );
+    return true;
+  },
+);
 
 async function handleMessage(message, sender) {
   if (!message || !message.type) {
@@ -50,8 +64,17 @@ async function handleMessage(message, sender) {
       if (!tab || tab.id == null) {
         return { ok: false, error: "No active tab" };
       }
-      if (tab.url && (tab.url.startsWith("chrome://") || tab.url.startsWith("chrome-extension://") || tab.url.startsWith("edge://"))) {
-        return { ok: false, error: "Cannot autofill browser internal pages. Open a job application form first." };
+      if (
+        tab.url &&
+        (tab.url.startsWith("chrome://") ||
+          tab.url.startsWith("chrome-extension://") ||
+          tab.url.startsWith("edge://"))
+      ) {
+        return {
+          ok: false,
+          error:
+            "Cannot autofill browser internal pages. Open a job application form first.",
+        };
       }
       await ensureContentScripts(tab.id);
       const result = await chrome.tabs.sendMessage(tab.id, {
@@ -74,6 +97,28 @@ async function handleMessage(message, sender) {
       return chrome.tabs.sendMessage(tab.id, { type: "DETECT_FIELDS" });
     }
 
+    case "CAPTURE_PAGE": {
+      const tab = message.tabId
+        ? await chrome.tabs.get(message.tabId)
+        : await getActiveTab();
+      if (!tab || tab.id == null) {
+        return { ok: false, error: "No active tab" };
+      }
+      if (
+        tab.url &&
+        (tab.url.startsWith("chrome://") ||
+          tab.url.startsWith("chrome-extension://") ||
+          tab.url.startsWith("edge://"))
+      ) {
+        return { ok: false, error: "Cannot capture browser internal pages." };
+      }
+      await ensureContentScripts(tab.id);
+      return chrome.tabs.sendMessage(tab.id, {
+        type: "CAPTURE_PAGE",
+        includeHtml: message.includeHtml !== false,
+      });
+    }
+
     case "PING_CONTENT": {
       const tab = await getActiveTab();
       if (!tab || tab.id == null) return { ok: false, error: "No active tab" };
@@ -81,7 +126,10 @@ async function handleMessage(message, sender) {
         await ensureContentScripts(tab.id);
         return await chrome.tabs.sendMessage(tab.id, { type: "PING" });
       } catch (err) {
-        return { ok: false, error: String(err && err.message ? err.message : err) };
+        return {
+          ok: false,
+          error: String(err && err.message ? err.message : err),
+        };
       }
     }
 
@@ -93,15 +141,24 @@ async function handleMessage(message, sender) {
     }
 
     case "API_FETCH": {
-      const cockpitUrl = (message.cockpitUrl || DEFAULT_COCKPIT).replace(/\/$/, "");
+      const cockpitUrl = (message.cockpitUrl || DEFAULT_COCKPIT).replace(
+        /\/$/,
+        "",
+      );
       const path = message.path || "/";
       const url = `${cockpitUrl}${path.startsWith("/") ? path : `/${path}`}`;
       const init = {
         method: message.method || "GET",
-        headers: { "Content-Type": "application/json", ...(message.headers || {}) },
+        headers: {
+          "Content-Type": "application/json",
+          ...(message.headers || {}),
+        },
       };
       if (message.body != null && init.method !== "GET") {
-        init.body = typeof message.body === "string" ? message.body : JSON.stringify(message.body);
+        init.body =
+          typeof message.body === "string"
+            ? message.body
+            : JSON.stringify(message.body);
       }
       const res = await fetch(url, init);
       const text = await res.text();
@@ -112,13 +169,22 @@ async function handleMessage(message, sender) {
         data = { raw: text };
       }
       if (!res.ok) {
-        return { ok: false, status: res.status, error: (data && data.error) || text || res.statusText, data };
+        return {
+          ok: false,
+          status: res.status,
+          error: (data && data.error) || text || res.statusText,
+          data,
+        };
       }
       return { ok: true, status: res.status, data };
     }
 
     case "FROM_CONTENT":
-      return { ok: true, received: true, fromTab: sender && sender.tab ? sender.tab.id : null };
+      return {
+        ok: true,
+        received: true,
+        fromTab: sender && sender.tab ? sender.tab.id : null,
+      };
 
     default:
       return { ok: false, error: `Unknown message type: ${message.type}` };

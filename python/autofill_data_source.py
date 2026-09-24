@@ -308,7 +308,9 @@ def list_autofill_jobs(collections: dict[str, list[dict[str, Any]]]) -> list[dic
                 "role_title": _cell(row, "role_title"),
                 "status": _cell(row, "status"),
                 "job_url": _cell(row, "job_url"),
-                "form_url": (payload or {}).get("form_url") or "",
+                "form_url": _cell(row, "form_url")
+                or (payload or {}).get("form_url")
+                or "",
                 "has_payload": "1" if payload and payload.get("fields") else "0",
                 "field_count": str(len((payload or {}).get("fields") or [])),
                 "recommended_resume": _cell(row, "recommended_resume"),
@@ -421,10 +423,12 @@ def find_payload_by_url(
             },
             "payload": payload,
             "field_count": len(payload.get("fields") or []),
-            "form_url": payload.get("form_url") or "",
+            "form_url": payload.get("form_url") or _cell(row, "form_url") or "",
             "source_url": payload.get("source_url") or _cell(row, "job_url"),
             "url_matches_form": bool(
-                payload.get("form_url") and url_key(payload["form_url"]) == target
+                url_key(payload.get("form_url") or _cell(row, "form_url") or "")
+                == target
+                and target
             ),
             "url_matches_job": bool(
                 _cell(row, "job_url") and url_key(_cell(row, "job_url")) == target
@@ -437,13 +441,19 @@ def find_payload_by_url(
         payload = parse_application_answers(_cell(row, "application_answers"))
         if not payload or not payload.get("fields"):
             continue
-        form_k = url_key(payload.get("form_url") or "")
+        # Prefer first-class form_url column; fall back to payload metadata.
+        form_candidate = _cell(row, "form_url") or (payload.get("form_url") or "")
+        form_k = url_key(form_candidate)
         job_k = url_key(_cell(row, "job_url"))
         if target and form_k and form_k == target:
+            # Ensure payload carries the authoritative form_url for the client.
+            payload = {**payload, "form_url": form_candidate}
             candidates.append((0, "form_url", row, payload))
         elif target and job_k and job_k == target:
+            payload = {**payload, "form_url": form_candidate or _cell(row, "job_url")}
             candidates.append((1, "job_url", row, payload))
         elif preferred and _cell(row, "id") == _cell(preferred, "id"):
+            payload = {**payload, "form_url": form_candidate}
             candidates.append((2, "job_id", row, payload))
 
     if preferred and not candidates:
@@ -468,7 +478,9 @@ def find_payload_by_url(
                 "company": _cell(row, "company"),
                 "role_title": _cell(row, "role_title"),
                 "job_url": _cell(row, "job_url"),
-                "form_url": (payload or {}).get("form_url") or "",
+                "form_url": _cell(row, "form_url")
+                or (payload or {}).get("form_url")
+                or "",
                 "has_payload": bool(payload and payload.get("fields")),
                 "field_count": len((payload or {}).get("fields") or []),
             }

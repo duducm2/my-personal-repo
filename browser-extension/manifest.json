@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Career Cockpit Autofill",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Autofill any job application form from your local Career Cockpit profile data.",
   "permissions": ["activeTab", "sidePanel", "storage", "scripting"],
   "host_permissions": [

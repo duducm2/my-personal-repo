@@ -17,7 +17,11 @@
   function visible(el) {
     if (!el || el.disabled) return false;
     const style = window.getComputedStyle(el);
-    if (style.display === "none" || style.visibility === "hidden" || style.opacity === "0") {
+    if (
+      style.display === "none" ||
+      style.visibility === "hidden" ||
+      style.opacity === "0"
+    ) {
       return false;
     }
     const rect = el.getBoundingClientRect();
@@ -52,14 +56,19 @@
 
     // Greenhouse / common ATS: label sibling or previous sibling
     const prev = el.previousElementSibling;
-    if (prev && (prev.tagName === "LABEL" || prev.classList.contains("label"))) {
+    if (
+      prev &&
+      (prev.tagName === "LABEL" || prev.classList.contains("label"))
+    ) {
       return textOf(prev);
     }
 
     // Parent container with a label-like child
     const parent = el.parentElement;
     if (parent) {
-      const lab = parent.querySelector(":scope > label, :scope > .label, :scope > span.label");
+      const lab = parent.querySelector(
+        ":scope > label, :scope > .label, :scope > span.label",
+      );
       if (lab) return textOf(lab);
     }
 
@@ -71,7 +80,9 @@
     let node = el.parentElement;
     let depth = 0;
     while (node && depth < 4) {
-      const heading = node.querySelector("h1,h2,h3,h4,legend,.section-header,.application-question");
+      const heading = node.querySelector(
+        "h1,h2,h3,h4,legend,.section-header,.application-question",
+      );
       if (heading) bits.push(textOf(heading));
       if (node.tagName === "FIELDSET") {
         const leg = node.querySelector("legend");
@@ -85,18 +96,30 @@
   }
 
   function fieldType(el) {
+    const role = (el.getAttribute("role") || "").toLowerCase();
+    if (role === "combobox") return "combobox";
+    if (role === "listbox") return "listbox";
+    if (role === "textbox" && el.getAttribute("contenteditable") === "true") {
+      return "contenteditable";
+    }
+
     const tag = el.tagName.toLowerCase();
     if (tag === "textarea") return "textarea";
     if (tag === "select") return "select";
     if (tag === "input") {
+      // Greenhouse / react-select: text input that is actually a combobox
+      if (
+        el.classList.contains("select__input") ||
+        el.closest(".select__control, .select-shell, [class*='react-select']")
+      ) {
+        return "combobox";
+      }
       const t = (el.getAttribute("type") || "text").toLowerCase();
       if (t === "checkbox") return "checkbox";
       if (t === "radio") return "radio";
       return t;
     }
     if (el.getAttribute("contenteditable") === "true") return "contenteditable";
-    if (el.getAttribute("role") === "combobox") return "combobox";
-    if (el.getAttribute("role") === "listbox") return "listbox";
     return tag;
   }
 
@@ -109,8 +132,11 @@
   }
 
   function radioGroupOptions(el) {
-    if ((el.getAttribute("type") || "").toLowerCase() !== "radio" || !el.name) return [];
-    const radios = document.querySelectorAll(`input[type="radio"][name="${CSS.escape(el.name)}"]`);
+    if ((el.getAttribute("type") || "").toLowerCase() !== "radio" || !el.name)
+      return [];
+    const radios = document.querySelectorAll(
+      `input[type="radio"][name="${CSS.escape(el.name)}"]`,
+    );
     return Array.from(radios).map((r) => ({
       value: r.value,
       label: labelFor(r) || r.value,
@@ -126,7 +152,7 @@
   function detectFields(root) {
     const scope = root || document;
     const candidates = scope.querySelectorAll(
-      "input, textarea, select, [contenteditable='true'], [role='combobox'], [role='textbox']"
+      "input, textarea, select, [contenteditable='true'], [role='combobox'], [role='textbox']",
     );
 
     const fields = [];
@@ -158,10 +184,23 @@
         label: labelFor(el),
         nearby: nearbyText(el),
         required: el.required || el.getAttribute("aria-required") === "true",
-        value: type === "checkbox" || type === "radio" ? "" : String(el.value || "").slice(0, 200),
-        options: type === "select" ? selectOptions(el) : type === "radio" ? radioGroupOptions(el) : [],
+        value:
+          type === "checkbox" || type === "radio"
+            ? ""
+            : String(el.value || "").slice(0, 200),
+        options:
+          type === "select"
+            ? selectOptions(el)
+            : type === "radio"
+              ? radioGroupOptions(el)
+              : [],
         checked: type === "checkbox" ? !!el.checked : undefined,
-        rect: { top: Math.round(rect.top + window.scrollY), left: Math.round(rect.left), width: Math.round(rect.width), height: Math.round(rect.height) },
+        rect: {
+          top: Math.round(rect.top + window.scrollY),
+          left: Math.round(rect.left),
+          width: Math.round(rect.width),
+          height: Math.round(rect.height),
+        },
       };
       fields.push(field);
       index += 1;
@@ -189,12 +228,18 @@
       if (byId) return byId;
     }
     if (field.name) {
-      const nodes = document.querySelectorAll(`[name="${CSS.escape(field.name)}"]`);
+      const nodes = document.querySelectorAll(
+        `[name="${CSS.escape(field.name)}"]`,
+      );
       if (nodes.length === 1) return nodes[0];
       if (field.type === "radio" && nodes.length) return nodes[0];
       if (field.type && nodes.length) {
         for (const n of nodes) {
-          if ((n.getAttribute("type") || n.tagName.toLowerCase()) === field.type || n.tagName.toLowerCase() === field.tag) {
+          if (
+            (n.getAttribute("type") || n.tagName.toLowerCase()) ===
+              field.type ||
+            n.tagName.toLowerCase() === field.tag
+          ) {
             return n;
           }
         }

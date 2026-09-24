@@ -12,7 +12,10 @@
     handle(message)
       .then(sendResponse)
       .catch((err) =>
-        sendResponse({ ok: false, error: String(err && err.message ? err.message : err) })
+        sendResponse({
+          ok: false,
+          error: String(err && err.message ? err.message : err),
+        }),
       );
     return true;
   });
@@ -27,6 +30,10 @@
     if (message.type === "DETECT_FIELDS") {
       const snap = window.CareerAutofillDetector.detectFields();
       return { ok: true, snapshot: snap };
+    }
+
+    if (message.type === "CAPTURE_PAGE") {
+      return capturePageForAi(message);
     }
 
     if (message.type === "AUTOFILL_START") {
@@ -58,6 +65,111 @@
     return res.data;
   }
 
+  function capturePageForAi(message) {
+    const includeHtml = !(message && message.includeHtml === false);
+    const Detector = window.CareerAutofillDetector;
+    const snapshot = Detector
+      ? Detector.detectFields()
+      : { fields: [], fieldCount: 0 };
+    const text = (
+      document.body && document.body.innerText ? document.body.innerText : ""
+    )
+      .replace(/\r\n/g, "\n")
+      .replace(/[ \t]+\n/g, "\n")
+      .replace(/\n{3,}/g, "\n\n")
+      .trim();
+
+    const digestLines = [];
+    for (const f of snapshot.fields || []) {
+      const bits = [
+        `[${f.type || f.tag}]`,
+        f.label || f.placeholder || f.name || f.id || "(unlabeled)",
+      ];
+      if (f.required) bits.push("REQUIRED");
+      if (f.name) bits.push(`name=${f.name}`);
+      if (f.id) bits.push(`id=${f.id}`);
+      if (f.autocomplete) bits.push(`autocomplete=${f.autocomplete}`);
+      if (f.options && f.options.length) {
+        const opts = f.options
+          .slice(0, 20)
+          .map((o) => o.label || o.value)
+          .filter(Boolean)
+          .join(" | ");
+        if (opts) bits.push(`options: ${opts}`);
+      }
+      digestLines.push(`- ${bits.join(" · ")}`);
+    }
+
+    let formHtml = "";
+    if (includeHtml) {
+      const forms = Array.from(document.querySelectorAll("form"));
+      const chunks = forms.map((form, i) => {
+        const clone = form.cloneNode(true);
+        clone
+          .querySelectorAll("script, style, svg, img")
+          .forEach((n) => n.remove());
+        let html = clone.outerHTML || "";
+        if (html.length > 40000)
+          html = html.slice(0, 40000) + "\n<!-- truncated -->";
+        return `<!-- form ${i + 1} -->\n${html}`;
+      });
+      if (!chunks.length) {
+        const roots = document.querySelectorAll(
+          "#application, #apply_form, .application-form, [data-qa='application-form'], main",
+        );
+        for (const root of roots) {
+          const clone = root.cloneNode(true);
+          clone
+            .querySelectorAll("script, style, svg, img, noscript")
+            .forEach((n) => n.remove());
+          let html = clone.innerHTML || "";
+          if (html.length > 50000)
+            html = html.slice(0, 50000) + "\n<!-- truncated -->";
+          chunks.push(html);
+          if (chunks.length >= 2) break;
+        }
+      }
+      formHtml = chunks.join("\n\n");
+    }
+
+    const maxText = 120000;
+    const pageText =
+      text.length > maxText
+        ? text.slice(0, maxText) + "\n\n[…truncated]"
+        : text;
+    const capturedAt = new Date().toISOString().slice(0, 19);
+
+    const parts = [
+      "=== CAPTURE META ===",
+      `url: ${location.href}`,
+      `title: ${document.title}`,
+      `captured_at: ${capturedAt}`,
+      `field_count: ${snapshot.fieldCount || (snapshot.fields || []).length}`,
+      "",
+      "=== PAGE TEXT (Ctrl+A equivalent) ===",
+      pageText || "(empty)",
+      "",
+      "=== FORM DIGEST (structured fields for AI) ===",
+      digestLines.length
+        ? digestLines.join("\n")
+        : "(no fillable fields detected)",
+    ];
+    if (includeHtml && formHtml) {
+      parts.push("", "=== FORM HTML (compact) ===", formHtml);
+    }
+
+    return {
+      ok: true,
+      url: location.href,
+      title: document.title,
+      host: location.hostname,
+      fieldCount: snapshot.fieldCount || (snapshot.fields || []).length,
+      textChars: pageText.length,
+      htmlChars: formHtml.length,
+      raw: parts.join("\n"),
+    };
+  }
+
   function norm(s) {
     return String(s || "")
       .toLowerCase()
@@ -69,16 +181,30 @@
 
   function scoreMatch(field, answer) {
     const hay = norm(
-      [field.label, field.name, field.id, field.placeholder, field.autocomplete, field.nearby].join(" ")
+      [
+        field.label,
+        field.name,
+        field.id,
+        field.placeholder,
+        field.autocomplete,
+        field.nearby,
+      ].join(" "),
     );
     const key = norm(answer.key);
     const label = norm(answer.label);
     if (!hay) return 0;
-    if (key && (field.name === answer.key || field.id === answer.key || field.autocomplete === answer.key)) {
+    if (
+      key &&
+      (field.name === answer.key ||
+        field.id === answer.key ||
+        field.autocomplete === answer.key)
+    ) {
       return 1;
     }
-    if (key && (hay === key || hay.includes(key) || key.includes(hay))) return 0.95;
-    if (label && (hay === label || hay.includes(label) || label.includes(hay))) return 0.9;
+    if (key && (hay === key || hay.includes(key) || key.includes(hay)))
+      return 0.95;
+    if (label && (hay === label || hay.includes(label) || label.includes(hay)))
+      return 0.9;
     // token overlap
     const tokens = label.split(" ").filter((t) => t.length > 2);
     if (!tokens.length) return 0;
@@ -94,7 +220,9 @@
     const matched = [];
     const unmatchedDetected = [];
 
-    const ordered = [...detectedFields].sort((a, b) => (a.visualOrder ?? a.index) - (b.visualOrder ?? b.index));
+    const ordered = [...detectedFields].sort(
+      (a, b) => (a.visualOrder ?? a.index) - (b.visualOrder ?? b.index),
+    );
 
     for (const field of ordered) {
       let best = null;
@@ -142,8 +270,14 @@
     const Detector = window.CareerAutofillDetector;
 
     try {
-      if (!payload || !Array.isArray(payload.fields) || !payload.fields.length) {
-        throw new Error("No imported form payload. Import AI JSON in the cockpit first.");
+      if (
+        !payload ||
+        !Array.isArray(payload.fields) ||
+        !payload.fields.length
+      ) {
+        throw new Error(
+          "No imported form payload. Import AI JSON in the cockpit first.",
+        );
       }
 
       Overlay.clearHighlights();
@@ -157,7 +291,7 @@
           ambiguous: 0,
           filled: 0,
         },
-        {}
+        {},
       );
 
       const snapshot = Detector.detectFields();
@@ -177,13 +311,17 @@
           message: "No fillable fields found on this page.",
           progress: 100,
           detected: 0,
-          error: "Scroll to the application form or click Apply to reveal fields, then try again.",
+          error:
+            "Scroll to the application form or click Apply to reveal fields, then try again.",
         });
         busy = false;
         return { ok: false, error: "no fields" };
       }
 
-      const { matched, unmatchedDetected } = matchPayloadFields(snapshot.fields, payload.fields);
+      const { matched, unmatchedDetected } = matchPayloadFields(
+        snapshot.fields,
+        payload.fields,
+      );
 
       let fallbackMappings = [];
       let mapResult = {
@@ -230,10 +368,11 @@
       }
 
       const confidentFallback = fallbackMappings.filter(
-        (m) => m.confidence >= (mapResult.min_confidence || 0.55) && m.value
+        (m) => m.confidence >= (mapResult.min_confidence || 0.55) && m.value,
       );
       const ambiguous = fallbackMappings.filter(
-        (m) => m.value == null || m.confidence < (mapResult.min_confidence || 0.55)
+        (m) =>
+          m.value == null || m.confidence < (mapResult.min_confidence || 0.55),
       );
 
       matched.forEach((m) => Overlay.highlightField(m.field, "payload"));
@@ -257,7 +396,8 @@
       // Build values_by_key including payload
       const valuesByKey = { ...(mapResult.values_by_key || {}) };
       for (const f of payload.fields) {
-        if (f.key && f.value != null && f.value !== "") valuesByKey[f.key] = f.value;
+        if (f.key && f.value != null && f.value !== "")
+          valuesByKey[f.key] = f.value;
       }
       mapResult.values_by_key = valuesByKey;
 
@@ -287,7 +427,7 @@
         {
           onFill: (choices) => void doFill(choices),
           onSave: (choices) => void doSave(choices),
-        }
+        },
       );
 
       // Auto-start fill for payload-ready fields
@@ -310,7 +450,10 @@
         error: String(err && err.message ? err.message : err),
       });
       busy = false;
-      return { ok: false, error: String(err && err.message ? err.message : err) };
+      return {
+        ok: false,
+        error: String(err && err.message ? err.message : err),
+      };
     }
   }
 
@@ -335,7 +478,7 @@
           ambiguous: 0,
           filled: 0,
         },
-        {}
+        {},
       );
 
       const snapshot = Detector.detectFields();
@@ -355,7 +498,8 @@
           message: "No fillable fields found on this page.",
           progress: 100,
           detected: 0,
-          error: "Scroll to the application form or click Apply to reveal fields, then try again.",
+          error:
+            "Scroll to the application form or click Apply to reveal fields, then try again.",
         });
         busy = false;
         return { ok: false, error: "no fields" };
@@ -368,7 +512,7 @@
           `/api/autofill/answers-for-url?${new URLSearchParams({
             url: snapshot.url,
             ...(jobId ? { job_id: jobId } : {}),
-          }).toString()}`
+          }).toString()}`,
         );
         if (lookup && lookup.payload && lookup.field_count > 0) {
           busy = false;
@@ -398,10 +542,11 @@
 
       const mappings = mapResult.mappings || [];
       const confident = mappings.filter(
-        (m) => m.confidence >= (mapResult.min_confidence || 0.55) && m.value
+        (m) => m.confidence >= (mapResult.min_confidence || 0.55) && m.value,
       );
       const ambiguous = mappings.filter(
-        (m) => m.value == null || m.confidence < (mapResult.min_confidence || 0.55)
+        (m) =>
+          m.value == null || m.confidence < (mapResult.min_confidence || 0.55),
       );
 
       confident.forEach((m) => Overlay.highlightField(m.field, "ok"));
@@ -443,7 +588,7 @@
         {
           onFill: (choices) => void doFill(choices),
           onSave: (choices) => void doSave(choices),
-        }
+        },
       );
 
       busy = false;
@@ -461,7 +606,10 @@
         error: String(err && err.message ? err.message : err),
       });
       busy = false;
-      return { ok: false, error: String(err && err.message ? err.message : err) };
+      return {
+        ok: false,
+        error: String(err && err.message ? err.message : err),
+      };
     }
   }
 
@@ -551,7 +699,7 @@
         {
           onFill: (c) => void doFill(c),
           onSave: (c) => void doSave(c),
-        }
+        },
       );
     } catch (err) {
       Overlay.update({
@@ -573,7 +721,11 @@
 
     for (const m of lastSession.mappings) {
       const choice = (choices || []).find((c) => c.uid === m.field.uid);
-      if (choice && !choice.skip && (choice.canonicalKey || choice.customValue)) {
+      if (
+        choice &&
+        !choice.skip &&
+        (choice.canonicalKey || choice.customValue)
+      ) {
         corrections.push({
           field_signature: fieldSignature(m.field),
           canonical_key: choice.canonicalKey || "custom",
@@ -625,8 +777,11 @@
   }
 
   function fieldSignature(field) {
-    return [field.name || "", field.id || "", (field.label || "").toLowerCase().slice(0, 80), field.type || ""].join(
-      "|"
-    );
+    return [
+      field.name || "",
+      field.id || "",
+      (field.label || "").toLowerCase().slice(0, 80),
+      field.type || "",
+    ].join("|");
   }
 })();

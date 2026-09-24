@@ -9,10 +9,12 @@ Manifest V3 extension that fills job application forms from:
 
 ## Workflow
 
-1. In the career cockpit: open a job → **Generate form prompt** (paste ATS page text) → send to your AI companion.
-2. **Import form JSON** (set **Form page URL** to the application form URL).
-3. Open that form URL in Chrome.
-4. Extension side panel → **Fill this page**.
+1. Open the application form tab in Chrome.
+2. Extension side panel → pick the job opening → **Capture page for AI**  
+   (saves Ctrl+A text + form field digest + compact HTML to the opening, sets Application form URL, copies to clipboard).
+3. In the career cockpit: **Generate form prompt** (prefilled from capture) → paste into your AI companion.
+4. **Import form JSON** (confirm Form page URL).
+5. Back on the form tab → **Fill this page**.
 
 The side panel shows a 4-step stepper and guides you until a matching payload is found for the active tab URL.
 

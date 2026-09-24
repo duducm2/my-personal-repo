@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -8,13 +8,15 @@
   <body>
     <header>
       <h1>Autofill</h1>
-      <p class="sub">Fill the active tab from imported AI form answers.</p>
+      <p class="sub">
+        Capture form pages for AI, then fill from imported JSON.
+      </p>
     </header>
 
     <ol class="stepper" id="stepper" aria-label="Workflow steps">
-      <li data-step="1">Extract page text</li>
+      <li data-step="1">Capture page</li>
       <li data-step="2">Generate AI prompt</li>
-      <li data-step="3">Import JSON in cockpit</li>
+      <li data-step="3">Import JSON</li>
       <li data-step="4">Fill form</li>
     </ol>
 
@@ -25,6 +27,13 @@
     <section class="block">
       <label for="cockpit-url">Cockpit URL</label>
       <input id="cockpit-url" type="url" value="http://127.0.0.1:8770" />
+    </section>
+
+    <section class="block">
+      <label for="job-select">Job opening</label>
+      <select id="job-select">
+        <option value="">Loading…</option>
+      </select>
     </section>
 
     <section class="block" id="tab-info">
@@ -41,14 +50,27 @@
 
     <section class="block actions">
       <button type="button" id="refresh-btn" class="secondary">Refresh</button>
-      <button type="button" id="detect-btn" class="secondary">Detect fields</button>
-      <button type="button" id="run-btn" class="primary" disabled>Fill this page</button>
+      <button type="button" id="capture-btn" class="secondary">
+        Capture page for AI
+      </button>
+      <button type="button" id="detect-btn" class="secondary">
+        Detect fields
+      </button>
+      <button type="button" id="run-btn" class="primary" disabled>
+        Fill this page
+      </button>
     </section>
 
+    <label class="check-row">
+      <input type="checkbox" id="include-html" checked />
+      Include compact form HTML (helps AI map fields)
+    </label>
+
     <p class="hint" id="hint">
-      Steps 1–3 happen in the Career Cockpit (Generate form prompt → Import form
-      JSON). Then open the application form tab and click <strong>Fill this page</strong>.
-      The extension never clicks Submit/Apply.
+      On the application form tab: <strong>Capture page for AI</strong> saves
+      Ctrl+A text + form digest (+ HTML) to the opening, and sets Application
+      form URL. Then in the cockpit: Generate form prompt → AI → Import JSON →
+      return here to <strong>Fill this page</strong>. Never auto-submits.
     </p>
 
     <pre id="log" class="log"></pre>
