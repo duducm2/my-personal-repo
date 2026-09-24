@@ -270,6 +270,8 @@ certifications.csv,credential_file,Credential file,Arquivo da credencial
 companies.csv,id,Company ID,ID da empresa
 companies.csv,sort_order,Sort order,Ordem
 companies.csv,pinned,Pinned to top,Fixado no topo
+companies.csv,geo_track,Recommendation track (international|regional),Trilha de recomendacao (international|regional)
+companies.csv,rec_rank,Recommendation rank within track,Rank de recomendacao na trilha
 companies.csv,category_en,Category (EN),Categoria (EN)
 companies.csv,category_detail_en,Detail: category (EN),Detalhe: category (EN)
 companies.csv,category_pt,Category (PT),Categoria (PT)

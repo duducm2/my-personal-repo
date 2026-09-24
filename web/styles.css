@@ -1733,6 +1733,49 @@ body.lang-en .field-row {
   color: var(--gold);
 }
 
+.company-chip-rec-rank {
+  border-color: color-mix(in srgb, var(--gold) 50%, var(--line));
+  color: var(--gold);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.company-chip-rec-rank.is-intl {
+  border-color: color-mix(in srgb, #5b9bd5 55%, var(--line));
+  color: #8ec5f0;
+  background: color-mix(in srgb, #5b9bd5 12%, transparent);
+}
+
+.company-chip-rec-rank.is-regional {
+  border-color: color-mix(in srgb, var(--ok) 45%, var(--line));
+  color: color-mix(in srgb, var(--ok) 70%, var(--text));
+  background: color-mix(in srgb, var(--ok) 12%, transparent);
+}
+
+.rec-rank-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.rec-rank-btn {
+  appearance: none;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.7rem;
+  line-height: 1;
+  padding: 0.15rem 0.28rem;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.rec-rank-btn:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
 .company-tile .role-badges {
   margin-left: 0;
   margin-right: 0;

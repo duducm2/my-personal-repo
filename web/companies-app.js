@@ -39,6 +39,7 @@
   let categoryFilter = "";
   let roleFilter = "";
   let geoFilter = "";
+  let trackFilter = "";
   let homeOfficeFilter = "";
   let growthFilter = "";
   let openCompanyId = "";
@@ -222,6 +223,7 @@
       categoryFilter ||
       roleFilter ||
       geoFilter ||
+      trackFilter ||
       homeOfficeFilter ||
       growthFilter ||
       (query || "").trim()
@@ -232,6 +234,7 @@
     categoryFilter = "";
     roleFilter = "";
     geoFilter = "";
+    trackFilter = "";
     homeOfficeFilter = "";
     growthFilter = "";
     query = "";
@@ -269,6 +272,8 @@
       row.region_pt,
       row.priority,
       row.status,
+      row.geo_track,
+      row.rec_rank,
       row.website,
       row.skills_match_en,
       row.skills_match_pt,
@@ -523,6 +528,118 @@
     return isPinned(row) ? 0 : 1;
   }
 
+  function geoTrackValue(row) {
+    return cell(row?.geo_track).trim().toLowerCase();
+  }
+
+  function geoTrackSortKey(row) {
+    const t = geoTrackValue(row);
+    if (t === "international") return 0;
+    if (t === "regional") return 1;
+    return 2;
+  }
+
+  function recRankNumber(row) {
+    const n = Number(cell(row?.rec_rank));
+    return Number.isFinite(n) && n > 0 ? n : null;
+  }
+
+  function recRankLabel(row) {
+    const n = recRankNumber(row);
+    if (n == null) return "";
+    const t = geoTrackValue(row);
+    if (t === "international") return `I-${n}`;
+    if (t === "regional") return `L-${n}`;
+    return `#${n}`;
+  }
+
+  function appendRecRankChip(parent, row) {
+    const label = recRankLabel(row);
+    if (!label) return null;
+    const el = document.createElement("span");
+    el.className =
+      "company-chip company-chip-rec-rank" +
+      (geoTrackValue(row) === "international"
+        ? " is-intl"
+        : geoTrackValue(row) === "regional"
+          ? " is-regional"
+          : "");
+    el.textContent = label;
+    el.title =
+      geoTrackValue(row) === "international"
+        ? `International recommendation #${recRankNumber(row)}`
+        : geoTrackValue(row) === "regional"
+          ? `Regional recommendation #${recRankNumber(row)}`
+          : `Recommendation #${recRankNumber(row)}`;
+    parent.append(el);
+    return el;
+  }
+
+  function peersInTrack(track) {
+    const t = cell(track).trim().toLowerCase();
+    if (!t) return [];
+    return companies
+      .filter((c) => geoTrackValue(c) === t && recRankNumber(c) != null)
+      .sort((a, b) => recRankNumber(a) - recRankNumber(b));
+  }
+
+  function moveRecRank(row, delta) {
+    const track = geoTrackValue(row);
+    const rank = recRankNumber(row);
+    if (!track || rank == null) return false;
+    const peers = peersInTrack(track);
+    const idx = peers.findIndex((p) => p.id === row.id);
+    if (idx < 0) return false;
+    const other = peers[idx + delta];
+    if (!other) return false;
+    const otherRank = recRankNumber(other);
+    row.rec_rank = String(otherRank);
+    other.rec_rank = String(rank);
+    setDirty(true);
+    setSaveStatus(
+      `${recRankLabel(row)} · ${cell(row.name_en) || row.id}`,
+      "ok",
+    );
+    render();
+    if (openCompanyId === row.id) fillModal();
+    scrollCompanyCardIntoView(row.id);
+    return true;
+  }
+
+  function appendRecRankControls(parent, row, { stopPropagation = true } = {}) {
+    if (recRankNumber(row) == null || !geoTrackValue(row)) return null;
+    const wrap = document.createElement("span");
+    wrap.className = "rec-rank-controls";
+    appendRecRankChip(wrap, row);
+    const up = document.createElement("button");
+    up.type = "button";
+    up.className = "rec-rank-btn";
+    up.textContent = "↑";
+    up.title = "Move up in this track (higher priority)";
+    up.addEventListener("click", (event) => {
+      if (stopPropagation) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      moveRecRank(row, -1);
+    });
+    const down = document.createElement("button");
+    down.type = "button";
+    down.className = "rec-rank-btn";
+    down.textContent = "↓";
+    down.title = "Move down in this track (lower priority)";
+    down.addEventListener("click", (event) => {
+      if (stopPropagation) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      moveRecRank(row, 1);
+    });
+    wrap.append(up, down);
+    parent.append(wrap);
+    return wrap;
+  }
+
   function scrollCompanyCardIntoView(id) {
     const sid = cell(id);
     if (!sid) return;
@@ -565,6 +682,15 @@
     return btn;
   }
 
+  function matchesTrack(row) {
+    if (!trackFilter) return true;
+    if (trackFilter === "other") {
+      const t = geoTrackValue(row);
+      return t !== "international" && t !== "regional";
+    }
+    return geoTrackValue(row) === trackFilter;
+  }
+
   function filteredRows() {
     let rows = companies.slice();
     if (categoryFilter) {
@@ -572,6 +698,7 @@
     }
     rows = rows.filter(matchesRole);
     rows = rows.filter(matchesGeo);
+    rows = rows.filter(matchesTrack);
     rows = rows.filter(matchesHomeOffice);
     rows = rows.filter(matchesGrowth);
     const q = query.trim().toLowerCase();
@@ -585,6 +712,13 @@
     rows.sort((a, b) => {
       const pr = pinRank(a) - pinRank(b);
       if (pr) return pr;
+      const tr = geoTrackSortKey(a) - geoTrackSortKey(b);
+      if (tr) return tr;
+      const ra = recRankNumber(a);
+      const rb = recRankNumber(b);
+      if (ra != null && rb != null && ra !== rb) return ra - rb;
+      if (ra != null && rb == null) return -1;
+      if (ra == null && rb != null) return 1;
       const so =
         Number(cell(a.sort_order) || 0) - Number(cell(b.sort_order) || 0);
       if (so) return so;
@@ -696,6 +830,27 @@
       );
     }
     root.append(roleRow);
+
+    const trackRow = document.createElement("div");
+    trackRow.className = "company-filter-row";
+    const trackLabel = document.createElement("span");
+    trackLabel.className = "company-filter-label";
+    appendEn(trackLabel, "Rec track");
+    trackRow.append(trackLabel);
+    for (const chip of [
+      { key: "", en: "All" },
+      { key: "international", en: "International (I-n)" },
+      { key: "regional", en: "Regional (L-n)" },
+      { key: "other", en: "Unranked" },
+    ]) {
+      trackRow.append(
+        makeChip(chip, trackFilter, (key) => {
+          trackFilter = key;
+          render();
+        }),
+      );
+    }
+    root.append(trackRow);
 
     const geoRow = document.createElement("div");
     geoRow.className = "company-filter-row";
@@ -832,6 +987,7 @@
     const chips = document.createElement("div");
     chips.className = "company-tile-chips";
     appendPinControl(chips, row);
+    appendRecRankControls(chips, row);
     if (row.priority) {
       const p = document.createElement("span");
       p.className = "company-chip company-chip-priority";
@@ -930,6 +1086,11 @@
     appendHomeOfficeFlag(flagRow, row);
     appendGrowthFlag(flagRow, row);
     body.append(flagRow);
+
+    const rankChipRow = document.createElement("div");
+    rankChipRow.className = "company-tile-chips company-modal-pin";
+    appendRecRankControls(rankChipRow, row, { stopPropagation: false });
+    if (rankChipRow.childNodes.length) body.append(rankChipRow);
 
     const badges = document.createElement("div");
     badges.className = "role-badges company-modal-badges";
@@ -1135,6 +1296,53 @@
     pinLabel.append(pinLab, pinSelect);
     editRow.append(pinLabel);
 
+    const trackLabel = document.createElement("label");
+    trackLabel.className = "company-edit-field";
+    const trackLab = document.createElement("span");
+    appendEn(trackLab, "Rec track");
+    const trackSelect = document.createElement("select");
+    trackSelect.className = "field-input";
+    for (const opt of [
+      { value: "", label: "(none)" },
+      { value: "international", label: "International" },
+      { value: "regional", label: "Regional" },
+    ]) {
+      const o = document.createElement("option");
+      o.value = opt.value;
+      o.textContent = opt.label;
+      if (geoTrackValue(row) === opt.value) o.selected = true;
+      trackSelect.append(o);
+    }
+    trackSelect.addEventListener("change", () => {
+      row.geo_track = trackSelect.value;
+      setDirty(true);
+      setSaveStatus("");
+      renderResults();
+      fillModal();
+    });
+    trackLabel.append(trackLab, trackSelect);
+    editRow.append(trackLabel);
+
+    const rankLabel = document.createElement("label");
+    rankLabel.className = "company-edit-field";
+    const rankLab = document.createElement("span");
+    appendEn(rankLab, "Rec rank");
+    const rankInput = document.createElement("input");
+    rankInput.className = "field-input";
+    rankInput.type = "number";
+    rankInput.min = "1";
+    rankInput.step = "1";
+    rankInput.placeholder = "1…";
+    rankInput.value = cell(row.rec_rank);
+    rankInput.addEventListener("input", () => {
+      row.rec_rank = rankInput.value.trim();
+      setDirty(true);
+      setSaveStatus("");
+      renderResults();
+    });
+    rankLabel.append(rankLab, rankInput);
+    editRow.append(rankLabel);
+
     const hoLabel = document.createElement("label");
     hoLabel.className = "company-edit-field";
     const hoLab = document.createElement("span");
@@ -1281,6 +1489,7 @@
     categoryFilter = "";
     roleFilter = "";
     geoFilter = "";
+    trackFilter = "";
     homeOfficeFilter = "";
     growthFilter = "";
     query = "";
@@ -1318,6 +1527,8 @@
       id,
       sort_order: String(companies.length + 1),
       pinned: "",
+      geo_track: "",
+      rec_rank: "",
       category_en: "",
       category_detail_en: "",
       category_pt: "",
@@ -1491,6 +1702,31 @@
           event.stopPropagation();
           pinFocusedCompany();
           return;
+        }
+        if (
+          !typing &&
+          (event.key === "ArrowUp" ||
+            event.code === "ArrowUp" ||
+            event.key === "ArrowDown" ||
+            event.code === "ArrowDown")
+        ) {
+          const row =
+            (openCompanyId && companies.find((c) => c.id === openCompanyId)) ||
+            (() => {
+              const card = focusedCompanyCard();
+              return card
+                ? companies.find((c) => c.id === card.dataset.id)
+                : null;
+            })();
+          if (row && recRankNumber(row) != null) {
+            event.preventDefault();
+            event.stopPropagation();
+            moveRecRank(
+              row,
+              event.key === "ArrowUp" || event.code === "ArrowUp" ? -1 : 1,
+            );
+            return;
+          }
         }
       }
       if (event.key === "Escape") {
