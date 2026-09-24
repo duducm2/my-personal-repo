@@ -2466,17 +2466,47 @@
     const frame = document.getElementById("resume-viewer-frame");
     const title = document.getElementById("resume-viewer-title");
     const dl = document.getElementById("resume-viewer-download");
+    const copyBtn = document.getElementById("resume-viewer-copy-path");
     if (!dialog || !frame || !title || !dl) {
       const url = cell(item?.view_url) || cell(item?.url);
       if (url) window.open(url, "_blank", "noopener,noreferrer");
       return;
     }
     const lang = cell(item.lang) ? ` · ${String(item.lang).toUpperCase()}` : "";
-    title.textContent = `${cell(item.label) || "Resume"}${lang}`;
+    title.textContent = `${cell(item.label) || cell(item.label_en) || "Resume"}${lang}`;
     frame.src = cell(item.view_url) || cell(item.url);
     dl.href = cell(item.url) || cell(item.view_url);
     if (item.filename) dl.setAttribute("download", cell(item.filename));
     else dl.removeAttribute("download");
+    const absPath = cell(item.abs_path) || cell(item.absPath);
+    if (copyBtn) {
+      copyBtn.hidden = !absPath;
+      copyBtn.disabled = !absPath;
+      copyBtn.dataset.path = absPath;
+      copyBtn.dataset.label = "Copy path";
+      copyBtn.textContent = "Copy path";
+      copyBtn.classList.remove("ok", "err");
+      copyBtn.title = absPath
+        ? `Copy path:\n${absPath}`
+        : "PDF path unavailable";
+      if (!copyBtn.dataset.wired) {
+        copyBtn.dataset.wired = "1";
+        copyBtn.addEventListener("click", async () => {
+          const path = cell(copyBtn.dataset.path);
+          if (!path) return;
+          const original = copyBtn.dataset.label || "Copy path";
+          const ok = await copyText(path);
+          copyBtn.textContent = ok ? "Copied" : "Error";
+          copyBtn.classList.toggle("ok", ok);
+          copyBtn.classList.toggle("err", !ok);
+          setTimeout(() => {
+            copyBtn.textContent = original;
+            copyBtn.classList.remove("ok", "err");
+          }, 1200);
+          if (ok) showToast("Full path copied", 1800);
+        });
+      }
+    }
     if (typeof dialog.showModal === "function" && !dialog.open) {
       dialog.showModal();
     }
@@ -2613,6 +2643,7 @@
                 filename: file.filename,
                 view_url: viewUrl,
                 url: cell(file.url) || viewUrl.replace(/[?&]inline=1/, ""),
+                abs_path: file.absPath,
               });
             });
           }

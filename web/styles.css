@@ -521,6 +521,16 @@ body.is-dirty .brand::after {
   opacity: 0.55;
 }
 
+.download-btn.ok {
+  border-color: var(--ok);
+  color: var(--ok);
+}
+
+.download-btn.err {
+  border-color: #e74c3c;
+  color: #e74c3c;
+}
+
 .downloads-error {
   margin: 0;
   color: #e74c3c;
@@ -1131,6 +1141,79 @@ body.lang-en .field-row {
   font-size: 11px;
   font-weight: 650;
   color: var(--gold);
+}
+
+.profile-summary-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.profile-summary-add-skill {
+  flex-shrink: 0;
+  border: 1px solid color-mix(in srgb, var(--gold) 45%, var(--line));
+  background: transparent;
+  color: var(--gold);
+  border-radius: 3px;
+  padding: 2px 8px;
+  font: inherit;
+  font-size: 10px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.profile-summary-add-skill:hover,
+.profile-summary-add-skill:focus-visible {
+  background: color-mix(in srgb, var(--gold) 12%, transparent);
+  outline: none;
+}
+
+.profile-summary-pill-wrap {
+  display: inline-flex;
+  align-items: stretch;
+  max-width: 100%;
+  border: 1px solid color-mix(in srgb, var(--gold) 40%, var(--line));
+  background: color-mix(in srgb, var(--gold) 7%, transparent);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.profile-summary-pill-wrap .profile-summary-pill {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.profile-summary-pill-remove {
+  flex-shrink: 0;
+  border: 0;
+  border-left: 1px solid color-mix(in srgb, var(--gold) 30%, var(--line));
+  background: transparent;
+  color: var(--muted);
+  padding: 0 6px;
+  font: inherit;
+  font-size: 12px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.profile-summary-pill-remove:hover,
+.profile-summary-pill-remove:focus-visible {
+  color: #e74c3c;
+  background: color-mix(in srgb, #e74c3c 12%, transparent);
+  outline: none;
+}
+
+.profile-summary-pill.is-add {
+  border-style: dashed;
+  color: var(--gold);
+  background: transparent;
+}
+
+.profile-summary-pill.is-add:hover,
+.profile-summary-pill.is-add:focus-visible {
+  background: color-mix(in srgb, var(--gold) 12%, transparent);
 }
 
 .profile-map-section-btn {

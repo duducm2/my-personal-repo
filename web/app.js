@@ -716,6 +716,12 @@
       row.region_detail_en = row.region_en;
       row.region_detail_pt = row.region_pt;
     }
+    if (collection === "competences") {
+      row.category_en = "Tools and technologies";
+      row.category_pt = "Ferramentas e tecnologias";
+      row.category_detail_en = row.category_en;
+      row.category_detail_pt = row.category_pt;
+    }
     if (collection === "targetTitles" && pathFilter) {
       const pathMeta = CAREER_PATHS.find((p) => p.key === pathFilter);
       row.path = pathFilter;
@@ -727,6 +733,103 @@
       }
     }
     return row;
+  }
+
+  function slugifySkillId(text) {
+    const base = String(text || "")
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "")
+      .slice(0, 48);
+    return base || `skill-${Date.now()}`;
+  }
+
+  function uniqueCompetenceId(preferred, excludeId) {
+    const used = new Set(
+      (state.competences || [])
+        .filter((r) => r.id !== excludeId)
+        .map((r) => cell(r.id)),
+    );
+    let id = preferred;
+    let n = 2;
+    while (used.has(id)) {
+      id = `${preferred}-${n}`;
+      n += 1;
+    }
+    return id;
+  }
+
+  function syncCompetenceIdFromName(row) {
+    const name = cell(row.name_en) || cell(row.name_pt);
+    if (!name.trim()) return;
+    const current = cell(row.id);
+    if (current && !current.startsWith("competences-")) return;
+    row.id = uniqueCompetenceId(slugifySkillId(name), current);
+  }
+
+  function addCompetence(opts) {
+    const row = blankRow("competences");
+    if (opts?.name_en) {
+      row.name_en = opts.name_en;
+      row.name_detail_en = opts.name_en;
+    }
+    if (opts?.name_pt) {
+      row.name_pt = opts.name_pt;
+      row.name_detail_pt = opts.name_pt;
+    } else if (opts?.name_en) {
+      row.name_pt = opts.name_en;
+      row.name_detail_pt = opts.name_en;
+    }
+    if (opts?.category_en) {
+      row.category_en = opts.category_en;
+      row.category_detail_en = opts.category_en;
+    }
+    if (opts?.category_pt) {
+      row.category_pt = opts.category_pt;
+      row.category_detail_pt = opts.category_pt;
+    }
+    syncCompetenceIdFromName(row);
+    state.competences.push(row);
+    setDirty(true);
+    setSaveStatus("");
+    renderAll();
+    jumpToProfileTarget({ headingId: "competences-heading", rowId: row.id });
+    const panel = document.querySelector(
+      `#competences-root .panel[data-id="${CSS.escape(row.id)}"]`,
+    );
+    const firstInput = panel?.querySelector(".field-input");
+    if (firstInput) firstInput.focus();
+    return row;
+  }
+
+  function removeCompetence(id) {
+    const idx = (state.competences || []).findIndex((r) => r.id === id);
+    if (idx < 0) return false;
+    const name =
+      cell(state.competences[idx].name_en) ||
+      cell(state.competences[idx].name_pt) ||
+      id;
+    if (!confirm(`Remove skill “${name}”?`)) return false;
+    state.competences.splice(idx, 1);
+    setDirty(true);
+    setSaveStatus("");
+    renderAll();
+    return true;
+  }
+
+  function promptAddSkill() {
+    const nameEn = window.prompt("New skill name (EN):");
+    if (nameEn == null) return;
+    const trimmed = nameEn.trim();
+    if (!trimmed) return;
+    const namePtRaw = window.prompt("Nome da habilidade (PT):", trimmed);
+    if (namePtRaw == null) return;
+    addCompetence({
+      name_en: trimmed,
+      name_pt: namePtRaw.trim() || trimmed,
+    });
   }
 
   function copyViaTextarea(text) {
@@ -818,6 +921,14 @@
     input.value = shown;
     input.addEventListener("input", () => {
       row[key] = input.value;
+      if (
+        (baseKey === "name_en" || baseKey === "name_pt") &&
+        String(row.id || "").startsWith("competences-")
+      ) {
+        syncCompetenceIdFromName(row);
+        const panel = input.closest(".panel");
+        if (panel) panel.dataset.id = row.id;
+      }
       setDirty(true);
       setSaveStatus("");
     });
@@ -950,6 +1061,10 @@
       del.setAttribute("aria-label", "Delete");
       del.textContent = "✕";
       del.addEventListener("click", () => {
+        if (collection === "competences") {
+          removeCompetence(row.id);
+          return;
+        }
         const msg = "Delete this record?";
         if (!confirm(msg)) return;
         const idx = state[collection].findIndex((r) => r.id === row.id);
@@ -1422,14 +1537,18 @@
     grid.className = "profile-summary-grid profile-map-grid";
 
     for (const sec of sections) {
-      if (!sec.items.length) continue;
+      const isSkills = sec.headingId === "competences-heading";
+      if (!sec.items.length && !isSkills) continue;
       const isProse = sec.layout === "prose";
       const card = document.createElement("article");
       card.className =
         "profile-summary-card profile-map-card profile-summary-span-" +
         (sec.span || 6) +
-        (isProse ? " is-prose" : " is-pills");
+        (isProse ? " is-prose" : " is-pills") +
+        (isSkills ? " is-skills" : "");
 
+      const head = document.createElement("div");
+      head.className = "profile-summary-card-head";
       const h = document.createElement("button");
       h.type = "button";
       h.className = "profile-summary-card-title profile-map-section-btn";
@@ -1438,11 +1557,25 @@
       h.addEventListener("click", () =>
         jumpToProfileTarget({ headingId: sec.headingId }),
       );
-      card.append(h);
+      head.append(h);
+      if (isSkills) {
+        const addBtn = document.createElement("button");
+        addBtn.type = "button";
+        addBtn.className = "profile-summary-add-skill";
+        addBtn.textContent = "+ Add skill";
+        addBtn.title = "Add a skill to your profile";
+        addBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          promptAddSkill();
+        });
+        head.append(addBtn);
+      }
+      card.append(head);
 
       const cols = document.createElement("div");
       cols.className =
-        "profile-summary-cols" + (isProse ? "" : " profile-summary-cols--pills");
+        "profile-summary-cols" +
+        (isProse ? "" : " profile-summary-cols--pills");
 
       const mode = getLangMode();
       const addCol = (lang) => {
@@ -1479,18 +1612,55 @@
           const wrap = document.createElement("div");
           wrap.className = "profile-summary-pills";
           for (const item of items) {
-            const btn = document.createElement("button");
-            btn.type = "button";
-            btn.className = "profile-summary-pill profile-map-item";
-            btn.textContent = item.text;
-            btn.title = `Jump to this ${sec.titleEn.slice(0, -1) || "item"}`;
-            btn.addEventListener("click", () =>
-              jumpToProfileTarget({
-                headingId: sec.headingId,
-                rowId: item.id,
-              }),
-            );
-            wrap.append(btn);
+            if (isSkills) {
+              const chip = document.createElement("span");
+              chip.className = "profile-summary-pill-wrap";
+              const btn = document.createElement("button");
+              btn.type = "button";
+              btn.className = "profile-summary-pill profile-map-item";
+              btn.textContent = item.text;
+              btn.title = `Jump to edit · ${item.text}`;
+              btn.addEventListener("click", () =>
+                jumpToProfileTarget({
+                  headingId: sec.headingId,
+                  rowId: item.id,
+                }),
+              );
+              const rm = document.createElement("button");
+              rm.type = "button";
+              rm.className = "profile-summary-pill-remove";
+              rm.setAttribute("aria-label", `Remove ${item.text}`);
+              rm.title = `Remove ${item.text}`;
+              rm.textContent = "×";
+              rm.addEventListener("click", (e) => {
+                e.stopPropagation();
+                removeCompetence(item.id);
+              });
+              chip.append(btn, rm);
+              wrap.append(chip);
+            } else {
+              const btn = document.createElement("button");
+              btn.type = "button";
+              btn.className = "profile-summary-pill profile-map-item";
+              btn.textContent = item.text;
+              btn.title = `Jump to this ${sec.titleEn.slice(0, -1) || "item"}`;
+              btn.addEventListener("click", () =>
+                jumpToProfileTarget({
+                  headingId: sec.headingId,
+                  rowId: item.id,
+                }),
+              );
+              wrap.append(btn);
+            }
+          }
+          if (isSkills && lang === (mode === "pt" ? "pt" : "en")) {
+            const addPill = document.createElement("button");
+            addPill.type = "button";
+            addPill.className = "profile-summary-pill is-add";
+            addPill.textContent = "+ Add";
+            addPill.title = "Add a skill";
+            addPill.addEventListener("click", () => promptAddSkill());
+            wrap.append(addPill);
           }
           col.append(wrap);
         }
@@ -1512,6 +1682,10 @@
       btn.addEventListener("click", () => {
         const collection = btn.getAttribute("data-add-collection");
         if (!SECTION_META[collection]?.canAdd) return;
+        if (collection === "competences") {
+          addCompetence();
+          return;
+        }
         if (collection === "companies") {
           companyCategoryFilter = "";
           companyRoleFilter = "";
@@ -1771,12 +1945,25 @@
     const frame = document.getElementById("resume-viewer-frame");
     const title = document.getElementById("resume-viewer-title");
     const dl = document.getElementById("resume-viewer-download");
+    const copyBtn = document.getElementById("resume-viewer-copy-path");
     if (!dialog || !frame || !title || !dl) return;
     const pages = item.page_count != null ? ` · ${item.page_count} page` : "";
     title.textContent = `${item.label_en} · ${item.lang.toUpperCase()}${pages}`;
     frame.src = item.view_url || item.url + "?inline=1";
     dl.href = item.url;
     dl.setAttribute("download", item.filename);
+    const absPath = String(item.abs_path || "").trim();
+    if (copyBtn) {
+      copyBtn.hidden = !absPath;
+      copyBtn.disabled = !absPath;
+      copyBtn.dataset.path = absPath;
+      copyBtn.dataset.label = "Copy path";
+      copyBtn.textContent = "Copy path";
+      copyBtn.classList.remove("ok", "err");
+      copyBtn.title = absPath
+        ? `Copy path:\n${absPath}`
+        : "PDF path unavailable";
+    }
     if (typeof dialog.showModal === "function" && !dialog.open) {
       dialog.showModal();
     }
@@ -1792,7 +1979,15 @@
   function wireResumeViewer() {
     const dialog = document.getElementById("resume-viewer-modal");
     const closeBtn = document.getElementById("resume-viewer-close");
+    const copyBtn = document.getElementById("resume-viewer-copy-path");
     if (closeBtn) closeBtn.addEventListener("click", () => closeResumeViewer());
+    if (copyBtn) {
+      copyBtn.addEventListener("click", () => {
+        const path = String(copyBtn.dataset.path || "").trim();
+        if (!path) return;
+        copyWithFeedback(path, copyBtn);
+      });
+    }
     if (dialog) {
       dialog.addEventListener("close", () => {
         const frame = document.getElementById("resume-viewer-frame");
