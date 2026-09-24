@@ -457,7 +457,7 @@
     btn.type = "button";
     btn.className = "pin-btn" + (isPinned(row) ? " is-on" : "");
     btn.setAttribute("aria-pressed", isPinned(row) ? "true" : "false");
-    btn.title = isPinned(row) ? "Unpin from top (Alt+P)" : "Pin to top (Alt+P)";
+    btn.title = isPinned(row) ? "Unpin from top (Alt+M)" : "Pin to top (Alt+M)";
     btn.textContent = isPinned(row) ? "Pinned" : "Pin";
     btn.addEventListener("click", (event) => {
       if (stopPropagation) {
@@ -1416,9 +1416,9 @@
           );
           return;
         }
-        const isP =
-          event.code === "KeyP" || (event.key || "").toLowerCase() === "p";
-        if (isP && !typing) {
+        const isM =
+          event.code === "KeyM" || (event.key || "").toLowerCase() === "m";
+        if (isM && !typing) {
           event.preventDefault();
           event.stopPropagation();
           pinFocusedCompany();
