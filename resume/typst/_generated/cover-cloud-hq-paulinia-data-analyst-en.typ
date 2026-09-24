@@ -1,0 +1,13 @@
+// Generated cover-letter content — do not edit by hand.
+#let cover-name = "Eduardo M. de A. Figueiredo"
+#let cover-phone = "+55 (19) 98176-6583"
+#let cover-email = "edu.evangelista.figueiredo@gmail.com"
+#let cover-location = "Nova Odessa, SP - Brazil"
+#let cover-linkedin = "https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b"
+#let cover-date = "September 23, 2026"
+#let cover-company = "CLOUD HQ"
+#let cover-role = "Data Analyst"
+#let cover-greeting = "Dear CloudHQ Hiring Team,"
+#let cover-body = "I am writing to express my interest in the Data Analyst position at CloudHQ. With a solid foundation in systems analysis, a Master's degree in Information and Communication Systems from Unicamp, and years of experience delivering analytics, automation, and continuous improvement solutions at Bosch, I welcome the opportunity to support CloudHQ's operational reporting and infrastructure analysis.\n\nThroughout my career, I have focused on translating operational requirements into trusted, actionable metrics. In my work across Bosch Brasil and Bosch Hungary, I built dynamic analytical tools, digitized reporting procedures, and integrated data using SQL, advanced Excel, and Power BI. My background combines end-to-end data preparation—from extracting, cleaning, and validating records across disparate systems to structuring clear visual dashboards—with a focus on repeatability and data consistency.\n\nIn addition to reporting, I apply an automation-first mindset to recurring workflows. Using tools such as Python, SQL Server, and automated scripts, I have eliminated manual data preparation bottlenecks to deliver timely, dependable business intelligence. My experience in continuous improvement (CIP) and structured problem-solving has also trained me to partner directly with cross-functional teams, document data definitions transparently, and communicate key performance drivers to both technical and operational stakeholders.\n\nI am eager to bring my background in data modeling, dashboard development, and analytical problem-solving to CloudHQ's mission-critical operations. Thank you for your time and consideration, and I look forward to the possibility of discussing how my experience aligns with your team's goals."
+#let cover-closing = "Sincerely,\nEduardo Matos de Assis Figueiredo"
+#let cover-lang = "en"

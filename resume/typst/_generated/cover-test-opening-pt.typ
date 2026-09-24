@@ -1,0 +1,13 @@
+// Generated cover-letter content — do not edit by hand.
+#let cover-name = "Eduardo M. de A. Figueiredo"
+#let cover-phone = "+55 (19) 98176-6583"
+#let cover-email = "edu.evangelista.figueiredo@gmail.com"
+#let cover-location = "Nova Odessa, SP - Brasil"
+#let cover-linkedin = "https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b"
+#let cover-date = "23 de setembro de 2026"
+#let cover-company = "Ascenty"
+#let cover-role = "Analista de Dados"
+#let cover-greeting = "Prezado(a) recrutador(a),"
+#let cover-body = "Primeiro paragrafo sobre o encaixe.\n\nSegundo paragrafo com evidencias da Bosch e Unicamp."
+#let cover-closing = "Atenciosamente,\nEduardo M. de A. Figueiredo"
+#let cover-lang = "pt"

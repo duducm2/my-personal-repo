@@ -78,6 +78,10 @@
     "result_on",
     "application_answers",
     "application_form_raw",
+    "cover_letter",
+    "cover_letter_lang",
+    "cover_letter_greeting",
+    "cover_letter_closing",
   ];
   const PATH_TO_VARIANT = {
     da: "data-analyst",
@@ -1052,11 +1056,11 @@
     );
     body.append(
       fieldBlock(
-        "Job description",
+        "Job / project description",
         textInput(row, "job_description", {
           tall: true,
           rows: 8,
-          placeholder: "Paste JD here…",
+          placeholder: "Paste JD / project description here…",
         }),
       ),
     );
@@ -1072,6 +1076,7 @@
     );
 
     renderFormAnswersPanel(row, body);
+    renderCoverLetterPanel(row, body);
 
     const related = platforms.filter(
       (p) => cell(p.company_key) === cell(row.company_key),
@@ -1182,6 +1187,10 @@
       result_on: "",
       application_answers: "",
       application_form_raw: "",
+      cover_letter: "",
+      cover_letter_lang: "",
+      cover_letter_greeting: "",
+      cover_letter_closing: "",
     };
   }
 
@@ -1712,6 +1721,10 @@
       result_on: "",
       application_answers: "",
       application_form_raw: "",
+      cover_letter: "",
+      cover_letter_lang: "en",
+      cover_letter_greeting: "",
+      cover_letter_closing: "",
     };
     return [
       "The Job Openings importer rejected my last AI output. Fix and re-deliver.",
@@ -1739,28 +1752,112 @@
     ].join("\n");
   }
 
-  async function failImportWithAiFix(errorMsg, brokenInput) {
-    const fix = buildAiFixPrompt(errorMsg, brokenInput);
-    const ok = await copyText(fix);
-    const status = document.getElementById("import-status");
-    const rawEl = document.getElementById("import-raw");
-    if (!ok && rawEl) {
-      rawEl.value = fix;
-      rawEl.focus();
-      rawEl.select();
+  async function deliverAiFixNote(kind, fixPrompt, statusElId) {
+    const okCopy = await copyText(fixPrompt);
+    let desktopPath = "";
+    try {
+      const res = await fetch("/api/ai-fix-note", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ kind, content: fixPrompt }),
+      });
+      const payload = await res.json().catch(() => ({}));
+      if (res.ok && payload.ok) desktopPath = cell(payload.path);
+    } catch {
+      /* local write optional */
     }
+    const status = statusElId ? document.getElementById(statusElId) : null;
+    const parts = [];
+    if (okCopy) parts.push("AI fix copied to clipboard");
+    if (desktopPath) parts.push(`Desktop note: ${desktopPath}`);
+    if (!parts.length) parts.push("AI fix ready — copy failed; see toast");
     if (status) {
-      status.textContent = ok
-        ? "Import failed — AI fix copied to clipboard."
-        : "Import failed — AI fix filled in the box; press Ctrl+C.";
+      status.textContent = parts.join(" · ");
       status.className = "save-status err";
     }
     showToast(
-      ok
-        ? "AI fix copied — paste into your AI companion to regenerate"
-        : "AI fix ready — press Ctrl+C, then paste into your AI companion",
+      desktopPath
+        ? "AI fix on Desktop — paste into your companion"
+        : okCopy
+          ? "AI fix copied — paste into your companion"
+          : "AI fix failed to save — copy manually from the import box",
       5000,
     );
+    return { okCopy, desktopPath };
+  }
+
+  function isAiCompanionImportError(message) {
+    const msg = String(message || "").toLowerCase();
+    if (!msg) return false;
+    // Cockpit / server / tooling — not the AI companion's fault
+    const cockpitHints = [
+      "not found",
+      "não encontrado",
+      "failed to fetch",
+      "networkerror",
+      "typst",
+      "cover letter build failed",
+      "cover letter pdf",
+      "saving",
+      "load error",
+      "http error",
+      "(404)",
+      "(500)",
+      "(502)",
+      "(503)",
+    ];
+    if (cockpitHints.some((h) => msg.includes(h))) return false;
+    // Payload / schema issues — ask AI to regenerate
+    const aiHints = [
+      "invalid json",
+      "expected a json",
+      "missing",
+      "empty",
+      "fields[",
+      "opening_id",
+      "recommended_resume",
+      "lang must",
+      "no matching opening",
+      "markdown",
+      "array",
+      "object",
+    ];
+    return aiHints.some((h) => msg.includes(h));
+  }
+
+  async function reportImportFailure(opts) {
+    const {
+      errorMsg,
+      brokenInput,
+      kind,
+      statusElId,
+      buildFixPrompt,
+      cockpitLabel,
+    } = opts;
+    const msg = errorMsg || "Unknown error";
+    if (isAiCompanionImportError(msg) && typeof buildFixPrompt === "function") {
+      const fix = buildFixPrompt(msg, brokenInput);
+      await deliverAiFixNote(kind, fix, statusElId);
+      return;
+    }
+    const status = statusElId ? document.getElementById(statusElId) : null;
+    const label = cockpitLabel || "Cockpit error (not AI)";
+    if (status) {
+      status.textContent = `${label}: ${msg}`;
+      status.className = "save-status err";
+    }
+    showToast(`${label} — not an AI companion issue`, 4500);
+  }
+
+  async function failImportWithAiFix(errorMsg, brokenInput) {
+    await reportImportFailure({
+      errorMsg,
+      brokenInput,
+      kind: "openings-import",
+      statusElId: "import-status",
+      buildFixPrompt: buildAiFixPrompt,
+      cockpitLabel: "Cockpit error (not AI)",
+    });
   }
 
   async function importOpenings(text) {
@@ -2241,7 +2338,7 @@
     return row;
   }
 
-  async function failFormImportWithAiFix(errorMsg, brokenInput) {
+  function buildFormAiFixPrompt(errorMsg, brokenInput) {
     const sample = {
       opening_id:
         openJobId || "bosch-brasil-mid-level-digital-solution-architect-33992",
@@ -2274,7 +2371,7 @@
         },
       ],
     };
-    const fixPrompt = [
+    return [
       "The Job Openings form-fill importer rejected my last AI output. Fix and re-deliver.",
       "",
       "IMPORT ERROR",
@@ -2294,18 +2391,56 @@
       "EXAMPLE",
       JSON.stringify(sample, null, 2),
     ].join("\n");
-    const status = document.getElementById("form-import-status");
-    const ok = await copyText(fixPrompt);
-    if (status) {
-      status.textContent = ok
-        ? "Import failed — AI fix prompt copied."
-        : "Import failed — could not copy fix prompt: " + errorMsg;
-      status.className = "save-status err";
-    }
-    showToast(
-      ok ? "Form import failed — fix prompt copied" : "Form import failed",
-      3500,
-    );
+  }
+
+  async function failFormImportWithAiFix(errorMsg, brokenInput) {
+    await reportImportFailure({
+      errorMsg,
+      brokenInput,
+      kind: "form-import",
+      statusElId: "form-import-status",
+      buildFixPrompt: buildFormAiFixPrompt,
+      cockpitLabel: "Cockpit error (not AI)",
+    });
+  }
+
+  function buildCoverAiFixPrompt(errorMsg, brokenInput) {
+    const sample = {
+      opening_id: openJobId || "cloud-hq-paulinia-data-analyst",
+      lang: "en",
+      greeting: "Dear Hiring Team,",
+      body: "Paragraph 1.\n\nParagraph 2.",
+      closing: "Sincerely,\nEduardo Matos de Assis Figueiredo",
+    };
+    return [
+      "The Job Openings cover-letter importer rejected my last AI output. Fix and re-deliver.",
+      "",
+      "IMPORT ERROR",
+      errorMsg,
+      "",
+      "BROKEN INPUT (truncated)",
+      String(brokenInput || "").slice(0, 4000),
+      "",
+      "WHAT YOU MUST DO",
+      "- Return ONLY a valid JSON object (no markdown fences, no commentary).",
+      '- Shape: { "opening_id": string, "lang": "en"|"pt", "greeting": string, "body": string, "closing": string }',
+      "- body is required (cover letter paragraphs). greeting/closing optional but preferred.",
+      "- opening_id must match an existing opening id, or leave it blank if a dossier is already open.",
+      "",
+      "EXAMPLE",
+      JSON.stringify(sample, null, 2),
+    ].join("\n");
+  }
+
+  async function failCoverImportWithAiFix(errorMsg, brokenInput) {
+    await reportImportFailure({
+      errorMsg,
+      brokenInput,
+      kind: "cover-import",
+      statusElId: "cover-import-status",
+      buildFixPrompt: buildCoverAiFixPrompt,
+      cockpitLabel: "Cockpit error (not AI)",
+    });
   }
 
   async function handleImportFormRun() {
@@ -2416,6 +2551,498 @@
       cancelFormPromptAutoClose({ keepStatus: true });
       closeFormPromptModal();
     }, 3000);
+  }
+
+  function guessCoverLang(opening) {
+    const blob = [
+      cell(opening?.location),
+      cell(opening?.job_description),
+      cell(opening?.company),
+      cell(opening?.role_title),
+    ]
+      .join(" ")
+      .toLowerCase();
+    if (
+      /\b(brasil|brazil|campinas|são paulo|sao paulo|sp\b|remot[oa].*br)/i.test(
+        blob,
+      ) ||
+      /[áàâãéêíóôõúç]/i.test(cell(opening?.job_description))
+    ) {
+      return "pt";
+    }
+    return cell(opening?.cover_letter_lang).toLowerCase() === "pt"
+      ? "pt"
+      : "en";
+  }
+
+  function fillCoverPromptOpeningSelect() {
+    const sel = document.getElementById("cover-prompt-opening");
+    if (!sel) return;
+    const prev = cell(sel.value) || openJobId;
+    sel.replaceChildren();
+    const rows = openings.slice().sort((a, b) => {
+      const ca = (cell(a.company) || cell(a.company_key)).toLowerCase();
+      const cb = (cell(b.company) || cell(b.company_key)).toLowerCase();
+      if (ca !== cb) return ca.localeCompare(cb);
+      return cell(a.role_title).localeCompare(cell(b.role_title));
+    });
+    if (!rows.length) {
+      const o = document.createElement("option");
+      o.value = "";
+      o.textContent = "(no openings)";
+      sel.append(o);
+      return;
+    }
+    for (const row of rows) {
+      const o = document.createElement("option");
+      o.value = cell(row.id);
+      o.textContent =
+        (cell(row.company) || cell(row.company_key) || "?") +
+        " · " +
+        (cell(row.role_title) || "(untitled)");
+      sel.append(o);
+    }
+    if (prev && [...sel.options].some((o) => o.value === prev)) {
+      sel.value = prev;
+    }
+    syncCoverPromptFromOpening();
+  }
+
+  function syncCoverPromptFromOpening() {
+    const id = cell(document.getElementById("cover-prompt-opening")?.value);
+    const row = openings.find((r) => cell(r.id) === id);
+    const langEl = document.getElementById("cover-prompt-lang");
+    const jdEl = document.getElementById("cover-prompt-jd");
+    if (!row) return;
+    if (langEl) langEl.value = guessCoverLang(row);
+    if (jdEl) jdEl.value = cell(row.job_description);
+  }
+
+  function buildCoverLetterInstructions(openingId, lang) {
+    return [
+      "=== AIB COVER LETTER INSTRUCTIONS (mandatory) ===",
+      "1. Write a tailored cover letter for the SELECTED OPENING using PROFILE CONTEXT,",
+      "   NARRATIVES, EXPERIENCE, EDUCATION, and the JOB / PROJECT DESCRIPTION.",
+      "2. Do not invent employers, degrees, dates, or metrics. Prefer evidence from context.",
+      "3. Keep the letter one page when printed (~250–400 words). No markdown headings.",
+      "4. Separate body paragraphs with a blank line (\\n\\n).",
+      `5. Write the letter in language code: ${lang} (en = English, pt = Portuguese).`,
+      "6. Match tone to the role (professional, concrete, human — not buzzword soup).",
+      "7. Mention 2–3 concrete matches between my background and the job/project needs.",
+      "8. Return ONLY one JSON object (no markdown fences, no prose):",
+      "   {",
+      `     "opening_id": "${openingId}",`,
+      `     "lang": "${lang}",`,
+      '     "greeting": "<salutation>",',
+      '     "body": "<paragraphs separated by blank lines>",',
+      '     "closing": "<sign-off including my name on a new line>"',
+      "   }",
+      "9. opening_id must equal the selected opening id provided above.",
+    ].join("\n");
+  }
+
+  async function buildCoverLetterPrompt(openingId, lang, jdOverride) {
+    const opening =
+      openings.find((r) => cell(r.id) === cell(openingId)) || null;
+    if (!opening) throw new Error("Opening not found");
+    const letterLang = lang === "pt" ? "pt" : "en";
+    const jd = cell(jdOverride) || cell(opening.job_description);
+    if (!jd.trim()) {
+      throw new Error(
+        "Add a job / project description on this opening (or in the prompt box) first.",
+      );
+    }
+
+    const path = cell(opening.career_path).toLowerCase() || "dsa";
+    const variant = PATH_TO_VARIANT[path] || "general";
+    const ctx = await fetchPromptContext();
+    const variants = new Set([variant, "general"]);
+    const skills = (ctx.skills || []).filter((s) =>
+      variants.has(cell(s.variant) || "general"),
+    );
+    const narratives = (ctx.narratives || []).filter((n) =>
+      variants.has(cell(n.variant) || "general"),
+    );
+    const experience = (ctx.experience || []).slice(0, 8);
+    const education = (ctx.education || []).slice(0, 6);
+    const profile = (ctx.profile && ctx.profile[0]) || {};
+
+    const lines = [];
+    lines.push(
+      "You are my AI companion (AIB) for writing a job-application cover letter.",
+    );
+    lines.push("");
+    lines.push(buildCoverLetterInstructions(cell(opening.id), letterLang));
+    lines.push("");
+    lines.push("=== SELECTED OPENING ===");
+    lines.push(`opening_id: ${cell(opening.id)}`);
+    lines.push(`company: ${cell(opening.company)}`);
+    lines.push(`role_title: ${cell(opening.role_title)}`);
+    lines.push(`career_path: ${cell(opening.career_path)}`);
+    lines.push(`location: ${cell(opening.location)}`);
+    lines.push(`job_url: ${cell(opening.job_url)}`);
+    lines.push(`skills_gap: ${cell(opening.skills_gap)}`);
+    lines.push("");
+    lines.push("=== JOB / PROJECT DESCRIPTION ===");
+    lines.push(jd.trim());
+    lines.push("");
+    lines.push("=== PROFILE CONTEXT ===");
+    lines.push(
+      `Name: ${cell(profile.display_name) || cell(profile.full_name)}`,
+    );
+    lines.push(`Full name: ${cell(profile.full_name)}`);
+    lines.push(
+      `Location: ${cell(profile.location_en) || cell(profile.location_pt)}`,
+    );
+    lines.push(
+      `Languages: ${cell(profile.languages_en) || cell(profile.languages_pt)}`,
+    );
+    lines.push(`Email: ${cell(profile.email)}`);
+    lines.push(`Phone: ${cell(profile.phone)}`);
+    lines.push(`LinkedIn: ${cell(profile.linkedin_url)}`);
+    lines.push(
+      `Résumé variant hint: ${cell(opening.recommended_resume) || variant}`,
+    );
+    lines.push("");
+
+    const tagline = narratives.find((n) => cell(n.field) === "tagline");
+    const summary = narratives.find((n) => cell(n.field) === "profile");
+    if (tagline || summary) {
+      lines.push("=== NARRATIVES ===");
+      if (tagline) {
+        lines.push(
+          `Tagline: ${letterLang === "pt" ? cell(tagline.text_pt) || cell(tagline.text_en) : cell(tagline.text_en)}`,
+        );
+      }
+      if (summary) {
+        lines.push(
+          `Summary: ${letterLang === "pt" ? cell(summary.text_pt) || cell(summary.text_en) : cell(summary.text_en)}`,
+        );
+      }
+      lines.push("");
+    }
+
+    if (skills.length) {
+      lines.push("=== SKILLS (core + tech for path) ===");
+      for (const s of skills.slice(0, 40)) {
+        const label =
+          letterLang === "pt"
+            ? cell(s.label_pt) || cell(s.label_en)
+            : cell(s.label_en) || cell(s.label_pt);
+        if (label) lines.push(`- [${cell(s.category) || "?"}] ${label}`);
+      }
+      lines.push("");
+    }
+
+    if (education.length) {
+      lines.push("=== EDUCATION ===");
+      for (const e of education) {
+        lines.push(
+          `- ${cell(e.institution_en) || cell(e.institution_pt)} | ${cell(e.degree_en) || cell(e.degree_pt)} | ${cell(e.date_display_en) || cell(e.date_display_pt)}`,
+        );
+      }
+      lines.push("");
+    }
+
+    if (experience.length) {
+      lines.push("=== EXPERIENCE (recent) ===");
+      for (const e of experience) {
+        lines.push(
+          `- ${cell(e.title_en) || cell(e.title_pt)} @ ${cell(e.company_en) || cell(e.company_pt)} | ${cell(e.date_display_en) || cell(e.date_display_pt)}`,
+        );
+        const desc =
+          letterLang === "pt"
+            ? cell(e.description_pt) || cell(e.description_en)
+            : cell(e.description_en) || cell(e.description_pt);
+        if (desc) lines.push(`  ${desc.slice(0, 320)}`);
+      }
+      lines.push("");
+    }
+
+    lines.push(buildCoverLetterInstructions(cell(opening.id), letterLang));
+    return lines.join("\n");
+  }
+
+  async function handleCoverPromptCopy() {
+    const openingId = cell(
+      document.getElementById("cover-prompt-opening")?.value,
+    );
+    const lang =
+      cell(document.getElementById("cover-prompt-lang")?.value) || "en";
+    const jd = cell(document.getElementById("cover-prompt-jd")?.value);
+    const status = document.getElementById("cover-prompt-status");
+    if (!openingId) {
+      if (status) {
+        status.textContent = "Select an opening";
+        status.className = "save-status err";
+      }
+      return;
+    }
+    try {
+      if (status) {
+        status.textContent = "Building prompt…";
+        status.className = "save-status";
+      }
+      const opening = openings.find((r) => cell(r.id) === openingId);
+      if (opening && jd.trim()) {
+        opening.job_description = jd.trim();
+        setDirty(true);
+      }
+      const prompt = await buildCoverLetterPrompt(openingId, lang, jd);
+      const ok = await copyText(prompt);
+      if (ok) {
+        if (status) {
+          status.textContent = "Prompt copied — paste into your AI companion";
+          status.className = "save-status ok";
+        }
+        showToast("Cover letter prompt copied", 2500);
+      } else if (status) {
+        status.textContent = "Clipboard blocked — see console / try again";
+        status.className = "save-status err";
+      }
+    } catch (err) {
+      if (status) {
+        status.textContent = "Error: " + (err.message || String(err));
+        status.className = "save-status err";
+      }
+    }
+  }
+
+  function parseCoverImportPayload(text) {
+    const cleaned = stripMarkdownFences(text);
+    if (!cleaned) throw new Error("Empty cover letter payload");
+    let data;
+    try {
+      data = JSON.parse(cleaned);
+    } catch (err) {
+      throw new Error("Invalid JSON: " + (err.message || String(err)));
+    }
+    if (!data || typeof data !== "object" || Array.isArray(data)) {
+      throw new Error("Expected a JSON object");
+    }
+    const body = cell(data.body) || cell(data.letter) || cell(data.text);
+    if (!body.trim()) throw new Error('Missing "body" (cover letter text)');
+    const lang = cell(data.lang).toLowerCase() || "en";
+    if (lang !== "en" && lang !== "pt") {
+      throw new Error('lang must be "en" or "pt"');
+    }
+    return {
+      opening_id: cell(data.opening_id),
+      lang,
+      greeting: cell(data.greeting),
+      body: body.trim(),
+      closing: cell(data.closing),
+    };
+  }
+
+  async function compileCoverLetterPdf(row) {
+    const lang = cell(row.cover_letter_lang) || "en";
+    const today = new Date();
+    const dateStr =
+      lang === "pt"
+        ? today.toLocaleDateString("pt-BR", {
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+          })
+        : today.toLocaleDateString("en-US", {
+            month: "long",
+            day: "numeric",
+            year: "numeric",
+          });
+    const res = await fetch("/api/cover-letter", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        opening_id: cell(row.id),
+        lang,
+        company: cell(row.company),
+        role: cell(row.role_title),
+        greeting: cell(row.cover_letter_greeting),
+        body: cell(row.cover_letter),
+        closing: cell(row.cover_letter_closing),
+        date: dateStr,
+      }),
+    });
+    const payload = await res.json().catch(() => ({}));
+    if (!res.ok || !payload.ok) {
+      throw new Error(
+        payload.error || `Cover letter build failed (${res.status})`,
+      );
+    }
+    return payload;
+  }
+
+  async function handleCoverImportRun() {
+    const status = document.getElementById("cover-import-status");
+    const rawEl = document.getElementById("cover-import-raw");
+    try {
+      const payload = parseCoverImportPayload(cell(rawEl?.value));
+      let openingId = payload.opening_id || openJobId;
+      let row = openings.find((r) => cell(r.id) === openingId) || null;
+      if (!row && openJobId) {
+        row = openings.find((r) => cell(r.id) === openJobId) || null;
+      }
+      if (!row) {
+        throw new Error(
+          "No matching opening for opening_id — open a dossier or set opening_id.",
+        );
+      }
+      row.cover_letter = payload.body;
+      row.cover_letter_lang = payload.lang;
+      row.cover_letter_greeting = payload.greeting;
+      row.cover_letter_closing = payload.closing;
+      collections.jobOpenings = openings;
+      setDirty(true);
+      if (status) {
+        status.textContent = "Saving & building PDF…";
+        status.className = "save-status";
+      }
+      await saveAll({ closeModal: false });
+      const pdf = await compileCoverLetterPdf(row);
+      if (status) {
+        status.textContent = "Cover letter PDF ready";
+        status.className = "save-status ok";
+      }
+      showToast("Cover letter PDF built", 2200);
+      closeCoverImportModal();
+      if (openJobId === cell(row.id)) openModal(row.id);
+      openResumeViewer({
+        label: `Cover letter · ${cell(row.company) || cell(row.role_title) || "Opening"}`,
+        lang: pdf.lang,
+        filename: pdf.filename,
+        view_url: pdf.view_url,
+        url: pdf.url,
+        abs_path: pdf.abs_path,
+      });
+    } catch (err) {
+      await failCoverImportWithAiFix(
+        err.message || String(err),
+        cell(rawEl?.value),
+      );
+    }
+  }
+
+  function openCoverPromptModal() {
+    fillCoverPromptOpeningSelect();
+    const dialog = document.getElementById("cover-prompt-modal");
+    const status = document.getElementById("cover-prompt-status");
+    if (status) {
+      status.textContent = "";
+      status.className = "save-status";
+    }
+    if (dialog && typeof dialog.showModal === "function" && !dialog.open) {
+      dialog.showModal();
+    }
+  }
+
+  function closeCoverPromptModal() {
+    const dialog = document.getElementById("cover-prompt-modal");
+    if (dialog && dialog.open) dialog.close();
+  }
+
+  function openCoverImportModal() {
+    const dialog = document.getElementById("cover-import-modal");
+    const status = document.getElementById("cover-import-status");
+    const rawEl = document.getElementById("cover-import-raw");
+    if (status) {
+      status.textContent = "";
+      status.className = "save-status";
+    }
+    if (dialog && typeof dialog.showModal === "function" && !dialog.open) {
+      dialog.showModal();
+    }
+    requestAnimationFrame(() => {
+      if (!rawEl) return;
+      rawEl.focus();
+      rawEl.select();
+    });
+  }
+
+  function closeCoverImportModal() {
+    const dialog = document.getElementById("cover-import-modal");
+    if (dialog && dialog.open) dialog.close();
+  }
+
+  function renderCoverLetterPanel(row, parent) {
+    const section = document.createElement("section");
+    section.className = "job-form-answers";
+    section.setAttribute("aria-label", "Cover letter");
+
+    const head = document.createElement("div");
+    head.className = "job-form-answers-head";
+    const title = document.createElement("h3");
+    title.className = "company-research-label";
+    title.textContent = "Cover letter";
+    head.append(title);
+    const actions = document.createElement("div");
+    actions.className = "job-form-answers-actions";
+    const gen = document.createElement("button");
+    gen.type = "button";
+    gen.className = "nav-btn";
+    gen.textContent = "Generate prompt";
+    gen.title = "Generate cover letter prompt (Shift+C)";
+    gen.addEventListener("click", () => openCoverPromptModal());
+    const imp = document.createElement("button");
+    imp.type = "button";
+    imp.className = "nav-btn";
+    imp.textContent = "Import & PDF";
+    imp.title = "Import cover letter & build PDF (Shift+L)";
+    imp.addEventListener("click", () => openCoverImportModal());
+    actions.append(gen, imp);
+    head.append(actions);
+    section.append(head);
+
+    const body = cell(row.cover_letter);
+    if (!body) {
+      const hint = document.createElement("p");
+      hint.className = "job-modal-hint";
+      hint.textContent =
+        "No cover letter yet. Fill Job / project description, generate a prompt (⇧C), then import the AI JSON (⇧L) to build a PDF.";
+      section.append(hint);
+      parent.append(section);
+      return;
+    }
+
+    const meta = document.createElement("div");
+    meta.className = "job-form-answer-note";
+    meta.textContent = `Language: ${(cell(row.cover_letter_lang) || "en").toUpperCase()}`;
+    section.append(meta);
+
+    if (cell(row.cover_letter_greeting)) {
+      const g = document.createElement("div");
+      g.className = "job-form-answer-value";
+      g.textContent = cell(row.cover_letter_greeting);
+      section.append(g);
+    }
+    const preview = document.createElement("div");
+    preview.className = "job-form-answer-value";
+    preview.style.whiteSpace = "pre-wrap";
+    preview.textContent = body.slice(0, 1200) + (body.length > 1200 ? "…" : "");
+    section.append(preview);
+
+    const rebuild = document.createElement("button");
+    rebuild.type = "button";
+    rebuild.className = "nav-btn";
+    rebuild.textContent = "Rebuild PDF";
+    rebuild.addEventListener("click", async () => {
+      try {
+        const pdf = await compileCoverLetterPdf(row);
+        showToast("Cover letter PDF rebuilt", 2000);
+        openResumeViewer({
+          label: `Cover letter · ${cell(row.company) || "Opening"}`,
+          lang: pdf.lang,
+          filename: pdf.filename,
+          view_url: pdf.view_url,
+          url: pdf.url,
+          abs_path: pdf.abs_path,
+        });
+      } catch (err) {
+        showToast(err.message || "PDF build failed", 3000);
+      }
+    });
+    section.append(rebuild);
+    parent.append(section);
   }
 
   function openFormPromptModal() {
@@ -3023,6 +3650,13 @@
             handleImportFormRun();
             return;
           }
+          const coverImportOpen =
+            !!document.getElementById("cover-import-modal")?.open;
+          if (coverImportOpen) {
+            event.preventDefault();
+            handleCoverImportRun();
+            return;
+          }
           const importOpen = !!document.getElementById("import-modal")?.open;
           if (importOpen) {
             event.preventDefault();
@@ -3129,6 +3763,34 @@
         return;
       }
 
+      // Generate cover letter prompt — Shift+C
+      if (
+        !typing &&
+        !mod &&
+        !event.altKey &&
+        event.shiftKey &&
+        event.code === "KeyC"
+      ) {
+        event.preventDefault();
+        event.stopPropagation();
+        openCoverPromptModal();
+        return;
+      }
+
+      // Import cover letter — Shift+L
+      if (
+        !typing &&
+        !mod &&
+        !event.altKey &&
+        event.shiftKey &&
+        event.code === "KeyL"
+      ) {
+        event.preventDefault();
+        event.stopPropagation();
+        openCoverImportModal();
+        return;
+      }
+
       if (event.altKey && !mod && !event.shiftKey) {
         const isS =
           event.code === "KeyS" || (event.key || "").toLowerCase() === "s";
@@ -3167,6 +3829,18 @@
           document.getElementById("form-import-modal")?.open;
         if (formImportOpen) {
           closeFormImportModal();
+          return;
+        }
+        const coverPromptOpen =
+          document.getElementById("cover-prompt-modal")?.open;
+        if (coverPromptOpen) {
+          closeCoverPromptModal();
+          return;
+        }
+        const coverImportOpen =
+          document.getElementById("cover-import-modal")?.open;
+        if (coverImportOpen) {
+          closeCoverImportModal();
           return;
         }
         const promptOpen = document.getElementById("prompt-modal")?.open;
@@ -3450,6 +4124,27 @@
     document
       .getElementById("job-form-import-btn")
       ?.addEventListener("click", () => openFormImportModal());
+    document
+      .getElementById("job-cover-prompt-btn")
+      ?.addEventListener("click", () => openCoverPromptModal());
+    document
+      .getElementById("job-cover-import-btn")
+      ?.addEventListener("click", () => openCoverImportModal());
+    document
+      .getElementById("cover-prompt-modal-close")
+      ?.addEventListener("click", () => closeCoverPromptModal());
+    document
+      .getElementById("cover-import-modal-close")
+      ?.addEventListener("click", () => closeCoverImportModal());
+    document
+      .getElementById("cover-prompt-copy-btn")
+      ?.addEventListener("click", () => handleCoverPromptCopy());
+    document
+      .getElementById("cover-import-run-btn")
+      ?.addEventListener("click", () => handleCoverImportRun());
+    document
+      .getElementById("cover-prompt-opening")
+      ?.addEventListener("change", () => syncCoverPromptFromOpening());
     document
       .getElementById("job-bulk-btn")
       ?.addEventListener("click", () => setBulkMode(!bulkMode));

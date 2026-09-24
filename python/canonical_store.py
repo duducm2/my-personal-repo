@@ -314,6 +314,10 @@ _BASE: dict[str, tuple[str, list[str]]] = {
             "result_on",
             "application_answers",
             "application_form_raw",
+            "cover_letter",
+            "cover_letter_lang",
+            "cover_letter_greeting",
+            "cover_letter_closing",
         ],
     ),
     "jobPlatforms": (

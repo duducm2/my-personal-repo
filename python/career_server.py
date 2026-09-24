@@ -271,6 +271,193 @@ def resolve_download(variant: str, filename: str) -> Path | None:
     return path
 
 
+def _safe_opening_id(opening_id: str) -> str:
+    cleaned = "".join(
+        ch if ch.isalnum() or ch in ("-", "_") else "-" for ch in (opening_id or "").strip()
+    )
+    cleaned = cleaned.strip("-_") or "opening"
+    return cleaned[:80]
+
+
+def build_cover_letter_pdf(payload: dict[str, Any]) -> dict[str, Any]:
+    """Compile a one-page Typst cover letter for a job opening."""
+    opening_id = str(payload.get("opening_id") or "").strip()
+    if not opening_id:
+        raise ValueError("opening_id required")
+    lang = str(payload.get("lang") or "en").strip().lower()
+    if lang not in ("en", "pt"):
+        raise ValueError("lang must be en or pt")
+
+    body = str(payload.get("body") or "").strip()
+    if not body:
+        raise ValueError("cover letter body is empty")
+
+    profile_rows = CanonicalStore(CANONICAL_DIR)._read_csv_loose("profile.csv")
+    profile = profile_rows[0] if profile_rows else {}
+
+    name = str(
+        payload.get("name")
+        or profile.get("display_name")
+        or profile.get("full_name")
+        or ""
+    ).strip()
+    phone = str(payload.get("phone") or profile.get("phone") or "").strip()
+    email = str(payload.get("email") or profile.get("email") or "").strip()
+    linkedin = str(
+        payload.get("linkedin") or profile.get("linkedin_url") or ""
+    ).strip()
+    location = str(
+        payload.get("location")
+        or (profile.get("location_pt") if lang == "pt" else profile.get("location_en"))
+        or profile.get("location_en")
+        or ""
+    ).strip()
+
+    def typ_escape(value: str) -> str:
+        return (
+            value.replace("\\", "\\\\")
+            .replace('"', '\\"')
+            .replace("\r\n", "\\n")
+            .replace("\n", "\\n")
+            .replace("\r", "\\n")
+        )
+
+    safe_id = _safe_opening_id(opening_id)
+    out_dir = OUTPUT_DIR / "cover-letters"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    filename = f"Cover-Letter-{safe_id}-{lang.upper()}.pdf"
+    out_path = out_dir / filename
+    typst_dir = ROOT_DIR / "resume" / "typst"
+    gen_dir = typst_dir / "_generated"
+    gen_dir.mkdir(parents=True, exist_ok=True)
+    content_path = gen_dir / f"cover-{safe_id}-{lang}.typ"
+    template = typst_dir / "cover-letter.typ"
+    fonts = typst_dir / "fonts"
+    if not template.is_file():
+        raise ValueError(f"missing template: {template}")
+
+    fields = {
+        "name": name,
+        "phone": phone,
+        "email": email,
+        "location": location,
+        "linkedin": linkedin,
+        "date": str(payload.get("date") or "").strip(),
+        "company": str(payload.get("company") or "").strip(),
+        "role": str(payload.get("role") or "").strip(),
+        "greeting": str(payload.get("greeting") or "").strip(),
+        "body": body,
+        "closing": str(payload.get("closing") or "").strip(),
+        "lang": lang,
+    }
+    content_lines = [
+        "// Generated cover-letter content — do not edit by hand.",
+    ]
+    for key, value in fields.items():
+        content_lines.append(f'#let cover-{key} = "{typ_escape(value)}"')
+    content_path.write_text("\n".join(content_lines) + "\n", encoding="utf-8")
+
+    # Import path is resolved relative to the template file (resume/typst/).
+    rel_content = f"_generated/{content_path.name}"
+    cmd = [
+        "typst",
+        "compile",
+        "--root",
+        str(ROOT_DIR),
+        "--font-path",
+        str(fonts),
+        "--input",
+        f"content={rel_content}",
+        str(template),
+        str(out_path),
+    ]
+
+    try:
+        completed = subprocess.run(  # noqa: S603
+            cmd,
+            check=False,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            errors="replace",
+        )
+    except FileNotFoundError as exc:
+        raise ValueError(
+            "typst not found on PATH — install Typst to build cover letters"
+        ) from exc
+
+    if completed.returncode != 0:
+        err = (completed.stderr or completed.stdout or "typst compile failed").strip()
+        raise ValueError(err[:800])
+
+    if not out_path.is_file():
+        raise ValueError("cover letter PDF was not created")
+
+    return {
+        "ok": True,
+        "opening_id": opening_id,
+        "lang": lang,
+        "filename": filename,
+        "abs_path": str(out_path.resolve()),
+        "url": f"/download/cover-letters/{filename}",
+        "view_url": f"/download/cover-letters/{filename}?inline=1",
+    }
+
+
+def resolve_cover_letter(filename: str) -> Path | None:
+    if not filename or "/" in filename or "\\" in filename or ".." in filename:
+        return None
+    if not filename.lower().endswith(".pdf"):
+        return None
+    path = (OUTPUT_DIR / "cover-letters" / filename).resolve()
+    cover_root = (OUTPUT_DIR / "cover-letters").resolve()
+    if not str(path).startswith(str(cover_root)):
+        return None
+    if not path.is_file():
+        return None
+    return path
+
+
+def _desktop_dir() -> Path:
+    home = Path.home()
+    candidates = [
+        home / "Desktop",
+        home / "OneDrive" / "Desktop",
+        home / "OneDrive" / "Ambiente de Trabalho",
+        Path(os.environ.get("USERPROFILE", "")) / "Desktop",
+    ]
+    for path in candidates:
+        if path.is_dir():
+            return path
+    return home
+
+
+def write_ai_fix_document(kind: str, content: str) -> dict[str, Any]:
+    """Write an AI-companion fix note to the user's Desktop."""
+    text = str(content or "").strip()
+    if not text:
+        raise ValueError("content required")
+    safe_kind = "".join(
+        ch if ch.isalnum() or ch in ("-", "_") else "-" for ch in (kind or "fix")
+    ).strip("-") or "fix"
+    stamp = __import__("datetime").datetime.now().strftime("%Y%m%d-%H%M%S")
+    desktop = _desktop_dir()
+    path = desktop / f"AI-fix-{safe_kind}-{stamp}.md"
+    header = (
+        f"# AI companion fix — {safe_kind}\n\n"
+        f"Generated by career cockpit at {stamp}.\n"
+        "Paste this file into your AI companion to regenerate a corrected payload.\n\n"
+        "---\n\n"
+    )
+    path.write_text(header + text + "\n", encoding="utf-8")
+    return {
+        "ok": True,
+        "path": str(path.resolve()),
+        "filename": path.name,
+        "desktop": str(desktop.resolve()),
+    }
+
+
 class CareerHandler(BaseHTTPRequestHandler):
     server_version = "CareerCockpit/1.0"
 
@@ -362,6 +549,21 @@ class CareerHandler(BaseHTTPRequestHandler):
     def do_POST(self) -> None:  # noqa: N802
         try:
             path = urlparse(self.path).path
+            if path == "/api/cover-letter":
+                body = self._read_json()
+                result = build_cover_letter_pdf(body if isinstance(body, dict) else {})
+                self._json(200, result)
+                return
+            if path == "/api/ai-fix-note":
+                body = self._read_json()
+                if not isinstance(body, dict):
+                    raise ValueError("JSON object required")
+                result = write_ai_fix_document(
+                    str(body.get("kind") or "fix"),
+                    str(body.get("content") or ""),
+                )
+                self._json(200, result)
+                return
             if path != "/api/open-url":
                 self._json(404, {"ok": False, "error": "not found"})
                 return
@@ -381,6 +583,26 @@ class CareerHandler(BaseHTTPRequestHandler):
     def _serve_download(self, path: str) -> None:
         parsed = urlparse(self.path)
         parts = [p for p in unquote(parsed.path).split("/") if p]
+        # cover letters: ["download", "cover-letters", filename]
+        if len(parts) == 3 and parts[0] == "download" and parts[1] == "cover-letters":
+            file_path = resolve_cover_letter(parts[2])
+            if file_path is None:
+                self._json(404, {"ok": False, "error": "file not found"})
+                return
+            data = file_path.read_bytes()
+            inline = "inline=1" in (parsed.query or "")
+            disposition = "inline" if inline else "attachment"
+            self.send_response(200)
+            self.send_header("Content-Type", "application/pdf")
+            self.send_header("Content-Length", str(len(data)))
+            self.send_header(
+                "Content-Disposition",
+                f'{disposition}; filename="{file_path.name}"',
+            )
+            self._cors()
+            self.end_headers()
+            self.wfile.write(data)
+            return
         # ["download", variant, filename]
         if len(parts) != 3 or parts[0] != "download":
             self._json(404, {"ok": False, "error": "not found"})

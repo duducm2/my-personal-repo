@@ -352,3 +352,7 @@ job_portals.csv,ats_name,ATS name,Nome do ATS
 job_portals.csv,ats_url,ATS URL,URL do ATS
 job_portals.csv,fit_paths,Fit paths (da;po;dsa),Trilhas (da;po;dsa)
 job_portals.csv,notes,Notes,Notas
+job_openings.csv,cover_letter,Cover letter body,Corpo da carta
+job_openings.csv,cover_letter_lang,Cover letter language,Idioma da carta
+job_openings.csv,cover_letter_greeting,Cover letter greeting,Saudacao da carta
+job_openings.csv,cover_letter_closing,Cover letter closing,Despedida da carta
