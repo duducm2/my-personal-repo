@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Autofill</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        margin: 12px;
+        width: 260px;
+        font-size: 13px;
+      }
+      button {
+        width: 100%;
+        margin-top: 8px;
+        padding: 8px;
+        border-radius: 8px;
+        border: 1px solid #6e49cb;
+        background: #6e49cb;
+        color: #fff;
+        cursor: pointer;
+        font: inherit;
+      }
+      button.secondary {
+        background: #fff;
+        color: #1f2328;
+        border-color: #d0d7de;
+      }
+      .muted {
+        color: #656d76;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <strong>Career Cockpit Autofill</strong>
+    <p class="muted" id="tab">Active tab…</p>
+    <button type="button" id="open-panel">Open side panel</button>
+    <button type="button" id="run" class="secondary">Autofill this tab</button>
+    <script src="popup.js"></script>
+  </body>
+</html>

@@ -1178,6 +1178,13 @@
 
     const actions = document.createElement("div");
     actions.className = "job-modal-actions";
+    const autofill = document.createElement("button");
+    autofill.type = "button";
+    autofill.className = "save-btn";
+    autofill.textContent = "Autofill active application page";
+    autofill.title =
+      "Hand this opening to the Chrome autofill extension (never auto-submits)";
+    autofill.addEventListener("click", () => void startAutofillForOpening(row));
     const done = document.createElement("button");
     done.type = "button";
     done.className = "save-btn";
@@ -1190,8 +1197,75 @@
     del.textContent = "Delete opening";
     del.title = "Delete opening (Alt+Delete)";
     del.addEventListener("click", () => deleteOpening(row.id));
-    actions.append(done, del);
+    actions.append(autofill, done, del);
     body.append(actions);
+  }
+
+  async function startAutofillForOpening(row) {
+    if (!row || !row.id) return;
+    const jobUrl = cell(row.job_url).trim();
+    try {
+      const res = await fetch("/api/autofill/pending", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          action: "set",
+          job_id: row.id,
+          job_url: jobUrl,
+          role_title: cell(row.role_title),
+          company: cell(row.company),
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error || res.statusText);
+
+      // Prefer messaging the installed extension when the ID is known (optional).
+      const extId = window.localStorage.getItem("career-autofill-extension-id");
+      if (extId && typeof chrome !== "undefined" && chrome.runtime && chrome.runtime.sendMessage) {
+        try {
+          chrome.runtime.sendMessage(extId, {
+            type: "OPEN_SIDEPANEL",
+            jobId: row.id,
+          });
+        } catch {
+          /* fall through to instructions */
+        }
+      }
+
+      if (jobUrl) {
+        try {
+          await fetch("/api/open-url", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ url: jobUrl }),
+          });
+        } catch {
+          window.open(jobUrl, "_blank", "noopener,noreferrer");
+        }
+      }
+
+      setSaveStatus(
+        "Autofill ready — open the Career Cockpit Autofill side panel on the application tab and click Autofill."
+      );
+      window.alert(
+        [
+          "Autofill prepared for:",
+          `${cell(row.company)} — ${cell(row.role_title)}`,
+          "",
+          jobUrl
+            ? "1) The job URL was opened (or use the tab you already have)."
+            : "1) Open the application form in Chrome.",
+          "2) Click the Career Cockpit Autofill extension → Open side panel.",
+          "3) Confirm the job is selected, then click Autofill this tab.",
+          "",
+          "The extension never clicks Submit/Apply.",
+          "",
+          "First-time setup: chrome://extensions → Load unpacked → browser-extension/",
+        ].join("\n")
+      );
+    } catch (err) {
+      window.alert(`Could not prepare autofill: ${err.message || err}`);
+    }
   }
 
   function addOpening() {

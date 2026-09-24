@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Career Cockpit Autofill</title>
+    <link rel="stylesheet" href="sidepanel.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Autofill</h1>
+      <p class="sub">Fill the active tab from your Career Cockpit profile.</p>
+    </header>
+
+    <section class="block">
+      <label for="cockpit-url">Cockpit URL</label>
+      <input id="cockpit-url" type="url" value="http://127.0.0.1:8770" />
+    </section>
+
+    <section class="block">
+      <label for="job-select">Job opening</label>
+      <select id="job-select">
+        <option value="">Loading…</option>
+      </select>
+      <button type="button" id="refresh-jobs" class="linkish">Refresh</button>
+    </section>
+
+    <section class="block" id="tab-info">
+      <div class="muted">Active tab: <span id="tab-title">—</span></div>
+    </section>
+
+    <section class="block actions">
+      <button type="button" id="detect-btn" class="secondary">Detect fields</button>
+      <button type="button" id="run-btn" class="primary">Autofill this tab</button>
+    </section>
+
+    <pre id="log" class="log"></pre>
+
+    <p class="hint">
+      Tip: open the application form in Chrome, pick the matching job above, then click
+      <strong>Autofill this tab</strong>. The extension never clicks Submit/Apply.
+    </p>
+
+    <script src="sidepanel.js"></script>
+  </body>
+</html>

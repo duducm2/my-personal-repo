@@ -1,0 +1,190 @@
+/* Career Cockpit Autofill overlay + field highlights */
+
+#career-cockpit-autofill-overlay {
+  all: initial;
+  position: fixed;
+  z-index: 2147483646;
+  top: 16px;
+  right: 16px;
+  width: 380px;
+  max-width: calc(100vw - 32px);
+  max-height: calc(100vh - 32px);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #1a1a1a;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+#career-cockpit-autofill-overlay.cc-visible {
+  pointer-events: auto;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#career-cockpit-autofill-overlay .cc-panel {
+  background: #fff;
+  border: 1px solid #d0d7de;
+  border-radius: 12px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+  padding: 14px 14px 10px;
+  overflow: auto;
+  max-height: calc(100vh - 32px);
+}
+
+#career-cockpit-autofill-overlay .cc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+#career-cockpit-autofill-overlay .cc-header strong {
+  font-size: 14px;
+}
+
+#career-cockpit-autofill-overlay .cc-close {
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  cursor: pointer;
+  line-height: 1;
+  color: #666;
+}
+
+#career-cockpit-autofill-overlay .cc-status {
+  margin-bottom: 8px;
+  color: #333;
+}
+
+#career-cockpit-autofill-overlay .cc-error {
+  background: #ffebe9;
+  color: #a40e26;
+  padding: 6px 8px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+#career-cockpit-autofill-overlay .cc-progress-wrap {
+  height: 6px;
+  background: #eef1f4;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+#career-cockpit-autofill-overlay .cc-progress {
+  height: 100%;
+  background: linear-gradient(90deg, #6e49cb, #a371f7);
+  transition: width 0.25s ease;
+}
+
+#career-cockpit-autofill-overlay .cc-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 10px;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+#career-cockpit-autofill-overlay .cc-stats b {
+  color: #111;
+}
+
+#career-cockpit-autofill-overlay .cc-amb-list {
+  border-top: 1px solid #eee;
+  padding-top: 8px;
+  margin-bottom: 10px;
+  max-height: 240px;
+  overflow: auto;
+}
+
+#career-cockpit-autofill-overlay .cc-amb-title {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+#career-cockpit-autofill-overlay .cc-amb-row {
+  padding: 6px 0;
+  border-bottom: 1px solid #f3f3f3;
+}
+
+#career-cockpit-autofill-overlay .cc-amb-label {
+  font-weight: 500;
+}
+
+#career-cockpit-autofill-overlay .cc-amb-meta {
+  color: #777;
+  font-size: 11px;
+  margin-bottom: 4px;
+}
+
+#career-cockpit-autofill-overlay .cc-amb-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+#career-cockpit-autofill-overlay .cc-amb-select,
+#career-cockpit-autofill-overlay .cc-amb-custom {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  padding: 4px 6px;
+  font: inherit;
+}
+
+#career-cockpit-autofill-overlay .cc-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+#career-cockpit-autofill-overlay .cc-btn {
+  border: 1px solid #d0d7de;
+  background: #f6f8fa;
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font: inherit;
+}
+
+#career-cockpit-autofill-overlay .cc-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+#career-cockpit-autofill-overlay .cc-btn-primary {
+  background: #6e49cb;
+  border-color: #6e49cb;
+  color: #fff;
+}
+
+#career-cockpit-autofill-overlay .cc-note {
+  margin: 8px 0 0;
+  font-size: 11px;
+  color: #888;
+}
+
+/* Field highlights on host page */
+[data-cc-autofill-hl].cc-autofill-hl-ok {
+  outline: 2px solid #2da44e !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 3px rgba(45, 164, 78, 0.25) !important;
+}
+
+[data-cc-autofill-hl].cc-autofill-hl-warn {
+  outline: 2px solid #d4a72c !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 3px rgba(212, 167, 44, 0.3) !important;
+}
+
+[data-cc-autofill-hl].cc-autofill-hl-skip {
+  outline: 2px dashed #8c959f !important;
+  outline-offset: 2px !important;
+}

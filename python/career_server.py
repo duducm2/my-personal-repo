@@ -18,6 +18,13 @@ from urllib.parse import unquote, urlparse
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+from autofill_data_source import (  # noqa: E402
+    build_autofill_bundle,
+    default_mappings_path,
+    list_autofill_jobs,
+)
+from autofill_feedback import apply_feedback, load_mappings  # noqa: E402
+from autofill_mapper import map_fields  # noqa: E402
 from canonical_store import CanonicalStore  # noqa: E402
 
 DEFAULT_PORT = 8770
@@ -25,6 +32,8 @@ ROOT_DIR = Path(__file__).resolve().parent.parent
 WEB_DIR = ROOT_DIR / "web"
 CANONICAL_DIR = ROOT_DIR / "my-data" / "canonical"
 OUTPUT_DIR = ROOT_DIR / "output"
+AUTOFILL_MAPPINGS_PATH = default_mappings_path(ROOT_DIR)
+AUTOFILL_PENDING_PATH = ROOT_DIR / "my-data" / "autofill" / "pending.json"
 
 # Hard product rule: every resume PDF must fit on a single A4 page.
 RESUME_MAX_PAGES = 1
@@ -554,6 +563,32 @@ class CareerHandler(BaseHTTPRequestHandler):
                     },
                 )
                 return
+            if path == "/api/autofill/state":
+                collections = self.store.load_all()
+                jobs = list_autofill_jobs(collections)
+                pending = None
+                if AUTOFILL_PENDING_PATH.is_file():
+                    try:
+                        pending = json.loads(
+                            AUTOFILL_PENDING_PATH.read_text(encoding="utf-8")
+                        )
+                    except (OSError, json.JSONDecodeError):
+                        pending = None
+                self._json(
+                    200,
+                    {
+                        "ok": True,
+                        "jobs": jobs,
+                        "pending": pending,
+                        "cockpit_url": f"http://127.0.0.1:{self.server.server_port}",  # type: ignore[attr-defined]
+                        "mappings_path": str(AUTOFILL_MAPPINGS_PATH.resolve()),
+                        "llm_configured": bool(
+                            os.environ.get("CAREER_AUTOFILL_LLM_URL")
+                            or os.environ.get("OPENAI_API_KEY")
+                        ),
+                    },
+                )
+                return
             if path.startswith("/download/"):
                 self._serve_download(path)
                 return
@@ -595,6 +630,91 @@ class CareerHandler(BaseHTTPRequestHandler):
                     str(body.get("content") or ""),
                 )
                 self._json(200, result)
+                return
+            if path == "/api/autofill/map":
+                body = self._read_json()
+                if not isinstance(body, dict):
+                    raise ValueError("JSON object required")
+                fields = body.get("fields") or []
+                if not isinstance(fields, list):
+                    raise ValueError("fields must be a list")
+                job_id = body.get("job_id") or None
+                host = str(body.get("host") or "")
+                lang = str(body.get("lang") or "en")
+                use_llm = body.get("use_llm", True)
+                collections = self.store.load_all()
+                # Profile / skills / narratives live in prompt-context (not PUT /api/state).
+                prompt_ctx = self.store.load_prompt_context()
+                collections = {**collections, **prompt_ctx}
+                bundle = build_autofill_bundle(collections, job_id=job_id, lang=lang)
+                learned = load_mappings(AUTOFILL_MAPPINGS_PATH)
+                mapped = map_fields(
+                    fields=fields,
+                    values_by_key=bundle["values_by_key"],
+                    available_keys=bundle["available_keys"],
+                    learned=learned,
+                    host=host,
+                    job=bundle.get("job"),
+                    use_llm=bool(use_llm),
+                )
+                self._json(
+                    200,
+                    {
+                        "ok": True,
+                        "job": bundle.get("job"),
+                        "variant": bundle.get("variant"),
+                        "values_by_key": bundle["values_by_key"],
+                        "available_keys": bundle["available_keys"],
+                        "mappings": mapped["mappings"],
+                        "min_confidence": mapped["min_confidence"],
+                        "llm": mapped.get("llm"),
+                        "url": body.get("url"),
+                        "host": host,
+                    },
+                )
+                return
+            if path == "/api/autofill/feedback":
+                body = self._read_json()
+                if not isinstance(body, dict):
+                    raise ValueError("JSON object required")
+                host = str(body.get("host") or "").strip()
+                if not host:
+                    raise ValueError("host required")
+                result = apply_feedback(
+                    AUTOFILL_MAPPINGS_PATH,
+                    host=host,
+                    url=str(body.get("url") or ""),
+                    job_id=body.get("job_id"),
+                    corrections=list(body.get("corrections") or []),
+                )
+                self._json(200, result)
+                return
+            if path == "/api/autofill/pending":
+                body = self._read_json()
+                if not isinstance(body, dict):
+                    raise ValueError("JSON object required")
+                action = str(body.get("action") or "set").lower()
+                AUTOFILL_PENDING_PATH.parent.mkdir(parents=True, exist_ok=True)
+                if action == "clear":
+                    if AUTOFILL_PENDING_PATH.is_file():
+                        AUTOFILL_PENDING_PATH.unlink()
+                    self._json(200, {"ok": True, "pending": None})
+                    return
+                job_id = str(body.get("job_id") or "").strip()
+                if not job_id:
+                    raise ValueError("job_id required")
+                payload = {
+                    "job_id": job_id,
+                    "job_url": str(body.get("job_url") or ""),
+                    "role_title": str(body.get("role_title") or ""),
+                    "company": str(body.get("company") or ""),
+                    "set_at": __import__("datetime").datetime.now().isoformat(timespec="seconds"),
+                }
+                AUTOFILL_PENDING_PATH.write_text(
+                    json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+                    encoding="utf-8",
+                )
+                self._json(200, {"ok": True, "pending": payload})
                 return
             if path != "/api/open-url":
                 self._json(404, {"ok": False, "error": "not found"})

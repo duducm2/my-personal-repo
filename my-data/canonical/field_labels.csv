@@ -46,3 +46,15 @@ resume_ui,experience,EXPERIENCE,EXPERIÊNCIA
 resume_ui,education,EDUCATION,FORMAÇÃO
 resume_ui,publications,SELECTED PUBLICATIONS,PUBLICAÇÕES
 resume_ui,additional,ADDITIONAL,ADICIONAL
+autofill,full_name,Full name,Nome completo
+autofill,first_name,First name,Nome
+autofill,last_name,Last name,Sobrenome
+autofill,email,Email,E-mail
+autofill,phone,Phone,Telefone
+autofill,linkedin_url,LinkedIn URL,URL do LinkedIn
+autofill,cover_letter,Cover letter,Carta de apresentação
+autofill,about,About / summary,Sobre / resumo
+autofill,skills,Skills,Habilidades
+autofill,current_company,Current company,Empresa atual
+autofill,current_title,Current title,Cargo atual
+autofill,hear_about,How did you hear about us,Como soube da vaga

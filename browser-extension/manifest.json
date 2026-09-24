@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Career Cockpit Autofill",
+  "version": "1.0.0",
+  "description": "Autofill any job application form from your local Career Cockpit profile data.",
+  "permissions": ["activeTab", "sidePanel", "storage", "scripting"],
+  "host_permissions": [
+    "http://127.0.0.1:8770/*",
+    "http://localhost:8770/*",
+    "https://*/*",
+    "http://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "action": {
+    "default_title": "Career Cockpit Autofill",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["detector.js", "filler.js", "overlay.js", "content.js"],
+      "css": ["overlay.css"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "externally_connectable": {
+    "matches": ["http://127.0.0.1:8770/*", "http://localhost:8770/*"]
+  }
+}
