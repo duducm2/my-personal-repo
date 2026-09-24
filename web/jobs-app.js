@@ -96,6 +96,9 @@
   let communities = [];
   let dirty = false;
   let saving = false;
+  let saveTimer = null;
+  let saveGeneration = 0;
+  const SAVE_DEBOUNCE_MS = 500;
   let query = "";
   let statusFilter = "";
   let pathFilter = "";
@@ -264,10 +267,67 @@
   }
 
   function setDirty(next) {
-    dirty = next;
-    const btn = document.getElementById("save-btn");
-    if (btn) btn.disabled = !dirty || saving;
-    document.body.classList.toggle("is-dirty", dirty);
+    if (next) {
+      dirty = true;
+      saveGeneration += 1;
+      document.body.classList.add("is-dirty");
+      scheduleSave();
+      return;
+    }
+    dirty = false;
+    document.body.classList.remove("is-dirty");
+  }
+
+  function scheduleSave() {
+    if (saveTimer) clearTimeout(saveTimer);
+    saveTimer = setTimeout(() => {
+      saveTimer = null;
+      void saveAll();
+    }, SAVE_DEBOUNCE_MS);
+  }
+
+  async function flushSave() {
+    if (saveTimer) {
+      clearTimeout(saveTimer);
+      saveTimer = null;
+    }
+    while (saving) {
+      await new Promise((r) => setTimeout(r, 40));
+    }
+    if (!dirty) return true;
+    return saveAll();
+  }
+
+  async function doneModal() {
+    await flushSave();
+    closeModal();
+  }
+
+  function syncCollectionsForSave() {
+    collections.jobOpenings = openings;
+    collections.jobPlatforms = platforms;
+    collections.jobCommunities = communities;
+  }
+
+  function flushSaveKeepalive() {
+    if (saveTimer) {
+      clearTimeout(saveTimer);
+      saveTimer = null;
+    }
+    if (!dirty) return;
+    syncCollectionsForSave();
+    try {
+      fetch("/api/state", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ collections }),
+        keepalive: true,
+      });
+      dirty = false;
+      document.body.classList.remove("is-dirty");
+    } catch {
+      /* ignore */
+    }
   }
 
   function setSaveStatus(text, kind) {
@@ -1105,19 +1165,19 @@
 
     const actions = document.createElement("div");
     actions.className = "job-modal-actions";
-    const save = document.createElement("button");
-    save.type = "button";
-    save.className = "save-btn";
-    save.textContent = "Save";
-    save.title = "Save and close (Ctrl+Enter)";
-    save.addEventListener("click", () => saveAll({ closeModal: true }));
+    const done = document.createElement("button");
+    done.type = "button";
+    done.className = "save-btn";
+    done.textContent = "Done";
+    done.title = "Close (Ctrl+Enter) — edits autosave";
+    done.addEventListener("click", () => void doneModal());
     const del = document.createElement("button");
     del.type = "button";
     del.className = "panel-delete";
     del.textContent = "Delete opening";
     del.title = "Delete opening (Alt+Delete)";
     del.addEventListener("click", () => deleteOpening(row.id));
-    actions.append(save, del);
+    actions.append(done, del);
     body.append(actions);
   }
 
@@ -1909,20 +1969,20 @@
     try {
       const result = await importOpenings(raw);
       if (status) {
-        status.textContent = `Imported ${result.imported} (skipped ${result.skipped} duplicates). Saving…`;
+        status.textContent = `Imported ${result.imported} (skipped ${result.skipped} duplicates).`;
         status.className = "save-status";
       }
-      const saved = await saveAll();
+      const saved = await flushSave();
       if (saved) {
         if (status) {
-          status.textContent = `Imported ${result.imported} (skipped ${result.skipped} duplicates) and saved.`;
+          status.textContent = `Imported ${result.imported} (skipped ${result.skipped} duplicates).`;
           status.className = "save-status ok";
         }
-        showToast(`Imported ${result.imported} openings and saved`, 2500);
+        showToast(`Imported ${result.imported} openings`, 2500);
         const dialog = document.getElementById("import-modal");
         if (dialog && dialog.open) dialog.close();
       } else if (status) {
-        status.textContent = `Imported ${result.imported}, but save failed — press Ctrl+S.`;
+        status.textContent = `Imported ${result.imported}, but autosave failed.`;
         status.className = "save-status err";
       }
     } catch (err) {
@@ -2457,16 +2517,16 @@
       const payload = parseFormImportPayload(raw);
       const row = applyFormAnswers(payload);
       if (status) {
-        status.textContent = `Imported ${payload.fields.length} fields. Saving…`;
+        status.textContent = `Imported ${payload.fields.length} fields.`;
         status.className = "save-status";
       }
-      const saved = await saveAll();
+      const saved = await flushSave();
       if (saved) {
         if (status) {
-          status.textContent = `Imported ${payload.fields.length} fields and saved.`;
+          status.textContent = `Imported ${payload.fields.length} fields.`;
           status.className = "save-status ok";
         }
-        showToast(`Form answers saved (${payload.fields.length} fields)`, 2500);
+        showToast(`Form answers applied (${payload.fields.length} fields)`, 2500);
         const dialog = document.getElementById("form-import-modal");
         if (dialog && dialog.open) dialog.close();
         openModal(row.id);
@@ -2474,7 +2534,7 @@
         if (panel)
           panel.scrollIntoView({ block: "nearest", behavior: "smooth" });
       } else if (status) {
-        status.textContent = "Answers applied, but save failed — press Ctrl+S.";
+        status.textContent = "Answers applied, but autosave failed.";
         status.className = "save-status err";
         openModal(row.id);
       }
@@ -2895,10 +2955,10 @@
       collections.jobOpenings = openings;
       setDirty(true);
       if (status) {
-        status.textContent = "Saving & building PDF…";
+        status.textContent = "Building PDF…";
         status.className = "save-status";
       }
-      await saveAll({ closeModal: false });
+      await flushSave();
       const pdf = await compileCoverLetterPdf(row);
       if (status) {
         status.textContent = "Cover letter PDF ready";
@@ -3524,11 +3584,11 @@
     setSaveStatus("");
     render();
     updateBulkBar();
-    const saved = await saveAll();
+    const saved = await flushSave();
     if (saved) {
       showToast(`Deleted ${count} opening${count === 1 ? "" : "s"}`, 2200);
     } else {
-      showToast(`Deleted ${count} — save failed, press Ctrl+S`, 3500);
+      showToast(`Deleted ${count} — autosave failed`, 3500);
     }
   }
 
@@ -3563,21 +3623,18 @@
     collections.jobCommunities = communities;
   }
 
-  async function saveAll(opts = {}) {
+  async function saveAll() {
     if (saving) return false;
-    if (!dirty) {
-      if (opts.closeModal) closeModal();
-      return true;
-    }
+    if (!dirty) return true;
+    const gen = saveGeneration;
     saving = true;
-    setDirty(true);
-    const btn = document.getElementById("save-btn");
-    if (btn) btn.disabled = true;
+    if (saveTimer) {
+      clearTimeout(saveTimer);
+      saveTimer = null;
+    }
     setSaveStatus("Saving…");
     try {
-      collections.jobOpenings = openings;
-      collections.jobPlatforms = platforms;
-      collections.jobCommunities = communities;
+      syncCollectionsForSave();
       const res = await fetch("/api/state", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -3587,18 +3644,18 @@
       if (!res.ok || payload.ok === false) {
         throw new Error(payload.error || `HTTP ${res.status}`);
       }
-      setDirty(false);
+      if (saveGeneration === gen) {
+        dirty = false;
+        document.body.classList.remove("is-dirty");
+      }
       setSaveStatus("Saved.", "ok");
-      if (opts.closeModal) closeModal();
       return true;
     } catch (err) {
       setSaveStatus("Error: " + (err.message || String(err)), "err");
-      setDirty(true);
       return false;
     } finally {
       saving = false;
-      const saveBtn = document.getElementById("save-btn");
-      if (saveBtn) saveBtn.disabled = !dirty;
+      if (dirty) scheduleSave();
     }
   }
 
@@ -3614,32 +3671,13 @@
   }
 
   function initKeyboard() {
-    // Capture phase so Ctrl+Shift+S saves instead of Chrome "Save page as".
-    document.addEventListener(
-      "keydown",
-      (event) => {
-        const mod = event.ctrlKey || event.metaKey;
-        if (
-          !mod ||
-          event.altKey ||
-          !(event.code === "KeyS" || (event.key || "").toLowerCase() === "s")
-        ) {
-          return;
-        }
-        event.preventDefault();
-        event.stopPropagation();
-        saveAll();
-      },
-      true,
-    );
-
     document.addEventListener("keydown", (event) => {
       const mod = event.ctrlKey || event.metaKey;
       const typing = isTypingTarget(document.activeElement);
       const dialog = document.getElementById("job-modal");
       const modalOpen = !!(dialog && dialog.open);
 
-      // Ctrl/Cmd+Enter: import / save+close dossier / open focused job URL
+      // Ctrl/Cmd+Enter: import / close dossier / open focused job URL
       if (mod && !event.altKey) {
         const isEnter = event.key === "Enter" || event.code === "Enter";
         if (isEnter) {
@@ -3665,14 +3703,11 @@
           }
           if (modalOpen) {
             event.preventDefault();
-            saveAll({ closeModal: true });
+            void doneModal();
             return;
           }
           event.preventDefault();
-          void (async () => {
-            if (await openFocusedJobUrl()) return;
-            saveAll();
-          })();
+          void openFocusedJobUrl();
           return;
         }
       }
@@ -4038,8 +4073,9 @@
     wireModal();
     initKeyboard();
 
-    const saveBtn = document.getElementById("save-btn");
-    if (saveBtn) saveBtn.addEventListener("click", () => saveAll());
+    window.addEventListener("beforeunload", () => {
+      flushSaveKeepalive();
+    });
 
     document
       .getElementById("open-portals-btn")

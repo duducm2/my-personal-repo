@@ -32,6 +32,9 @@
   let companies = [];
   let dirty = false;
   let saving = false;
+  let saveTimer = null;
+  let saveGeneration = 0;
+  const SAVE_DEBOUNCE_MS = 500;
   let query = "";
   let categoryFilter = "";
   let roleFilter = "";
@@ -74,10 +77,65 @@
   }
 
   function setDirty(next) {
-    dirty = next;
-    const btn = document.getElementById("save-btn");
-    if (btn) btn.disabled = !dirty || saving;
-    document.body.classList.toggle("is-dirty", dirty);
+    if (next) {
+      dirty = true;
+      saveGeneration += 1;
+      document.body.classList.add("is-dirty");
+      scheduleSave();
+      return;
+    }
+    dirty = false;
+    document.body.classList.remove("is-dirty");
+  }
+
+  function scheduleSave() {
+    if (saveTimer) clearTimeout(saveTimer);
+    saveTimer = setTimeout(() => {
+      saveTimer = null;
+      void saveAll();
+    }, SAVE_DEBOUNCE_MS);
+  }
+
+  async function flushSave() {
+    if (saveTimer) {
+      clearTimeout(saveTimer);
+      saveTimer = null;
+    }
+    while (saving) {
+      await new Promise((r) => setTimeout(r, 40));
+    }
+    if (!dirty) return true;
+    return saveAll();
+  }
+
+  async function doneModal() {
+    await flushSave();
+    closeModal();
+  }
+
+  function syncCollectionsForSave() {
+    collections.companies = companies;
+  }
+
+  function flushSaveKeepalive() {
+    if (saveTimer) {
+      clearTimeout(saveTimer);
+      saveTimer = null;
+    }
+    if (!dirty) return;
+    syncCollectionsForSave();
+    try {
+      fetch("/api/state", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ collections }),
+        keepalive: true,
+      });
+      dirty = false;
+      document.body.classList.remove("is-dirty");
+    } catch {
+      /* ignore */
+    }
   }
 
   function setSaveStatus(text, kind) {
@@ -440,6 +498,17 @@
     return isPinned(row) ? 0 : 1;
   }
 
+  function scrollCompanyCardIntoView(id) {
+    const sid = cell(id);
+    if (!sid) return;
+    requestAnimationFrame(() => {
+      const card = document.querySelector(
+        `#companies-results .company-tile[data-id="${CSS.escape(sid)}"]`,
+      );
+      card?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    });
+  }
+
   function togglePinned(row, event) {
     if (event) {
       event.preventDefault();
@@ -450,6 +519,7 @@
     setSaveStatus("");
     render();
     if (openCompanyId === row.id) fillModal();
+    if (isPinned(row)) scrollCompanyCardIntoView(row.id);
   }
 
   function appendPinControl(parent, row, { stopPropagation = true } = {}) {
@@ -1164,19 +1234,19 @@
 
     const actions = document.createElement("div");
     actions.className = "job-modal-actions";
-    const save = document.createElement("button");
-    save.type = "button";
-    save.className = "save-btn";
-    save.textContent = "Save";
-    save.title = "Save and close (Ctrl+Enter)";
-    save.addEventListener("click", () => saveAll({ closeModal: true }));
+    const done = document.createElement("button");
+    done.type = "button";
+    done.className = "save-btn";
+    done.textContent = "Done";
+    done.title = "Close (Ctrl+Enter) — edits autosave";
+    done.addEventListener("click", () => void doneModal());
     const del = document.createElement("button");
     del.type = "button";
     del.className = "panel-delete";
     del.textContent = "Delete company";
     del.title = "Delete company (Shift+Delete)";
     del.addEventListener("click", () => deleteCompany(row.id));
-    actions.append(save, del);
+    actions.append(done, del);
     body.append(actions);
   }
 
@@ -1277,19 +1347,18 @@
     collections.companies = companies;
   }
 
-  async function saveAll(opts = {}) {
+  async function saveAll() {
     if (saving) return false;
-    if (!dirty) {
-      if (opts.closeModal) closeModal();
-      return true;
-    }
+    if (!dirty) return true;
+    const gen = saveGeneration;
     saving = true;
-    setDirty(true);
-    const btn = document.getElementById("save-btn");
-    if (btn) btn.disabled = true;
+    if (saveTimer) {
+      clearTimeout(saveTimer);
+      saveTimer = null;
+    }
     setSaveStatus("Saving…");
     try {
-      collections.companies = companies;
+      syncCollectionsForSave();
       const res = await fetch("/api/state", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -1299,18 +1368,18 @@
       if (!res.ok || payload.ok === false) {
         throw new Error(payload.error || `HTTP ${res.status}`);
       }
-      setDirty(false);
+      if (saveGeneration === gen) {
+        dirty = false;
+        document.body.classList.remove("is-dirty");
+      }
       setSaveStatus("Saved.", "ok");
-      if (opts.closeModal) closeModal();
       return true;
     } catch (err) {
       setSaveStatus("Error: " + (err.message || String(err)), "err");
-      setDirty(true);
       return false;
     } finally {
       saving = false;
-      const saveBtn = document.getElementById("save-btn");
-      if (saveBtn) saveBtn.disabled = !dirty;
+      if (dirty) scheduleSave();
     }
   }
 
@@ -1326,24 +1395,6 @@
   }
 
   function initKeyboard() {
-    document.addEventListener(
-      "keydown",
-      (event) => {
-        const mod = event.ctrlKey || event.metaKey;
-        if (
-          !mod ||
-          event.altKey ||
-          !(event.code === "KeyS" || (event.key || "").toLowerCase() === "s")
-        ) {
-          return;
-        }
-        event.preventDefault();
-        event.stopPropagation();
-        saveAll();
-      },
-      true,
-    );
-
     document.addEventListener("keydown", (event) => {
       const mod = event.ctrlKey || event.metaKey;
       const typing = isTypingTarget(document.activeElement);
@@ -1353,18 +1404,10 @@
       if (mod && !event.altKey && event.key === "Enter") {
         event.preventDefault();
         if (modalOpen) {
-          saveAll({ closeModal: true });
+          void doneModal();
           return;
         }
-        void (async () => {
-          if (await openFocusedCompanyPortal()) return;
-          saveAll();
-        })();
-        return;
-      }
-
-      if (mod && !event.altKey && (event.key || "").toLowerCase() === "s") {
-        // Handled in capture listener (Ctrl+S / Ctrl+Shift+S).
+        void openFocusedCompanyPortal();
         return;
       }
 
@@ -1552,8 +1595,6 @@
   async function init() {
     initLangMode();
     wireModal();
-    const saveBtn = document.getElementById("save-btn");
-    if (saveBtn) saveBtn.addEventListener("click", () => saveAll());
     const profileBtn = document.getElementById("open-profile-btn");
     if (profileBtn) {
       profileBtn.addEventListener("click", () => openProfileWindow());
@@ -1591,10 +1632,8 @@
       addBtn.addEventListener("click", () => addCompany());
     }
     initKeyboard();
-    window.addEventListener("beforeunload", (e) => {
-      if (!dirty) return;
-      e.preventDefault();
-      e.returnValue = "";
+    window.addEventListener("beforeunload", () => {
+      flushSaveKeepalive();
     });
 
     try {

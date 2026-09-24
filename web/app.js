@@ -522,6 +522,9 @@
   let state = {};
   let dirty = false;
   let saving = false;
+  let saveTimer = null;
+  let saveGeneration = 0;
+  const SAVE_DEBOUNCE_MS = 500;
   let detailMode = false;
   /** Profile career path filter (`""` = All). */
   let pathFilter = "";
@@ -684,10 +687,55 @@
   }
 
   function setDirty(next) {
-    dirty = next;
-    const btn = document.getElementById("save-btn");
-    if (btn) btn.disabled = !dirty || saving;
-    document.body.classList.toggle("is-dirty", dirty);
+    if (next) {
+      dirty = true;
+      saveGeneration += 1;
+      document.body.classList.add("is-dirty");
+      scheduleSave();
+      return;
+    }
+    dirty = false;
+    document.body.classList.remove("is-dirty");
+  }
+
+  function scheduleSave() {
+    if (saveTimer) clearTimeout(saveTimer);
+    saveTimer = setTimeout(() => {
+      saveTimer = null;
+      void saveAll();
+    }, SAVE_DEBOUNCE_MS);
+  }
+
+  async function flushSave() {
+    if (saveTimer) {
+      clearTimeout(saveTimer);
+      saveTimer = null;
+    }
+    while (saving) {
+      await new Promise((r) => setTimeout(r, 40));
+    }
+    if (!dirty) return true;
+    return saveAll();
+  }
+
+  function flushSaveKeepalive() {
+    if (saveTimer) {
+      clearTimeout(saveTimer);
+      saveTimer = null;
+    }
+    if (!dirty) return;
+    try {
+      fetch("/api/state", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ collections: state }),
+        keepalive: true,
+      });
+      dirty = false;
+      document.body.classList.remove("is-dirty");
+    } catch {
+      /* ignore */
+    }
   }
 
   function setSaveStatus(text, kind) {
@@ -1731,11 +1779,14 @@
   }
 
   async function saveAll() {
-    if (saving || !dirty) return;
+    if (saving) return false;
+    if (!dirty) return true;
+    const gen = saveGeneration;
     saving = true;
-    setDirty(true);
-    const btn = document.getElementById("save-btn");
-    if (btn) btn.disabled = true;
+    if (saveTimer) {
+      clearTimeout(saveTimer);
+      saveTimer = null;
+    }
     setSaveStatus("Saving…");
     try {
       const res = await fetch("/api/state", {
@@ -1747,15 +1798,18 @@
       if (!res.ok || payload.ok === false) {
         throw new Error(payload.error || `HTTP ${res.status}`);
       }
-      setDirty(false);
+      if (saveGeneration === gen) {
+        dirty = false;
+        document.body.classList.remove("is-dirty");
+      }
       setSaveStatus("Saved.", "ok");
+      return true;
     } catch (err) {
       setSaveStatus("Error: " + (err.message || String(err)), "err");
-      setDirty(true);
+      return false;
     } finally {
       saving = false;
-      const saveBtn = document.getElementById("save-btn");
-      if (saveBtn) saveBtn.disabled = !dirty;
+      if (dirty) scheduleSave();
     }
   }
 
@@ -1780,33 +1834,9 @@
   }
 
   function initKeyboard() {
-    document.addEventListener(
-      "keydown",
-      (event) => {
-        const mod = event.ctrlKey || event.metaKey;
-        if (
-          !mod ||
-          event.altKey ||
-          !(event.code === "KeyS" || (event.key || "").toLowerCase() === "s")
-        ) {
-          return;
-        }
-        event.preventDefault();
-        event.stopPropagation();
-        saveAll();
-      },
-      true,
-    );
-
     document.addEventListener("keydown", (event) => {
       const mod = event.ctrlKey || event.metaKey;
       const typing = isTypingTarget(document.activeElement);
-
-      if (mod && event.key === "Enter") {
-        event.preventDefault();
-        saveAll();
-        return;
-      }
 
       if (
         !typing &&
@@ -2157,8 +2187,6 @@
         if (detailMode) return;
         setDetailMode(true, true);
       });
-    const saveBtn = document.getElementById("save-btn");
-    if (saveBtn) saveBtn.addEventListener("click", () => saveAll());
     const openCompaniesBtn = document.getElementById("open-companies-btn");
     if (openCompaniesBtn) {
       openCompaniesBtn.addEventListener("click", () => openCompaniesWindow());
@@ -2179,10 +2207,8 @@
       ?.addEventListener("click", () => scrollProfileToTop());
     wireAddButtons();
     initKeyboard();
-    window.addEventListener("beforeunload", (e) => {
-      if (!dirty) return;
-      e.preventDefault();
-      e.returnValue = "";
+    window.addEventListener("beforeunload", () => {
+      flushSaveKeepalive();
     });
 
     try {
