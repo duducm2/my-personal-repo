@@ -295,6 +295,7 @@ companies.csv,growth,Growth (high/moderate/unknown),Crescimento (alto/moderado/d
 companies.csv,fit_data_analyst,Fit: Data Analyst (yes/no),Fit: Data Analyst (sim/não)
 companies.csv,fit_product_owner,Fit: Product Owner (yes/no),Fit: Product Owner (sim/não)
 companies.csv,fit_digital_solution_architect,Fit: Digital Solution Architect (yes/no),Fit: Digital Solution Architect (sim/não)
+companies.csv,fit_data_scientist,Fit: Data Scientist (yes/no),Fit: Data Scientist (sim/não)
 companies.csv,website,Website,Website
 companies.csv,careers_url,Careers URL,URL de carreiras
 companies.csv,ats_kind,ATS kind (proprietary/third_party),Tipo de ATS (proprio/terceiro)
@@ -317,7 +318,7 @@ job_openings.csv,sort_order,Sort order,Ordem
 job_openings.csv,company,Company,Empresa
 job_openings.csv,company_key,Company key,Chave da empresa
 job_openings.csv,role_title,Role title,Cargo
-job_openings.csv,career_path,Career path (da/po/dsa/other),Trilha (da/po/dsa/other)
+job_openings.csv,career_path,Career path (da/po/dsa/ds/other),Trilha (da/po/dsa/ds/other)
 job_openings.csv,job_url,Job URL,URL da vaga
 job_openings.csv,status,Status,Status
 job_openings.csv,priority,Priority,Prioridade
@@ -354,7 +355,7 @@ job_portals.csv,job_search_url,Job search URL,URL de busca
 job_portals.csv,system_kind,System kind (proprietary/third_party),Tipo de sistema
 job_portals.csv,ats_name,ATS name,Nome do ATS
 job_portals.csv,ats_url,ATS URL,URL do ATS
-job_portals.csv,fit_paths,Fit paths (da;po;dsa),Trilhas (da;po;dsa)
+job_portals.csv,fit_paths,Fit paths (da;po;dsa;ds),Trilhas (da;po;dsa;ds)
 job_portals.csv,notes,Notes,Notas
 job_openings.csv,cover_letter,Cover letter body,Corpo da carta
 job_openings.csv,cover_letter_lang,Cover letter language,Idioma da carta

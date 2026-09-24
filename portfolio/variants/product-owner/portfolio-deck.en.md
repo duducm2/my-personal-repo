@@ -438,11 +438,11 @@ img[src*="story-flow"] {
 
 # Why Discovery and Delivery Matter
 
-## Discovery to delivery for trustworthy, human-centered products
+## Products people can rely on in complex service work
 
-- I believe products in service organizations should be **trustworthy, usable, and useful**, especially when they affect real people and businesses.
-- My work connects **stakeholder needs**, **prioritization**, and **Applied Research**: bringing evidence into what we build, why, and in what order.
-- This portfolio shows that discovery → delivery path through real projects.
+- I think products in service organizations have to be reliable and usable—especially when they affect real people and businesses.
+- My work connects stakeholder needs, prioritization, and applied research: evidence shaping what we build, why, and in what order.
+- This portfolio walks that discovery-to-delivery path through real projects.
 
 <p><img src="../../../pictures/diagrams/story-flow.png" alt="Diagram story-flow: Why story flow" /></p>
 
@@ -473,7 +473,7 @@ table thead { display: none !important; }
 | --------- | ------------------------- |
 | Name      | Eduardo M. de A. Figueiredo    |
 | Role      | Discovery, Delivery & Stakeholder Outcomes    |
-| Impact    | I help teams prioritize and ship with clarity: Applied Research to decide, stakeholder alignment to commit, and measurable outcomes to prove value.  |
+| Impact    | I help teams decide what to build next and get it shipped—research for the call, alignment for the commit, metrics afterward.  |
 | Contact   | Nova Odessa, SP – Brazil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583 |
 
 <p class="photo-at-bottom"><img src="../../../pictures/personal/my-photo-rectangle.png" alt="Eduardo Figueiredo" /></p>  
@@ -666,10 +666,10 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 | Role (official)                    | Applied Research & Design Analyst – Bosch Brasil (January 2023 – present); Applied Research Expert & Project Champion at GS/BDU       |
 | International                      | Two trips to Germany (2024, 2025) for role-related work                                                                           |
 | CO2 Tracking (GS/Applied Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand — a discovery outcome that stopped low-value work            |
-| Tooling project (PT)               | Requirements → high-fidelity prototypes → regular **customer check-ins**; discovery-to-delivery ownership with technical partners |
-| UX Maturity          | Americas Level 4 – governance, templates, training that **productized** UX practice for stakeholders                        |
-| CIP CIM (Global Services)          | With UX team, improved **strategic CIP dashboards** so GS president could quickly identify main issues and efficiency/efficacy gains; automated **UX relevance** **intake / quality gate** in ServiceNow                           |
-| Collaboration                      | Tutor of Digital Talent Academy Students; **AI tools training** for **100+** people (**4.88**/5 satisfaction)                                                                                          |
+| Tooling project (PT)               | Requirements → high-fidelity prototypes → regular customer check-ins; discovery-to-delivery ownership with technical partners |
+| UX Maturity          | Americas Level 4 – governance, templates, training that productized UX practice for stakeholders                        |
+| CIP CIM (Global Services)          | With UX team, improved strategic CIP dashboards so GS president could quickly identify main issues and efficiency/efficacy gains; automated UX relevance intake / quality gate in ServiceNow                           |
+| Collaboration                      | Tutor of Digital Talent Academy Students; AI tools training for 100+ people (4.88/5 satisfaction)                                                                                          |
 
 ---
 
@@ -1007,11 +1007,13 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## Data Visualization – Dissertation Power BI
 
-<p class="dissertation-pbi-intro"><span class="thesis-emphasis">My dissertation asks whether **Agentic AI** behaves like humans—grounded in how/why users construct **trust** in unfamiliar e-commerce sites.</span></p>
+<p class="dissertation-pbi-intro"><span class="thesis-emphasis">My Master's dissertation looks at perceived trust on e-commerce interfaces: can AI agents score what humans feel? Using ITQM/MQCI (ISO/IEC 25000) and the TrustMate tool I built, I compared ChatGPT o3 agents with 127 IT students on the same three sites. The research stays close to discovery and validation—whether automated triage is good enough before human judgment. Short answer from the study: triage yes, full replacement no.</span></p>
 
-- **Normality first:** Shapiro-Wilk on attribute score distributions before choosing inferential tests.
-- **Python → Power BI:** Offline scripts compute **Welch** (Human–AI), **paired t-tests** (Human–Human), and **independent t-tests** (AI–AI) with **Cohen's d** and **Benjamini-Hochberg FDR**; results imported into Power BI for reporting.
-- **Descriptive + visual:** DAX measures for **mean, SD, variance, standard error, and CI bounds**; 50+ chart structures (boxplots, forest plots, small multiples) aligned with InfoVis coursework.
+- Topic: can AI agents triage perceived-trust scores on e-commerce UIs the way humans do? ITQM/MQCI + TrustMate; agents vs 127 IT students on three sites.
+- Finding: AI agents don't replace human evaluation; they are a promising automated triage for interface quality (directional alignment on top/bottom attributes; stricter bias on most leaf scores).
+- Normality first: Shapiro-Wilk on attribute score distributions before choosing inferential tests.
+- Python → Power BI: Offline scripts compute Welch (Human–AI), paired t-tests (Human–Human), and independent t-tests (AI–AI) with Cohen's d and Benjamini-Hochberg FDR; results imported into Power BI for reporting.
+- Descriptive + visual: DAX measures for mean, SD, variance, standard error, and CI bounds; 50+ chart structures (boxplots, forest plots, small multiples) aligned with InfoVis coursework.
 
 <div class="dissertation-pbi-row">
 <p><img src="../../../pictures/academia/dissertation/dissertation-pbi-1.png" alt="Power BI – variability of human scores between websites" /></p>
@@ -1062,8 +1064,8 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## Data Visualization – MSc InfoVis: PNAD Contínua (Power BI)
 
-- **MSc Information Visualization (Unicamp, Grade A):** Card et al. pipeline—raw data → tables → **visual structures**; **visual mapping** (expressiveness & effectiveness); **multivariate** techniques (composition, small multiples, dimension handling).
-- **PNAD Contínua (Power BI):** Sankey, choropleth, and faceted encodings for education–employment trajectories and socioeconomic patterns—the same structural choices behind executive dashboards.
+- MSc Information Visualization (Unicamp, Grade A): Card et al. pipeline—raw data → tables → visual structures; visual mapping (expressiveness & effectiveness); multivariate techniques (composition, small multiples, dimension handling).
+- PNAD Contínua (Power BI): Sankey, choropleth, and faceted encodings for education–employment trajectories and socioeconomic patterns—the same structural choices behind executive dashboards.
 
 <div class="infovis-split">
 <div class="infovis-left">
@@ -1216,7 +1218,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## Discovery → Delivery – Tooling Project for PT
 
-- **Tooling project for PT:** Owned the path from **requirements** through **high-fidelity prototypes**, with **regular customer check-ins** — stakeholder validation baked into delivery.
+- Tooling project for Power Tools: I owned the path from requirements through high-fidelity prototypes, with regular customer check-ins baked into delivery.
 
 <!-- - **Workshop facilitation:** Ran strategy and team workshops with large groups (e.g. Digital WS, Joinville 2024). -->
 
@@ -1299,9 +1301,9 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## InfoVis – Text & Graph Visualization (PhraseNets)
 
-- **Course topics → analyst skills:** **Views & interaction** (filtering, detail-on-demand); **graphs & trees** (network layout); **text visualization** (co-occurrence, patterns/outliers)—how to encode data and enable exploration.
-- **PhraseNets project:** Web network viz for word relationships—structure that bar/line charts cannot show.
-- **Payoff for data work:** Mapping variables to marks, choosing the right structure for the question—not just charts, but effective visual communication.
+- Course topics → analyst skills: Views & interaction (filtering, detail-on-demand); graphs & trees (network layout); text visualization (co-occurrence, patterns/outliers)—how to encode data and enable exploration.
+- PhraseNets project: Web network viz for word relationships—structure that bar/line charts cannot show.
+- Payoff for data work: Mapping variables to marks, choosing the right structure for the question—not just charts, but effective visual communication.
 
 <div class="phrase-net-row">
 <p><img src="../../../pictures/academia/infovis/infovis-phrase-netproject-1.png" alt="PhraseNets web visualization – interface and controls" /></p>
@@ -1329,7 +1331,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## Future – Agile Delivery Context
 
-**Discovery, prioritization, and delivery** meet in how I work with teams today. The diagram below is the agile/research operating context I work in.
+Discovery, prioritization, and delivery meet in how I work with teams today. The diagram below is the agile/research operating context I work in.
 
 <div class="ai-agile-wrap">
 <p><img src="../../../pictures/diagrams/ai-agile-research.png" alt="Diagram ai-agile-research: AI and Agile in Applied Research" /></p>
@@ -1359,7 +1361,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## Future – How I Work
 
-- **What I bring:** discovery → prototypes → stakeholder check-ins; intake/quality gates; outcome metrics (CSI/NPS).
+- What I bring: discovery → prototypes → stakeholder check-ins; intake/quality gates; outcome metrics (CSI/NPS).
 
 <div class="future-career-wrap">
 <div class="future-po-bullets">
@@ -1486,7 +1488,7 @@ section.closing-redesign h2 {
 ## Closing & Contact
 
 <div class="closing-summary">
-<p>I connect discovery to delivery: clarifying needs, aligning stakeholders, prioritizing with evidence, and validating outcomes — creating trustworthy, user-centered products with measurable impact.</p>
+<p>I stay with work from discovery through delivery—clarifying needs, aligning people, prioritizing with evidence, and checking whether the outcome held up.</p>
 </div>
 
 <div class="closing-contact">

@@ -438,11 +438,11 @@ img[src*="story-flow"] {
 
 # Why I Work in Technology, Project Management & Applied Research
 
-## Trustworthy, human-centered software for complex services
+## Reliable software that people can actually use in complex service work
 
-- I believe software in service organizations should be **trustworthy, usable, and usefull**, especially when it affects real people and businesses.
-- My work centers **technology**, **project management**, and **Applied Research**: bringing evidence and user needs into how we build and deliver.
-- This portfolio walks through that story.
+- I think software in service organizations has to be reliable and usable—especially when it touches real people and real businesses.
+- My day-to-day sits across technology, project management, and applied research: evidence and user needs shaping how we build and deliver.
+- This portfolio is that story in sequence.
 
 <p><img src="../pictures/diagrams/story-flow.png" alt="Diagram story-flow: Why story flow" /></p>
 
@@ -473,7 +473,7 @@ table thead { display: none !important; }
 | --------- | ------------------------- |
 | Name      | Eduardo M. de A. Figueiredo    |
 | Role      | Applied Research, Technology & Project Management    |
-| Impact    | I help teams govern better and improve faster, using Applied Research to prioritize, decide, and deliver with clear data and accountability.  |
+| Impact    | I help teams get clearer on what to prioritize and how to improve, using research and data so decisions actually stick.  |
 | Contact   | Nova Odessa, SP – Brazil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583 |
 
 <p class="photo-at-bottom"><img src="../pictures/personal/my-photo-rectangle.png" alt="Eduardo Figueiredo" /></p>  
@@ -668,8 +668,8 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 | CO2 Tracking (GS/Applied Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand                                                               |
 | Tooling project (PT)               | Led technical delivery and project management from requirements through high-fidelity prototypes, with regular customer check-ins. |
 | UX Maturity          | Led Americas to Level 4 – governance, templates, training                                                                          |
-| CIP CIM (Global Services)          | With UX team, evaluated **strategic CIP dashboards** for all GS initiatives—clearer UX so leadership could quickly spot main issues and efficiency/efficacy gains; automated **UX relevance** in ServiceNow (property-based weights) |
-| Collaboration                      | Tutor of Digital Talent Academy Students; **AI tools training** for **100+** people (**4.88**/5 satisfaction)                                                                                           |
+| CIP CIM (Global Services)          | With UX team, evaluated strategic CIP dashboards for all GS initiatives—clearer UX so leadership could quickly spot main issues and efficiency/efficacy gains; automated UX relevance in ServiceNow (property-based weights) |
+| Collaboration                      | Tutor of Digital Talent Academy Students; AI tools training for 100+ people (4.88/5 satisfaction)                                                                                           |
 
 ---
 
@@ -1007,11 +1007,13 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## Data Visualization – Dissertation Power BI
 
-<p class="dissertation-pbi-intro"><span class="thesis-emphasis">My dissertation asks whether **Agentic AI** behaves like humans—grounded in how/why users construct **trust** in unfamiliar e-commerce sites.</span></p>
+<p class="dissertation-pbi-intro"><span class="thesis-emphasis">My Master's dissertation asks whether AI agents can stand in for humans when scoring perceived trust on e-commerce interfaces—the kind of trust a reputable site has to convey through Usability, Accessibility, and UX. I used the Interface Trust Quality Model (ITQM / MQCI, rooted in ISO/IEC 25000), built the TrustMate web tool to run the questionnaire and compute attribute scores, and compared ChatGPT o3 agents with 127 IT students on three sites. Finding in short: agents don't replace human evaluation, but they're useful for automated triage.</span></p>
 
-- **Normality first:** Shapiro-Wilk on attribute score distributions before choosing inferential tests.
-- **Python → Power BI:** Offline scripts compute **Welch** (Human–AI), **paired t-tests** (Human–Human), and **independent t-tests** (AI–AI) with **Cohen's d** and **Benjamini-Hochberg FDR**; results imported into Power BI for reporting.
-- **Descriptive + visual:** DAX measures for **mean, SD, variance, standard error, and CI bounds**; 50+ chart structures (boxplots, forest plots, small multiples) aligned with InfoVis coursework.
+- Topic: perceived trust on e-commerce interfaces (ITQM/MQCI, ISO/IEC 25000); TrustMate collects answers and scores Usability, Accessibility, and UX; ChatGPT o3 agents vs 127 IT students on three sites.
+- Finding: AI agents don't replace human evaluation; they are a promising automated triage for interface quality (directional alignment on top/bottom attributes; stricter bias on most leaf scores).
+- Normality first: Shapiro-Wilk on attribute score distributions before choosing inferential tests.
+- Python → Power BI: Offline scripts compute Welch (Human–AI), paired t-tests (Human–Human), and independent t-tests (AI–AI) with Cohen's d and Benjamini-Hochberg FDR; results imported into Power BI for reporting.
+- Descriptive + visual: DAX measures for mean, SD, variance, standard error, and CI bounds; 50+ chart structures (boxplots, forest plots, small multiples) aligned with InfoVis coursework.
 
 <div class="dissertation-pbi-row">
 <p><img src="../pictures/academia/dissertation/dissertation-pbi-1.png" alt="Power BI – variability of human scores between websites" /></p>
@@ -1062,8 +1064,8 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## Data Visualization – MSc InfoVis: PNAD Contínua (Power BI)
 
-- **MSc Information Visualization (Unicamp, Grade A):** Card et al. pipeline—raw data → tables → **visual structures**; **visual mapping** (expressiveness & effectiveness); **multivariate** techniques (composition, small multiples, dimension handling).
-- **PNAD Contínua (Power BI):** Sankey, choropleth, and faceted encodings for education–employment trajectories and socioeconomic patterns—the same structural choices behind executive dashboards.
+- MSc Information Visualization (Unicamp, Grade A): Card et al. pipeline—raw data → tables → visual structures; visual mapping (expressiveness & effectiveness); multivariate techniques (composition, small multiples, dimension handling).
+- PNAD Contínua (Power BI): Sankey, choropleth, and faceted encodings for education–employment trajectories and socioeconomic patterns—the same structural choices behind executive dashboards.
 
 <div class="infovis-split">
 <div class="infovis-left">
@@ -1216,7 +1218,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## Technical Implementation – Tooling Project for PT
 
-- **Tooling project for PT:** Led **technical delivery and project management** from requirements through high-fidelity prototypes, with **regular customer check-ins**.
+- Tooling project for Power Tools: I stayed with technical delivery and project management from requirements through high-fidelity prototypes, with regular customer check-ins.
 
 <!-- - **Workshop facilitation:** Ran strategy and team workshops with large groups (e.g. Digital WS, Joinville 2024). -->
 
@@ -1299,9 +1301,9 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## InfoVis – Text & Graph Visualization (PhraseNets)
 
-- **Course topics → analyst skills:** **Views & interaction** (filtering, detail-on-demand); **graphs & trees** (network layout); **text visualization** (co-occurrence, patterns/outliers)—how to encode data and enable exploration.
-- **PhraseNets project:** Web network viz for word relationships—structure that bar/line charts cannot show.
-- **Payoff for data work:** Mapping variables to marks, choosing the right structure for the question—not just charts, but effective visual communication.
+- Course topics → analyst skills: Views & interaction (filtering, detail-on-demand); graphs & trees (network layout); text visualization (co-occurrence, patterns/outliers)—how to encode data and enable exploration.
+- PhraseNets project: Web network viz for word relationships—structure that bar/line charts cannot show.
+- Payoff for data work: Mapping variables to marks, choosing the right structure for the question—not just charts, but effective visual communication.
 
 <div class="phrase-net-row">
 <p><img src="../pictures/academia/infovis/infovis-phrase-netproject-1.png" alt="PhraseNets web visualization – interface and controls" /></p>
@@ -1469,7 +1471,7 @@ section.closing-redesign h2 {
 ## Closing & Contact
 
 <div class="closing-summary">
-<p>I bring Applied Research-driven evidence, technology support, and project delivery to help teams build solutions. Solutions that are trustworthy, user-centered, with clear data, accountability, and measurable impact.</p>
+<p>I bring applied research, technology, and project delivery to the table. What I care about is work people can trust and use, with clear data and results you can measure.</p>
 </div>
 
 <div class="closing-contact">

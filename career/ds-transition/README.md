@@ -12,6 +12,8 @@ Career cockpit implementation of the DS transition strategy. Target: **Cientista
 | [../prompts/data-scientist-pl-job-search.md](../prompts/data-scientist-pl-job-search.md) | Deep-reasoning job search prompt |
 | [../portfolio/variants/data-analyst/supervised-ml-bridge/](../portfolio/variants/data-analyst/supervised-ml-bridge/) | Portfolio artifact #3 (supervised ML) |
 
+**Cockpit:** Career path key `ds` · resume / skills variant `data-scientist` (Companies filter + Jobs `career_path` + Typst CV).
+
 **Active probe:** SiDi `sidi-03` (Cientista de Dados PL) — Gupy AI stage done 2026-09-24; keep warm.
 
 **Diploma:** Master's approved Sep 2026; certificate Dec 2026 — do not claim diploma until issued.

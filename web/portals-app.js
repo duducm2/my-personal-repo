@@ -3,6 +3,7 @@
     { key: "da", short: "DA", label: "Data Analyst" },
     { key: "po", short: "PO", label: "Product Owner" },
     { key: "dsa", short: "DSA", label: "Digital Solution Architect" },
+    { key: "ds", short: "DS", label: "Data Scientist" },
   ];
 
   const SCOPE_OPTIONS = ["brazil", "international"];
@@ -271,6 +272,7 @@
       { key: "da", en: "Data Analyst" },
       { key: "po", en: "Product Owner" },
       { key: "dsa", en: "Digital Solution Architect" },
+      { key: "ds", en: "Data Scientist" },
     ]) {
       pathRow.append(
         makeChip(chip, pathFilter, (key) => {
@@ -312,7 +314,7 @@
       system_kind: "",
       ats_name: "",
       ats_url: "",
-      fit_paths: "da;po;dsa",
+      fit_paths: "da;po;dsa;ds",
     }));
     const comm = communities.map((c) => ({
       card_kind: "community",
@@ -325,7 +327,7 @@
       system_kind: "",
       ats_name: "",
       ats_url: "",
-      fit_paths: "da;po;dsa",
+      fit_paths: "da;po;dsa;ds",
     }));
     return [...watch, ...comm];
   }
@@ -860,7 +862,7 @@
     const pathsInput = document.createElement("input");
     pathsInput.className = "field-input";
     pathsInput.value = cell(row.fit_paths);
-    pathsInput.placeholder = "e.g. da;po;dsa";
+    pathsInput.placeholder = "e.g. da;po;dsa;ds";
     pathsInput.addEventListener("input", () => {
       row.fit_paths = pathsInput.value;
       setDirty(true);
@@ -933,7 +935,7 @@
       system_kind: "proprietary",
       ats_name: "",
       ats_url: "",
-      fit_paths: "da;po;dsa",
+      fit_paths: "da;po;dsa;ds",
       notes: "",
     };
   }

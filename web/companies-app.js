@@ -23,6 +23,13 @@
       pt: "Digital Solution Architect",
       short: "DSA",
     },
+    {
+      key: "ds",
+      field: "fit_data_scientist",
+      en: "Data Scientist",
+      pt: "Data Scientist",
+      short: "DS",
+    },
   ];
 
   const HOME_OFFICE_OPTIONS = ["yes", "hybrid", "no", "unknown"];
@@ -810,7 +817,7 @@
     roleLabel.className = "company-filter-label";
     appendEn(roleLabel, "Career path");
     roleRow.append(roleLabel);
-    const roleChips = [
+    for (const chip of [
       { key: "", en: "All paths", pt: "All paths" },
       { key: "da", en: "Data Analyst", pt: "Data Analyst" },
       { key: "po", en: "Product Owner", pt: "Product Owner" },
@@ -819,9 +826,9 @@
         en: "Digital Solution Architect",
         pt: "Digital Solution Architect",
       },
+      { key: "ds", en: "Data Scientist", pt: "Data Scientist" },
       { key: "multi", en: "Multi-role", pt: "Multi-role" },
-    ];
-    for (const chip of roleChips) {
+    ]) {
       roleRow.append(
         makeChip(chip, roleFilter, (key) => {
           roleFilter = key;
@@ -1552,6 +1559,7 @@
       fit_data_analyst: "yes",
       fit_product_owner: "no",
       fit_digital_solution_architect: "no",
+      fit_data_scientist: "yes",
       website: "",
       careers_url: "",
       ats_kind: "proprietary",

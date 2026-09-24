@@ -438,11 +438,11 @@ img[src*="story-flow"] {
 
 # Por que descoberta e entrega importam
 
-## Da descoberta à entrega para produtos confiáveis e centrados no humano
+## Produtos em que as pessoas possam confiar em serviços complexos
 
-- Acredito que produtos em organizações de serviço devem ser **confiáveis, utilizáveis e úteis**, especialmente quando afetam pessoas reais e negócios.
-- Meu trabalho conecta **necessidades de stakeholders**, **priorização** e **Pesquisa Aplicada**: trazendo evidência sobre o que construímos, por quê e em qual ordem.
-- Este portfólio mostra esse caminho descoberta → entrega por meio de projetos reais.
+- Acho que produtos em organizações de serviço precisam ser confiáveis e utilizáveis—principalmente quando afetam pessoas e negócios de verdade.
+- Meu trabalho conecta necessidades de stakeholders, priorização e pesquisa aplicada: evidência moldando o que construímos, por quê e em qual ordem.
+- Este portfólio percorre esse caminho da descoberta à entrega em projetos reais.
 
 <p><img src="../../../pictures/diagrams/story-flow.png" alt="Diagram story-flow: Why story flow" /></p>
 
@@ -473,7 +473,7 @@ table thead { display: none !important; }
 | --------- | ------------------------- |
 | Name      | Eduardo M. de A. Figueiredo    |
 | Role      | Descoberta, Entrega e Resultados com Stakeholders    |
-| Impact    | Ajudo equipes a priorizar e entregar com clareza: Pesquisa Aplicada para decidir, alinhamento de stakeholders para comprometer e resultados mensuráveis para provar valor.  |
+| Impact    | Ajudo times a decidir o que construir em seguida e colocar no ar—pesquisa para a decisão, alinhamento para o compromisso, métricas depois.  |
 | Contact   | Nova Odessa, SP – Brasil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583 |
 
 <p class="photo-at-bottom"><img src="../../../pictures/personal/my-photo-rectangle.png" alt="Eduardo Figueiredo" /></p>  
@@ -666,10 +666,10 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 | Cargo (oficial)                    | Analista de Pesquisa Aplicada e Design – Bosch Brasil (jan 2023 – atual); Especialista em Pesquisa Aplicada e Project Champion na GS/BDU       |
 | Internacional                      | Realizei duas viagens à Alemanha (2024, 2025) por trabalho relacionado ao cargo                                                                           |
 | Rastreamento CO2 (GS/Pesquisa Aplicada) | Conduzi prospecção de mercado para telemetria CO2; achado: falta de demanda — resultado de descoberta que interrompeu trabalho de baixo valor            |
-| Projeto tooling (PT)               | Conduzi de requisitos a protótipos de alta fidelidade com **check-ins regulares com clientes**; ownership descoberta→entrega com parceiros técnicos |
-| Maturidade em UX          | Apoiei as Américas a atingir Nível 4 – governança, templates, treinamento que **produtizaram** a prática de UX para stakeholders                        |
-| CIP CIM (Global Services)          | Com equipe de UX, melhorei **dashboards estratégicos de CIP** para o presidente da GS identificar problemas e ganhos de eficiência/eficácia; **gate de entrada / qualidade** de **relevância em UX** automatizado no ServiceNow                           |
-| Colaboração                      | Sou tutor de estudantes da Digital Talent Academy; **treinamento de ferramentas de IA** para **100+** pessoas (satisfação **4,88**/5)                                                                                          |
+| Projeto tooling (PT)               | Conduzi de requisitos a protótipos de alta fidelidade com check-ins regulares com clientes; ownership descoberta→entrega com parceiros técnicos |
+| Maturidade em UX          | Apoiei as Américas a atingir Nível 4 – governança, templates, treinamento que produtizaram a prática de UX para stakeholders                        |
+| CIP CIM (Global Services)          | Com equipe de UX, melhorei dashboards estratégicos de CIP para o presidente da GS identificar problemas e ganhos de eficiência/eficácia; gate de entrada / qualidade de relevância em UX automatizado no ServiceNow                           |
+| Colaboração                      | Sou tutor de estudantes da Digital Talent Academy; treinamento de ferramentas de IA para 100+ pessoas (satisfação 4,88/5)                                                                                          |
 
 ---
 
@@ -1007,11 +1007,13 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## Data Visualization – Dissertation Power BI
 
-<p class="dissertation-pbi-intro"><span class="thesis-emphasis">Minha dissertação pergunta se **Agentic AI** se comporta como humanos—fundamentada em como/por que usuários constroem **confiança** em sites de e-commerce desconhecidos.</span></p>
+<p class="dissertation-pbi-intro"><span class="thesis-emphasis">Minha dissertação de mestrado olha a confiança percebida em interfaces de e-commerce: agentes de IA conseguem pontuar o que humanos sentem? Com o MQCI (ISO/IEC 25000) e a TrustMate que construí, comparei agentes ChatGPT o3 com 127 estudantes de TI nos mesmos três sites. A pergunta fica perto de descoberta e validação—se a triagem automatizada basta antes do julgamento humano. Resposta curta do estudo: triagem sim, substituição total não.</span></p>
 
-- **Normalidade primeiro:** Shapiro-Wilk nas distribuições de scores por atributo antes de escolher testes inferenciais.
-- **Python → Power BI:** Scripts offline calculam **Welch** (Humano–IA), **t pareado** (Humano–Humano) e **t independente** (IA–IA) com **d de Cohen** e **FDR Benjamini-Hochberg**; resultados importados ao Power BI para reporting.
-- **Descritivo + visual:** Medidas DAX para **média, DP, variância, erro padrão e limites de IC**; 50+ estruturas de gráficos (boxplots, forest plots, small multiples) alinhadas ao curso de InfoVis.
+- Tema: agentes de IA conseguem fazer triagem de confiança percebida em UIs de e-commerce como humanos? MQCI + TrustMate; agentes vs 127 estudantes de TI em três sites.
+- Achado: agentes de IA não substituem a avaliação humana; são triagem automatizada promissora da qualidade da interface (alinhamento direcional nos melhores/piores atributos; viés mais rigoroso na maior parte das pontuações folha).
+- Normalidade primeiro: Shapiro-Wilk nas distribuições de scores por atributo antes de escolher testes inferenciais.
+- Python → Power BI: Scripts offline calculam Welch (Humano–IA), t pareado (Humano–Humano) e t independente (IA–IA) com d de Cohen e FDR Benjamini-Hochberg; resultados importados ao Power BI para reporting.
+- Descritivo + visual: Medidas DAX para média, DP, variância, erro padrão e limites de IC; 50+ estruturas de gráficos (boxplots, forest plots, small multiples) alinhadas ao curso de InfoVis.
 
 <div class="dissertation-pbi-row">
 <p><img src="../../../pictures/academia/dissertation/dissertation-pbi-1.png" alt="Power BI – variability of human scores between websites" /></p>
@@ -1062,8 +1064,8 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## Visualização de dados – InfoVis (Mestrado): PNAD Contínua (Power BI)
 
-- **Visualização da Informação (Unicamp, nota A):** Pipeline de Card et al.—dados brutos → tabelas → **estruturas visuais**; **mapeamento visual** (expressividade e efetividade); técnicas **multivariadas** (composição, small multiples, redução de dimensões).
-- **PNAD Contínua (Power BI):** Codificações Sankey, coropleta e facetadas para trajetórias educação–emprego e padrões socioeconômicos—as mesmas decisões estruturais em dashboards executivos.
+- Visualização da Informação (Unicamp, nota A): Pipeline de Card et al.—dados brutos → tabelas → estruturas visuais; mapeamento visual (expressividade e efetividade); técnicas multivariadas (composição, small multiples, redução de dimensões).
+- PNAD Contínua (Power BI): Codificações Sankey, coropleta e facetadas para trajetórias educação–emprego e padrões socioeconômicos—as mesmas decisões estruturais em dashboards executivos.
 
 <div class="infovis-split">
 <div class="infovis-left">
@@ -1216,7 +1218,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## Descoberta → Entrega – Projeto Tooling para PT
 
-- **Projeto tooling para PT:** Conduzi o caminho de **requisitos** a **protótipos de alta fidelidade**, com **check-ins regulares com clientes** — validação com stakeholders integrada à entrega.
+- Projeto tooling para Power Tools: conduzi o caminho de requisitos a protótipos de alta fidelidade, com check-ins regulares com clientes integrados à entrega.
 
 <!-- - **Workshop facilitation:** Ran strategy and team workshops with large groups (e.g. Digital WS, Joinville 2024). -->
 
@@ -1299,9 +1301,9 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## InfoVis – Visualização de textos e grafos (PhraseNets)
 
-- **Tópicos do curso → skills de analista:** **Visões e interação** (filtros, detalhes sob demanda); **grafos e árvores** (layout de redes); **visualização de textos** (coocorrência, padrões/outliers)—como codificar dados e permitir exploração.
-- **Projeto PhraseNets:** Viz web em rede para relações entre palavras—estrutura que gráficos de barras/linhas não mostram.
-- **Ganho para trabalho com dados:** Mapear variáveis a marcas e escolher a estrutura certa para a pergunta—não só gráficos, mas comunicação visual eficaz.
+- Tópicos do curso → skills de analista: Visões e interação (filtros, detalhes sob demanda); grafos e árvores (layout de redes); visualização de textos (coocorrência, padrões/outliers)—como codificar dados e permitir exploração.
+- Projeto PhraseNets: Viz web em rede para relações entre palavras—estrutura que gráficos de barras/linhas não mostram.
+- Ganho para trabalho com dados: Mapear variáveis a marcas e escolher a estrutura certa para a pergunta—não só gráficos, mas comunicação visual eficaz.
 
 <div class="phrase-net-row">
 <p><img src="../../../pictures/academia/infovis/infovis-phrase-netproject-1.png" alt="PhraseNets web visualization – interface and controls" /></p>
@@ -1329,7 +1331,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## Futuro – Contexto de entrega ágil
 
-**Descoberta, priorização e entrega** se encontram em como trabalho com equipes hoje. O diagrama abaixo é o contexto ágil/pesquisa em que atuo.
+Descoberta, priorização e entrega se encontram em como trabalho com equipes hoje. O diagrama abaixo é o contexto ágil/pesquisa em que atuo.
 
 <div class="ai-agile-wrap">
 <p><img src="../../../pictures/diagrams/ai-agile-research.png" alt="Diagrama ai-agile-research: IA e Ágil em Pesquisa Aplicada" /></p>
@@ -1359,7 +1361,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## Futuro – Como Trabalho
 
-- **O que trago:** descoberta → protótipos → check-ins com stakeholders; gates de entrada/qualidade; métricas de resultado (CSI/NPS).
+- O que trago: descoberta → protótipos → check-ins com stakeholders; gates de entrada/qualidade; métricas de resultado (CSI/NPS).
 
 <div class="future-career-wrap">
 <div class="future-po-bullets">
@@ -1486,7 +1488,7 @@ section.closing-redesign h2 {
 ## Closing & Contact
 
 <div class="closing-summary">
-<p>Conecto descoberta à entrega: esclareço necessidades, alinho stakeholders, priorizo com evidência e valido resultados — criando produtos confiáveis, centrados no usuário, com impacto mensurável.</p>
+<p>Acompanho o trabalho da descoberta à entrega—esclareço necessidades, alinho pessoas, priorizo com evidência e verifico se o resultado se sustentou.</p>
 </div>
 
 <div class="closing-contact">

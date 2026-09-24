@@ -438,13 +438,11 @@ img[src*="story-flow"] {
 
 # Why I Design Digital Solutions
 
-## Architecture that global teams can run, measure, and trust
+## Digitization and analytics that hold up once they hit production
 
-- I believe architecture succeeds when **operations, security, and evidence** travel together—not when diagrams stay on slides.
-- Digitization work taught me to ship **end-to-end systems** (data store → app → hosting → Git) under real business constraints.
-- Applied Research at Bosch sharpened **method gates**: relevance scoring, CIP dashboards, and measurable UX maturity.
-- I use **Python, SQL, Power BI, and AI** to turn unstructured operational signal into structures architects and leaders can act on.
-- Fluent English and bilingual delivery keep me effective in **global architecture** conversations.
+- I think digital solutions in service organizations have to survive real operations—not just look good in a review.
+- My work connects digitization, data paths, and applied research quality gates: architecture that teams can actually run.
+- This portfolio shows that path through systems, dashboards, and delivery work.
 
 <p><img src="../../../pictures/diagrams/story-flow.png" alt="Diagram story-flow: Why story flow" /></p>
 
@@ -475,7 +473,7 @@ table thead { display: none !important; }
 | --------- | ------------------------- |
 | Name      | Eduardo M. de A. Figueiredo    |
 | Role      | Digital Solution Architect | Cloud, Digitization & Evidence-Based Delivery    |
-| Impact    | I help teams design digitization and analytics solutions that survive contact with production: clear boundaries, measurable outcomes, and architecture reviews grounded in evidence.  |
+| Impact    | I help teams design digitization and analytics solutions that hold up in production—clear boundaries, measurable outcomes, reviews grounded in evidence.  |
 | Contact   | Nova Odessa, SP – Brazil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583 |
 
 <p class="photo-at-bottom"><img src="../../../pictures/personal/my-photo-rectangle.png" alt="Eduardo Figueiredo" /></p>  
@@ -665,12 +663,12 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 
 | Area | Achievement |
 |------|-------------|
-| Digitization (Bosch HU) | End-to-end web systems for Business Excellence on **SQL Server**, **IIS**, **Git**; **Kanban** delivery |
-| Architecture gates (GS) | Automated **UX relevance** in **ServiceNow**; strategic **CIP** dashboards for leadership clarity |
-| Analytics → insight | **Data Insights**: Grounded Theory + **Python/AI** + **Power BI** on call-center transcripts |
-| Maturity & governance | Americas **UX Maturity Level 4**; **Power BI** + **Microsoft Lists** document compliance |
-| Delivery outcomes | Avg **CSI 4.86 / NPS 9.94** (2024–2025); tooling from requirements to hi-fi prototypes |
-| Enablement | **AI tools** training for **100+** people (**4.88**/5); Germany trips 2024–2025 |
+| Digitization (Bosch HU) | End-to-end web systems for Business Excellence on SQL Server, IIS, Git; Kanban delivery |
+| Architecture gates (GS) | Automated UX relevance in ServiceNow; strategic CIP dashboards for leadership clarity |
+| Analytics → insight | Data Insights: Grounded Theory + Python/AI + Power BI on call-center transcripts |
+| Maturity & governance | Americas UX Maturity Level 4; Power BI + Microsoft Lists document compliance |
+| Delivery outcomes | Avg CSI 4.86 / NPS 9.94 (2024–2025); tooling from requirements to hi-fi prototypes |
+| Enablement | AI tools training for 100+ people (4.88/5); Germany trips 2024–2025 |
 
 ---
 
@@ -1008,10 +1006,12 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## Data Visualization – Dissertation Power BI
 
-<p class="dissertation-pbi-intro"><span class="thesis-emphasis">My dissertation studies **trust** in digital experiences and how **Agentic AI** compares to human judgment—grounding architecture debates in measured user perception.</span></p>
+<p class="dissertation-pbi-intro"><span class="thesis-emphasis">My Master's dissertation measures perceived trust in e-commerce interfaces with ITQM/MQCI (ISO/IEC 25000) and TrustMate, then compares ChatGPT o3 AI agents with 127 IT students on three sites. The architecture angle: can automated interface-quality triage support decisions before you scale AI features—without pretending agents replace human evaluation? The study's answer is yes to triage, no to substitution.</span></p>
 
-- **Inferential pipeline:** Shapiro-Wilk → Welch/paired t-tests, Cohen's d, FDR—then **Power BI** reporting with 50+ visual structures.
-- **Why it matters for architects:** evaluation design and honest metrics before scaling AI features on a platform.
+- Topic: ITQM/MQCI trust scoring on e-commerce interfaces with TrustMate; AI agents as automated triage vs human evaluation (127 IT students, three sites).
+- Finding: AI agents don't replace human evaluation; they are a promising automated triage for interface quality (directional alignment on top/bottom attributes; stricter bias on most leaf scores).
+- Inferential pipeline: Shapiro-Wilk → Welch/paired t-tests, Cohen's d, FDR—then Power BI reporting with 50+ visual structures.
+- Why it matters for architects: evaluation design and honest metrics before scaling AI features on a platform.
 
 <div class="dissertation-pbi-row">
 <p><img src="../../../pictures/academia/dissertation/dissertation-pbi-1.png" alt="Power BI – variability of human scores between websites" /></p>
@@ -1062,8 +1062,8 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## Data Visualization – MSc InfoVis: PNAD Contínua (Power BI)
 
-- **MSc Information Visualization (Unicamp, Grade A):** visual structures and mapping for **multivariate** operational data—skills that transfer to architecting readable cloud analytics surfaces.
-- **PNAD Contínua in Power BI:** from raw tables to interactive views stakeholders can explore.
+- MSc Information Visualization (Unicamp, Grade A): visual structures and mapping for multivariate operational data—skills that transfer to architecting readable cloud analytics surfaces.
+- PNAD Contínua in Power BI: from raw tables to interactive views stakeholders can explore.
 
 <div class="infovis-split">
 <div class="infovis-left">
@@ -1216,7 +1216,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## Architecture in Delivery – Tooling Project for Power Tools
 
-- **Tooling project for PT:** Bridged requirements to high-fidelity prototypes with **regular customer check-ins**—keeping business intent and technical design in one thread.
+- Tooling for Power Tools: end-to-end delivery from requirements to high-fidelity prototypes with customer check-ins, bridging business intent and technical design.
 
 <!-- - **Workshop facilitation:** Ran strategy and team workshops with large groups (e.g. Digital WS, Joinville 2024). -->
 
@@ -1299,8 +1299,8 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## InfoVis – Text & Graph Visualization (PhraseNets)
 
-- **Graphs, trees, and text viz:** encoding relationships and co-occurrence—useful when architecture must expose **event** and **dependency** structure.
-- **Interaction patterns:** filtering and detail-on-demand as UX constraints on data platforms.
+- Graphs, trees, and text viz: encoding relationships and co-occurrence—useful when architecture must expose event and dependency structure.
+- Interaction patterns: filtering and detail-on-demand as UX constraints on data platforms.
 
 <div class="phrase-net-row">
 <p><img src="../../../pictures/academia/infovis/infovis-phrase-netproject-1.png" alt="PhraseNets web visualization – interface and controls" /></p>
@@ -1328,7 +1328,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## Future – Cloud Architecture, Digitization & Global Delivery
 
-**Cloud platforms, digitization, and evidence** meet in how I want to grow as a Digital Solution Architect. The diagram below is the agile/research operating context I already work in.
+Cloud platforms, digitization, and evidence meet in how I want to grow as a Digital Solution Architect. The diagram below is the agile/research operating context I already work in.
 
 <div class="ai-agile-wrap">
 <p><img src="../../../pictures/diagrams/ai-agile-research.png" alt="Diagram ai-agile-research: AI and Agile in Applied Research" /></p>
@@ -1358,11 +1358,11 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## Future – How I Design Digital Solutions
 
-- **Architecture as decision support:** patterns (services, events, quality gates) chosen for operability—not fashion.
-- **Cloud & platform fluency:** deepen **Azure** landing zones, identity/RBAC, and IaC (**Terraform**/ARM) on top of existing digitization and data work.
-- **Evidence in the loop:** keep Applied Research, metrics (**CSI/NPS**), and stakeholder validation inside architecture reviews.
-- **Secure by default:** identity, policy, and observability as first-class concerns alongside compute and data.
-- **Global collaboration:** bilingual delivery with distributed teams—already practiced across BR/HU/DE contexts.
+- Architecture as decision support: patterns (services, events, quality gates) chosen for operability—not fashion.
+- Cloud & platform fluency: deepen Azure landing zones, identity/RBAC, and IaC (Terraform/ARM) on top of existing digitization and data work.
+- Evidence in the loop: keep Applied Research, metrics (CSI/NPS), and stakeholder validation inside architecture reviews.
+- Secure by default: identity, policy, and observability as first-class concerns alongside compute and data.
+- Global collaboration: bilingual delivery with distributed teams—already practiced across BR/HU/DE contexts.
 
 
 <!-- Diagram: future-career-path (mermaid/diagrams.md). Export to future-career-path.png -->
@@ -1476,7 +1476,7 @@ section.closing-redesign h2 {
 ## Closing & Contact
 
 <div class="closing-summary">
-<p>I connect digitization experience, analytics pipelines, and Applied Research gates into **solution architecture** that global teams can operate—measured by outcomes, not slideware.</p>
+<p>I bring digitization experience, analytics pipelines, and research quality gates into solution architecture that global teams can run—judged by outcomes, not decks.</p>
 </div>
 
 <div class="closing-contact">

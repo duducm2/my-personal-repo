@@ -438,13 +438,11 @@ img[src*="story-flow"] {
 
 # Por que desenho soluções digitais
 
-## Arquitetura que times globais operam, medem e confiam
+## Digitalização e analytics que se sustentam quando chegam à produção
 
-- Acredito que arquitetura funciona quando **operações, segurança e evidência** caminham juntas—não quando diagramas ficam só no slide.
-- Trabalho de digitalização me ensinou a entregar **sistemas ponta a ponta** (dados → app → hosting → Git) sob restrições reais de negócio.
-- Pesquisa Aplicada na Bosch afiou **gates de método**: pontuação de relevância, dashboards CIP e maturidade UX mensurável.
-- **Uso Python, SQL, Power BI e IA** para transformar sinal operacional não estruturado em estruturas acionáveis.
-- Inglês fluente e entrega bilíngue me mantêm efetivo em conversas de **arquitetura global**.
+- Acho que soluções digitais em organizações de serviço precisam sobreviver à operação real—não só ficar bem em uma revisão.
+- Meu trabalho conecta digitalização, caminhos de dados e quality gates de pesquisa aplicada: arquitetura que os times consigam operar.
+- Este portfólio mostra esse caminho em sistemas, dashboards e entrega.
 
 <p><img src="../../../pictures/diagrams/story-flow.png" alt="Diagram story-flow: Why story flow" /></p>
 
@@ -475,7 +473,7 @@ table thead { display: none !important; }
 | --------- | ------------------------- |
 | Name      | Eduardo M. de A. Figueiredo    |
 | Role      | Arquiteto de Soluções Digitais | Cloud, Digitalização e Entrega Baseada em Evidência    |
-| Impact    | Ajudo times a desenhar soluções de digitalização e analytics que sobrevivem ao contato com produção: limites claros, resultados mensuráveis e architecture reviews baseadas em evidência.  |
+| Impact    | Ajudo times a desenhar soluções de digitalização e analytics que se sustentam em produção—limites claros, resultados mensuráveis, revisões baseadas em evidência.  |
 | Contact   | Nova Odessa, SP – Brasil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583 |
 
 <p class="photo-at-bottom"><img src="../../../pictures/personal/my-photo-rectangle.png" alt="Eduardo Figueiredo" /></p>  
@@ -665,12 +663,12 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 
 | Área | Conquista |
 |------|-----------|
-| Digitalização (Bosch HU) | Sistemas web ponta a ponta para Business Excellence em **SQL Server**, **IIS**, **Git**; entrega **Kanban** |
-| Gates de arquitetura (GS) | **Relevância em UX** automatizada no **ServiceNow**; dashboards **CIP** estratégicos para liderança |
-| Analytics → insight | **Data Insights**: Teoria Fundamentada + **Python/IA** + **Power BI** em transcrições de call center |
-| Maturidade e governança | **Nível 4 de Maturidade UX** nas Américas; **Power BI** + **Microsoft Lists** para conformidade documental |
-| Resultados de entrega | Média **CSI 4,86 / NPS 9,94** (2024–2025); tooling de requisitos a protótipos hi-fi |
-| Capacitação | Treinamento de **ferramentas de IA** para **100+** pessoas (**4,88**/5); viagens à Alemanha 2024–2025 |
+| Digitalização (Bosch HU) | Sistemas web ponta a ponta para Business Excellence em SQL Server, IIS, Git; entrega Kanban |
+| Gates de arquitetura (GS) | Relevância em UX automatizada no ServiceNow; dashboards CIP estratégicos para liderança |
+| Analytics → insight | Data Insights: Teoria Fundamentada + Python/IA + Power BI em transcrições de call center |
+| Maturidade e governança | Nível 4 de Maturidade UX nas Américas; Power BI + Microsoft Lists para conformidade documental |
+| Resultados de entrega | Média CSI 4,86 / NPS 9,94 (2024–2025); tooling de requisitos a protótipos hi-fi |
+| Capacitação | Treinamento de ferramentas de IA para 100+ pessoas (4,88/5); viagens à Alemanha 2024–2025 |
 
 ---
 
@@ -1008,10 +1006,12 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## Data Visualization – Dissertation Power BI
 
-<p class="dissertation-pbi-intro"><span class="thesis-emphasis">Minha dissertação estuda **confiança** em experiências digitais e como **Agentic AI** se compara ao julgamento humano—ancorando debates de arquitetura em percepção medida do usuário.</span></p>
+<p class="dissertation-pbi-intro"><span class="thesis-emphasis">Minha dissertação de mestrado mensura confiança percebida em interfaces de e-commerce com o MQCI (ISO/IEC 25000) e a TrustMate, depois compara agentes ChatGPT o3 com 127 estudantes de TI em três sites. O ângulo de arquitetura: a triagem automatizada de qualidade de interface consegue apoiar decisões antes de escalar features de IA—sem fingir que agentes substituem avaliação humana? A resposta do estudo é sim à triagem, não à substituição.</span></p>
 
-- **Pipeline inferencial:** Shapiro-Wilk → t de Welch/pareado, d de Cohen, FDR—depois reporting em **Power BI** com 50+ estruturas visuais.
-- **Por que importa para arquitetos:** desenho de avaliação e métricas honestas antes de escalar features de IA em uma plataforma.
+- Tema: pontuação de confiança MQCI em interfaces de e-commerce com TrustMate; agentes de IA como triagem automatizada vs avaliação humana (127 estudantes de TI, três sites).
+- Achado: agentes de IA não substituem a avaliação humana; são triagem automatizada promissora da qualidade da interface (alinhamento direcional nos melhores/piores atributos; viés mais rigoroso na maior parte das pontuações folha).
+- Pipeline inferencial: Shapiro-Wilk → t de Welch/pareado, d de Cohen, FDR—depois reporting em Power BI com 50+ estruturas visuais.
+- Por que importa para arquitetos: desenho de avaliação e métricas honestas antes de escalar features de IA em uma plataforma.
 
 <div class="dissertation-pbi-row">
 <p><img src="../../../pictures/academia/dissertation/dissertation-pbi-1.png" alt="Power BI – variability of human scores between websites" /></p>
@@ -1062,8 +1062,8 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## Visualização de dados – InfoVis (Mestrado): PNAD Contínua (Power BI)
 
-- **Visualização da Informação (Mestrado Unicamp, nota A):** estruturas visuais e mapeamento para dados operacionais **multivariados**—habilidades que transferem para arquitetar superfícies analíticas cloud legíveis.
-- **PNAD Contínua no Power BI:** de tabelas brutas a visões interativas exploráveis por stakeholders.
+- Visualização da Informação (Mestrado Unicamp, nota A): estruturas visuais e mapeamento para dados operacionais multivariados—habilidades que transferem para arquitetar superfícies analíticas cloud legíveis.
+- PNAD Contínua no Power BI: de tabelas brutas a visões interativas exploráveis por stakeholders.
 
 <div class="infovis-split">
 <div class="infovis-left">
@@ -1216,7 +1216,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## Arquitetura na entrega – Projeto Tooling para Power Tools
 
-- **Projeto tooling para PT:** Liguei requisitos a protótipos hi-fi com **check-ins regulares**—mantendo intenção de negócio e desenho técnico no mesmo fio.
+- Tooling para Power Tools: entrega ponta a ponta de requisitos a protótipos de alta fidelidade com check-ins com clientes, ligando intenção de negócio e desenho técnico.
 
 <!-- - **Workshop facilitation:** Ran strategy and team workshops with large groups (e.g. Digital WS, Joinville 2024). -->
 
@@ -1299,8 +1299,8 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## InfoVis – Visualização de textos e grafos (PhraseNets)
 
-- **Grafos, árvores e viz de texto:** codificar relações e coocorrência—útil quando a arquitetura precisa expor estrutura de **eventos** e **dependências**.
-- **Padrões de interação:** filtragem e detalhe sob demanda como restrições de UX em plataformas de dados.
+- Grafos, árvores e viz de texto: codificar relações e coocorrência—útil quando a arquitetura precisa expor estrutura de eventos e dependências.
+- Padrões de interação: filtragem e detalhe sob demanda como restrições de UX em plataformas de dados.
 
 <div class="phrase-net-row">
 <p><img src="../../../pictures/academia/infovis/infovis-phrase-netproject-1.png" alt="PhraseNets web visualization – interface and controls" /></p>
@@ -1328,7 +1328,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## Futuro – Arquitetura cloud, digitalização e entrega global
 
-**Plataformas cloud, digitalização e evidência** se encontram em como quero crescer como Arquiteto de Soluções Digitais. O diagrama abaixo é o contexto ágil/pesquisa em que já atuo.
+Plataformas cloud, digitalização e evidência se encontram em como quero crescer como Arquiteto de Soluções Digitais. O diagrama abaixo é o contexto ágil/pesquisa em que já atuo.
 
 <div class="ai-agile-wrap">
 <p><img src="../../../pictures/diagrams/ai-agile-research.png" alt="Diagrama ai-agile-research: IA e Ágil em Pesquisa Aplicada" /></p>
@@ -1358,11 +1358,11 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## Futuro – Como desenho soluções digitais
 
-- **Arquitetura como apoio à decisão:** padrões (serviços, eventos, quality gates) escolhidos por operabilidade—não por moda.
-- **Fluência cloud e plataforma:** aprofundar landing zones **Azure**, identidade/RBAC e IaC (**Terraform**/ARM) sobre a digitalização e o trabalho com dados já feitos.
-- **Evidência no ciclo:** manter Pesquisa Aplicada, métricas (**CSI/NPS**) e validação com stakeholders dentro de architecture reviews.
-- **Seguro por padrão:** identidade, política e observabilidade como preocupações de primeira classe junto de compute e dados.
-- **Colaboração global:** entrega bilíngue com times distribuídos—já praticada em contextos BR/HU/DE.
+- Arquitetura como apoio à decisão: padrões (serviços, eventos, quality gates) escolhidos por operabilidade—não por moda.
+- Fluência cloud e plataforma: aprofundar landing zones Azure, identidade/RBAC e IaC (Terraform/ARM) sobre a digitalização e o trabalho com dados já feitos.
+- Evidência no ciclo: manter Pesquisa Aplicada, métricas (CSI/NPS) e validação com stakeholders dentro de architecture reviews.
+- Seguro por padrão: identidade, política e observabilidade como preocupações de primeira classe junto de compute e dados.
+- Colaboração global: entrega bilíngue com times distribuídos—já praticada em contextos BR/HU/DE.
 
 
 <!-- Diagram: future-career-path (mermaid/diagrams.md). Export to future-career-path.png -->
@@ -1476,7 +1476,7 @@ section.closing-redesign h2 {
 ## Closing & Contact
 
 <div class="closing-summary">
-<p>Conecto experiência de digitalização, pipelines analíticos e gates de Pesquisa Aplicada em **arquitetura de soluções** que times globais operam—medida por resultados, não por slides.</p>
+<p>Levo experiência em digitalização, pipelines analíticos e quality gates de pesquisa para arquitetura de soluções que times globais consigam operar—avaliada por resultados, não por slides.</p>
 </div>
 
 <div class="closing-contact">

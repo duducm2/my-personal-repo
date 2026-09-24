@@ -35,40 +35,40 @@
 )
 
 #let profile = [
-  Digital solution architect mindset: I design and review #strong[digitization] and analytics solutions that global teams can operate—#strong[Azure]-aware platforms, #strong[Python/SQL] data paths, #strong[DevOps] automation habits, and #strong[Applied Research] quality gates (ServiceNow relevance scoring, CIP dashboards). #strong[Full-stack] background (React, SQL Server, IIS) plus Power BI and AI-assisted pipelines. Master's in Technology (#strong[approved September 2026; diploma December 2026]) with #strong[Grade A across all coursework]. #v(0.5em) Uses CSI/NPS to keep architecture honest about outcomes.
+  I design and review digitization and analytics solutions that teams can actually run—Azure-aware platforms, Python/SQL data paths, DevOps habits, and research-backed quality gates (ServiceNow relevance scoring, CIP dashboards). Full-stack background in React, SQL Server, and IIS, plus Power BI and AI-assisted pipelines. Master's in Technology approved September 2026 (diploma December 2026; Grade A across all coursework). I use CSI/NPS so architecture stays tied to outcomes.
 ]
 
 #let languages = "Portuguese (Native)   English (Fluent)"
 
 #let skills = (
-  ("Core", "Core:", ("Solution & cloud architecture", "Digitization & systems design", "DevOps / CI-CD & automation", "Applied Research & quality gates", "Global stakeholder alignment")),
+  ("Core", "Core:", ("Solution & cloud architecture", "Digitization & systems design", "DevOps / CI-CD & automation", "Applied Research & quality gates", "Global stakeholder alignment", "Autodidact", "Statistics")),
   ("Tech", "Tech:", ("Azure", "Python", "SQL / SQL Server", "Power BI", "ServiceNow", "Git", "GitHub", "Bitbucket", "VS Code", "React", "Windows Server / IIS", "Docker", "Excel / VBA", "CSV pipelines", "Mermaid", "HTML / CSS", "Figma", "Terraform (IaC)")),
 )
 
 #let experience = (
   ("Jan 2023 – Present", "Bosch Brasil", "Applied Research & Design Analyst", (
-    [#strong[Solution design for Global Services:] partnered on #strong[strategic CIP dashboards] and automated #strong[UX relevance] scoring in #strong[ServiceNow] (property-based weights)—turning subjective intake into a #strong[repeatable architecture gate].],
-    [#strong[Data Insights (Power Tools):] designed a #strong[Python + AI] coding pipeline over call-center transcripts (Grounded Theory) with #strong[Power BI] synthesis—cloud-ready analytics patterns for unstructured operational data.],
-    [#strong[UX Maturity Level 4 (Americas):] governance, templates, training; #strong[Power BI] audit dashboard auto-fetching #strong[Microsoft Lists]—instrumented compliance for project-management documentation.],
-    [#strong[Tooling (Power Tools):] end-to-end delivery from requirements to high-fidelity prototypes with customer check-ins—bridging business intent and technical architecture.],
-    [#strong[Agentic AI in the delivery loop:] daily #strong[VS Code] + AI for research, method design, and faster iteration across global architecture-adjacent workstreams.],
-    [Outcome ownership: average #strong[CSI 4.86 / NPS 9.94] (2024–2025); international collaboration with Germany (2024, 2025).],
+    [Solution design for Global Services: partnered on strategic CIP dashboards and automated UX relevance scoring in ServiceNow (property-based weights), turning subjective intake into a repeatable quality gate.],
+    [Data Insights (Power Tools): designed a Python + AI coding pipeline over call-center transcripts (Grounded Theory) with Power BI synthesis—analytics patterns for unstructured operational data.],
+    [UX Maturity Level 4 (Americas): governance, templates, training; Power BI audit dashboard auto-fetching Microsoft Lists to track project-management documentation.],
+    [Tooling (Power Tools): end-to-end delivery from requirements to high-fidelity prototypes with customer check-ins—bridging business intent and technical design.],
+    [Daily VS Code + AI for research, method design, and faster iteration across global architecture-adjacent workstreams.],
+    [Average CSI 4.86 / NPS 9.94 (2024–2025); international collaboration with Germany (2024, 2025).],
   )),
   ("Jan 2020 – Dec 2022", "Bosch Brasil", "Web Developer", (
-    [Built #strong[React] front-ends and internal/customer web solutions in #strong[Scrum/Kanban]—component boundaries and API-facing delivery habits useful for #strong[service-oriented] designs.],
-    [Collaborated across design, research, and engineering to ship increments with clear ownership—practice for architecture review culture.],
+    [Built React front-ends and internal/customer web solutions in Scrum/Kanban—component boundaries and API-facing delivery habits useful for service-oriented designs.],
+    [Collaborated across design, research, and engineering to ship increments with clear ownership.],
   )),
   ("Jan 2019 – Dec 2019", "Bosch Magyarország (Hungary)", "Digitization Support Analyst", (
-    [#strong[Digitization Support Analyst (Budapest):] digitizing Business Excellence systems—#strong[Kanban] delivery of web apps on #strong[SQL Server], #strong[Windows Server (IIS)], #strong[Git], and #strong[VBA] automation.],
-    [End-to-end ownership of internal digital tools: from process need to hosted web system—early #strong[solution architecture] muscle in a global Bosch context.],
+    [Digitization Support Analyst (Budapest): digitizing Business Excellence systems—Kanban delivery of web apps on SQL Server, Windows Server (IIS), Git, and VBA automation.],
+    [End-to-end ownership of internal digital tools: from process need to hosted web system—early solution-architecture practice in a global Bosch context.],
   )),
   ("Jan 2017 – Nov 2018", "Bosch Brasil (Campinas)", "Intern", (
-    [#strong[Excel/VBA + Access] digital systems for Continuous Improvement and Internal Communication; #strong[3rd place, Bosch Talent Forum 2018] (Project Model Canvas tooling).],
+    [Excel/VBA + Access digital systems for Continuous Improvement and Internal Communication; 3rd place, Bosch Talent Forum 2018 (Project Model Canvas tooling).],
   )),
 )
 
 #let education = (
-  ("Master's in Technology:", [Info & Comm Systems. Unicamp (2023–2026, approved September 2026; diploma December 2026).], [Dissertation: #strong[perceived trust] in e-commerce (ISO/IEC 25000), human vs #strong[AI-agent] validation #v(0.42em) #strong[inferential stats]—normality checks, #strong[Welch/paired t-tests], #strong[Cohen's d], #strong[FDR] (Python → Power BI) #v(0.42em) descriptive metrics (mean, SD, SE, CI). Coursework (#strong[Grade A in all courses]): Academic Writing, Scientific Research, Innovation & Technology Transfer, #strong[Information Visualization] (visual mapping, multivariate data, interaction, graphs/trees, text viz).]),
+  ("Master's in Technology:", [Info & Comm Systems. Unicamp (2023–2026, approved September 2026; diploma December 2026).], [Dissertation — Perceived Trust in E-commerce Websites: proposing and validating an automated evaluation method with AI agents. I used the Interface Trust Quality Model (ITQM/MQCI, based on ISO/IEC 25000), built the TrustMate web tool to run the questionnaire and score Usability, Accessibility, and UX, and compared ChatGPT o3 agents with 127 IT students on three sites. Core question: do AI-agent scores meaningfully match human perceived trust? Finding: agents don't replace human evaluation, but work as automated triage of interface quality. Analysis: descriptive, visual, and inferential (Python → Power BI). Coursework (Grade A in all courses): Academic Writing, Scientific Research, Innovation & Technology Transfer, Information Visualization (visual mapping, multivariate data, interaction, graphs/trees, text viz).]),
   ("Systems Analysis and Development.", "Unicamp (2015–2020).", none),
   ("Technical Degree in Informatics.", "ETEC Bento Quirino (2012–2014).", none),
 )

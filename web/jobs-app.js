@@ -18,6 +18,7 @@
     { key: "da", label: "Data Analyst" },
     { key: "po", label: "Product Owner" },
     { key: "dsa", label: "Digital Solution Architect" },
+    { key: "ds", label: "Data Scientist" },
     { key: "other", label: "Other" },
   ];
   const WORK_MODE_OPTIONS = ["remote", "hybrid", "onsite", "unknown"];
@@ -34,6 +35,7 @@
     "data-analyst",
     "product-owner",
     "digital-solution-architect",
+    "data-scientist",
   ];
   const RESULT_OPTIONS = [
     { key: "", label: "(none — in progress)" },
@@ -87,6 +89,7 @@
     da: "data-analyst",
     po: "product-owner",
     dsa: "digital-solution-architect",
+    ds: "data-scientist",
     other: "general",
   };
 
@@ -1427,7 +1430,7 @@
   function buildAiInstructions(careerPaths, hasIgnoreRules) {
     const paths = careerPaths.length
       ? careerPaths.join(" | ")
-      : "da | po | dsa | other";
+      : "da | po | dsa | ds | other";
     const steps = [
       "=== AIB PROCESSING INSTRUCTIONS (mandatory) ===",
       "1. Extract every distinct job opening from the UNSTRUCTURED JOB DATA below.",
@@ -1449,7 +1452,7 @@
       `${n + 1}. Set career_path to exactly one of the selected contexts: ${paths}.`,
       "   Prefer the best-fitting selected path for each opening.",
       `${n + 2}. Set recommended_resume to exactly one of:`,
-      "   general | data-analyst | product-owner | digital-solution-architect.",
+      "   general | data-analyst | product-owner | digital-solution-architect | data-scientist.",
       `${n + 3}. Set is_new to "1", status to "saved", source to "company_site" unless`,
       "   another source is obvious, and fill found_on with today's date (YYYY-MM-DD).",
       "   Leave result and result_on empty (historic outcome is set manually later).",
@@ -1468,6 +1471,7 @@
     if (careerPath === "da") return "data-analyst";
     if (careerPath === "po") return "product-owner";
     if (careerPath === "dsa") return "digital-solution-architect";
+    if (careerPath === "ds") return "data-scientist";
     return "";
   }
 
@@ -2101,7 +2105,7 @@
   function buildFormFillInstructions(openingId, careerPaths) {
     const paths = careerPaths.length
       ? careerPaths.join(" | ")
-      : "da | po | dsa | other";
+      : "da | po | dsa | ds | other";
     const resumes = RESUME_OPTIONS.join(" | ");
     return [
       "=== AIB FORM-FILL INSTRUCTIONS (mandatory) ===",

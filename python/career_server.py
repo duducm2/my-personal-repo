@@ -160,6 +160,38 @@ DOWNLOAD_CATALOG: list[dict[str, str]] = [
         "kind": "portfolio",
         "filename": "portfolio-deck-digital-solution-architect-PT.pdf",
     },
+    {
+        "variant": "data-scientist",
+        "label_en": "Data Scientist",
+        "label_pt": "Cientista de Dados",
+        "lang": "en",
+        "kind": "resume",
+        "filename": "CV-Eduardo-Figueiredo-EN-data-scientist.pdf",
+    },
+    {
+        "variant": "data-scientist",
+        "label_en": "Data Scientist",
+        "label_pt": "Cientista de Dados",
+        "lang": "pt",
+        "kind": "resume",
+        "filename": "CV-Eduardo-Figueiredo-PT-data-scientist.pdf",
+    },
+    {
+        "variant": "data-scientist",
+        "label_en": "Data Scientist",
+        "label_pt": "Cientista de Dados",
+        "lang": "en",
+        "kind": "portfolio",
+        "filename": "portfolio-deck-data-scientist-EN.pdf",
+    },
+    {
+        "variant": "data-scientist",
+        "label_en": "Data Scientist",
+        "label_pt": "Cientista de Dados",
+        "lang": "pt",
+        "kind": "portfolio",
+        "filename": "portfolio-deck-data-scientist-PT.pdf",
+    },
 ]
 
 

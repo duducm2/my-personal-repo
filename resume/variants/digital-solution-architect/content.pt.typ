@@ -35,40 +35,40 @@
 )
 
 #let profile = [
-  #strong[Atuo com mentalidade de arquiteto de soluções digitais:] desenho e reviso soluções de #strong[digitalização] e analytics que times globais operam—plataformas com consciência #strong[Azure], caminhos de dados #strong[Python/SQL], hábitos de #strong[DevOps] e quality gates de #strong[Pesquisa Aplicada] (relevância no ServiceNow, dashboards CIP). Base #strong[full-stack] (React, SQL Server, IIS) mais Power BI e pipelines com IA. Mestrado em Tecnologia (#strong[aprovado set/2026; diploma dez/2026]) com #strong[nota A em todas as disciplinas]. #v(0.35em) #strong[Uso] CSI/NPS para manter a arquitetura honesta quanto a resultados.
+  Desenho e reviso soluções de digitalização e analytics que os times consigam operar de verdade—plataformas com consciência Azure, caminhos de dados em Python/SQL, hábitos de DevOps e quality gates baseados em pesquisa (relevância no ServiceNow, dashboards CIP). Base full-stack em React, SQL Server e IIS, além de Power BI e pipelines com IA. Mestrado em Tecnologia aprovado em setembro de 2026 (diploma em dezembro de 2026; notas A). Uso CSI/NPS para a arquitetura continuar ligada a resultados.
 ]
 
 #let languages = "Português (Nativo)   Inglês (Fluente)"
 
 #let skills = (
-  ("Core", "Núcleo:", ("Arquitetura de soluções e cloud", "Digitalização e desenho de sistemas", "DevOps / CI-CD e automação", "Pesquisa Aplicada e quality gates", "Alinhamento com stakeholders globais")),
+  ("Core", "Núcleo:", ("Arquitetura de soluções e cloud", "Digitalização e desenho de sistemas", "DevOps / CI-CD e automação", "Pesquisa Aplicada e quality gates", "Alinhamento com stakeholders globais", "Autodidata", "Estatística")),
   ("Tech", "Tecnologias:", ("Azure", "Python", "SQL / SQL Server", "Power BI", "ServiceNow", "Git", "GitHub", "Bitbucket", "VS Code", "React", "Windows Server / IIS", "Docker", "Excel / VBA", "Pipelines CSV", "Mermaid", "HTML / CSS", "Figma", "Terraform (IaC)")),
 )
 
 #let experience = (
   ("Jan 2023 – Atual", "Bosch Brasil", "Analista de Pesquisa Aplicada e Design", (
-    [#strong[Desenho de solução para Global Services:] atuei em #strong[dashboards estratégicos de CIP] e pontuação automatizada de #strong[relevância em UX] no #strong[ServiceNow] (pesos por propriedades)—transformando intake subjetivo em #strong[gate de arquitetura repetível].],
-    [#strong[Data Insights (Power Tools):] desenhei pipeline #strong[Python + IA] sobre transcrições de call center (Teoria Fundamentada) com síntese em #strong[Power BI]—padrões analíticos prontos para cloud sobre dados operacionais não estruturados.],
-    [#strong[Nível 4 de Maturidade UX (Américas):] governança, templates, treinamento; dashboard #strong[Power BI] com ingestão automática de #strong[Microsoft Lists]—conformidade instrumentada da documentação de PM.],
-    [#strong[Tooling (Power Tools):] entrega ponta a ponta de requisitos a protótipos hi-fi com check-ins—ponte entre intenção de negócio e arquitetura técnica.],
-    [#strong[IA agêntica no ciclo de entrega:] uso diário de #strong[VS Code] + IA para pesquisa, desenho de método e iteração mais rápida em workstreams adjacentes à arquitetura global.],
-    [Ownership de resultados: média #strong[CSI 4,86 / NPS 9,94] (2024–2025); colaboração internacional com a Alemanha (2024, 2025).],
+    [Desenho de solução para Global Services: trabalhei em dashboards estratégicos de CIP e automatizei a pontuação de relevância em UX no ServiceNow (pesos por propriedades), transformando intake subjetivo em quality gate repetível.],
+    [Data Insights (Power Tools): desenhei um pipeline de coding em Python + IA sobre transcrições de call center (Teoria Fundamentada) com síntese em Power BI—padrões analíticos para dados operacionais não estruturados.],
+    [Nível 4 de Maturidade em UX (Américas): governança, templates, treinamento; dashboard Power BI de auditoria buscando Microsoft Lists para acompanhar documentação de gestão de projetos.],
+    [Tooling (Power Tools): entrega ponta a ponta de requisitos a protótipos de alta fidelidade com check-ins com clientes—ligando intenção de negócio e desenho técnico.],
+    [Uso diário de VS Code + IA para pesquisa, desenho de método e iteração mais rápida em frentes globais ligadas à arquitetura.],
+    [Média CSI 4,86 / NPS 9,94 (2024–2025); colaboração internacional com a Alemanha (2024, 2025).],
   )),
   ("Jan 2020 – Dez 2022", "Bosch Brasil", "Desenvolvedor Web", (
-    [Construí front-ends #strong[React] e soluções web internas/cliente em #strong[Scrum/Kanban]—limites de componente e entrega orientada a API úteis para desenhos #strong[service-oriented].],
-    [Colaborei entre design, pesquisa e engenharia para entregar incrementos com ownership claro—prática para cultura de architecture review.],
+    [Construí front-ends em React e soluções web internas/para clientes em Scrum/Kanban—limites de componente e hábitos de entrega voltados a API, úteis para desenhos orientados a serviço.],
+    [Colaborei com design, pesquisa e engenharia para entregar incrementos com ownership claro.],
   )),
   ("Jan 2019 – Dez 2019", "Bosch Magyarország (Hungary)", "Analista de Suporte à Digitalização", (
-    [#strong[Analista de Suporte à Digitalização (Budapeste):] digitalização de sistemas Business Excellence—entrega #strong[Kanban] de apps web em #strong[SQL Server], #strong[Windows Server (IIS)], #strong[Git] e automação #strong[VBA].],
-    [Ownership ponta a ponta de ferramentas digitais internas: da necessidade de processo ao sistema web hospedado—músculo precoce de #strong[arquitetura de soluções] em contexto Bosch global.],
+    [Analista de Suporte à Digitalização (Budapeste): digitalização de sistemas de Business Excellence—entrega em Kanban de apps web em SQL Server, Windows Server (IIS), Git e automação VBA.],
+    [Ownership ponta a ponta de ferramentas digitais internas: da necessidade de processo ao sistema web hospedado—prática inicial de arquitetura de soluções em contexto global Bosch.],
   )),
   ("Jan 2017 – Nov 2018", "Bosch Brasil (Campinas)", "Estagiário", (
-    [#strong[Excel/VBA + Access] como sistemas digitais para Melhoria Contínua e Comunicação Interna; #strong[3º lugar, Fórum de Talentos Bosch 2018] (tooling Project Model Canvas).],
+    [Sistemas digitais Excel/VBA + Access para Melhoria Contínua e Comunicação Interna; 3º lugar no Fórum de Talentos Bosch 2018 (tooling Project Model Canvas).],
   )),
 )
 
 #let education = (
-  ("Mestrado em Tecnologia:", [Sist. Info. e Comunicação. Unicamp (2023–2026, aprovado set/2026; diploma dez/2026).], [Dissertação: #strong[confiança percebida] em e-commerce (ISO/IEC 25000), validação humano vs #strong[agente de IA] #v(0.28em) #strong[estatística inferencial]—normalidade, #strong[t de Welch/pareado], #strong[d de Cohen], #strong[FDR] (Python → Power BI) #v(0.28em) métricas descritivas (média, DP, EE, IC). Disciplinas (#strong[nota A]): Escrita Acadêmica, Pesquisa Científica, Inovação, #strong[InfoVis] (mapeamento visual, multivariados, interação, grafos/árvores, viz textos).]),
+  ("Mestrado em Tecnologia:", [Sist. Info. e Comunicação. Unicamp (2023–2026, aprovado set/2026; diploma dez/2026).], [Dissertação — Confiança Percebida em Websites de E-commerce: proposta e validação de um método automatizado de avaliação com apoio de agentes de IA. Usei o Modelo de Qualidade da Confiança da Interface (MQCI, baseado na ISO/IEC 25000), construí a ferramenta web TrustMate para aplicar o questionário e pontuar Usabilidade, Acessibilidade e UX, e comparei agentes ChatGPT o3 com 127 estudantes de TI em três sites. Pergunta central: as pontuações dos agentes representam de forma significativa a confiança percebida por humanos? Achado: agentes não substituem a avaliação humana, mas funcionam como triagem automatizada da qualidade da interface. Análise: descritiva, visual e inferencial (Python → Power BI). Disciplinas (nota A em todas): Escrita Acadêmica, Pesquisa Científica, Inovação & Transferência de Tecnologia, Visualização da Informação (mapeamento visual, multivariados, interação, grafos/árvores, viz de textos).]),
   ("Análise e Desenvolvimento de Sistemas.", "Unicamp (2015–2020).", none),
   ("Técnico em Informática.", "ETEC Bento Quirino (2012–2014).", none),
 )

@@ -1,4 +1,4 @@
-﻿// =============================================================================
+// =============================================================================
 // GENERATED from my-data/canonical — do not edit by hand.
 // Variant: general, lang: en. Re-run: python scripts/generate_from_canonical.py
 // Layout: main.typ (do not change layout here).
@@ -35,40 +35,40 @@
 )
 
 #let profile = [
-  UX and software-quality researcher helping teams build #strong[user-centered solutions] through #strong[Applied Research, technology, and project management]. Full-stack background and #strong[scientific mindset]. Daily use of data, CIP, and #strong[Agentic AI]. #strong[Self-directed and proactive] across design, front-end, Power BI, and Python. Master's in Technology (#strong[approved September 2026; diploma December 2026]) with #strong[Grade A across all coursework]. Aspiring #strong[AI Scrum Master].
+  I'm a UX and software-quality researcher. I use applied research, technology, and project management to help teams ship things people can actually use. Full-stack background; day to day I work with data, continuous improvement, and agentic AI across design, front-end, Power BI, and Python. Master's in Technology approved September 2026 (diploma December 2026; Grade A across all coursework). Working toward an AI Scrum Master path.
 ]
 
 #let languages = "Portuguese (Native)   English (Fluent)"
 
 #let skills = (
-  ("Core", "Core:", ("Applied Research", "Project Management", "Continuous Improvement (CIP)", "AI Systems")),
+  ("Core", "Core:", ("Applied Research", "Project Management", "Continuous Improvement (CIP)", "AI Systems", "Autodidact", "Statistics")),
   ("Tech", "Tech:", ("Power BI", "Python", "React", "Figma", "SQL", "Matplotlib", "Seaborn", "Git", "GitHub", "Azure", "Bitbucket", "HTML", "CSS", "Mermaid", "VS Code", "Excel", "VBA", "AutoHotkey")),
 )
 
 #let experience = (
   ("Jan 2023 – Present", "Bosch Brasil", "Applied Research & Design Analyst", (
-    [Supported Americas to reach #strong[UX Maturity Level 4 inside Global Services]: governance, templates, training. #strong[CSI 4.86 / NPS 9.94] avg. in my projects (2024–2025).],
-    [#strong[CIP CIM / Global Services:] With UX team, evaluated #strong[strategic CIP dashboards] so GS leadership could quickly spot main issues and efficiency/efficacy gains; automated #strong[UX relevance] scoring in #strong[ServiceNow] with property-based weights.],
-    [#strong[Tooling project (Power Tools):] supported technical delivery and project management from requirements through high-fidelity prototypes; regular customer check-ins.],
-    [Power BI dashboards for project/resource oversight and training tracking.],
-    [#strong[Agentic AI:] use daily with #strong[VS Code] and context management for research, analysis, and problem-solving. Delivering Applied Research efficiently across pipeline and artifacts.],
-    [#strong[International & Mentorship:] two trips to Germany (2024, 2025); tutor at SENAI Digital Talent Academy; #strong[AI tools training] for #strong[100+] people (#strong[4.88]/5 satisfaction).],
+    [Helped the Americas reach UX Maturity Level 4 in Global Services through governance, templates, and training. Average CSI 4.86 / NPS 9.94 on my projects (2024–2025).],
+    [CIP CIM / Global Services: with the UX team, evaluated strategic CIP dashboards so GS leadership could spot main issues and efficiency/efficacy gains quickly; automated UX relevance scoring in ServiceNow with property-based weights.],
+    [Tooling project (Power Tools): supported technical delivery and project management from requirements through high-fidelity prototypes, with regular customer check-ins.],
+    [Power BI dashboards for project and resource oversight and training tracking.],
+    [Use agentic AI daily in VS Code for research, analysis, and problem-solving across the applied-research pipeline.],
+    [Two trips to Germany (2024, 2025); tutor at SENAI Digital Talent Academy; AI tools training for 100+ people (4.88/5 satisfaction).],
   )),
   ("Jan 2020 – Dec 2022", "Bosch Brasil", "Web Developer", (
-    [Front-end development, React, Scrum, Kanban, Applied Research; web solutions and teamwork-driven delivery.],
-    [Collaborated on customer-facing applications and internal tools.],
+    [Front-end development in React with Scrum and Kanban; applied research habits and teamwork-driven delivery.],
+    [Worked on customer-facing applications and internal tools.],
   )),
   ("Jan 2019 – Dec 2019", "Bosch Magyarország (Hungary)", "Digitization Support Analyst", (
-    [Business Excellence digitization in #strong[Kanban]; internal tools and workflows.],
-    [#strong[Full-stack web development:] VS Code, SQL Server, Windows Server (IIS).],
+    [Business Excellence digitization in Kanban—internal tools and workflows.],
+    [Full-stack web development with VS Code, SQL Server, and Windows Server (IIS).],
   )),
   ("Jan 2017 – Nov 2018", "Bosch Brasil (Campinas)", "Intern", (
-    [VBA (Excel) for Continuous Improvement and internal communication.],
+    [VBA (Excel) tools for Continuous Improvement and internal communication.],
   )),
 )
 
 #let education = (
-  ("Master's in Technology:", [Info & Comm Systems. Unicamp (2023–2026, approved September 2026; diploma December 2026).], [Dissertation: #strong[perceived trust] in e-commerce (ISO/IEC 25000), human vs #strong[AI-agent] validation #v(0.42em) #strong[inferential stats]—normality checks, #strong[Welch/paired t-tests], #strong[Cohen's d], #strong[FDR] (Python → Power BI) #v(0.42em) descriptive metrics (mean, SD, SE, CI). Coursework (#strong[Grade A in all courses]): Academic Writing, Scientific Research, Innovation & Technology Transfer, #strong[Information Visualization] (visual mapping, multivariate data, interaction, graphs/trees, text viz).]),
+  ("Master's in Technology:", [Info & Comm Systems. Unicamp (2023–2026, approved September 2026; diploma December 2026).], [Dissertation — Perceived Trust in E-commerce Websites: proposing and validating an automated evaluation method with AI agents. I used the Interface Trust Quality Model (ITQM/MQCI, based on ISO/IEC 25000), built the TrustMate web tool to run the questionnaire and score Usability, Accessibility, and UX, and compared ChatGPT o3 agents with 127 IT students on three sites. Core question: do AI-agent scores meaningfully match human perceived trust? Finding: agents don't replace human evaluation, but work as automated triage of interface quality. Analysis: descriptive, visual, and inferential (Python → Power BI). Coursework (Grade A in all courses): Academic Writing, Scientific Research, Innovation & Technology Transfer, Information Visualization (visual mapping, multivariate data, interaction, graphs/trees, text viz).]),
   ("Systems Analysis and Development.", "Unicamp (2015–2020).", none),
   ("Technical Degree in Informatics.", "ETEC Bento Quirino (2012–2014).", none),
 )

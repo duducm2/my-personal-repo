@@ -35,40 +35,40 @@
 )
 
 #let profile = [
-  Sou pesquisador de UX e qualidade de software e #strong[ajudo] equipes a construir #strong[soluções centradas no usuário] por meio de #strong[Pesquisa Aplicada, tecnologia e gestão de projetos]. Formação full-stack e #strong[mentalidade científica]. #v(0.35em) #strong[Uso] dados, CIP e #strong[IA agêntica] no dia a dia. #strong[Autodirigido e proativo] em design, front-end, Power BI e Python. Mestrado em Tecnologia (#strong[aprovado set/2026; diploma dez/2026]) com #strong[nota A em todas as disciplinas]. #strong[Aspiro] a #strong[AI Scrum Master].
+  Sou pesquisador de UX e qualidade de software. Uso pesquisa aplicada, tecnologia e gestão de projetos para ajudar times a entregar coisas que as pessoas realmente usam. Base full-stack; no dia a dia trabalho com dados, melhoria contínua e IA agêntica em design, front-end, Power BI e Python. Fui aprovado no Mestrado em Tecnologia em setembro de 2026 (diploma em dezembro de 2026; nota A em todas as disciplinas). Quero seguir na direção de AI Scrum Master.
 ]
 
 #let languages = "Português (Nativo)   Inglês (Fluente)"
 
 #let skills = (
-  ("Core", "Núcleo:", ("Pesquisa Aplicada", "Gestão de Projetos", "Melhoria Contínua (CIP)", "Sistemas de IA")),
+  ("Core", "Núcleo:", ("Pesquisa Aplicada", "Gestão de Projetos", "Melhoria Contínua (CIP)", "Sistemas de IA", "Autodidata", "Estatística")),
   ("Tech", "Tecnologias:", ("Power BI", "Python", "React", "Figma", "SQL", "Matplotlib", "Seaborn", "Git", "GitHub", "Azure", "Bitbucket", "HTML", "CSS", "Mermaid", "VS Code", "Excel", "VBA", "AutoHotkey")),
 )
 
 #let experience = (
   ("Jan 2023 – Atual", "Bosch Brasil", "Analista de Pesquisa Aplicada e Design", (
-    [Apoiei as Américas a atingir #strong[Nível 4 de Maturidade em UX na Global Services]: governança, templates, treinamento. #strong[CSI 4,86 / NPS 9,94] méd. nos meus projetos (2024–2025).],
-    [#strong[CIP CIM / Global Services:] Com equipe de UX, avaliei #strong[dashboards estratégicos de CIP] para a liderança da GS identificar rapidamente problemas e ganhos de eficiência/eficácia; pontuação automatizada de #strong[relevância em UX] no #strong[ServiceNow] com pesos por propriedades.],
-    [#strong[Projeto tooling (Power Tools):] apoiei a entrega técnica e gestão do projeto de requisitos a protótipos de alta fidelidade; check-ins regulares com clientes.],
-    [Desenvolvi dashboards Power BI para acompanhamento de projetos/recursos e treinamentos.],
-    [#strong[IA agêntica:] uso diário com #strong[VS Code] e gestão de contexto para pesquisa, análise e resolução de problemas. Entrego Pesquisa Aplicada com eficiência no pipeline e artefatos.],
-    [#strong[Internacional e mentoria:] duas viagens à Alemanha (2024, 2025); tutor na SENAI Digital Talent Academy; #strong[treinamento de ferramentas de IA] para #strong[100+] pessoas (satisfação #strong[4,88]/5).],
+    [Apoiei as Américas a atingir o Nível 4 de Maturidade em UX na Global Services com governança, templates e treinamento. Média CSI 4,86 / NPS 9,94 nos meus projetos (2024–2025).],
+    [CIP CIM / Global Services: com a equipe de UX, avaliei dashboards estratégicos de CIP para a liderança da GS identificar problemas e ganhos de eficiência/eficácia com mais rapidez; automatizei a pontuação de relevância em UX no ServiceNow com pesos por propriedades.],
+    [Projeto tooling (Power Tools): apoiei a entrega técnica e a gestão do projeto de requisitos a protótipos de alta fidelidade, com check-ins regulares com clientes.],
+    [Dashboards Power BI para acompanhamento de projetos, recursos e treinamentos.],
+    [Uso IA agêntica diariamente no VS Code para pesquisa, análise e resolução de problemas no pipeline de pesquisa aplicada.],
+    [Duas viagens à Alemanha (2024, 2025); tutor na SENAI Digital Talent Academy; treinamento de ferramentas de IA para 100+ pessoas (satisfação 4,88/5).],
   )),
   ("Jan 2020 – Dez 2022", "Bosch Brasil", "Desenvolvedor Web", (
-    [Atuei em desenvolvimento front-end, React, Scrum, Kanban e Pesquisa Aplicada; soluções web e entrega em equipe.],
-    [Colaborei em aplicações para clientes e ferramentas internas.],
+    [Desenvolvimento front-end em React com Scrum e Kanban; hábitos de pesquisa aplicada e entrega em equipe.],
+    [Atuei em aplicações para clientes e ferramentas internas.],
   )),
   ("Jan 2019 – Dez 2019", "Bosch Magyarország (Hungary)", "Analista de Suporte à Digitalização", (
-    [Digitalizei fluxos Business Excellence em #strong[Kanban]; ferramentas e fluxos internos.],
-    [Atuei em #strong[desenvolvimento web full-stack:] VS Code, SQL Server, Windows Server (IIS).],
+    [Digitalização de Business Excellence em Kanban—ferramentas e fluxos internos.],
+    [Desenvolvimento web full-stack com VS Code, SQL Server e Windows Server (IIS).],
   )),
   ("Jan 2017 – Nov 2018", "Bosch Brasil (Campinas)", "Estagiário", (
-    [Desenvolvi automações VBA (Excel) para Melhoria Contínua e comunicação interna.],
+    [Ferramentas VBA (Excel) para Melhoria Contínua e comunicação interna.],
   )),
 )
 
 #let education = (
-  ("Mestrado em Tecnologia:", [Sist. Info. e Comunicação. Unicamp (2023–2026, aprovado set/2026; diploma dez/2026).], [Dissertação: #strong[confiança percebida] em e-commerce (ISO/IEC 25000), validação humano vs #strong[agente de IA] #v(0.28em) #strong[estatística inferencial]—normalidade, #strong[t de Welch/pareado], #strong[d de Cohen], #strong[FDR] (Python → Power BI) #v(0.28em) métricas descritivas (média, DP, EE, IC). Disciplinas (#strong[nota A]): Escrita Acadêmica, Pesquisa Científica, Inovação, #strong[InfoVis] (mapeamento visual, multivariados, interação, grafos/árvores, viz textos).]),
+  ("Mestrado em Tecnologia:", [Sist. Info. e Comunicação. Unicamp (2023–2026, aprovado set/2026; diploma dez/2026).], [Dissertação — Confiança Percebida em Websites de E-commerce: proposta e validação de um método automatizado de avaliação com apoio de agentes de IA. Usei o Modelo de Qualidade da Confiança da Interface (MQCI, baseado na ISO/IEC 25000), construí a ferramenta web TrustMate para aplicar o questionário e pontuar Usabilidade, Acessibilidade e UX, e comparei agentes ChatGPT o3 com 127 estudantes de TI em três sites. Pergunta central: as pontuações dos agentes representam de forma significativa a confiança percebida por humanos? Achado: agentes não substituem a avaliação humana, mas funcionam como triagem automatizada da qualidade da interface. Análise: descritiva, visual e inferencial (Python → Power BI). Disciplinas (nota A em todas): Escrita Acadêmica, Pesquisa Científica, Inovação & Transferência de Tecnologia, Visualização da Informação (mapeamento visual, multivariados, interação, grafos/árvores, viz de textos).]),
   ("Análise e Desenvolvimento de Sistemas.", "Unicamp (2015–2020).", none),
   ("Técnico em Informática.", "ETEC Bento Quirino (2012–2014).", none),
 )

@@ -55,6 +55,7 @@
     "fit_data_analyst",
     "fit_product_owner",
     "fit_digital_solution_architect",
+    "fit_data_scientist",
     "scope",
     "job_search_url",
     "system_kind",
@@ -221,6 +222,7 @@
       "fit_data_analyst",
       "fit_product_owner",
       "fit_digital_solution_architect",
+      "fit_data_scientist",
       "website",
       "careers_url",
       "ats_kind",
@@ -440,6 +442,7 @@
         label: "fitDigitalSolutionArchitect",
         mono: "fit_digital_solution_architect",
       },
+      { label: "fitDataScientist", mono: "fit_data_scientist" },
       { label: "companyWebsite", mono: "website" },
       { label: "careersUrl", mono: "careers_url" },
       { label: "atsKind", mono: "ats_kind" },
@@ -551,6 +554,12 @@
       en: "Digital Solution Architect",
       pt: "Digital Solution Architect",
     },
+    {
+      key: "data-scientist",
+      short: "DS",
+      en: "Data Scientist",
+      pt: "Data Scientist",
+    },
     { key: "general", short: "GEN", en: "General", pt: "General" },
   ];
 
@@ -578,6 +587,14 @@
       shortPt: "DSA",
       en: "Digital Solution Architect",
       pt: "Digital Solution Architect",
+    },
+    {
+      key: "ds",
+      field: "fit_data_scientist",
+      shortEn: "DS",
+      shortPt: "DS",
+      en: "Data Scientist",
+      pt: "Data Scientist",
     },
   ];
 
@@ -759,6 +776,7 @@
       row.fit_data_analyst = "no";
       row.fit_product_owner = "no";
       row.fit_digital_solution_architect = "no";
+      row.fit_data_scientist = "no";
       row.region_en = "Campinas metro";
       row.region_pt = "Região metropolitana de Campinas";
       row.region_detail_en = row.region_en;
@@ -1248,6 +1266,7 @@
         en: "Digital Solution Architect",
         pt: "Digital Solution Architect",
       },
+      { key: "ds", en: "Data Scientist", pt: "Data Scientist" },
       { key: "multi", en: "Multi-role", pt: "Multi-role" },
     ];
     for (const chip of roleChips) {
@@ -2057,6 +2076,7 @@
     root.replaceChildren();
 
     const order = [
+      "data-scientist",
       "digital-solution-architect",
       "data-analyst",
       "product-owner",

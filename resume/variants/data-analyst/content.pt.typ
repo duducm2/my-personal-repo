@@ -5,7 +5,7 @@
 // =============================================================================
 
 #let name = "Eduardo M. de A. Figueiredo"
-#let tagline = "Analista de Dados | IA para Manipulação, Checagem de Dados e Insights Aplicados"
+#let tagline = "Analista de Dados → Cientista de Dados PL | Estatística, Python e Avaliação de ML Aplicado"
 #let phone = "+55 (19) 98176-6583"
 #let email = "edu.evangelista.figueiredo@gmail.com"
 #let linkedin = "LinkedIn"
@@ -35,41 +35,41 @@
 )
 
 #let profile = [
-  #strong[Atuo como analista de dados] transformando Pesquisa Aplicada em #strong[insight mensurável]: #strong[Excel] avançado (fórmulas, VBA, planilhas-database, atalhos), #strong[CSV], Power BI, Python/SQL, #strong[estatística descritiva e inferencial], #strong[InfoVis] (Mestrado, nota A). #v(0.35em) #strong[Uso] CSI/NPS para priorizar. Mestrado (#strong[aprovado set/2026; diploma dez/2026]) com #strong[nota A em todas as disciplinas].
+  Sou analista de dados em transição para Cientista de Dados pleno: transformo perguntas de pesquisa em números que as pessoas consigam usar—Excel avançado (fórmulas, VBA, planilhas no estilo banco), pipelines CSV, Power BI, Python/SQL e estatística descritiva e inferencial—e estou adicionando ML supervisionado com métricas e limites claros. Visualização da Informação no mestrado (nota A). Uso CSI/NPS quando preciso priorizar o que importa. Mestrado em Tecnologia aprovado em setembro de 2026 (diploma em dezembro de 2026), nota A em todas as disciplinas.
 ]
 
 #let languages = "Português (Nativo)   Inglês (Fluente)"
 
 #let skills = (
-  ("Core", "Núcleo:", ("Excel (fórmulas, VBA, bases de dados)", "Análise de dados e CSV", "Visualização, BI e InfoVis", "Python / SQL / Estatística", "Pesquisa Aplicada")),
-  ("Tech", "Tecnologias:", ("Excel", "VBA", "CSV", "Power BI", "Python", "SQL", "Matplotlib", "Seaborn", "Azure", "Git", "GitHub", "React", "Figma", "ServiceNow", "Bitbucket", "HTML", "CSS", "Mermaid", "VS Code", "AutoHotkey")),
+  ("Core", "Núcleo:", ("Excel (fórmulas, VBA, bases de dados)", "Análise de dados e CSV", "Visualização, BI e InfoVis", "Python / SQL / Estatística", "Pesquisa Aplicada", "Autodidata")),
+  ("Tech", "Tecnologias:", ("Excel", "VBA", "CSV", "Power BI", "Python", "SQL", "Matplotlib", "Seaborn", "Azure", "Git", "GitHub", "React", "Figma", "ServiceNow", "Bitbucket", "HTML", "CSS", "Mermaid", "VS Code", "AutoHotkey", "scikit-learn")),
 )
 
 #let experience = (
   ("Jan 2023 – Atual", "Bosch Brasil", "Analista de Pesquisa Aplicada e Design", (
-    [Dashboards #strong[Power BI] para projetos/recursos; #strong[CSI 4,86 / NPS 9,94] méd. nos meus projetos (2024–2025).],
-    [#strong[CIP CIM (Global Services):] #strong[relevância em UX] e #strong[classificação de dados] com #strong[IA] no #strong[ServiceNow] (pesos por propriedades); #strong[método apoiado por IA]; avaliei #strong[dashboards estratégicos de CIP] na GS para liderança identificar problemas e ganhos de eficiência/eficácia.],
-    [#strong[Projeto tooling (Power Tools):] entrega de requisitos a protótipos; check-ins regulares; progresso acompanhado para decisões.],
-    [#strong[Data Insights (Power Tools B2B):] registros do call center com #strong[teoria fundamentada straussiana]—#strong[Python com IA] para manipulação e categorização; #strong[validação com stakeholders]; insights no #strong[Power BI] (finanças, transporte de materiais, logística e mais).],
-    [Apoiei Américas ao #strong[Nível 4 de Maturidade UX]: governança, templates, treinamento; #strong[dashboard Power BI] de auditoria com ingestão automática de #strong[Microsoft Lists] para acompanhar #strong[documentação de gestão de projetos].],
-    [#strong[IA agêntica:] uso diário de #strong[VS Code] para pesquisa, análise e resolução de problemas no pipeline.],
-    [#strong[Internacional e mentoria:] duas viagens à Alemanha (2024, 2025); tutor na SENAI Digital Talent Academy; #strong[treinamento de ferramentas de IA] para #strong[100+] pessoas (satisfação #strong[4,88]/5).],
+    [Dashboards Power BI para acompanhamento de projetos e recursos; média CSI 4,86 / NPS 9,94 nos meus projetos (2024–2025).],
+    [CIP CIM (Global Services): pontuação de relevância em UX e classificação de dados assistidas por IA no ServiceNow (pesos por propriedades); desenho de método com apoio de IA; avaliei dashboards estratégicos de CIP da GS para liderança sobre problemas e eficiência/eficácia.],
+    [Projeto tooling (Power Tools): entrega de requisitos a protótipos; check-ins regulares; progresso acompanhado para decisões.],
+    [Data Insights (Power Tools B2B): teoria fundamentada straussiana em registros de call center—Python assistido por IA para manipulação e categorização; validação com stakeholders; insights em Power BI sobre finanças, transporte de material, logística e temas relacionados.],
+    [Apoiei as Américas a atingir o Nível 4 de Maturidade em UX: governança, templates, treinamento; dashboard Power BI de auditoria buscando dados do Microsoft Lists para acompanhar documentação de gestão de projetos.],
+    [Uso IA agêntica diariamente no VS Code para pesquisa, análise e resolução de problemas no pipeline.],
+    [Duas viagens à Alemanha (2024, 2025); tutor na SENAI Digital Talent Academy; treinamento de ferramentas de IA para 100+ pessoas (satisfação 4,88/5).],
   )),
   ("Jan 2020 – Dez 2022", "Bosch Brasil", "Desenvolvedor Web", (
-    [Front-end (React) e Pesquisa Aplicada em #strong[Scrum e Kanban]; apps para clientes e ferramentas internas.],
-    [Entrega de UI apoiada por dados e shipping de soluções web em equipe.],
+    [Front-end (React) e pesquisa aplicada em Scrum e Kanban; ferramentas para clientes e internas.],
+    [Entrega de UI baseada em dados e shipping de soluções web em equipe.],
   )),
   ("Jan 2019 – Dez 2019", "Bosch Magyarország (Hungary)", "Analista de Suporte à Digitalização", (
-    [Digitalizei fluxos Business Excellence em #strong[Kanban].],
-    [#strong[Desenvolvimento web full-stack:] VS Code, #strong[SQL Server], Windows Server (IIS).],
+    [Digitalizei fluxos de Business Excellence em Kanban.],
+    [Desenvolvimento web full-stack com VS Code, SQL Server e Windows Server (IIS).],
   )),
   ("Jan 2017 – Nov 2018", "Bosch Brasil (Campinas)", "Estagiário", (
-    [#strong[Excel e VBA:] fórmulas avançadas, macros, planilhas-database, atalhos e fluxos #strong[CSV]; #strong[3º lugar, Fórum de talentos Bosch 2018] (macro Excel).],
+    [Excel e VBA: fórmulas avançadas, macros, planilhas no estilo banco, atalhos e fluxos CSV; 3º lugar no Fórum de Talentos Bosch 2018 (macro Excel).],
   )),
 )
 
 #let education = (
-  ("Mestrado em Tecnologia:", [Sist. Info. e Comunicação. Unicamp (2023–2026, aprovado set/2026; diploma dez/2026).], [Dissertação: #strong[confiança percebida] em e-commerce (ISO/IEC 25000), validação humano vs #strong[agente de IA] #v(0.28em) #strong[estatística inferencial]—normalidade, #strong[t de Welch/pareado], #strong[d de Cohen], #strong[FDR] (Python → Power BI) #v(0.28em) métricas descritivas (média, DP, EE, IC). Disciplinas (#strong[nota A]): Escrita Acadêmica, Pesquisa Científica, Inovação, #strong[InfoVis] (mapeamento visual, multivariados, interação, grafos/árvores, viz textos).]),
+  ("Mestrado em Tecnologia:", [Sist. Info. e Comunicação. Unicamp (2023–2026, aprovado set/2026; diploma dez/2026).], [Dissertação — Confiança Percebida em Websites de E-commerce: proposta e validação de um método automatizado de avaliação com apoio de agentes de IA. Usei o Modelo de Qualidade da Confiança da Interface (MQCI, baseado na ISO/IEC 25000), construí a ferramenta web TrustMate para aplicar o questionário e pontuar Usabilidade, Acessibilidade e UX, e comparei agentes ChatGPT o3 com 127 estudantes de TI em três sites. Pergunta central: as pontuações dos agentes representam de forma significativa a confiança percebida por humanos? Achado: agentes não substituem a avaliação humana, mas funcionam como triagem automatizada da qualidade da interface. Análise: descritiva, visual e inferencial (Python → Power BI). Disciplinas (nota A em todas): Escrita Acadêmica, Pesquisa Científica, Inovação & Transferência de Tecnologia, Visualização da Informação (mapeamento visual, multivariados, interação, grafos/árvores, viz de textos).]),
   ("Análise e Desenvolvimento de Sistemas.", "Unicamp (2015–2020).", none),
   ("Técnico em Informática.", "ETEC Bento Quirino (2012–2014).", none),
 )

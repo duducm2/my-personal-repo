@@ -438,11 +438,11 @@ img[src*="story-flow"] {
 
 # Por que trabalho com Tecnologia, Gestão de Projetos e Pesquisa Aplicada
 
-## Software confiável e centrado no humano para serviços complexos
+## Software confiável que as pessoas consigam usar de verdade em serviços complexos
 
-- Acredito que software em organizações de serviço deve ser **confiável, utilizável e útil**, especialmente quando afeta pessoas reais e negócios.
-- Meu trabalho centra **tecnologia**, **gestão de projetos** e **Pesquisa Aplicada**: trazendo evidência e necessidades dos usuários para como construímos e entregamos.
-- Este portfólio percorre essa história.
+- Acho que software em organizações de serviço precisa ser confiável e utilizável—principalmente quando afeta pessoas e negócios de verdade.
+- Meu dia a dia fica entre tecnologia, gestão de projetos e pesquisa aplicada: evidência e necessidades dos usuários moldando como construímos e entregamos.
+- Este portfólio é essa história em sequência.
 
 <p><img src="../pictures/diagrams/story-flow.png" alt="Diagram story-flow: Why story flow" /></p>
 
@@ -473,7 +473,7 @@ table thead { display: none !important; }
 | --------- | ------------------------- |
 | Name      | Eduardo M. de A. Figueiredo    |
 | Role      | Pesquisa Aplicada, Tecnologia e Gestão de Projetos    |
-| Impact    | Ajudo equipes a governar melhor e melhorar mais rápido, usando Pesquisa Aplicada para priorizar, decidir e entregar com dados claros e accountability.  |
+| Impact    | Ajudo times a ficar mais claros sobre o que priorizar e como melhorar, usando pesquisa e dados para que as decisões se sustentem.  |
 | Contact   | Nova Odessa, SP – Brasil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583 |
 
 <p class="photo-at-bottom"><img src="../pictures/personal/my-photo-rectangle.png" alt="Eduardo Figueiredo" /></p>  
@@ -666,10 +666,10 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 | Cargo                               | Pesquisa Aplicada e Tecnologia – Bosch Brasil (jan 2023 – atual); Especialista em Pesquisa Aplicada e Project Champion na GS/BDU            |
 | Internacional                      | Realizei duas viagens à Alemanha (2024, 2025) por trabalho relacionado ao cargo                                                                            |
 | Rastreamento CO2 (GS/Pesquisa Aplicada) | Conduzi prospecção de mercado para telemetria CO2; achado: falta de demanda de mercado                                                               |
-| Projeto tooling (PT)               | **Liderei** a entrega técnica e gestão do projeto de requisitos a protótipos de alta fidelidade, com check-ins regulares com clientes. |
-| Maturidade em UX          | **Liderei** as Américas ao Nível 4 – governança, templates, treinamento                                                                          |
-| CIP CIM (Global Services)          | Com equipe de UX, avaliei **dashboards estratégicos de CIP** de todas as iniciativas na GS—UX mais clara para a liderança identificar problemas e ganhos de eficiência/eficácia; **relevância em UX** automatizada no ServiceNow (pesos por propriedades) |
-| Colaboração                      | Sou tutor de estudantes da Digital Talent Academy; **treinamento de ferramentas de IA** para **100+** pessoas (satisfação **4,88**/5)                                                                                           |
+| Projeto tooling (PT)               | Liderei a entrega técnica e gestão do projeto de requisitos a protótipos de alta fidelidade, com check-ins regulares com clientes. |
+| Maturidade em UX          | Liderei as Américas ao Nível 4 – governança, templates, treinamento                                                                          |
+| CIP CIM (Global Services)          | Com equipe de UX, avaliei dashboards estratégicos de CIP de todas as iniciativas na GS—UX mais clara para a liderança identificar problemas e ganhos de eficiência/eficácia; relevância em UX automatizada no ServiceNow (pesos por propriedades) |
+| Colaboração                      | Sou tutor de estudantes da Digital Talent Academy; treinamento de ferramentas de IA para 100+ pessoas (satisfação 4,88/5)                                                                                           |
 
 ---
 
@@ -1007,11 +1007,13 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## Data Visualization – Dissertation Power BI
 
-<p class="dissertation-pbi-intro"><span class="thesis-emphasis">Minha dissertação pergunta se **Agentic AI** se comporta como humanos—fundamentada em como/por que usuários constroem **confiança** em sites de e-commerce desconhecidos.</span></p>
+<p class="dissertation-pbi-intro"><span class="thesis-emphasis">Minha dissertação de mestrado pergunta se agentes de IA conseguem representar a percepção de confiança de humanos em interfaces de e-commerce—a confiança que um site idôneo precisa transmitir por Usabilidade, Acessibilidade e UX. Usei o Modelo de Qualidade da Confiança da Interface (MQCI, baseado na ISO/IEC 25000), construí a ferramenta web TrustMate para aplicar o questionário e calcular as pontuações, e comparei agentes ChatGPT o3 com 127 estudantes de TI em três sites. Em resumo: agentes não substituem a avaliação humana, mas servem para triagem automatizada.</span></p>
 
-- **Normalidade primeiro:** Shapiro-Wilk nas distribuições de scores por atributo antes de escolher testes inferenciais.
-- **Python → Power BI:** Scripts offline calculam **Welch** (Humano–IA), **t pareado** (Humano–Humano) e **t independente** (IA–IA) com **d de Cohen** e **FDR Benjamini-Hochberg**; resultados importados ao Power BI para reporting.
-- **Descritivo + visual:** Medidas DAX para **média, DP, variância, erro padrão e limites de IC**; 50+ estruturas de gráficos (boxplots, forest plots, small multiples) alinhadas ao curso de InfoVis.
+- Tema: confiança percebida em interfaces de e-commerce (MQCI, ISO/IEC 25000); TrustMate coleta respostas e pontua Usabilidade, Acessibilidade e UX; agentes ChatGPT o3 vs 127 estudantes de TI em três sites.
+- Achado: agentes de IA não substituem a avaliação humana; são triagem automatizada promissora da qualidade da interface (alinhamento direcional nos melhores/piores atributos; viés mais rigoroso na maior parte das pontuações folha).
+- Normalidade primeiro: Shapiro-Wilk nas distribuições de scores por atributo antes de escolher testes inferenciais.
+- Python → Power BI: Scripts offline calculam Welch (Humano–IA), t pareado (Humano–Humano) e t independente (IA–IA) com d de Cohen e FDR Benjamini-Hochberg; resultados importados ao Power BI para reporting.
+- Descritivo + visual: Medidas DAX para média, DP, variância, erro padrão e limites de IC; 50+ estruturas de gráficos (boxplots, forest plots, small multiples) alinhadas ao curso de InfoVis.
 
 <div class="dissertation-pbi-row">
 <p><img src="../pictures/academia/dissertation/dissertation-pbi-1.png" alt="Power BI – variability of human scores between websites" /></p>
@@ -1062,8 +1064,8 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## Visualização de dados – InfoVis (Mestrado): PNAD Contínua (Power BI)
 
-- **Visualização da Informação (Unicamp, nota A):** Pipeline de Card et al.—dados brutos → tabelas → **estruturas visuais**; **mapeamento visual** (expressividade e efetividade); técnicas **multivariadas** (composição, small multiples, redução de dimensões).
-- **PNAD Contínua (Power BI):** Codificações Sankey, coropleta e facetadas para trajetórias educação–emprego e padrões socioeconômicos—as mesmas decisões estruturais em dashboards executivos.
+- Visualização da Informação (Unicamp, nota A): Pipeline de Card et al.—dados brutos → tabelas → estruturas visuais; mapeamento visual (expressividade e efetividade); técnicas multivariadas (composição, small multiples, redução de dimensões).
+- PNAD Contínua (Power BI): Codificações Sankey, coropleta e facetadas para trajetórias educação–emprego e padrões socioeconômicos—as mesmas decisões estruturais em dashboards executivos.
 
 <div class="infovis-split">
 <div class="infovis-left">
@@ -1216,7 +1218,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## Implementação técnica – Projeto Tooling para PT
 
-- **Projeto tooling para PT:** **Liderei** a **entrega técnica e gestão do projeto** de requisitos a protótipos de alta fidelidade, com **check-ins regulares com clientes**.
+- Projeto tooling para Power Tools: acompanhei a entrega técnica e a gestão do projeto de requisitos a protótipos de alta fidelidade, com check-ins regulares com clientes.
 
 <!-- - **Workshop facilitation:** Ran strategy and team workshops with large groups (e.g. Digital WS, Joinville 2024). -->
 
@@ -1299,9 +1301,9 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 ## InfoVis – Visualização de textos e grafos (PhraseNets)
 
-- **Tópicos do curso → skills de analista:** **Visões e interação** (filtros, detalhes sob demanda); **grafos e árvores** (layout de redes); **visualização de textos** (coocorrência, padrões/outliers)—como codificar dados e permitir exploração.
-- **Projeto PhraseNets:** Viz web em rede para relações entre palavras—estrutura que gráficos de barras/linhas não mostram.
-- **Ganho para trabalho com dados:** Mapear variáveis a marcas e escolher a estrutura certa para a pergunta—não só gráficos, mas comunicação visual eficaz.
+- Tópicos do curso → skills de analista: Visões e interação (filtros, detalhes sob demanda); grafos e árvores (layout de redes); visualização de textos (coocorrência, padrões/outliers)—como codificar dados e permitir exploração.
+- Projeto PhraseNets: Viz web em rede para relações entre palavras—estrutura que gráficos de barras/linhas não mostram.
+- Ganho para trabalho com dados: Mapear variáveis a marcas e escolher a estrutura certa para a pergunta—não só gráficos, mas comunicação visual eficaz.
 
 <div class="phrase-net-row">
 <p><img src="../pictures/academia/infovis/infovis-phrase-netproject-1.png" alt="PhraseNets web visualization – interface and controls" /></p>
@@ -1469,7 +1471,7 @@ section.closing-redesign h2 {
 ## Closing & Contact
 
 <div class="closing-summary">
-<p>Trago evidência de Pesquisa Aplicada, suporte tecnológico e entrega de projetos para ajudar equipes a construir soluções confiáveis, centradas no usuário, com dados claros, accountability e impacto mensurável.</p>
+<p>Levo pesquisa aplicada, tecnologia e entrega de projetos. O que me importa é trabalho em que as pessoas confiem e consigam usar, com dados claros e resultados mensuráveis.</p>
 </div>
 
 <div class="closing-contact">
