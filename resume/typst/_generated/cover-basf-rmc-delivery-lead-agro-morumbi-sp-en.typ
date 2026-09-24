@@ -1,0 +1,13 @@
+// Generated cover-letter content — do not edit by hand.
+#let cover-name = "Eduardo M. de A. Figueiredo"
+#let cover-phone = "+55 (19) 98176-6583"
+#let cover-email = "edu.evangelista.figueiredo@gmail.com"
+#let cover-location = "Nova Odessa, SP - Brazil"
+#let cover-linkedin = "https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b"
+#let cover-date = "September 23, 2026"
+#let cover-company = "BASF Agricultural Solution Brasil Ltda"
+#let cover-role = "Delivery Lead (AGRO) - Morumbi/SP"
+#let cover-greeting = "Dear BASF Hiring Team,"
+#let cover-body = "I am writing to express my interest in the Delivery Lead (AGRO) position with BASF Agricultural Solutions in Morumbi. With a Master's degree in Information and Communication Systems from Unicamp and extensive experience across software development, digital solutions, and agile project delivery at Bosch, I welcome the opportunity to steer robust digital solutions for your indirect tax and fiscal-reporting landscape.\n\nThroughout my career, I have connected technical system architecture with functional business needs. In my role as a Technology Researcher and Designer and previously as a Web Developer, I led delivery across Scrum and Kanban frameworks, working directly with cross-functional teams and external stakeholders to align requirements, manage backlogs, and maintain high delivery standards. My technical foundation spans cloud environments like Azure, database design with SQL Server, Git workflows, and rigorous testing, allowing me to translate complex operational specifications into reliable technical implementations.\n\nAdditionally, my background as a Continuous Improvement Analyst and Digitization Support Analyst instilled a disciplined approach to systems design, change management, and process evolution. At Bosch Hungary and Bosch Brasil, I digitized business systems, implemented automated workflows, and coached teams on agile methodologies and PDCA quality loops. I bring this same structured problem-solving, stakeholder alignment, and governance mindset to oversee technical integration, manage vendor deliveries, and support continuous roadmap evolution in enterprise environments.\n\nI am excited by BASF's commitment to sustainable agriculture and look forward to bringing my experience in technical leadership, agile delivery, and collaborative problem-solving to the Agricultural Solutions team. Thank you for your consideration, and I welcome the chance to discuss how my qualifications align with your delivery goals."
+#let cover-closing = "Sincerely,\nEduardo Matos de Assis Figueiredo"
+#let cover-lang = "en"
