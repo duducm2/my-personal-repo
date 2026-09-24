@@ -189,6 +189,16 @@
     window.CardNav?.focusFirst(CARD_SEL);
   }
 
+  function hasActiveJobFilters() {
+    return !!(
+      statusFilter ||
+      pathFilter ||
+      priorityFilter ||
+      resultFilter ||
+      (query || "").trim()
+    );
+  }
+
   function moveCardFocus(delta) {
     return !!window.CardNav?.moveInContext(CARD_SEL, FILTER_SEL, delta);
   }
@@ -3880,8 +3890,11 @@
           renderResults();
           return;
         }
-        event.preventDefault();
-        clearJobFilters();
+        if (hasActiveJobFilters()) {
+          event.preventDefault();
+          clearJobFilters();
+          return;
+        }
         return;
       }
 

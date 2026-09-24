@@ -1345,6 +1345,23 @@
     renderDownloads(downloadsCache.items, downloadsCache.policy);
   }
 
+  function hasActiveProfileFilters() {
+    return !!(pathFilter || companyCategoryFilter || companyRoleFilter);
+  }
+
+  function clearProfileFilters() {
+    pathFilter = "";
+    companyCategoryFilter = "";
+    companyRoleFilter = "";
+    try {
+      localStorage.setItem(PATH_KEY, "");
+    } catch {
+      /* ignore */
+    }
+    renderAll();
+    renderDownloads(downloadsCache.items, downloadsCache.policy);
+  }
+
   function initPathFilter() {
     let saved = "";
     try {
@@ -1854,6 +1871,11 @@
         const resumeDialog = document.getElementById("resume-viewer-modal");
         if (resumeDialog && resumeDialog.open) {
           closeResumeViewer();
+          return;
+        }
+        if (hasActiveProfileFilters()) {
+          event.preventDefault();
+          clearProfileFilters();
           return;
         }
         event.preventDefault();

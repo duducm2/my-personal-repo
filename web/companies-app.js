@@ -217,6 +217,31 @@
     hideSearchBar();
   }
 
+  function hasActiveCompanyFilters() {
+    return !!(
+      categoryFilter ||
+      roleFilter ||
+      geoFilter ||
+      homeOfficeFilter ||
+      growthFilter ||
+      (query || "").trim()
+    );
+  }
+
+  function clearCompanyFilters() {
+    categoryFilter = "";
+    roleFilter = "";
+    geoFilter = "";
+    homeOfficeFilter = "";
+    growthFilter = "";
+    query = "";
+    const search = searchInputEl();
+    if (search) search.value = "";
+    hideSearchBar({ focusCard: false });
+    render();
+    window.CardNav?.focusFirst(CARD_SEL);
+  }
+
   function moveCardFocus(delta) {
     return !!window.CardNav?.moveInContext(CARD_SEL, FILTER_SEL, delta);
   }
@@ -1473,9 +1498,23 @@
           closeModal();
           return;
         }
+        if (isSearchBarOpen() && (query || "").trim()) {
+          event.preventDefault();
+          query = "";
+          const search = searchInputEl();
+          if (search) search.value = "";
+          dismissSearchBar();
+          renderResults();
+          return;
+        }
         if (isSearchBarOpen()) {
           event.preventDefault();
           dismissSearchBar();
+          return;
+        }
+        if (hasActiveCompanyFilters()) {
+          event.preventDefault();
+          clearCompanyFilters();
           return;
         }
         event.preventDefault();

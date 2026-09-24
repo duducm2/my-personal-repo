@@ -201,6 +201,21 @@
     hideSearchBar();
   }
 
+  function hasActivePortalFilters() {
+    return !!(scopeFilter || pathFilter || (query || "").trim());
+  }
+
+  function clearPortalFilters() {
+    scopeFilter = "";
+    pathFilter = "";
+    query = "";
+    const search = searchInputEl();
+    if (search) search.value = "";
+    hideSearchBar({ focusCard: false });
+    render();
+    window.CardNav?.focusFirst(CARD_SEL);
+  }
+
   function makeChip(chip, activeKey, onPick) {
     const btn = document.createElement("button");
     btn.type = "button";
@@ -1096,9 +1111,23 @@
           closeModal();
           return;
         }
+        if (isSearchBarOpen() && (query || "").trim()) {
+          event.preventDefault();
+          query = "";
+          const search = searchInputEl();
+          if (search) search.value = "";
+          dismissSearchBar();
+          renderResults();
+          return;
+        }
         if (isSearchBarOpen()) {
           event.preventDefault();
           dismissSearchBar();
+          return;
+        }
+        if (hasActivePortalFilters()) {
+          event.preventDefault();
+          clearPortalFilters();
           return;
         }
         event.preventDefault();
