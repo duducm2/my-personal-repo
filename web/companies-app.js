@@ -346,6 +346,30 @@
     return true;
   }
 
+  function pinTargetCompany() {
+    if (openCompanyId) {
+      return companies.find((c) => c.id === openCompanyId) || null;
+    }
+    const card = focusedCompanyCard();
+    if (!card) return null;
+    return companies.find((c) => c.id === card.dataset.id) || null;
+  }
+
+  function pinFocusedCompany() {
+    const row = pinTargetCompany();
+    if (!row) {
+      setSaveStatus("Focus a company card (or open its dossier) to pin", "err");
+      return false;
+    }
+    togglePinned(row);
+    const name = cell(row.name_en) || row.id;
+    setSaveStatus(
+      isPinned(row) ? `Pinned: ${name}` : `Unpinned: ${name}`,
+      "ok",
+    );
+    return true;
+  }
+
   function appendHomeOfficeFlag(parent, row) {
     const value = homeOfficeValue(row);
     const label = homeOfficeLabel(value);
@@ -433,7 +457,7 @@
     btn.type = "button";
     btn.className = "pin-btn" + (isPinned(row) ? " is-on" : "");
     btn.setAttribute("aria-pressed", isPinned(row) ? "true" : "false");
-    btn.title = isPinned(row) ? "Unpin from top" : "Pin to top";
+    btn.title = isPinned(row) ? "Unpin from top (Alt+P)" : "Pin to top (Alt+P)";
     btn.textContent = isPinned(row) ? "Pinned" : "Pin";
     btn.addEventListener("click", (event) => {
       if (stopPropagation) {
@@ -1390,6 +1414,14 @@
             FILTER_SEL,
             "#company-modal[open] .field-input, #company-modal[open] select.field-input, #company-modal[open] textarea.field-input",
           );
+          return;
+        }
+        const isP =
+          event.code === "KeyP" || (event.key || "").toLowerCase() === "p";
+        if (isP && !typing) {
+          event.preventDefault();
+          event.stopPropagation();
+          pinFocusedCompany();
           return;
         }
       }

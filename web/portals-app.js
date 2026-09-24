@@ -276,8 +276,7 @@
       event.stopPropagation();
     }
     if (row.card_kind && row.card_kind !== "portal") return;
-    const target =
-      portals.find((p) => cell(p.id) === cell(row.id)) || null;
+    const target = portals.find((p) => cell(p.id) === cell(row.id)) || null;
     if (!target) return;
     target.pinned = isPinned(target) ? "" : "1";
     setDirty(true);
@@ -293,7 +292,9 @@
     btn.type = "button";
     btn.className = "pin-btn" + (isPinned(live) ? " is-on" : "");
     btn.setAttribute("aria-pressed", isPinned(live) ? "true" : "false");
-    btn.title = isPinned(live) ? "Unpin from top" : "Pin to top";
+    btn.title = isPinned(live)
+      ? "Unpin from top (Alt+P)"
+      : "Pin to top (Alt+P)";
     btn.textContent = isPinned(live) ? "Pinned" : "Pin";
     btn.addEventListener("click", (event) => {
       if (stopPropagation) {
@@ -414,6 +415,31 @@
     const card = focusedPortalCard();
     if (!card) return false;
     return openUrlInNewTab(card.dataset.url);
+  }
+
+  function pinTargetPortal() {
+    if (openPortalId) {
+      return portals.find((p) => cell(p.id) === cell(openPortalId)) || null;
+    }
+    const card = focusedPortalCard();
+    if (!card || cell(card.dataset.kind) !== "portal") return null;
+    return portals.find((p) => cell(p.id) === cell(card.dataset.id)) || null;
+  }
+
+  function pinFocusedPortal() {
+    const row = pinTargetPortal();
+    if (!row) {
+      setSaveStatus("Focus a portal card (or open its dossier) to pin", "err");
+      return false;
+    }
+    togglePinned(row);
+    setSaveStatus(
+      isPinned(row)
+        ? `Pinned: ${cell(row.name) || row.id}`
+        : `Unpinned: ${cell(row.name) || row.id}`,
+      "ok",
+    );
+    return true;
   }
 
   function renderPortalCard(row) {
@@ -1006,6 +1032,14 @@
             FILTER_SEL,
             "#portal-modal[open] .field-input, #portal-modal[open] select.field-input, #portal-modal[open] textarea.field-input",
           );
+          return;
+        }
+        const isP =
+          event.code === "KeyP" || (event.key || "").toLowerCase() === "p";
+        if (isP && !typing) {
+          event.preventDefault();
+          event.stopPropagation();
+          pinFocusedPortal();
           return;
         }
       }
