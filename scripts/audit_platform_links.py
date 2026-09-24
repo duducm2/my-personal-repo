@@ -172,13 +172,13 @@ def check_url_get(url: str, head_error: str | None = None) -> dict[str, object]:
                 "soft_404": False,
             }
     except urllib.error.HTTPError as e:
-        # Treat common anti-bot / auth walls as reachable if not 404/410.
-        if e.code in {400, 401, 403, 999}:
+        # Treat common anti-bot / auth walls / transient outages as reachable.
+        if e.code in {400, 401, 403, 503, 999}:
             return {
                 "status": "warn",
                 "code": e.code,
                 "final_url": url,
-                "error": "blocked but reachable",
+                "error": "blocked or unavailable but may open in browser",
                 "soft_404": False,
             }
         return {
@@ -197,6 +197,14 @@ def check_url_get(url: str, head_error: str | None = None) -> dict[str, object]:
                 "code": None,
                 "final_url": url,
                 "error": "ssl-verify-failed (browser may still open)",
+                "soft_404": False,
+            }
+        if "timed out" in err.lower() or "TimeoutError" in type(e).__name__:
+            return {
+                "status": "warn",
+                "code": None,
+                "final_url": url,
+                "error": "timeout (browser may still open)",
                 "soft_404": False,
             }
         return {

@@ -17,29 +17,3 @@ wellfound,22,,international,Wellfound,https://wellfound.com/jobs,proprietary,,,d
 remote-ok,23,,international,Remote OK,https://remoteok.com/,proprietary,,,da;po;dsa,Remote-first listings; filter Data / Product.
 wwr,24,,international,We Work Remotely,https://weworkremotely.com/,proprietary,,,da;po;dsa,Remote boards including data and product categories.
 glassdoor-intl,25,,international,Glassdoor,https://www.glassdoor.com/Job/index.htm,proprietary,,,da;po;dsa,Global jobs plus salary/review signal.
-flexjobs,26,,international,FlexJobs,https://www.flexjobs.com/,proprietary,,,da;po,Curated flexible/remote; paid membership board. Search gated after login; homepage is the reliable entry.
-smartrecruiters-board,27,,international,SmartRecruiters Job Board,https://jobs.smartrecruiters.com/,third_party,SmartRecruiters,https://www.smartrecruiters.com/,da;po;dsa,Public ATS board used by many enterprises.
-greenhouse,28,,international,Greenhouse,https://www.greenhouse.com/,third_party,Greenhouse,https://www.greenhouse.com/,da;po;dsa,Company boards: boards.greenhouse.io/<company>.
-lever,29,,international,Lever,https://jobs.lever.co/,third_party,Lever,https://www.lever.co/,da;po;dsa,Company boards: jobs.lever.co/<company> (e.g. CI&T Spotify).
-ashby,30,,international,Ashby,https://www.ashbyhq.com/,third_party,Ashby,https://www.ashbyhq.com/,da;po;dsa,Company boards: jobs.ashbyhq.com/<company> (e.g. Nubank).
-workday,31,,international,Workday Recruiting,https://www.workday.com/,third_party,Workday,https://www.workday.com/,da;po;dsa,ATS vendor homepage only - not a global job search. Open company boards on *.myworkdayjobs.com (see company dossiers). Ctrl+Enter opens Workday product site.
-bosch-linkedin-rexroth,40,,international,Bosch Rexroth LinkedIn,https://www.linkedin.com/company/bosch-rexroth/,proprietary,,,da;po;dsa,Bosch group watch page (LinkedIn company).
-bosch-linkedin,41,,international,Bosch LinkedIn,https://www.linkedin.com/company/bosch/,proprietary,,,da;po;dsa,Bosch group watch page (LinkedIn company).
-bosch-linkedin-br,42,,brazil,Bosch Brasil LinkedIn,https://www.linkedin.com/company/boschbrasil/,proprietary,,,da;po;dsa,Bosch group watch page (LinkedIn company BR).
-bosch-itk,43,,international,ITK Engineering Careers,https://www.itk-engineering.com/en/career/,proprietary,,,da;po;dsa,Bosch group affiliate careers watch page.
-bosch-sensortec,44,,international,Bosch Sensortec Careers,https://bosch-sensortec.com/careers,proprietary,,,da;po;dsa,Bosch group affiliate careers watch page.
-bosch-bsh,45,,international,BSH Group Careers,https://bsh-group.com/career,proprietary,,,da;po;dsa,Bosch group affiliate careers watch page.
-bosch-etas,46,,international,ETAS Careers,https://etas.com/careers,proprietary,,,da;po;dsa,Bosch group affiliate careers watch page.
-bosch-rexroth,47,,international,Bosch Rexroth Jobs,https://www.boschrexroth.com/en/us/jobs-and-career/job-opportunities/,proprietary,,,da;po;dsa,Bosch group affiliate careers watch page.
-bosch-research,48,,international,Bosch Research,https://bosch.com/research,proprietary,,,da;po;dsa,Bosch group research / careers watch page.
-bosch-brasil-careers,49,,brazil,Bosch Brasil Carreiras,https://bosch.com.br/carreiras,proprietary,,,da;po;dsa,Bosch Brasil careers watch page.
-portal-1790122112028,50,1,brazil,Bosch Smart Recruters ⭐,https://careers.smartrecruiters.com/BoschGroup/brazil,third_party,,,da;po;dsa,
-cnpem,51,1,brazil,CNPEM (Gupy),https://cnpem.gupy.io/,third_party,Gupy,https://cnpem.gupy.io/,da;dsa,CNPEM - Brazilian Center for Research in Energy and Materials (Campinas). National labs + Sirius; tech/software/automation specialist openings.
-kryptus,52,,brazil,Kryptus (Gupy),https://kryptus.gupy.io/,third_party,Gupy,https://kryptus.gupy.io/,da;po;dsa,Campinas-rooted cybersecurity / cryptography multinational.
-huawei-careers,53,,brazil,Huawei Careers,https://career.huawei.com/reccampportal/la/index.html,proprietary,,,da;dsa,Huawei LatAm careers portal (career.huawei.com SSL chain often fails automated audits; opens in Chrome). Filter Brazil / Campinas. Techno Park training footprint.
-tetra-pak-careers,54,,brazil,Tetra Pak Jobs,https://jobs.tetrapak.com/,proprietary,,,da;po;dsa,Techno Park Campinas / Monte Mor corridor.
-syngenta-jobs,55,,brazil,Syngenta Jobs,https://jobs.syngenta.com/,third_party,SmartRecruiters,https://jobs.syngenta.com/,da;po,Paulínia / Holambra / Indaiatuba agri corridor.
-schneider-electric-br,56,,brazil,Schneider Electric Brasil,https://www.se.com/br/pt/about-us/careers/overview/,proprietary,,,da;po;dsa,Energy management & industrial automation - BR careers hub; filter Campinas/SP. Job board also at careers.se.com.
-cnh-careers,57,,brazil,CNH Careers,https://careers.cnh.com/,proprietary,CNH,https://join.cnh.com/,da;po;dsa,Case IH / New Holland agri & construction equipment.
-cti-renato-archer-editais,58,,brazil,CTI Renato Archer (editais),https://www.gov.br/cti/pt-br/assuntos/editais,proprietary,,,da;dsa,Federal ICT research center Campinas - public contests & internship calls.
-ascenty-pandape,59,,brazil,Ascenty (Pandape),https://ascenty.pandape.infojobs.com.br/,third_party,Pandape,https://ascenty.pandape.infojobs.com.br/,da;po;dsa,Ascenty hyperscale data centers (Campinas metro / LatAm). Live openings on Pandape InfoJobs board; careers hub: ascenty.com/sobre/ascenty/trabalhe-conosco/.

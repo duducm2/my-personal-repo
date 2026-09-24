@@ -1,1623 +1,2018 @@
 {
+  "mode": "all",
   "summary": {
-    "ok": 214,
-    "warn": 22,
-    "fail": 8
+    "ok": 185,
+    "warn": 35,
+    "fail": 0,
+    "soft_404": 0
   },
   "missing_careers": [],
-  "generic_ats": [
-    {
-      "id": "gupy",
-      "field": "ats_url",
-      "url": "https://www.gupy.io/"
-    },
-    {
-      "id": "solides",
-      "field": "ats_url",
-      "url": "https://solides.com.br/"
-    },
-    {
-      "id": "smartrecruiters-board",
-      "field": "ats_url",
-      "url": "https://www.smartrecruiters.com/"
-    },
-    {
-      "id": "greenhouse",
-      "field": "ats_url",
-      "url": "https://www.greenhouse.com/"
-    },
-    {
-      "id": "lever",
-      "field": "ats_url",
-      "url": "https://www.lever.co/"
-    },
-    {
-      "id": "ashby",
-      "field": "ats_url",
-      "url": "https://www.ashbyhq.com/"
-    },
-    {
-      "id": "workday",
-      "field": "ats_url",
-      "url": "https://www.workday.com/"
-    }
-  ],
-  "issues": [
+  "generic_ats": [],
+  "warns": [
     {
       "source": "companies.csv",
-      "entity_id": "odata-sp02",
+      "entity_id": "ascenty-sumare",
+      "field": "website",
+      "url": "https://www.ascenty.com/",
+      "status": "warn",
+      "code": 403,
+      "final_url": "https://www.ascenty.com/",
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
+    },
+    {
+      "source": "companies.csv",
+      "entity_id": "ascenty-campinas",
+      "field": "website",
+      "url": "https://www.ascenty.com/",
+      "status": "warn",
+      "code": 403,
+      "final_url": "https://www.ascenty.com/",
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
+    },
+    {
+      "source": "companies.csv",
+      "entity_id": "scala-svcpcp01",
+      "field": "website",
+      "url": "https://www.scaladatacenters.com/",
+      "status": "warn",
+      "code": 403,
+      "final_url": "https://www.scaladatacenters.com/",
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
+    },
+    {
+      "source": "companies.csv",
+      "entity_id": "ascenty-paulinia",
+      "field": "website",
+      "url": "https://www.ascenty.com/",
+      "status": "warn",
+      "code": 403,
+      "final_url": "https://www.ascenty.com/",
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
+    },
+    {
+      "source": "companies.csv",
+      "entity_id": "consultimer-dc",
       "field": "careers_url",
-      "url": "https://odatacolocation.com/trabalhe-conosco/",
-      "status": "fail",
-      "code": 404,
-      "final_url": "https://odatacolocation.com/trabalhe-conosco/",
-      "error": "HTTP Error 404: Not Found"
+      "url": "https://br.indeed.com/cmp/Consultimer-Group/jobs",
+      "status": "warn",
+      "code": 403,
+      "final_url": "https://br.indeed.com/cmp/Consultimer-Group/jobs",
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
+    },
+    {
+      "source": "companies.csv",
+      "entity_id": "consultimer-dc",
+      "field": "ats_url",
+      "url": "https://br.indeed.com/cmp/Consultimer-Group/jobs",
+      "status": "warn",
+      "code": 403,
+      "final_url": "https://br.indeed.com/cmp/Consultimer-Group/jobs",
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
+    },
+    {
+      "source": "companies.csv",
+      "entity_id": "msx-campinas",
+      "field": "website",
+      "url": "https://www.msxi.com/",
+      "status": "warn",
+      "code": 403,
+      "final_url": "https://www.msxi.com/",
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
+    },
+    {
+      "source": "companies.csv",
+      "entity_id": "msx-campinas",
+      "field": "careers_url",
+      "url": "https://www.msxi.com/careers/",
+      "status": "warn",
+      "code": 403,
+      "final_url": "https://www.msxi.com/careers/",
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
+    },
+    {
+      "source": "companies.csv",
+      "entity_id": "meta-global",
+      "field": "website",
+      "url": "https://www.metacareers.com/",
+      "status": "warn",
+      "code": 400,
+      "final_url": "https://www.metacareers.com/",
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
+    },
+    {
+      "source": "companies.csv",
+      "entity_id": "meta-global",
+      "field": "careers_url",
+      "url": "https://www.metacareers.com/jobsearch/",
+      "status": "warn",
+      "code": 400,
+      "final_url": "https://www.metacareers.com/jobsearch/",
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
+    },
+    {
+      "source": "companies.csv",
+      "entity_id": "sap-global",
+      "field": "website",
+      "url": "https://jobs.sap.com/",
+      "status": "warn",
+      "code": 403,
+      "final_url": "https://jobs.sap.com/",
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
+    },
+    {
+      "source": "companies.csv",
+      "entity_id": "sap-global",
+      "field": "careers_url",
+      "url": "https://jobs.sap.com/en/jobs/",
+      "status": "warn",
+      "code": 403,
+      "final_url": "https://jobs.sap.com/en/jobs/",
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
+    },
+    {
+      "source": "companies.csv",
+      "entity_id": "sap-global",
+      "field": "ats_url",
+      "url": "https://jobs.sap.com/en/jobs/",
+      "status": "warn",
+      "code": 403,
+      "final_url": "https://jobs.sap.com/en/jobs/",
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
     },
     {
       "source": "companies.csv",
       "entity_id": "3m-sumare",
+      "field": "website",
+      "url": "https://www.3m.com/3M/en_US/company-us/",
+      "status": "warn",
+      "code": null,
+      "final_url": "https://www.3m.com/3M/en_US/company-us/",
+      "error": "timeout (browser may still open)",
+      "soft_404": false
+    },
+    {
+      "source": "companies.csv",
+      "entity_id": "hospital-vera-cruz-campinas",
+      "field": "website",
+      "url": "https://www.hospitalveracruz.com.br/",
+      "status": "warn",
+      "code": 403,
+      "final_url": "https://www.hospitalveracruz.com.br/",
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
+    },
+    {
+      "source": "companies.csv",
+      "entity_id": "hospital-vera-cruz-campinas",
       "field": "careers_url",
-      "url": "https://www.3m.com.br/3M/pt_BR/trabalhe-conosco-br/",
-      "status": "fail",
-      "code": 404,
-      "final_url": "https://www.3m.com.br/3M/pt_BR/trabalhe-conosco-br/",
-      "error": "HTTP Error 404: Not Found"
+      "url": "https://www.hospitalveracruz.com.br/",
+      "status": "warn",
+      "code": 403,
+      "final_url": "https://www.hospitalveracruz.com.br/",
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
+    },
+    {
+      "source": "companies.csv",
+      "entity_id": "ifood-brasil",
+      "field": "website",
+      "url": "https://www.ifood.com.br/",
+      "status": "warn",
+      "code": 403,
+      "final_url": "https://www.ifood.com.br/",
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
+    },
+    {
+      "source": "companies.csv",
+      "entity_id": "itau-unibanco",
+      "field": "website",
+      "url": "https://www.itau.com.br/",
+      "status": "warn",
+      "code": 403,
+      "final_url": "https://www.itau.com.br/",
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
+    },
+    {
+      "source": "companies.csv",
+      "entity_id": "natura-co",
+      "field": "website",
+      "url": "https://www.natura.com.br/",
+      "status": "warn",
+      "code": 403,
+      "final_url": "https://www.natura.com.br/",
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
+    },
+    {
+      "source": "companies.csv",
+      "entity_id": "magazine-luiza",
+      "field": "website",
+      "url": "https://www.magazineluiza.com.br/",
+      "status": "warn",
+      "code": 403,
+      "final_url": "https://www.magazineluiza.com.br/",
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
+    },
+    {
+      "source": "companies.csv",
+      "entity_id": "magazine-luiza",
+      "field": "careers_url",
+      "url": "https://carreiras.magazineluiza.com.br/",
+      "status": "warn",
+      "code": 403,
+      "final_url": "https://carreiras.magazineluiza.com.br/",
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
+    },
+    {
+      "source": "companies.csv",
+      "entity_id": "honda-sumare",
+      "field": "website",
+      "url": "https://www.honda.com.br/",
+      "status": "warn",
+      "code": 403,
+      "final_url": "https://www.honda.com.br/",
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
+    },
+    {
+      "source": "companies.csv",
+      "entity_id": "solvay-rhodia-paulinia",
+      "field": "website",
+      "url": "https://www.solvay.com/",
+      "status": "warn",
+      "code": 403,
+      "final_url": "https://www.solvay.com/",
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
+    },
+    {
+      "source": "companies.csv",
+      "entity_id": "eaton-valinhos",
+      "field": "website",
+      "url": "https://www.eaton.com/us/en-us.html",
+      "status": "warn",
+      "code": null,
+      "final_url": "https://www.eaton.com/us/en-us.html",
+      "error": "timeout (browser may still open)",
+      "soft_404": false
+    },
+    {
+      "source": "companies.csv",
+      "entity_id": "azul-viracopos",
+      "field": "website",
+      "url": "https://www.voeazul.com.br/",
+      "status": "warn",
+      "code": 403,
+      "final_url": "https://www.voeazul.com.br/",
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
+    },
+    {
+      "source": "companies.csv",
+      "entity_id": "sanasa-campinas",
+      "field": "website",
+      "url": "https://www.sanasa.com.br/",
+      "status": "warn",
+      "code": 403,
+      "final_url": "https://www.sanasa.com.br/",
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
+    },
+    {
+      "source": "companies.csv",
+      "entity_id": "sanasa-campinas",
+      "field": "careers_url",
+      "url": "https://www.sanasa.com.br/trabalhe-com-a-gente/",
+      "status": "warn",
+      "code": 403,
+      "final_url": "https://www.sanasa.com.br/trabalhe-com-a-gente/",
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
+    },
+    {
+      "source": "companies.csv",
+      "entity_id": "sanasa-campinas",
+      "field": "ats_url",
+      "url": "https://www.sanasa.com.br/trabalhe-com-a-gente/",
+      "status": "warn",
+      "code": 403,
+      "final_url": "https://www.sanasa.com.br/trabalhe-com-a-gente/",
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
     },
     {
       "source": "companies.csv",
       "entity_id": "huawei-campinas",
       "field": "website",
       "url": "https://www.huawei.com/br/",
-      "status": "fail",
+      "status": "warn",
       "code": null,
       "final_url": "https://www.huawei.com/br/",
-      "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1032)>"
+      "error": "ssl-verify-failed (browser may still open)",
+      "soft_404": false
     },
     {
       "source": "companies.csv",
       "entity_id": "huawei-campinas",
       "field": "careers_url",
-      "url": "https://career.huawei.com/reccampportal/la/index.html",
-      "status": "fail",
+      "url": "https://career.huawei.com/",
+      "status": "warn",
       "code": null,
-      "final_url": "https://career.huawei.com/reccampportal/la/index.html",
-      "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1032)>"
+      "final_url": "https://career.huawei.com/",
+      "error": "ssl-verify-failed (browser may still open)",
+      "soft_404": false
     },
     {
       "source": "companies.csv",
       "entity_id": "huawei-campinas",
       "field": "ats_url",
-      "url": "https://career.huawei.com/reccampportal/la/index.html",
-      "status": "fail",
+      "url": "https://career.huawei.com/",
+      "status": "warn",
       "code": null,
-      "final_url": "https://career.huawei.com/reccampportal/la/index.html",
-      "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1032)>"
+      "final_url": "https://career.huawei.com/",
+      "error": "ssl-verify-failed (browser may still open)",
+      "soft_404": false
     },
     {
       "source": "companies.csv",
-      "entity_id": "nxp-campinas",
+      "entity_id": "tetra-pak-campinas",
       "field": "website",
-      "url": "https://www.nxp.com/",
-      "status": "fail",
-      "code": 404,
-      "final_url": "https://www.nxp.com/",
-      "error": "HTTP Error 404: Not Found"
+      "url": "https://www.tetrapak.com/pt-br",
+      "status": "warn",
+      "code": 403,
+      "final_url": "https://www.tetrapak.com/pt-br",
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
     },
     {
       "source": "companies.csv",
-      "entity_id": "nxp-campinas",
-      "field": "careers_url",
-      "url": "https://www.nxp.com/company/about-nxp/careers:CAREERS",
-      "status": "fail",
-      "code": 404,
-      "final_url": "https://www.nxp.com/company/about-nxp/careers:CAREERS",
-      "error": "HTTP Error 404: Not Found"
+      "entity_id": "syngenta-rmc",
+      "field": "website",
+      "url": "https://www.syngenta.com.br/",
+      "status": "warn",
+      "code": 403,
+      "final_url": "https://www.syngenta.com.br/",
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
+    },
+    {
+      "source": "companies.csv",
+      "entity_id": "schneider-electric-brasil",
+      "field": "website",
+      "url": "https://www.se.com/br/pt/",
+      "status": "warn",
+      "code": 403,
+      "final_url": "https://www.se.com/br/pt/",
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
     },
     {
       "source": "companies.csv",
       "entity_id": "schneider-electric-brasil",
       "field": "careers_url",
-      "url": "https://careers.se.com/brazil",
-      "status": "fail",
-      "code": 404,
-      "final_url": "https://careers.se.com/brazil",
-      "error": "HTTP Error 404: Not Found"
+      "url": "https://www.se.com/br/pt/about-us/careers/overview/",
+      "status": "warn",
+      "code": 403,
+      "final_url": "https://www.se.com/br/pt/about-us/careers/overview/",
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
     },
     {
       "source": "companies.csv",
-      "entity_id": "agco-brasil",
-      "field": "careers_url",
-      "url": "https://www.agcocorp.com/careers.html",
-      "status": "fail",
-      "code": 404,
-      "final_url": "https://www.agcocorp.com/careers.html",
-      "error": "HTTP Error 404: Not Found"
+      "entity_id": "kryptus-campinas",
+      "field": "website",
+      "url": "https://www.kryptus.com/",
+      "status": "warn",
+      "code": 403,
+      "final_url": "https://www.kryptus.com/",
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
     },
     {
       "source": "job_portals.csv",
-      "entity_id": "huawei-careers",
+      "entity_id": "indeed-br",
       "field": "job_search_url",
-      "url": "https://career.huawei.com/reccampportal/la/index.html",
-      "status": "fail",
-      "code": null,
-      "final_url": "https://career.huawei.com/reccampportal/la/index.html",
-      "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1032)>"
+      "url": "https://br.indeed.com/",
+      "status": "warn",
+      "code": 403,
+      "final_url": "https://br.indeed.com/",
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
     },
     {
       "source": "job_portals.csv",
-      "entity_id": "schneider-electric-br",
+      "entity_id": "solides",
+      "field": "ats_url",
+      "url": "https://solides.com.br/",
+      "status": "warn",
+      "code": 403,
+      "final_url": "https://solides.com.br/",
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
+    },
+    {
+      "source": "job_portals.csv",
+      "entity_id": "glassdoor-br",
       "field": "job_search_url",
-      "url": "https://careers.se.com/brazil",
-      "status": "fail",
-      "code": 404,
-      "final_url": "https://careers.se.com/brazil",
-      "error": "HTTP Error 404: Not Found"
+      "url": "https://www.glassdoor.com.br/Vaga/index.htm",
+      "status": "warn",
+      "code": 403,
+      "final_url": "https://www.glassdoor.com.br/Vaga/index.htm",
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
+    },
+    {
+      "source": "job_portals.csv",
+      "entity_id": "indeed-intl",
+      "field": "job_search_url",
+      "url": "https://www.indeed.com/",
+      "status": "warn",
+      "code": 403,
+      "final_url": "https://www.indeed.com/",
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
+    },
+    {
+      "source": "job_portals.csv",
+      "entity_id": "wwr",
+      "field": "job_search_url",
+      "url": "https://weworkremotely.com/",
+      "status": "warn",
+      "code": 403,
+      "final_url": "https://weworkremotely.com/",
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
+    },
+    {
+      "source": "job_portals.csv",
+      "entity_id": "glassdoor-intl",
+      "field": "job_search_url",
+      "url": "https://www.glassdoor.com/Job/index.htm",
+      "status": "warn",
+      "code": 403,
+      "final_url": "https://www.glassdoor.com/Job/index.htm",
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
     }
   ],
+  "issues": [],
   "url_results": {
+    "https://3m.wd1.myworkdayjobs.com/en-US/Search": {
+      "status": "ok",
+      "code": 200,
+      "final_url": "https://3m.wd1.myworkdayjobs.com/en-US/Search",
+      "error": null,
+      "soft_404": false
+    },
     "https://about.gitlab.com/jobs/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://about.gitlab.com/jobs/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://agibank.com.br/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://agibank.com.br/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://ambevtech.gupy.io/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://ambevtech.gupy.io/",
-      "error": null
-    },
-    "https://ascenty.com/sobre/ascenty/trabalhe-conosco/": {
-      "status": "warn",
-      "code": 403,
-      "final_url": "https://ascenty.com/sobre/ascenty/trabalhe-conosco/",
-      "error": "blocked but reachable"
+      "error": null,
+      "soft_404": false
     },
     "https://ascenty.pandape.infojobs.com.br/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://ascenty.pandape.infojobs.com.br/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://basf.jobs/south_america": {
       "status": "ok",
       "code": 200,
       "final_url": "https://basf.jobs/south_america",
-      "error": null
-    },
-    "https://bosch-sensortec.com/careers": {
-      "status": "ok",
-      "code": 200,
-      "final_url": "https://www.bosch-sensortec.com/en/careers",
-      "error": null
-    },
-    "https://bosch.com.br/carreiras": {
-      "status": "ok",
-      "code": 200,
-      "final_url": "https://www.bosch.com.br/carreiras/",
-      "error": null
-    },
-    "https://bosch.com/research": {
-      "status": "ok",
-      "code": 206,
-      "final_url": "https://www.bosch.com/research/",
-      "error": "[WinError 10054] Foi for\u00e7ado o cancelamento de uma conex\u00e3o existente pelo host remoto"
+      "error": null,
+      "soft_404": false
     },
     "https://br.indeed.com/": {
       "status": "warn",
       "code": 403,
       "final_url": "https://br.indeed.com/",
-      "error": "blocked but reachable"
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
     },
     "https://br.indeed.com/cmp/Consultimer-Group/jobs": {
       "status": "warn",
       "code": 403,
       "final_url": "https://br.indeed.com/cmp/Consultimer-Group/jobs",
-      "error": "blocked but reachable"
-    },
-    "https://bsh-group.com/career": {
-      "status": "ok",
-      "code": 200,
-      "final_url": "https://www.bsh-group.com/career/welcome-at-bsh/",
-      "error": null
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
     },
     "https://bydbrasil.com.br/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://bydbrasil.com.br/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://bydbrasil.gupy.io/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://bydbrasil.gupy.io/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
-    "https://career.huawei.com/reccampportal/la/index.html": {
-      "status": "fail",
+    "https://career.huawei.com/": {
+      "status": "warn",
       "code": null,
-      "final_url": "https://career.huawei.com/reccampportal/la/index.html",
-      "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1032)>"
+      "final_url": "https://career.huawei.com/",
+      "error": "ssl-verify-failed (browser may still open)",
+      "soft_404": false
     },
     "https://careers-meli.mercadolibre.com/en/positions?country=Brazil": {
       "status": "ok",
       "code": 200,
       "final_url": "https://careers-meli.mercadolibre.com/en/positions?country=Brazil",
-      "error": null
+      "error": null,
+      "soft_404": false
+    },
+    "https://careers.agcocorp.com/": {
+      "status": "ok",
+      "code": 200,
+      "final_url": "https://careers.agcocorp.com/",
+      "error": null,
+      "soft_404": false
     },
     "https://careers.alibaba.com/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://talent.alibaba.com/en/home",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://careers.alibaba.com/positionList.htm": {
       "status": "ok",
       "code": 200,
       "final_url": "https://talent.alibaba.com/en/home",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://careers.booking.com/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://careers.booking.com/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://careers.booking.com/search/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://careers.booking.com/search/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://careers.cnh.com/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://careers.cnh.com/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://careers.corteva.com/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://careers.corteva.com/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://careers.deere.com/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://careers.deere.com/careers",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://careers.google.com/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.google.com/about/careers/applications/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://careers.google.com/jobs/results/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.google.com/about/careers/applications/jobs/results/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://careers.jpmorgan.com/us/en/search-results": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.jpmorganchase.com/careers?redirect=careers_jpm",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://careers.microsoft.com/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://careers.microsoft.com/v2/global/en/home.html",
-      "error": null
-    },
-    "https://careers.microsoft.com/v2/global/en/search": {
-      "status": "ok",
-      "code": 200,
-      "final_url": "https://careers.microsoft.com/v2/global/en/errorPages/404.html",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://careers.pinduoduo.com/": {
       "status": "ok",
       "code": 200,
-      "final_url": "https://careers.pinduoduo.com/campus/",
-      "error": null
-    },
-    "https://careers.se.com/brazil": {
-      "status": "fail",
-      "code": 404,
-      "final_url": "https://careers.se.com/brazil",
-      "error": "HTTP Error 404: Not Found"
-    },
-    "https://careers.smartrecruiters.com/BoschGroup/brazil": {
-      "status": "ok",
-      "code": 200,
-      "final_url": "https://careers.smartrecruiters.com/BoschGroup/brazil",
-      "error": null
+      "final_url": "https://careers.pddglobalhr.com/campus/",
+      "error": null,
+      "soft_404": false
     },
     "https://careers.snowflake.com/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://careers.snowflake.com/us/en",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://careers.snowflake.com/us/en": {
       "status": "ok",
       "code": 200,
       "final_url": "https://careers.snowflake.com/us/en",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://careers.solvay.com/search/?createNewAlert=false&q=&locationsearch=Paulinia": {
       "status": "ok",
       "code": 200,
       "final_url": "https://careers.solvay.com/search/?createNewAlert=false&q=&locationsearch=Paulinia",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://careers.tencent.com/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://careers.tencent.com/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
-    "https://careers.tencent.com/en-us/position.html": {
+    "https://careers.tencent.com/en-us/home.html": {
       "status": "ok",
       "code": 200,
-      "final_url": "https://careers.tencent.com/en-us/404.html",
-      "error": null
+      "final_url": "https://careers.tencent.com/en-us/home.html",
+      "error": null,
+      "soft_404": false
     },
     "https://careers.walmart.com/results": {
       "status": "ok",
       "code": 200,
       "final_url": "https://careers.walmart.com/results",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://carreiras.agibank.com.br/vagas": {
       "status": "ok",
       "code": 200,
       "final_url": "https://carreiras.agibank.com.br/vagas",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://carreiras.itau.com.br/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://carreiras.itau.com.br/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://carreiras.magazineluiza.com.br/": {
-      "status": "ok",
-      "code": 200,
+      "status": "warn",
+      "code": 403,
       "final_url": "https://carreiras.magazineluiza.com.br/",
-      "error": null
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
     },
     "https://carreiras.natura.com.br/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://carreiras.natura.com.br/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://ciandt.com/br/pt-br/carreiras": {
       "status": "ok",
       "code": 200,
       "final_url": "https://ciandt.com/br/pt-br/carreiras",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://cnpem.br/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://cnpem.br/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://cnpem.gupy.io/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://cnpem.gupy.io/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://consultimer.com/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://consultimer.com/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://corporate.walmart.com/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://corporate.walmart.com/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://eaton.eightfold.ai/careers": {
       "status": "ok",
       "code": 200,
       "final_url": "https://eaton.eightfold.ai/careers",
-      "error": null
-    },
-    "https://etas.com/careers": {
-      "status": "ok",
-      "code": 200,
-      "final_url": "https://www.etas.com/ww/en/about-etas/careers-at-etas/careers/overview/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://grupoboticario.gupy.io/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://grupoboticario.gupy.io/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://home.baidu.com/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://home.baidu.com/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://honda.gupy.io/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://honda.gupy.io/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://iberdrola.wd3.myworkdayjobs.com/pt-BR/Iberdrola": {
       "status": "ok",
       "code": 200,
       "final_url": "https://iberdrola.wd3.myworkdayjobs.com/pt-BR/Iberdrola",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://indecx.com.br/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://indecx.com.br/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://institutoeldorado.gupy.io/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://institutoeldorado.gupy.io/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://international.nubank.com.br/careers/brazil/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://nu.com/en/careers/location/brazil",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://job-boards.eu.greenhouse.io/hotmartcareersbr": {
       "status": "ok",
       "code": 200,
       "final_url": "https://job-boards.eu.greenhouse.io/hotmartcareersbr",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://job-boards.greenhouse.io/databricks": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.databricks.com/company/careers/open-positions",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://job-boards.greenhouse.io/gitlab": {
       "status": "ok",
       "code": 200,
       "final_url": "https://job-boards.greenhouse.io/gitlab",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://job-boards.greenhouse.io/ifoodcarreiras": {
       "status": "ok",
       "code": 200,
       "final_url": "https://job-boards.greenhouse.io/ifoodcarreiras",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://job-boards.greenhouse.io/stripe": {
       "status": "ok",
       "code": 200,
       "final_url": "https://stripe.com/careers/search",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://job.xiaohongshu.com/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://job.xiaohongshu.com/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://jobs.ashbyhq.com/nubank": {
       "status": "ok",
       "code": 200,
       "final_url": "https://jobs.ashbyhq.com/nubank",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://jobs.bosch.com/en": {
       "status": "ok",
       "code": 200,
       "final_url": "https://jobs.bosch.com/en",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://jobs.bytedance.com/en/position": {
       "status": "ok",
       "code": 200,
       "final_url": "https://joinbytedance.com/search",
-      "error": null
+      "error": null,
+      "soft_404": false
+    },
+    "https://jobs.careers.microsoft.com/": {
+      "status": "ok",
+      "code": 200,
+      "final_url": "https://apply.careers.microsoft.com/careers",
+      "error": null,
+      "soft_404": false
     },
     "https://jobs.citi.com/search-jobs": {
       "status": "ok",
       "code": 200,
-      "final_url": "https://jobs.citi.com/",
-      "error": null
+      "final_url": "https://jobs.citi.com/search-jobs",
+      "error": null,
+      "soft_404": false
     },
     "https://jobs.lenovo.com/pt_BR/careers/SearchJobs/Jaguariuna": {
       "status": "ok",
       "code": 200,
       "final_url": "https://jobs.lenovo.com/pt_BR/careers/SearchJobs/Jaguariuna",
-      "error": null
-    },
-    "https://jobs.lever.co/": {
-      "status": "ok",
-      "code": 200,
-      "final_url": "https://www.lever.co/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://jobs.lever.co/ciandt": {
       "status": "ok",
       "code": 200,
       "final_url": "https://jobs.lever.co/ciandt",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://jobs.lever.co/spotify": {
       "status": "ok",
       "code": 200,
       "final_url": "https://jobs.lever.co/spotify",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://jobs.organon.com/us/en/campinas": {
       "status": "ok",
       "code": 200,
       "final_url": "https://jobs.organon.com/us/en/campinas",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://jobs.sanofi.com/en/search-jobs/Campinas": {
       "status": "ok",
       "code": 200,
-      "final_url": "https://jobs.sanofi.com/en",
-      "error": null
+      "final_url": "https://jobs.sanofi.com/en/search-jobs/Campinas",
+      "error": null,
+      "soft_404": false
     },
     "https://jobs.sap.com/": {
       "status": "warn",
       "code": 403,
       "final_url": "https://jobs.sap.com/",
-      "error": "blocked but reachable"
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
     },
-    "https://jobs.sap.com/search/": {
+    "https://jobs.sap.com/en/jobs/": {
       "status": "warn",
       "code": 403,
-      "final_url": "https://jobs.sap.com/search/",
-      "error": "blocked but reachable"
+      "final_url": "https://jobs.sap.com/en/jobs/",
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
     },
     "https://jobs.siemens.com/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://jobs.siemens.com/en_US/externaljobs",
-      "error": null
-    },
-    "https://jobs.smartrecruiters.com/": {
-      "status": "ok",
-      "code": 200,
-      "final_url": "https://jobs.smartrecruiters.com/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://jobs.syngenta.com/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://jobs.syngenta.com/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://jobs.tetrapak.com/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://jobs.tetrapak.com/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://jobs.zalando.com/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://jobs.zalando.com/en",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://jobs.zalando.com/en/jobs/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://jobs.zalando.com/en/jobs",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://join.cnh.com/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://join.cnh.com/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://kryptus.gupy.io/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://kryptus.gupy.io/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://leega.gupy.io/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://leega.gupy.io/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://natura.wd501.myworkdayjobs.com/pt-BR/NaturaCarreiras/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://natura.wd501.myworkdayjobs.com/pt-BR/NaturaCarreiras/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://nubank.com.br/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://nubank.com.br/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://nutreco.wd3.myworkdayjobs.com/en-US/Nutreco_External": {
       "status": "ok",
       "code": 200,
       "final_url": "https://nutreco.wd3.myworkdayjobs.com/en-US/Nutreco_External",
-      "error": null
+      "error": null,
+      "soft_404": false
+    },
+    "https://nxp.wd3.myworkdayjobs.com/careers": {
+      "status": "ok",
+      "code": 200,
+      "final_url": "https://nxp.wd3.myworkdayjobs.com/careers",
+      "error": null,
+      "soft_404": false
     },
     "https://obahortifruti.pandape.com.br/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://obahortifruti.pandape.infojobs.com.br/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
-    "https://odatacolocation.com/": {
+    "https://odatacolocation.com/en/": {
       "status": "ok",
       "code": 200,
-      "final_url": "https://odatadc.com/",
-      "error": null
-    },
-    "https://odatacolocation.com/trabalhe-conosco/": {
-      "status": "fail",
-      "code": 404,
-      "final_url": "https://odatacolocation.com/trabalhe-conosco/",
-      "error": "HTTP Error 404: Not Found"
+      "final_url": "https://odatacolocation.com/en/",
+      "error": null,
+      "soft_404": false
     },
     "https://padtec.gupy.io/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://padtec.gupy.io/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://portal.gupy.io/job-search/sortBy=publishedDate": {
       "status": "ok",
       "code": 200,
       "final_url": "https://portal.gupy.io/job-search/sortBy=publishedDate",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://portal.gupy.io/job-search?jobName=ODATA": {
       "status": "ok",
       "code": 200,
       "final_url": "https://portal.gupy.io/job-search?jobName=ODATA",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://porto.gupy.io/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://porto.gupy.io/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://programathor.com.br/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://programathor.com.br/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://remoteok.com/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://remoteok.com/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://research.samsung.com/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://research.samsung.com/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://research.samsung.com/careers": {
       "status": "ok",
       "code": 200,
       "final_url": "https://research.samsung.com/careers",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://scaladatacenters.gupy.io/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://scaladatacenters.gupy.io/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://sicredi.gupy.io/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://sicredi.gupy.io/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://sidi.gupy.io/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://sidi.gupy.io/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://solides.com.br/": {
       "status": "warn",
       "code": 403,
       "final_url": "https://solides.com.br/",
-      "error": "blocked but reachable"
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
     },
     "https://stripe.com/jobs": {
       "status": "ok",
       "code": 200,
       "final_url": "https://stripe.com/br/careers",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://talent.antgroup.com/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://talent.antgroup.com/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://talent.baidu.com/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://talent.baidu.com/jobs/social",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://toyota.wd503.myworkdayjobs.com/pt-BR/TLAC": {
       "status": "ok",
       "code": 200,
       "final_url": "https://toyota.wd503.myworkdayjobs.com/pt-BR/TLAC",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://trabalheconosco.vagas.com.br/dpaschoal": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.vagas.com.br/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://trabalheconosco.vagas.com.br/marelli": {
       "status": "ok",
       "code": 200,
       "final_url": "https://trabalheconosco.vagas.com.br/marelli",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://trabalheconosco.vagas.com.br/marelli/oportunidades": {
       "status": "ok",
       "code": 200,
       "final_url": "https://trabalheconosco.vagas.com.br/marelli/oportunidades",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://trampos.co/oportunidades": {
       "status": "ok",
       "code": 200,
       "final_url": "https://trampos.co/oportunidades",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://unicamp-alumni.org.br/jobs": {
       "status": "ok",
       "code": 200,
       "final_url": "https://unicamp-alumni.org.br/jobs",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://unimedcampinas.gupy.io/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://unimedcampinas.gupy.io/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://vagas.cpfl.com.br/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://vagas.cpfl.com.br/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://vagas.solides.com.br/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://vagas.solides.com.br/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://valeo.wd3.myworkdayjobs.com/valeo_jobs": {
       "status": "ok",
       "code": 200,
       "final_url": "https://valeo.wd3.myworkdayjobs.com/valeo_jobs",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://vemproitau.gupy.io/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://vemproitau.gupy.io/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://villaresmetals.gupy.io/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://villaresmetals.gupy.io/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://wellfound.com/jobs": {
       "status": "ok",
       "code": 200,
       "final_url": "https://wellfound.com/jobs",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://weworkremotely.com/": {
       "status": "warn",
       "code": 403,
       "final_url": "https://weworkremotely.com/",
-      "error": "blocked but reachable"
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
     },
-    "https://www.3m.com.br/": {
-      "status": "ok",
-      "code": 200,
-      "final_url": "https://www.3m.com.br/3M/pt_BR/3m-do-brasil/?utm_medium=redirect&utm_source=vanity-url&utm_campaign=www.3m.com.br",
-      "error": "The read operation timed out"
-    },
-    "https://www.3m.com.br/3M/pt_BR/trabalhe-conosco-br/": {
-      "status": "fail",
-      "code": 404,
-      "final_url": "https://www.3m.com.br/3M/pt_BR/trabalhe-conosco-br/",
-      "error": "HTTP Error 404: Not Found"
+    "https://www.3m.com/3M/en_US/company-us/": {
+      "status": "warn",
+      "code": null,
+      "final_url": "https://www.3m.com/3M/en_US/company-us/",
+      "error": "timeout (browser may still open)",
+      "soft_404": false
     },
     "https://www.accenture.com/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.accenture.com/br-pt",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.accenture.com/us-en/careers/jobsearch": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.accenture.com/us-en/careers/jobsearch",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.agcocorp.com/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.agcocorp.com/us/en/home.html",
-      "error": null
-    },
-    "https://www.agcocorp.com/careers.html": {
-      "status": "fail",
-      "code": 404,
-      "final_url": "https://www.agcocorp.com/careers.html",
-      "error": "HTTP Error 404: Not Found"
+      "error": null,
+      "soft_404": false
     },
     "https://www.amazon.jobs/": {
       "status": "ok",
       "code": 200,
-      "final_url": "https://www.amazon.jobs/",
-      "error": null
+      "final_url": "https://www.amazon.jobs/en/",
+      "error": null,
+      "soft_404": false
     },
     "https://www.amazon.jobs/en/search?base_query=data+analyst": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.amazon.jobs/en/search?base_query=data+analyst",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.ambevtech.com.br/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.ambevtech.com.br/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.antgroup.com/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.antgroup.com/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.ascenty.com/": {
       "status": "warn",
       "code": 403,
       "final_url": "https://www.ascenty.com/",
-      "error": "blocked but reachable"
-    },
-    "https://www.ashbyhq.com/": {
-      "status": "ok",
-      "code": 200,
-      "final_url": "https://www.ashbyhq.com/",
-      "error": null
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
     },
     "https://www.atlassian.com/company/careers": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.atlassian.com/company/careers",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.atlassian.com/company/careers/all-jobs": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.atlassian.com/company/careers/all-jobs",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.azul.com.br/institucional/trabalhe-na-azul": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.azul.com.br/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.basf.com/br": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.basf.com/br/pt",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.bosch.com.br/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.bosch.com.br/",
-      "error": null
-    },
-    "https://www.boschrexroth.com/en/us/jobs-and-career/job-opportunities/": {
-      "status": "ok",
-      "code": 200,
-      "final_url": "https://www.boschrexroth.com/en/us/jobs-and-career/job-opportunities/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.bytedance.com/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.bytedance.com/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.capitalone.com/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.capitalone.com/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.capitalonecareers.com/search-jobs": {
       "status": "ok",
       "code": 200,
-      "final_url": "https://www.capitalonecareers.com/",
-      "error": null
+      "final_url": "https://www.capitalonecareers.com/search-jobs",
+      "error": null,
+      "soft_404": false
     },
     "https://www.catho.com.br/vagas/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.catho.com.br/vagas/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.citi.com/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.citi.com/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.cloudhq.com/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://cloudhq.com/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.cloudhq.com/careers/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://cloudhq.com/careers/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.cnh.com/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.cnh.com/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.corteva.com.br/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.corteva.com/br/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.cpfl.com.br/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.cpfl.com.br/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.cpqd.com.br/trabalhe-conosco/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.cpqd.com.br/trabalhe-conosco/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.databricks.com/company/careers": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.databricks.com/company/careers",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.deere.com.br/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.deere.com.br/pt/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.deloitte.com/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.deloitte.com/br/pt.html",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.deloitte.com/us/en/careers/careers.html": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.deloitte.com/us/en/careers/careers.html",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.dgrh.unicamp.br/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.dgrh.unicamp.br/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.dpaschoal.com.br/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.dpaschoal.com.br/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.dpaschoal.com.br/trabalhe-conosco": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.dpaschoal.com.br/trabalhe-conosco",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
-    "https://www.eaton.com/": {
-      "status": "ok",
-      "code": 200,
-      "final_url": "https://www.eaton.com/country.html",
-      "error": "The read operation timed out"
+    "https://www.eaton.com/us/en-us.html": {
+      "status": "warn",
+      "code": null,
+      "final_url": "https://www.eaton.com/us/en-us.html",
+      "error": "timeout (browser may still open)",
+      "soft_404": false
     },
     "https://www.eldorado.org.br/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.eldorado.org.br/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.ems.com.br/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.ems.com.br/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.ems.com.br/trabalhe-conosco": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.ems.com.br/trabalhe-conosco",
-      "error": null
-    },
-    "https://www.flexjobs.com/": {
-      "status": "ok",
-      "code": 206,
-      "final_url": "https://www.flexjobs.com/homevariant/t10",
-      "error": "The read operation timed out"
+      "error": null,
+      "soft_404": false
     },
     "https://www.geekhunter.com.br/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.geekhunter.com/pt",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.glassdoor.com.br/Vaga/index.htm": {
       "status": "warn",
       "code": 403,
       "final_url": "https://www.glassdoor.com.br/Vaga/index.htm",
-      "error": "blocked but reachable"
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
     },
     "https://www.glassdoor.com/Job/index.htm": {
       "status": "warn",
       "code": 403,
       "final_url": "https://www.glassdoor.com/Job/index.htm",
-      "error": "blocked but reachable"
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
     },
     "https://www.gov.br/cti/pt-br": {
       "status": "ok",
-      "code": 206,
+      "code": 200,
       "final_url": "https://www.gov.br/cti/pt-br",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.gov.br/cti/pt-br/assuntos/editais": {
       "status": "ok",
-      "code": 206,
-      "final_url": "https://www.gov.br/cti/pt-br/assuntos/editais",
-      "error": null
-    },
-    "https://www.greenhouse.com/": {
-      "status": "ok",
       "code": 200,
-      "final_url": "https://www.greenhouse.com/",
-      "error": null
+      "final_url": "https://www.gov.br/cti/pt-br/assuntos/editais",
+      "error": null,
+      "soft_404": false
     },
     "https://www.grupoboticario.com.br/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.grupoboticario.com.br/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.gupy.io/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.gupy.io/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.honda.com.br/": {
-      "status": "ok",
-      "code": 200,
+      "status": "warn",
+      "code": 403,
       "final_url": "https://www.honda.com.br/",
-      "error": null
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
     },
     "https://www.hospitalveracruz.com.br/": {
       "status": "warn",
       "code": 403,
       "final_url": "https://www.hospitalveracruz.com.br/",
-      "error": "blocked but reachable"
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
     },
     "https://www.hotmart.com/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://hotmart.com/en",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.huawei.com/br/": {
-      "status": "fail",
+      "status": "warn",
       "code": null,
       "final_url": "https://www.huawei.com/br/",
-      "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1032)>"
+      "error": "ssl-verify-failed (browser may still open)",
+      "soft_404": false
     },
     "https://www.ifood.com.br/": {
       "status": "warn",
       "code": 403,
       "final_url": "https://www.ifood.com.br/",
-      "error": "blocked but reachable"
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
     },
     "https://www.indeed.com/": {
       "status": "warn",
       "code": 403,
       "final_url": "https://www.indeed.com/",
-      "error": "blocked but reachable"
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
     },
     "https://www.infojobs.com.br/vagas-de-emprego.aspx": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.infojobs.com.br/empregos-em-sao-paulo.aspx",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.itau.com.br/": {
-      "status": "ok",
-      "code": 200,
+      "status": "warn",
+      "code": 403,
       "final_url": "https://www.itau.com.br/",
-      "error": null
-    },
-    "https://www.itk-engineering.com/en/career/": {
-      "status": "ok",
-      "code": 200,
-      "final_url": "https://www.itk-engineering.de/en/career/",
-      "error": null
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
     },
     "https://www.jacto.com.br/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://jacto.com:443/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.jacto.com.br/trabalhe-conosco": {
       "status": "ok",
       "code": 200,
       "final_url": "https://jacto.com:443/?originalUrl=%2Ftrabalhe-conosco",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.jd.com/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://global.jd.com/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.jpmorganchase.com/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.jpmorganchase.com/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.kryptus.com/": {
       "status": "warn",
       "code": 403,
       "final_url": "https://www.kryptus.com/",
-      "error": "blocked but reachable"
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
     },
     "https://www.leega.com.br/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.leega.com.br/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.lenovo.com/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.lenovo.com/br/pt/",
-      "error": null
-    },
-    "https://www.lever.co/": {
-      "status": "ok",
-      "code": 200,
-      "final_url": "https://www.lever.co/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.lifeatspotify.com/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.lifeatspotify.com/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.lifeatspotify.com/jobs": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.lifeatspotify.com/jobs",
-      "error": null
-    },
-    "https://www.linkedin.com/company/bosch-rexroth/": {
-      "status": "ok",
-      "code": 200,
-      "final_url": "https://www.linkedin.com/company/bosch-rexroth/",
-      "error": null
-    },
-    "https://www.linkedin.com/company/bosch/": {
-      "status": "ok",
-      "code": 200,
-      "final_url": "https://www.linkedin.com/company/bosch/",
-      "error": null
-    },
-    "https://www.linkedin.com/company/boschbrasil/": {
-      "status": "ok",
-      "code": 200,
-      "final_url": "https://www.linkedin.com/company/boschbrasil/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.linkedin.com/jobs/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.linkedin.com/jobs/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.magazineluiza.com.br/": {
       "status": "warn",
       "code": 403,
       "final_url": "https://www.magazineluiza.com.br/",
-      "error": "blocked but reachable"
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
     },
     "https://www.marelli.com/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.marelli.com/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.meituan.com/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.meituan.com/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.mercadolivre.com.br/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.mercadolivre.com.br/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.metacareers.com/": {
-      "status": "ok",
-      "code": 200,
+      "status": "warn",
+      "code": 400,
       "final_url": "https://www.metacareers.com/",
-      "error": null
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
     },
-    "https://www.metacareers.com/jobs": {
-      "status": "ok",
-      "code": 200,
+    "https://www.metacareers.com/jobsearch/": {
+      "status": "warn",
+      "code": 400,
       "final_url": "https://www.metacareers.com/jobsearch/",
-      "error": null
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
     },
     "https://www.msxi.com/": {
       "status": "warn",
       "code": 403,
       "final_url": "https://www.msxi.com/",
-      "error": "blocked but reachable"
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
     },
     "https://www.msxi.com/careers/": {
       "status": "warn",
       "code": 403,
       "final_url": "https://www.msxi.com/careers/",
-      "error": "blocked but reachable"
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
     },
     "https://www.natura.com.br/": {
-      "status": "ok",
-      "code": 200,
+      "status": "warn",
+      "code": 403,
       "final_url": "https://www.natura.com.br/",
-      "error": null
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
     },
     "https://www.neoenergia.com/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.neoenergia.com/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.neoenergia.com/pt-br/pessoas-e-talentos": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.neoenergia.com/trabalhe-conosco",
-      "error": null
-    },
-    "https://www.nxp.com/": {
-      "status": "fail",
-      "code": 404,
-      "final_url": "https://www.nxp.com/",
-      "error": "HTTP Error 404: Not Found"
-    },
-    "https://www.nxp.com/company/about-nxp/careers:CAREERS": {
-      "status": "fail",
-      "code": 404,
-      "final_url": "https://www.nxp.com/company/about-nxp/careers:CAREERS",
-      "error": "HTTP Error 404: Not Found"
+      "error": null,
+      "soft_404": false
     },
     "https://www.obahortifruti.com.br/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.obahortifruti.com.br/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.organon.com/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.organon.com/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.padtec.com.br/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.padtec.com.br/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.pennylane.com/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.pennylane.com/fr",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.petrobras.com.br/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://petrobras.com.br/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.petrobras.com.br/pt/quem-somos/carreiras/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://petrobras.com.br/quem-somos/carreiras",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.pinduoduo.com/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.pinduoduo.com/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.portoseguro.com.br/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.portoseguro.com.br/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.puc-campinas.edu.br/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.puc-campinas.edu.br/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.puc-campinas.edu.br/trabalhe-conosco/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.puc-campinas.edu.br/trabalhe-conosco/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.revelo.com.br/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.revelo.com.br/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.sanasa.com.br/": {
-      "status": "ok",
-      "code": 206,
+      "status": "warn",
+      "code": 403,
       "final_url": "https://www.sanasa.com.br/",
-      "error": null
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
     },
     "https://www.sanasa.com.br/trabalhe-com-a-gente/": {
-      "status": "ok",
-      "code": 206,
+      "status": "warn",
+      "code": 403,
       "final_url": "https://www.sanasa.com.br/trabalhe-com-a-gente/",
-      "error": null
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
     },
     "https://www.sanofi.com.br/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.sanofi.com.br/pt",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.scaladatacenters.com/": {
       "status": "warn",
       "code": 403,
       "final_url": "https://www.scaladatacenters.com/",
-      "error": "blocked but reachable"
-    },
-    "https://www.scaladatacenters.com/carreiras/": {
-      "status": "warn",
-      "code": 403,
-      "final_url": "https://www.scaladatacenters.com/carreiras/",
-      "error": "blocked but reachable"
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
     },
     "https://www.se.com/br/pt/": {
-      "status": "ok",
-      "code": 200,
+      "status": "warn",
+      "code": 403,
       "final_url": "https://www.se.com/br/pt/",
-      "error": null
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
+    },
+    "https://www.se.com/br/pt/about-us/careers/overview/": {
+      "status": "warn",
+      "code": 403,
+      "final_url": "https://www.se.com/br/pt/about-us/careers/overview/",
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
     },
     "https://www.sicredi.com.br/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.sicredi.com.br/home/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.sidi.org.br/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.sidi.org.br/pt-br/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.siemens.com/global/en/company/jobs.html": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.siemens.com/en-us/company/jobs/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.slmandic.edu.br/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://slmandic.edu.br:443/",
-      "error": null
-    },
-    "https://www.smartrecruiters.com/": {
-      "status": "ok",
-      "code": 200,
-      "final_url": "https://www.smartrecruiters.com/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.solvay.com/": {
       "status": "warn",
       "code": 403,
       "final_url": "https://www.solvay.com/",
-      "error": "blocked but reachable"
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
     },
     "https://www.sotreq.com.br/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.sotreq.com.br/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.sotreq.com.br/trabalhe-conosco": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.sotreq.com.br/trabalhe-conosco",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.syngenta.com.br/": {
       "status": "warn",
       "code": 403,
       "final_url": "https://www.syngenta.com.br/",
-      "error": "blocked but reachable"
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
     },
     "https://www.tetrapak.com/pt-br": {
-      "status": "ok",
-      "code": 200,
+      "status": "warn",
+      "code": 403,
       "final_url": "https://www.tetrapak.com/pt-br",
-      "error": null
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
     },
     "https://www.toyota.com.br/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.toyota.com.br/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.toyota.com.br/mundo-toyota/carreiras": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.toyota.com.br/mundo-toyota/carreiras",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.trouwnutrition.com.br/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.trouwnutrition.com.br/pt-br/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.unicamp.br/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.unicamp.br/",
-      "error": null
-    },
-    "https://www.unimedcampinas.com.br/": {
-      "status": "ok",
-      "code": 200,
-      "final_url": "https://www.unimedcampinas.com.br/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.vagas.com.br/vagas-de": {
       "status": "ok",
       "code": 200,
       "final_url": "https://site.vagas.com.br/vagas-de",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.valeo.com/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.valeo.com/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.venturus.org.br/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.venturus.org.br/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.venturus.org.br/en/venturus/career": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.venturus.org.br/en/venturus/career",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.villaresmetals.com.br/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://www.villaresmetals.com.br/pt-br/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://www.voeazul.com.br/": {
       "status": "warn",
       "code": 403,
       "final_url": "https://www.voeazul.com.br/",
-      "error": "blocked but reachable"
+      "error": "blocked or unavailable but may open in browser",
+      "soft_404": false
     },
     "https://www.welcometothejungle.com/en/companies/pennylane/jobs": {
       "status": "ok",
-      "code": 200,
+      "code": 202,
       "final_url": "https://www.welcometothejungle.com/en/companies/pennylane/jobs",
-      "error": null
-    },
-    "https://www.workday.com/": {
-      "status": "ok",
-      "code": 200,
-      "final_url": "https://www.workday.com/",
-      "error": null
+      "error": null,
+      "soft_404": false
     },
     "https://zhaopin.jd.com/": {
       "status": "ok",
       "code": 200,
-      "final_url": "https://zhaopin.jd.com/home;jsessionid=261CC170C4D6E6B4BDAD023803D07B63.s1",
-      "error": null
+      "final_url": "https://zhaopin.jd.com/home;jsessionid=2285CCE86F9869EE7323ED26DCE27FB1.s1",
+      "error": null,
+      "soft_404": false
     },
     "https://zhaopin.meituan.com/": {
       "status": "ok",
       "code": 200,
       "final_url": "https://zhaopin.meituan.com/web/home",
-      "error": null
+      "error": null,
+      "soft_404": false
     }
   }
 }
