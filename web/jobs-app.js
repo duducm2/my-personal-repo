@@ -3098,6 +3098,17 @@
           dismissSearchBar();
           return;
         }
+        if (bulkMode && selectedIds.size) {
+          event.preventDefault();
+          bulkDeselectAll();
+          return;
+        }
+        if (bulkMode) {
+          event.preventDefault();
+          setBulkMode(false);
+          renderResults();
+          return;
+        }
         event.preventDefault();
         clearJobFilters();
         return;
