@@ -186,6 +186,60 @@
     return !!window.CardNav?.moveInContext(CARD_SEL, FILTER_SEL, delta);
   }
 
+  async function openUrlInNewWindow(url) {
+    const href = cell(url);
+    if (!href) return false;
+    try {
+      const res = await fetch("/api/open-url", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url: href }),
+      });
+      if (res.ok) return true;
+    } catch {
+      /* fall through */
+    }
+    try {
+      const win = window.open(
+        href,
+        "_blank",
+        "noopener,noreferrer,width=1280,height=900",
+      );
+      if (win) {
+        try {
+          win.focus();
+        } catch {
+          /* ignore */
+        }
+        return true;
+      }
+    } catch {
+      /* ignore */
+    }
+    return false;
+  }
+
+  function focusedJobCard() {
+    const el = document.activeElement;
+    if (!el || !el.classList.contains("company-tile")) return null;
+    const root = document.getElementById("jobs-results");
+    if (!root || !root.contains(el)) return null;
+    return el;
+  }
+
+  async function openFocusedJobUrl() {
+    const card = focusedJobCard();
+    if (!card) return false;
+    const href = cell(card.dataset.url);
+    if (!href) {
+      setSaveStatus("No job URL for this opening", "err");
+      return true;
+    }
+    const ok = await openUrlInNewWindow(href);
+    if (!ok) setSaveStatus("Could not open job URL", "err");
+    return true;
+  }
+
   function getLangMode() {
     if (document.body.classList.contains("lang-pt")) return "pt";
     if (document.body.classList.contains("lang-en")) return "en";
@@ -506,6 +560,14 @@
       "company-tile job-tile" +
       (status ? ` job-tile--${statusTone(status)}` : "") +
       (priority === "high" ? " job-tile--high" : "");
+    btn.dataset.id = row.id;
+    btn.dataset.url = cell(row.job_url);
+    if (cell(row.job_url)) {
+      btn.title =
+        "Click to edit · Ctrl/Cmd+Enter to open job URL · Ctrl/Cmd+click for bulk";
+    } else {
+      btn.title = "Click to edit · Ctrl/Cmd+click for bulk select";
+    }
     btn.addEventListener("click", (e) => {
       const mod = e.ctrlKey || e.metaKey;
       if (mod && !bulkMode) {
@@ -2919,7 +2981,7 @@
       const dialog = document.getElementById("job-modal");
       const modalOpen = !!(dialog && dialog.open);
 
-      // Ctrl/Cmd+Enter: import / save+close dossier (Ctrl+S handled above)
+      // Ctrl/Cmd+Enter: import / save+close dossier / open focused job URL
       if (mod && !event.altKey) {
         const isEnter = event.key === "Enter" || event.code === "Enter";
         if (isEnter) {
@@ -2941,6 +3003,12 @@
             saveAll({ closeModal: true });
             return;
           }
+          event.preventDefault();
+          void (async () => {
+            if (await openFocusedJobUrl()) return;
+            saveAll();
+          })();
+          return;
         }
       }
 
