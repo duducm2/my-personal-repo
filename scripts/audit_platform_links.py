@@ -173,7 +173,7 @@ def check_url_get(url: str, head_error: str | None = None) -> dict[str, object]:
             }
     except urllib.error.HTTPError as e:
         # Treat common anti-bot / auth walls as reachable if not 404/410.
-        if e.code in {401, 403, 999}:
+        if e.code in {400, 401, 403, 999}:
             return {
                 "status": "warn",
                 "code": e.code,
@@ -189,11 +189,21 @@ def check_url_get(url: str, head_error: str | None = None) -> dict[str, object]:
             "soft_404": False,
         }
     except Exception as e:  # noqa: BLE001
+        err = str(e)
+        # Real browsers often accept these; Ctrl-Enter uses the OS browser.
+        if "CERTIFICATE_VERIFY_FAILED" in err or "SSL" in err:
+            return {
+                "status": "warn",
+                "code": None,
+                "final_url": url,
+                "error": "ssl-verify-failed (browser may still open)",
+                "soft_404": False,
+            }
         return {
             "status": "fail",
             "code": None,
             "final_url": url,
-            "error": str(e),
+            "error": err,
             "soft_404": False,
         }
 
@@ -210,7 +220,9 @@ def main() -> int:
     entries = collect_urls(primary_only=args.primary)
     unique_urls = sorted({e["url"] for e in entries})
     label = "primary company" if args.primary else "all"
-    print(f"Checking {len(unique_urls)} unique {label} URLs from {len(entries)} entries...")
+    print(
+        f"Checking {len(unique_urls)} unique {label} URLs from {len(entries)} entries..."
+    )
 
     url_results: dict[str, dict[str, object]] = {}
     for url in unique_urls:
@@ -287,10 +299,14 @@ def main() -> int:
         "issues": issues,
         "url_results": url_results,
     }
-    out = ROOT / "output" / (
-        "platform_links_primary_audit.json"
-        if args.primary
-        else "platform_links_audit.json"
+    out = (
+        ROOT
+        / "output"
+        / (
+            "platform_links_primary_audit.json"
+            if args.primary
+            else "platform_links_audit.json"
+        )
     )
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(report, indent=2), encoding="utf-8")
