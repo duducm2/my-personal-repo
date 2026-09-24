@@ -110,7 +110,16 @@
                   Toggle focus between filter chips and main fields (result
                   cards, or open dossier / profile fields)
                 </td>
-                <td>Openings · Portals · Companies · Profile</td>
+                <td>Portals · Companies · Profile</td>
+              </tr>
+              <tr>
+                <td><kbd>Alt+Shift+F</kbd></td>
+                <td>
+                  Toggle focus between filter chips and main fields (on
+                  openings,
+                  <kbd>Alt+F</kbd> is form prompt)
+                </td>
+                <td>Openings</td>
               </tr>
               <tr>
                 <td><kbd>←</kbd> <kbd>→</kbd> <kbd>↑</kbd> <kbd>↓</kbd></td>
@@ -203,10 +212,10 @@
             Greenhouse, Gupy, LinkedIn Easy Apply). An
             <strong>ATS application</strong> is the online form on that system
             (name, email, phone, education, résumé upload, hiring message, and
-            similar fields). Use <kbd>Shift+F</kbd> / <kbd>Shift+A</kbd> to
-            generate answers from that form’s page text and import them into the
+            similar fields). Use <kbd>Alt+F</kbd> / <kbd>Alt+A</kbd> to generate
+            answers from that form’s page text and import them into the
             opening’s copy panel for pasting back into the ATS. Use
-            <kbd>Shift+C</kbd> / <kbd>Shift+L</kbd> to generate a cover letter
+            <kbd>Alt+C</kbd> / <kbd>Alt+L</kbd> to generate a cover letter
             prompt from the job / project description and import the AI JSON
             into a one-page PDF.
           </p>
@@ -220,37 +229,37 @@
             </thead>
             <tbody>
               <tr>
-                <td><kbd>Shift+N</kbd></td>
+                <td><kbd>Alt+N</kbd></td>
                 <td>Add new record and open editor</td>
-                <td>Openings · Portals · Companies</td>
+                <td>Job openings board</td>
               </tr>
               <tr>
-                <td><kbd>Shift+R</kbd></td>
+                <td><kbd>Alt+R</kbd></td>
                 <td>Generate openings prompt</td>
                 <td>Job openings board</td>
               </tr>
               <tr>
-                <td><kbd>Shift+I</kbd></td>
+                <td><kbd>Alt+I</kbd></td>
                 <td>Import openings</td>
                 <td>Job openings board</td>
               </tr>
               <tr>
-                <td><kbd>Shift+F</kbd></td>
+                <td><kbd>Alt+F</kbd></td>
                 <td>Generate form-fill prompt (ATS application)</td>
                 <td>Paste ATS page text; see glossary above</td>
               </tr>
               <tr>
-                <td><kbd>Shift+A</kbd></td>
+                <td><kbd>Alt+A</kbd></td>
                 <td>Import form result into opening copy panel</td>
                 <td>After AIB returns ATS field JSON</td>
               </tr>
               <tr>
-                <td><kbd>Shift+C</kbd></td>
+                <td><kbd>Alt+C</kbd></td>
                 <td>Generate cover letter prompt</td>
                 <td>Uses job / project description + profile context</td>
               </tr>
               <tr>
-                <td><kbd>Shift+L</kbd></td>
+                <td><kbd>Alt+L</kbd></td>
                 <td>Import cover letter &amp; build PDF</td>
                 <td>Saves letter on the opening and compiles Typst PDF</td>
               </tr>
@@ -292,9 +301,19 @@
                 <td>Job openings (card focused, no modal)</td>
               </tr>
               <tr>
-                <td><kbd>Shift+Delete</kbd></td>
+                <td><kbd>Alt+Delete</kbd></td>
                 <td>Delete the open dossier</td>
                 <td>Confirms first; modal must be open</td>
+              </tr>
+              <tr>
+                <td><kbd>Shift+N</kbd></td>
+                <td>Add new record and open editor</td>
+                <td>Portals · Companies</td>
+              </tr>
+              <tr>
+                <td><kbd>Shift+Delete</kbd></td>
+                <td>Delete the open dossier</td>
+                <td>Portals · Companies (modal open)</td>
               </tr>
             </tbody>
           </table>

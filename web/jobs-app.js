@@ -1115,7 +1115,7 @@
     del.type = "button";
     del.className = "panel-delete";
     del.textContent = "Delete opening";
-    del.title = "Delete opening";
+    del.title = "Delete opening (Alt+Delete)";
     del.addEventListener("click", () => deleteOpening(row.id));
     actions.append(save, del);
     body.append(actions);
@@ -2981,13 +2981,13 @@
     gen.type = "button";
     gen.className = "nav-btn";
     gen.textContent = "Generate prompt";
-    gen.title = "Generate cover letter prompt (Shift+C)";
+    gen.title = "Generate cover letter prompt (Alt+C)";
     gen.addEventListener("click", () => openCoverPromptModal());
     const imp = document.createElement("button");
     imp.type = "button";
     imp.className = "nav-btn";
     imp.textContent = "Import & PDF";
-    imp.title = "Import cover letter & build PDF (Shift+L)";
+    imp.title = "Import cover letter & build PDF (Alt+L)";
     imp.addEventListener("click", () => openCoverImportModal());
     actions.append(gen, imp);
     head.append(actions);
@@ -2998,7 +2998,7 @@
       const hint = document.createElement("p");
       hint.className = "job-modal-hint";
       hint.textContent =
-        "No cover letter yet. Fill Job / project description, generate a prompt (⇧C), then import the AI JSON (⇧L) to build a PDF.";
+        "No cover letter yet. Fill Job / project description, generate a prompt (Alt+C), then import the AI JSON (Alt+L) to build a PDF.";
       section.append(hint);
       parent.append(section);
       return;
@@ -3677,12 +3677,12 @@
         }
       }
 
-      // Delete open dossier — Shift+Delete (works while typing in modal)
+      // Delete open dossier — Alt+Delete (works while typing in modal)
       if (
         modalOpen &&
-        event.shiftKey &&
+        event.altKey &&
         !mod &&
-        !event.altKey &&
+        !event.shiftKey &&
         (event.key === "Delete" || event.code === "Delete")
       ) {
         event.preventDefault();
@@ -3690,128 +3690,91 @@
         return;
       }
 
-      // Add new opening — Shift+N (before letter-jump / nav chords)
-      if (
-        !modalOpen &&
-        !typing &&
-        !mod &&
-        !event.altKey &&
-        event.shiftKey &&
-        event.code === "KeyN"
-      ) {
-        event.preventDefault();
-        event.stopPropagation();
-        addOpening();
-        return;
-      }
-
-      // Generate prompt — Shift+R
-      if (
-        !modalOpen &&
-        !typing &&
-        !mod &&
-        !event.altKey &&
-        event.shiftKey &&
-        event.code === "KeyR"
-      ) {
-        event.preventDefault();
-        event.stopPropagation();
-        openPromptModal();
-        return;
-      }
-
-      // Import openings — Shift+I
-      if (
-        !modalOpen &&
-        !typing &&
-        !mod &&
-        !event.altKey &&
-        event.shiftKey &&
-        event.code === "KeyI"
-      ) {
-        event.preventDefault();
-        event.stopPropagation();
-        openImportModal();
-        return;
-      }
-
-      // Generate form prompt — Shift+F
-      if (
-        !typing &&
-        !mod &&
-        !event.altKey &&
-        event.shiftKey &&
-        event.code === "KeyF"
-      ) {
-        event.preventDefault();
-        event.stopPropagation();
-        openFormPromptModal();
-        return;
-      }
-
-      // Import form result — Shift+A
-      if (
-        !typing &&
-        !mod &&
-        !event.altKey &&
-        event.shiftKey &&
-        event.code === "KeyA"
-      ) {
-        event.preventDefault();
-        event.stopPropagation();
-        openFormImportModal();
-        return;
-      }
-
-      // Generate cover letter prompt — Shift+C
-      if (
-        !typing &&
-        !mod &&
-        !event.altKey &&
-        event.shiftKey &&
-        event.code === "KeyC"
-      ) {
-        event.preventDefault();
-        event.stopPropagation();
-        openCoverPromptModal();
-        return;
-      }
-
-      // Import cover letter — Shift+L
-      if (
-        !typing &&
-        !mod &&
-        !event.altKey &&
-        event.shiftKey &&
-        event.code === "KeyL"
-      ) {
-        event.preventDefault();
-        event.stopPropagation();
-        openCoverImportModal();
-        return;
-      }
-
+      // Openings page actions — Alt+letter (Shift reserved for global nav)
       if (event.altKey && !mod && !event.shiftKey) {
-        const isS =
-          event.code === "KeyS" || (event.key || "").toLowerCase() === "s";
+        const code = event.code;
+
+        // Add new opening — Alt+N
+        if (!modalOpen && !typing && code === "KeyN") {
+          event.preventDefault();
+          event.stopPropagation();
+          addOpening();
+          return;
+        }
+
+        // Generate prompt — Alt+R
+        if (!modalOpen && !typing && code === "KeyR") {
+          event.preventDefault();
+          event.stopPropagation();
+          openPromptModal();
+          return;
+        }
+
+        // Import openings — Alt+I
+        if (!modalOpen && !typing && code === "KeyI") {
+          event.preventDefault();
+          event.stopPropagation();
+          openImportModal();
+          return;
+        }
+
+        // Generate form prompt — Alt+F
+        if (!typing && code === "KeyF") {
+          event.preventDefault();
+          event.stopPropagation();
+          openFormPromptModal();
+          return;
+        }
+
+        // Import form result — Alt+A
+        if (!typing && code === "KeyA") {
+          event.preventDefault();
+          event.stopPropagation();
+          openFormImportModal();
+          return;
+        }
+
+        // Generate cover letter prompt — Alt+C
+        if (!typing && code === "KeyC") {
+          event.preventDefault();
+          event.stopPropagation();
+          openCoverPromptModal();
+          return;
+        }
+
+        // Import cover letter — Alt+L
+        if (!typing && code === "KeyL") {
+          event.preventDefault();
+          event.stopPropagation();
+          openCoverImportModal();
+          return;
+        }
+
+        // Search — Alt+S
+        const isS = code === "KeyS" || (event.key || "").toLowerCase() === "s";
         if (isS) {
           event.preventDefault();
           event.stopPropagation();
           toggleSearchBar();
           return;
         }
-        const isF =
-          event.code === "KeyF" || (event.key || "").toLowerCase() === "f";
-        if (isF) {
-          event.preventDefault();
-          event.stopPropagation();
-          window.CardNav?.toggleCardsFilters(
-            CARD_SEL,
-            FILTER_SEL,
-            "#job-modal[open] .field-input, #job-modal[open] select.field-input, #job-modal[open] textarea.field-input",
-          );
-          return;
-        }
+      }
+
+      // Toggle cards ↔ filters — Alt+Shift+F (Alt+F is form prompt on openings)
+      if (
+        event.altKey &&
+        event.shiftKey &&
+        !mod &&
+        (event.code === "KeyF" || (event.key || "").toLowerCase() === "f")
+      ) {
+        event.preventDefault();
+        event.stopPropagation();
+        window.CardNav?.toggleCardsFilters(
+          CARD_SEL,
+          FILTER_SEL,
+          "#job-modal[open] .field-input, #job-modal[open] select.field-input, #job-modal[open] textarea.field-input",
+        );
+        return;
       }
       if (event.key === "Escape") {
         const resumeOpen = document.getElementById("resume-viewer-modal")?.open;
