@@ -8,37 +8,50 @@
   <body>
     <header>
       <h1>Autofill</h1>
-      <p class="sub">Fill the active tab from your Career Cockpit profile.</p>
+      <p class="sub">Fill the active tab from imported AI form answers.</p>
     </header>
+
+    <ol class="stepper" id="stepper" aria-label="Workflow steps">
+      <li data-step="1">Extract page text</li>
+      <li data-step="2">Generate AI prompt</li>
+      <li data-step="3">Import JSON in cockpit</li>
+      <li data-step="4">Fill form</li>
+    </ol>
+
+    <div id="state-banner" class="banner banner-warn" role="status">
+      Checking active tab…
+    </div>
 
     <section class="block">
       <label for="cockpit-url">Cockpit URL</label>
       <input id="cockpit-url" type="url" value="http://127.0.0.1:8770" />
     </section>
 
-    <section class="block">
-      <label for="job-select">Job opening</label>
-      <select id="job-select">
-        <option value="">Loading…</option>
-      </select>
-      <button type="button" id="refresh-jobs" class="linkish">Refresh</button>
+    <section class="block" id="tab-info">
+      <div class="muted">Active tab</div>
+      <div id="tab-title" class="tab-line">—</div>
+      <div id="tab-url" class="tab-url muted">—</div>
     </section>
 
-    <section class="block" id="tab-info">
-      <div class="muted">Active tab: <span id="tab-title">—</span></div>
+    <section class="block" id="payload-info" hidden>
+      <div class="muted">Matched opening</div>
+      <div id="match-job" class="tab-line">—</div>
+      <div id="match-meta" class="muted"></div>
     </section>
 
     <section class="block actions">
+      <button type="button" id="refresh-btn" class="secondary">Refresh</button>
       <button type="button" id="detect-btn" class="secondary">Detect fields</button>
-      <button type="button" id="run-btn" class="primary">Autofill this tab</button>
+      <button type="button" id="run-btn" class="primary" disabled>Fill this page</button>
     </section>
 
-    <pre id="log" class="log"></pre>
-
-    <p class="hint">
-      Tip: open the application form in Chrome, pick the matching job above, then click
-      <strong>Autofill this tab</strong>. The extension never clicks Submit/Apply.
+    <p class="hint" id="hint">
+      Steps 1–3 happen in the Career Cockpit (Generate form prompt → Import form
+      JSON). Then open the application form tab and click <strong>Fill this page</strong>.
+      The extension never clicks Submit/Apply.
     </p>
+
+    <pre id="log" class="log"></pre>
 
     <script src="sidepanel.js"></script>
   </body>

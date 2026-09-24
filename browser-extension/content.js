@@ -1,5 +1,5 @@
 /**
- * Content script — orchestrates detect → map → fill → review.
+ * Content script — orchestrates detect → map/payload → fill → review.
  */
 (function () {
   "use strict";
@@ -11,7 +11,9 @@
   chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
     handle(message)
       .then(sendResponse)
-      .catch((err) => sendResponse({ ok: false, error: String(err && err.message ? err.message : err) }));
+      .catch((err) =>
+        sendResponse({ ok: false, error: String(err && err.message ? err.message : err) })
+      );
     return true;
   });
 
@@ -28,7 +30,15 @@
     }
 
     if (message.type === "AUTOFILL_START") {
+      const opts = message.options || {};
+      if (opts.mode === "payload" && opts.payload) {
+        return runPayloadAutofill(message);
+      }
       return runAutofill(message);
+    }
+
+    if (message.type === "AUTOFILL_FROM_PAYLOAD") {
+      return runPayloadAutofill(message);
     }
 
     return { ok: false, error: `unknown: ${message.type}` };
@@ -48,6 +58,262 @@
     return res.data;
   }
 
+  function norm(s) {
+    return String(s || "")
+      .toLowerCase()
+      .replace(/[_\-]+/g, " ")
+      .replace(/[^\w\s]/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+  function scoreMatch(field, answer) {
+    const hay = norm(
+      [field.label, field.name, field.id, field.placeholder, field.autocomplete, field.nearby].join(" ")
+    );
+    const key = norm(answer.key);
+    const label = norm(answer.label);
+    if (!hay) return 0;
+    if (key && (field.name === answer.key || field.id === answer.key || field.autocomplete === answer.key)) {
+      return 1;
+    }
+    if (key && (hay === key || hay.includes(key) || key.includes(hay))) return 0.95;
+    if (label && (hay === label || hay.includes(label) || label.includes(hay))) return 0.9;
+    // token overlap
+    const tokens = label.split(" ").filter((t) => t.length > 2);
+    if (!tokens.length) return 0;
+    let hit = 0;
+    for (const t of tokens) {
+      if (hay.includes(t)) hit += 1;
+    }
+    return hit / tokens.length >= 0.6 ? 0.7 : 0;
+  }
+
+  function matchPayloadFields(detectedFields, payloadFields) {
+    const usedAnswers = new Set();
+    const matched = [];
+    const unmatchedDetected = [];
+
+    const ordered = [...detectedFields].sort((a, b) => (a.visualOrder ?? a.index) - (b.visualOrder ?? b.index));
+
+    for (const field of ordered) {
+      let best = null;
+      let bestScore = 0;
+      let bestIdx = -1;
+      for (let i = 0; i < payloadFields.length; i += 1) {
+        if (usedAnswers.has(i)) continue;
+        const ans = payloadFields[i];
+        if (ans.value == null || String(ans.value).trim() === "") continue;
+        const sc = scoreMatch(field, ans);
+        if (sc > bestScore) {
+          bestScore = sc;
+          best = ans;
+          bestIdx = i;
+        }
+      }
+      if (best && bestScore >= 0.7) {
+        usedAnswers.add(bestIdx);
+        matched.push({
+          field,
+          value: best.value,
+          confidence: bestScore,
+          canonicalKey: best.key || best.label,
+          source: "payload",
+          answer: best,
+        });
+      } else {
+        unmatchedDetected.push(field);
+      }
+    }
+
+    return { matched, unmatchedDetected, usedAnswers };
+  }
+
+  async function runPayloadAutofill(message) {
+    if (busy) return { ok: false, error: "Autofill already running" };
+    busy = true;
+
+    const cockpitUrl = message.cockpitUrl || DEFAULT_COCKPIT;
+    const jobId = message.jobId || null;
+    const opts = message.options || {};
+    const payload = opts.payload || message.payload;
+    const useFallback = opts.useHeuristicFallback !== false;
+    const Overlay = window.CareerAutofillOverlay;
+    const Detector = window.CareerAutofillDetector;
+
+    try {
+      if (!payload || !Array.isArray(payload.fields) || !payload.fields.length) {
+        throw new Error("No imported form payload. Import AI JSON in the cockpit first.");
+      }
+
+      Overlay.clearHighlights();
+      Overlay.show(
+        {
+          phase: "detecting",
+          message: "Detecting form fields…",
+          progress: 10,
+          detected: 0,
+          mapped: 0,
+          ambiguous: 0,
+          filled: 0,
+        },
+        {}
+      );
+
+      const snapshot = Detector.detectFields();
+      Overlay.update({
+        phase: "mapping",
+        message: `Matching ${snapshot.fieldCount} fields to imported JSON (${payload.fields.length} answers)…`,
+        progress: 30,
+        detected: snapshot.fieldCount,
+        mapped: 0,
+        ambiguous: 0,
+        filled: 0,
+      });
+
+      if (!snapshot.fieldCount) {
+        Overlay.update({
+          phase: "done",
+          message: "No fillable fields found on this page.",
+          progress: 100,
+          detected: 0,
+          error: "Scroll to the application form or click Apply to reveal fields, then try again.",
+        });
+        busy = false;
+        return { ok: false, error: "no fields" };
+      }
+
+      const { matched, unmatchedDetected } = matchPayloadFields(snapshot.fields, payload.fields);
+
+      let fallbackMappings = [];
+      let mapResult = {
+        values_by_key: {},
+        available_keys: payload.fields.map((f) => ({
+          key: f.key,
+          label: f.label || f.key,
+        })),
+        min_confidence: 0.55,
+      };
+
+      if (useFallback && unmatchedDetected.length) {
+        Overlay.update({
+          phase: "mapping",
+          message: `Payload matched ${matched.length}. Heuristic fallback for ${unmatchedDetected.length}…`,
+          progress: 45,
+          detected: snapshot.fieldCount,
+          mapped: matched.length,
+          ambiguous: unmatchedDetected.length,
+          filled: 0,
+        });
+        mapResult = await api(cockpitUrl, "/api/autofill/map", {
+          method: "POST",
+          body: {
+            job_id: jobId,
+            url: snapshot.url,
+            host: snapshot.host,
+            title: snapshot.title,
+            fields: unmatchedDetected,
+          },
+        });
+        fallbackMappings = (mapResult.mappings || []).map((m) => ({
+          ...m,
+          source: m.source || "heuristic",
+        }));
+      } else {
+        fallbackMappings = unmatchedDetected.map((field) => ({
+          field,
+          canonicalKey: null,
+          value: null,
+          confidence: 0,
+          source: "none",
+        }));
+      }
+
+      const confidentFallback = fallbackMappings.filter(
+        (m) => m.confidence >= (mapResult.min_confidence || 0.55) && m.value
+      );
+      const ambiguous = fallbackMappings.filter(
+        (m) => m.value == null || m.confidence < (mapResult.min_confidence || 0.55)
+      );
+
+      matched.forEach((m) => Overlay.highlightField(m.field, "payload"));
+      confidentFallback.forEach((m) => Overlay.highlightField(m.field, "ok"));
+      ambiguous.forEach((m) => Overlay.highlightField(m.field, "warn"));
+
+      const suggestions = (mapResult.available_keys || []).map((k) => ({
+        key: k.key,
+        label: k.label || k.key,
+      }));
+      // Also offer payload keys as suggestions
+      for (const f of payload.fields) {
+        if (f.key && !suggestions.some((s) => s.key === f.key)) {
+          suggestions.push({ key: f.key, label: f.label || f.key });
+        }
+      }
+
+      const ambiguousList = ambiguous.map((m) => ({ ...m, suggestions }));
+      const confident = [...matched, ...confidentFallback];
+
+      // Build values_by_key including payload
+      const valuesByKey = { ...(mapResult.values_by_key || {}) };
+      for (const f of payload.fields) {
+        if (f.key && f.value != null && f.value !== "") valuesByKey[f.key] = f.value;
+      }
+      mapResult.values_by_key = valuesByKey;
+
+      lastSession = {
+        cockpitUrl,
+        jobId,
+        host: snapshot.host,
+        url: snapshot.url,
+        mappings: [...matched, ...fallbackMappings],
+        confident,
+        ambiguous,
+        mapResult,
+        mode: "payload",
+      };
+
+      Overlay.show(
+        {
+          phase: "ready",
+          message: `Payload: ${matched.length} · Heuristic: ${confidentFallback.length} · Review: ${ambiguous.length}`,
+          progress: 60,
+          detected: snapshot.fieldCount,
+          mapped: confident.length,
+          ambiguous: ambiguous.length,
+          filled: 0,
+          ambiguousList,
+        },
+        {
+          onFill: (choices) => void doFill(choices),
+          onSave: (choices) => void doSave(choices),
+        }
+      );
+
+      // Auto-start fill for payload-ready fields
+      await doFill([]);
+
+      busy = false;
+      return {
+        ok: true,
+        detected: snapshot.fieldCount,
+        mapped: confident.length,
+        ambiguous: ambiguous.length,
+        filled: confident.length,
+        mode: "payload",
+      };
+    } catch (err) {
+      Overlay.show({
+        phase: "error",
+        message: "Payload autofill failed",
+        progress: 100,
+        error: String(err && err.message ? err.message : err),
+      });
+      busy = false;
+      return { ok: false, error: String(err && err.message ? err.message : err) };
+    }
+  }
+
   async function runAutofill(message) {
     if (busy) return { ok: false, error: "Autofill already running" };
     busy = true;
@@ -56,7 +322,6 @@
     const jobId = message.jobId || null;
     const Overlay = window.CareerAutofillOverlay;
     const Detector = window.CareerAutofillDetector;
-    const Filler = window.CareerAutofillFiller;
 
     try {
       Overlay.clearHighlights();
@@ -96,6 +361,30 @@
         return { ok: false, error: "no fields" };
       }
 
+      // Prefer imported payload when URL matches
+      try {
+        const lookup = await api(
+          cockpitUrl,
+          `/api/autofill/answers-for-url?${new URLSearchParams({
+            url: snapshot.url,
+            ...(jobId ? { job_id: jobId } : {}),
+          }).toString()}`
+        );
+        if (lookup && lookup.payload && lookup.field_count > 0) {
+          busy = false;
+          return runPayloadAutofill({
+            ...message,
+            options: {
+              mode: "payload",
+              payload: lookup.payload,
+              useHeuristicFallback: true,
+            },
+          });
+        }
+      } catch {
+        /* fall through to heuristic-only */
+      }
+
       const mapResult = await api(cockpitUrl, "/api/autofill/map", {
         method: "POST",
         body: {
@@ -108,7 +397,9 @@
       });
 
       const mappings = mapResult.mappings || [];
-      const confident = mappings.filter((m) => m.confidence >= (mapResult.min_confidence || 0.55) && m.value);
+      const confident = mappings.filter(
+        (m) => m.confidence >= (mapResult.min_confidence || 0.55) && m.value
+      );
       const ambiguous = mappings.filter(
         (m) => m.value == null || m.confidence < (mapResult.min_confidence || 0.55)
       );
@@ -135,6 +426,7 @@
         confident,
         ambiguous,
         mapResult,
+        mode: "heuristic",
       };
 
       Overlay.show(
@@ -179,9 +471,8 @@
     const Filler = window.CareerAutofillFiller;
     const { confident, ambiguous, mapResult } = lastSession;
 
-    // Resolve ambiguous choices into extra mappings
     const extra = [];
-    const valuesByKey = (mapResult.values_by_key || {});
+    const valuesByKey = mapResult.values_by_key || {};
     for (const choice of choices || []) {
       if (choice.skip) continue;
       const amb = ambiguous.find((a) => a.field.uid === choice.uid);
@@ -196,6 +487,7 @@
           value,
           confidence: 1,
           canonicalKey: choice.canonicalKey || "custom",
+          source: "manual",
         });
         Overlay.highlightField(amb.field, "ok");
       }
@@ -212,7 +504,10 @@
       filled: 0,
       ambiguousList: ambiguous.map((m) => ({
         ...m,
-        suggestions: (mapResult.available_keys || []).map((k) => ({ key: k.key, label: k.label || k.key })),
+        suggestions: (mapResult.available_keys || []).map((k) => ({
+          key: k.key,
+          label: k.label || k.key,
+        })),
       })),
     });
 
@@ -243,13 +538,15 @@
           mapped: confident.length,
           ambiguous: ambiguous.length,
           filled,
-          ambiguousList: ambiguous.filter((a) => !extra.some((e) => e.field.uid === a.field.uid)).map((m) => ({
-            ...m,
-            suggestions: (mapResult.available_keys || []).map((k) => ({
-              key: k.key,
-              label: k.label || k.key,
+          ambiguousList: ambiguous
+            .filter((a) => !extra.some((e) => e.field.uid === a.field.uid))
+            .map((m) => ({
+              ...m,
+              suggestions: (mapResult.available_keys || []).map((k) => ({
+                key: k.key,
+                label: k.label || k.key,
+              })),
             })),
-          })),
         },
         {
           onFill: (c) => void doFill(c),
@@ -272,6 +569,7 @@
     if (!lastSession) return;
     const Overlay = window.CareerAutofillOverlay;
     const corrections = [];
+    const sourceTag = lastSession.mode === "payload" ? "payload" : "heuristic";
 
     for (const m of lastSession.mappings) {
       const choice = (choices || []).find((c) => c.uid === m.field.uid);
@@ -283,6 +581,7 @@
           label: m.field.label,
           name: m.field.name,
           id: m.field.id,
+          source: "manual",
         });
       } else if (m.canonicalKey && m.confidence >= 0.55) {
         corrections.push({
@@ -291,6 +590,7 @@
           label: m.field.label,
           name: m.field.name,
           id: m.field.id,
+          source: m.source || sourceTag,
         });
       }
     }
@@ -325,7 +625,8 @@
   }
 
   function fieldSignature(field) {
-    return [field.name || "", field.id || "", (field.label || "").toLowerCase().slice(0, 80), field.type || ""]
-      .join("|");
+    return [field.name || "", field.id || "", (field.label || "").toLowerCase().slice(0, 80), field.type || ""].join(
+      "|"
+    );
   }
 })();

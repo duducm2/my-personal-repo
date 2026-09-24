@@ -21,17 +21,36 @@
   function clearHighlights() {
     document.querySelectorAll("[data-cc-autofill-hl]").forEach((el) => {
       el.removeAttribute("data-cc-autofill-hl");
-      el.classList.remove("cc-autofill-hl-ok", "cc-autofill-hl-warn", "cc-autofill-hl-skip");
+      el.classList.remove(
+        "cc-autofill-hl-ok",
+        "cc-autofill-hl-warn",
+        "cc-autofill-hl-skip",
+        "cc-autofill-hl-payload",
+      );
     });
   }
 
   function highlightField(field, kind) {
-    const finder = window.CareerAutofillDetector && window.CareerAutofillDetector.findElement;
+    const finder =
+      window.CareerAutofillDetector &&
+      window.CareerAutofillDetector.findElement;
     const el = finder ? finder(field) : null;
     if (!el) return;
     el.setAttribute("data-cc-autofill-hl", kind || "warn");
+    el.classList.remove(
+      "cc-autofill-hl-ok",
+      "cc-autofill-hl-warn",
+      "cc-autofill-hl-skip",
+      "cc-autofill-hl-payload",
+    );
     el.classList.add(
-      kind === "ok" ? "cc-autofill-hl-ok" : kind === "skip" ? "cc-autofill-hl-skip" : "cc-autofill-hl-warn"
+      kind === "ok"
+        ? "cc-autofill-hl-ok"
+        : kind === "payload"
+          ? "cc-autofill-hl-payload"
+          : kind === "skip"
+            ? "cc-autofill-hl-skip"
+            : "cc-autofill-hl-warn",
     );
   }
 
@@ -51,13 +70,19 @@
 
     const ambRows = (ambiguousList || [])
       .map((item, idx) => {
-        const label = escapeHtml(item.field.label || item.field.name || item.field.id || `Field ${idx + 1}`);
+        const label = escapeHtml(
+          item.field.label ||
+            item.field.name ||
+            item.field.id ||
+            `Field ${idx + 1}`,
+        );
         const guess = escapeHtml(item.canonicalKey || "(unknown)");
-        const conf = item.confidence != null ? Math.round(item.confidence * 100) : "?";
+        const conf =
+          item.confidence != null ? Math.round(item.confidence * 100) : "?";
         const suggestions = (item.suggestions || [])
           .map(
             (s) =>
-              `<option value="${escapeAttr(s.key)}">${escapeHtml(s.label || s.key)}</option>`
+              `<option value="${escapeAttr(s.key)}">${escapeHtml(s.label || s.key)}</option>`,
           )
           .join("");
         return `<div class="cc-amb-row" data-uid="${escapeAttr(item.field.uid)}">
@@ -100,16 +125,23 @@
           <button type="button" class="cc-btn" id="cc-dismiss-btn">Done</button>
         </div>
         <p class="cc-note">Never auto-submits. Review everything before you click Apply.</p>
+        <div class="cc-legend">
+          <span class="cc-leg-payload">Imported JSON</span>
+          <span class="cc-leg-ok">Heuristic / profile</span>
+          <span class="cc-leg-warn">Needs review</span>
+        </div>
       </div>
     `;
 
     el.querySelector(".cc-close")?.addEventListener("click", hide);
     el.querySelector("#cc-dismiss-btn")?.addEventListener("click", hide);
     el.querySelector("#cc-fill-btn")?.addEventListener("click", () => {
-      if (typeof el._onFill === "function") el._onFill(collectAmbiguousChoices(el));
+      if (typeof el._onFill === "function")
+        el._onFill(collectAmbiguousChoices(el));
     });
     el.querySelector("#cc-save-map-btn")?.addEventListener("click", () => {
-      if (typeof el._onSave === "function") el._onSave(collectAmbiguousChoices(el));
+      if (typeof el._onSave === "function")
+        el._onSave(collectAmbiguousChoices(el));
     });
 
     return el;

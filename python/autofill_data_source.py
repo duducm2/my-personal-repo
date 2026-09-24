@@ -2,8 +2,10 @@
 
 from __future__ import annotations
 
+import json
 from pathlib import Path
 from typing import Any
+from urllib.parse import urlparse
 
 
 def _cell(row: dict[str, Any] | None, key: str, default: str = "") -> str:
@@ -298,6 +300,7 @@ def list_autofill_jobs(collections: dict[str, list[dict[str, Any]]]) -> list[dic
         status = _cell(row, "status").lower()
         if status in skip_status:
             continue
+        payload = parse_application_answers(_cell(row, "application_answers"))
         out.append(
             {
                 "id": _cell(row, "id"),
@@ -305,6 +308,9 @@ def list_autofill_jobs(collections: dict[str, list[dict[str, Any]]]) -> list[dic
                 "role_title": _cell(row, "role_title"),
                 "status": _cell(row, "status"),
                 "job_url": _cell(row, "job_url"),
+                "form_url": (payload or {}).get("form_url") or "",
+                "has_payload": "1" if payload and payload.get("fields") else "0",
+                "field_count": str(len((payload or {}).get("fields") or [])),
                 "recommended_resume": _cell(row, "recommended_resume"),
                 "priority": _cell(row, "priority"),
                 "match_score": _cell(row, "match_score"),
@@ -317,7 +323,8 @@ def list_autofill_jobs(collections: dict[str, list[dict[str, Any]]]) -> list[dic
         except ValueError:
             score = 0
         pri = {"high": 0, "medium": 1, "low": 2}.get((j.get("priority") or "").lower(), 3)
-        return (pri, score, j.get("company") or "", j.get("role_title") or "")
+        has = 0 if j.get("has_payload") == "1" else 1
+        return (has, pri, score, j.get("company") or "", j.get("role_title") or "")
 
     out.sort(key=sort_key)
     return out
@@ -325,3 +332,160 @@ def list_autofill_jobs(collections: dict[str, list[dict[str, Any]]]) -> list[dic
 
 def default_mappings_path(root: Path) -> Path:
     return root / "my-data" / "autofill" / "mappings.json"
+
+
+def url_key(url: str) -> str:
+    """Normalize URL to origin + pathname (ignore query/hash, trailing slash)."""
+    raw = (url or "").strip()
+    if not raw:
+        return ""
+    try:
+        p = urlparse(raw)
+    except ValueError:
+        return raw.lower().rstrip("/")
+    if not p.scheme or not p.netloc:
+        return raw.lower().rstrip("/")
+    path = (p.path or "/").rstrip("/") or "/"
+    return f"{p.scheme.lower()}://{p.netloc.lower()}{path}"
+
+
+def parse_application_answers(raw: str) -> dict[str, Any] | None:
+    text = (raw or "").strip()
+    if not text:
+        return None
+    try:
+        data = json.loads(text)
+    except json.JSONDecodeError:
+        return None
+    if not isinstance(data, dict) or not isinstance(data.get("fields"), list):
+        return None
+    fields = []
+    for f in data["fields"]:
+        if not isinstance(f, dict):
+            continue
+        fields.append(
+            {
+                "key": str(f.get("key") or "").strip(),
+                "label": str(f.get("label") or f.get("key") or "").strip(),
+                "value": "" if f.get("value") is None else str(f.get("value")),
+                "source": str(f.get("source") or "").strip(),
+                "note": str(f.get("note") or "").strip(),
+            }
+        )
+    return {
+        "opening_id": str(data.get("opening_id") or "").strip(),
+        "recommended_resume": str(data.get("recommended_resume") or "").strip(),
+        "form_url": str(data.get("form_url") or "").strip(),
+        "source_url": str(data.get("source_url") or "").strip(),
+        "imported_at": str(data.get("imported_at") or "").strip(),
+        "fields": fields,
+    }
+
+
+def _job_openings(collections: dict[str, list[dict[str, Any]]]) -> list[dict[str, Any]]:
+    openings = collections.get("jobOpenings") or []
+    if openings:
+        return openings
+    for key, rows in collections.items():
+        if "opening" in key.lower():
+            return rows
+    return []
+
+
+def find_payload_by_url(
+    collections: dict[str, list[dict[str, Any]]],
+    *,
+    url: str,
+    job_id: str | None = None,
+) -> dict[str, Any]:
+    """Resolve imported application_answers for an active tab URL."""
+    openings = _job_openings(collections)
+    target = url_key(url)
+    preferred = find_opening(openings, job_id) if job_id else {}
+
+    def pack(row: dict[str, Any], payload: dict[str, Any], reason: str) -> dict[str, Any]:
+        return {
+            "ok": True,
+            "match_reason": reason,
+            "url": url,
+            "url_key": target,
+            "job": {
+                "id": _cell(row, "id"),
+                "company": _cell(row, "company"),
+                "role_title": _cell(row, "role_title"),
+                "job_url": _cell(row, "job_url"),
+                "status": _cell(row, "status"),
+                "recommended_resume": _cell(row, "recommended_resume")
+                or payload.get("recommended_resume")
+                or "",
+            },
+            "payload": payload,
+            "field_count": len(payload.get("fields") or []),
+            "form_url": payload.get("form_url") or "",
+            "source_url": payload.get("source_url") or _cell(row, "job_url"),
+            "url_matches_form": bool(
+                payload.get("form_url") and url_key(payload["form_url"]) == target
+            ),
+            "url_matches_job": bool(
+                _cell(row, "job_url") and url_key(_cell(row, "job_url")) == target
+            ),
+        }
+
+    candidates: list[tuple[int, str, dict[str, Any], dict[str, Any]]] = []
+    # priority: form_url match (0), job_url match (1), preferred job_id with payload (2)
+    for row in openings:
+        payload = parse_application_answers(_cell(row, "application_answers"))
+        if not payload or not payload.get("fields"):
+            continue
+        form_k = url_key(payload.get("form_url") or "")
+        job_k = url_key(_cell(row, "job_url"))
+        if target and form_k and form_k == target:
+            candidates.append((0, "form_url", row, payload))
+        elif target and job_k and job_k == target:
+            candidates.append((1, "job_url", row, payload))
+        elif preferred and _cell(row, "id") == _cell(preferred, "id"):
+            candidates.append((2, "job_id", row, payload))
+
+    if preferred and not candidates:
+        payload = parse_application_answers(_cell(preferred, "application_answers"))
+        if payload and payload.get("fields"):
+            candidates.append((2, "job_id", preferred, payload))
+
+    if candidates:
+        candidates.sort(key=lambda t: t[0])
+        _prio, reason, row, payload = candidates[0]
+        return pack(row, payload, reason)
+
+    suggestions = []
+    for row in openings:
+        payload = parse_application_answers(_cell(row, "application_answers"))
+        status = _cell(row, "status").lower()
+        if status in {"excluded", "closed", "rejected", "hired"}:
+            continue
+        suggestions.append(
+            {
+                "id": _cell(row, "id"),
+                "company": _cell(row, "company"),
+                "role_title": _cell(row, "role_title"),
+                "job_url": _cell(row, "job_url"),
+                "form_url": (payload or {}).get("form_url") or "",
+                "has_payload": bool(payload and payload.get("fields")),
+                "field_count": len((payload or {}).get("fields") or []),
+            }
+        )
+    suggestions.sort(key=lambda s: (0 if s["has_payload"] else 1, s["company"], s["role_title"]))
+
+    return {
+        "ok": True,
+        "match_reason": None,
+        "url": url,
+        "url_key": target,
+        "job": None,
+        "payload": None,
+        "field_count": 0,
+        "form_url": "",
+        "source_url": "",
+        "url_matches_form": False,
+        "url_matches_job": False,
+        "suggestions": suggestions[:20],
+    }

@@ -1,5 +1,140 @@
 id,sort_order,company,company_key,role_title,career_path,job_url,status,priority,work_mode,location,source,found_on,applied_on,next_action,next_action_date,salary_range,fit_interest,skills_gap,job_description,notes,contact_person,contact_note,is_new,match_score,match_reason,recommended_resume,result,result_on,application_answers,application_form_raw,cover_letter,cover_letter_lang,cover_letter_greeting,cover_letter_closing
-gitlab-ai-transformation-owner-po,1,GitLab,gitlab-global,"AI Transformation Owner, Product & Design",po,https://job-boards.greenhouse.io/gitlab/jobs/8716179002,saved,High,Remote,"Remote, Canada; Remote, United Kingdom; Remote, United States",company_site,2026-09-24,,,,,,,Drive AI transformation and adoption across product and design workflows.,,,,1,9,"Exceptional alignment with your AI Scrum Master track, UX research background, and applied AI systems experience. Matches your focus on delivering stakeholder outcomes.",product-owner,,,,,,,,
+gitlab-ai-transformation-owner-po,1,GitLab,gitlab-global,"AI Transformation Owner, Product & Design",po,https://job-boards.greenhouse.io/gitlab/jobs/8716179002,saved,High,Remote,"Remote, Canada; Remote, United Kingdom; Remote, United States",company_site,2026-09-24,,,,,,,Drive AI transformation and adoption across product and design workflows.,,,,1,9,"Exceptional alignment with your AI Scrum Master track, UX research background, and applied AI systems experience. Matches your focus on delivering stakeholder outcomes.",product-owner,,,"{""opening_id"":""gitlab-ai-transformation-owner-po"",""recommended_resume"":""product-owner"",""form_url"":""[https://job-boards.greenhouse.io/gitlab/jobs/8716179002#app](https://www.google.com/search?q=https://job-boards.greenhouse.io/gitlab/jobs/8716179002%2523app&utm_source=gemini)"",""source_url"":""[https://job-boards.greenhouse.io/gitlab/jobs/8716179002](https://job-boards.greenhouse.io/gitlab/jobs/8716179002?utm_source=gemini)"",""imported_at"":""2026-09-24T23:37:31"",""fields"":[{""key"":""first_name"",""label"":""First Name*"",""value"":""Eduardo"",""source"":""profile.full_name"",""note"":""""},{""key"":""last_name"",""label"":""Last Name*"",""value"":""Matos de Assis Figueiredo"",""source"":""profile.full_name"",""note"":""""},{""key"":""email"",""label"":""Email*"",""value"":""edu.evangelista.figueiredo@gmail.com"",""source"":""profile.email"",""note"":""""},{""key"":""phone_country"",""label"":""Country"",""value"":""Brazil (+55)"",""source"":""profile.phone"",""note"":""""},{""key"":""phone"",""label"":""Phone"",""value"":""+55 (19) 98176-6583"",""source"":""profile.phone"",""note"":""""},{""key"":""resume"",""label"":""Resume/CV*"",""value"":"""",""source"":""user_upload"",""note"":""Upload manually - use product-owner resume""},{""key"":""cover_letter"",""label"":""Cover Letter"",""value"":""I am a UX and software-quality researcher with a full-stack engineering background bridging applied research, continuous improvement, and agentic AI. At Bosch Brasil, I lead user research, coach multidisciplinary teams on UX and agile methods, and prototype AI workflows, aligning closely with cross-functional stakeholders to translate operational bottlenecks into measurable outcomes. Having tracked end-to-end process constraints and built agentic prototypes with Python and low-code tooling, I am excited to partner with GitLab's Enterprise AI team and executive sponsors as an AI Transformation Owner, scaling high-impact workflows and fostering a vibrant champion network across Product & Design."",""source"":""narratives / experience"",""note"":""Paste into 'Enter manually' or upload as document""},{""key"":""linkedin_profile"",""label"":""LinkedIn Profile"",""value"":""[https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b?utm_source=gemini)"",""source"":""profile.linkedin"",""note"":""""},{""key"":""preferred_name"",""label"":""What's the name you'd prefer us to use throughout the interview process?"",""value"":""Edu"",""source"":""profile.preferred_name"",""note"":""""},{""key"":""current_location_country"",""label"":""Please choose the country in which you are located.*"",""value"":""Brazil"",""source"":""profile.location"",""note"":""""},{""key"":""employment_agreements_restrictions"",""label"":""Are you subject to any employment agreements and/or post-employment restrictions with your current employer or a past employer?*"",""value"":""No"",""source"":""user_standard_declaration"",""note"":""Select 'No' unless specific post-employment non-compete clauses apply.""},{""key"":""interview_accommodations"",""label"":""It is important to us to create an accessible and inclusive interview experience. Please let us know if there are any adjustments we can make to assist you during the hiring and interview process."",""value"":"""",""source"":""user_declaration"",""note"":""Leave empty if no specific accommodations are needed.""},{""key"":""visa_sponsorship_current_location"",""label"":""Will you now or in the future require sponsorship for a visa to remain in your current location?*"",""value"":""No"",""source"":""profile.location"",""note"":""Citizen of Brazil currently residing in Brazil.""},{""key"":""previously_worked_at_gitlab"",""label"":""Have you previously worked at or consulted for GitLab?*"",""value"":""No"",""source"":""profile.experience"",""note"":""""},{""key"":""current_country_of_residence"",""label"":""What is your current country of residence?*"",""value"":""Brazil"",""source"":""profile.location"",""note"":""""},{""key"":""gender"",""label"":""Gender"",""value"":""Male"",""source"":""profile.demographics"",""note"":""Voluntary self-identification; can select 'Male' or 'Decline to self-identify'.""},{""key"":""hispanic_latino"",""label"":""Are you Hispanic/Latino?"",""value"":""No"",""source"":""eeoc_standard_classification"",""note"":""Under US government/EEOC reporting standards, individuals of Brazilian descent are typically categorized as 'No' (non-Hispanic/Latino) unless self-identifying otherwise.""},{""key"":""veteran_status"",""label"":""Veteran Status"",""value"":""I am not a protected veteran"",""source"":""user_standard_declaration"",""note"":""Standard choice for non-US military service applicants.""}]}","GitLab Logo
+AI Transformation Owner, Product & Design
+Remote, Canada; Remote, United Kingdom; Remote, United States
+GitLab is the intelligent orchestration platform for DevSecOps. GitLab enables organizations to increase developer productivity, improve operational efficiency, reduce security and compliance risk, and accelerate digital transformation. More than 50 million registered users and more than 50% of the Fortune 100* trust GitLab to ship better, more secure software faster.
+
+The same principles built into our products are reflected in how our team works: we embrace AI as a core productivity multiplier, with all team members expected to incorporate AI into their daily workflows to drive efficiency, innovation, and impact. GitLab is where careers accelerate, innovation flourishes, and every voice is valued. Our high-performance culture is driven by our values and continuous knowledge exchange, enabling our team members to reach their full potential while collaborating with industry leaders to solve complex problems. Co-create the future with us as we build technology that transforms how the world develops software.
+
+*Fortune 500® is a registered trademark of Fortune Media IP Limited, used under license. Claim based on GitLab data. Fortune 100 refers to the top 20% ranked companies in the 2025 Fortune 500 list, published in June 2025. Fortune and Fortune Media IP Limited are not affiliated with, and do not endorse products or services of GitLab.
+
+An overview of this role
+As an AI Transformation Owner at GitLab, you'll shape your function's AI strategy and build the solutions that deliver it. You are the person responsible for identifying where AI can fundamentally change how your org operates, partnering with your Executive Sponsor to align on the biggest challenges, and driving measurable outcomes against them.
+
+Think of this as a product management role where the product is your org's way of working. You'll manage the full lifecycle: understanding how work flows today, deciding where AI should reshape it, prioritizing what gets built and in what order, and ensuring what ships actually gets adopted. You'll also prototype solutions, configure agents, and prove what's possible before pulling in engineering support to scale it.
+
+You will work closely with an AI Engineer who sits within the Enterprise AI team. Together you form a partnership: you bring the business context, process intelligence, and strategic prioritization. They bring the technical depth, production-grade delivery, and architecture decisions. You'll build working solutions at the no-code and low-code layer, and partner with the AI Engineer on the right approach, tooling, and structure.
+
+What you'll do
+Strategy & Prioritization
+Own your function's AI strategy, aligned with your Executive Sponsor and business priorities. Understand which metrics matter to the org, identify what will move the needle, define how you'll measure impact, and track progress over time.
+Map how work flows across your function end-to-end, including the handoffs upstream and downstream to other orgs. Identify where the real constraints are, not just the ones your team can see. Focus on the 100x problems: where could leveraging AI in a workflow let your org execute it orders of magnitude faster, or at 100x more volume than before?
+Manage intake of AI requests, ideas, and pain points from across the function, including via your Champion network. Ensure every team member has a clear route to surface what they need, rather than building independently.
+Prioritize strategically against business outcomes and executive guidance. Hold the line on priorities - we cannot change direction every two weeks - and ensure the AI Engineer's time is spent on the highest-impact work.
+Adoption & Change Management
+Reimagine, not just automate. Challenge your org to think beyond injecting AI into existing workflows. Work with Enterprise AI to spot opportunities to fundamentally rethink how work gets done.
+Drive adoption and change management together with the AI Engineer. The best AI solution is worthless if nobody uses it. Create the channels, rituals, and feedback loops that make AI visible in your function: shared spaces for teams to show what they've built, regular office hours, onboarding for new hires, and celebration of wins. Own the rollout and iteration needed to make AI initiatives stick.
+Coordinate with Enterprise AI to ensure your function benefits from patterns, tools, and learnings emerging across other parts of the business.
+Build and bridge the Champion network in your function. Champions are the peer community that extends your reach beyond what you and the AI Engineer can deliver directly. From early in the role, identify and recruit Champions across sub-teams (5-10% time, formally agreed with their manager), run a regular Champion sync, host demos to the wider function, and act as their bridge to Enterprise AI. Champions are not your reports: you coordinate them, you don't manage them. Without this network, your reach is capped.
+Hands-On Building & Agent Operations
+Build AI agents using no-code and low-code platforms (e.g. Glean, Workato, similar tools). Go from idea to working prototype without waiting for engineering.
+Author and iterate on skills files that define how AI agents behave. Refine instructions based on real usage and share reusable skills across the function.
+Configure MCP servers and tools, giving agents access to the business systems they need. Partner with the AI Engineer on what to connect and how to do it securely.
+Own your function's fleet of agents. Some agents will be used directly by people in your org. Those that aren't, you own. Either way, you're accountable for their performance: tracking KPIs, running evaluations after model or data changes, and iterating based on what you learn.
+Expect to rebuild. AI tools and models evolve fast. The agent you built last month may need to be replaced, not patched. You should be comfortable sunsetting your own work when a better approach emerges, and helping your org stay current rather than attached to what exists today.
+What you'll bring
+Business & Strategic
+Deep knowledge of your function's operations. You understand how work moves through your org, where it gets stuck, and why. You can trace a process end-to-end and explain how it connects to the teams around it.
+Strategic prioritization skills. You've managed competing demands before and can make hard calls about what matters most. You think in terms of business outcomes, not activity.
+A product management mindset. You naturally think about intake, backlog, iteration, and adoption. You're comfortable defining success metrics and holding yourself accountable to them.
+Strong communication and influence. You'll be the person saying ""not yet"" to some teams and ""think bigger"" to others. You need the credibility and interpersonal skills to make both of those conversations land.
+Cross-functional instincts. You default to understanding how your org's processes affect and are affected by the teams around you - not just optimising in isolation.
+Experience building peer networks or communities of practice. You've recruited and sustained volunteer contributors before, whether as a guild lead, champion program owner, or community organizer. You know how to motivate people whose time you don't directly own.
+Hands-On & Technical
+Comfortable building with AI tools. You don't need to write production code, but you should be able to build a working agent, configure a skill, connect an MCP server, and troubleshoot when something isn't working. Think: power user, not software engineer.
+Ready to learn fast. Experience with or willingness to quickly pick up no-code/low-code AI platforms, prompt engineering, and agent configuration. You'll be trained on GitLab's specific tooling, but you should arrive ready to get your hands dirty.
+Strong conceptual understanding of AI capabilities - summarization, classification, generation, automation, agentic workflows - and a commitment to staying current. The landscape shifts constantly. The tools you use today may be obsolete in weeks. You stay on top of new developments so that your org's AI strategy reflects what's actually possible, not what was possible six months ago.
+Ability to map data flows - structured and unstructured. Understand where agents need context, and figure out where humans should interface with automated workflows and at what steps.
+About the team
+You will partner closely with Enterprise AI within the Enterprise Technology & AI organization, while remaining embedded in your own function. Enterprise AI provides the technical delivery capability, platforms, and patterns. You provide the business context, prioritization, building at the no-code layer, and adoption muscle. Together, you form the core of your function's AI transformation.
+
+The base salary range for this role's listed level is currently for residents of the United States only. This range is intended to reflect the role's base salary rate in locations throughout the US. Grade level and salary ranges are determined through interviews and a review of education, experience, knowledge, skills, abilities of the applicant, equity with other team members, alignment with market data, and geographic location. The base salary range does not include any bonuses, equity, or benefits. See more information on our benefits and equity. Sales roles are also eligible for incentive pay targeted at up to 100% of the offered base salary.
+
+United States Salary Range
+
+$203,200 - $345,600 USD
+
+How GitLab Supports Full-Time Employees
+Benefits to support your health, finances, and well-being
+Flexible Paid Time Off 
+Team Member Resource Groups
+Equity Compensation & Employee Stock Purchase Plan
+Growth and Development Fund
+Parental Leave 
+Please note that we welcome interest from candidates with varying levels of experience; many successful candidates do not meet every single requirement. Additionally, studies have shown that people from underrepresented groups are less likely to apply to a job unless they meet every single qualification. If you're excited about this role, please apply and allow our recruiters to assess your application.
+
+Country Hiring Guidelines: GitLab hires new team members in countries around the world. All of our roles are remote, however some roles may carry specific location-based eligibility requirements. Our Talent Acquisition team can help answer any questions about location after starting the recruiting process. 
+
+Privacy Policy: Please review our Recruitment Privacy Policy. Your privacy is important to us.
+
+GitLab is proud to be an equal opportunity workplace and is an affirmative action employer. GitLab's policies and practices relating to recruitment, employment, career development and advancement, promotion, and retirement are based solely on merit, regardless of race, color, religion, ancestry, sex (including pregnancy, lactation, sexual orientation, gender identity, or gender expression), national origin, age, citizenship, marital status, mental or physical disability, genetic information (including family medical history), discharge status from the military, protected veteran status (which includes disabled veterans, recently separated veterans, active duty wartime or campaign badge veterans, and Armed Forces service medal veterans), or any other basis protected by law. GitLab will not tolerate discrimination or harassment based on any of these characteristics. See also GitLab's EEO Policy and EEO is the Law. If you have a disability or special need that requires accommodation, please let us know during the recruiting process.
+
+Apply for this job
+*
+
+indicates a required field
+
+First Name*
+Last Name*
+Email*
+Phone
+Country
+
+Phone
+Resume/CV*
+AttachNenhum arquivo escolhido
+Enter manually
+Accepted file types: pdf, doc, docx, txt, rtf
+
+Cover Letter
+AttachNenhum arquivo escolhido
+Enter manually
+Accepted file types: pdf, doc, docx, txt, rtf
+
+LinkedIn Profile
+What's the name you'd prefer us to use throughout the interview process?
+Please choose the country in which you are located.*
+Select...
+
+Are you subject to any employment agreements and/or post-employment restrictions with your current employer or a past employer?*
+Select...
+
+It is important to us to create an accessible and inclusive interview experience. Please let us know if there are any adjustments we can make to assist you during the hiring and interview process.
+Will you now or in the future require sponsorship for a visa to remain in your current location?*
+Select...
+
+Have you previously worked at or consulted for GitLab?*
+Select...
+
+What is your current country of residence?*
+Select...
+
+Voluntary Self-Identification
+For government reporting purposes, we ask candidates to respond to the below self-identification survey. Completion of the form is entirely voluntary. Whatever your decision, it will not be considered in the hiring process or thereafter. Any information that you do provide will be recorded and maintained in a confidential file.
+
+As set forth in GitLab's Equal Employment Opportunity policy, we do not discriminate on the basis of any protected group status under any applicable law.
+
+Gender
+Select...
+
+Are you Hispanic/Latino?
+Select...
+
+Race & Ethnicity Definitions
+If you believe you belong to any of the categories of protected veterans listed below, please indicate by making the appropriate selection. As a government contractor subject to the Vietnam Era Veterans Readjustment Assistance Act (VEVRAA), we request this information in order to measure the effectiveness of the outreach and positive recruitment efforts we undertake pursuant to VEVRAA. Classification of protected categories is as follows:
+
+A ""disabled veteran"" is one of the following: a veteran of the U.S. military, ground, naval or air service who is entitled to compensation (or who but for the receipt of military retired pay would be entitled to compensation) under laws administered by the Secretary of Veterans Affairs; or a person who was discharged or released from active duty because of a service-connected disability.
+
+A ""recently separated veteran"" means any veteran during the three-year period beginning on the date of such veteran's discharge or release from active duty in the U.S. military, ground, naval, or air service.
+
+An ""active duty wartime or campaign badge veteran"" means a veteran who served on active duty in the U.S. military, ground, naval or air service during a war, or in a campaign or expedition for which a campaign badge has been authorized under the laws administered by the Department of Defense.
+
+An ""Armed forces service medal veteran"" means a veteran who, while serving on active duty in the U.S. military, ground, naval or air service, participated in a United States military operation for which an Armed Forces service medal was awarded pursuant to Executive Order 12985.
+
+Veteran Status
+Select...
+
+Powered by",,,,
 gitlab-forward-deployed-engineer-ai,2,GitLab,gitlab-global,"Forward Deployed Engineer, AI and Agentic SDLC",other,,saved,High,Remote,"Remote, United States",company_site,2026-09-24,,,,,,,Implement AI and agentic software development lifecycle solutions directly with customers.,,,,1,9,"Perfect fusion of your Full-stack Web Dev background, agentic AI focus, and continuous improvement coaching for external clients.",general,,,,,,,,
 gitlab-principal-pm-ai-software-factory,3,GitLab,gitlab-global,"Principal Product Manager, AI Software Factory",po,,saved,Medium,Remote,"Remote, Canada; Remote, United States",company_site,2026-09-24,,,,,,,Lead product strategy and roadmaps for AI-driven software development tools.,,,,1,8,"Leverages your deep knowledge of CI/CD, agile frameworks, and applied AI. The Principal title requires proving top-tier strategic impact.",product-owner,,,,,,,,
 gitlab-ai-engineer,4,GitLab,gitlab-global,AI Engineer,ds,,saved,Medium,Remote,"Remote, Bangalore",company_site,2026-09-24,,,,,,,Develop and maintain AI capabilities and machine learning integrations for enterprise applications.,,,,1,8,"Excellent match for your Python, SQL, and LLM evaluation capabilities, integrating AI into live systems.",data-scientist,,,,,,,,

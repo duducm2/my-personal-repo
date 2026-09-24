@@ -1178,12 +1178,25 @@
 
     const actions = document.createElement("div");
     actions.className = "job-modal-actions";
+    const formPromptBtn = document.createElement("button");
+    formPromptBtn.type = "button";
+    formPromptBtn.className = "nav-btn";
+    formPromptBtn.textContent = "Generate form prompt";
+    formPromptBtn.title =
+      "Build AI companion prompt from pasted ATS / form page text (Alt+F)";
+    formPromptBtn.addEventListener("click", () => openFormPromptModal());
+    const formImportBtn = document.createElement("button");
+    formImportBtn.type = "button";
+    formImportBtn.className = "nav-btn";
+    formImportBtn.textContent = "Import form JSON";
+    formImportBtn.title = "Import AI companion form answers JSON";
+    formImportBtn.addEventListener("click", () => openFormImportModal());
     const autofill = document.createElement("button");
     autofill.type = "button";
     autofill.className = "save-btn";
-    autofill.textContent = "Autofill active application page";
+    autofill.textContent = "Fill with extension";
     autofill.title =
-      "Hand this opening to the Chrome autofill extension (never auto-submits)";
+      "Open form/source URL and hand this opening to the Chrome autofill extension (never auto-submits)";
     autofill.addEventListener("click", () => void startAutofillForOpening(row));
     const done = document.createElement("button");
     done.type = "button";
@@ -1197,13 +1210,17 @@
     del.textContent = "Delete opening";
     del.title = "Delete opening (Alt+Delete)";
     del.addEventListener("click", () => deleteOpening(row.id));
-    actions.append(autofill, done, del);
+    actions.append(formPromptBtn, formImportBtn, autofill, done, del);
     body.append(actions);
   }
 
   async function startAutofillForOpening(row) {
     if (!row || !row.id) return;
+    const parsed = parseApplicationAnswers(row.application_answers);
+    const formUrl = cell(parsed?.form_url).trim();
     const jobUrl = cell(row.job_url).trim();
+    const openUrl = formUrl || jobUrl;
+    const hasPayload = !!(parsed && parsed.fields && parsed.fields.length);
     try {
       const res = await fetch("/api/autofill/pending", {
         method: "POST",
@@ -1212,6 +1229,7 @@
           action: "set",
           job_id: row.id,
           job_url: jobUrl,
+          form_url: formUrl,
           role_title: cell(row.role_title),
           company: cell(row.company),
         }),
@@ -1219,7 +1237,6 @@
       const data = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(data.error || res.statusText);
 
-      // Prefer messaging the installed extension when the ID is known (optional).
       const extId = window.localStorage.getItem("career-autofill-extension-id");
       if (extId && typeof chrome !== "undefined" && chrome.runtime && chrome.runtime.sendMessage) {
         try {
@@ -1228,40 +1245,59 @@
             jobId: row.id,
           });
         } catch {
-          /* fall through to instructions */
+          /* fall through */
         }
       }
 
-      if (jobUrl) {
+      if (openUrl) {
         try {
           await fetch("/api/open-url", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ url: jobUrl }),
+            body: JSON.stringify({ url: openUrl }),
           });
         } catch {
-          window.open(jobUrl, "_blank", "noopener,noreferrer");
+          window.open(openUrl, "_blank", "noopener,noreferrer");
         }
       }
 
       setSaveStatus(
-        "Autofill ready — open the Career Cockpit Autofill side panel on the application tab and click Autofill."
+        hasPayload
+          ? "Payload ready — open the extension side panel on the form tab and click Fill this page."
+          : "No imported JSON yet — generate a form prompt, import AI JSON, then fill.",
       );
       window.alert(
         [
-          "Autofill prepared for:",
+          hasPayload
+            ? `Ready to fill (${parsed.fields.length} fields):`
+            : "No form answers imported yet:",
           `${cell(row.company)} — ${cell(row.role_title)}`,
           "",
-          jobUrl
-            ? "1) The job URL was opened (or use the tab you already have)."
-            : "1) Open the application form in Chrome.",
-          "2) Click the Career Cockpit Autofill extension → Open side panel.",
-          "3) Confirm the job is selected, then click Autofill this tab.",
+          formUrl
+            ? `Form page: ${formUrl}`
+            : jobUrl
+              ? `Source page: ${jobUrl}`
+              : "No form/source URL set.",
+          jobUrl && formUrl && jobUrl !== formUrl
+            ? `Source page: ${jobUrl}`
+            : "",
+          "",
+          hasPayload
+            ? [
+                "1) Confirm the form tab is open.",
+                "2) Open Career Cockpit Autofill → side panel.",
+                "3) Click Fill this page (payload must match this URL).",
+              ].join("\n")
+            : [
+                "1) Generate form prompt (paste ATS page text).",
+                "2) Paste AI JSON via Import form JSON (set form URL).",
+                "3) Then click Fill with extension again.",
+              ].join("\n"),
           "",
           "The extension never clicks Submit/Apply.",
-          "",
-          "First-time setup: chrome://extensions → Load unpacked → browser-extension/",
-        ].join("\n")
+        ]
+          .filter(Boolean)
+          .join("\n"),
       );
     } catch (err) {
       window.alert(`Could not prepare autofill: ${err.message || err}`);
@@ -3381,8 +3417,37 @@
       setSaveStatus("");
       fillModal();
     });
-    head.append(clearBtn);
+    const importBtn = document.createElement("button");
+    importBtn.type = "button";
+    importBtn.className = "nav-btn";
+    importBtn.textContent = "Re-import JSON";
+    importBtn.addEventListener("click", () => openFormImportModal());
+    const fillExt = document.createElement("button");
+    fillExt.type = "button";
+    fillExt.className = "save-btn";
+    fillExt.textContent = "Fill with extension";
+    fillExt.title =
+      "Open form URL and hand payload to the Chrome autofill extension";
+    fillExt.addEventListener("click", () => void startAutofillForOpening(row));
+    head.append(importBtn, fillExt, clearBtn);
     section.append(head);
+
+    if (parsed.form_url || parsed.source_url) {
+      const urls = document.createElement("div");
+      urls.className = "job-form-answer-note";
+      const parts = [];
+      if (parsed.form_url) {
+        parts.push(`Form page: ${parsed.form_url}`);
+      }
+      if (parsed.source_url && parsed.source_url !== parsed.form_url) {
+        parts.push(`Source page: ${parsed.source_url}`);
+      }
+      if (parsed.imported_at) {
+        parts.push(`Imported: ${parsed.imported_at}`);
+      }
+      urls.textContent = parts.join(" · ");
+      section.append(urls);
+    }
 
     const resumeChoice =
       cell(parsed.recommended_resume) || cell(row.recommended_resume);

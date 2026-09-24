@@ -94,6 +94,7 @@ def apply_feedback(
             "label": corr.get("label") or "",
             "name": corr.get("name") or "",
             "id": corr.get("id") or "",
+            "source": corr.get("source") or "heuristic",
             "updated_at": now,
             "job_id": job_id,
             "url": url,

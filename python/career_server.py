@@ -21,6 +21,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from autofill_data_source import (  # noqa: E402
     build_autofill_bundle,
     default_mappings_path,
+    find_payload_by_url,
     list_autofill_jobs,
 )
 from autofill_feedback import apply_feedback, load_mappings  # noqa: E402
@@ -588,6 +589,21 @@ class CareerHandler(BaseHTTPRequestHandler):
                         ),
                     },
                 )
+                return
+            if path == "/api/autofill/answers-for-url":
+                from urllib.parse import parse_qs
+
+                qs = parse_qs(urlparse(self.path).query or "")
+                url = (qs.get("url") or [""])[0].strip()
+                job_id = (qs.get("job_id") or [""])[0].strip() or None
+                if not url and not job_id:
+                    self._json(400, {"ok": False, "error": "url or job_id required"})
+                    return
+                collections = self.store.load_all()
+                result = find_payload_by_url(
+                    collections, url=url, job_id=job_id
+                )
+                self._json(200, result)
                 return
             if path.startswith("/download/"):
                 self._serve_download(path)

@@ -17,8 +17,85 @@ header h1 {
 }
 
 .sub {
-  margin: 0 0 14px;
+  margin: 0 0 12px;
   color: #656d76;
+}
+
+.stepper {
+  list-style: none;
+  margin: 0 0 12px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.stepper li {
+  background: #fff;
+  border: 1px solid #d0d7de;
+  border-radius: 8px;
+  padding: 6px 8px;
+  color: #656d76;
+  font-size: 11px;
+}
+
+.stepper li::before {
+  content: attr(data-step) ". ";
+  font-weight: 700;
+  color: #8c959f;
+}
+
+.stepper li.is-done {
+  border-color: #2da44e;
+  color: #1a7f37;
+  background: #dafbe1;
+}
+
+.stepper li.is-done::before {
+  color: #1a7f37;
+}
+
+.stepper li.is-active {
+  border-color: #6e49cb;
+  color: #3b1f7a;
+  background: #f0e7ff;
+  font-weight: 600;
+}
+
+.stepper li.is-active::before {
+  color: #6e49cb;
+}
+
+.banner {
+  border-radius: 8px;
+  padding: 8px 10px;
+  margin-bottom: 12px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.banner-ok {
+  background: #dafbe1;
+  color: #1a7f37;
+  border: 1px solid #4ac26b;
+}
+
+.banner-warn {
+  background: #fff8c5;
+  color: #7d4e00;
+  border: 1px solid #d4a72c;
+}
+
+.banner-err {
+  background: #ffebe9;
+  color: #a40e26;
+  border: 1px solid #ff8182;
+}
+
+.banner-info {
+  background: #ddf4ff;
+  color: #0550ae;
+  border: 1px solid #54aeff;
 }
 
 .block {
@@ -31,8 +108,7 @@ label {
   margin-bottom: 4px;
 }
 
-input,
-select {
+input {
   width: 100%;
   box-sizing: border-box;
   padding: 7px 8px;
@@ -44,6 +120,7 @@ select {
 
 .actions {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
 }
 
@@ -62,21 +139,29 @@ button.primary {
   flex: 1;
 }
 
+button.primary:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
 button.secondary {
   background: #fff;
 }
 
-button.linkish {
-  margin-top: 6px;
-  border: none;
-  background: transparent;
-  color: #6e49cb;
-  padding: 0;
-  text-decoration: underline;
-}
-
 .muted {
   color: #656d76;
+  font-size: 12px;
+}
+
+.tab-line {
+  font-weight: 600;
+  word-break: break-word;
+}
+
+.tab-url {
+  font-size: 11px;
+  word-break: break-all;
+  margin-top: 2px;
 }
 
 .log {
