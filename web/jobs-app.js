@@ -3217,7 +3217,12 @@
         status.textContent = "Cover letter PDF ready";
         status.className = "save-status ok";
       }
-      showToast("Cover letter PDF built", 2200);
+      showToast(
+        pdf.desktop_path
+          ? `Cover letter saved to Desktop`
+          : "Cover letter PDF built",
+        2800,
+      );
       closeCoverImportModal();
       if (openJobId === cell(row.id)) openModal(row.id);
       openResumeViewer({
@@ -3349,7 +3354,12 @@
     rebuild.addEventListener("click", async () => {
       try {
         const pdf = await compileCoverLetterPdf(row);
-        showToast("Cover letter PDF rebuilt", 2000);
+        showToast(
+          pdf.desktop_path
+            ? "Cover letter saved to Desktop"
+            : "Cover letter PDF rebuilt",
+          2200,
+        );
         openResumeViewer({
           label: `Cover letter · ${cell(row.company) || "Opening"}`,
           lang: pdf.lang,

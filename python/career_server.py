@@ -37,6 +37,10 @@ OUTPUT_DIR = ROOT_DIR / "output"
 AUTOFILL_MAPPINGS_PATH = default_mappings_path(ROOT_DIR)
 AUTOFILL_PENDING_PATH = ROOT_DIR / "my-data" / "autofill" / "pending.json"
 
+# Cover letters: Desktop deliverable + single overwriteable repo temp (no accumulation)
+COVER_LETTER_TEMP_FILENAME = "Cover-Letter-current.pdf"
+COVER_LETTER_CONTENT_FILENAME = "cover-current.typ"
+
 # Hard product rule: every resume PDF must fit on a single A4 page.
 RESUME_MAX_PAGES = 1
 RESUME_PAPER = "A4"
@@ -357,8 +361,47 @@ def _normalize_cover_closing(closing: str, formal_name: str, lang: str) -> str:
     return "\n".join(lines)
 
 
+def _desktop_dir() -> Path:
+    """Prefer OneDrive Desktop when present (common on this machine)."""
+    home = Path.home()
+    userprofile = Path(os.environ.get("USERPROFILE", "") or str(home))
+    candidates = [
+        userprofile / "OneDrive" / "Desktop",
+        home / "OneDrive" / "Desktop",
+        userprofile / "OneDrive" / "Ambiente de Trabalho",
+        home / "OneDrive" / "Ambiente de Trabalho",
+        userprofile / "Desktop",
+        home / "Desktop",
+    ]
+    for path in candidates:
+        if path.is_dir():
+            return path
+    fallback = userprofile / "Desktop"
+    fallback.mkdir(parents=True, exist_ok=True)
+    return fallback
+
+
+def _purge_stale_cover_letter_pdfs(cover_dir: Path, keep_name: str) -> None:
+    """Method 2: never accumulate cover-letter PDFs inside the repository."""
+    if not cover_dir.is_dir():
+        return
+    for path in cover_dir.glob("*.pdf"):
+        if path.name == keep_name:
+            continue
+        try:
+            path.unlink()
+        except OSError:
+            pass
+
+
 def build_cover_letter_pdf(payload: dict[str, Any]) -> dict[str, Any]:
-    """Compile a one-page Typst cover letter for a job opening."""
+    """Compile a one-page Typst cover letter for a job opening.
+
+    Storage policy (avoid repo bloat):
+    - Method 1: write the deliverable PDF to the local Desktop.
+    - Method 2: keep at most one overwriteable temp PDF under output/cover-letters/
+      for the cockpit viewer (never accumulate or commit multiple cover letters).
+    """
     opening_id = str(payload.get("opening_id") or "").strip()
     if not opening_id:
         raise ValueError("opening_id required")
@@ -408,14 +451,18 @@ def build_cover_letter_pdf(payload: dict[str, Any]) -> dict[str, Any]:
         )
 
     safe_id = _safe_opening_id(opening_id)
-    out_dir = OUTPUT_DIR / "cover-letters"
-    out_dir.mkdir(parents=True, exist_ok=True)
-    filename = f"Cover-Letter-{safe_id}-{lang.upper()}.pdf"
-    out_path = out_dir / filename
+    company_slug = _safe_opening_id(str(payload.get("company") or "company"))
+    # Method 2 — single overwriteable temp inside the repo (for viewer only)
+    temp_dir = OUTPUT_DIR / "cover-letters"
+    temp_dir.mkdir(parents=True, exist_ok=True)
+    _purge_stale_cover_letter_pdfs(temp_dir, COVER_LETTER_TEMP_FILENAME)
+    temp_filename = COVER_LETTER_TEMP_FILENAME
+    temp_path = temp_dir / temp_filename
+
     typst_dir = ROOT_DIR / "resume" / "typst"
     gen_dir = typst_dir / "_generated"
     gen_dir.mkdir(parents=True, exist_ok=True)
-    content_path = gen_dir / f"cover-{safe_id}-{lang}.typ"
+    content_path = gen_dir / COVER_LETTER_CONTENT_FILENAME
     template = typst_dir / "cover-letter.typ"
     fonts = typst_dir / "fonts"
     if not template.is_file():
@@ -437,6 +484,7 @@ def build_cover_letter_pdf(payload: dict[str, Any]) -> dict[str, Any]:
     }
     content_lines = [
         "// Generated cover-letter content — do not edit by hand.",
+        f"// opening_id={safe_id} lang={lang}",
     ]
     for key, value in fields.items():
         content_lines.append(f'#let cover-{key} = "{typ_escape(value)}"')
@@ -454,7 +502,7 @@ def build_cover_letter_pdf(payload: dict[str, Any]) -> dict[str, Any]:
         "--input",
         f"content={rel_content}",
         str(template),
-        str(out_path),
+        str(temp_path),
     ]
 
     try:
@@ -475,17 +523,28 @@ def build_cover_letter_pdf(payload: dict[str, Any]) -> dict[str, Any]:
         err = (completed.stderr or completed.stdout or "typst compile failed").strip()
         raise ValueError(err[:800])
 
-    if not out_path.is_file():
+    if not temp_path.is_file():
         raise ValueError("cover letter PDF was not created")
+
+    # Method 1 — deliverable lives on the Desktop (transient; not archived in git)
+    desktop = _desktop_dir()
+    desktop_filename = f"Cover-Letter-{company_slug}-{safe_id}-{lang.upper()}.pdf"
+    # Keep Desktop names readable but bounded
+    if len(desktop_filename) > 120:
+        desktop_filename = f"Cover-Letter-{safe_id}-{lang.upper()}.pdf"
+    desktop_path = desktop / desktop_filename
+    shutil.copy2(temp_path, desktop_path)
 
     return {
         "ok": True,
         "opening_id": opening_id,
         "lang": lang,
-        "filename": filename,
-        "abs_path": str(out_path.resolve()),
-        "url": f"/download/cover-letters/{filename}",
-        "view_url": f"/download/cover-letters/{filename}?inline=1",
+        "filename": temp_filename,
+        "abs_path": str(desktop_path.resolve()),
+        "desktop_path": str(desktop_path.resolve()),
+        "temp_path": str(temp_path.resolve()),
+        "url": f"/download/cover-letters/{temp_filename}",
+        "view_url": f"/download/cover-letters/{temp_filename}?inline=1",
     }
 
 
@@ -494,6 +553,10 @@ def resolve_cover_letter(filename: str) -> Path | None:
         return None
     if not filename.lower().endswith(".pdf"):
         return None
+    # Only the single overwriteable temp PDF is served from the repo.
+    if filename != COVER_LETTER_TEMP_FILENAME:
+        # Legacy named downloads → redirect to current temp if present
+        filename = COVER_LETTER_TEMP_FILENAME
     path = (OUTPUT_DIR / "cover-letters" / filename).resolve()
     cover_root = (OUTPUT_DIR / "cover-letters").resolve()
     if not str(path).startswith(str(cover_root)):
@@ -501,20 +564,6 @@ def resolve_cover_letter(filename: str) -> Path | None:
     if not path.is_file():
         return None
     return path
-
-
-def _desktop_dir() -> Path:
-    home = Path.home()
-    candidates = [
-        home / "Desktop",
-        home / "OneDrive" / "Desktop",
-        home / "OneDrive" / "Ambiente de Trabalho",
-        Path(os.environ.get("USERPROFILE", "")) / "Desktop",
-    ]
-    for path in candidates:
-        if path.is_dir():
-            return path
-    return home
 
 
 def write_ai_fix_document(kind: str, content: str) -> dict[str, Any]:
