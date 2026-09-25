@@ -1211,7 +1211,7 @@
     formImportBtn.type = "button";
     formImportBtn.className = "nav-btn";
     formImportBtn.textContent = "Import form JSON";
-    formImportBtn.title = "Import AI companion form answers JSON";
+    formImportBtn.title = "Import AI companion form answers JSON (Alt+A)";
     formImportBtn.addEventListener("click", () => openFormImportModal());
     const autofill = document.createElement("button");
     autofill.type = "button";
@@ -2184,17 +2184,19 @@
   }
 
   function selectedFormPromptPaths() {
-    return [
-      ...document.querySelectorAll(
-        '#form-prompt-paths input[type="checkbox"][name="form-prompt-path"]:checked',
-      ),
-    ].map((el) => cell(el.value).toLowerCase());
+    const id =
+      cell(document.getElementById("form-prompt-opening")?.value) ||
+      cell(openJobId);
+    const row = openings.find((r) => cell(r.id) === id);
+    const path = cell(row?.career_path).toLowerCase();
+    return path ? [path] : ["other"];
   }
 
   function fillFormPromptOpeningSelect() {
     const sel = document.getElementById("form-prompt-opening");
     if (!sel) return;
-    const prev = cell(sel.value) || openJobId;
+    // Prefer the open dossier so path/raw always match the modal opening
+    const prev = cell(openJobId) || cell(sel.value);
     sel.replaceChildren();
     const rows = openings.slice().sort((a, b) => {
       const ca = cell(a.company).localeCompare(cell(b.company));
@@ -2206,6 +2208,7 @@
       o.value = "";
       o.textContent = "(no openings)";
       sel.append(o);
+      syncFormPromptPathsFromOpening();
       return;
     }
     for (const row of rows) {
@@ -2227,21 +2230,10 @@
   function syncFormPromptPathsFromOpening() {
     const id = cell(document.getElementById("form-prompt-opening")?.value);
     const row = openings.find((r) => cell(r.id) === id);
-    const path = cell(row?.career_path).toLowerCase() || "dsa";
-    for (const el of document.querySelectorAll(
-      '#form-prompt-paths input[name="form-prompt-path"]',
-    )) {
-      el.checked = cell(el.value).toLowerCase() === path;
-    }
-    if (
-      !document.querySelector(
-        '#form-prompt-paths input[name="form-prompt-path"]:checked',
-      )
-    ) {
-      const dsa = document.querySelector(
-        '#form-prompt-paths input[name="form-prompt-path"][value="dsa"]',
-      );
-      if (dsa) dsa.checked = true;
+    const path = cell(row?.career_path).toLowerCase() || "other";
+    const labelEl = document.getElementById("form-prompt-path-label");
+    if (labelEl) {
+      labelEl.textContent = row ? `${pathLabel(path)} (${path})` : "—";
     }
   }
 
@@ -2435,7 +2427,7 @@
     }
     if (!careerPaths.length) {
       if (status) {
-        status.textContent = "Pick at least one career path.";
+        status.textContent = "Opening has no career path set.";
         status.className = "save-status err";
       }
       return;
@@ -3325,6 +3317,10 @@
   }
 
   function openFormPromptModal() {
+    if (!openJobId) {
+      showToast("Open a job opening first to generate a form prompt", 2500);
+      return;
+    }
     fillFormPromptOpeningSelect();
     const openingId =
       cell(document.getElementById("form-prompt-opening")?.value) ||
@@ -3352,6 +3348,10 @@
   }
 
   function openFormImportModal() {
+    if (!openJobId) {
+      showToast("Open a job opening first to import form answers", 2500);
+      return;
+    }
     const dialog = document.getElementById("form-import-modal");
     const status = document.getElementById("form-import-status");
     const rawEl = document.getElementById("form-import-raw");
@@ -4027,16 +4027,16 @@
           return;
         }
 
-        // Generate form prompt — Alt+F
-        if (!typing && code === "KeyF") {
+        // Generate form prompt — Alt+F (job opening modal only)
+        if (modalOpen && !typing && code === "KeyF") {
           event.preventDefault();
           event.stopPropagation();
           openFormPromptModal();
           return;
         }
 
-        // Import form result — Alt+A
-        if (!typing && code === "KeyA") {
+        // Import form result — Alt+A (job opening modal only)
+        if (modalOpen && !typing && code === "KeyA") {
           event.preventDefault();
           event.stopPropagation();
           openFormImportModal();
@@ -4394,12 +4394,6 @@
     document
       .getElementById("job-import-btn")
       ?.addEventListener("click", () => openImportModal());
-    document
-      .getElementById("job-form-prompt-btn")
-      ?.addEventListener("click", () => openFormPromptModal());
-    document
-      .getElementById("job-form-import-btn")
-      ?.addEventListener("click", () => openFormImportModal());
     document
       .getElementById("job-cover-prompt-btn")
       ?.addEventListener("click", () => openCoverPromptModal());

@@ -91,33 +91,6 @@
                   </button>
                 </div>
               </div>
-              <div
-                class="toolbar-group"
-                role="group"
-                aria-label="Application form fill"
-              >
-                <span class="toolbar-group-label">Form fill</span>
-                <div class="toolbar-group-btns">
-                  <button
-                    type="button"
-                    id="job-form-prompt-btn"
-                    class="add-btn"
-                    title="Generate form prompt (Alt+F)"
-                  >
-                    Generate form prompt
-                    <kbd class="btn-kbd">Alt+F</kbd>
-                  </button>
-                  <button
-                    type="button"
-                    id="job-form-import-btn"
-                    class="add-btn"
-                    title="Import form result (Alt+A)"
-                  >
-                    Import form result
-                    <kbd class="btn-kbd">Alt+A</kbd>
-                  </button>
-                </div>
-              </div>
               <div class="toolbar-group" role="group" aria-label="Cover letter">
                 <span class="toolbar-group-label">Cover letter</span>
                 <div class="toolbar-group-btns">
@@ -429,47 +402,24 @@
               <span class="company-research-label">Opening</span>
               <select id="form-prompt-opening" class="field-input"></select>
             </label>
-            <fieldset class="company-edit-field prompt-path-fieldset">
-              <legend class="company-research-label">
-                Career path context
-              </legend>
-              <div
-                id="form-prompt-paths"
-                class="prompt-path-checks"
-                role="group"
-                aria-label="Career path context"
+            <div class="company-edit-field">
+              <span class="company-research-label">Career path context</span>
+              <p
+                id="form-prompt-path-label"
+                class="field-input"
+                style="
+                  margin: 0;
+                  min-height: 2.4em;
+                  display: flex;
+                  align-items: center;
+                "
               >
-                <label class="prompt-path-check">
-                  <input type="checkbox" name="form-prompt-path" value="da" />
-                  Data Analyst
-                </label>
-                <label class="prompt-path-check">
-                  <input type="checkbox" name="form-prompt-path" value="po" />
-                  Product Owner
-                </label>
-                <label class="prompt-path-check">
-                  <input
-                    type="checkbox"
-                    name="form-prompt-path"
-                    value="dsa"
-                    checked
-                  />
-                  Digital Solution Architect
-                </label>
-                <label class="prompt-path-check">
-                  <input type="checkbox" name="form-prompt-path" value="ds" />
-                  Data Scientist
-                </label>
-                <label class="prompt-path-check">
-                  <input
-                    type="checkbox"
-                    name="form-prompt-path"
-                    value="other"
-                  />
-                  Other / general
-                </label>
-              </div>
-            </fieldset>
+                —
+              </p>
+              <span class="job-modal-hint" style="margin-top: 4px"
+                >Taken automatically from this opening’s career path.</span
+              >
+            </div>
           </div>
           <label class="company-edit-field">
             <span class="company-research-label"
