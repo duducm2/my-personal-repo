@@ -2796,12 +2796,42 @@ body.lang-en .field-row {
   color: var(--muted);
 }
 
+.job-application-form {
+  margin: 14px 0 10px;
+  padding: 12px 14px;
+  border: 1px solid color-mix(in srgb, var(--gold) 28%, var(--line));
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--panel) 88%, #2a2a30);
+}
+
+.job-application-form > .company-edit-field {
+  margin-top: 4px;
+}
+
+.job-application-form > .company-result-link {
+  display: inline-block;
+  margin: 4px 0 6px;
+}
+
+.job-form-answers-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
 .job-form-answers {
   margin: 14px 0 10px;
   padding: 10px 12px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: color-mix(in srgb, var(--panel) 88%, #2a2a30);
+}
+
+.job-form-answers-inner {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
 }
 
 .job-form-answers-head {

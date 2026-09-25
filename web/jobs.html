@@ -91,29 +91,6 @@
                   </button>
                 </div>
               </div>
-              <div class="toolbar-group" role="group" aria-label="Cover letter">
-                <span class="toolbar-group-label">Cover letter</span>
-                <div class="toolbar-group-btns">
-                  <button
-                    type="button"
-                    id="job-cover-prompt-btn"
-                    class="add-btn"
-                    title="Generate cover letter prompt (Alt+C)"
-                  >
-                    Generate cover prompt
-                    <kbd class="btn-kbd">Alt+C</kbd>
-                  </button>
-                  <button
-                    type="button"
-                    id="job-cover-import-btn"
-                    class="add-btn"
-                    title="Import cover letter &amp; build PDF (Alt+L)"
-                  >
-                    Import cover letter
-                    <kbd class="btn-kbd">Alt+L</kbd>
-                  </button>
-                </div>
-              </div>
               <button
                 type="button"
                 id="job-bulk-btn"
@@ -595,6 +572,14 @@
           <div class="job-modal-actions">
             <button type="button" id="cover-prompt-copy-btn" class="save-btn">
               Copy prompt
+            </button>
+            <button
+              type="button"
+              id="cover-prompt-import-link"
+              class="nav-btn"
+              title="After the AI replies — open Import cover letter (Alt+L)"
+            >
+              Import cover letter →
             </button>
             <span
               id="cover-prompt-status"

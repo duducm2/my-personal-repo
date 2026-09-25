@@ -1,0 +1,13 @@
+// Generated cover-letter content — do not edit by hand.
+#let cover-name = "Eduardo M. de A. Figueiredo"
+#let cover-phone = "+55 (19) 98176-6583"
+#let cover-email = "edu.evangelista.figueiredo@gmail.com"
+#let cover-location = "Nova Odessa, SP - Brazil"
+#let cover-linkedin = "https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b"
+#let cover-date = "September 24, 2026"
+#let cover-company = "GitLab"
+#let cover-role = "Forward Deployed Engineer, AI and Agentic SDLC"
+#let cover-greeting = "Dear GitLab Hiring Team,"
+#let cover-body = "I am writing to express my strong interest in the Forward Deployed Engineer, AI and Agentic SDLC role at GitLab. With a background spanning applied research, full-stack software development, and continuous improvement, I focus on building reliable systems and agentic workflows that solve concrete user friction. Translating customer needs into robust, maintainable technical solutions is central to my daily work.\n\nMy experience aligns directly with the demands of forward-deployed AI engineering in three key areas. First, I bring hands-on experience designing and evaluating agentic AI workflows and data-driven systems using Python, data analytics, and modern development stacks. Through my Master's research in Information and Communication Systems at Unicamp (approved September 2026), I specialized in evaluating perceived software quality, human-AI interaction, and system trust, giving me practical rigor in diagnosing unreliability, latency, and failure points in complex tooling.\n\nSecond, my tenure across global teams at Bosch—serving as a Technology Researcher and Designer, Web Developer in React, and Continuous Improvement Analyst—has centered on deploying solutions directly alongside stakeholders. Whether digitizing enterprise systems in Budapest or engineering front-end tooling within agile frameworks, I have consistently worked in production environments to convert ambiguous operational requirements into usable platforms.\n\nFinally, my work combines rapid technical implementation with systematic continuous improvement. I bridge architecture and developer experience by instrumenting feedback loops, clear documentation, and reusable patterns that development teams can adopt seamlessly. I am excited to bring this pragmatic, customer-aligned engineering approach to GitLab Duo and help scale agentic SDLC capabilities across enterprise environments."
+#let cover-closing = "Sincerely,\nEduardo M. de A. Figueiredo"
+#let cover-lang = "en"

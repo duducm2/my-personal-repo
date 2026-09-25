@@ -1106,27 +1106,6 @@
       link.textContent = "Open posting →";
       urlBlock.append(link);
     }
-    const formUrlField = fieldBlock(
-      "Application form URL (autofill target — may differ / change)",
-      textInput(row, "form_url", {
-        placeholder: "https://…/apply or …/jobs/…#app",
-      }),
-    );
-    urlBlock.append(formUrlField);
-    if (cell(row.form_url)) {
-      const formLink = document.createElement("a");
-      formLink.className = "company-result-link";
-      formLink.href = cell(row.form_url);
-      formLink.target = "_blank";
-      formLink.rel = "noopener noreferrer";
-      formLink.textContent = "Open form →";
-      urlBlock.append(formLink);
-    }
-    const urlHint = document.createElement("p");
-    urlHint.className = "job-modal-hint";
-    urlHint.textContent =
-      "The Chrome extension matches the application form URL, not the posting URL. Update form URL whenever the ATS redirects or the apply link changes.";
-    urlBlock.append(urlHint);
     body.append(urlBlock);
 
     body.append(
@@ -1170,7 +1149,7 @@
       ),
     );
 
-    renderFormAnswersPanel(row, body);
+    renderApplicationFormPanel(row, body);
     renderCoverLetterPanel(row, body);
 
     const related = platforms.filter(
@@ -1200,26 +1179,6 @@
 
     const actions = document.createElement("div");
     actions.className = "job-modal-actions";
-    const formPromptBtn = document.createElement("button");
-    formPromptBtn.type = "button";
-    formPromptBtn.className = "nav-btn";
-    formPromptBtn.textContent = "Generate form prompt";
-    formPromptBtn.title =
-      "Build AI companion prompt from pasted ATS / form page text (Alt+F)";
-    formPromptBtn.addEventListener("click", () => openFormPromptModal());
-    const formImportBtn = document.createElement("button");
-    formImportBtn.type = "button";
-    formImportBtn.className = "nav-btn";
-    formImportBtn.textContent = "Import form JSON";
-    formImportBtn.title = "Import AI companion form answers JSON (Alt+A)";
-    formImportBtn.addEventListener("click", () => openFormImportModal());
-    const autofill = document.createElement("button");
-    autofill.type = "button";
-    autofill.className = "save-btn";
-    autofill.textContent = "Fill with extension";
-    autofill.title =
-      "Open form/source URL and hand this opening to the Chrome autofill extension (never auto-submits)";
-    autofill.addEventListener("click", () => void startAutofillForOpening(row));
     const done = document.createElement("button");
     done.type = "button";
     done.className = "save-btn";
@@ -1232,7 +1191,7 @@
     del.textContent = "Delete opening";
     del.title = "Delete opening (Alt+Delete)";
     del.addEventListener("click", () => deleteOpening(row.id));
-    actions.append(formPromptBtn, formImportBtn, autofill, done, del);
+    actions.append(done, del);
     body.append(actions);
   }
 
@@ -1504,6 +1463,48 @@
     return getLangMode() === "pt" ? "pt" : "en";
   }
 
+  /**
+   * Language for materials sent to the employer (résumé, cover letter).
+   * Driven by the opening/company locale — not the cockpit UI language.
+   */
+  function guessApplicationLang(opening) {
+    const location = cell(opening?.location);
+    const company = cell(opening?.company);
+    const role = cell(opening?.role_title);
+    const jd = cell(opening?.job_description);
+    const blob = [location, company, role, jd].join(" ").toLowerCase();
+
+    const ptSignals =
+      /\b(brasil|brazil|brasileir|campinas|são paulo|sao paulo|rio de janeiro|curitiba|belo horizonte|porto alegre|brasília|brasilia|remot[oa]\s*(no\s*)?brasil|work\s*mode.*brasil)/i.test(
+        blob,
+      ) ||
+      /\b(sp|rj|mg|pr|rs|sc|df)\b[,.]?\s*(brasil|brazil)?/i.test(location) ||
+      (/[áàâãéêíóôõúç]/i.test(jd) &&
+        !/\b(united states|usa|u\.s\.|united kingdom|uk|canada|remote,\s*united)/i.test(
+          blob,
+        ));
+
+    const enSignals =
+      /\b(united states|usa|u\.s\.a?\.?|united kingdom|u\.k\.|england|scotland|ireland|canada|germany|netherlands|remote,\s*united|english[- ]speaking)/i.test(
+        blob,
+      ) ||
+      /\b(gitlab|google|microsoft|amazon|meta|apple|netflix|spotify)\b/i.test(
+        company,
+      );
+
+    if (ptSignals && !enSignals) return "pt";
+    if (enSignals) return "en";
+    if (ptSignals) return "pt";
+
+    const saved = cell(opening?.cover_letter_lang).toLowerCase();
+    if (saved === "pt" || saved === "en") return saved;
+    return preferredResumeLang();
+  }
+
+  function guessCoverLang(opening) {
+    return guessApplicationLang(opening);
+  }
+
   function joinFsPath(root, ...parts) {
     const base = cell(root).replace(/[\\/]+$/, "");
     const sep = base.includes("\\") ? "\\" : "/";
@@ -1512,7 +1513,7 @@
     );
   }
 
-  async function resolveResumeFile(variant) {
+  async function resolveResumeFile(variant, opening) {
     const v = cell(variant);
     if (!v || !RESUME_OPTIONS.includes(v)) return null;
     // Always refresh — build status / abs_path can change without a full reload
@@ -1520,13 +1521,16 @@
     const data = await fetchDownloads();
     const items = Array.isArray(data.items) ? data.items : [];
     const outputDir = cell(data.output_dir);
-    const lang = preferredResumeLang();
+    const lang = opening
+      ? guessApplicationLang(opening)
+      : preferredResumeLang();
     const resumes = items.filter(
       (it) => cell(it.kind) === "resume" && cell(it.variant) === v,
     );
     if (!resumes.length) return { error: "unknown_variant" };
     const preferred =
       resumes.find((it) => cell(it.lang) === lang) ||
+      resumes.find((it) => cell(it.lang) === "en") ||
       resumes.find((it) => it.available !== false) ||
       resumes[0];
     const available = preferred && preferred.available !== false;
@@ -1554,6 +1558,7 @@
       absPath,
       filename: cell(preferred.filename),
       lang: cell(preferred.lang) || lang,
+      requestedLang: lang,
       url: cell(preferred.url),
       viewUrl:
         cell(preferred.view_url) ||
@@ -2729,7 +2734,9 @@
         const dialog = document.getElementById("form-import-modal");
         if (dialog && dialog.open) dialog.close();
         openModal(row.id);
-        const panel = document.getElementById("job-form-answers");
+        const panel =
+          document.getElementById("job-application-form") ||
+          document.getElementById("job-form-answers");
         if (panel)
           panel.scrollIntoView({ block: "nearest", behavior: "smooth" });
       } else if (status) {
@@ -2812,32 +2819,11 @@
     }, 3000);
   }
 
-  function guessCoverLang(opening) {
-    const blob = [
-      cell(opening?.location),
-      cell(opening?.job_description),
-      cell(opening?.company),
-      cell(opening?.role_title),
-    ]
-      .join(" ")
-      .toLowerCase();
-    if (
-      /\b(brasil|brazil|campinas|são paulo|sao paulo|sp\b|remot[oa].*br)/i.test(
-        blob,
-      ) ||
-      /[áàâãéêíóôõúç]/i.test(cell(opening?.job_description))
-    ) {
-      return "pt";
-    }
-    return cell(opening?.cover_letter_lang).toLowerCase() === "pt"
-      ? "pt"
-      : "en";
-  }
-
   function fillCoverPromptOpeningSelect() {
     const sel = document.getElementById("cover-prompt-opening");
     if (!sel) return;
-    const prev = cell(sel.value) || openJobId;
+    // Prefer the open dossier so cover letter always matches this opening
+    const prev = cell(openJobId) || cell(sel.value);
     sel.replaceChildren();
     const rows = openings.slice().sort((a, b) => {
       const ca = (cell(a.company) || cell(a.company_key)).toLowerCase();
@@ -2888,15 +2874,17 @@
       `5. Write the letter in language code: ${lang} (en = English, pt = Portuguese).`,
       "6. Match tone to the role (professional, concrete, human — not buzzword soup).",
       "7. Mention 2–3 concrete matches between my background and the job/project needs.",
-      "8. Return ONLY one JSON object (no markdown fences, no prose):",
+      "8. NEVER use nicknames, shortened forms, or parenthetical aliases (e.g. Edu, (Edu)).",
+      "   In the closing signature, use the exact Sign-off name from PROFILE CONTEXT.",
+      "9. Return ONLY one JSON object (no markdown fences, no prose):",
       "   {",
       `     "opening_id": "${openingId}",`,
       `     "lang": "${lang}",`,
       '     "greeting": "<salutation>",',
       '     "body": "<paragraphs separated by blank lines>",',
-      '     "closing": "<sign-off including my name on a new line>"',
+      '     "closing": "<sign-off; last line = exact Sign-off name>"',
       "   }",
-      "9. opening_id must equal the selected opening id provided above.",
+      "10. opening_id must equal the selected opening id provided above.",
     ].join("\n");
   }
 
@@ -2948,9 +2936,11 @@
     lines.push("");
     lines.push("=== PROFILE CONTEXT ===");
     lines.push(
-      `Name: ${cell(profile.display_name) || cell(profile.full_name)}`,
+      `Sign-off name (exact — use this in closing, no nicknames): ${
+        cell(profile.display_name) || cell(profile.full_name)
+      }`,
     );
-    lines.push(`Full name: ${cell(profile.full_name)}`);
+    lines.push(`Full legal name: ${cell(profile.full_name)}`);
     lines.push(
       `Location: ${cell(profile.location_en) || cell(profile.location_pt)}`,
     );
@@ -3056,6 +3046,8 @@
           status.className = "save-status ok";
         }
         showToast("Cover letter prompt copied", 2500);
+        const importLink = document.getElementById("cover-prompt-import-link");
+        if (importLink) importLink.focus();
       } else if (status) {
         status.textContent = "Clipboard blocked — see console / try again";
         status.className = "save-status err";
@@ -3066,6 +3058,49 @@
         status.className = "save-status err";
       }
     }
+  }
+
+  function stripNicknameParens(text) {
+    return String(text || "")
+      .replace(/\s*\([^)]{1,24}\)/g, "")
+      .replace(/[ \t]{2,}/g, " ")
+      .trim();
+  }
+
+  function normalizeCoverClosing(closing, formalName, lang) {
+    const formal =
+      stripNicknameParens(formalName) || String(formalName || "").trim();
+    const raw = cell(closing).trim();
+    if (!raw) {
+      const salutation = lang === "pt" ? "Atenciosamente," : "Sincerely,";
+      return formal ? `${salutation}\n${formal}` : salutation;
+    }
+    const lines = raw
+      .split("\n")
+      .map((line) => (line.trim() ? stripNicknameParens(line) : line));
+    while (lines.length && !lines[lines.length - 1].trim()) lines.pop();
+    if (formal) {
+      if (!lines.length) {
+        lines.push(formal);
+      } else {
+        const last = lines[lines.length - 1].trim();
+        const looksLikeName =
+          /[A-Za-zÀ-ÿ]/.test(last) && last.split(/\s+/).length >= 2;
+        const firstToken = formal.toLowerCase().split(/\s+/)[0] || "";
+        if (
+          looksLikeName ||
+          (firstToken && last.toLowerCase().includes(firstToken)) ||
+          formal.toLowerCase().includes(last.toLowerCase())
+        ) {
+          lines[lines.length - 1] = formal;
+        } else if (last.endsWith(",")) {
+          lines.push(formal);
+        } else {
+          lines.push(formal);
+        }
+      }
+    }
+    return lines.join("\n");
   }
 
   function parseCoverImportPayload(text) {
@@ -3151,7 +3186,17 @@
       row.cover_letter = payload.body;
       row.cover_letter_lang = payload.lang;
       row.cover_letter_greeting = payload.greeting;
-      row.cover_letter_closing = payload.closing;
+      {
+        const profileRow =
+          (collections.profile && collections.profile[0]) || {};
+        const formal =
+          cell(profileRow.display_name) || cell(profileRow.full_name);
+        row.cover_letter_closing = normalizeCoverClosing(
+          payload.closing,
+          formal,
+          payload.lang,
+        );
+      }
       collections.jobOpenings = openings;
       setDirty(true);
       if (status) {
@@ -3184,6 +3229,10 @@
   }
 
   function openCoverPromptModal() {
+    if (!openJobId) {
+      showToast("Open a job opening first to generate a cover letter", 2500);
+      return;
+    }
     fillCoverPromptOpeningSelect();
     const dialog = document.getElementById("cover-prompt-modal");
     const status = document.getElementById("cover-prompt-status");
@@ -3202,6 +3251,10 @@
   }
 
   function openCoverImportModal() {
+    if (!openJobId) {
+      showToast("Open a job opening first to import a cover letter", 2500);
+      return;
+    }
     const dialog = document.getElementById("cover-import-modal");
     const status = document.getElementById("cover-import-status");
     const rawEl = document.getElementById("cover-import-raw");
@@ -3450,36 +3503,95 @@
     if (dialog && dialog.open) dialog.close();
   }
 
-  function renderFormAnswersPanel(row, parent) {
+  function renderApplicationFormPanel(row, parent) {
     const section = document.createElement("section");
-    section.id = "job-form-answers";
-    section.className = "job-form-answers";
-    section.setAttribute("aria-label", "Application form answers");
+    section.id = "job-application-form";
+    section.className = "job-application-form";
+    section.setAttribute("aria-label", "Application form fill");
 
     const head = document.createElement("div");
     head.className = "job-form-answers-head";
     const title = document.createElement("h3");
     title.className = "company-research-label";
-    title.textContent = "Application form answers";
+    title.textContent = "Application form fill";
     head.append(title);
+
+    const actions = document.createElement("div");
+    actions.className = "job-form-answers-actions";
+    const formPromptBtn = document.createElement("button");
+    formPromptBtn.type = "button";
+    formPromptBtn.className = "nav-btn";
+    formPromptBtn.textContent = "Generate form prompt";
+    formPromptBtn.title =
+      "Build AI companion prompt from pasted ATS / form page text (Alt+F)";
+    formPromptBtn.addEventListener("click", () => openFormPromptModal());
+    const formImportBtn = document.createElement("button");
+    formImportBtn.type = "button";
+    formImportBtn.className = "nav-btn";
+    formImportBtn.textContent = "Import form JSON";
+    formImportBtn.title = "Import AI companion form answers JSON (Alt+A)";
+    formImportBtn.addEventListener("click", () => openFormImportModal());
+    const autofill = document.createElement("button");
+    autofill.type = "button";
+    autofill.className = "save-btn";
+    autofill.textContent = "Fill with extension";
+    autofill.title =
+      "Open form URL and hand this opening to the Chrome autofill extension (never auto-submits)";
+    autofill.addEventListener("click", () => void startAutofillForOpening(row));
+    actions.append(formPromptBtn, formImportBtn, autofill);
+    head.append(actions);
+    section.append(head);
+
+    const formUrlField = fieldBlock(
+      "Application form URL (autofill target — may differ / change)",
+      textInput(row, "form_url", {
+        placeholder: "https://…/apply or …/jobs/…#app",
+      }),
+    );
+    section.append(formUrlField);
+    if (cell(row.form_url)) {
+      const formLink = document.createElement("a");
+      formLink.className = "company-result-link";
+      formLink.href = cell(row.form_url);
+      formLink.target = "_blank";
+      formLink.rel = "noopener noreferrer";
+      formLink.textContent = "Open form →";
+      section.append(formLink);
+    }
+    const urlHint = document.createElement("p");
+    urlHint.className = "job-modal-hint";
+    urlHint.textContent =
+      "The extension matches this form URL (not the posting URL). Update it when the ATS redirects or the apply link changes.";
+    section.append(urlHint);
+
+    renderFormAnswersContent(row, section);
+    parent.append(section);
+  }
+
+  function renderFormAnswersContent(row, parent) {
+    const answers = document.createElement("div");
+    answers.id = "job-form-answers";
+    answers.className = "job-form-answers-inner";
+    answers.setAttribute("aria-label", "Application form answers");
 
     const parsed = parseApplicationAnswers(row.application_answers);
     if (!parsed || !parsed.fields.length) {
       const hint = document.createElement("p");
       hint.className = "job-modal-hint";
+      hint.style.marginBottom = "0";
       hint.textContent =
-        "No form answers yet. Generate a form prompt from the ATS page, then import the AI JSON.";
-      const gen = document.createElement("button");
-      gen.type = "button";
-      gen.className = "nav-btn";
-      gen.textContent = "Generate form prompt";
-      gen.addEventListener("click", () => openFormPromptModal());
-      head.append(gen);
-      section.append(head, hint);
-      parent.append(section);
+        "No form answers yet. Use Generate form prompt → Import form JSON above, then Fill with extension.";
+      answers.append(hint);
+      parent.append(answers);
       return;
     }
 
+    const answersHead = document.createElement("div");
+    answersHead.className = "job-form-answers-head";
+    const answersTitle = document.createElement("h4");
+    answersTitle.className = "company-research-label";
+    answersTitle.textContent = "Imported answers";
+    answersHead.append(answersTitle);
     const clearBtn = document.createElement("button");
     clearBtn.type = "button";
     clearBtn.className = "nav-btn";
@@ -3487,52 +3599,47 @@
     clearBtn.addEventListener("click", () => {
       clearOpeningFormAnswers(row, { refresh: true });
     });
-    const importBtn = document.createElement("button");
-    importBtn.type = "button";
-    importBtn.className = "nav-btn";
-    importBtn.textContent = "Re-import JSON";
-    importBtn.addEventListener("click", () => openFormImportModal());
-    const fillExt = document.createElement("button");
-    fillExt.type = "button";
-    fillExt.className = "save-btn";
-    fillExt.textContent = "Fill with extension";
-    fillExt.title =
-      "Open form URL and hand payload to the Chrome autofill extension";
-    fillExt.addEventListener("click", () => void startAutofillForOpening(row));
-    head.append(importBtn, fillExt, clearBtn);
-    section.append(head);
+    answersHead.append(clearBtn);
+    answers.append(answersHead);
 
-    if (cell(row.form_url) || parsed.form_url || parsed.source_url) {
+    if (parsed.form_url || parsed.source_url || parsed.imported_at) {
       const urls = document.createElement("div");
       urls.className = "job-form-answer-note";
       const parts = [];
-      const formShown =
-        cleanUrlValue(row.form_url) || cleanUrlValue(parsed.form_url);
-      if (formShown) {
-        parts.push(`Form page: ${formShown}`);
-      }
-      const srcShown =
-        cleanUrlValue(parsed.source_url) || cleanUrlValue(row.job_url);
-      if (srcShown && srcShown !== formShown) {
-        parts.push(`Source page: ${srcShown}`);
-      }
       if (parsed.imported_at) {
         parts.push(`Imported: ${parsed.imported_at}`);
       }
-      urls.textContent = parts.join(" · ");
-      section.append(urls);
+      const srcShown =
+        cleanUrlValue(parsed.source_url) || cleanUrlValue(row.job_url);
+      const formShown = cleanUrlValue(parsed.form_url);
+      if (formShown && formShown !== cleanUrlValue(row.form_url)) {
+        parts.push(`JSON form_url: ${formShown}`);
+      }
+      if (srcShown && srcShown !== cleanUrlValue(row.form_url)) {
+        parts.push(`Source page: ${srcShown}`);
+      }
+      if (parts.length) {
+        urls.textContent = parts.join(" · ");
+        answers.append(urls);
+      }
     }
 
     const resumeChoice =
       cell(parsed.recommended_resume) || cell(row.recommended_resume);
     if (resumeChoice) {
+      const resumeLang = guessApplicationLang(row);
+      const resumeLangLabel = resumeLang.toUpperCase();
       const resumeBar = document.createElement("div");
       resumeBar.className = "job-form-resume-pick";
       const resumeLab = document.createElement("span");
       resumeLab.className = "job-form-resume-pick-label";
-      resumeLab.textContent = "Upload this résumé";
+      resumeLab.textContent = `Upload this résumé (${resumeLangLabel})`;
+      resumeLab.title =
+        resumeLang === "pt"
+          ? "Matched to this opening’s locale (Portuguese materials)"
+          : "Matched to this opening’s locale (English materials)";
       const resumeVal = document.createElement("strong");
-      resumeVal.textContent = resumeChoice;
+      resumeVal.textContent = `${resumeChoice} · ${resumeLangLabel}`;
       const pathEl = document.createElement("code");
       pathEl.className = "job-form-resume-path";
       pathEl.textContent = "Resolving path…";
@@ -3555,7 +3662,7 @@
       openBtn.className = "save-btn";
       openBtn.textContent = "Open résumé";
       openBtn.disabled = true;
-      openBtn.title = "Open the PDF that matches this opening";
+      openBtn.title = `Open the ${resumeLangLabel} PDF recommended for this opening`;
       resumeBar.append(
         resumeLab,
         resumeVal,
@@ -3564,9 +3671,9 @@
         pathCopy,
         nameCopy,
       );
-      section.append(resumeBar);
+      answers.append(resumeBar);
 
-      resolveResumeFile(resumeChoice)
+      resolveResumeFile(resumeChoice, row)
         .then((file) => {
           if (!file || file.error || !file.absPath) {
             const err = file?.error || "missing_pdf";
@@ -3582,8 +3689,11 @@
             pathEl.classList.add("is-missing");
             return;
           }
+          const fileLang = (cell(file.lang) || resumeLang).toUpperCase();
+          resumeVal.textContent = `${resumeChoice} · ${fileLang}`;
+          resumeLab.textContent = `Upload this résumé (${fileLang})`;
           pathEl.textContent = file.absPath;
-          pathEl.title = `${file.filename} (${String(file.lang || "").toUpperCase()})`;
+          pathEl.title = `${file.filename} (${fileLang})`;
           pathCopy.disabled = false;
           pathCopy.addEventListener("click", async () => {
             const ok = await copyText(file.absPath);
@@ -3597,9 +3707,10 @@
           const viewUrl = cell(file.viewUrl) || cell(file.url);
           if (viewUrl) {
             openBtn.disabled = false;
+            openBtn.title = `Open ${file.filename}`;
             openBtn.addEventListener("click", () => {
               openResumeViewer({
-                label: resumeChoice,
+                label: `${resumeChoice} (${fileLang})`,
                 lang: file.lang,
                 filename: file.filename,
                 view_url: viewUrl,
@@ -3654,8 +3765,8 @@
       rowEl.append(meta, val, copyBtn);
       list.append(rowEl);
     }
-    section.append(list);
-    parent.append(section);
+    answers.append(list);
+    parent.append(answers);
   }
 
   function cancelPromptAutoClose(opts = {}) {
@@ -4043,16 +4154,16 @@
           return;
         }
 
-        // Generate cover letter prompt — Alt+C
-        if (!typing && code === "KeyC") {
+        // Generate cover letter prompt — Alt+C (job opening modal only)
+        if (modalOpen && !typing && code === "KeyC") {
           event.preventDefault();
           event.stopPropagation();
           openCoverPromptModal();
           return;
         }
 
-        // Import cover letter — Alt+L
-        if (!typing && code === "KeyL") {
+        // Import cover letter — Alt+L (job opening modal only)
+        if (modalOpen && !typing && code === "KeyL") {
           event.preventDefault();
           event.stopPropagation();
           openCoverImportModal();
@@ -4395,12 +4506,6 @@
       .getElementById("job-import-btn")
       ?.addEventListener("click", () => openImportModal());
     document
-      .getElementById("job-cover-prompt-btn")
-      ?.addEventListener("click", () => openCoverPromptModal());
-    document
-      .getElementById("job-cover-import-btn")
-      ?.addEventListener("click", () => openCoverImportModal());
-    document
       .getElementById("cover-prompt-modal-close")
       ?.addEventListener("click", () => closeCoverPromptModal());
     document
@@ -4409,6 +4514,12 @@
     document
       .getElementById("cover-prompt-copy-btn")
       ?.addEventListener("click", () => handleCoverPromptCopy());
+    document
+      .getElementById("cover-prompt-import-link")
+      ?.addEventListener("click", () => {
+        closeCoverPromptModal();
+        openCoverImportModal();
+      });
     document
       .getElementById("cover-import-run-btn")
       ?.addEventListener("click", () => handleCoverImportRun());

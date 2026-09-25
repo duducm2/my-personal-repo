@@ -6,6 +6,7 @@ import argparse
 import json
 import mimetypes
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -322,6 +323,40 @@ def _safe_opening_id(opening_id: str) -> str:
     return cleaned[:80]
 
 
+def _strip_nickname_parens(text: str) -> str:
+    """Remove parenthetical nicknames like '(Edu)' from cover-letter text."""
+    cleaned = re.sub(r"\s*\([^)]{1,24}\)", "", str(text or ""))
+    return re.sub(r"[ \t]{2,}", " ", cleaned).strip()
+
+
+def _normalize_cover_closing(closing: str, formal_name: str, lang: str) -> str:
+    """Keep sign-off formal: no nicknames; last name line matches profile."""
+    formal = _strip_nickname_parens(formal_name) or formal_name.strip()
+    raw = str(closing or "").strip()
+    if not raw:
+        salutation = "Atenciosamente," if lang == "pt" else "Sincerely,"
+        return f"{salutation}\n{formal}" if formal else salutation
+
+    lines = [_strip_nickname_parens(line) if line.strip() else line for line in raw.split("\n")]
+    # Drop trailing empties, then ensure signature is the formal name
+    while lines and not lines[-1].strip():
+        lines.pop()
+    if formal:
+        if not lines:
+            lines = [formal]
+        else:
+            last = lines[-1].strip()
+            # Replace last line when it looks like a personal name / contains nickname residue
+            looks_like_name = bool(re.search(r"[A-Za-zÀ-ÿ]", last)) and len(last.split()) >= 2
+            if looks_like_name or last.lower() in formal.lower() or formal.lower() in last.lower():
+                lines[-1] = formal
+            elif last.endswith(","):
+                lines.append(formal)
+            else:
+                lines.append(formal)
+    return "\n".join(lines)
+
+
 def build_cover_letter_pdf(payload: dict[str, Any]) -> dict[str, Any]:
     """Compile a one-page Typst cover letter for a job opening."""
     opening_id = str(payload.get("opening_id") or "").strip()
@@ -338,12 +373,15 @@ def build_cover_letter_pdf(payload: dict[str, Any]) -> dict[str, Any]:
     profile_rows = CanonicalStore(CANONICAL_DIR)._read_csv_loose("profile.csv")
     profile = profile_rows[0] if profile_rows else {}
 
-    name = str(
-        payload.get("name")
-        or profile.get("display_name")
-        or profile.get("full_name")
-        or ""
-    ).strip()
+    # Cover letters use formal display/full name only — never nicknames
+    name = _strip_nickname_parens(
+        str(
+            payload.get("name")
+            or profile.get("display_name")
+            or profile.get("full_name")
+            or ""
+        ).strip()
+    )
     phone = str(payload.get("phone") or profile.get("phone") or "").strip()
     email = str(payload.get("email") or profile.get("email") or "").strip()
     linkedin = str(payload.get("linkedin") or profile.get("linkedin_url") or "").strip()
@@ -353,6 +391,12 @@ def build_cover_letter_pdf(payload: dict[str, Any]) -> dict[str, Any]:
         or profile.get("location_en")
         or ""
     ).strip()
+
+    closing = _normalize_cover_closing(
+        str(payload.get("closing") or "").strip(),
+        name,
+        lang,
+    )
 
     def typ_escape(value: str) -> str:
         return (
@@ -388,7 +432,7 @@ def build_cover_letter_pdf(payload: dict[str, Any]) -> dict[str, Any]:
         "role": str(payload.get("role") or "").strip(),
         "greeting": str(payload.get("greeting") or "").strip(),
         "body": body,
-        "closing": str(payload.get("closing") or "").strip(),
+        "closing": closing,
         "lang": lang,
     }
     content_lines = [
