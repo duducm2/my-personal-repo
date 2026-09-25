@@ -341,7 +341,10 @@ def _normalize_cover_closing(closing: str, formal_name: str, lang: str) -> str:
         salutation = "Atenciosamente," if lang == "pt" else "Sincerely,"
         return f"{salutation}\n{formal}" if formal else salutation
 
-    lines = [_strip_nickname_parens(line) if line.strip() else line for line in raw.split("\n")]
+    lines = [
+        _strip_nickname_parens(line) if line.strip() else line
+        for line in raw.split("\n")
+    ]
     # Drop trailing empties, then ensure signature is the formal name
     while lines and not lines[-1].strip():
         lines.pop()
@@ -351,8 +354,14 @@ def _normalize_cover_closing(closing: str, formal_name: str, lang: str) -> str:
         else:
             last = lines[-1].strip()
             # Replace last line when it looks like a personal name / contains nickname residue
-            looks_like_name = bool(re.search(r"[A-Za-zÀ-ÿ]", last)) and len(last.split()) >= 2
-            if looks_like_name or last.lower() in formal.lower() or formal.lower() in last.lower():
+            looks_like_name = (
+                bool(re.search(r"[A-Za-zÀ-ÿ]", last)) and len(last.split()) >= 2
+            )
+            if (
+                looks_like_name
+                or last.lower() in formal.lower()
+                or formal.lower() in last.lower()
+            ):
                 lines[-1] = formal
             elif last.endswith(","):
                 lines.append(formal)
