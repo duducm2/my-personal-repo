@@ -642,9 +642,10 @@
     btn.dataset.url = cell(row.job_url);
     if (cell(row.job_url)) {
       btn.title =
-        "Click to edit · Ctrl/Cmd+Enter to open job URL · Ctrl/Cmd+click for bulk";
+        "Click to edit · Right-click to set status · Ctrl/Cmd+Enter to open job URL · Ctrl/Cmd+click for bulk";
     } else {
-      btn.title = "Click to edit · Ctrl/Cmd+click for bulk select";
+      btn.title =
+        "Click to edit · Right-click to set status · Ctrl/Cmd+click for bulk select";
     }
     btn.addEventListener("click", (e) => {
       const mod = e.ctrlKey || e.metaKey;
@@ -663,6 +664,13 @@
       }
       openModal(row.id);
     });
+    const onStatusMenu = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      showJobStatusMenu(e, row);
+    };
+    btn.addEventListener("contextmenu", onStatusMenu);
+    wrap.addEventListener("contextmenu", onStatusMenu);
 
     const top = document.createElement("div");
     top.className = "job-tile-top";
@@ -3925,6 +3933,118 @@
     setSaveStatus("");
     render();
     showToast(`Set ${n} opening${n === 1 ? "" : "s"} to ${next}`, 2200);
+  }
+
+  function setOpeningStatus(row, status) {
+    const next = cell(status).toLowerCase();
+    if (!row || !STATUS_OPTIONS.includes(next)) return false;
+    if (cell(row.status).toLowerCase() === next) return false;
+    row.status = next;
+    setDirty(true);
+    setSaveStatus("");
+    render();
+    showToast(
+      `Status → ${next}${cell(row.role_title) ? ` · ${cell(row.role_title)}` : ""}`,
+      2000,
+    );
+    return true;
+  }
+
+  let jobStatusMenuEl = null;
+  let jobStatusMenuOutsideBound = false;
+
+  function ensureJobStatusMenu() {
+    if (jobStatusMenuEl) return jobStatusMenuEl;
+    const menu = document.createElement("div");
+    menu.id = "job-status-menu";
+    menu.className = "job-status-menu";
+    menu.hidden = true;
+    menu.setAttribute("role", "menu");
+    menu.setAttribute("aria-label", "Set opening status");
+    document.body.append(menu);
+    jobStatusMenuEl = menu;
+    if (!jobStatusMenuOutsideBound) {
+      jobStatusMenuOutsideBound = true;
+      document.addEventListener(
+        "pointerdown",
+        (e) => {
+          if (!jobStatusMenuEl || jobStatusMenuEl.hidden) return;
+          if (jobStatusMenuEl.contains(e.target)) return;
+          hideJobStatusMenu();
+        },
+        true,
+      );
+      document.addEventListener(
+        "keydown",
+        (e) => {
+          if (e.key === "Escape") hideJobStatusMenu();
+        },
+        true,
+      );
+      window.addEventListener("scroll", () => hideJobStatusMenu(), true);
+      window.addEventListener("resize", () => hideJobStatusMenu());
+    }
+    return menu;
+  }
+
+  function hideJobStatusMenu() {
+    if (!jobStatusMenuEl) return;
+    jobStatusMenuEl.hidden = true;
+    jobStatusMenuEl.replaceChildren();
+  }
+
+  function showJobStatusMenu(event, row) {
+    const menu = ensureJobStatusMenu();
+    hideJobStatusMenu();
+    menu.hidden = false;
+
+    const head = document.createElement("div");
+    head.className = "job-status-menu-head";
+    head.textContent = "Set status";
+    menu.append(head);
+
+    const current = cell(row.status).toLowerCase();
+    for (const status of STATUS_OPTIONS) {
+      const item = document.createElement("button");
+      item.type = "button";
+      item.className =
+        "job-status-menu-item" +
+        (status === current ? " is-current" : "") +
+        ` job-status-menu-item--${statusTone(status)}`;
+      item.setAttribute("role", "menuitemradio");
+      item.setAttribute("aria-checked", status === current ? "true" : "false");
+      item.textContent = status;
+      if (status === current) {
+        const mark = document.createElement("span");
+        mark.className = "job-status-menu-check";
+        mark.textContent = "✓";
+        mark.setAttribute("aria-hidden", "true");
+        item.append(mark);
+      }
+      item.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        hideJobStatusMenu();
+        setOpeningStatus(row, status);
+      });
+      menu.append(item);
+    }
+
+    // Position near cursor, keep on-screen
+    const pad = 8;
+    menu.style.left = "0px";
+    menu.style.top = "0px";
+    const rect = menu.getBoundingClientRect();
+    let x = event.clientX;
+    let y = event.clientY;
+    if (x + rect.width + pad > window.innerWidth) {
+      x = Math.max(pad, window.innerWidth - rect.width - pad);
+    }
+    if (y + rect.height + pad > window.innerHeight) {
+      y = Math.max(pad, window.innerHeight - rect.height - pad);
+    }
+    menu.style.left = `${Math.max(pad, x)}px`;
+    menu.style.top = `${Math.max(pad, y)}px`;
   }
 
   function wireBulkStatusSelect() {
