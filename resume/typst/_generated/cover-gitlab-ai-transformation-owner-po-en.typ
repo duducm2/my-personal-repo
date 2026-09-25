@@ -1,0 +1,13 @@
+// Generated cover-letter content — do not edit by hand.
+#let cover-name = "Eduardo M. de A. Figueiredo"
+#let cover-phone = "+55 (19) 98176-6583"
+#let cover-email = "edu.evangelista.figueiredo@gmail.com"
+#let cover-location = "Nova Odessa, SP - Brazil"
+#let cover-linkedin = "https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b"
+#let cover-date = "September 24, 2026"
+#let cover-company = "GitLab"
+#let cover-role = "AI Transformation Owner, Product & Design"
+#let cover-greeting = "Dear GitLab Hiring Team,"
+#let cover-body = "I am writing to apply for the AI Transformation Owner, Product & Design role. As a UX researcher with a full-stack development background, I have spent my career helping teams ship usable, high-quality products. I am currently aligning my career path toward becoming an AI Scrum Master, making this opportunity to drive AI adoption across GitLab's product and design workflows a strong match for my expertise.\n\nIn my current role at Bosch, I focus on user experience and applied research within our main service unit. A core part of my work involves coaching colleagues on integrating UX methods into their own workflows and collaborating on global projects to design research-backed solutions. My prior experience as a Continuous Improvement Analyst and Web Developer means I map processes end-to-end. I look for constraints and identify where agentic AI, Python, and data pipelines can fundamentally rethink how work gets done - rather than just automating broken processes.\n\nThe AI Transformation Owner role requires a balance of strategic prioritization, rapid prototyping, and change management. I have extensive experience bridging the gap between technical feasibility and human adoption. Whether I am building interfaces in React, configuring data models in Power BI, or aligning stakeholders across global teams, my focus is on measurable outcomes and practical execution. I regularly guide technical initiatives, helping teams understand how to securely and effectively integrate new capabilities into their daily Agile routines.\n\nWith my Master's degree in Technology and a deep commitment to continuous improvement, I am well-prepared to partner with your AI engineers to build, evaluate, and scale agentic solutions. I would welcome the opportunity to bring my blend of applied research, technology, and project management to GitLab."
+#let cover-closing = "Thank you for your time and consideration.\n\nSincerely,\nEduardo (Edu) M. de A. Figueiredo"
+#let cover-lang = "en"
