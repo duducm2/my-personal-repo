@@ -215,6 +215,10 @@
                 role="group"
                 aria-label="Career path context"
               >
+                <label class="prompt-path-check prompt-path-check-all">
+                  <input type="checkbox" id="prompt-path-all" />
+                  Select all
+                </label>
                 <label class="prompt-path-check">
                   <input
                     type="checkbox"
@@ -268,7 +272,12 @@
             ></textarea>
           </label>
           <div class="job-modal-actions">
-            <button type="button" id="prompt-copy-btn" class="save-btn">
+            <button
+              type="button"
+              id="prompt-copy-btn"
+              class="save-btn"
+              title="Copy prompt (Ctrl+Enter or Shift+Enter)"
+            >
               Copy prompt
             </button>
             <button type="button" id="prompt-stay-btn" class="nav-btn" hidden>
@@ -335,7 +344,7 @@
               type="button"
               id="import-run-btn"
               class="save-btn"
-              title="Import (Ctrl+Enter)"
+              title="Import (Ctrl+Enter or Shift+Enter)"
             >
               Import
             </button>
@@ -415,7 +424,12 @@
             >
           </label>
           <div class="job-modal-actions">
-            <button type="button" id="form-prompt-copy-btn" class="save-btn">
+            <button
+              type="button"
+              id="form-prompt-copy-btn"
+              class="save-btn"
+              title="Copy prompt (Ctrl+Enter or Shift+Enter)"
+            >
               Copy prompt
             </button>
             <button
@@ -506,7 +520,7 @@
               type="button"
               id="form-import-run-btn"
               class="save-btn"
-              title="Import (Ctrl+Enter)"
+              title="Import (Ctrl+Enter or Shift+Enter)"
             >
               Import
             </button>
@@ -570,7 +584,12 @@
             ></textarea>
           </label>
           <div class="job-modal-actions">
-            <button type="button" id="cover-prompt-copy-btn" class="save-btn">
+            <button
+              type="button"
+              id="cover-prompt-copy-btn"
+              class="save-btn"
+              title="Copy prompt (Ctrl+Enter or Shift+Enter)"
+            >
               Copy prompt
             </button>
             <button
@@ -629,7 +648,7 @@
               type="button"
               id="cover-import-run-btn"
               class="save-btn"
-              title="Import &amp; build PDF (Ctrl+Enter)"
+              title="Import &amp; build PDF (Ctrl+Enter or Shift+Enter)"
             >
               Import &amp; build PDF
             </button>

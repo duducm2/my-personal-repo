@@ -1775,12 +1775,27 @@
     return lines.join("\n");
   }
 
-  function selectedPromptPaths() {
+  function promptPathBoxes() {
     return [
       ...document.querySelectorAll(
-        '#prompt-paths input[type="checkbox"][name="prompt-path"]:checked',
+        '#prompt-paths input[type="checkbox"][name="prompt-path"]',
       ),
-    ].map((el) => cell(el.value).toLowerCase());
+    ];
+  }
+
+  function syncSelectAllPaths() {
+    const all = document.getElementById("prompt-path-all");
+    if (!all) return;
+    const boxes = promptPathBoxes();
+    const checked = boxes.filter((el) => el.checked).length;
+    all.checked = boxes.length > 0 && checked === boxes.length;
+    all.indeterminate = checked > 0 && checked < boxes.length;
+  }
+
+  function selectedPromptPaths() {
+    return promptPathBoxes()
+      .filter((el) => el.checked)
+      .map((el) => cell(el.value).toLowerCase());
   }
 
   async function handleCopyPrompt() {
@@ -4192,30 +4207,27 @@
       const dialog = document.getElementById("job-modal");
       const modalOpen = !!(dialog && dialog.open);
 
-      // Ctrl/Cmd+Enter: import / close dossier / open focused job URL
+      // Ctrl/Cmd+Enter or Shift+Enter: proceed on the open prompt or import modal
+      const isEnter = event.key === "Enter" || event.code === "Enter";
+      if (isEnter && !event.altKey && (mod || event.shiftKey)) {
+        const proceed = [
+          ["form-import-modal", handleImportFormRun],
+          ["form-prompt-modal", handleCopyFormPrompt],
+          ["cover-import-modal", handleCoverImportRun],
+          ["cover-prompt-modal", handleCoverPromptCopy],
+          ["import-modal", handleImportRun],
+          ["prompt-modal", handleCopyPrompt],
+        ].find(([id]) => document.getElementById(id)?.open);
+        if (proceed) {
+          event.preventDefault();
+          proceed[1]();
+          return;
+        }
+      }
+
+      // Ctrl/Cmd+Enter: close dossier / open focused job URL
       if (mod && !event.altKey) {
-        const isEnter = event.key === "Enter" || event.code === "Enter";
         if (isEnter) {
-          const formImportOpen =
-            !!document.getElementById("form-import-modal")?.open;
-          if (formImportOpen) {
-            event.preventDefault();
-            handleImportFormRun();
-            return;
-          }
-          const coverImportOpen =
-            !!document.getElementById("cover-import-modal")?.open;
-          if (coverImportOpen) {
-            event.preventDefault();
-            handleCoverImportRun();
-            return;
-          }
-          const importOpen = !!document.getElementById("import-modal")?.open;
-          if (importOpen) {
-            event.preventDefault();
-            handleImportRun();
-            return;
-          }
           if (modalOpen) {
             event.preventDefault();
             void doneModal();
@@ -4511,6 +4523,20 @@
         if (e.target === promptDialog) closePromptModal();
       });
     }
+    document
+      .getElementById("prompt-path-all")
+      ?.addEventListener("change", (event) => {
+        const on = !!event.target.checked;
+        event.target.indeterminate = false;
+        for (const box of promptPathBoxes()) box.checked = on;
+      });
+    document
+      .getElementById("prompt-paths")
+      ?.addEventListener("change", (event) => {
+        if (event.target?.name !== "prompt-path") return;
+        syncSelectAllPaths();
+      });
+    syncSelectAllPaths();
     document
       .getElementById("prompt-copy-btn")
       ?.addEventListener("click", () => handleCopyPrompt());
