@@ -381,6 +381,54 @@
     return links;
   }
 
+  function urlEditField(row, key, label, opts = {}) {
+    const wrap = document.createElement("label");
+    wrap.className = "company-edit-field company-url-field";
+    const lab = document.createElement("span");
+    appendEn(lab, label);
+    const line = document.createElement("div");
+    line.className = "company-url-row";
+    const input = document.createElement("input");
+    input.className = "field-input";
+    input.type = "url";
+    input.spellcheck = false;
+    input.autocomplete = "off";
+    input.placeholder = opts.placeholder || "https://…";
+    input.value = cell(row[key]);
+    const open = document.createElement("a");
+    open.className = "nav-btn company-url-open";
+    open.textContent = "Open";
+    open.target = "_blank";
+    open.rel = "noopener noreferrer";
+    const syncOpen = () => {
+      const href = cell(input.value);
+      if (href) {
+        open.href = href;
+        open.hidden = false;
+      } else {
+        open.removeAttribute("href");
+        open.hidden = true;
+      }
+    };
+    syncOpen();
+    input.addEventListener("input", () => {
+      row[key] = input.value.trim();
+      setDirty(true);
+      setSaveStatus("");
+      syncOpen();
+      renderResults();
+    });
+    line.append(input, open);
+    wrap.append(lab, line);
+    if (opts.hint) {
+      const hint = document.createElement("span");
+      hint.className = "company-url-hint";
+      hint.textContent = opts.hint;
+      wrap.append(hint);
+    }
+    return wrap;
+  }
+
   function primaryCareersUrl(row) {
     return (
       cell(row.careers_url) || cell(row.ats_url) || cell(row.website) || ""
@@ -1159,17 +1207,22 @@
     }
     body.append(facts);
 
-    if (row.website) {
-      const link = document.createElement("a");
-      link.className = "company-result-link";
-      link.href = row.website;
-      link.target = "_blank";
-      link.rel = "noopener noreferrer";
-      link.textContent = "Website: " + row.website;
-      body.append(link);
-    }
-
-    appendCareerLinks(body, row);
+    const urls = document.createElement("div");
+    urls.className = "company-url-edits";
+    urls.append(
+      urlEditField(row, "careers_url", "Job openings portal", {
+        placeholder: "https://…/careers",
+        hint: "Opened from the company card (Ctrl+click). Change this when the portal link is wrong.",
+      }),
+      urlEditField(row, "website", "Company website", {
+        placeholder: "https://…",
+        hint: "Main company site. Used only if no job openings portal is set.",
+      }),
+      urlEditField(row, "ats_url", "ATS apply board", {
+        placeholder: "https://…",
+      }),
+    );
+    body.append(urls);
 
     const atsKind = cell(row.ats_kind).toLowerCase();
     if (atsKind || cell(row.ats_name)) {
