@@ -295,6 +295,7 @@ _BASE: dict[str, tuple[str, list[str]]] = {
         [
             "id",
             "sort_order",
+            "pinned",
             "company",
             "company_key",
             "role_title",

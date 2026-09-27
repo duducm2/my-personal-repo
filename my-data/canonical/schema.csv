@@ -315,6 +315,7 @@ companies.csv,notes_pt,Notes (PT),Notas (PT)
 companies.csv,notes_detail_pt,Detail: notes (PT),Detalhe: notes (PT)
 job_openings.csv,id,Opening ID,ID da vaga
 job_openings.csv,sort_order,Sort order,Ordem
+job_openings.csv,pinned,Pinned to top of its status,Fixado no topo do status
 job_openings.csv,company,Company,Empresa
 job_openings.csv,company_key,Company key,Chave da empresa
 job_openings.csv,role_title,Role title,Cargo

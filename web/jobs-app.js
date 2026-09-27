@@ -51,6 +51,7 @@
   const OPENING_FIELDS = [
     "id",
     "sort_order",
+    "pinned",
     "company",
     "company_key",
     "role_title",
@@ -604,6 +605,81 @@
     return c;
   }
 
+  function isPinned(row) {
+    const v = cell(row?.pinned).toLowerCase();
+    return v === "1" || v === "true" || v === "yes" || v === "y";
+  }
+
+  function pinRank(row) {
+    return isPinned(row) ? 0 : 1;
+  }
+
+  function focusJobCard(id) {
+    const sid = cell(id);
+    if (!sid) return;
+    requestAnimationFrame(() => {
+      const card = document.querySelector(
+        `#jobs-results .company-tile[data-id="${CSS.escape(sid)}"]`,
+      );
+      if (!card) return;
+      card.focus();
+      card.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    });
+  }
+
+  function togglePinned(row) {
+    row.pinned = isPinned(row) ? "" : "1";
+    setDirty(true);
+    const name = cell(row.role_title) || row.id;
+    setSaveStatus(
+      isPinned(row) ? `Pinned: ${name}` : `Unpinned: ${name}`,
+      "ok",
+    );
+    if (openJobId === row.id) fillModal();
+    renderResults();
+  }
+
+  function pinTargetOpening() {
+    if (openJobId) {
+      return openings.find((r) => r.id === openJobId) || null;
+    }
+    const card = focusedJobCard();
+    if (!card) return null;
+    return openings.find((r) => r.id === card.dataset.id) || null;
+  }
+
+  function pinFocusedOpening() {
+    const row = pinTargetOpening();
+    if (!row) {
+      setSaveStatus(
+        "Focus an opening card (or open its dossier) to pin",
+        "err",
+      );
+      return;
+    }
+    const fromCard = !openJobId;
+    togglePinned(row);
+    if (fromCard) focusJobCard(row.id);
+  }
+
+  function appendPinControl(parent, row) {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "pin-btn" + (isPinned(row) ? " is-on" : "");
+    btn.setAttribute("aria-pressed", isPinned(row) ? "true" : "false");
+    btn.title = isPinned(row)
+      ? "Unpin from this status (Alt+M)"
+      : "Pin to top of this status (Alt+M)";
+    btn.textContent = isPinned(row) ? "Pinned" : "Pin";
+    btn.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      togglePinned(row);
+    });
+    parent.append(btn);
+    return btn;
+  }
+
   function renderTile(row) {
     const status = cell(row.status).toLowerCase();
     const priority = cell(row.priority).toLowerCase();
@@ -637,15 +713,16 @@
     btn.className =
       "company-tile job-tile" +
       (status ? ` job-tile--${statusTone(status)}` : "") +
-      (priority === "high" ? " job-tile--high" : "");
+      (priority === "high" ? " job-tile--high" : "") +
+      (isPinned(row) ? " is-pinned" : "");
     btn.dataset.id = row.id;
     btn.dataset.url = cell(row.job_url);
     if (cell(row.job_url)) {
       btn.title =
-        "Click to edit · Right-click to set status · Ctrl/Cmd+Enter to open job URL · Ctrl/Cmd+click for bulk";
+        "Click to edit · Right-click to set status · Alt+M to pin in this status · Ctrl/Cmd+Enter to open job URL · Ctrl/Cmd+click for bulk";
     } else {
       btn.title =
-        "Click to edit · Right-click to set status · Ctrl/Cmd+click for bulk select";
+        "Click to edit · Right-click to set status · Alt+M to pin in this status · Ctrl/Cmd+click for bulk select";
     }
     btn.addEventListener("click", (e) => {
       const mod = e.ctrlKey || e.metaKey;
@@ -748,6 +825,7 @@
 
     const chips = document.createElement("div");
     chips.className = "company-tile-chips job-tile-chips";
+    appendPinControl(chips, row);
     if (priority) {
       chips.append(
         makeTileChip(
@@ -809,6 +887,9 @@
       const key = cell(row.status).toLowerCase() || "unknown";
       if (!by.has(key)) by.set(key, []);
       by.get(key).push(row);
+    }
+    for (const list of by.values()) {
+      list.sort((a, b) => pinRank(a) - pinRank(b));
     }
     const order = STATUS_OPTIONS.slice();
     for (const key of by.keys()) {
@@ -987,6 +1068,11 @@
     titleEl.textContent =
       (cell(row.role_title) || "(untitled)") +
       (cell(row.company) ? ` · ${cell(row.company)}` : "");
+
+    const pinRow = document.createElement("div");
+    pinRow.className = "company-tile-chips company-modal-pin";
+    appendPinControl(pinRow, row);
+    body.append(pinRow);
 
     const grid = document.createElement("div");
     grid.className = "company-result-edit job-modal-grid";
@@ -1346,6 +1432,7 @@
     return {
       id: `job-new-${Date.now()}`,
       sort_order: String(n),
+      pinned: "",
       company: "",
       company_key: "",
       role_title: "",
@@ -4255,6 +4342,14 @@
       // Openings page actions — Alt+letter (Shift reserved for global nav)
       if (event.altKey && !mod && !event.shiftKey) {
         const code = event.code;
+        const isM =
+          event.code === "KeyM" || (event.key || "").toLowerCase() === "m";
+        if (isM && !typing) {
+          event.preventDefault();
+          event.stopPropagation();
+          pinFocusedOpening();
+          return;
+        }
 
         // Add new opening — Alt+N
         if (!modalOpen && !typing && code === "KeyN") {
