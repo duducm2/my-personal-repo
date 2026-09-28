@@ -2449,6 +2449,17 @@ body.lang-en .field-row {
   line-height: 1.35;
 }
 
+.advice-prose {
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.advice-prose strong {
+  color: var(--gold);
+}
+
 .help-table {
   width: 100%;
   border-collapse: collapse;

@@ -50,6 +50,11 @@
       if (k === "h") {
         event.preventDefault();
         location.assign("/help.html");
+        return;
+      }
+      if (k === "a") {
+        event.preventDefault();
+        location.assign("/advice.html");
       }
     });
   }
@@ -68,6 +73,9 @@
     document
       .getElementById("open-profile-btn")
       ?.addEventListener("click", () => location.assign("/profile.html"));
+    document
+      .getElementById("open-advice-btn")
+      ?.addEventListener("click", () => location.assign("/advice.html"));
   }
 
   init();

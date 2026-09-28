@@ -1963,6 +1963,11 @@
       if (event.key.toLowerCase() === "h") {
         event.preventDefault();
         location.assign("/help.html");
+        return;
+      }
+      if (event.key.toLowerCase() === "a") {
+        event.preventDefault();
+        location.assign("/advice.html");
       }
     });
   }
@@ -2244,6 +2249,9 @@
     document
       .getElementById("open-help-btn")
       ?.addEventListener("click", () => location.assign("/help.html"));
+    document
+      .getElementById("open-advice-btn")
+      ?.addEventListener("click", () => location.assign("/advice.html"));
     document
       .getElementById("scroll-top-btn")
       ?.addEventListener("click", () => scrollProfileToTop());

@@ -347,8 +347,7 @@
     if (row?.card_kind && row.card_kind !== "portal") {
       return 1;
     }
-    const live =
-      portals.find((p) => cell(p.id) === cell(row?.id)) || row;
+    const live = portals.find((p) => cell(p.id) === cell(row?.id)) || row;
     return isPinned(live) ? 0 : 1;
   }
 
@@ -1198,6 +1197,11 @@
       if (k === "h") {
         event.preventDefault();
         location.assign("/help.html");
+        return;
+      }
+      if (k === "a") {
+        event.preventDefault();
+        location.assign("/advice.html");
       }
     });
   }
@@ -1235,6 +1239,9 @@
     document
       .getElementById("open-help-btn")
       ?.addEventListener("click", () => location.assign("/help.html"));
+    document
+      .getElementById("open-advice-btn")
+      ?.addEventListener("click", () => location.assign("/advice.html"));
     document
       .getElementById("portal-add-btn")
       ?.addEventListener("click", () => addPortal());
