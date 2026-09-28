@@ -2482,6 +2482,12 @@ body.lang-en .field-row {
   width: 1%;
 }
 
+.help-table-money th:not(:first-child),
+.help-table-money td:not(:first-child) {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
 .help-table kbd {
   display: inline-block;
   margin: 0 1px;
