@@ -42,7 +42,7 @@
 
 #let skills = (
   ("Core", "Core:", ("Excel (formulas, VBA, databases)", "Applied analytics & experiments", "Visualization, BI & InfoVis", "Python / SQL / Statistics", "Applied Research", "Autodidact")),
-  ("Tech", "Tech:", ("Excel", "CSV", "Power BI", "Python", "SQL", "Matplotlib", "Seaborn", "Azure", "Git", "GitHub", "VS Code", "scikit-learn", "LLM evaluation")),
+  ("Tech", "Tech:", ("Excel", "CSV", "Power BI", "Python", "SQL", "Matplotlib", "Seaborn", "Azure", "Git", "GitHub", "VS Code", "LLM evaluation")),
 )
 
 #let experience = (

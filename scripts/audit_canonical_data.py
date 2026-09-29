@@ -285,8 +285,8 @@ def main() -> int:
         issues.append(f"PO Tech skills want 19 got {len(po_tech)}")
     if len(ds_core) != 6:
         issues.append(f"DA Core skills want 6 got {len(ds_core)}")
-    if len(ds_tech) != 21:
-        issues.append(f"DA Tech skills want 21 got {len(ds_tech)}")
+    if len(ds_tech) != 20:
+        issues.append(f"DA Tech skills want 20 got {len(ds_tech)}")
     dsa_core = [
         s
         for s in skills
@@ -313,8 +313,8 @@ def main() -> int:
     ]
     if len(dsc_core) != 6:
         issues.append(f"Data Scientist Core skills want 6 got {len(dsc_core)}")
-    if len(dsc_tech) != 13:
-        issues.append(f"Data Scientist Tech skills want 13 got {len(dsc_tech)}")
+    if len(dsc_tech) != 12:
+        issues.append(f"Data Scientist Tech skills want 12 got {len(dsc_tech)}")
     ok.append("skills.csv counts match resume baselines")
 
     edu = load("education.csv")
@@ -560,7 +560,9 @@ def main() -> int:
     else:
         companies = load("companies.csv")
         if len(companies) < 7:
-            issues.append(f"companies.csv expected >= 7 seed rows, got {len(companies)}")
+            issues.append(
+                f"companies.csv expected >= 7 seed rows, got {len(companies)}"
+            )
         for cid in (
             "ascenty-sumare",
             "ascenty-campinas",
@@ -612,7 +614,12 @@ def main() -> int:
                 "fit_product_owner",
                 "fit_digital_solution_architect",
             ):
-                if (bosch.get(k) or "").strip().lower() not in ("yes", "y", "1", "true"):
+                if (bosch.get(k) or "").strip().lower() not in (
+                    "yes",
+                    "y",
+                    "1",
+                    "true",
+                ):
                     issues.append(f"bosch-brasil should fit all roles ({k})")
         for cid in (
             "eldorado-campinas",
@@ -714,11 +721,7 @@ def main() -> int:
         ROOT / "resume" / "variants" / "data-analyst" / "content.en.typ"
     ).read_text(encoding="utf-8")
     gen_resume_dsa = (
-        ROOT
-        / "resume"
-        / "variants"
-        / "digital-solution-architect"
-        / "content.en.typ"
+        ROOT / "resume" / "variants" / "digital-solution-architect" / "content.en.typ"
     ).read_text(encoding="utf-8")
     gen_resume_g_pt = (ROOT / "resume" / "typst" / "content.pt.typ").read_text(
         encoding="utf-8"

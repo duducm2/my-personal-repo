@@ -75,7 +75,6 @@ data-analyst,Tech,Tech,Tecnologias,17,CSS,CSS
 data-analyst,Tech,Tech,Tecnologias,18,Mermaid,Mermaid
 data-analyst,Tech,Tech,Tecnologias,19,VS Code,VS Code
 data-analyst,Tech,Tech,Tecnologias,20,AutoHotkey,AutoHotkey
-data-analyst,Tech,Tech,Tecnologias,21,scikit-learn,scikit-learn
 digital-solution-architect,Core,Core,Núcleo,1,Solution & cloud architecture,Arquitetura de soluções e cloud
 digital-solution-architect,Core,Core,Núcleo,2,Digitization & systems,Digitalização e desenho de sistemas
 digital-solution-architect,Core,Core,Núcleo,3,DevOps / CI-CD,DevOps / CI-CD e automação
@@ -118,5 +117,4 @@ data-scientist,Tech,Tech,Tecnologias,8,Azure,Azure
 data-scientist,Tech,Tech,Tecnologias,9,Git,Git
 data-scientist,Tech,Tech,Tecnologias,10,GitHub,GitHub
 data-scientist,Tech,Tech,Tecnologias,11,VS Code,VS Code
-data-scientist,Tech,Tech,Tecnologias,12,scikit-learn,scikit-learn
-data-scientist,Tech,Tech,Tech,13,LLM evaluation,Avaliacao com LLM
+data-scientist,Tech,Tech,Tech,12,LLM evaluation,Avaliacao com LLM
