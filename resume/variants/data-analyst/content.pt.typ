@@ -5,7 +5,7 @@
 // =============================================================================
 
 #let name = "Eduardo M. de A. Figueiredo"
-#let tagline = "Analista de Dados → Cientista de Dados PL | Estatística, Python e Avaliação de ML Aplicado"
+#let tagline = "Analista de Dados | Estatística, Python e Análise Aplicada"
 #let phone = "+55 (19) 98176-6583"
 #let email = "edu.evangelista.figueiredo@gmail.com"
 #let linkedin = "LinkedIn"
@@ -35,7 +35,7 @@
 )
 
 #let profile = [
-  Sou analista de dados em transição para Cientista de Dados pleno: transformo perguntas de pesquisa em números que as pessoas consigam usar—Excel avançado (fórmulas, VBA, planilhas no estilo banco), pipelines CSV, Power BI, Python/SQL e estatística descritiva e inferencial—e estou adicionando ML supervisionado com métricas e limites claros. Visualização da Informação no mestrado (nota A). Finanças e casa: visuais para decisão. Mestrado em Tecnologia aprovado em setembro de 2026 (diploma em dezembro de 2026), nota A em todas as disciplinas.
+  Sou analista de dados. Um dia quero me tornar cientista de dados. Transformo perguntas de pesquisa em números que as pessoas consigam usar—Excel avançado (fórmulas, VBA, planilhas no estilo banco), pipelines CSV, Power BI, Python/SQL e estatística descritiva e inferencial—e estou adicionando ML supervisionado com métricas e limites claros. Visualização da Informação no mestrado (nota A). Finanças e casa: visuais para decisão. Mestrado em Tecnologia aprovado em setembro de 2026 (diploma em dezembro de 2026), nota A em todas as disciplinas.
 ]
 
 #let languages = "Português (Nativo)   Inglês (Fluente)"
