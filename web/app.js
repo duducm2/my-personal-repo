@@ -2157,36 +2157,28 @@
       const group = document.createElement("div");
       group.className = "download-lang-group";
 
-      if (opts?.isResume && item.available) {
-        const viewBtn = document.createElement("button");
-        viewBtn.type = "button";
-        viewBtn.className = "download-btn download-btn-view";
-        viewBtn.textContent = `View ${item.lang.toUpperCase()}`;
+      const viewBtn = document.createElement("button");
+      viewBtn.type = "button";
+      viewBtn.className =
+        "download-btn download-btn-view" + (item.available ? "" : " missing");
+      viewBtn.textContent = `View ${item.lang.toUpperCase()}`;
+      if (!item.available) {
+        viewBtn.disabled = true;
+        viewBtn.title = "PDF not found — run python scripts/build_outputs.py";
+      } else {
         if (item.page_count != null) {
           viewBtn.title = `${item.filename} · ${item.page_count} page(s)`;
-          if (item.one_page_ok === false) {
+          if (opts?.isResume && item.one_page_ok === false) {
             viewBtn.classList.add("page-over");
-          } else if (item.one_page_ok === true) {
+          } else if (opts?.isResume && item.one_page_ok === true) {
             viewBtn.classList.add("page-ok");
           }
+        } else {
+          viewBtn.title = item.filename;
         }
         viewBtn.addEventListener("click", () => openResumeViewer(item));
-        group.append(viewBtn);
       }
-
-      const a = document.createElement(item.available ? "a" : "span");
-      a.className = "download-btn" + (item.available ? "" : " missing");
-      a.textContent = item.available
-        ? `DL ${item.lang.toUpperCase()}`
-        : item.lang.toUpperCase();
-      if (item.available) {
-        a.href = item.url;
-        a.setAttribute("download", item.filename);
-        a.title = item.filename;
-      } else {
-        a.title = "PDF not found — run python scripts/build_outputs.py";
-      }
-      group.append(a);
+      group.append(viewBtn);
 
       if (opts?.isResume && item.page_count != null) {
         const badge = document.createElement("span");

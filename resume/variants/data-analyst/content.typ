@@ -69,7 +69,7 @@
 )
 
 #let education = (
-  ("Master's in Technology:", [Info & Comm Systems. Unicamp (2023–2026, approved September 2026; diploma December 2026).], [Dissertation — Perceived Trust in E-commerce Websites: proposing and validating an automated evaluation method with AI agents. I used the Interface Trust Quality Model (ITQM/MQCI, based on ISO/IEC 25000), built the TrustMate web tool to run the questionnaire and score Usability, Accessibility, and UX, and compared ChatGPT o3 agents with 127 IT students on three sites. Core question: do AI-agent scores meaningfully match human perceived trust? Finding: agents don't replace human evaluation, but work as automated triage of interface quality. Analysis: descriptive, visual, and inferential (Python → Power BI). Coursework (Grade A in all courses): Academic Writing, Scientific Research, Innovation & Technology Transfer, Information Visualization (visual mapping, multivariate data, interaction, graphs/trees, text viz).]),
+  ("Master's in Technology:", [Info & Comm Systems. Unicamp (2023–2026, approved September 2026; diploma December 2026).], [Dissertation — Perceived Trust in E-commerce Websites. I built TrustMate to score Usability, Accessibility, and UX, and compared ChatGPT o3 agents with 127 IT students on three sites. Agents do not replace human evaluation #v(0.42em) they work as automated triage of interface quality. Analysis: descriptive, visual, and inferential (Python → Power BI). Grade A in every course, including Information Visualization.]),
   ("Systems Analysis and Development.", "Unicamp (2015–2020).", none),
   ("Technical Degree in Informatics.", "ETEC Bento Quirino (2012–2014).", none),
 )
