@@ -323,11 +323,9 @@ def main() -> int:
     if "perceived trust" not in edu[0].get("detail_en", edu[0].get("detail", "")):
         issues.append("master's dissertation detail missing perceived trust")
     inst = edu[0].get("institution_en", edu[0].get("institution", ""))
-    if "September 2026" not in inst and "setembro de 2026" not in edu[0].get(
-        "institution_pt", ""
-    ):
-        issues.append("master's institution missing September 2026 completed date")
-    ok.append("education.csv: 3 degrees + dissertation detail + completion date")
+    if "2023–2026" not in inst and "2023–2026" not in edu[0].get("institution_pt", ""):
+        issues.append("master's institution missing 2023–2026 dates")
+    ok.append("education.csv: 3 degrees + dissertation detail + 2023–2026 dates")
 
     edu_li = load("education_linkedin.csv")
     if len(edu_li) != 4:
@@ -736,7 +734,7 @@ def main() -> int:
                 "UX Maturity Level 4",
                 "AI Scrum Master",
                 "AutoHotkey",
-                "September 2026",
+                "2023–2026",
             ],
         ),
         (
@@ -744,7 +742,7 @@ def main() -> int:
             gen_resume_po,
             [
                 "GENERATED",
-                "September 2026",
+                "2023–2026",
                 "Discovery, Delivery & Stakeholder Outcomes",
                 "discovery to delivery",
                 "customer check-ins",
@@ -756,7 +754,7 @@ def main() -> int:
             gen_resume_ds,
             [
                 "GENERATED",
-                "September 2026",
+                "2023–2026",
                 "Data Analyst | AI for Data Manipulation, Validation & Applied Insights",
                 "Power BI",
                 "measurable insight",
@@ -770,7 +768,7 @@ def main() -> int:
             gen_resume_dsa,
             [
                 "GENERATED",
-                "September 2026",
+                "2023–2026",
                 "Digital Solution Architect",
                 "Azure",
                 "ServiceNow",

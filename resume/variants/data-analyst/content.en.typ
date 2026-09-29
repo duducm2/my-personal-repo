@@ -35,7 +35,7 @@
 )
 
 #let profile = [
-  I'm a data analyst. I turn research questions into numbers people can act on—advanced Excel (formulas, VBA, database-style workbooks), CSV pipelines, Power BI, Python/SQL, and descriptive and inferential stats. Information Visualization in my MSc (Grade A). Finance and house apps: visual decisions. Master's in Technology since September 2026, Grade A across all coursework.
+  I'm a data analyst. I turn research questions into numbers people can act on—advanced Excel (formulas, VBA, database-style workbooks), CSV pipelines, Power BI, Python/SQL, and descriptive and inferential stats. Information Visualization in my MSc (Grade A). Finance and house apps: visual decisions.
 ]
 
 #let languages = "Portuguese (Native)   English (Fluent)"
@@ -69,7 +69,7 @@
 )
 
 #let education = (
-  ("Master's in Technology:", [Info & Comm Systems. Unicamp (2023–2026). Master's degree, September 2026.], [Dissertation — Perceived Trust in E-commerce Websites. I built TrustMate to score Usability, Accessibility, and UX, and compared ChatGPT o3 agents with 127 IT students on three sites. Agents do not replace human evaluation #v(0.42em) they work as automated triage of interface quality. Analysis: descriptive, visual, and inferential (Python → Power BI). Grade A in every course, including Information Visualization.]),
+  ("Master's in Technology:", "Info & Comm Systems. Unicamp (2023–2026).", [Dissertation — Perceived Trust in E-commerce Websites. I built TrustMate to score Usability, Accessibility, and UX, and compared ChatGPT o3 agents with 127 IT students on three sites. Agents do not replace human evaluation #v(0.42em) they work as automated triage of interface quality. Analysis: descriptive, visual, and inferential (Python → Power BI). Grade A in every course, including Information Visualization.]),
   ("Systems Analysis and Development.", "Unicamp (2015–2020).", none),
   ("Technical Degree in Informatics.", "ETEC Bento Quirino (2012–2014).", none),
 )

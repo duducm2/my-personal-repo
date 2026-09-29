@@ -35,7 +35,7 @@
 )
 
 #let profile = [
-  Sou pesquisador de UX e qualidade de software. Uso pesquisa aplicada, tecnologia e gestão de projetos para ajudar times a entregar coisas que as pessoas realmente usam. Base full-stack; no dia a dia trabalho com dados, melhoria contínua e IA agêntica em design, front-end, Power BI e Python. Sou mestre em Tecnologia desde setembro de 2026 (nota A em todas as disciplinas). Quero seguir na direção de AI Scrum Master.
+  Sou pesquisador de UX e qualidade de software. Uso pesquisa aplicada, tecnologia e gestão de projetos para ajudar times a entregar coisas que as pessoas realmente usam. Base full-stack; no dia a dia trabalho com dados, melhoria contínua e IA agêntica em design, front-end, Power BI e Python. Quero seguir na direção de AI Scrum Master.
 ]
 
 #let languages = "Português (Nativo)   Inglês (Fluente)"
@@ -68,7 +68,7 @@
 )
 
 #let education = (
-  ("Mestrado em Tecnologia:", "Sist. Info. e Comunicação. Unicamp (2023–2026). Mestre em setembro de 2026.", [Dissertação — Confiança Percebida em Websites de E-commerce. Construí o TrustMate para pontuar Usabilidade, Acessibilidade e UX, e comparei agentes ChatGPT o3 com 127 estudantes de TI em três sites. Agentes não substituem a avaliação humana #v(0.28em) funcionam como triagem automatizada da qualidade da interface. Análise: descritiva, visual e inferencial (Python → Power BI). Nota A em todas as disciplinas, inclusive Visualização da Informação.]),
+  ("Mestrado em Tecnologia:", "Sist. Info. e Comunicação. Unicamp (2023–2026).", [Dissertação — Confiança Percebida em Websites de E-commerce. Construí o TrustMate para pontuar Usabilidade, Acessibilidade e UX, e comparei agentes ChatGPT o3 com 127 estudantes de TI em três sites. Agentes não substituem a avaliação humana #v(0.28em) funcionam como triagem automatizada da qualidade da interface. Análise: descritiva, visual e inferencial (Python → Power BI). Nota A em todas as disciplinas, inclusive Visualização da Informação.]),
   ("Análise e Desenvolvimento de Sistemas.", "Unicamp (2015–2020).", none),
   ("Técnico em Informática.", "ETEC Bento Quirino (2012–2014).", none),
 )
