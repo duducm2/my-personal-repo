@@ -35,7 +35,7 @@
 )
 
 #let profile = [
-  I design digitization and analytics solutions teams can run—Azure-aware platforms, Python/SQL data paths, CI/CD and quality gates. Bridge research methods with delivery across Global Services and Power Tools. Master's approved Sep 2026 (diploma Dec 2026), Grade A coursework.
+  I design digitization and analytics solutions teams can run—Azure-aware platforms, Python/SQL data paths, CI/CD and quality gates. Bridge research methods with delivery across Global Services and Power Tools. Personal web apps for finances and for deciding on buying my house use many visual structures for analytics and decision making. Master's approved Sep 2026 (diploma Dec 2026), Grade A coursework.
 ]
 
 #let languages = "Portuguese (Native)   English (Fluent)"

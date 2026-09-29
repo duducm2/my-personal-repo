@@ -35,7 +35,7 @@
 )
 
 #let profile = [
-  I'm a data analyst transitioning toward Data Scientist pleno: I turn research questions into numbers people can act on—advanced Excel (formulas, VBA, database-style workbooks), CSV pipelines, Power BI, Python/SQL, and descriptive and inferential stats—and I'm adding supervised ML with clear metrics and limits. Information Visualization in my MSc (Grade A). I use CSI/NPS when I need to prioritize what matters. Master's in Technology approved September 2026 (diploma December 2026), Grade A across all coursework.
+  I'm a data analyst transitioning toward Data Scientist pleno: I turn research questions into numbers people can act on—advanced Excel (formulas, VBA, database-style workbooks), CSV pipelines, Power BI, Python/SQL, and descriptive and inferential stats—and I'm adding supervised ML with clear metrics and limits. Information Visualization in my MSc (Grade A). Finance and house apps: visual decisions. Master's in Technology approved September 2026 (diploma December 2026), Grade A across all coursework.
 ]
 
 #let languages = "Portuguese (Native)   English (Fluent)"

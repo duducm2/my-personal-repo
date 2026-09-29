@@ -35,7 +35,7 @@
 )
 
 #let profile = [
-  Desenho solucoes de digitalizacao e analytics que o time opera—plataformas Azure, caminhos Python/SQL, CI/CD e quality gates. Uno metodos de pesquisa com entrega em Global Services e Power Tools. Mestrado aprovado set/2026 (diploma dez/2026), disciplinas nota A.
+  Desenho solucoes de digitalizacao e analytics que o time opera—plataformas Azure, caminhos Python/SQL, CI/CD e quality gates. Uno metodos de pesquisa com entrega em Global Services e Power Tools. Apps web pessoais de financas e de decisao de compra da casa usam muitas estruturas visuais para analytics e decisao. Mestrado aprovado set/2026 (diploma dez/2026), disciplinas nota A.
 ]
 
 #let languages = "Português (Nativo)   Inglês (Fluente)"
