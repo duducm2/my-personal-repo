@@ -35,7 +35,7 @@
 )
 
 #let profile = [
-  Pesquisador aplicado rumo a Cientista de Dados pleno: desenho experimental, estatistica inferencial, avaliacao com LLM (TrustMate); texto de call center a Power BI (Data Insights); CSI/NPS na Bosch. Python, SQL e Power BI no dia a dia. Apps web pessoais de financas e de decisao de compra da casa usam muitas estruturas visuais para analytics e decisao. Aprendendo modelagem supervisionada com seniors — sem reivindicar ML em producao. Mestrado aprovado set/2026 (diploma dez/2026), disciplinas nota A.
+  Pesquisador aplicado rumo a Cientista de Dados pleno: desenho experimental, estatistica inferencial, avaliacao com LLM (TrustMate); texto de call center a Power BI (Data Insights); CSI/NPS na Bosch. Python, SQL e Power BI no dia a dia. Apps web pessoais de financas e de decisao de compra da casa usam muitas estruturas visuais para analytics e decisao. Mestrado aprovado set/2026 (diploma dez/2026), disciplinas nota A.
 ]
 
 #let languages = "Português (Nativo)   Inglês (Fluente)"

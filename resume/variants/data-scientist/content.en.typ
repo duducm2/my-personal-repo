@@ -35,7 +35,7 @@
 )
 
 #let profile = [
-  Applied researcher into Data Scientist pleno: experimental design, inferential stats, LLM evaluation (TrustMate); call-center text to Power BI (Data Insights); CSI/NPS at Bosch. Python, SQL, Power BI daily. Personal web apps for finances and for deciding on buying my house use many visual structures for analytics and decision making. Learning supervised modeling with seniors — not claiming production ML yet. Master's approved Sep 2026 (diploma Dec 2026), Grade A coursework.
+  Applied researcher into Data Scientist pleno: experimental design, inferential stats, LLM evaluation (TrustMate); call-center text to Power BI (Data Insights); CSI/NPS at Bosch. Python, SQL, Power BI daily. Personal web apps for finances and for deciding on buying my house use many visual structures for analytics and decision making. Master's approved Sep 2026 (diploma Dec 2026), Grade A coursework.
 ]
 
 #let languages = "Portuguese (Native)   English (Fluent)"
