@@ -7,7 +7,228 @@ atl-04,4,,Atlassian,atlassian-global,Principal Data Scientist,ds,,,saved,medium,
 atl-05,5,,Atlassian,atlassian-global,Principal Data Scientist,ds,,,saved,medium,Remote,San Francisco,company_site,2026-09-27,,,,,,,,,,,1,6,"Matches background in Python, statistics, and ML evaluation, though based in US timezone.",data-scientist,,,,,,,,
 atl-06,6,,Atlassian,atlassian-global,"Principal Data Scientist, Loom",ds,,,saved,medium,Remote,San Francisco,company_site,2026-09-27,,,,,,,,,,,1,7,Focus on product evaluation (Loom) aligns very well with UX and applied research methodologies.,data-scientist,,,,,,,,
 atl-07,7,,Atlassian,atlassian-global,Head of Data Engineering,other,,,saved,medium,Remote,San Francisco,company_site,2026-09-27,,,,,,,,,,,1,4,"Executive level data engineering is outside the primary focus area of agile, UX, and analytics.",general,,,,,,,,
-atl-08,8,1,Atlassian,atlassian-global,"Principal Product Designer, Rovo & AI",other,,,saved,medium,Remote,San Francisco,company_site,2026-09-27,,,,,,,,,,,1,9,"Excellent overlap with AI systems, UX research, continuous improvement, and frontend delivery.",general,,,,,,,,
+atl-08,8,1,Atlassian,atlassian-global,"Principal Product Designer, Rovo & AI",other,https://careers-americas.icims.com/jobs/27204/principal-product-designer%2c-rovo-%26-ai/candidate?from=login&eem=EXeP1NBseESS8BTqxLgEcgh_gad2Rj26yhn1NcRInJjJ0-mDK4CokfgsNHmT2hUMbMKE37A5b1aN8MnJwLQC4w&code=58101521a04d14b36fcad6b6806084b355b54cf42461130d03573c64442ad039&ga=11617498e47f51754e221cfb3723dce006d1be454a0a027adc1edb259c8a60e0&accept_gdpr=1&gdpr_consent_type=37002057001,https://careers-americas.icims.com/jobs/27204/principal-product-designer%2c-rovo-%26-ai/candidate?from=login&eem=EXeP1NBseESS8BTqxLgEcgh_gad2Rj26yhn1NcRInJjJ0-mDK4CokfgsNHmT2hUMbMKE37A5b1aN8MnJwLQC4w&code=58101521a04d14b36fcad6b6806084b355b54cf42461130d03573c64442ad039&ga=11617498e47f51754e221cfb3723dce006d1be454a0a027adc1edb259c8a60e0&accept_gdpr=1&gdpr_consent_type=37002057001,saved,medium,Remote,San Francisco,company_site,2026-09-27,,,,,,,,,,,1,9,"Excellent overlap with AI systems, UX research, continuous improvement, and frontend delivery.",general,,,"{""opening_id"":""atl-08"",""recommended_resume"":""general"",""form_url"":""https://careers-americas.icims.com/jobs/27204/principal-product-designer%2c-rovo-%26-ai/candidate?from=login&eem=EXeP1NBseESS8BTqxLgEcgh_gad2Rj26yhn1NcRInJjJ0-mDK4CokfgsNHmT2hUMbMKE37A5b1aN8MnJwLQC4w&code=58101521a04d14b36fcad6b6806084b355b54cf42461130d03573c64442ad039&ga=11617498e47f51754e221cfb3723dce006d1be454a0a027adc1edb259c8a60e0&accept_gdpr=1&gdpr_consent_type=37002057001"",""source_url"":""https://careers-americas.icims.com/jobs/27204/principal-product-designer%2c-rovo-%26-ai/candidate?from=login&eem=EXeP1NBseESS8BTqxLgEcgh_gad2Rj26yhn1NcRInJjJ0-mDK4CokfgsNHmT2hUMbMKE37A5b1aN8MnJwLQC4w&code=58101521a04d14b36fcad6b6806084b355b54cf42461130d03573c64442ad039&ga=11617498e47f51754e221cfb3723dce006d1be454a0a027adc1edb259c8a60e0&accept_gdpr=1&gdpr_consent_type=37002057001"",""imported_at"":""2026-09-30T00:43:07"",""fields"":[{""key"":""resume_upload"",""label"":""Resume / CV"",""value"":"""",""source"":""derived"",""note"":""Upload manually - use general resume""},{""key"":""login_name"",""label"":""Login Name / Email"",""value"":""edu.evangelista.figueiredo@gmail.com"",""source"":""profile.email"",""note"":""""},{""key"":""password"",""label"":""Password"",""value"":"""",""source"":""unknown"",""note"":""Min 8 chars, 1 alpha, 1 num, 1 lower, 1 upper, 1 special""},{""key"":""verify_password"",""label"":""Verify Password"",""value"":"""",""source"":""unknown"",""note"":""""},{""key"":""first_name"",""label"":""First Name"",""value"":""Eduardo"",""source"":""profile.full_name"",""note"":""""},{""key"":""last_name"",""label"":""Last Name"",""value"":""Matos de Assis Figueiredo"",""source"":""profile.full_name"",""note"":""""},{""key"":""email"",""label"":""Email"",""value"":""edu.evangelista.figueiredo@gmail.com"",""source"":""profile.email"",""note"":""""},{""key"":""phone"",""label"":""Phone Number"",""value"":""+55 (19) 98176-6583"",""source"":""profile.phone"",""note"":""""}]}","<!doctype html><html lang=""en-US"" >
+<head>
+<script type=""text/javascript"">
+function icims_stripIFrameParameter(url) {
+url = url.replace(/\?in_iframe=1\&?/, '?');
+url = url.replace(/\&in_iframe=1\&?/, '&');
+url = url.replace(/(\?|&)$/, '');
+return url;
+}
+
+document.cookie = ""i18next=en;SameSite=None;Secure"";
+var icimsWindow = false;
+try {
+icimsWindow = window.top.location.href.indexOf('') >= 0;
+} catch (e) {}
+
+if (icimsWindow) {
+try {
+
+if (window.history.replaceState) {
+parent.updateUrl(icims_stripIFrameParameter(window.location.href));
+}
+} catch (e) {}
+
+try {
+
+var windowUrl = window.top.location.href;
+if (windowUrl.match(/\?in_iframe=1\&?/) || windowUrl.match(/\&in_iframe=1\&?/)) {
+document.cookie = 'icims_iframeRedirReferer=' + encodeURIComponent(document.referrer) + ';SameSite=None;Secure;path=/';
+window.top.location.href = icims_stripIFrameParameter(windowUrl);
+}
+} catch (e) {}
+
+}
+</script>
+<title>Candidate Profile - Principal Product Designer, Rovo &amp; AI</title>
+<link rel=""stylesheet"" type=""text/css"" href=""https://careers-americas.icims.com/hostedcontent/platform_183.7.1.260925-90d88066668-11-0/css/fonts.css"" />
+<link rel=""preload"" as=""style"" type=""text/css"" href=""https://cdn02.icims.com/platform_183.7.1.260925-90d88066668-11-0/provider.icims.com/staticcontent/css/social-portal.css"" />
+<link rel=""stylesheet"" type=""text/css"" href=""https://cdn02.icims.com/a/images.icims.com/content/platform_183.7.1.260925-90d88066668-11-0/css/icims.blue.css"" data-theme-dark=""https://cdn02.icims.com/a/images.icims.com/content/platform_183.7.1.260925-90d88066668-11-0/css/icims.dark.css"" data-theme-light=""https://cdn02.icims.com/a/images.icims.com/content/platform_183.7.1.260925-90d88066668-11-0/css/icims.blue.css"" id=""theme-icims"" />
+<link rel=""stylesheet"" type=""text/css"" href=""https://cdn02.icims.com/a/images.icims.com/content/platform_183.7.1.260925-90d88066668-11-0/css/bootstrap.blue.css"" data-theme-dark=""https://cdn02.icims.com/a/images.icims.com/content/platform_183.7.1.260925-90d88066668-11-0/css/bootstrap.dark.css"" data-theme-light=""https://cdn02.icims.com/a/images.icims.com/content/platform_183.7.1.260925-90d88066668-11-0/css/bootstrap.blue.css"" id=""theme-bootstrap"" />
+<link rel=""stylesheet"" type=""text/css"" href=""https://cdn02.icims.com/platform_183.7.1.260925-90d88066668-11-0/atlassian.icims.com/icims2/servlet/icims2?module=AppInert&action=renderDynamicPortalCss&a=0&portal=111&page=new_candidate&group=new_base%2Cnew_file_upload%2Cnew_social_login%2Cstep_bar%2Cnew_password%2Cnew_dropdown%2Cnew_job_card%2Cnew_profile%2Ccentered_form%2Cmobile_buttons&asv=1790413704902&type=adaptive"" />
+<script type=""text/javascript"" src=""https://cdn02.icims.com/a/images.icims.com/content/platform_183.7.1.260925-90d88066668-11-0/script/lib/jquery/jquery-3.7.1.min.js""></script>
+<script type=""text/javascript"" src=""https://cdn02.icims.com/a/images.icims.com/content/platform_183.7.1.260925-90d88066668-11-0/script/lib/jquery/jquery-migrate-3.5.2.min.js""></script>
+<script type=""text/javascript"" src=""https://cdn02.icims.com/a/images.icims.com/content/platform_183.7.1.260925-90d88066668-11-0/script/lib/domreplacement/domReplacement.js""></script>
+<script type=""text/javascript"" src=""https://cdn02.icims.com/a/images.icims.com/content/platform_183.7.1.260925-90d88066668-11-0/script/common/icims.js""></script>
+<script type=""text/javascript"" src=""https://cdn02.icims.com/a/images.icims.com/content/platform_183.7.1.260925-90d88066668-11-0/script/portal/utils.js""></script>
+<script type=""text/javascript"" src=""https://cdn02.icims.com/a/images.icims.com/content/platform_183.7.1.260925-90d88066668-11-0/script/portal/field.js""></script>
+<script type=""text/javascript"" src=""https://cdn02.icims.com/a/images.icims.com/content/platform_183.7.1.260925-90d88066668-11-0/script/portal/login.js""></script>
+<script type=""text/javascript"" src=""https://cdn02.icims.com/a/images.icims.com/content/platform_183.7.1.260925-90d88066668-11-0/script/field/validate.js""></script>
+<script type=""text/javascript"" src=""https://cdn02.icims.com/a/images.icims.com/content/platform_183.7.1.260925-90d88066668-11-0/script/field/passwordValidator.js""></script>
+<script type=""text/javascript"" src=""https://cdn02.icims.com/a/images.icims.com/content/platform_183.7.1.260925-90d88066668-11-0/script/portal/dataLayer/resume.js""></script>
+<script type=""text/javascript"" src=""https://cdn02.icims.com/a/images.icims.com/content/platform_183.7.1.260925-90d88066668-11-0/script/portal/dataLayer/finishLater.js""></script>
+<script type=""text/javascript"" src=""https://cdn02.icims.com/a/images.icims.com/content/platform_183.7.1.260925-90d88066668-11-0/script/common/icimsTrickle.js""></script>
+<script type=""text/javascript"" src=""https://cdn02.icims.com/a/images.icims.com/content/platform_183.7.1.260925-90d88066668-11-0/script/common/icimsDropdown.js""></script>
+<script type=""text/javascript"" src=""https://cdn02.icims.com/a/images.icims.com/content/platform_183.7.1.260925-90d88066668-11-0/script/common/externalServiceDropdown.js""></script>
+<script type=""text/javascript"" src=""https://cdn02.icims.com/a/images.icims.com/content/platform_183.7.1.260925-90d88066668-11-0/script/icims.application.js""></script>
+<meta name=""viewport"" content=""width=device-width, initial-scale=1"">
+<meta name=""format-detection"" content=""telephone=no"">
+<script type=""text/javascript"">
+var isMobile = false;
+</script>
+<meta name=""robots"" content=""noindex, nofollow"">
+
+
+
+
+
+
+
+
+
+
+
+<script type=""text/javascript"">
+ICIMS.addEvent(window, 'domready', function() {
+initializeAllIcimsDropdowns();
+});
+ICIMS.addEvent(window, 'load', function () {
+var gdprDropdown = document.getElementById('rcf3327');
+if (gdprDropdown) {
+var gdprFakeDropdown = gdprDropdown.parentElement.querySelector('[role=""combobox""]');
+if (gdprFakeDropdown) {
+ICIMS.addEvent(gdprFakeDropdown, 'keydown', function (e) {
+// Only override Space key for select-only dropdown
+const hasSearchBox = gdprFakeDropdown.querySelector('input[type=""text""]');
+if ((e.key === ' ' || e.key === 'Spacebar') && !hasSearchBox) {
+e.preventDefault();
+gdprFakeDropdown.dispatchEvent(new KeyboardEvent('keydown', {
+key: 'Enter',
+keyCode: 13,
+which: 13,
+bubbles: true,
+cancelable: true
+}));
+}
+});
+}
+}
+});
+function initializeAllIcimsDropdowns() {
+var selects = document.querySelectorAll('select');
+for (var i = 0; i < selects.length; i++) {
+var select = selects[i];
+if (!icims.utils.hasClass(select, 'dropdown-hide') && !ICIMS.dropdowns[select.id]) {
+if (select.hasAttribute('geolocation')) {
+externalServiceDropdown.initializeGeolocationDropdown(
+select, {
+textSearch: ""\u2014 Type to Search \u2014"",
+textNoResults: ""No Results"",
+textEnterManually: ""\u2014 Enter Manually \u2014"",
+urlPath: ""jobs"",
+geolocationConfig: geoLocationConfig
+}
+);
+} else if (select.getAttribute('icimsdropdown-enabled') === '1') {
+initializeIcimsDropdown(select);
+}
+}
+}
+}
+function initializeIcimsDropdown(selectDropdown) {
+var search = selectDropdown.getAttribute('icimsdropdown-search') === '0' ? false : true;
+var ajaxOn = selectDropdown.getAttribute('icimsdropdown-ajax') === '0' ? false : true;
+var ajaxData = null;
+if (ajaxOn) {
+ajaxData = {
+data: function(input, page, ajax, params) {
+return {
+'q': input,
+'page': page,
+'size': params.limit || 25,
+'parentValue' : getParentValue(params.list),
+'id': params.list.name.substring(params.list.name.lastIndexOf('_')+1),
+'hash': params.list.getAttribute('hash')
+};
+},
+url: 'https://careers-americas.icims.com/jobs/profileoptions?in_iframe=1',
+selected: {
+data: function(input, page, ajax, params) {
+return {
+'selected': params.list.getAttribute('icimsdropdown-selected') || '',
+'id': params.list.name.substring(params.list.name.lastIndexOf('_')+1),
+'hash': params.list.getAttribute('hash')
+};
+},
+url: 'https://careers-americas.icims.com/jobs/selectedprofileoption?in_iframe=1',
+}
+};
+}
+ICIMS.dropdown({
+list: selectDropdown,
+search: search,
+onchange: function(list) {
+list.onchange();
+// HACK: this is specific for portal where the height of a iframe won't be updated unless being told to.
+if (typeof icims_resizeIFrameHeight != ""undefined"") {
+icims_resizeIFrameHeight();
+}
+// END OF HACK
+},
+ajax: ajaxData,
+placeholder : ""\u2014 Make a Selection \u2014"",
+textSearch : ""\u2014 Type to Search \u2014"",
+textNoResults : ""No Results""
+});
+}
+function profileLinkAdapter(response, maskedAttrs) {
+var json = {
+options: []
+};
+for (var i = 0; i < response.length; i++) {
+var option = {},
+data = response[i];
+option.text = '';
+option.attr = {};
+if (data.notSelectable) {
+option.parent = data.value;
+} else {
+option.value = data.identifier;
+var attr = data.attributesInOrder || [];
+maskedAttrs = maskedAttrs || [];
+for (var j = 0; j < attr.length; j++) {
+option.attr[attr[j]] = data[attr[j]];
+if (maskedAttrs.indexOf(attr[j]) < 0) {
+option.text += data[attr[j]] + ' ';
+}
+}
+option.text = option.text.trim();
+}
+json.options.push(option);
+}
+return json;
+}
+function getParentValue(list){
+var parentElem = document.getElementById(list.getAttribute('data-ddd-parent-link'));
+if (!parentElem) {
+var prefix = list.name.substring(0, list.name.lastIndexOf('_'));
+parentElem = document.getElementById(prefix + '_' + list.getAttribute('data-ddd-parent-link'));
+}
+var parentValue = '';
+if (parentElem){
+parentValue = parentElem.options[parentElem.selectedIndex].value || '-999';
+}
+return parentValue;
+}
+</script>
+<script type=""text/javascript"">
+var allPwdReq = [];
+var addToRequiredFieldsIfNotZero = function(minReq,requiredField){
+if(minReq){
+allPwdReq.push(requiredField);
+}
+}
+var validatePasswordTimer = null;
+var validatePasswordConfirmTimer = null;
+var pMinLen = '8';
+var pMinAlpha = '1';
+var pMinNum = '1';
+var pMinLow = '1';
+var pMinUp = '1';
+var pMinSpec = '1';
+addToRequiredFieldsIfNotZero(pM",,,,
 atl-09,9,1,Atlassian,atlassian-global,Lead Design Technologist,dsa,,,saved,medium,Remote,San Francisco,company_site,2026-09-27,,,,,,,,,,,1,9,Combines React/frontend background with UX research and UI design implementation. Strong fit.,digital-solution-architect,,,,,,,,
 atl-10,10,1,Atlassian,atlassian-global,"Senior Design Manager, Jira AI",po,,,saved,medium,Remote,San Francisco,company_site,2026-09-27,,,,,,,,,,,1,8,"High relevance to AI systems, UX methodologies, and coaching colleagues.",product-owner,,,,,,,,
 atl-11,11,1,Atlassian,atlassian-global,Senior Product Manager,po,,,saved,medium,Remote,Bengaluru,company_site,2026-09-27,,,,,,,,,,,1,8,"Leverages continuous improvement background, Scrum/Agile knowledge, and global stakeholder alignment.",product-owner,,,,,,,,

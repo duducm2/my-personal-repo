@@ -534,6 +534,11 @@
   /** Local-only filters for companies (`""` = All). */
   let companyCategoryFilter = "";
   let companyRoleFilter = "";
+  /** Profile map text search. */
+  let profileQuery = "";
+  let profileMapScrolledQuery = "";
+  /** Identity row from profile.csv, for copy-paste on the map. */
+  let contactProfile = {};
 
   const CAREER_PATHS = [
     {
@@ -1364,14 +1369,86 @@
     renderDownloads(downloadsCache.items, downloadsCache.policy);
   }
 
+  function searchBarEl() {
+    return document.getElementById("search-bar");
+  }
+
+  function searchInputEl() {
+    return document.getElementById("profile-search-input");
+  }
+
+  function showSearchBar() {
+    const bar = searchBarEl();
+    if (!bar) return;
+    bar.classList.add("is-open");
+    bar.setAttribute("aria-hidden", "false");
+  }
+
+  function hideSearchBar() {
+    const bar = searchBarEl();
+    if (!bar) return;
+    bar.classList.remove("is-open");
+    bar.setAttribute("aria-hidden", "true");
+    const inp = searchInputEl();
+    if (inp && document.activeElement === inp) inp.blur();
+  }
+
+  function focusSearch() {
+    const inp = searchInputEl();
+    if (!inp) return;
+    showSearchBar();
+    requestAnimationFrame(() => {
+      inp.focus({ preventScroll: true });
+      inp.select();
+    });
+  }
+
+  function toggleSearchBar() {
+    const bar = searchBarEl();
+    if (!bar) return;
+    if (bar.classList.contains("is-open")) {
+      hideSearchBar();
+      return;
+    }
+    focusSearch();
+  }
+
+  function clearProfileSearch() {
+    profileQuery = "";
+    profileMapScrolledQuery = "";
+    const inp = searchInputEl();
+    if (inp) inp.value = "";
+    hideSearchBar();
+    renderProfileSummary();
+  }
+
+  function profileQueryParts() {
+    return profileQuery.trim().toLowerCase().split(/\s+/).filter(Boolean);
+  }
+
+  function textHasParts(text, parts) {
+    const hay = (text || "").toLowerCase();
+    return parts.every((part) => hay.includes(part));
+  }
+
   function hasActiveProfileFilters() {
-    return !!(pathFilter || companyCategoryFilter || companyRoleFilter);
+    return !!(
+      pathFilter ||
+      companyCategoryFilter ||
+      companyRoleFilter ||
+      profileQuery.trim()
+    );
   }
 
   function clearProfileFilters() {
     pathFilter = "";
     companyCategoryFilter = "";
     companyRoleFilter = "";
+    profileQuery = "";
+    profileMapScrolledQuery = "";
+    const inp = searchInputEl();
+    if (inp) inp.value = "";
+    hideSearchBar();
     try {
       localStorage.setItem(PATH_KEY, "");
     } catch {
@@ -1426,6 +1503,11 @@
     location.assign("/");
   }
 
+  function rowHay(row) {
+    if (!row) return "";
+    return Object.values(row).map(cell).join("\n").toLowerCase();
+  }
+
   function listPlain(rows, enKey, ptKey, limit) {
     return (rows || [])
       .slice(0, limit || 99)
@@ -1433,8 +1515,34 @@
         id: r.id,
         en: cell(r[enKey]) || cell(r.id),
         pt: cell(r[ptKey]) || cell(r[enKey]) || cell(r.id),
+        hay: rowHay(r),
       }))
       .filter((x) => x.en || x.pt);
+  }
+
+  async function copyProfileValue(text, btn) {
+    const value = cell(text);
+    if (!value) return;
+    try {
+      await navigator.clipboard.writeText(value);
+    } catch {
+      const area = document.createElement("textarea");
+      area.value = value;
+      area.setAttribute("readonly", "");
+      area.style.position = "fixed";
+      area.style.left = "-9999px";
+      document.body.append(area);
+      area.select();
+      document.execCommand("copy");
+      area.remove();
+    }
+    const previous = btn.title;
+    btn.classList.add("is-copied");
+    btn.title = "Copied";
+    window.setTimeout(() => {
+      btn.classList.remove("is-copied");
+      btn.title = previous;
+    }, 1200);
   }
 
   function jumpToProfileTarget(opts) {
@@ -1499,6 +1607,7 @@
       ]
         .filter(Boolean)
         .join(" @ "),
+      hay: rowHay(r),
     }));
     const languages = (state.languages || []).map((r) => ({
       id: r.id,
@@ -1509,6 +1618,7 @@
       ]
         .filter(Boolean)
         .join(" — "),
+      hay: rowHay(r),
     }));
     const competences = listPlain(state.competences, "name_en", "name_pt");
     const courses = listPlain(state.courses, "title_en", "title_pt", 10);
@@ -1533,16 +1643,90 @@
 
     const aboutEn = cell(about.text_en);
     const aboutPt = cell(about.text_pt) || aboutEn;
+    const contactName = cell(contactProfile.full_name);
+    const contactPhone = cell(contactProfile.phone);
+    const contactAddressEn = cell(contactProfile.location_en);
+    const contactAddressPt =
+      cell(contactProfile.location_pt) || contactAddressEn;
+    const bosch =
+      (state.companies || []).find((row) => cell(row.id) === "bosch-brasil") ||
+      {};
+    const siteAddress = (notes, markers) => {
+      const text = cell(notes);
+      for (const marker of markers) {
+        const idx = text.indexOf(marker);
+        if (idx >= 0) return text.slice(idx + marker.length).trim();
+      }
+      return "";
+    };
+    const boschAddressEn = siteAddress(bosch.notes_en, [
+      "Site address:",
+      "Endereço do site:",
+    ]);
+    const boschAddressPt =
+      siteAddress(bosch.notes_pt, ["Endereço do site:", "Site address:"]) ||
+      boschAddressEn;
+    const hungary =
+      (state.experience || []).find(
+        (row) => cell(row.id) === "bosch-hu-digitization-2019",
+      ) || {};
+    const budapestEn = cell(hungary.location_en);
+    const budapestPt = cell(hungary.location_pt) || budapestEn;
+    const contactItems = [
+      {
+        id: "contact-name",
+        label: "Name",
+        en: contactName,
+        pt: contactName,
+        hay: `name nome ${contactName}`.toLowerCase(),
+      },
+      {
+        id: "contact-address",
+        label: "Address",
+        en: contactAddressEn,
+        pt: contactAddressPt,
+        hay: `address endereço endereco location ${contactAddressEn} ${contactAddressPt}`.toLowerCase(),
+      },
+      {
+        id: "contact-phone",
+        label: "Phone",
+        en: contactPhone,
+        pt: contactPhone,
+        hay: `phone number telefone número numero ${contactPhone}`.toLowerCase(),
+      },
+      {
+        id: "contact-bosch-campinas",
+        label: "Bosch Campinas",
+        en: boschAddressEn,
+        pt: boschAddressPt,
+        hay: `bosch address endereço endereco site campinas ${boschAddressEn} ${boschAddressPt}`.toLowerCase(),
+      },
+      {
+        id: "contact-bosch-budapest",
+        label: "Bosch Budapest",
+        en: budapestEn,
+        pt: budapestPt,
+        hay: `bosch budapest hungary hungria utca address endereço ${budapestEn} ${budapestPt}`.toLowerCase(),
+      },
+    ].filter((item) => item.en || item.pt);
     const sections = [
+      {
+        titleEn: "Contact",
+        headingId: "",
+        span: 12,
+        layout: "pills",
+        copy: true,
+        items: contactItems,
+      },
       {
         titleEn: "About",
         headingId: "about-heading",
         span: 12,
         layout: "prose",
         items: about.id
-          ? [{ id: about.id, en: aboutEn, pt: aboutPt }].filter(
-              (x) => x.en || x.pt,
-            )
+          ? [
+              { id: about.id, en: aboutEn, pt: aboutPt, hay: rowHay(about) },
+            ].filter((x) => x.en || x.pt)
           : [],
       },
       {
@@ -1617,12 +1801,40 @@
       },
     ];
 
-    const grid = document.createElement("div");
-    grid.className = "profile-summary-grid profile-map-grid";
-
+    const parts = profileQueryParts();
+    const visible = [];
     for (const sec of sections) {
       const isSkills = sec.headingId === "competences-heading";
-      if (!sec.items.length && !isSkills) continue;
+      const titleMatch = parts.length > 0 && textHasParts(sec.titleEn, parts);
+      const items =
+        !parts.length || titleMatch
+          ? sec.items
+          : sec.items.filter((item) =>
+              textHasParts(item.hay || `${item.en}\n${item.pt}`, parts),
+            );
+      if (parts.length) {
+        if (!titleMatch && !items.length) continue;
+      } else if (!items.length && !isSkills) {
+        continue;
+      }
+      visible.push({ ...sec, items, titleMatch });
+    }
+
+    if (parts.length && !visible.length) {
+      const empty = document.createElement("p");
+      empty.className = "empty-state";
+      empty.textContent = "Nothing on the profile map matches.";
+      root.append(empty);
+      profileMapScrolledQuery = "";
+      return;
+    }
+
+    const grid = document.createElement("div");
+    grid.className = "profile-summary-grid profile-map-grid";
+    const rendered = [];
+
+    for (const sec of visible) {
+      const isSkills = sec.headingId === "competences-heading";
       const isProse = sec.layout === "prose";
       const card = document.createElement("article");
       card.className =
@@ -1633,14 +1845,18 @@
 
       const head = document.createElement("div");
       head.className = "profile-summary-card-head";
-      const h = document.createElement("button");
-      h.type = "button";
-      h.className = "profile-summary-card-title profile-map-section-btn";
+      const h = document.createElement(sec.copy ? "h3" : "button");
+      if (!sec.copy) h.type = "button";
+      h.className =
+        "profile-summary-card-title" +
+        (sec.copy ? "" : " profile-map-section-btn");
       h.textContent = sec.titleEn;
-      h.title = `Jump to ${sec.titleEn}`;
-      h.addEventListener("click", () =>
-        jumpToProfileTarget({ headingId: sec.headingId }),
-      );
+      if (!sec.copy) {
+        h.title = `Jump to ${sec.titleEn}`;
+        h.addEventListener("click", () =>
+          jumpToProfileTarget({ headingId: sec.headingId }),
+        );
+      }
       head.append(h);
       if (isSkills) {
         const addBtn = document.createElement("button");
@@ -1655,6 +1871,44 @@
         head.append(addBtn);
       }
       card.append(head);
+
+      if (sec.copy) {
+        const wrap = document.createElement("div");
+        wrap.className = "profile-summary-pills";
+        const mode = getLangMode();
+        const langs =
+          mode === "both" ? ["en", "pt"] : [mode === "pt" ? "pt" : "en"];
+        const seen = new Set();
+        for (const item of sec.items) {
+          for (const lang of langs) {
+            const text =
+              lang === "pt" ? item.pt || item.en : item.en || item.pt;
+            const key = `${item.id}:${text}`;
+            if (!text || seen.has(key)) continue;
+            seen.add(key);
+            const showLang = langs.length > 1 && item.en !== item.pt;
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className =
+              "profile-summary-pill profile-map-item profile-map-copy";
+            const label = document.createElement("span");
+            label.className = "profile-map-copy-label";
+            label.textContent = showLang
+              ? `${item.label} ${lang.toUpperCase()}`
+              : item.label;
+            const value = document.createElement("span");
+            value.textContent = text;
+            btn.append(label, value);
+            btn.title = `Copy ${item.label}`;
+            btn.addEventListener("click", () => copyProfileValue(text, btn));
+            wrap.append(btn);
+          }
+        }
+        card.append(wrap);
+        grid.append(card);
+        rendered.push({ card, titleMatch: sec.titleMatch });
+        continue;
+      }
 
       const cols = document.createElement("div");
       cols.className =
@@ -1756,9 +2010,31 @@
 
       card.append(cols);
       grid.append(card);
+      rendered.push({ card, titleMatch: sec.titleMatch });
     }
 
     root.append(grid);
+
+    const titleHits = rendered.filter((entry) => entry.titleMatch);
+    const scrollCard =
+      rendered.length === 1
+        ? rendered[0].card
+        : titleHits.length === 1
+          ? titleHits[0].card
+          : null;
+    const queryKey = parts.join(" ");
+    if (scrollCard && profileMapScrolledQuery !== queryKey) {
+      profileMapScrolledQuery = queryKey;
+      requestAnimationFrame(() => {
+        const chrome = document.querySelector(".profile-sticky-chrome");
+        const offset = (chrome?.getBoundingClientRect().height || 0) + 8;
+        const top =
+          scrollCard.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+      });
+    } else if (!scrollCard) {
+      profileMapScrolledQuery = "";
+    }
   }
 
   function wireAddButtons() {
@@ -1811,6 +2087,17 @@
       state.about = [blankRow("about")];
       state.about[0].id = "linkedin-about";
       state.about[0].sort_order = "1";
+    }
+  }
+
+  async function loadContact() {
+    try {
+      const res = await fetch("/api/prompt-context");
+      if (!res.ok) return;
+      const payload = await res.json();
+      contactProfile = (payload.profile || [])[0] || {};
+    } catch {
+      contactProfile = {};
     }
   }
 
@@ -1892,6 +2179,14 @@
           closeResumeViewer();
           return;
         }
+        if (
+          profileQuery.trim() ||
+          searchBarEl()?.classList.contains("is-open")
+        ) {
+          event.preventDefault();
+          clearProfileSearch();
+          return;
+        }
         if (hasActiveProfileFilters()) {
           event.preventDefault();
           clearProfileFilters();
@@ -1912,6 +2207,14 @@
             "#path-filters",
             "main .field-input",
           );
+          return;
+        }
+        const isS =
+          event.code === "KeyS" || (event.key || "").toLowerCase() === "s";
+        if (isS) {
+          event.preventDefault();
+          event.stopPropagation();
+          toggleSearchBar();
           return;
         }
       }
@@ -2247,6 +2550,23 @@
     document
       .getElementById("scroll-top-btn")
       ?.addEventListener("click", () => scrollProfileToTop());
+    const search = searchInputEl();
+    if (search) {
+      search.addEventListener("input", () => {
+        profileQuery = search.value;
+        renderProfileSummary();
+        if ((search.value || "").trim()) showSearchBar();
+      });
+      search.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape") return;
+        event.preventDefault();
+        event.stopPropagation();
+        clearProfileSearch();
+      });
+      search.addEventListener("blur", () => {
+        if (!(search.value || "").trim()) hideSearchBar();
+      });
+    }
     wireAddButtons();
     initKeyboard();
     window.addEventListener("beforeunload", () => {
@@ -2255,6 +2575,7 @@
 
     try {
       await loadState();
+      await loadContact();
       renderAll();
       setDirty(false);
       setSaveStatus("");

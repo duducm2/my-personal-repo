@@ -1306,6 +1306,25 @@ body.lang-en .field-row {
   outline: none;
 }
 
+.profile-map-copy {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  max-width: 28rem;
+}
+
+.profile-map-copy-label {
+  font-size: 9px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.profile-map-copy.is-copied {
+  border-color: var(--gold);
+  background: color-mix(in srgb, var(--gold) 18%, transparent);
+}
+
 .profile-jump-flash {
   animation: profile-jump-flash 1.2s ease;
 }
