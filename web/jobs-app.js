@@ -937,6 +937,11 @@
     }
   }
 
+  function toggleStatusFilter(status) {
+    statusFilter = statusFilter === status ? "" : status;
+    render();
+  }
+
   function render() {
     renderFilters();
     renderResults();
@@ -4372,6 +4377,20 @@
           event.preventDefault();
           event.stopPropagation();
           openImportModal();
+          return;
+        }
+
+        // Status filter — Alt+E saved, Alt+B subscribed
+        if (!modalOpen && !typing && code === "KeyE") {
+          event.preventDefault();
+          event.stopPropagation();
+          toggleStatusFilter("saved");
+          return;
+        }
+        if (!modalOpen && !typing && code === "KeyB") {
+          event.preventDefault();
+          event.stopPropagation();
+          toggleStatusFilter("subscribed");
           return;
         }
 
