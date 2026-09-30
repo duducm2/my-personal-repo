@@ -16,47 +16,110 @@ fields:
   dissertation_pbi_intro: "Minha dissertação de mestrado compara pontuações humanas e de agentes de IA sobre confiança percebida em interfaces de e-commerce. A TrustMate aplica o questionário do MQCI (ISO/IEC 25000) e calcula pontuações hierárquicas de Usabilidade, Acessibilidade e UX; agentes ChatGPT o3 e 127 estudantes de TI avaliaram os mesmos três sites. Além do método, o aprendizado é prático: os agentes mostraram alinhamento direcional nos melhores/piores atributos, mas não foram estatisticamente intercambiáveis com humanos na maior parte das pontuações—triagem, não substituição. A análise cobre descritivas, visuais e inferência de Python ao Power BI."
   email: "edu.evangelista.figueiredo@gmail.com"
   future_career_body: |
-    ## Futuro – Como trabalho com dados
-    
-    - O que trago: fluência em Excel e CSV; dashboards e métricas de resultado (CSI/NPS); experimentação/ML na pesquisa; gates de entrada orientados por método.
+    ## Futuro – Como chego lá
     
     <div class="future-career-wrap">
     <div class="future-po-bullets">
     
-    | Competência              | Evidência do meu trabalho                                     |
-    | ----------------------- | --------------------------------------------------------- |
-    | Métricas e BI            | Dashboards Power BI; CSI 4,86 / NPS 9,94 méd. (2024–2025) |
-    | Estatística inferencial  | Dissertação: testes de normalidade → t de Welch/pareado, d de Cohen, FDR (Python → Power BI) |
-    | Entrada baseada em dados    | CIP CIM: pontuação de relevância em UX no ServiceNow + avaliação de dashboards estratégicos de CIP na GS com equipe de UX                   |
-    | Análise qualitativa → BI | Data Insights: teoria fundamentada straussiana em registros B2B do call center → dashboards Power BI |
-    | Métodos de pesquisa        | Disciplinas do mestrado + prática: raciocínio descritivo vs inferencial (amostra → população); teoria fundamentada, IPA, fenomenologia, PAR; conecta ao Data Insights (TFD straussiana) |
-    | Visualização e codificação | InfoVis (Mestrado): mapeamento visual, estruturas multivariadas, visões/interação—PNAD Power BI + PhraseNets |
-    | Análise descritiva e diagnóstica | Dashboards/KPIs, drill-down diagnóstico—foco descritivo e diagnóstico, não pipelines preditivos de ML |
-    | Rigor em pesquisa          | Desenho consciente de viés: seleção, confirmação e viés procedural na análise |
-    | Prática mensurável     | Nível 4 de Maturidade em UX nas Américas (templates, treinamento)        |
+    | Passo | O que é |
+    | ----- | ------- |
+    | Agora | Desenho experimental e estatística inferencial (TrustMate: Welch, d de Cohen, FDR; avaliação com LLM versus humanos); texto confuso virando BI validado (Data Insights); CSI/NPS, Power BI, Python/SQL na Bosch |
+    | Próximo | Cientista de Dados pleno, em cima dessa evidência |
+    | Em construção | Baseline de ML supervisionado e um model card; métricas de experimento; monitoramento de produção ao lado de cientistas de dados seniores |
+    | Limite | Não reivindico nível de Cientista de Dados sênior, nem um modelo de produção que eu opere de ponta a ponta |
     
     </div>
-    <p><img src="../../../pictures/diagrams/future-career-path.png" alt="Diagrama future-career-path: Caminhos de carreira priorizados" /></p>
+    </div>
+    
+    ---
+    
+    <style scoped>
+    .career-path-slide {
+      display: flex !important;
+      justify-content: center !important;
+      align-items: flex-start !important;
+      width: 100% !important;
+      margin-top: 0.35rem !important;
+    }
+    .career-path-slide p { margin: 0 !important; text-align: center !important; width: 100% !important; }
+    .career-path-slide img {
+      width: 78% !important;
+      max-width: 78% !important;
+      height: auto !important;
+      max-height: 76vh !important;
+      display: block !important;
+      margin: 0 auto !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    </style>
+    
+    ## Futuro – O caminho
+    
+    <div class="career-path-slide">
+    <p><img src="../../../pictures/diagrams/future-career-path-pt.png" alt="Diagrama: pesquisa aplicada e analytics, depois Cientista de Dados pleno, depois monitoramento de produção ao lado de seniores" /></p>
     </div>
   future_career_style: |
     .future-career-wrap {
       display: flex !important; flex-direction: column !important;
-      justify-content: center !important; align-items: center !important;
-      min-height: 55vh !important; width: 100% !important; margin-top: 0.75rem !important;
-      gap: 1rem !important;
+      justify-content: flex-start !important; align-items: stretch !important;
+      width: 100% !important; margin-top: 0.35rem !important;
+      gap: 0.4rem !important;
     }
-    .future-career-wrap p { margin: 0 !important; text-align: center !important; }
-    .future-career-wrap img {
-      width: 38% !important; max-width: 38% !important; height: auto !important;
-      display: block !important; margin: 10px auto 0 !important;
-      border: none !important; box-shadow: none !important;
-    }
+    .future-career-wrap p { margin: 0 !important; text-align: left !important; }
     .future-po-bullets {
-      max-width: 85% !important; text-align: left !important; font-size: 0.95em !important;
+      width: 100% !important; max-width: 100% !important; text-align: left !important; font-size: 0.85em !important;
     }
-  future_diagram_alt: "Diagrama ai-agile-research: IA e Ágil em Pesquisa Aplicada"
-  future_h2: "Futuro – Contexto de análise, experimentação e entrega"
-  future_intro: "Métricas, experimentação e entrega se encontram em como trabalho com equipes hoje. O diagrama abaixo é o contexto ágil/pesquisa em que atuo."
+    .future-po-bullets table {
+      width: 100% !important; table-layout: fixed !important; margin-top: 0.35rem !important;
+    }
+    .future-po-bullets th:first-child,
+    .future-po-bullets td:first-child { width: 22% !important; }
+    .future-po-bullets td, .future-po-bullets th {
+      overflow-wrap: anywhere; padding: 0.28em 0.5em !important;
+    }
+  future_diagram_alt: "Diagrama: pergunta, experimento com estatística e ML supervisionado, depois uma decisão com stakeholders"
+  future_h2: "Futuro – Rumo a Cientista de Dados pleno"
+  future_intro: "Estou saindo de pesquisa aplicada e analytics para Cientista de Dados pleno. O diagrama é como percorro esse caminho: uma pergunta, um experimento com estatística e ML supervisionado, depois uma decisão que stakeholders consigam usar."
+  h_academic_research: "Presente – Pesquisa aplicada acadêmica (confiança em IA e UI)"
+  h_cip_artifacts: "Presente – Integração CIP e Pesquisa Aplicada: Artefatos"
+  h_closing: "Encerramento e contato"
+  h_closing_connect: "Vamos conversar"
+  h_closing_request: "Currículo e este deck disponíveis sob pedido."
+  h_diss_tech: "Implementação técnica – Dissertação (<span class=\"agentic-ai-emphasis\">IA agêntica</span> e full stack)"
+  h_diss_tech_bullet: "- **Arquitetura:** desenho de banco para projetos, experimentos, atributos, pontuações e execuções de <span class=\"agentic-ai-emphasis\">IA agêntica</span>."
+  h_dissertation_pbi: "Visualização de dados – Power BI da dissertação"
+  h_infovis_diagram_alt: "Estruturas visuais da PNAD no InfoVis"
+  h_interests: "Interesses pessoais que alimentam o trabalho"
+  h_interests_bullet: "- **Em casa:** dois gatos, piano iniciante e um teclado dividido que uso para macros e produtividade."
+  h_interests_col: "Interesse"
+  h_interests_rows: |
+    <tr><td>Piano</td></tr>
+    <tr><td>Linguística (fonologia e fonética)</td></tr>
+    <tr><td>Física (relatividade e quântica)</td></tr>
+    <tr><td>Atuação</td></tr>
+    <tr><td>Arte impressionista</td></tr>
+    <tr><td>Criação de macros</td></tr>
+    <tr><td>Teclados especializados</td></tr>
+  h_past_academic: "Passado – Formação acadêmica e perfil profissional"
+  h_past_experience: "Passado – Linha do tempo (resumida)"
+  h_past_feeling: "Me sinto proativo, autônomo e organizado."
+  h_past_grade: "Nota A em todas as disciplinas do mestrado"
+  h_past_grade_note: "comprovação de proficiência em inglês."
+  h_past_trajectory: "**Trajetória entre unidades Bosch:** Campinas, Hungria, Sorocaba e Campinas."
+  h_pbi_work: "Visualização de dados – Dashboards Power BI no trabalho"
+  h_pbi_work_bullet: "- **Pesquisa Aplicada Américas da Bosch (GS):** Construí dashboards Power BI para acompanhar projetos, recursos e treinamentos, para o time ver os números e decidir melhor."
+  h_proposal: "Implementação técnica – Gerador de propostas (Excel VBA)"
+  h_publications: "Presente – Publicações científicas"
+  h_publications_intro: "Trabalho publicado no <strong>ISSRE 2025 (Workshop HFSD)</strong> e no <strong>IHC 2025 (SBC SOL)</strong>; <span class=\"thesis-emphasis\">dissertação de mestrado sobre confiabilidade de software e IA agêntica</span>."
+  h_tech_impl: "Implementação técnica"
+  h_who: "Quem sou – Retrato"
+  h_who_attr: "Atributo"
+  h_who_contact: "Contato"
+  h_who_impact: "Impacto"
+  h_who_name: "Nome"
+  h_who_role: "Papel"
+  h_who_value: "Valor"
   infovis_phrasenet_bullets: |
     - Tópicos do curso → skills de analista: Visões e interação (filtros, detalhes sob demanda); grafos e árvores (layout de redes); visualização de textos (coocorrência, padrões/outliers)—como codificar dados e permitir exploração.
     - Projeto PhraseNets: Viz web em rede para relações entre palavras—estrutura que gráficos de barras/linhas não mostram.
@@ -66,6 +129,7 @@ fields:
     - Visualização da Informação (Unicamp, nota A): Pipeline de Card et al.—dados brutos → tabelas → estruturas visuais; mapeamento visual (expressividade e efetividade); técnicas multivariadas (composição, small multiples, redução de dimensões).
     - PNAD Contínua (Power BI): Codificações Sankey, coropleta e facetadas para trajetórias educação–emprego e padrões socioeconômicos—as mesmas decisões estruturais em dashboards executivos.
   infovis_pnad_h2: "Visualização de dados – InfoVis (Mestrado): PNAD Contínua (Power BI)"
+  lang: "pt"
   lattes_url: "https://lattes.cnpq.br/2708641049892967"
   linkedin_display: "linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b"
   linkedin_url: "https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b"
@@ -80,6 +144,21 @@ fields:
     | Métricas e BI                       | Dashboards Power BI para projetos/recursos; CSI 4,86 / NPS 9,94 méd. nos meus projetos (2024–2025)                         |
     | Internacional                      | Realizei duas viagens à Alemanha (2024, 2025) por trabalho relacionado ao cargo                                                                            |
     | Rastreamento CO2 (GS/Pesquisa Aplicada) | Conduzi prospecção de mercado para telemetria CO2; achado: falta de demanda — interrupção baseada em dados                                       |
+    
+    ---
+    
+    <!-- _class: dense-content -->
+    
+    <style scoped>
+    table { font-size: 0.78em !important; line-height: 1.25 !important; width: 100% !important; table-layout: fixed !important; }
+    th:first-child, td:first-child { width: 28% !important; }
+    td, th { overflow-wrap: anywhere; padding: 0.22em 0.45em !important; }
+    </style>
+    
+    ## Presente – Dados, Métricas e Pesquisa Aplicada (Bosch Brasil) (continuação)
+    
+    | Área                               | Conquista                                                                                                                        |
+    | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
     | Projeto tooling (PT)               | Requisitos a protótipos de alta fidelidade com check-ins regulares; progresso e feedback acompanhados para decisões         |
     | Data Insights (Power Tools B2B)    | Registros do call center analisados com teoria fundamentada straussiana (datasets, Python, IA); codificação aberta → axial → seletiva; categorias semânticas controladas; insights validados com stakeholders no Power BI—finanças, transporte de materiais, logística e mais |
     | Maturidade em UX                        | Nível 4 nas Américas – governança, templates, treinamento; dashboard Power BI de auditoria com ingestão automática de Microsoft Lists para documentação de gestão de projetos                                                |

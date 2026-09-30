@@ -16,42 +16,110 @@ fields:
   dissertation_pbi_intro: "My Master's dissertation looks at perceived trust on e-commerce interfaces: can AI agents score what humans feel? Using ITQM/MQCI (ISO/IEC 25000) and the TrustMate tool I built, I compared ChatGPT o3 agents with 127 IT students on the same three sites. The research stays close to discovery and validation—whether automated triage is good enough before human judgment. Short answer from the study: triage yes, full replacement no."
   email: "edu.evangelista.figueiredo@gmail.com"
   future_career_body: |
-    ## Future – How I Work
-    
-    - What I bring: discovery → prototypes → stakeholder check-ins; intake/quality gates; outcome metrics (CSI/NPS).
+    ## Future – How I get there
     
     <div class="future-career-wrap">
     <div class="future-po-bullets">
     
-    | Competency              | Evidence from my work                                     |
-    | ----------------------- | --------------------------------------------------------- |
-    | Discovery & validation  | Tooling PT requirements → prototypes → customer check-ins |
-    | Prioritization / intake | CIP CIM: ServiceNow UX relevance scoring + GS strategic CIP dashboard evaluation with UX team                   |
-    | Stakeholder enablement  | Americas UX Maturity Level 4 (templates, training)  |
-    | Outcome ownership       | CSI 4.86 / NPS 9.94 avg. (2024–2025)                      |
+    | Step | What it is |
+    | ---- | ---------- |
+    | Now | Experimental design and inferential statistics (TrustMate: Welch, Cohen's d, FDR; LLM evaluation versus humans); messy text turned into validated BI (Data Insights); CSI/NPS, Power BI, Python/SQL at Bosch |
+    | Next | Data Scientist pleno, built on that evidence |
+    | Building | Supervised ML baseline and a model card; experiment metrics; production monitoring beside senior data scientists |
+    | Limit | I do not claim senior Data Scientist level, or a production model I own end to end |
     
     </div>
-    <p><img src="../../../pictures/diagrams/future-career-path.png" alt="Diagram future-career-path: Prioritized career paths" /></p>
+    </div>
+    
+    ---
+    
+    <style scoped>
+    .career-path-slide {
+      display: flex !important;
+      justify-content: center !important;
+      align-items: flex-start !important;
+      width: 100% !important;
+      margin-top: 0.35rem !important;
+    }
+    .career-path-slide p { margin: 0 !important; text-align: center !important; width: 100% !important; }
+    .career-path-slide img {
+      width: 78% !important;
+      max-width: 78% !important;
+      height: auto !important;
+      max-height: 76vh !important;
+      display: block !important;
+      margin: 0 auto !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    </style>
+    
+    ## Future – The path
+    
+    <div class="career-path-slide">
+    <p><img src="../../../pictures/diagrams/future-career-path-en.png" alt="Diagram: applied research and analytics, then Data Scientist pleno, then production monitoring beside seniors" /></p>
     </div>
   future_career_style: |
     .future-career-wrap {
       display: flex !important; flex-direction: column !important;
-      justify-content: center !important; align-items: center !important;
-      min-height: 55vh !important; width: 100% !important; margin-top: 0.75rem !important;
-      gap: 1rem !important;
+      justify-content: flex-start !important; align-items: stretch !important;
+      width: 100% !important; margin-top: 0.35rem !important;
+      gap: 0.4rem !important;
     }
-    .future-career-wrap p { margin: 0 !important; text-align: center !important; }
-    .future-career-wrap img {
-      width: 38% !important; max-width: 38% !important; height: auto !important;
-      display: block !important; margin: 10px auto 0 !important;
-      border: none !important; box-shadow: none !important;
-    }
+    .future-career-wrap p { margin: 0 !important; text-align: left !important; }
     .future-po-bullets {
-      max-width: 85% !important; text-align: left !important; font-size: 0.95em !important;
+      width: 100% !important; max-width: 100% !important; text-align: left !important; font-size: 0.85em !important;
     }
-  future_diagram_alt: "Diagram ai-agile-research: AI and Agile in Applied Research"
-  future_h2: "Future – Agile Delivery Context"
-  future_intro: "Discovery, prioritization, and delivery meet in how I work with teams today. The diagram below is the agile/research operating context I work in."
+    .future-po-bullets table {
+      width: 100% !important; table-layout: fixed !important; margin-top: 0.35rem !important;
+    }
+    .future-po-bullets th:first-child,
+    .future-po-bullets td:first-child { width: 22% !important; }
+    .future-po-bullets td, .future-po-bullets th {
+      overflow-wrap: anywhere; padding: 0.28em 0.5em !important;
+    }
+  future_diagram_alt: "Diagram: question, experiment with statistics and supervised ML, then a stakeholder decision"
+  future_h2: "Future – Toward Data Scientist pleno"
+  future_intro: "I am moving from applied research and analytics into Data Scientist pleno. The diagram is how I work that path: a question, an experiment with statistics and supervised ML, then a decision stakeholders can use."
+  h_academic_research: "Present – Academic Applied Research (Trust in AI & UI)"
+  h_cip_artifacts: "Present – CIP and Applied Research Integration: Applied Research Artifacts"
+  h_closing: "Closing & Contact"
+  h_closing_connect: "Let's connect"
+  h_closing_request: "Resume and this deck available on request."
+  h_diss_tech: "Technical Implementation – Dissertation (<span class=\"agentic-ai-emphasis\">Agentic AI</span> & Full Stack)"
+  h_diss_tech_bullet: "- **Architecture:** Database design supporting projects, experiments, attributes, scores, and <span class=\"agentic-ai-emphasis\">Agentic AI</span> runs."
+  h_dissertation_pbi: "Data Visualization – Dissertation Power BI"
+  h_infovis_diagram_alt: "InfoVis PNAD visual structures"
+  h_interests: "Personal Interests that Power My Work"
+  h_interests_bullet: "- **At home:** Two cats, learning piano, and a split keyboard I use for macros and productivity."
+  h_interests_col: "Interest"
+  h_interests_rows: |
+    <tr><td>Piano</td></tr>
+    <tr><td>Linguistics (phonology & phonetics)</td></tr>
+    <tr><td>Physics (GR & Quantum)</td></tr>
+    <tr><td>Acting</td></tr>
+    <tr><td>Impressionist art</td></tr>
+    <tr><td>Macro creation</td></tr>
+    <tr><td>Specialized keyboards</td></tr>
+  h_past_academic: "Past – Academic Foundations & Professional Profile"
+  h_past_experience: "Past – Experience Timeline (Condensed)"
+  h_past_feeling: "I feel proactive, self-reliant and organized."
+  h_past_grade: "Grade 'A' in all Master's coursework"
+  h_past_grade_note: "English proficiency test verification."
+  h_past_trajectory: "**Trajectory across Bosch locations:** Campinas, Hungary, Sorocaba, and Campinas."
+  h_pbi_work: "Data Visualization – Power BI Dashboards at Work"
+  h_pbi_work_bullet: "- **Bosch Applied Research Americas (GS):** Built Power BI dashboards for project and resource oversight and training tracking, so the team can see the numbers and make better calls."
+  h_proposal: "Technical Implementation – Proposal Generator (Excel VBA)"
+  h_publications: "Present – Scientific Publications"
+  h_publications_intro: "Published work in <strong>ISSRE 2025 (HFSD Workshop)</strong> and <strong>IHC 2025 (SBC SOL)</strong>; <span class=\"thesis-emphasis\">master's dissertation on software trustworthiness and Agentic AI</span>."
+  h_tech_impl: "Technical Implementation"
+  h_who: "Who I Am – Snapshot"
+  h_who_attr: "Attribute"
+  h_who_contact: "Contact"
+  h_who_impact: "Impact"
+  h_who_name: "Name"
+  h_who_role: "Role"
+  h_who_value: "Value"
   infovis_phrasenet_bullets: |
     - Course topics → analyst skills: Views & interaction (filtering, detail-on-demand); graphs & trees (network layout); text visualization (co-occurrence, patterns/outliers)—how to encode data and enable exploration.
     - PhraseNets project: Web network viz for word relationships—structure that bar/line charts cannot show.
@@ -61,6 +129,7 @@ fields:
     - MSc Information Visualization (Unicamp, Grade A): Card et al. pipeline—raw data → tables → visual structures; visual mapping (expressiveness & effectiveness); multivariate techniques (composition, small multiples, dimension handling).
     - PNAD Contínua (Power BI): Sankey, choropleth, and faceted encodings for education–employment trajectories and socioeconomic patterns—the same structural choices behind executive dashboards.
   infovis_pnad_h2: "Data Visualization – MSc InfoVis: PNAD Contínua (Power BI)"
+  lang: "en"
   lattes_url: "https://lattes.cnpq.br/2708641049892967"
   linkedin_display: "linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b"
   linkedin_url: "https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b"
@@ -75,6 +144,21 @@ fields:
     | CO2 Tracking (GS/Applied Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand — a discovery outcome that stopped low-value work            |
     | Tooling project (PT)               | Requirements → high-fidelity prototypes → regular customer check-ins; discovery-to-delivery ownership with technical partners |
     | UX Maturity          | Americas Level 4 – governance, templates, training that productized UX practice for stakeholders                        |
+    
+    ---
+    
+    <!-- _class: dense-content -->
+    
+    <style scoped>
+    table { font-size: 0.78em !important; line-height: 1.25 !important; width: 100% !important; table-layout: fixed !important; }
+    th:first-child, td:first-child { width: 28% !important; }
+    td, th { overflow-wrap: anywhere; padding: 0.22em 0.45em !important; }
+    </style>
+    
+    ## Present – Product-Shaped Work at Bosch Brasil (continued)
+    
+    | Area                               | Achievement                                                                                                                       |
+    | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
     | CIP CIM (Global Services)          | With UX team, improved strategic CIP dashboards so GS president could quickly identify main issues and efficiency/efficacy gains; automated UX relevance intake / quality gate in ServiceNow                           |
     | Collaboration                      | Tutor of Digital Talent Academy Students; AI tools training for 100+ people (4.88/5 satisfaction)                                                                                          |
   relevance_h2: "Present – Prioritization Model (Low / Medium / High relevance)"

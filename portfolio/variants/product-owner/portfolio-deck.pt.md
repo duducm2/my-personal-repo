@@ -467,14 +467,14 @@ img[src*="my-photo-rectangle"] {
 table thead { display: none !important; }
 </style>
 
-## Who I Am – Snapshot
+## Quem sou – Retrato
 
-| Attribute | Value                     |
+| Atributo | Valor |
 | --------- | ------------------------- |
-| Name      | Eduardo M. de A. Figueiredo    |
-| Role      | Descoberta, Entrega e Resultados com Stakeholders    |
-| Impact    | Ajudo times a decidir o que construir em seguida e colocar no ar—pesquisa para a decisão, alinhamento para o compromisso, métricas depois.  |
-| Contact   | Nova Odessa, SP – Brasil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583 |
+| Nome | Eduardo M. de A. Figueiredo    |
+| Papel | Descoberta, Entrega e Resultados com Stakeholders    |
+| Impacto | Ajudo times a decidir o que construir em seguida e colocar no ar—pesquisa para a decisão, alinhamento para o compromisso, métricas depois.  |
+| Contato | Nova Odessa, SP – Brasil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583 |
 
 <p class="photo-at-bottom"><img src="../../../pictures/personal/my-photo-rectangle.png" alt="Eduardo Figueiredo" /></p>  
 <!-- <p><img src="../../../pictures/personal/my-photo.png" alt="Eduardo Figueiredo" /></p> -->
@@ -549,7 +549,7 @@ p.historico-wrap img {
 }
 </style>
 
-## Past – Academic Foundations & Professional Profile
+## Passado – Formação acadêmica e perfil profissional
 
 <p class="logos-together"><img src="../../../pictures/academia/logos/ETEC.png" alt="ETEC logo – Bento Quirino" /><img src="../../../pictures/academia/logos/UNICAMP.png" alt="Unicamp logo" /></p>
 <p class="academic-writing-wrap"><img src="../../../pictures/academia/academic-writing.jpg" alt="Academic Writing Course - Unicamp" /></p>
@@ -559,9 +559,9 @@ p.historico-wrap img {
 <p class="english-proficiency-wrap"><img src="../../../pictures/academia/english-proficiency.png" alt="English proficiency – academic credentials" /></p>
 <p class="historico-wrap"><img src="../../../pictures/academia/docs/historico-escolar.png" alt="Academic record – Unicamp" /></p>
 
-I feel proactive, self-reliant and organized.
+Me sinto proativo, autônomo e organizado.
 
-<p style="text-align: center; margin-top: 1rem;"><strong>Grade 'A' in all Master's coursework</strong>; English proficiency test verification.</p>
+<p style="text-align: center; margin-top: 1rem;"><strong>Nota A em todas as disciplinas do mestrado</strong>; comprovação de proficiência em inglês.</p>
 
 <!-- Diagram: academic-timeline (mermaid/diagrams.md). Export to academic-timeline.png -->
 
@@ -601,9 +601,9 @@ section { overflow-x: visible !important; }
 }
 </style>
 
-## Past – Experience Timeline (Condensed)
+## Passado – Linha do tempo (resumida)
 
-- **Trajectory across Bosch locations:** Campinas, Hungary, Sorocaba, and Campinas.
+- **Trajetória entre unidades Bosch:** Campinas, Hungria, Sorocaba e Campinas.
 
 <div class="experience-timeline-slide">
 <div class="experience-timeline-diagram-wrap">
@@ -668,6 +668,21 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 | Rastreamento CO2 (GS/Pesquisa Aplicada) | Conduzi prospecção de mercado para telemetria CO2; achado: falta de demanda — resultado de descoberta que interrompeu trabalho de baixo valor            |
 | Projeto tooling (PT)               | Conduzi de requisitos a protótipos de alta fidelidade com check-ins regulares com clientes; ownership descoberta→entrega com parceiros técnicos |
 | Maturidade em UX          | Apoiei as Américas a atingir Nível 4 – governança, templates, treinamento que produtizaram a prática de UX para stakeholders                        |
+
+---
+
+<!-- _class: dense-content -->
+
+<style scoped>
+table { font-size: 0.78em !important; line-height: 1.25 !important; width: 100% !important; table-layout: fixed !important; }
+th:first-child, td:first-child { width: 28% !important; }
+td, th { overflow-wrap: anywhere; padding: 0.22em 0.45em !important; }
+</style>
+
+## Presente – Trabalho orientado a produto na Bosch Brasil (continuação)
+
+| Área                               | Conquista                                                                                                                       |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | CIP CIM (Global Services)          | Com equipe de UX, melhorei dashboards estratégicos de CIP para o presidente da GS identificar problemas e ganhos de eficiência/eficácia; gate de entrada / qualidade de relevância em UX automatizado no ServiceNow                           |
 | Colaboração                      | Sou tutor de estudantes da Digital Talent Academy; treinamento de ferramentas de IA para 100+ pessoas (satisfação 4,88/5)                                                                                          |
 
@@ -788,7 +803,7 @@ section.diagram-slide-top-title .diagram-wrapper img {
 }
 </style>
 
-## Present – CIP and Applied Research Integration: Applied Research Artifacts
+## Presente – Integração CIP e Pesquisa Aplicada: Artefatos
 
 <div class="cip-artifacts-grid">
 <p><img src="../../../pictures/work/cip-ux/cip-ux-1.png" alt="CIP-Applied Research 1 – Report cover" /></p>
@@ -840,7 +855,7 @@ section { position: relative; }
 }
 </style>
 
-## Present – Academic Applied Research (Trust in AI & UI)
+## Presente – Pesquisa aplicada acadêmica (confiança em IA e UI)
 
 <p class="academic-research-diagram"><img src="../../../pictures/diagrams/academic-research-flow.png" alt="Diagram academic-research-flow: Academic Applied Research flow" /></p>
 
@@ -882,9 +897,9 @@ section { position: relative; }
 .publications-grid p:nth-child(n+4) img { max-height: 34vh !important; }
 </style>
 
-## Present – Scientific Publications
+## Presente – Publicações científicas
 
-<p class="publications-intro">Published work in <strong>ISSRE 2025 (HFSD Workshop)</strong> and <strong>IHC 2025 (SBC SOL)</strong>; <span class="thesis-emphasis">master's dissertation on software trustworthiness and Agentic AI</span>.</p>
+<p class="publications-intro">Trabalho publicado no <strong>ISSRE 2025 (Workshop HFSD)</strong> e no <strong>IHC 2025 (SBC SOL)</strong>; <span class="thesis-emphasis">dissertação de mestrado sobre confiabilidade de software e IA agêntica</span>.</p>
 
 <div class="publications-grid">
 <p><img src="../../../pictures/academia/articles/article-1-1.png" alt="Article 1 page 1" /></p>
@@ -969,9 +984,9 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 }
 </style>
 
-## Data Visualization – Power BI Dashboards at Work
+## Visualização de dados – Dashboards Power BI no trabalho
 
-- **Bosch Applied Research Americas (GS):** Built Power BI dashboards for project and resource oversight and training tracking, so the team can see the numbers and make better calls.
+- **Pesquisa Aplicada Américas da Bosch (GS):** Construí dashboards Power BI para acompanhar projetos, recursos e treinamentos, para o time ver os números e decidir melhor.
 
 <div class="pbi-dashboards-row">
 <p><img src="../../../pictures/work/pbi-allocation.png" alt="Power BI – LA Allocation Dashboard" /></p>
@@ -985,27 +1000,30 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 <!-- _class: dense-content -->
 
 <style scoped>
-.dissertation-pbi-intro { margin-bottom: 1rem !important; font-size: 0.95em !important; color: var(--color-fg-muted, #666) !important; }
+.dissertation-pbi-intro { margin-bottom: 0.35rem !important; font-size: 0.8em !important; color: var(--color-fg-muted, #666) !important; }
+section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-top: 0.2rem !important; margin-bottom: 0.2rem !important; }
 .dissertation-pbi-row {
   display: flex !important;
   flex-direction: row !important;
   flex-wrap: nowrap !important;
   justify-content: space-between !important;
   align-items: center !important;
-  gap: 1rem !important;
-  margin: 1.25rem auto 0 !important;
+  gap: 0.6rem !important;
+  margin: 0.35rem auto 0 !important;
   max-width: 96% !important;
   padding: 0 0.5rem !important;
 }
 .dissertation-pbi-row p { margin: 0 !important; flex: 1 1 0; min-width: 0; }
 .dissertation-pbi-row img {
   width: 100% !important; max-width: 100% !important; height: auto !important;
+  max-height: 26vh !important;
   display: block !important; object-fit: contain !important;
+  margin: 0 auto !important;
   border-radius: 4px !important;
 }
 </style>
 
-## Data Visualization – Dissertation Power BI
+## Visualização de dados – Power BI da dissertação
 
 <p class="dissertation-pbi-intro"><span class="thesis-emphasis">Minha dissertação de mestrado olha a confiança percebida em interfaces de e-commerce: agentes de IA conseguem pontuar o que humanos sentem? Com o MQCI (ISO/IEC 25000) e a TrustMate que construí, comparei agentes ChatGPT o3 com 127 estudantes de TI nos mesmos três sites. A pergunta fica perto de descoberta e validação—se a triagem automatizada basta antes do julgamento humano. Resposta curta do estudo: triagem sim, substituição total não.</span></p>
 
@@ -1038,15 +1056,18 @@ section.diagram-slide-top-title .csi-table-wrapper table {
   max-width: 100% !important;
 }
 .infovis-split .infovis-left {
-  flex: 0 1 48% !important;
+  flex: 1 1 54% !important;
   min-width: 0 !important;
 }
 .infovis-split .infovis-left img {
-  width: 100% !important; height: auto !important; display: block !important;
+  width: auto !important; max-width: 100% !important; height: auto !important;
+  max-height: 46vh !important;
+  display: block !important; margin: 0 auto !important;
   border: none !important; box-shadow: none !important;
+  object-fit: contain !important;
 }
 .infovis-split .infovis-right {
-  flex: 0 1 48% !important;
+  flex: 0 1 42% !important;
   min-width: 0 !important;
   display: flex !important;
   flex-direction: column !important;
@@ -1054,9 +1075,9 @@ section.diagram-slide-top-title .csi-table-wrapper table {
   justify-content: flex-start !important;
 }
 .infovis-split .infovis-right p { margin: 0 !important; }
-.infovis-split .infovis-right p:last-child { margin-top: -0.4rem !important; }
 .infovis-split .infovis-right img {
-  width: 80% !important; max-width: 80% !important; height: auto !important;
+  width: 100% !important; max-width: 100% !important; height: auto !important;
+  max-height: 22vh !important;
   display: block !important; margin: 0 auto !important;
   object-fit: contain !important;
 }
@@ -1069,7 +1090,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 <div class="infovis-split">
 <div class="infovis-left">
-<p><img src="../../../pictures/diagrams/infovis-pnad-structures.png" alt="InfoVis PNAD visual structures" /></p>
+<p><img src="../../../pictures/diagrams/infovis-pnad-structures-pt.png" alt="Estruturas visuais da PNAD no InfoVis" /></p>
 </div>
 <div class="infovis-right">
 <p><img src="../../../pictures/academia/infovis/pbi-infovis-1.png" alt="Power BI – Education-employment trajectories Sankey" /></p>
@@ -1104,9 +1125,9 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 }
 </style>
 
-## Technical Implementation – Dissertation (<span class="agentic-ai-emphasis">Agentic AI</span> & Full Stack)
+## Implementação técnica – Dissertação (<span class="agentic-ai-emphasis">IA agêntica</span> e full stack)
 
-- **Architecture:** Database design supporting projects, experiments, attributes, scores, and <span class="agentic-ai-emphasis">Agentic AI</span> runs.
+- **Arquitetura:** desenho de banco para projetos, experimentos, atributos, pontuações e execuções de <span class="agentic-ai-emphasis">IA agêntica</span>.
 
 <!-- Diagram: dissertation-tech (mermaid/diagrams.md). Export to dissertation-tech.png -->
 
@@ -1145,7 +1166,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 }
 </style>
 
-## Technical Implementation
+## Implementação técnica
 
 <div class="tech-evidence-grid">
 <p><img src="../../../pictures/academia/dissertation-tech-1-agents-1.png" alt="Agentic AI survey – e-commerce evaluation" /></p>
@@ -1270,7 +1291,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 }
 </style>
 
-## Technical Implementation – Proposal Generator (Excel VBA)
+## Implementação técnica – Gerador de propostas (Excel VBA)
 
 <div class="proposal-gen-wrap">
 <p class="proposal-gen-diagram"><img src="../../../pictures/diagrams/proposal-generator-phases.png" alt="Diagram proposal-generator-phases: Proposal Generator Applied Research phases" /></p>
@@ -1318,23 +1339,25 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 <style scoped>
 .ai-agile-wrap {
-  display: flex !important; justify-content: center !important; align-items: center !important;
-  min-height: 62vh !important; width: 100% !important; margin-top: -0.25rem !important;
+  display: flex !important; justify-content: center !important; align-items: flex-start !important;
+  width: 100% !important; margin-top: 0.75rem !important;
 }
-.ai-agile-wrap p { margin: 0 !important; text-align: center !important; }
+.ai-agile-wrap p { margin: 0 !important; text-align: center !important; width: 100% !important; }
 .ai-agile-wrap img {
-  width: 58% !important; max-width: 58% !important; height: auto !important;
+  width: 72% !important; max-width: 72% !important; height: auto !important;
+  max-height: 58vh !important;
   display: block !important; margin: 0 auto !important;
   border: none !important; box-shadow: none !important;
+  object-fit: contain !important;
 }
 </style>
 
-## Futuro – Contexto de entrega ágil
+## Futuro – Rumo a Cientista de Dados pleno
 
-Descoberta, priorização e entrega se encontram em como trabalho com equipes hoje. O diagrama abaixo é o contexto ágil/pesquisa em que atuo.
+Estou saindo de pesquisa aplicada e analytics para Cientista de Dados pleno. O diagrama é como percorro esse caminho: uma pergunta, um experimento com estatística e ML supervisionado, depois uma decisão que stakeholders consigam usar.
 
 <div class="ai-agile-wrap">
-<p><img src="../../../pictures/diagrams/ai-agile-research.png" alt="Diagrama ai-agile-research: IA e Ágil em Pesquisa Aplicada" /></p>
+<p><img src="../../../pictures/diagrams/ai-agile-research-pt.png" alt="Diagrama: pergunta, experimento com estatística e ML supervisionado, depois uma decisão com stakeholders" /></p>
 </div>
 
 ---
@@ -1344,37 +1367,66 @@ Descoberta, priorização e entrega se encontram em como trabalho com equipes ho
 <style scoped>
 .future-career-wrap {
   display: flex !important; flex-direction: column !important;
-  justify-content: center !important; align-items: center !important;
-  min-height: 55vh !important; width: 100% !important; margin-top: 0.75rem !important;
-  gap: 1rem !important;
+  justify-content: flex-start !important; align-items: stretch !important;
+  width: 100% !important; margin-top: 0.35rem !important;
+  gap: 0.4rem !important;
 }
-.future-career-wrap p { margin: 0 !important; text-align: center !important; }
-.future-career-wrap img {
-  width: 38% !important; max-width: 38% !important; height: auto !important;
-  display: block !important; margin: 10px auto 0 !important;
-  border: none !important; box-shadow: none !important;
-}
+.future-career-wrap p { margin: 0 !important; text-align: left !important; }
 .future-po-bullets {
-  max-width: 85% !important; text-align: left !important; font-size: 0.95em !important;
+  width: 100% !important; max-width: 100% !important; text-align: left !important; font-size: 0.85em !important;
+}
+.future-po-bullets table {
+  width: 100% !important; table-layout: fixed !important; margin-top: 0.35rem !important;
+}
+.future-po-bullets th:first-child,
+.future-po-bullets td:first-child { width: 22% !important; }
+.future-po-bullets td, .future-po-bullets th {
+  overflow-wrap: anywhere; padding: 0.28em 0.5em !important;
 }
 </style>
 
-## Futuro – Como Trabalho
-
-- O que trago: descoberta → protótipos → check-ins com stakeholders; gates de entrada/qualidade; métricas de resultado (CSI/NPS).
+## Futuro – Como chego lá
 
 <div class="future-career-wrap">
 <div class="future-po-bullets">
 
-| Competência              | Evidência do meu trabalho                                     |
-| ----------------------- | --------------------------------------------------------- |
-| Descoberta e validação  | Tooling PT requisitos → protótipos → check-ins com clientes |
-| Priorização / entrada | CIP CIM: pontuação de relevância em UX no ServiceNow + avaliação de dashboards estratégicos de CIP na GS com equipe de UX                   |
-| Habilitação de stakeholders  | Nível 4 de Maturidade em UX nas Américas (templates, treinamento)  |
-| Ownership de resultados       | CSI 4,86 / NPS 9,94 méd. (2024–2025)                      |
+| Passo | O que é |
+| ----- | ------- |
+| Agora | Desenho experimental e estatística inferencial (TrustMate: Welch, d de Cohen, FDR; avaliação com LLM versus humanos); texto confuso virando BI validado (Data Insights); CSI/NPS, Power BI, Python/SQL na Bosch |
+| Próximo | Cientista de Dados pleno, em cima dessa evidência |
+| Em construção | Baseline de ML supervisionado e um model card; métricas de experimento; monitoramento de produção ao lado de cientistas de dados seniores |
+| Limite | Não reivindico nível de Cientista de Dados sênior, nem um modelo de produção que eu opere de ponta a ponta |
 
 </div>
-<p><img src="../../../pictures/diagrams/future-career-path.png" alt="Diagrama future-career-path: Caminhos de carreira priorizados" /></p>
+</div>
+
+---
+
+<style scoped>
+.career-path-slide {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  width: 100% !important;
+  margin-top: 0.35rem !important;
+}
+.career-path-slide p { margin: 0 !important; text-align: center !important; width: 100% !important; }
+.career-path-slide img {
+  width: 78% !important;
+  max-width: 78% !important;
+  height: auto !important;
+  max-height: 76vh !important;
+  display: block !important;
+  margin: 0 auto !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+</style>
+
+## Futuro – O caminho
+
+<div class="career-path-slide">
+<p><img src="../../../pictures/diagrams/future-career-path-pt.png" alt="Diagrama: pesquisa aplicada e analytics, depois Cientista de Dados pleno, depois monitoramento de produção ao lado de seniores" /></p>
 </div>
 
 <!-- Diagram: future-career-path (mermaid/diagrams.md). Export to future-career-path.png -->
@@ -1410,22 +1462,22 @@ Descoberta, priorização e entrega se encontram em como trabalho com equipes ho
 .personal-interests-grid p:nth-child(n+4) img { max-height: 32vh !important; }
 </style>
 
-## Personal Interests that Power My Work
+## Interesses pessoais que alimentam o trabalho
 
-- **At home:** Two cats, learning piano, and a split keyboard I use for macros and productivity.
+- **Em casa:** dois gatos, piano iniciante e um teclado dividido que uso para macros e produtividade.
 
 <div class="personal-interests-layout">
 <div class="personal-interests-left">
 <table>
-<thead><tr><th>Interest</th></tr></thead>
+<thead><tr><th>Interesse</th></tr></thead>
 <tbody>
 <tr><td>Piano</td></tr>
-<tr><td>Linguistics (phonology & phonetics)</td></tr>
-<tr><td>Physics (GR & Quantum)</td></tr>
-<tr><td>Acting</td></tr>
-<tr><td>Impressionist art</td></tr>
-<tr><td>Macro creation</td></tr>
-<tr><td>Specialized keyboards</td></tr>
+<tr><td>Linguística (fonologia e fonética)</td></tr>
+<tr><td>Física (relatividade e quântica)</td></tr>
+<tr><td>Atuação</td></tr>
+<tr><td>Arte impressionista</td></tr>
+<tr><td>Criação de macros</td></tr>
+<tr><td>Teclados especializados</td></tr>
 </tbody>
 </table>
 </div>
@@ -1485,19 +1537,19 @@ section.closing-redesign h2 {
 .closing-contact a { color: #a8d4ff !important; }
 </style>
 
-## Closing & Contact
+## Encerramento e contato
 
 <div class="closing-summary">
 <p>Acompanho o trabalho da descoberta à entrega—esclareço necessidades, alinho pessoas, priorizo com evidência e verifico se o resultado se sustentou.</p>
 </div>
 
 <div class="closing-contact">
-<p><strong>Let's connect</strong></p>
+<p><strong>Vamos conversar</strong></p>
 <p>edu.evangelista.figueiredo@gmail.com</p>
 <p><a href="https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b">linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b</a></p>
 <p><a href="https://lattes.cnpq.br/2708641049892967">Lattes</a> · <a href="https://orcid.org/0009-0002-5178-6157">ORCID</a></p>
 <p>+55 (19) 98176-6583</p>
-<p style="margin-top: 0.75rem !important; font-size: 0.9em; opacity: 0.9;">Resume and this deck available on request.</p>
+<p style="margin-top: 0.75rem !important; font-size: 0.9em; opacity: 0.9;">Currículo e este deck disponíveis sob pedido.</p>
 </div>
 
 ---

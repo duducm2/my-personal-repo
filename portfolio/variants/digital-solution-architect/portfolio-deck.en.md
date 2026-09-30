@@ -469,12 +469,12 @@ table thead { display: none !important; }
 
 ## Who I Am – Snapshot
 
-| Attribute | Value                     |
+| Attribute | Value |
 | --------- | ------------------------- |
-| Name      | Eduardo M. de A. Figueiredo    |
-| Role      | Digital Solution Architect | Cloud, Digitization & Evidence-Based Delivery    |
-| Impact    | I help teams design digitization and analytics solutions that hold up in production—clear boundaries, measurable outcomes, reviews grounded in evidence.  |
-| Contact   | Nova Odessa, SP – Brazil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583 |
+| Name | Eduardo M. de A. Figueiredo    |
+| Role | Digital Solution Architect | Cloud, Digitization & Evidence-Based Delivery    |
+| Impact | I help teams design digitization and analytics solutions that hold up in production—clear boundaries, measurable outcomes, reviews grounded in evidence.  |
+| Contact | Nova Odessa, SP – Brazil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583 |
 
 <p class="photo-at-bottom"><img src="../../../pictures/personal/my-photo-rectangle.png" alt="Eduardo Figueiredo" /></p>  
 <!-- <p><img src="../../../pictures/personal/my-photo.png" alt="Eduardo Figueiredo" /></p> -->
@@ -984,22 +984,25 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 <!-- _class: dense-content -->
 
 <style scoped>
-.dissertation-pbi-intro { margin-bottom: 1rem !important; font-size: 0.95em !important; color: var(--color-fg-muted, #666) !important; }
+.dissertation-pbi-intro { margin-bottom: 0.35rem !important; font-size: 0.8em !important; color: var(--color-fg-muted, #666) !important; }
+section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-top: 0.2rem !important; margin-bottom: 0.2rem !important; }
 .dissertation-pbi-row {
   display: flex !important;
   flex-direction: row !important;
   flex-wrap: nowrap !important;
   justify-content: space-between !important;
   align-items: center !important;
-  gap: 1rem !important;
-  margin: 1.25rem auto 0 !important;
+  gap: 0.6rem !important;
+  margin: 0.35rem auto 0 !important;
   max-width: 96% !important;
   padding: 0 0.5rem !important;
 }
 .dissertation-pbi-row p { margin: 0 !important; flex: 1 1 0; min-width: 0; }
 .dissertation-pbi-row img {
   width: 100% !important; max-width: 100% !important; height: auto !important;
+  max-height: 26vh !important;
   display: block !important; object-fit: contain !important;
+  margin: 0 auto !important;
   border-radius: 4px !important;
 }
 </style>
@@ -1036,15 +1039,18 @@ section.diagram-slide-top-title .csi-table-wrapper table {
   max-width: 100% !important;
 }
 .infovis-split .infovis-left {
-  flex: 0 1 48% !important;
+  flex: 1 1 54% !important;
   min-width: 0 !important;
 }
 .infovis-split .infovis-left img {
-  width: 100% !important; height: auto !important; display: block !important;
+  width: auto !important; max-width: 100% !important; height: auto !important;
+  max-height: 46vh !important;
+  display: block !important; margin: 0 auto !important;
   border: none !important; box-shadow: none !important;
+  object-fit: contain !important;
 }
 .infovis-split .infovis-right {
-  flex: 0 1 48% !important;
+  flex: 0 1 42% !important;
   min-width: 0 !important;
   display: flex !important;
   flex-direction: column !important;
@@ -1052,9 +1058,9 @@ section.diagram-slide-top-title .csi-table-wrapper table {
   justify-content: flex-start !important;
 }
 .infovis-split .infovis-right p { margin: 0 !important; }
-.infovis-split .infovis-right p:last-child { margin-top: -0.4rem !important; }
 .infovis-split .infovis-right img {
-  width: 80% !important; max-width: 80% !important; height: auto !important;
+  width: 100% !important; max-width: 100% !important; height: auto !important;
+  max-height: 22vh !important;
   display: block !important; margin: 0 auto !important;
   object-fit: contain !important;
 }
@@ -1067,7 +1073,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 <div class="infovis-split">
 <div class="infovis-left">
-<p><img src="../../../pictures/diagrams/infovis-pnad-structures.png" alt="InfoVis PNAD visual structures" /></p>
+<p><img src="../../../pictures/diagrams/infovis-pnad-structures-en.png" alt="InfoVis PNAD visual structures" /></p>
 </div>
 <div class="infovis-right">
 <p><img src="../../../pictures/academia/infovis/pbi-infovis-1.png" alt="Power BI – Education-employment trajectories Sankey" /></p>
@@ -1315,23 +1321,25 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 <style scoped>
 .ai-agile-wrap {
-  display: flex !important; justify-content: center !important; align-items: center !important;
-  min-height: 62vh !important; width: 100% !important; margin-top: -0.25rem !important;
+  display: flex !important; justify-content: center !important; align-items: flex-start !important;
+  width: 100% !important; margin-top: 0.75rem !important;
 }
-.ai-agile-wrap p { margin: 0 !important; text-align: center !important; }
+.ai-agile-wrap p { margin: 0 !important; text-align: center !important; width: 100% !important; }
 .ai-agile-wrap img {
-  width: 58% !important; max-width: 58% !important; height: auto !important;
+  width: 72% !important; max-width: 72% !important; height: auto !important;
+  max-height: 58vh !important;
   display: block !important; margin: 0 auto !important;
   border: none !important; box-shadow: none !important;
+  object-fit: contain !important;
 }
 </style>
 
-## Future – Cloud Architecture, Digitization & Global Delivery
+## Future – Toward Data Scientist pleno
 
-Cloud platforms, digitization, and evidence meet in how I want to grow as a Digital Solution Architect. The diagram below is the agile/research operating context I already work in.
+I am moving from applied research and analytics into Data Scientist pleno. The diagram is how I work that path: a question, an experiment with statistics and supervised ML, then a decision stakeholders can use.
 
 <div class="ai-agile-wrap">
-<p><img src="../../../pictures/diagrams/ai-agile-research.png" alt="Diagram ai-agile-research: AI and Agile in Applied Research" /></p>
+<p><img src="../../../pictures/diagrams/ai-agile-research-en.png" alt="Diagram: question, experiment with statistics and supervised ML, then a stakeholder decision" /></p>
 </div>
 
 ---
@@ -1341,29 +1349,67 @@ Cloud platforms, digitization, and evidence meet in how I want to grow as a Digi
 <style scoped>
 .future-career-wrap {
   display: flex !important; flex-direction: column !important;
-  justify-content: center !important; align-items: center !important;
-  min-height: 55vh !important; width: 100% !important; margin-top: 0.75rem !important;
-  gap: 1rem !important;
+  justify-content: flex-start !important; align-items: stretch !important;
+  width: 100% !important; margin-top: 0.35rem !important;
+  gap: 0.4rem !important;
 }
-.future-career-wrap p { margin: 0 !important; text-align: center !important; }
-.future-career-wrap img {
-  width: 38% !important; max-width: 38% !important; height: auto !important;
-  display: block !important; margin: 10px auto 0 !important;
-  border: none !important; box-shadow: none !important;
-}
+.future-career-wrap p { margin: 0 !important; text-align: left !important; }
 .future-po-bullets {
-  max-width: 85% !important; text-align: left !important; font-size: 0.95em !important;
+  width: 100% !important; max-width: 100% !important; text-align: left !important; font-size: 0.85em !important;
+}
+.future-po-bullets table {
+  width: 100% !important; table-layout: fixed !important; margin-top: 0.35rem !important;
+}
+.future-po-bullets th:first-child,
+.future-po-bullets td:first-child { width: 22% !important; }
+.future-po-bullets td, .future-po-bullets th {
+  overflow-wrap: anywhere; padding: 0.28em 0.5em !important;
 }
 </style>
 
-## Future – How I Design Digital Solutions
+## Future – How I get there
 
-- Architecture as decision support: patterns (services, events, quality gates) chosen for operability—not fashion.
-- Cloud & platform fluency: deepen Azure landing zones, identity/RBAC, and IaC (Terraform/ARM) on top of existing digitization and data work.
-- Evidence in the loop: keep Applied Research, metrics (CSI/NPS), and stakeholder validation inside architecture reviews.
-- Secure by default: identity, policy, and observability as first-class concerns alongside compute and data.
-- Global collaboration: bilingual delivery with distributed teams—already practiced across BR/HU/DE contexts.
+<div class="future-career-wrap">
+<div class="future-po-bullets">
 
+| Step | What it is |
+| ---- | ---------- |
+| Now | Experimental design and inferential statistics (TrustMate: Welch, Cohen's d, FDR; LLM evaluation versus humans); messy text turned into validated BI (Data Insights); CSI/NPS, Power BI, Python/SQL at Bosch |
+| Next | Data Scientist pleno, built on that evidence |
+| Building | Supervised ML baseline and a model card; experiment metrics; production monitoring beside senior data scientists |
+| Limit | I do not claim senior Data Scientist level, or a production model I own end to end |
+
+</div>
+</div>
+
+---
+
+<style scoped>
+.career-path-slide {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  width: 100% !important;
+  margin-top: 0.35rem !important;
+}
+.career-path-slide p { margin: 0 !important; text-align: center !important; width: 100% !important; }
+.career-path-slide img {
+  width: 78% !important;
+  max-width: 78% !important;
+  height: auto !important;
+  max-height: 76vh !important;
+  display: block !important;
+  margin: 0 auto !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+</style>
+
+## Future – The path
+
+<div class="career-path-slide">
+<p><img src="../../../pictures/diagrams/future-career-path-en.png" alt="Diagram: applied research and analytics, then Data Scientist pleno, then production monitoring beside seniors" /></p>
+</div>
 
 <!-- Diagram: future-career-path (mermaid/diagrams.md). Export to future-career-path.png -->
 

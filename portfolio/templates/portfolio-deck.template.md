@@ -465,14 +465,14 @@ img[src*="my-photo-rectangle"] {
 table thead { display: none !important; }
 </style>
 
-## Who I Am – Snapshot
+## {{canonical:h_who}}
 
-| Attribute | Value                     |
-| --------- | ------------------------- |
-| Name      | {{canonical:who_name}}    |
-| Role      | {{canonical:who_role}}    |
-| Impact    | {{canonical:who_impact}}  |
-| Contact   | {{canonical:who_contact}} |
+| {{canonical:h_who_attr}}    | {{canonical:h_who_value}} |
+| --------------------------- | ------------------------- |
+| {{canonical:h_who_name}}    | {{canonical:who_name}}    |
+| {{canonical:h_who_role}}    | {{canonical:who_role}}    |
+| {{canonical:h_who_impact}}  | {{canonical:who_impact}}  |
+| {{canonical:h_who_contact}} | {{canonical:who_contact}} |
 
 <p class="photo-at-bottom"><img src="{{canonical:asset_prefix}}pictures/personal/my-photo-rectangle.png" alt="Eduardo Figueiredo" /></p>  
 <!-- <p><img src="{{canonical:asset_prefix}}pictures/personal/my-photo.png" alt="Eduardo Figueiredo" /></p> -->
@@ -547,7 +547,7 @@ p.historico-wrap img {
 }
 </style>
 
-## Past – Academic Foundations & Professional Profile
+## {{canonical:h_past_academic}}
 
 <p class="logos-together"><img src="{{canonical:asset_prefix}}pictures/academia/logos/ETEC.png" alt="ETEC logo – Bento Quirino" /><img src="{{canonical:asset_prefix}}pictures/academia/logos/UNICAMP.png" alt="Unicamp logo" /></p>
 <p class="academic-writing-wrap"><img src="{{canonical:asset_prefix}}pictures/academia/academic-writing.jpg" alt="Academic Writing Course - Unicamp" /></p>
@@ -557,9 +557,9 @@ p.historico-wrap img {
 <p class="english-proficiency-wrap"><img src="{{canonical:asset_prefix}}pictures/academia/english-proficiency.png" alt="English proficiency – academic credentials" /></p>
 <p class="historico-wrap"><img src="{{canonical:asset_prefix}}pictures/academia/docs/historico-escolar.png" alt="Academic record – Unicamp" /></p>
 
-I feel proactive, self-reliant and organized.
+{{canonical:h_past_feeling}}
 
-<p style="text-align: center; margin-top: 1rem;"><strong>Grade 'A' in all Master's coursework</strong>; English proficiency test verification.</p>
+<p style="text-align: center; margin-top: 1rem;"><strong>{{canonical:h_past_grade}}</strong>; {{canonical:h_past_grade_note}}</p>
 
 <!-- Diagram: academic-timeline (mermaid/diagrams.md). Export to academic-timeline.png -->
 
@@ -599,9 +599,9 @@ section { overflow-x: visible !important; }
 }
 </style>
 
-## Past – Experience Timeline (Condensed)
+## {{canonical:h_past_experience}}
 
-- **Trajectory across Bosch locations:** Campinas, Hungary, Sorocaba, and Campinas.
+- {{canonical:h_past_trajectory}}
 
 <div class="experience-timeline-slide">
 <div class="experience-timeline-diagram-wrap">
@@ -778,7 +778,7 @@ section.diagram-slide-top-title .diagram-wrapper img {
 }
 </style>
 
-## Present – CIP and Applied Research Integration: Applied Research Artifacts
+## {{canonical:h_cip_artifacts}}
 
 <div class="cip-artifacts-grid">
 <p><img src="{{canonical:asset_prefix}}pictures/work/cip-ux/cip-ux-1.png" alt="CIP-Applied Research 1 – Report cover" /></p>
@@ -830,7 +830,7 @@ section { position: relative; }
 }
 </style>
 
-## Present – Academic Applied Research (Trust in AI & UI)
+## {{canonical:h_academic_research}}
 
 <p class="academic-research-diagram"><img src="{{canonical:asset_prefix}}pictures/diagrams/academic-research-flow.png" alt="Diagram academic-research-flow: Academic Applied Research flow" /></p>
 
@@ -872,9 +872,9 @@ section { position: relative; }
 .publications-grid p:nth-child(n+4) img { max-height: 34vh !important; }
 </style>
 
-## Present – Scientific Publications
+## {{canonical:h_publications}}
 
-<p class="publications-intro">Published work in <strong>ISSRE 2025 (HFSD Workshop)</strong> and <strong>IHC 2025 (SBC SOL)</strong>; <span class="thesis-emphasis">master's dissertation on software trustworthiness and Agentic AI</span>.</p>
+<p class="publications-intro">{{canonical:h_publications_intro}}</p>
 
 <div class="publications-grid">
 <p><img src="{{canonical:asset_prefix}}pictures/academia/articles/article-1-1.png" alt="Article 1 page 1" /></p>
@@ -959,9 +959,9 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 }
 </style>
 
-## Data Visualization – Power BI Dashboards at Work
+## {{canonical:h_pbi_work}}
 
-- **Bosch Applied Research Americas (GS):** Built Power BI dashboards for project and resource oversight and training tracking, so the team can see the numbers and make better calls.
+{{canonical:h_pbi_work_bullet}}
 
 <div class="pbi-dashboards-row">
 <p><img src="{{canonical:asset_prefix}}pictures/work/pbi-allocation.png" alt="Power BI – LA Allocation Dashboard" /></p>
@@ -975,27 +975,30 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 <!-- _class: dense-content -->
 
 <style scoped>
-.dissertation-pbi-intro { margin-bottom: 1rem !important; font-size: 0.95em !important; color: var(--color-fg-muted, #666) !important; }
+.dissertation-pbi-intro { margin-bottom: 0.35rem !important; font-size: 0.8em !important; color: var(--color-fg-muted, #666) !important; }
+section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-top: 0.2rem !important; margin-bottom: 0.2rem !important; }
 .dissertation-pbi-row {
   display: flex !important;
   flex-direction: row !important;
   flex-wrap: nowrap !important;
   justify-content: space-between !important;
   align-items: center !important;
-  gap: 1rem !important;
-  margin: 1.25rem auto 0 !important;
+  gap: 0.6rem !important;
+  margin: 0.35rem auto 0 !important;
   max-width: 96% !important;
   padding: 0 0.5rem !important;
 }
 .dissertation-pbi-row p { margin: 0 !important; flex: 1 1 0; min-width: 0; }
 .dissertation-pbi-row img {
   width: 100% !important; max-width: 100% !important; height: auto !important;
+  max-height: 26vh !important;
   display: block !important; object-fit: contain !important;
+  margin: 0 auto !important;
   border-radius: 4px !important;
 }
 </style>
 
-## Data Visualization – Dissertation Power BI
+## {{canonical:h_dissertation_pbi}}
 
 <p class="dissertation-pbi-intro"><span class="thesis-emphasis">{{canonical:dissertation_pbi_intro}}</span></p>
 
@@ -1024,15 +1027,18 @@ section.diagram-slide-top-title .csi-table-wrapper table {
   max-width: 100% !important;
 }
 .infovis-split .infovis-left {
-  flex: 0 1 48% !important;
+  flex: 1 1 54% !important;
   min-width: 0 !important;
 }
 .infovis-split .infovis-left img {
-  width: 100% !important; height: auto !important; display: block !important;
+  width: auto !important; max-width: 100% !important; height: auto !important;
+  max-height: 46vh !important;
+  display: block !important; margin: 0 auto !important;
   border: none !important; box-shadow: none !important;
+  object-fit: contain !important;
 }
 .infovis-split .infovis-right {
-  flex: 0 1 48% !important;
+  flex: 0 1 42% !important;
   min-width: 0 !important;
   display: flex !important;
   flex-direction: column !important;
@@ -1040,9 +1046,9 @@ section.diagram-slide-top-title .csi-table-wrapper table {
   justify-content: flex-start !important;
 }
 .infovis-split .infovis-right p { margin: 0 !important; }
-.infovis-split .infovis-right p:last-child { margin-top: -0.4rem !important; }
 .infovis-split .infovis-right img {
-  width: 80% !important; max-width: 80% !important; height: auto !important;
+  width: 100% !important; max-width: 100% !important; height: auto !important;
+  max-height: 22vh !important;
   display: block !important; margin: 0 auto !important;
   object-fit: contain !important;
 }
@@ -1054,7 +1060,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 <div class="infovis-split">
 <div class="infovis-left">
-<p><img src="{{canonical:asset_prefix}}pictures/diagrams/infovis-pnad-structures.png" alt="InfoVis PNAD visual structures" /></p>
+<p><img src="{{canonical:asset_prefix}}pictures/diagrams/infovis-pnad-structures-{{canonical:lang}}.png" alt="{{canonical:h_infovis_diagram_alt}}" /></p>
 </div>
 <div class="infovis-right">
 <p><img src="{{canonical:asset_prefix}}pictures/academia/infovis/pbi-infovis-1.png" alt="Power BI – Education-employment trajectories Sankey" /></p>
@@ -1089,9 +1095,9 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 }
 </style>
 
-## Technical Implementation – Dissertation (<span class="agentic-ai-emphasis">Agentic AI</span> & Full Stack)
+## {{canonical:h_diss_tech}}
 
-- **Architecture:** Database design supporting projects, experiments, attributes, scores, and <span class="agentic-ai-emphasis">Agentic AI</span> runs.
+{{canonical:h_diss_tech_bullet}}
 
 <!-- Diagram: dissertation-tech (mermaid/diagrams.md). Export to dissertation-tech.png -->
 
@@ -1130,7 +1136,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 }
 </style>
 
-## Technical Implementation
+## {{canonical:h_tech_impl}}
 
 <div class="tech-evidence-grid">
 <p><img src="{{canonical:asset_prefix}}pictures/academia/dissertation-tech-1-agents-1.png" alt="Agentic AI survey – e-commerce evaluation" /></p>
@@ -1255,7 +1261,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 }
 </style>
 
-## Technical Implementation – Proposal Generator (Excel VBA)
+## {{canonical:h_proposal}}
 
 <div class="proposal-gen-wrap">
 <p class="proposal-gen-diagram"><img src="{{canonical:asset_prefix}}pictures/diagrams/proposal-generator-phases.png" alt="Diagram proposal-generator-phases: Proposal Generator Applied Research phases" /></p>
@@ -1301,14 +1307,16 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 
 <style scoped>
 .ai-agile-wrap {
-  display: flex !important; justify-content: center !important; align-items: center !important;
-  min-height: 62vh !important; width: 100% !important; margin-top: -0.25rem !important;
+  display: flex !important; justify-content: center !important; align-items: flex-start !important;
+  width: 100% !important; margin-top: 0.75rem !important;
 }
-.ai-agile-wrap p { margin: 0 !important; text-align: center !important; }
+.ai-agile-wrap p { margin: 0 !important; text-align: center !important; width: 100% !important; }
 .ai-agile-wrap img {
-  width: 58% !important; max-width: 58% !important; height: auto !important;
+  width: 72% !important; max-width: 72% !important; height: auto !important;
+  max-height: 58vh !important;
   display: block !important; margin: 0 auto !important;
   border: none !important; box-shadow: none !important;
+  object-fit: contain !important;
 }
 </style>
 
@@ -1317,7 +1325,7 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 {{canonical:future_intro}}
 
 <div class="ai-agile-wrap">
-<p><img src="{{canonical:asset_prefix}}pictures/diagrams/ai-agile-research.png" alt="{{canonical:future_diagram_alt}}" /></p>
+<p><img src="{{canonical:asset_prefix}}pictures/diagrams/ai-agile-research-{{canonical:lang}}.png" alt="{{canonical:future_diagram_alt}}" /></p>
 </div>
 
 ---
@@ -1363,22 +1371,16 @@ section.diagram-slide-top-title .csi-table-wrapper table {
 .personal-interests-grid p:nth-child(n+4) img { max-height: 32vh !important; }
 </style>
 
-## Personal Interests that Power My Work
+## {{canonical:h_interests}}
 
-- **At home:** Two cats, learning piano, and a split keyboard I use for macros and productivity.
+{{canonical:h_interests_bullet}}
 
 <div class="personal-interests-layout">
 <div class="personal-interests-left">
 <table>
-<thead><tr><th>Interest</th></tr></thead>
+<thead><tr><th>{{canonical:h_interests_col}}</th></tr></thead>
 <tbody>
-<tr><td>Piano</td></tr>
-<tr><td>Linguistics (phonology & phonetics)</td></tr>
-<tr><td>Physics (GR & Quantum)</td></tr>
-<tr><td>Acting</td></tr>
-<tr><td>Impressionist art</td></tr>
-<tr><td>Macro creation</td></tr>
-<tr><td>Specialized keyboards</td></tr>
+{{canonical:h_interests_rows}}
 </tbody>
 </table>
 </div>
@@ -1438,19 +1440,19 @@ section.closing-redesign h2 {
 .closing-contact a { color: #a8d4ff !important; }
 </style>
 
-## Closing & Contact
+## {{canonical:h_closing}}
 
 <div class="closing-summary">
 <p>{{canonical:closing_summary}}</p>
 </div>
 
 <div class="closing-contact">
-<p><strong>Let's connect</strong></p>
+<p><strong>{{canonical:h_closing_connect}}</strong></p>
 <p>{{canonical:email}}</p>
 <p><a href="{{canonical:linkedin_url}}">{{canonical:linkedin_display}}</a></p>
 <p><a href="{{canonical:lattes_url}}">Lattes</a> · <a href="{{canonical:orcid_url}}">ORCID</a></p>
 <p>{{canonical:phone}}</p>
-<p style="margin-top: 0.75rem !important; font-size: 0.9em; opacity: 0.9;">Resume and this deck available on request.</p>
+<p style="margin-top: 0.75rem !important; font-size: 0.9em; opacity: 0.9;">{{canonical:h_closing_request}}</p>
 </div>
 
 ---

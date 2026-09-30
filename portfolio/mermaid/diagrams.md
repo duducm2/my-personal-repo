@@ -4,20 +4,20 @@ Open this file in an editor or viewer that supports Mermaid (e.g. VS Code with M
 
 ## Diagram ID reference (file-naming safe)
 
-| ID | Title | Deck slide(s) |
-|----|-------|----------------|
-| `story-flow` | Why story flow | 1 |
-| `academic-timeline` | Academic timeline | 3 |
-| `cip-ux-pipeline` | CIP-UX methodology pipeline | 6 |
-| `ux-relevance-model` | UX relevance evaluation model | 6a |
-| `academic-research-flow` | Academic research flow | 4 |
-| `dissertation-tech` | Dissertation & research – technologies | 6 & 7 |
-| `infovis-pnad-structures` | InfoVis PNAD visual structures | 8 |
-| `tooling-pt-workflow` | Tooling PT delivery workflow | 9 |
-| `proposal-generator-phases` | Proposal Generator UX phases | 10 |
-| `ai-agile-research` | AI and Agile in Research | 11 |
-| `experience-timeline` | Experience timeline | 12 |
-| `future-career-path` | Future career – prioritized paths to leadership | 13 |
+| ID                          | Title                                      | Deck slide(s) |
+| --------------------------- | ------------------------------------------ | ------------- |
+| `story-flow`                | Why story flow                             | 1             |
+| `academic-timeline`         | Academic timeline                          | 3             |
+| `cip-ux-pipeline`           | CIP-UX methodology pipeline                | 6             |
+| `ux-relevance-model`        | UX relevance evaluation model              | 6a            |
+| `academic-research-flow`    | Academic research flow                     | 4             |
+| `dissertation-tech`         | Dissertation & research – technologies     | 6 & 7         |
+| `infovis-pnad-structures`   | InfoVis PNAD visual structures             | 8             |
+| `tooling-pt-workflow`       | Tooling PT delivery workflow               | 9             |
+| `proposal-generator-phases` | Proposal Generator UX phases               | 10            |
+| `ai-agile-research`         | Question, experiment, stakeholder decision | 11            |
+| `experience-timeline`       | Experience timeline                        | 12            |
+| `future-career-path`        | Path to Data Scientist pleno               | 13            |
 
 **File naming:** Use the ID for sources and exports (e.g. `story-flow.mmd`, `story-flow.png`). All deck references use these IDs.
 
@@ -152,13 +152,29 @@ flowchart LR
 
 ## 6. [infovis-pnad-structures] InfoVis PNAD visual structures (Slide 8)
 
+English export: `infovis-pnad-structures-en.png`.
+
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato', 'fontSize': '28px'}}}%%
 flowchart LR
   PNAD["PNAD Continua"]
   Sankey["Sankey Diagram"]
   Choropleth["Choropleth Map"]
   Faceted["Bar Chart"]
+  PNAD --> Sankey
+  PNAD --> Choropleth
+  PNAD --> Faceted
+```
+
+Portuguese export: `infovis-pnad-structures-pt.png`.
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato', 'fontSize': '28px'}}}%%
+flowchart LR
+  PNAD["PNAD Contínua"]
+  Sankey["Sankey"]
+  Choropleth["Mapa coroplético"]
+  Faceted["Gráfico de barras"]
   PNAD --> Sankey
   PNAD --> Choropleth
   PNAD --> Faceted
@@ -196,27 +212,30 @@ flowchart LR
 
 ---
 
-## 9. [ai-agile-research] AI and Agile in Research (Slide 11)
+## 9. [ai-agile-research] Question, experiment, stakeholder decision (Slide 11)
 
-*Narrative for slide:* The **AI Scrum Master** facilitates the process (sprint planning, backlog refinement, daily check-ins, reviews, retrospectives) and evaluates whether the team is using tools and tech correctly (e.g. AI, AR). The research team works with AI tools and participates in ceremonies; outcomes include research backlog, experiment cards, dashboards, and human-reviewed AI drafts.
+_Narrative for slide:_ The path toward Data Scientist pleno is a working loop: start from a question, run an experiment with statistics and supervised ML, and leave stakeholders with a decision they can use.
+
+English export: `ai-agile-research-en.png`.
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato', 'subgraphBg': 'transparent', 'subgraphBorder': '#bdc3c7'}}}%%
-flowchart TD
-  RSM["AI Scrum Master"]
-  RT["Research Team + AI tools"]
-  C1["Sprint planning, Backlog refinement"]
-  C2["Daily check-ins, Reviews, Retrospectives"]
-  C3["Tool & tech usage evaluation (AI, etc.)"]
-  A1["Research backlog, Experiment cards"]
-  A2["Dashboards, AI drafts, human-reviewed"]
-  RSM --> C1
-  RSM --> C2
-  RSM --> C3
-  C3 --> RT
-  RT --> C2
-  C1 --> A1
-  C2 --> A2
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato', 'fontSize': '36px'}, 'flowchart': {'padding': 28, 'rankSpacing': 56, 'wrappingWidth': 900}}}%%
+flowchart TB
+  Q["Question"]
+  E["Experiment · stats and supervised ML"]
+  D["Stakeholder decision"]
+  Q --> E --> D
+```
+
+Portuguese export: `ai-agile-research-pt.png`.
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato', 'fontSize': '36px'}, 'flowchart': {'padding': 28, 'rankSpacing': 56, 'wrappingWidth': 900}}}%%
+flowchart TB
+  Q["Pergunta"]
+  E["Experimento · estatística e ML supervisionado"]
+  D["Decisão com stakeholders"]
+  Q --> E --> D
 ```
 
 ---
@@ -234,17 +253,26 @@ flowchart TD
 
 ---
 
-## 11. [future-career-path] Future career – prioritized paths to leadership (Slide 13)
+## 11. [future-career-path] Path to Data Scientist pleno (Slide 13)
+
+English export: `future-career-path-en.png`.
 
 ```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato'}}}%%
-flowchart LR
-  P1["Priority 1 (Ideal)<br/>PhD within Bosch –<br/>Quantum or AI technology"]
-  P2["Priority 2<br/>AI Scrum Master<br/>+ technical support"]
-  P3["Priority 3<br/>UX Researcher"]
-  Lead["Leadership"]
-  P1 --> Lead
-  P2 --> Lead
-  P3 --> Lead
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato', 'fontSize': '36px'}, 'flowchart': {'padding': 28, 'rankSpacing': 56, 'wrappingWidth': 900}}}%%
+flowchart TB
+  Now["Now · Applied research and analytics"]
+  Next["Next · Data Scientist pleno"]
+  Seniors["With seniors · Production monitoring"]
+  Now --> Next --> Seniors
 ```
 
+Portuguese export: `future-career-path-pt.png`.
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato', 'fontSize': '36px'}, 'flowchart': {'padding': 28, 'rankSpacing': 56, 'wrappingWidth': 900}}}%%
+flowchart TB
+  Now["Agora · Pesquisa aplicada e analytics"]
+  Next["Próximo · Cientista de Dados pleno"]
+  Seniors["Com seniores · Monitoramento de produção"]
+  Now --> Next --> Seniors
+```

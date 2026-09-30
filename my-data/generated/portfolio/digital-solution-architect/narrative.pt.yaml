@@ -15,32 +15,110 @@ fields:
   dissertation_pbi_intro: "Minha dissertação de mestrado mensura confiança percebida em interfaces de e-commerce com o MQCI (ISO/IEC 25000) e a TrustMate, depois compara agentes ChatGPT o3 com 127 estudantes de TI em três sites. O ângulo de arquitetura: a triagem automatizada de qualidade de interface consegue apoiar decisões antes de escalar features de IA—sem fingir que agentes substituem avaliação humana? A resposta do estudo é sim à triagem, não à substituição."
   email: "edu.evangelista.figueiredo@gmail.com"
   future_career_body: |
-    ## Futuro – Como desenho soluções digitais
+    ## Futuro – Como chego lá
     
-    - Arquitetura como apoio à decisão: padrões (serviços, eventos, quality gates) escolhidos por operabilidade—não por moda.
-    - Fluência cloud e plataforma: aprofundar landing zones Azure, identidade/RBAC e IaC (Terraform/ARM) sobre a digitalização e o trabalho com dados já feitos.
-    - Evidência no ciclo: manter Pesquisa Aplicada, métricas (CSI/NPS) e validação com stakeholders dentro de architecture reviews.
-    - Seguro por padrão: identidade, política e observabilidade como preocupações de primeira classe junto de compute e dados.
-    - Colaboração global: entrega bilíngue com times distribuídos—já praticada em contextos BR/HU/DE.
+    <div class="future-career-wrap">
+    <div class="future-po-bullets">
+    
+    | Passo | O que é |
+    | ----- | ------- |
+    | Agora | Desenho experimental e estatística inferencial (TrustMate: Welch, d de Cohen, FDR; avaliação com LLM versus humanos); texto confuso virando BI validado (Data Insights); CSI/NPS, Power BI, Python/SQL na Bosch |
+    | Próximo | Cientista de Dados pleno, em cima dessa evidência |
+    | Em construção | Baseline de ML supervisionado e um model card; métricas de experimento; monitoramento de produção ao lado de cientistas de dados seniores |
+    | Limite | Não reivindico nível de Cientista de Dados sênior, nem um modelo de produção que eu opere de ponta a ponta |
+    
+    </div>
+    </div>
+    
+    ---
+    
+    <style scoped>
+    .career-path-slide {
+      display: flex !important;
+      justify-content: center !important;
+      align-items: flex-start !important;
+      width: 100% !important;
+      margin-top: 0.35rem !important;
+    }
+    .career-path-slide p { margin: 0 !important; text-align: center !important; width: 100% !important; }
+    .career-path-slide img {
+      width: 78% !important;
+      max-width: 78% !important;
+      height: auto !important;
+      max-height: 76vh !important;
+      display: block !important;
+      margin: 0 auto !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    </style>
+    
+    ## Futuro – O caminho
+    
+    <div class="career-path-slide">
+    <p><img src="../../../pictures/diagrams/future-career-path-pt.png" alt="Diagrama: pesquisa aplicada e analytics, depois Cientista de Dados pleno, depois monitoramento de produção ao lado de seniores" /></p>
+    </div>
   future_career_style: |
     .future-career-wrap {
       display: flex !important; flex-direction: column !important;
-      justify-content: center !important; align-items: center !important;
-      min-height: 55vh !important; width: 100% !important; margin-top: 0.75rem !important;
-      gap: 1rem !important;
+      justify-content: flex-start !important; align-items: stretch !important;
+      width: 100% !important; margin-top: 0.35rem !important;
+      gap: 0.4rem !important;
     }
-    .future-career-wrap p { margin: 0 !important; text-align: center !important; }
-    .future-career-wrap img {
-      width: 38% !important; max-width: 38% !important; height: auto !important;
-      display: block !important; margin: 10px auto 0 !important;
-      border: none !important; box-shadow: none !important;
-    }
+    .future-career-wrap p { margin: 0 !important; text-align: left !important; }
     .future-po-bullets {
-      max-width: 85% !important; text-align: left !important; font-size: 0.95em !important;
+      width: 100% !important; max-width: 100% !important; text-align: left !important; font-size: 0.85em !important;
     }
-  future_diagram_alt: "Diagrama ai-agile-research: IA e Ágil em Pesquisa Aplicada"
-  future_h2: "Futuro – Arquitetura cloud, digitalização e entrega global"
-  future_intro: "Plataformas cloud, digitalização e evidência se encontram em como quero crescer como Arquiteto de Soluções Digitais. O diagrama abaixo é o contexto ágil/pesquisa em que já atuo."
+    .future-po-bullets table {
+      width: 100% !important; table-layout: fixed !important; margin-top: 0.35rem !important;
+    }
+    .future-po-bullets th:first-child,
+    .future-po-bullets td:first-child { width: 22% !important; }
+    .future-po-bullets td, .future-po-bullets th {
+      overflow-wrap: anywhere; padding: 0.28em 0.5em !important;
+    }
+  future_diagram_alt: "Diagrama: pergunta, experimento com estatística e ML supervisionado, depois uma decisão com stakeholders"
+  future_h2: "Futuro – Rumo a Cientista de Dados pleno"
+  future_intro: "Estou saindo de pesquisa aplicada e analytics para Cientista de Dados pleno. O diagrama é como percorro esse caminho: uma pergunta, um experimento com estatística e ML supervisionado, depois uma decisão que stakeholders consigam usar."
+  h_academic_research: "Presente – Pesquisa aplicada acadêmica (confiança em IA e UI)"
+  h_cip_artifacts: "Presente – Integração CIP e Pesquisa Aplicada: Artefatos"
+  h_closing: "Encerramento e contato"
+  h_closing_connect: "Vamos conversar"
+  h_closing_request: "Currículo e este deck disponíveis sob pedido."
+  h_diss_tech: "Implementação técnica – Dissertação (<span class=\"agentic-ai-emphasis\">IA agêntica</span> e full stack)"
+  h_diss_tech_bullet: "- **Arquitetura:** desenho de banco para projetos, experimentos, atributos, pontuações e execuções de <span class=\"agentic-ai-emphasis\">IA agêntica</span>."
+  h_dissertation_pbi: "Visualização de dados – Power BI da dissertação"
+  h_infovis_diagram_alt: "Estruturas visuais da PNAD no InfoVis"
+  h_interests: "Interesses pessoais que alimentam o trabalho"
+  h_interests_bullet: "- **Em casa:** dois gatos, piano iniciante e um teclado dividido que uso para macros e produtividade."
+  h_interests_col: "Interesse"
+  h_interests_rows: |
+    <tr><td>Piano</td></tr>
+    <tr><td>Linguística (fonologia e fonética)</td></tr>
+    <tr><td>Física (relatividade e quântica)</td></tr>
+    <tr><td>Atuação</td></tr>
+    <tr><td>Arte impressionista</td></tr>
+    <tr><td>Criação de macros</td></tr>
+    <tr><td>Teclados especializados</td></tr>
+  h_past_academic: "Passado – Formação acadêmica e perfil profissional"
+  h_past_experience: "Passado – Linha do tempo (resumida)"
+  h_past_feeling: "Me sinto proativo, autônomo e organizado."
+  h_past_grade: "Nota A em todas as disciplinas do mestrado"
+  h_past_grade_note: "comprovação de proficiência em inglês."
+  h_past_trajectory: "**Trajetória entre unidades Bosch:** Campinas, Hungria, Sorocaba e Campinas."
+  h_pbi_work: "Visualização de dados – Dashboards Power BI no trabalho"
+  h_pbi_work_bullet: "- **Pesquisa Aplicada Américas da Bosch (GS):** Construí dashboards Power BI para acompanhar projetos, recursos e treinamentos, para o time ver os números e decidir melhor."
+  h_proposal: "Implementação técnica – Gerador de propostas (Excel VBA)"
+  h_publications: "Presente – Publicações científicas"
+  h_publications_intro: "Trabalho publicado no <strong>ISSRE 2025 (Workshop HFSD)</strong> e no <strong>IHC 2025 (SBC SOL)</strong>; <span class=\"thesis-emphasis\">dissertação de mestrado sobre confiabilidade de software e IA agêntica</span>."
+  h_tech_impl: "Implementação técnica"
+  h_who: "Quem sou – Retrato"
+  h_who_attr: "Atributo"
+  h_who_contact: "Contato"
+  h_who_impact: "Impacto"
+  h_who_name: "Nome"
+  h_who_role: "Papel"
+  h_who_value: "Valor"
   infovis_phrasenet_bullets: |
     - Grafos, árvores e viz de texto: codificar relações e coocorrência—útil quando a arquitetura precisa expor estrutura de eventos e dependências.
     - Padrões de interação: filtragem e detalhe sob demanda como restrições de UX em plataformas de dados.
@@ -49,6 +127,7 @@ fields:
     - Visualização da Informação (Mestrado Unicamp, nota A): estruturas visuais e mapeamento para dados operacionais multivariados—habilidades que transferem para arquitetar superfícies analíticas cloud legíveis.
     - PNAD Contínua no Power BI: de tabelas brutas a visões interativas exploráveis por stakeholders.
   infovis_pnad_h2: "Visualização de dados – InfoVis (Mestrado): PNAD Contínua (Power BI)"
+  lang: "pt"
   lattes_url: "https://lattes.cnpq.br/2708641049892967"
   linkedin_display: "linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b"
   linkedin_url: "https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b"
