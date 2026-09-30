@@ -4380,20 +4380,6 @@
           return;
         }
 
-        // Status filter — Alt+E saved, Alt+B subscribed
-        if (!modalOpen && !typing && code === "KeyE") {
-          event.preventDefault();
-          event.stopPropagation();
-          toggleStatusFilter("saved");
-          return;
-        }
-        if (!modalOpen && !typing && code === "KeyB") {
-          event.preventDefault();
-          event.stopPropagation();
-          toggleStatusFilter("subscribed");
-          return;
-        }
-
         // Generate form prompt — Alt+F (job opening modal only)
         if (modalOpen && !typing && code === "KeyF") {
           event.preventDefault();
@@ -4560,6 +4546,23 @@
       if (event.altKey || mod || typing) return;
 
       if (!event.shiftKey) return;
+
+      if (
+        !modalOpen &&
+        (event.code === "KeyS" || event.key.toLowerCase() === "s")
+      ) {
+        event.preventDefault();
+        toggleStatusFilter("saved");
+        return;
+      }
+      if (
+        !modalOpen &&
+        (event.code === "KeyR" || event.key.toLowerCase() === "r")
+      ) {
+        event.preventDefault();
+        toggleStatusFilter("subscribed");
+        return;
+      }
 
       if (event.code === "Digit1") {
         event.preventDefault();
