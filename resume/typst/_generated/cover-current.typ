@@ -1,0 +1,14 @@
+// Generated cover-letter content — do not edit by hand.
+// opening_id=atl-08 lang=en
+#let cover-name = "Eduardo M. de A. Figueiredo"
+#let cover-phone = "+55 (19) 98176-6583"
+#let cover-email = "edu.evangelista.figueiredo@gmail.com"
+#let cover-location = "Nova Odessa, SP - Brazil"
+#let cover-linkedin = "https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b"
+#let cover-date = "September 29, 2026"
+#let cover-company = "Atlassian"
+#let cover-role = "Principal Product Designer, Rovo & AI"
+#let cover-greeting = "Dear Atlassian Design Hiring Team,"
+#let cover-body = "I am writing to express my strong interest in the Principal Product Designer, Rovo & AI position at Atlassian. As a UX researcher and designer with a deep technical background, I have long admired Atlassian’s commitment to unleashing the potential of every team. The opportunity to shape Rovo and Atlassian's application-layer AI experiences aligns perfectly with my passion for bridging human-centric design, complex enterprise architectures, and agentic AI.\n\nOver the past three years as a Technology Researcher and Designer at Bosch, I have led global enterprise projects and coached cross-functional teams on embedding UX methods into their daily workflows. My previous experience as a front-end Web Developer building React applications allows me to partner closely and speak the same language as engineering and product management. This technical and cross-functional facilitation is crucial when designing and integrating cohesive AI capabilities across a diverse product portfolio like Jira, Confluence, and Bitbucket.\n\nAdditionally, I bring a rigorous, systems-thinking approach to product measurement. Supported by my continuous improvement background and my Master's research in Information and Communication Systems at Unicamp, I regularly combine qualitative user research with quantitative analytics using Python, SQL, and Power BI. This dual approach ensures that strategic design decisions are grounded in both human needs and concrete success metrics, which is essential when iterating on new AI search and interaction paradigms.\n\nFinally, my background as a Continuous Improvement Analyst means that scaling design craft, facilitating crits, and improving team velocity are ingrained in how I work. Whether refining agile processes or guiding teams as an AI Scrum Master, I focus on delivering strategic outcomes that directly impact customer value.\n\nI would welcome the opportunity to bring my applied research, technical execution, and enterprise design experience to the Rovo & AI team. Thank you for considering my application. I look forward to the possibility of discussing how I can contribute to Atlassian's future."
+#let cover-closing = "Best regards,\nEduardo M. de A. Figueiredo"
+#let cover-lang = "en"

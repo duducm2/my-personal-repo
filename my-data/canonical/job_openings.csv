@@ -374,7 +374,16 @@ var pMinNum = '1';
 var pMinLow = '1';
 var pMinUp = '1';
 var pMinSpec = '1';
-addToRequiredFieldsIfNotZero(pM",,,,
+addToRequiredFieldsIfNotZero(pM","I am writing to express my strong interest in the Principal Product Designer, Rovo & AI position at Atlassian. As a UX researcher and designer with a deep technical background, I have long admired Atlassian's commitment to unleashing the potential of every team. The opportunity to shape Rovo and Atlassian's application-layer AI experiences aligns perfectly with my passion for bridging human-centric design, complex enterprise architectures, and agentic AI.
+
+Over the past three years as a Technology Researcher and Designer at Bosch, I have led global enterprise projects and coached cross-functional teams on embedding UX methods into their daily workflows. My previous experience as a front-end Web Developer building React applications allows me to partner closely and speak the same language as engineering and product management. This technical and cross-functional facilitation is crucial when designing and integrating cohesive AI capabilities across a diverse product portfolio like Jira, Confluence, and Bitbucket.
+
+Additionally, I bring a rigorous, systems-thinking approach to product measurement. Supported by my continuous improvement background and my Master's research in Information and Communication Systems at Unicamp, I regularly combine qualitative user research with quantitative analytics using Python, SQL, and Power BI. This dual approach ensures that strategic design decisions are grounded in both human needs and concrete success metrics, which is essential when iterating on new AI search and interaction paradigms.
+
+Finally, my background as a Continuous Improvement Analyst means that scaling design craft, facilitating crits, and improving team velocity are ingrained in how I work. Whether refining agile processes or guiding teams as an AI Scrum Master, I focus on delivering strategic outcomes that directly impact customer value.
+
+I would welcome the opportunity to bring my applied research, technical execution, and enterprise design experience to the Rovo & AI team. Thank you for considering my application. I look forward to the possibility of discussing how I can contribute to Atlassian's future.",en,"Dear Atlassian Design Hiring Team,","Best regards,
+Eduardo M. de A. Figueiredo"
 atl-09,9,1,Atlassian,atlassian-global,Lead Design Technologist,dsa,,,saved,medium,Remote,San Francisco,company_site,2026-09-27,,,,,,,,,,,1,9,Combines React/frontend background with UX research and UI design implementation. Strong fit.,digital-solution-architect,,,,,,,,
 atl-10,10,1,Atlassian,atlassian-global,"Senior Design Manager, Jira AI",po,,,saved,medium,Remote,San Francisco,company_site,2026-09-27,,,,,,,,,,,1,8,"High relevance to AI systems, UX methodologies, and coaching colleagues.",product-owner,,,,,,,,
 atl-11,11,1,Atlassian,atlassian-global,Senior Product Manager,po,,,saved,medium,Remote,Bengaluru,company_site,2026-09-27,,,,,,,,,,,1,8,"Leverages continuous improvement background, Scrum/Agile knowledge, and global stakeholder alignment.",product-owner,,,,,,,,

@@ -1816,6 +1816,13 @@
         hay: `phone number telefone número numero ${contactPhone}`.toLowerCase(),
       },
       {
+        id: "contact-linkedin",
+        label: "LinkedIn",
+        en: cell(contactProfile.linkedin_url),
+        pt: cell(contactProfile.linkedin_url),
+        hay: `linkedin profile perfil ${cell(contactProfile.linkedin_url)}`.toLowerCase(),
+      },
+      {
         id: "contact-bosch-campinas",
         label: "Bosch Campinas",
         en: boschAddressEn,
