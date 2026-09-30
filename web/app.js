@@ -1301,7 +1301,18 @@
     const root = document.getElementById(meta.root);
     if (!root) return;
     root.replaceChildren();
-    const rows = state[collection] || [];
+    let rows = state[collection] || [];
+    const parts = profileQueryParts();
+    if (!parts.length) {
+      setSectionSearchVisibility(root, true);
+    } else {
+      rows = filterRowsByProfileSearch(collection, rows);
+      if (!rows.length) {
+        setSectionSearchVisibility(root, false);
+        return;
+      }
+      setSectionSearchVisibility(root, true);
+    }
 
     if (collection === "companies") {
       renderCompanyFilters();
@@ -1351,6 +1362,7 @@
     renderPathFilters();
     renderProfileSummary();
     for (const key of PROFILE_RENDER_KEYS) renderSection(key);
+    syncDownloadsSearch();
   }
 
   function matchesPathFilter(pathValue) {
@@ -1419,7 +1431,7 @@
     const inp = searchInputEl();
     if (inp) inp.value = "";
     hideSearchBar();
-    renderProfileSummary();
+    renderProfileSearch();
   }
 
   function profileQueryParts() {
@@ -1429,6 +1441,115 @@
   function textHasParts(text, parts) {
     const hay = (text || "").toLowerCase();
     return parts.every((part) => hay.includes(part));
+  }
+
+  const SECTION_SEARCH_TITLES = {
+    about: ["About"],
+    targetTitles: ["Target titles", "Possible titles"],
+    projects: ["Projects"],
+    education: ["Education"],
+    experience: ["Experience"],
+    languages: ["Languages"],
+    recognitions: ["Recognitions", "Honors", "Awards"],
+    courses: ["Courses"],
+    competences: ["Competences", "Skills"],
+    volunteering: ["Volunteering"],
+    certifications: ["Licenses", "Certifications"],
+  };
+
+  const HEADING_COLLECTION = {
+    "about-heading": "about",
+    "titles-heading": "targetTitles",
+    "projects-heading": "projects",
+    "education-heading": "education",
+    "experience-heading": "experience",
+    "languages-heading": "languages",
+    "recognitions-heading": "recognitions",
+    "courses-heading": "courses",
+    "competences-heading": "competences",
+    "volunteering-heading": "volunteering",
+    "certifications-heading": "certifications",
+  };
+
+  function titleTokens(title) {
+    return String(title)
+      .toLowerCase()
+      .split(/[^a-z0-9]+/)
+      .filter((token) => token.length >= 3);
+  }
+
+  function partMatchesTitles(part, titles) {
+    const p = String(part || "").toLowerCase();
+    if (p.length < 3) return false;
+    return titles.some((title) =>
+      titleTokens(title).some(
+        (token) => token === p || token.startsWith(p) || p.startsWith(token),
+      ),
+    );
+  }
+
+  function profileSearchCatalogs() {
+    return [
+      ["Contact"],
+      ["Resumes", "Portfolios"],
+      ...Object.values(SECTION_SEARCH_TITLES),
+    ];
+  }
+
+  function splitProfileQuery(parts) {
+    const catalogs = profileSearchCatalogs();
+    const scopeWords = [];
+    const contentWords = [];
+    for (const part of parts) {
+      if (catalogs.some((titles) => partMatchesTitles(part, titles))) {
+        scopeWords.push(part);
+      } else {
+        contentWords.push(part);
+      }
+    }
+    return { scopeWords, contentWords };
+  }
+
+  function filterRowsByProfileSearch(collection, rows) {
+    const titles = SECTION_SEARCH_TITLES[collection];
+    const parts = profileQueryParts();
+    if (!titles || !parts.length) return rows;
+    const { scopeWords, contentWords } = splitProfileQuery(parts);
+    const inScope =
+      !scopeWords.length ||
+      scopeWords.some((part) => partMatchesTitles(part, titles));
+    if (!inScope) return [];
+    const words = scopeWords.length ? contentWords : parts;
+    if (!words.length) return rows;
+    return rows.filter((row) => textHasParts(rowHay(row), words));
+  }
+
+  function setSectionSearchVisibility(root, show) {
+    const sectionEl = root?.closest(".section");
+    if (sectionEl) sectionEl.hidden = !show;
+  }
+
+  function syncDownloadsSearch() {
+    const section = document
+      .getElementById("downloads-heading")
+      ?.closest(".section");
+    if (!section) return;
+    const parts = profileQueryParts();
+    if (!parts.length) {
+      section.hidden = false;
+      return;
+    }
+    const { scopeWords } = splitProfileQuery(parts);
+    const titles = ["Resumes", "Portfolios"];
+    section.hidden = scopeWords.length
+      ? !scopeWords.some((part) => partMatchesTitles(part, titles))
+      : !parts.some((part) => partMatchesTitles(part, titles));
+  }
+
+  function renderProfileSearch() {
+    renderProfileSummary();
+    for (const key of PROFILE_RENDER_KEYS) renderSection(key);
+    syncDownloadsSearch();
   }
 
   function hasActiveProfileFilters() {
@@ -1802,21 +1923,33 @@
     ];
 
     const parts = profileQueryParts();
+    const { scopeWords, contentWords } = splitProfileQuery(parts);
+    const itemWords = scopeWords.length ? contentWords : parts;
     const visible = [];
     for (const sec of sections) {
       const isSkills = sec.headingId === "competences-heading";
-      const titleMatch = parts.length > 0 && textHasParts(sec.titleEn, parts);
-      const items =
-        !parts.length || titleMatch
-          ? sec.items
-          : sec.items.filter((item) =>
-              textHasParts(item.hay || `${item.en}\n${item.pt}`, parts),
-            );
+      const titles = sec.headingId
+        ? SECTION_SEARCH_TITLES[HEADING_COLLECTION[sec.headingId]] || []
+        : ["Contact"];
+      const inScope =
+        !parts.length ||
+        !scopeWords.length ||
+        scopeWords.some((part) => partMatchesTitles(part, titles));
+      if (parts.length && !inScope) continue;
+      const items = !itemWords.length
+        ? sec.items
+        : sec.items.filter((item) =>
+            textHasParts(item.hay || `${item.en}\n${item.pt}`, itemWords),
+          );
       if (parts.length) {
-        if (!titleMatch && !items.length) continue;
+        if (!items.length) continue;
       } else if (!items.length && !isSkills) {
         continue;
       }
+      const titleMatch =
+        scopeWords.length > 0 &&
+        inScope &&
+        scopeWords.some((part) => partMatchesTitles(part, titles));
       visible.push({ ...sec, items, titleMatch });
     }
 
@@ -1906,7 +2039,11 @@
         }
         card.append(wrap);
         grid.append(card);
-        rendered.push({ card, titleMatch: sec.titleMatch });
+        rendered.push({
+          card,
+          titleMatch: sec.titleMatch,
+          headingId: sec.headingId,
+        });
         continue;
       }
 
@@ -2010,26 +2147,35 @@
 
       card.append(cols);
       grid.append(card);
-      rendered.push({ card, titleMatch: sec.titleMatch });
+      rendered.push({
+        card,
+        titleMatch: sec.titleMatch,
+        headingId: sec.headingId,
+      });
     }
 
     root.append(grid);
 
     const titleHits = rendered.filter((entry) => entry.titleMatch);
+    const only = rendered.length === 1 ? rendered[0] : null;
     const scrollCard =
-      rendered.length === 1
-        ? rendered[0].card
-        : titleHits.length === 1
-          ? titleHits[0].card
-          : null;
+      only?.card || (titleHits.length === 1 ? titleHits[0].card : null);
     const queryKey = parts.join(" ");
     if (scrollCard && profileMapScrolledQuery !== queryKey) {
       profileMapScrolledQuery = queryKey;
+      const headingId = only?.headingId || "";
       requestAnimationFrame(() => {
+        const pageHeading = headingId
+          ? document.getElementById(headingId)
+          : null;
+        const pageSection = pageHeading?.closest(".section");
+        const el =
+          pageHeading && pageSection && !pageSection.hidden
+            ? pageHeading
+            : scrollCard;
         const chrome = document.querySelector(".profile-sticky-chrome");
         const offset = (chrome?.getBoundingClientRect().height || 0) + 8;
-        const top =
-          scrollCard.getBoundingClientRect().top + window.scrollY - offset;
+        const top = el.getBoundingClientRect().top + window.scrollY - offset;
         window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
       });
     } else if (!scrollCard) {
@@ -2554,7 +2700,7 @@
     if (search) {
       search.addEventListener("input", () => {
         profileQuery = search.value;
-        renderProfileSummary();
+        renderProfileSearch();
         if ((search.value || "").trim()) showSearchBar();
       });
       search.addEventListener("keydown", (event) => {

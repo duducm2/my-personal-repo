@@ -669,6 +669,27 @@ body.is-dirty .brand::after {
   margin-bottom: 12px;
 }
 
+.page-profile main {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.page-profile main > .section {
+  margin-bottom: 0;
+  background: #3a3a3a;
+  border: 2px solid #d4d4d4;
+  border-radius: 8px;
+  padding: 12px 12px 14px;
+}
+
+.page-profile .profile-summary-card,
+.page-profile .panel,
+.page-profile .download-card {
+  background: #141414;
+  border: 1px solid #8d8d8d;
+}
+
 .section-title {
   margin: 0 0 6px;
   font-size: 12px;
