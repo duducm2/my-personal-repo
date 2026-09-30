@@ -24,9 +24,9 @@ fields:
     | Passo | O que é |
     | ----- | ------- |
     | Agora | Desenho experimental e estatística inferencial (TrustMate: Welch, d de Cohen, FDR; avaliação com LLM versus humanos); texto confuso virando BI validado (Data Insights); CSI/NPS, Power BI, Python/SQL na Bosch |
-    | Próximo | Cientista de Dados pleno, em cima dessa evidência |
-    | Em construção | Baseline de ML supervisionado e um model card; métricas de experimento; monitoramento de produção ao lado de cientistas de dados seniores |
-    | Limite | Não reivindico nível de Cientista de Dados sênior, nem um modelo de produção que eu opere de ponta a ponta |
+    | Próximo | Analista de dados sênior: insight pelo método científico |
+    | Método | Análise descritiva, inferencial e visual |
+    | Decisões | Decisões rápidas a partir dessa evidência |
     
     </div>
     </div>
@@ -57,7 +57,7 @@ fields:
     ## Futuro – O caminho
     
     <div class="career-path-slide">
-    <p><img src="../pictures/diagrams/future-career-path-pt.png" alt="Diagrama: pesquisa aplicada e analytics, depois Cientista de Dados pleno, depois monitoramento de produção ao lado de seniores" /></p>
+    <p><img src="../pictures/diagrams/future-career-path-pt.png" alt="Diagrama: análise descritiva, inferencial e visual, depois analista de dados sênior, depois decisões rápidas a partir do insight" /></p>
     </div>
   future_career_style: |
     .future-career-wrap {
@@ -78,9 +78,9 @@ fields:
     .future-po-bullets td, .future-po-bullets th {
       overflow-wrap: anywhere; padding: 0.28em 0.5em !important;
     }
-  future_diagram_alt: "Diagrama: pergunta, experimento com estatística e ML supervisionado, depois uma decisão com stakeholders"
-  future_h2: "Futuro – Rumo a Cientista de Dados pleno"
-  future_intro: "Estou saindo de pesquisa aplicada e analytics para Cientista de Dados pleno. O diagrama é como percorro esse caminho: uma pergunta, um experimento com estatística e ML supervisionado, depois uma decisão que stakeholders consigam usar."
+  future_diagram_alt: "Diagrama: pergunta, análise descritiva, inferencial e visual, depois uma decisão rápida"
+  future_h2: "Futuro – Analista de dados sênior"
+  future_intro: "Quero me tornar analista de dados sênior que transforma insight em decisões rápidas. O método é científico: análise descritiva, inferencial e visual. O diagrama é como trabalho: uma pergunta, essa análise, depois uma decisão que as pessoas conseguem tomar rápido."
   h_academic_research: "Presente – Pesquisa aplicada acadêmica (confiança em IA e UI)"
   h_cip_artifacts: "Presente – Integração CIP e Pesquisa Aplicada: Artefatos"
   h_closing: "Encerramento e contato"

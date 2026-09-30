@@ -469,11 +469,11 @@ table thead { display: none !important; }
 
 ## Quem sou – Retrato
 
-| Atributo | Valor |
-| --------- | ------------------------- |
-| Nome | Eduardo M. de A. Figueiredo    |
-| Papel | Pesquisa Aplicada, Tecnologia e Gestão de Projetos    |
-| Impacto | Ajudo times a ficar mais claros sobre o que priorizar e como melhorar, usando pesquisa e dados para que as decisões se sustentem.  |
+| Atributo    | Valor |
+| --------------------------- | ------------------------- |
+| Nome    | Eduardo M. de A. Figueiredo    |
+| Papel    | Pesquisa Aplicada, Tecnologia e Gestão de Projetos    |
+| Impacto  | Ajudo times a ficar mais claros sobre o que priorizar e como melhorar, usando pesquisa e dados para que as decisões se sustentem.  |
 | Contato | Nova Odessa, SP – Brasil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583 |
 
 <p class="photo-at-bottom"><img src="../pictures/personal/my-photo-rectangle.png" alt="Eduardo Figueiredo" /></p>  
@@ -1352,12 +1352,12 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 }
 </style>
 
-## Futuro – Rumo a Cientista de Dados pleno
+## Futuro – Analista de dados sênior
 
-Estou saindo de pesquisa aplicada e analytics para Cientista de Dados pleno. O diagrama é como percorro esse caminho: uma pergunta, um experimento com estatística e ML supervisionado, depois uma decisão que stakeholders consigam usar.
+Quero me tornar analista de dados sênior que transforma insight em decisões rápidas. O método é científico: análise descritiva, inferencial e visual. O diagrama é como trabalho: uma pergunta, essa análise, depois uma decisão que as pessoas conseguem tomar rápido.
 
 <div class="ai-agile-wrap">
-<p><img src="../pictures/diagrams/ai-agile-research-pt.png" alt="Diagrama: pergunta, experimento com estatística e ML supervisionado, depois uma decisão com stakeholders" /></p>
+<p><img src="../pictures/diagrams/ai-agile-research-pt.png" alt="Diagrama: pergunta, análise descritiva, inferencial e visual, depois uma decisão rápida" /></p>
 </div>
 
 ---
@@ -1393,9 +1393,9 @@ Estou saindo de pesquisa aplicada e analytics para Cientista de Dados pleno. O d
 | Passo | O que é |
 | ----- | ------- |
 | Agora | Desenho experimental e estatística inferencial (TrustMate: Welch, d de Cohen, FDR; avaliação com LLM versus humanos); texto confuso virando BI validado (Data Insights); CSI/NPS, Power BI, Python/SQL na Bosch |
-| Próximo | Cientista de Dados pleno, em cima dessa evidência |
-| Em construção | Baseline de ML supervisionado e um model card; métricas de experimento; monitoramento de produção ao lado de cientistas de dados seniores |
-| Limite | Não reivindico nível de Cientista de Dados sênior, nem um modelo de produção que eu opere de ponta a ponta |
+| Próximo | Analista de dados sênior: insight pelo método científico |
+| Método | Análise descritiva, inferencial e visual |
+| Decisões | Decisões rápidas a partir dessa evidência |
 
 </div>
 </div>
@@ -1426,7 +1426,7 @@ Estou saindo de pesquisa aplicada e analytics para Cientista de Dados pleno. O d
 ## Futuro – O caminho
 
 <div class="career-path-slide">
-<p><img src="../pictures/diagrams/future-career-path-pt.png" alt="Diagrama: pesquisa aplicada e analytics, depois Cientista de Dados pleno, depois monitoramento de produção ao lado de seniores" /></p>
+<p><img src="../pictures/diagrams/future-career-path-pt.png" alt="Diagrama: análise descritiva, inferencial e visual, depois analista de dados sênior, depois decisões rápidas a partir do insight" /></p>
 </div>
 
 <!-- Diagram: future-career-path (mermaid/diagrams.md). Export to future-career-path.png -->

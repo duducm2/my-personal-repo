@@ -23,9 +23,9 @@ fields:
     | Step | What it is |
     | ---- | ---------- |
     | Now | Experimental design and inferential statistics (TrustMate: Welch, Cohen's d, FDR; LLM evaluation versus humans); messy text turned into validated BI (Data Insights); CSI/NPS, Power BI, Python/SQL at Bosch |
-    | Next | Data Scientist pleno, built on that evidence |
-    | Building | Supervised ML baseline and a model card; experiment metrics; production monitoring beside senior data scientists |
-    | Limit | I do not claim senior Data Scientist level, or a production model I own end to end |
+    | Next | Senior data analyst: insight through the scientific method |
+    | Method | Descriptive, inferential, and visual analysis |
+    | Decisions | Fast decisions from that evidence |
     
     </div>
     </div>
@@ -56,7 +56,7 @@ fields:
     ## Future – The path
     
     <div class="career-path-slide">
-    <p><img src="../../../pictures/diagrams/future-career-path-en.png" alt="Diagram: applied research and analytics, then Data Scientist pleno, then production monitoring beside seniors" /></p>
+    <p><img src="../../../pictures/diagrams/future-career-path-en.png" alt="Diagram: descriptive, inferential, and visual analysis, then senior data analyst, then fast decisions from insight" /></p>
     </div>
   future_career_style: |
     .future-career-wrap {
@@ -77,9 +77,9 @@ fields:
     .future-po-bullets td, .future-po-bullets th {
       overflow-wrap: anywhere; padding: 0.28em 0.5em !important;
     }
-  future_diagram_alt: "Diagram: question, experiment with statistics and supervised ML, then a stakeholder decision"
-  future_h2: "Future – Toward Data Scientist pleno"
-  future_intro: "I am moving from applied research and analytics into Data Scientist pleno. The diagram is how I work that path: a question, an experiment with statistics and supervised ML, then a decision stakeholders can use."
+  future_diagram_alt: "Diagram: question, descriptive inferential and visual analysis, then a fast decision"
+  future_h2: "Future – Senior data analyst"
+  future_intro: "I want to become a senior data analyst who turns insight into fast decisions. The method is scientific: descriptive, inferential, and visual analysis. The diagram is how I work: a question, that analysis, then a decision people can take quickly."
   h_academic_research: "Present – Academic Applied Research (Trust in AI & UI)"
   h_cip_artifacts: "Present – CIP and Applied Research Integration: Applied Research Artifacts"
   h_closing: "Closing & Contact"

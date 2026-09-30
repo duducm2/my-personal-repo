@@ -469,11 +469,11 @@ table thead { display: none !important; }
 
 ## Who I Am – Snapshot
 
-| Attribute | Value |
-| --------- | ------------------------- |
-| Name | Eduardo M. de A. Figueiredo    |
-| Role | Digital Solution Architect | Cloud, Digitization & Evidence-Based Delivery    |
-| Impact | I help teams design digitization and analytics solutions that hold up in production—clear boundaries, measurable outcomes, reviews grounded in evidence.  |
+| Attribute    | Value |
+| --------------------------- | ------------------------- |
+| Name    | Eduardo M. de A. Figueiredo    |
+| Role    | Digital Solution Architect | Cloud, Digitization & Evidence-Based Delivery    |
+| Impact  | I help teams design digitization and analytics solutions that hold up in production—clear boundaries, measurable outcomes, reviews grounded in evidence.  |
 | Contact | Nova Odessa, SP – Brazil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583 |
 
 <p class="photo-at-bottom"><img src="../../../pictures/personal/my-photo-rectangle.png" alt="Eduardo Figueiredo" /></p>  
@@ -1334,12 +1334,12 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 }
 </style>
 
-## Future – Toward Data Scientist pleno
+## Future – Senior data analyst
 
-I am moving from applied research and analytics into Data Scientist pleno. The diagram is how I work that path: a question, an experiment with statistics and supervised ML, then a decision stakeholders can use.
+I want to become a senior data analyst who turns insight into fast decisions. The method is scientific: descriptive, inferential, and visual analysis. The diagram is how I work: a question, that analysis, then a decision people can take quickly.
 
 <div class="ai-agile-wrap">
-<p><img src="../../../pictures/diagrams/ai-agile-research-en.png" alt="Diagram: question, experiment with statistics and supervised ML, then a stakeholder decision" /></p>
+<p><img src="../../../pictures/diagrams/ai-agile-research-en.png" alt="Diagram: question, descriptive inferential and visual analysis, then a fast decision" /></p>
 </div>
 
 ---
@@ -1375,9 +1375,9 @@ I am moving from applied research and analytics into Data Scientist pleno. The d
 | Step | What it is |
 | ---- | ---------- |
 | Now | Experimental design and inferential statistics (TrustMate: Welch, Cohen's d, FDR; LLM evaluation versus humans); messy text turned into validated BI (Data Insights); CSI/NPS, Power BI, Python/SQL at Bosch |
-| Next | Data Scientist pleno, built on that evidence |
-| Building | Supervised ML baseline and a model card; experiment metrics; production monitoring beside senior data scientists |
-| Limit | I do not claim senior Data Scientist level, or a production model I own end to end |
+| Next | Senior data analyst: insight through the scientific method |
+| Method | Descriptive, inferential, and visual analysis |
+| Decisions | Fast decisions from that evidence |
 
 </div>
 </div>
@@ -1408,7 +1408,7 @@ I am moving from applied research and analytics into Data Scientist pleno. The d
 ## Future – The path
 
 <div class="career-path-slide">
-<p><img src="../../../pictures/diagrams/future-career-path-en.png" alt="Diagram: applied research and analytics, then Data Scientist pleno, then production monitoring beside seniors" /></p>
+<p><img src="../../../pictures/diagrams/future-career-path-en.png" alt="Diagram: descriptive, inferential, and visual analysis, then senior data analyst, then fast decisions from insight" /></p>
 </div>
 
 <!-- Diagram: future-career-path (mermaid/diagrams.md). Export to future-career-path.png -->

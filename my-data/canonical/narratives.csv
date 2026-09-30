@@ -129,12 +129,12 @@ general,tooling_h2,Tooling project heading,Título projeto tooling,Technical Imp
 product-owner,tooling_h2,Tooling project heading,Título projeto tooling,Discovery → Delivery – Tooling Project for PT,Descoberta → Entrega – Projeto Tooling para PT
 general,tooling_bullet,Tooling bullet,Item projeto tooling,"- Tooling project for Power Tools: I stayed with technical delivery and project management from requirements through high-fidelity prototypes, with regular customer check-ins.","- Projeto tooling para Power Tools: acompanhei a entrega técnica e a gestão do projeto de requisitos a protótipos de alta fidelidade, com check-ins regulares com clientes."
 product-owner,tooling_bullet,Tooling bullet,Item projeto tooling,"- Tooling project for Power Tools: I owned the path from requirements through high-fidelity prototypes, with regular customer check-ins baked into delivery.","- Projeto tooling para Power Tools: conduzi o caminho de requisitos a protótipos de alta fidelidade, com check-ins regulares com clientes integrados à entrega."
-general,future_h2,Future slide heading,Título slide Futuro,Future – Toward Data Scientist pleno,Futuro – Rumo a Cientista de Dados pleno
-product-owner,future_h2,Future slide heading,Título slide Futuro,Future – Toward Data Scientist pleno,Futuro – Rumo a Cientista de Dados pleno
-general,future_intro,Future intro,Introdução slide Futuro,"I am moving from applied research and analytics into Data Scientist pleno. The diagram is how I work that path: a question, an experiment with statistics and supervised ML, then a decision stakeholders can use.","Estou saindo de pesquisa aplicada e analytics para Cientista de Dados pleno. O diagrama é como percorro esse caminho: uma pergunta, um experimento com estatística e ML supervisionado, depois uma decisão que stakeholders consigam usar."
-product-owner,future_intro,Future intro,Introdução slide Futuro,"I am moving from applied research and analytics into Data Scientist pleno. The diagram is how I work that path: a question, an experiment with statistics and supervised ML, then a decision stakeholders can use.","Estou saindo de pesquisa aplicada e analytics para Cientista de Dados pleno. O diagrama é como percorro esse caminho: uma pergunta, um experimento com estatística e ML supervisionado, depois uma decisão que stakeholders consigam usar."
-general,future_diagram_alt,Future diagram alt text,Texto alt diagrama Futuro,"Diagram: question, experiment with statistics and supervised ML, then a stakeholder decision","Diagrama: pergunta, experimento com estatística e ML supervisionado, depois uma decisão com stakeholders"
-product-owner,future_diagram_alt,Future diagram alt text,Texto alt diagrama Futuro,"Diagram: question, experiment with statistics and supervised ML, then a stakeholder decision","Diagrama: pergunta, experimento com estatística e ML supervisionado, depois uma decisão com stakeholders"
+general,future_h2,Future slide heading,Título slide Futuro,Future – Senior data analyst,Futuro – Analista de dados sênior
+product-owner,future_h2,Future slide heading,Título slide Futuro,Future – Senior data analyst,Futuro – Analista de dados sênior
+general,future_intro,Future intro,Introdução slide Futuro,"I want to become a senior data analyst who turns insight into fast decisions. The method is scientific: descriptive, inferential, and visual analysis. The diagram is how I work: a question, that analysis, then a decision people can take quickly.","Quero me tornar analista de dados sênior que transforma insight em decisões rápidas. O método é científico: análise descritiva, inferencial e visual. O diagrama é como trabalho: uma pergunta, essa análise, depois uma decisão que as pessoas conseguem tomar rápido."
+product-owner,future_intro,Future intro,Introdução slide Futuro,"I want to become a senior data analyst who turns insight into fast decisions. The method is scientific: descriptive, inferential, and visual analysis. The diagram is how I work: a question, that analysis, then a decision people can take quickly.","Quero me tornar analista de dados sênior que transforma insight em decisões rápidas. O método é científico: análise descritiva, inferencial e visual. O diagrama é como trabalho: uma pergunta, essa análise, depois uma decisão que as pessoas conseguem tomar rápido."
+general,future_diagram_alt,Future diagram alt text,Texto alt diagrama Futuro,"Diagram: question, descriptive inferential and visual analysis, then a fast decision","Diagrama: pergunta, análise descritiva, inferencial e visual, depois uma decisão rápida"
+product-owner,future_diagram_alt,Future diagram alt text,Texto alt diagrama Futuro,"Diagram: question, descriptive inferential and visual analysis, then a fast decision","Diagrama: pergunta, análise descritiva, inferencial e visual, depois uma decisão rápida"
 general,future_career_body,Future career body,Corpo slide carreira,"## Future – How I get there
 
 <div class=""future-career-wrap"">
@@ -143,9 +143,9 @@ general,future_career_body,Future career body,Corpo slide carreira,"## Future �
 | Step | What it is |
 | ---- | ---------- |
 | Now | Experimental design and inferential statistics (TrustMate: Welch, Cohen's d, FDR; LLM evaluation versus humans); messy text turned into validated BI (Data Insights); CSI/NPS, Power BI, Python/SQL at Bosch |
-| Next | Data Scientist pleno, built on that evidence |
-| Building | Supervised ML baseline and a model card; experiment metrics; production monitoring beside senior data scientists |
-| Limit | I do not claim senior Data Scientist level, or a production model I own end to end |
+| Next | Senior data analyst: insight through the scientific method |
+| Method | Descriptive, inferential, and visual analysis |
+| Decisions | Fast decisions from that evidence |
 
 </div>
 </div>
@@ -176,7 +176,7 @@ general,future_career_body,Future career body,Corpo slide carreira,"## Future �
 ## Future – The path
 
 <div class=""career-path-slide"">
-<p><img src=""{{canonical:asset_prefix}}pictures/diagrams/future-career-path-en.png"" alt=""Diagram: applied research and analytics, then Data Scientist pleno, then production monitoring beside seniors"" /></p>
+<p><img src=""{{canonical:asset_prefix}}pictures/diagrams/future-career-path-en.png"" alt=""Diagram: descriptive, inferential, and visual analysis, then senior data analyst, then fast decisions from insight"" /></p>
 </div>","## Futuro – Como chego lá
 
 <div class=""future-career-wrap"">
@@ -185,9 +185,9 @@ general,future_career_body,Future career body,Corpo slide carreira,"## Future �
 | Passo | O que é |
 | ----- | ------- |
 | Agora | Desenho experimental e estatística inferencial (TrustMate: Welch, d de Cohen, FDR; avaliação com LLM versus humanos); texto confuso virando BI validado (Data Insights); CSI/NPS, Power BI, Python/SQL na Bosch |
-| Próximo | Cientista de Dados pleno, em cima dessa evidência |
-| Em construção | Baseline de ML supervisionado e um model card; métricas de experimento; monitoramento de produção ao lado de cientistas de dados seniores |
-| Limite | Não reivindico nível de Cientista de Dados sênior, nem um modelo de produção que eu opere de ponta a ponta |
+| Próximo | Analista de dados sênior: insight pelo método científico |
+| Método | Análise descritiva, inferencial e visual |
+| Decisões | Decisões rápidas a partir dessa evidência |
 
 </div>
 </div>
@@ -218,7 +218,7 @@ general,future_career_body,Future career body,Corpo slide carreira,"## Future �
 ## Futuro – O caminho
 
 <div class=""career-path-slide"">
-<p><img src=""{{canonical:asset_prefix}}pictures/diagrams/future-career-path-pt.png"" alt=""Diagrama: pesquisa aplicada e analytics, depois Cientista de Dados pleno, depois monitoramento de produção ao lado de seniores"" /></p>
+<p><img src=""{{canonical:asset_prefix}}pictures/diagrams/future-career-path-pt.png"" alt=""Diagrama: análise descritiva, inferencial e visual, depois analista de dados sênior, depois decisões rápidas a partir do insight"" /></p>
 </div>"
 product-owner,future_career_body,Future career body,Corpo slide carreira,"## Future – How I get there
 
@@ -228,9 +228,9 @@ product-owner,future_career_body,Future career body,Corpo slide carreira,"## Fut
 | Step | What it is |
 | ---- | ---------- |
 | Now | Experimental design and inferential statistics (TrustMate: Welch, Cohen's d, FDR; LLM evaluation versus humans); messy text turned into validated BI (Data Insights); CSI/NPS, Power BI, Python/SQL at Bosch |
-| Next | Data Scientist pleno, built on that evidence |
-| Building | Supervised ML baseline and a model card; experiment metrics; production monitoring beside senior data scientists |
-| Limit | I do not claim senior Data Scientist level, or a production model I own end to end |
+| Next | Senior data analyst: insight through the scientific method |
+| Method | Descriptive, inferential, and visual analysis |
+| Decisions | Fast decisions from that evidence |
 
 </div>
 </div>
@@ -261,7 +261,7 @@ product-owner,future_career_body,Future career body,Corpo slide carreira,"## Fut
 ## Future – The path
 
 <div class=""career-path-slide"">
-<p><img src=""{{canonical:asset_prefix}}pictures/diagrams/future-career-path-en.png"" alt=""Diagram: applied research and analytics, then Data Scientist pleno, then production monitoring beside seniors"" /></p>
+<p><img src=""{{canonical:asset_prefix}}pictures/diagrams/future-career-path-en.png"" alt=""Diagram: descriptive, inferential, and visual analysis, then senior data analyst, then fast decisions from insight"" /></p>
 </div>","## Futuro – Como chego lá
 
 <div class=""future-career-wrap"">
@@ -270,9 +270,9 @@ product-owner,future_career_body,Future career body,Corpo slide carreira,"## Fut
 | Passo | O que é |
 | ----- | ------- |
 | Agora | Desenho experimental e estatística inferencial (TrustMate: Welch, d de Cohen, FDR; avaliação com LLM versus humanos); texto confuso virando BI validado (Data Insights); CSI/NPS, Power BI, Python/SQL na Bosch |
-| Próximo | Cientista de Dados pleno, em cima dessa evidência |
-| Em construção | Baseline de ML supervisionado e um model card; métricas de experimento; monitoramento de produção ao lado de cientistas de dados seniores |
-| Limite | Não reivindico nível de Cientista de Dados sênior, nem um modelo de produção que eu opere de ponta a ponta |
+| Próximo | Analista de dados sênior: insight pelo método científico |
+| Método | Análise descritiva, inferencial e visual |
+| Decisões | Decisões rápidas a partir dessa evidência |
 
 </div>
 </div>
@@ -303,7 +303,7 @@ product-owner,future_career_body,Future career body,Corpo slide carreira,"## Fut
 ## Futuro – O caminho
 
 <div class=""career-path-slide"">
-<p><img src=""{{canonical:asset_prefix}}pictures/diagrams/future-career-path-pt.png"" alt=""Diagrama: pesquisa aplicada e analytics, depois Cientista de Dados pleno, depois monitoramento de produção ao lado de seniores"" /></p>
+<p><img src=""{{canonical:asset_prefix}}pictures/diagrams/future-career-path-pt.png"" alt=""Diagrama: análise descritiva, inferencial e visual, depois analista de dados sênior, depois decisões rápidas a partir do insight"" /></p>
 </div>"
 general,future_career_style,Future career CSS,CSS slide carreira,".future-career-wrap {
   display: flex !important; flex-direction: column !important;
@@ -456,9 +456,9 @@ data-analyst,relevance_h2,Relevance model heading,Título modelo de relevância,
 data-analyst,csi_h2,CSI/NPS heading,Título CSI/NPS,Present – Outcome Metrics: CSI & NPS (2024–2025),Presente – Métricas de resultado: CSI e NPS (2024–2025)
 data-analyst,tooling_h2,Tooling project heading,Título projeto tooling,Measurement in Delivery – Tooling Project for PT,Mensuração na entrega – Projeto Tooling para PT
 data-analyst,tooling_bullet,Tooling bullet,Item projeto tooling,"- Tooling project for Power Tools: delivery from requirements through prototypes, with regular check-ins and progress tracked for decisions.","- Projeto tooling para Power Tools: entrega de requisitos a protótipos, com check-ins regulares e progresso acompanhado para decisões."
-data-analyst,future_h2,Future slide heading,Título slide Futuro,Future – Toward Data Scientist pleno,Futuro – Rumo a Cientista de Dados pleno
-data-analyst,future_intro,Future intro,Introdução slide Futuro,"I am moving from applied research and analytics into Data Scientist pleno. The diagram is how I work that path: a question, an experiment with statistics and supervised ML, then a decision stakeholders can use.","Estou saindo de pesquisa aplicada e analytics para Cientista de Dados pleno. O diagrama é como percorro esse caminho: uma pergunta, um experimento com estatística e ML supervisionado, depois uma decisão que stakeholders consigam usar."
-data-analyst,future_diagram_alt,Future diagram alt text,Texto alt diagrama Futuro,"Diagram: question, experiment with statistics and supervised ML, then a stakeholder decision","Diagrama: pergunta, experimento com estatística e ML supervisionado, depois uma decisão com stakeholders"
+data-analyst,future_h2,Future slide heading,Título slide Futuro,Future – Senior data analyst,Futuro – Analista de dados sênior
+data-analyst,future_intro,Future intro,Introdução slide Futuro,"I want to become a senior data analyst who turns insight into fast decisions. The method is scientific: descriptive, inferential, and visual analysis. The diagram is how I work: a question, that analysis, then a decision people can take quickly.","Quero me tornar analista de dados sênior que transforma insight em decisões rápidas. O método é científico: análise descritiva, inferencial e visual. O diagrama é como trabalho: uma pergunta, essa análise, depois uma decisão que as pessoas conseguem tomar rápido."
+data-analyst,future_diagram_alt,Future diagram alt text,Texto alt diagrama Futuro,"Diagram: question, descriptive inferential and visual analysis, then a fast decision","Diagrama: pergunta, análise descritiva, inferencial e visual, depois uma decisão rápida"
 data-analyst,future_career_body,Future career body,Corpo slide carreira,"## Future – How I get there
 
 <div class=""future-career-wrap"">
@@ -467,9 +467,9 @@ data-analyst,future_career_body,Future career body,Corpo slide carreira,"## Futu
 | Step | What it is |
 | ---- | ---------- |
 | Now | Experimental design and inferential statistics (TrustMate: Welch, Cohen's d, FDR; LLM evaluation versus humans); messy text turned into validated BI (Data Insights); CSI/NPS, Power BI, Python/SQL at Bosch |
-| Next | Data Scientist pleno, built on that evidence |
-| Building | Supervised ML baseline and a model card; experiment metrics; production monitoring beside senior data scientists |
-| Limit | I do not claim senior Data Scientist level, or a production model I own end to end |
+| Next | Senior data analyst: insight through the scientific method |
+| Method | Descriptive, inferential, and visual analysis |
+| Decisions | Fast decisions from that evidence |
 
 </div>
 </div>
@@ -500,7 +500,7 @@ data-analyst,future_career_body,Future career body,Corpo slide carreira,"## Futu
 ## Future – The path
 
 <div class=""career-path-slide"">
-<p><img src=""{{canonical:asset_prefix}}pictures/diagrams/future-career-path-en.png"" alt=""Diagram: applied research and analytics, then Data Scientist pleno, then production monitoring beside seniors"" /></p>
+<p><img src=""{{canonical:asset_prefix}}pictures/diagrams/future-career-path-en.png"" alt=""Diagram: descriptive, inferential, and visual analysis, then senior data analyst, then fast decisions from insight"" /></p>
 </div>","## Futuro – Como chego lá
 
 <div class=""future-career-wrap"">
@@ -509,9 +509,9 @@ data-analyst,future_career_body,Future career body,Corpo slide carreira,"## Futu
 | Passo | O que é |
 | ----- | ------- |
 | Agora | Desenho experimental e estatística inferencial (TrustMate: Welch, d de Cohen, FDR; avaliação com LLM versus humanos); texto confuso virando BI validado (Data Insights); CSI/NPS, Power BI, Python/SQL na Bosch |
-| Próximo | Cientista de Dados pleno, em cima dessa evidência |
-| Em construção | Baseline de ML supervisionado e um model card; métricas de experimento; monitoramento de produção ao lado de cientistas de dados seniores |
-| Limite | Não reivindico nível de Cientista de Dados sênior, nem um modelo de produção que eu opere de ponta a ponta |
+| Próximo | Analista de dados sênior: insight pelo método científico |
+| Método | Análise descritiva, inferencial e visual |
+| Decisões | Decisões rápidas a partir dessa evidência |
 
 </div>
 </div>
@@ -542,7 +542,7 @@ data-analyst,future_career_body,Future career body,Corpo slide carreira,"## Futu
 ## Futuro – O caminho
 
 <div class=""career-path-slide"">
-<p><img src=""{{canonical:asset_prefix}}pictures/diagrams/future-career-path-pt.png"" alt=""Diagrama: pesquisa aplicada e analytics, depois Cientista de Dados pleno, depois monitoramento de produção ao lado de seniores"" /></p>
+<p><img src=""{{canonical:asset_prefix}}pictures/diagrams/future-career-path-pt.png"" alt=""Diagrama: análise descritiva, inferencial e visual, depois analista de dados sênior, depois decisões rápidas a partir do insight"" /></p>
 </div>"
 data-analyst,future_career_style,Future career CSS,CSS slide carreira,".future-career-wrap {
   display: flex !important; flex-direction: column !important;
@@ -689,9 +689,9 @@ digital-solution-architect,dissertation_pbi_bullets,Dissertation PBI bullets,Tó
 - Achado: agentes de IA não substituem a avaliação humana; são triagem automatizada promissora da qualidade da interface (alinhamento direcional nos melhores/piores atributos; viés mais rigoroso na maior parte das pontuações folha).
 - Pipeline inferencial: Shapiro-Wilk → t de Welch/pareado, d de Cohen, FDR—depois reporting em Power BI com 50+ estruturas visuais.
 - Por que importa para arquitetos: desenho de avaliação e métricas honestas antes de escalar features de IA em uma plataforma."
-digital-solution-architect,future_h2,Future slide heading,Título slide Futuro,Future – Toward Data Scientist pleno,Futuro – Rumo a Cientista de Dados pleno
-digital-solution-architect,future_intro,Future intro,Introdução slide Futuro,"I am moving from applied research and analytics into Data Scientist pleno. The diagram is how I work that path: a question, an experiment with statistics and supervised ML, then a decision stakeholders can use.","Estou saindo de pesquisa aplicada e analytics para Cientista de Dados pleno. O diagrama é como percorro esse caminho: uma pergunta, um experimento com estatística e ML supervisionado, depois uma decisão que stakeholders consigam usar."
-digital-solution-architect,future_diagram_alt,Future diagram alt text,Texto alt diagrama Futuro,"Diagram: question, experiment with statistics and supervised ML, then a stakeholder decision","Diagrama: pergunta, experimento com estatística e ML supervisionado, depois uma decisão com stakeholders"
+digital-solution-architect,future_h2,Future slide heading,Título slide Futuro,Future – Senior data analyst,Futuro – Analista de dados sênior
+digital-solution-architect,future_intro,Future intro,Introdução slide Futuro,"I want to become a senior data analyst who turns insight into fast decisions. The method is scientific: descriptive, inferential, and visual analysis. The diagram is how I work: a question, that analysis, then a decision people can take quickly.","Quero me tornar analista de dados sênior que transforma insight em decisões rápidas. O método é científico: análise descritiva, inferencial e visual. O diagrama é como trabalho: uma pergunta, essa análise, depois uma decisão que as pessoas conseguem tomar rápido."
+digital-solution-architect,future_diagram_alt,Future diagram alt text,Texto alt diagrama Futuro,"Diagram: question, descriptive inferential and visual analysis, then a fast decision","Diagrama: pergunta, análise descritiva, inferencial e visual, depois uma decisão rápida"
 digital-solution-architect,future_career_body,Future career body,Corpo slide carreira,"## Future – How I get there
 
 <div class=""future-career-wrap"">
@@ -700,9 +700,9 @@ digital-solution-architect,future_career_body,Future career body,Corpo slide car
 | Step | What it is |
 | ---- | ---------- |
 | Now | Experimental design and inferential statistics (TrustMate: Welch, Cohen's d, FDR; LLM evaluation versus humans); messy text turned into validated BI (Data Insights); CSI/NPS, Power BI, Python/SQL at Bosch |
-| Next | Data Scientist pleno, built on that evidence |
-| Building | Supervised ML baseline and a model card; experiment metrics; production monitoring beside senior data scientists |
-| Limit | I do not claim senior Data Scientist level, or a production model I own end to end |
+| Next | Senior data analyst: insight through the scientific method |
+| Method | Descriptive, inferential, and visual analysis |
+| Decisions | Fast decisions from that evidence |
 
 </div>
 </div>
@@ -733,7 +733,7 @@ digital-solution-architect,future_career_body,Future career body,Corpo slide car
 ## Future – The path
 
 <div class=""career-path-slide"">
-<p><img src=""{{canonical:asset_prefix}}pictures/diagrams/future-career-path-en.png"" alt=""Diagram: applied research and analytics, then Data Scientist pleno, then production monitoring beside seniors"" /></p>
+<p><img src=""{{canonical:asset_prefix}}pictures/diagrams/future-career-path-en.png"" alt=""Diagram: descriptive, inferential, and visual analysis, then senior data analyst, then fast decisions from insight"" /></p>
 </div>","## Futuro – Como chego lá
 
 <div class=""future-career-wrap"">
@@ -742,9 +742,9 @@ digital-solution-architect,future_career_body,Future career body,Corpo slide car
 | Passo | O que é |
 | ----- | ------- |
 | Agora | Desenho experimental e estatística inferencial (TrustMate: Welch, d de Cohen, FDR; avaliação com LLM versus humanos); texto confuso virando BI validado (Data Insights); CSI/NPS, Power BI, Python/SQL na Bosch |
-| Próximo | Cientista de Dados pleno, em cima dessa evidência |
-| Em construção | Baseline de ML supervisionado e um model card; métricas de experimento; monitoramento de produção ao lado de cientistas de dados seniores |
-| Limite | Não reivindico nível de Cientista de Dados sênior, nem um modelo de produção que eu opere de ponta a ponta |
+| Próximo | Analista de dados sênior: insight pelo método científico |
+| Método | Análise descritiva, inferencial e visual |
+| Decisões | Decisões rápidas a partir dessa evidência |
 
 </div>
 </div>
@@ -775,7 +775,7 @@ digital-solution-architect,future_career_body,Future career body,Corpo slide car
 ## Futuro – O caminho
 
 <div class=""career-path-slide"">
-<p><img src=""{{canonical:asset_prefix}}pictures/diagrams/future-career-path-pt.png"" alt=""Diagrama: pesquisa aplicada e analytics, depois Cientista de Dados pleno, depois monitoramento de produção ao lado de seniores"" /></p>
+<p><img src=""{{canonical:asset_prefix}}pictures/diagrams/future-career-path-pt.png"" alt=""Diagrama: análise descritiva, inferencial e visual, depois analista de dados sênior, depois decisões rápidas a partir do insight"" /></p>
 </div>"
 digital-solution-architect,future_career_style,Future career CSS,CSS slide carreira,".future-career-wrap {
   display: flex !important; flex-direction: column !important;
@@ -892,9 +892,9 @@ data-scientist,relevance_h2,Relevance model heading,Título modelo de relevânci
 data-scientist,csi_h2,CSI/NPS heading,Título CSI/NPS,Present – Outcome Metrics: CSI & NPS (2024–2025),Presente – Métricas de resultado: CSI e NPS (2024–2025)
 data-scientist,tooling_h2,Tooling project heading,Título projeto tooling,Measurement in Delivery – Tooling Project for PT,Mensuração na entrega – Projeto Tooling para PT
 data-scientist,tooling_bullet,Tooling bullet,Item projeto tooling,"- Tooling project for Power Tools: delivery from requirements through prototypes, with regular check-ins and progress tracked for decisions.","- Projeto tooling para Power Tools: entrega de requisitos a protótipos, com check-ins regulares e progresso acompanhado para decisões."
-data-scientist,future_h2,Future slide heading,Título slide Futuro,Future – Toward Data Scientist pleno,Futuro – Rumo a Cientista de Dados pleno
-data-scientist,future_intro,Future intro,Introdução slide Futuro,"I am moving from applied research and analytics into Data Scientist pleno. The diagram is how I work that path: a question, an experiment with statistics and supervised ML, then a decision stakeholders can use.","Estou saindo de pesquisa aplicada e analytics para Cientista de Dados pleno. O diagrama é como percorro esse caminho: uma pergunta, um experimento com estatística e ML supervisionado, depois uma decisão que stakeholders consigam usar."
-data-scientist,future_diagram_alt,Future diagram alt text,Texto alt diagrama Futuro,"Diagram: question, experiment with statistics and supervised ML, then a stakeholder decision","Diagrama: pergunta, experimento com estatística e ML supervisionado, depois uma decisão com stakeholders"
+data-scientist,future_h2,Future slide heading,Título slide Futuro,Future – Senior data analyst,Futuro – Analista de dados sênior
+data-scientist,future_intro,Future intro,Introdução slide Futuro,"I want to become a senior data analyst who turns insight into fast decisions. The method is scientific: descriptive, inferential, and visual analysis. The diagram is how I work: a question, that analysis, then a decision people can take quickly.","Quero me tornar analista de dados sênior que transforma insight em decisões rápidas. O método é científico: análise descritiva, inferencial e visual. O diagrama é como trabalho: uma pergunta, essa análise, depois uma decisão que as pessoas conseguem tomar rápido."
+data-scientist,future_diagram_alt,Future diagram alt text,Texto alt diagrama Futuro,"Diagram: question, descriptive inferential and visual analysis, then a fast decision","Diagrama: pergunta, análise descritiva, inferencial e visual, depois uma decisão rápida"
 data-scientist,future_career_body,Future career body,Corpo slide carreira,"## Future – How I get there
 
 <div class=""future-career-wrap"">
@@ -903,9 +903,9 @@ data-scientist,future_career_body,Future career body,Corpo slide carreira,"## Fu
 | Step | What it is |
 | ---- | ---------- |
 | Now | Experimental design and inferential statistics (TrustMate: Welch, Cohen's d, FDR; LLM evaluation versus humans); messy text turned into validated BI (Data Insights); CSI/NPS, Power BI, Python/SQL at Bosch |
-| Next | Data Scientist pleno, built on that evidence |
-| Building | Supervised ML baseline and a model card; experiment metrics; production monitoring beside senior data scientists |
-| Limit | I do not claim senior Data Scientist level, or a production model I own end to end |
+| Next | Senior data analyst: insight through the scientific method |
+| Method | Descriptive, inferential, and visual analysis |
+| Decisions | Fast decisions from that evidence |
 
 </div>
 </div>
@@ -936,7 +936,7 @@ data-scientist,future_career_body,Future career body,Corpo slide carreira,"## Fu
 ## Future – The path
 
 <div class=""career-path-slide"">
-<p><img src=""{{canonical:asset_prefix}}pictures/diagrams/future-career-path-en.png"" alt=""Diagram: applied research and analytics, then Data Scientist pleno, then production monitoring beside seniors"" /></p>
+<p><img src=""{{canonical:asset_prefix}}pictures/diagrams/future-career-path-en.png"" alt=""Diagram: descriptive, inferential, and visual analysis, then senior data analyst, then fast decisions from insight"" /></p>
 </div>","## Futuro – Como chego lá
 
 <div class=""future-career-wrap"">
@@ -945,9 +945,9 @@ data-scientist,future_career_body,Future career body,Corpo slide carreira,"## Fu
 | Passo | O que é |
 | ----- | ------- |
 | Agora | Desenho experimental e estatística inferencial (TrustMate: Welch, d de Cohen, FDR; avaliação com LLM versus humanos); texto confuso virando BI validado (Data Insights); CSI/NPS, Power BI, Python/SQL na Bosch |
-| Próximo | Cientista de Dados pleno, em cima dessa evidência |
-| Em construção | Baseline de ML supervisionado e um model card; métricas de experimento; monitoramento de produção ao lado de cientistas de dados seniores |
-| Limite | Não reivindico nível de Cientista de Dados sênior, nem um modelo de produção que eu opere de ponta a ponta |
+| Próximo | Analista de dados sênior: insight pelo método científico |
+| Método | Análise descritiva, inferencial e visual |
+| Decisões | Decisões rápidas a partir dessa evidência |
 
 </div>
 </div>
@@ -978,7 +978,7 @@ data-scientist,future_career_body,Future career body,Corpo slide carreira,"## Fu
 ## Futuro – O caminho
 
 <div class=""career-path-slide"">
-<p><img src=""{{canonical:asset_prefix}}pictures/diagrams/future-career-path-pt.png"" alt=""Diagrama: pesquisa aplicada e analytics, depois Cientista de Dados pleno, depois monitoramento de produção ao lado de seniores"" /></p>
+<p><img src=""{{canonical:asset_prefix}}pictures/diagrams/future-career-path-pt.png"" alt=""Diagrama: análise descritiva, inferencial e visual, depois analista de dados sênior, depois decisões rápidas a partir do insight"" /></p>
 </div>"
 data-scientist,future_career_style,Future career CSS,CSS slide carreira,".future-career-wrap {
   display: flex !important; flex-direction: column !important;
