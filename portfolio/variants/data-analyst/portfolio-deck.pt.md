@@ -472,7 +472,7 @@ table thead { display: none !important; }
 | Attribute | Value                     |
 | --------- | ------------------------- |
 | Name      | Eduardo M. de A. Figueiredo    |
-| Role      | Analista de Dados | IA para Manipulação, Checagem de Dados e Insights Aplicados    |
+| Role      | Analista de Dados \| IA para Manipulação, Checagem de Dados e Insights Aplicados    |
 | Impact    | Ajudo times a decidir com números mais claros—Excel e CSV no dia a dia, dashboards para contar a história, pesquisa quando precisamos ir mais fundo.  |
 | Contact   | Nova Odessa, SP – Brasil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583 |
 
@@ -668,6 +668,21 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 | Métricas e BI                       | Dashboards Power BI para projetos/recursos; CSI 4,86 / NPS 9,94 méd. nos meus projetos (2024–2025)                         |
 | Internacional                      | Realizei duas viagens à Alemanha (2024, 2025) por trabalho relacionado ao cargo                                                                            |
 | Rastreamento CO2 (GS/Pesquisa Aplicada) | Conduzi prospecção de mercado para telemetria CO2; achado: falta de demanda — interrupção baseada em dados                                       |
+
+---
+
+<!-- _class: dense-content -->
+
+<style scoped>
+table { font-size: 0.78em !important; line-height: 1.25 !important; width: 100% !important; table-layout: fixed !important; }
+th:first-child, td:first-child { width: 28% !important; }
+td, th { overflow-wrap: anywhere; padding: 0.22em 0.45em !important; }
+</style>
+
+## Presente – Dados, Métricas e Pesquisa Aplicada (continuação)
+
+| Área                               | Conquista                                                                                                                        |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | Projeto tooling (PT)               | Requisitos a protótipos de alta fidelidade com check-ins regulares; progresso e feedback acompanhados para decisões         |
 | Data Insights (Power Tools B2B)    | Registros do call center analisados com teoria fundamentada straussiana (datasets, Python, IA); codificação aberta → axial → seletiva; categorias semânticas controladas; insights validados com stakeholders no Power BI—finanças, transporte de materiais, logística e mais |
 | Maturidade em UX                        | Nível 4 nas Américas – governança, templates, treinamento; dashboard Power BI de auditoria com ingestão automática de Microsoft Lists para documentação de gestão de projetos                                                |
@@ -1351,18 +1366,21 @@ Métricas, experimentação e entrega se encontram em como trabalho com equipes 
 <style scoped>
 .future-career-wrap {
   display: flex !important; flex-direction: column !important;
-  justify-content: center !important; align-items: center !important;
-  min-height: 55vh !important; width: 100% !important; margin-top: 0.75rem !important;
-  gap: 1rem !important;
+  justify-content: flex-start !important; align-items: stretch !important;
+  width: 100% !important; margin-top: 0.35rem !important;
+  gap: 0.4rem !important;
 }
-.future-career-wrap p { margin: 0 !important; text-align: center !important; }
-.future-career-wrap img {
-  width: 38% !important; max-width: 38% !important; height: auto !important;
-  display: block !important; margin: 10px auto 0 !important;
-  border: none !important; box-shadow: none !important;
-}
+.future-career-wrap p { margin: 0 !important; text-align: left !important; }
 .future-po-bullets {
-  max-width: 85% !important; text-align: left !important; font-size: 0.95em !important;
+  width: 100% !important; max-width: 100% !important; text-align: left !important; font-size: 0.78em !important;
+}
+.future-po-bullets table {
+  width: 100% !important; table-layout: fixed !important; margin-top: 0.35rem !important;
+}
+.future-po-bullets th:first-child,
+.future-po-bullets td:first-child { width: 32% !important; }
+.future-po-bullets td, .future-po-bullets th {
+  overflow-wrap: anywhere; padding: 0.2em 0.45em !important;
 }
 </style>
 
@@ -1386,6 +1404,34 @@ Métricas, experimentação e entrega se encontram em como trabalho com equipes 
 | Prática mensurável     | Nível 4 de Maturidade em UX nas Américas (templates, treinamento)        |
 
 </div>
+</div>
+
+---
+
+<style scoped>
+.career-path-slide {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  min-height: 62vh !important;
+  width: 100% !important;
+}
+.career-path-slide p { margin: 0 !important; text-align: center !important; }
+.career-path-slide img {
+  width: 72% !important;
+  max-width: 72% !important;
+  height: auto !important;
+  max-height: 68vh !important;
+  display: block !important;
+  margin: 0 auto !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+</style>
+
+## Futuro – Caminhos de carreira priorizados
+
+<div class="career-path-slide">
 <p><img src="../../../pictures/diagrams/future-career-path.png" alt="Diagrama future-career-path: Caminhos de carreira priorizados" /></p>
 </div>
 

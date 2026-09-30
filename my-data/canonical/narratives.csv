@@ -177,7 +177,7 @@ data-analyst,why_bullets,Why slide bullets,Tópicos slide Por quê,"- I believe 
 - This portfolio shows that path through real projects and metrics.","- Acredito que decisões devem partir de evidência—muitas vezes em Excel e CSV antes de escalar para BI e código.
 - Meu trabalho centra análise de dados, experimentação e pesquisa aplicada: mensurar resultados e alimentar a entrega com insight.
 - Este portfólio mostra esse caminho em projetos reais e métricas."
-data-analyst,who_role,Who slide role,Papel slide Quem sou,"Data Analyst | AI for Data Manipulation, Validation & Applied Insights","Analista de Dados | IA para Manipulação, Checagem de Dados e Insights Aplicados"
+data-analyst,who_role,Who slide role,Papel slide Quem sou,"Data Analyst \| AI for Data Manipulation, Validation & Applied Insights","Analista de Dados \| IA para Manipulação, Checagem de Dados e Insights Aplicados"
 data-analyst,who_impact,Who slide impact,Impacto slide Quem sou,"I help teams make decisions with clearer numbers—Excel and CSV for the daily work, dashboards for the story, research when we need to go deeper.","Ajudo times a decidir com números mais claros—Excel e CSV no dia a dia, dashboards para contar a história, pesquisa quando precisamos ir mais fundo."
 data-analyst,present_h2,Present slide heading,Título slide Presente,"Present – Data, Metrics & Applied Research (Bosch Brasil)","Presente – Dados, Métricas e Pesquisa Aplicada (Bosch Brasil)"
 data-analyst,present_table,Present achievements table,Tabela de conquistas,"| Area                               | Achievement                                                                                                                        |
@@ -187,6 +187,21 @@ data-analyst,present_table,Present achievements table,Tabela de conquistas,"| Ar
 | Metrics & BI                       | Power BI dashboards for project/resource oversight; CSI 4.86 / NPS 9.94 avg. across my projects (2024–2025)                         |
 | International                      | Two trips to Germany (2024, 2025) for role-related work                                                                            |
 | CO2 Tracking (GS/Applied Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand — a data-informed stop                                       |
+
+---
+
+<!-- _class: dense-content -->
+
+<style scoped>
+table { font-size: 0.78em !important; line-height: 1.25 !important; width: 100% !important; table-layout: fixed !important; }
+th:first-child, td:first-child { width: 28% !important; }
+td, th { overflow-wrap: anywhere; padding: 0.22em 0.45em !important; }
+</style>
+
+## Present – Data, Metrics & Applied Research (continued)
+
+| Area                               | Achievement                                                                                                                        |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | Tooling project (PT)               | Requirements through high-fidelity prototypes with regular customer check-ins; progress and feedback tracked for decisions         |
 | Data Insights (Power Tools B2B)    | Call-center records analyzed with Straussian grounded theory (datasets, Python, AI); open → axial → selective coding; controlled semantic categories; stakeholder-validated insights in Power BI—finance, material transport, logistics, and more |
 | UX Maturity                        | Americas Level 4 – governance, templates, training; Power BI audit dashboard auto-fetching Microsoft Lists data to track project-management document fulfillment                                                |
@@ -202,6 +217,21 @@ data-analyst,present_table,Present achievements table,Tabela de conquistas,"| Ar
 | Métricas e BI                       | Dashboards Power BI para projetos/recursos; CSI 4,86 / NPS 9,94 méd. nos meus projetos (2024–2025)                         |
 | Internacional                      | Realizei duas viagens à Alemanha (2024, 2025) por trabalho relacionado ao cargo                                                                            |
 | Rastreamento CO2 (GS/Pesquisa Aplicada) | Conduzi prospecção de mercado para telemetria CO2; achado: falta de demanda — interrupção baseada em dados                                       |
+
+---
+
+<!-- _class: dense-content -->
+
+<style scoped>
+table { font-size: 0.78em !important; line-height: 1.25 !important; width: 100% !important; table-layout: fixed !important; }
+th:first-child, td:first-child { width: 28% !important; }
+td, th { overflow-wrap: anywhere; padding: 0.22em 0.45em !important; }
+</style>
+
+## Presente – Dados, Métricas e Pesquisa Aplicada (continuação)
+
+| Área                               | Conquista                                                                                                                        |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | Projeto tooling (PT)               | Requisitos a protótipos de alta fidelidade com check-ins regulares; progresso e feedback acompanhados para decisões         |
 | Data Insights (Power Tools B2B)    | Registros do call center analisados com teoria fundamentada straussiana (datasets, Python, IA); codificação aberta → axial → seletiva; categorias semânticas controladas; insights validados com stakeholders no Power BI—finanças, transporte de materiais, logística e mais |
 | Maturidade em UX                        | Nível 4 nas Américas – governança, templates, treinamento; dashboard Power BI de auditoria com ingestão automática de Microsoft Lists para documentação de gestão de projetos                                                |
@@ -239,6 +269,34 @@ data-analyst,future_career_body,Future career body,Corpo slide carreira,"## Futu
 | Measurable practice     | Americas UX Maturity Level 4 (templates, training)        |
 
 </div>
+</div>
+
+---
+
+<style scoped>
+.career-path-slide {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  min-height: 62vh !important;
+  width: 100% !important;
+}
+.career-path-slide p { margin: 0 !important; text-align: center !important; }
+.career-path-slide img {
+  width: 72% !important;
+  max-width: 72% !important;
+  height: auto !important;
+  max-height: 68vh !important;
+  display: block !important;
+  margin: 0 auto !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+</style>
+
+## Future – Prioritized career paths
+
+<div class=""career-path-slide"">
 <p><img src=""{{canonical:asset_prefix}}pictures/diagrams/future-career-path.png"" alt=""Diagram future-career-path: Prioritized career paths"" /></p>
 </div>","## Futuro – Como trabalho com dados
 
@@ -260,36 +318,70 @@ data-analyst,future_career_body,Future career body,Corpo slide carreira,"## Futu
 | Prática mensurável     | Nível 4 de Maturidade em UX nas Américas (templates, treinamento)        |
 
 </div>
+</div>
+
+---
+
+<style scoped>
+.career-path-slide {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  min-height: 62vh !important;
+  width: 100% !important;
+}
+.career-path-slide p { margin: 0 !important; text-align: center !important; }
+.career-path-slide img {
+  width: 72% !important;
+  max-width: 72% !important;
+  height: auto !important;
+  max-height: 68vh !important;
+  display: block !important;
+  margin: 0 auto !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+</style>
+
+## Futuro – Caminhos de carreira priorizados
+
+<div class=""career-path-slide"">
 <p><img src=""{{canonical:asset_prefix}}pictures/diagrams/future-career-path.png"" alt=""Diagrama future-career-path: Caminhos de carreira priorizados"" /></p>
 </div>"
 data-analyst,future_career_style,Future career CSS,CSS slide carreira,".future-career-wrap {
   display: flex !important; flex-direction: column !important;
-  justify-content: center !important; align-items: center !important;
-  min-height: 55vh !important; width: 100% !important; margin-top: 0.75rem !important;
-  gap: 1rem !important;
+  justify-content: flex-start !important; align-items: stretch !important;
+  width: 100% !important; margin-top: 0.35rem !important;
+  gap: 0.4rem !important;
 }
-.future-career-wrap p { margin: 0 !important; text-align: center !important; }
-.future-career-wrap img {
-  width: 38% !important; max-width: 38% !important; height: auto !important;
-  display: block !important; margin: 10px auto 0 !important;
-  border: none !important; box-shadow: none !important;
-}
+.future-career-wrap p { margin: 0 !important; text-align: left !important; }
 .future-po-bullets {
-  max-width: 85% !important; text-align: left !important; font-size: 0.95em !important;
+  width: 100% !important; max-width: 100% !important; text-align: left !important; font-size: 0.78em !important;
+}
+.future-po-bullets table {
+  width: 100% !important; table-layout: fixed !important; margin-top: 0.35rem !important;
+}
+.future-po-bullets th:first-child,
+.future-po-bullets td:first-child { width: 32% !important; }
+.future-po-bullets td, .future-po-bullets th {
+  overflow-wrap: anywhere; padding: 0.2em 0.45em !important;
 }",".future-career-wrap {
   display: flex !important; flex-direction: column !important;
-  justify-content: center !important; align-items: center !important;
-  min-height: 55vh !important; width: 100% !important; margin-top: 0.75rem !important;
-  gap: 1rem !important;
+  justify-content: flex-start !important; align-items: stretch !important;
+  width: 100% !important; margin-top: 0.35rem !important;
+  gap: 0.4rem !important;
 }
-.future-career-wrap p { margin: 0 !important; text-align: center !important; }
-.future-career-wrap img {
-  width: 38% !important; max-width: 38% !important; height: auto !important;
-  display: block !important; margin: 10px auto 0 !important;
-  border: none !important; box-shadow: none !important;
-}
+.future-career-wrap p { margin: 0 !important; text-align: left !important; }
 .future-po-bullets {
-  max-width: 85% !important; text-align: left !important; font-size: 0.95em !important;
+  width: 100% !important; max-width: 100% !important; text-align: left !important; font-size: 0.78em !important;
+}
+.future-po-bullets table {
+  width: 100% !important; table-layout: fixed !important; margin-top: 0.35rem !important;
+}
+.future-po-bullets th:first-child,
+.future-po-bullets td:first-child { width: 32% !important; }
+.future-po-bullets td, .future-po-bullets th {
+  overflow-wrap: anywhere; padding: 0.2em 0.45em !important;
 }"
 data-analyst,closing_summary,Closing summary,Resumo de encerramento,"I connect data to decisions, from Excel and CSV work through dashboards and applied research. I try to leave stakeholders with something they can act on, not just charts.","Conecto dados a decisões—de Excel e CSV a dashboards e pesquisa aplicada. Tento deixar stakeholders com algo acionável, não só gráficos."
 general,infovis_pnad_h2,InfoVis PNAD heading,Título InfoVis PNAD,Data Visualization – MSc InfoVis: PNAD Contínua (Power BI),Visualização de dados – InfoVis (Mestrado): PNAD Contínua (Power BI)

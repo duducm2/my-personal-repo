@@ -472,7 +472,7 @@ table thead { display: none !important; }
 | Attribute | Value                     |
 | --------- | ------------------------- |
 | Name      | Eduardo M. de A. Figueiredo    |
-| Role      | Data Analyst | AI for Data Manipulation, Validation & Applied Insights    |
+| Role      | Data Analyst \| AI for Data Manipulation, Validation & Applied Insights    |
 | Impact    | I help teams make decisions with clearer numbers—Excel and CSV for the daily work, dashboards for the story, research when we need to go deeper.  |
 | Contact   | Nova Odessa, SP – Brazil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583 |
 
@@ -668,6 +668,21 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 | Metrics & BI                       | Power BI dashboards for project/resource oversight; CSI 4.86 / NPS 9.94 avg. across my projects (2024–2025)                         |
 | International                      | Two trips to Germany (2024, 2025) for role-related work                                                                            |
 | CO2 Tracking (GS/Applied Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand — a data-informed stop                                       |
+
+---
+
+<!-- _class: dense-content -->
+
+<style scoped>
+table { font-size: 0.78em !important; line-height: 1.25 !important; width: 100% !important; table-layout: fixed !important; }
+th:first-child, td:first-child { width: 28% !important; }
+td, th { overflow-wrap: anywhere; padding: 0.22em 0.45em !important; }
+</style>
+
+## Present – Data, Metrics & Applied Research (continued)
+
+| Area                               | Achievement                                                                                                                        |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | Tooling project (PT)               | Requirements through high-fidelity prototypes with regular customer check-ins; progress and feedback tracked for decisions         |
 | Data Insights (Power Tools B2B)    | Call-center records analyzed with Straussian grounded theory (datasets, Python, AI); open → axial → selective coding; controlled semantic categories; stakeholder-validated insights in Power BI—finance, material transport, logistics, and more |
 | UX Maturity                        | Americas Level 4 – governance, templates, training; Power BI audit dashboard auto-fetching Microsoft Lists data to track project-management document fulfillment                                                |
@@ -1351,18 +1366,21 @@ Metrics, experimentation, and delivery meet in how I work with teams today. The 
 <style scoped>
 .future-career-wrap {
   display: flex !important; flex-direction: column !important;
-  justify-content: center !important; align-items: center !important;
-  min-height: 55vh !important; width: 100% !important; margin-top: 0.75rem !important;
-  gap: 1rem !important;
+  justify-content: flex-start !important; align-items: stretch !important;
+  width: 100% !important; margin-top: 0.35rem !important;
+  gap: 0.4rem !important;
 }
-.future-career-wrap p { margin: 0 !important; text-align: center !important; }
-.future-career-wrap img {
-  width: 38% !important; max-width: 38% !important; height: auto !important;
-  display: block !important; margin: 10px auto 0 !important;
-  border: none !important; box-shadow: none !important;
-}
+.future-career-wrap p { margin: 0 !important; text-align: left !important; }
 .future-po-bullets {
-  max-width: 85% !important; text-align: left !important; font-size: 0.95em !important;
+  width: 100% !important; max-width: 100% !important; text-align: left !important; font-size: 0.78em !important;
+}
+.future-po-bullets table {
+  width: 100% !important; table-layout: fixed !important; margin-top: 0.35rem !important;
+}
+.future-po-bullets th:first-child,
+.future-po-bullets td:first-child { width: 32% !important; }
+.future-po-bullets td, .future-po-bullets th {
+  overflow-wrap: anywhere; padding: 0.2em 0.45em !important;
 }
 </style>
 
@@ -1386,6 +1404,34 @@ Metrics, experimentation, and delivery meet in how I work with teams today. The 
 | Measurable practice     | Americas UX Maturity Level 4 (templates, training)        |
 
 </div>
+</div>
+
+---
+
+<style scoped>
+.career-path-slide {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  min-height: 62vh !important;
+  width: 100% !important;
+}
+.career-path-slide p { margin: 0 !important; text-align: center !important; }
+.career-path-slide img {
+  width: 72% !important;
+  max-width: 72% !important;
+  height: auto !important;
+  max-height: 68vh !important;
+  display: block !important;
+  margin: 0 auto !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+</style>
+
+## Future – Prioritized career paths
+
+<div class="career-path-slide">
 <p><img src="../../../pictures/diagrams/future-career-path.png" alt="Diagram future-career-path: Prioritized career paths" /></p>
 </div>
 
