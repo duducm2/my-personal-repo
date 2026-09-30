@@ -1,13 +1,13 @@
 id,sort_order,pinned,company,company_key,role_title,career_path,job_url,form_url,status,priority,work_mode,location,source,found_on,applied_on,next_action,next_action_date,salary_range,fit_interest,skills_gap,job_description,notes,contact_person,contact_note,is_new,match_score,match_reason,recommended_resume,result,result_on,application_answers,application_form_raw,cover_letter,cover_letter_lang,cover_letter_greeting,cover_letter_closing
-bosch-brasil-vaga-afirmativa-para-mulheres-senior-sap-developer-drc-global-e-invoicing-35988,121,,Bosch Brasil,bosch-brasil,VAGA AFIRMATIVA PARA MULHERES - SENIOR SAP DEVELOPER - DRC & GLOBAL E-INVOICING - 35988,other,,,saved,medium,unknown,"Campinas, Brasil",company_site,2026-09-29,,,,,,"SAP Development, ABAP, E-Invoicing",SAP Developer focused on DRC & Global E-Invoicing. Affirmative action role exclusive to women.,,,,1,1,"Role is exclusively an affirmative action position for women. Furthermore, the focus on SAP Development does not align with your core stack of React, Python, Data Analytics, and UX Research.",general,,,,,,,,
-atl-01,1,,Atlassian,atlassian-global,Principal Data Scientist,ds,,,saved,medium,Remote,Bengaluru,company_site,2026-09-27,,,,,,,,,,,1,6,"Matches background in Python, statistics, and ML evaluation, though Principal level may require more extensive purely quantitative experience.",data-scientist,,,,,,,,
-atl-02,2,,Atlassian,atlassian-global,Senior Data Engineering Manager,other,,,saved,medium,Remote,Bengaluru,company_site,2026-09-27,,,,,,,,,,,1,5,"Strong in project management, but data engineering specific leadership might require deeper backend pipeline architecture expertise.",general,,,,,,,,
+bosch-brasil-vaga-afirmativa-para-mulheres-senior-sap-developer-drc-global-e-invoicing-35988,121,,Bosch Brasil,bosch-brasil,VAGA AFIRMATIVA PARA MULHERES - SENIOR SAP DEVELOPER - DRC & GLOBAL E-INVOICING - 35988,other,,,excluded,medium,unknown,"Campinas, Brasil",company_site,2026-09-29,,,,,,"SAP Development, ABAP, E-Invoicing",SAP Developer focused on DRC & Global E-Invoicing. Affirmative action role exclusive to women.,,,,1,1,"Role is exclusively an affirmative action position for women. Furthermore, the focus on SAP Development does not align with your core stack of React, Python, Data Analytics, and UX Research.",general,,,,,,,,
+atl-01,1,,Atlassian,atlassian-global,Principal Data Scientist,ds,,,excluded,medium,Remote,Bengaluru,company_site,2026-09-27,,,,,,,,,,,1,6,"Matches background in Python, statistics, and ML evaluation, though Principal level may require more extensive purely quantitative experience.",data-scientist,,,,,,,,
+atl-02,2,,Atlassian,atlassian-global,Senior Data Engineering Manager,other,,,excluded,medium,Remote,Bengaluru,company_site,2026-09-27,,,,,,,,,,,1,5,"Strong in project management, but data engineering specific leadership might require deeper backend pipeline architecture expertise.",general,,,,,,,,
 atl-03,3,,Atlassian,atlassian-global,Principal Data Engineer,other,,,saved,medium,Remote,Bengaluru,company_site,2026-09-27,,,,,,,,,,,1,5,Requires heavy backend big data skills which is secondary to the analytics and visualization expertise in the profile.,general,,,,,,,,
-atl-04,4,,Atlassian,atlassian-global,Principal Data Scientist,ds,,,saved,medium,Remote,Remote,company_site,2026-09-27,,,,,,,,,,,1,6,"Matches background in Python, statistics, and ML evaluation. Remote position is a plus.",data-scientist,,,,,,,,
-atl-05,5,,Atlassian,atlassian-global,Principal Data Scientist,ds,,,saved,medium,Remote,San Francisco,company_site,2026-09-27,,,,,,,,,,,1,6,"Matches background in Python, statistics, and ML evaluation, though based in US timezone.",data-scientist,,,,,,,,
-atl-06,6,,Atlassian,atlassian-global,"Principal Data Scientist, Loom",ds,,,saved,medium,Remote,San Francisco,company_site,2026-09-27,,,,,,,,,,,1,7,Focus on product evaluation (Loom) aligns very well with UX and applied research methodologies.,data-scientist,,,,,,,,
+atl-04,4,,Atlassian,atlassian-global,Principal Data Scientist,ds,,,excluded,medium,Remote,Remote,company_site,2026-09-27,,,,,,,,,,,1,6,"Matches background in Python, statistics, and ML evaluation. Remote position is a plus.",data-scientist,,,,,,,,
+atl-05,5,,Atlassian,atlassian-global,Principal Data Scientist,ds,,,excluded,medium,Remote,San Francisco,company_site,2026-09-27,,,,,,,,,,,1,6,"Matches background in Python, statistics, and ML evaluation, though based in US timezone.",data-scientist,,,,,,,,
+atl-06,6,,Atlassian,atlassian-global,"Principal Data Scientist, Loom",ds,,,excluded,medium,Remote,San Francisco,company_site,2026-09-27,,,,,,,,,,,1,7,Focus on product evaluation (Loom) aligns very well with UX and applied research methodologies.,data-scientist,,,,,,,,
 atl-07,7,,Atlassian,atlassian-global,Head of Data Engineering,other,,,saved,medium,Remote,San Francisco,company_site,2026-09-27,,,,,,,,,,,1,4,"Executive level data engineering is outside the primary focus area of agile, UX, and analytics.",general,,,,,,,,
-atl-08,8,1,Atlassian,atlassian-global,"Principal Product Designer, Rovo & AI",other,https://careers-americas.icims.com/jobs/27204/principal-product-designer%2c-rovo-%26-ai/job?mode=submit_apply,https://careers-americas.icims.com/jobs/27204/principal-product-designer%2c-rovo-%26-ai/candidate?from=login&eem=EXeP1NBseESS8BTqxLgEcgh_gad2Rj26yhn1NcRInJjJ0-mDK4CokfgsNHmT2hUMbMKE37A5b1aN8MnJwLQC4w&code=58101521a04d14b36fcad6b6806084b355b54cf42461130d03573c64442ad039&ga=11617498e47f51754e221cfb3723dce006d1be454a0a027adc1edb259c8a60e0&accept_gdpr=1&gdpr_consent_type=37002057001,subscribed,medium,Remote,San Francisco,company_site,2026-09-27,,,,,,,"Atlassian
+atl-08,8,,Atlassian,atlassian-global,"Principal Product Designer, Rovo & AI",other,https://careers-americas.icims.com/jobs/27204/principal-product-designer%2c-rovo-%26-ai/job?mode=submit_apply,https://careers-americas.icims.com/jobs/27204/principal-product-designer%2c-rovo-%26-ai/candidate?from=login&eem=EXeP1NBseESS8BTqxLgEcgh_gad2Rj26yhn1NcRInJjJ0-mDK4CokfgsNHmT2hUMbMKE37A5b1aN8MnJwLQC4w&code=58101521a04d14b36fcad6b6806084b355b54cf42461130d03573c64442ad039&ga=11617498e47f51754e221cfb3723dce006d1be454a0a027adc1edb259c8a60e0&accept_gdpr=1&gdpr_consent_type=37002057001,subscribed,medium,Remote,San Francisco,company_site,2026-09-27,,,,,,,"Atlassian
 Products
 
 
@@ -387,19 +387,168 @@ Eduardo M. de A. Figueiredo"
 atl-09,9,1,Atlassian,atlassian-global,Lead Design Technologist,dsa,,,saved,medium,Remote,San Francisco,company_site,2026-09-27,,,,,,,,,,,1,9,Combines React/frontend background with UX research and UI design implementation. Strong fit.,digital-solution-architect,,,,,,,,
 atl-10,10,1,Atlassian,atlassian-global,"Senior Design Manager, Jira AI",po,,,saved,medium,Remote,San Francisco,company_site,2026-09-27,,,,,,,,,,,1,8,"High relevance to AI systems, UX methodologies, and coaching colleagues.",product-owner,,,,,,,,
 atl-11,11,1,Atlassian,atlassian-global,Senior Product Manager,po,,,saved,medium,Remote,Bengaluru,company_site,2026-09-27,,,,,,,,,,,1,8,"Leverages continuous improvement background, Scrum/Agile knowledge, and global stakeholder alignment.",product-owner,,,,,,,,
-atl-12,12,,Atlassian,atlassian-global,CMK/Encryption Platform Product Manager,po,,,saved,medium,Remote,Bengaluru,company_site,2026-09-27,,,,,,,,,,,1,7,"Good product management fit, though domain is specific to encryption/security platforms.",product-owner,,,,,,,,
+atl-12,12,,Atlassian,atlassian-global,CMK/Encryption Platform Product Manager,po,,,excluded,medium,Remote,Bengaluru,company_site,2026-09-27,,,,,,,,,,,1,7,"Good product management fit, though domain is specific to encryption/security platforms.",product-owner,,,,,,,,
 atl-13,13,,Atlassian,atlassian-global,Senior Principal Outbound Product Manager - Service Collection,po,,,saved,medium,On-site,New York,company_site,2026-09-27,,,,,,,,,,,1,7,"Outbound product role heavily relies on stakeholder alignment and communication, strong alignment with UX insights.",product-owner,,,,,,,,
 atl-14,14,,Atlassian,atlassian-global,"Senior Product Manager, Data Cloud and Connectors",po,,,saved,medium,Remote,Salt Lake City,company_site,2026-09-27,,,,,,,,,,,1,9,"Ideal blend of Data analysis tools, API/Cloud connections, and Product Management.",product-owner,,,,,,,,
-atl-15,15,,Atlassian,atlassian-global,"Senior Product Manager, Self-Reported Insights",po,,,saved,medium,Remote,Salt Lake City,company_site,2026-09-27,,,,,,,,,,,1,9,"Highly applicable to UX research methodologies, surveys, metrics, and turning research into product features.",product-owner,,,,,,,,
-atl-16,16,,Atlassian,atlassian-global,"Principal Product Manager, System Insights for DX",po,,,saved,medium,Remote,Salt Lake City,company_site,2026-09-27,,,,,,,,,,,1,8,"Data-heavy PM role fits well with Power BI, Python, and analytics skillsets.",product-owner,,,,,,,,
+atl-15,15,1,Atlassian,atlassian-global,"Senior Product Manager, Self-Reported Insights",po,,,saved,medium,Remote,Salt Lake City,company_site,2026-09-27,,,,,,,,,,,1,9,"Highly applicable to UX research methodologies, surveys, metrics, and turning research into product features.",product-owner,,,,,,,,
+atl-16,16,1,Atlassian,atlassian-global,"Principal Product Manager, System Insights for DX",po,,,saved,medium,Remote,Salt Lake City,company_site,2026-09-27,,,,,,,,,,,1,8,"Data-heavy PM role fits well with Power BI, Python, and analytics skillsets.",product-owner,,,,,,,,
 atl-17,17,,Atlassian,atlassian-global,"Product Manager, Rovo",po,,,saved,medium,Remote,Seattle,company_site,2026-09-27,,,,,,,,,,,1,8,"Strong fit for a mid-level PM role using agile, stakeholder outcomes, and continuous improvement experience.",product-owner,,,,,,,,
 atl-18,18,1,Atlassian,atlassian-global,Principal Forward Deployed Engineer,dsa,,,saved,medium,Remote,Bengaluru,company_site,2026-09-27,,,,,,,,,,,1,8,"Aligns with Digital Solution Architect path, combining architecture, deployment, and client problem-solving.",digital-solution-architect,,,,,,,,
-atl-19,19,1,Atlassian,atlassian-global,"Principal Forward Deployed Engineer, AI (Remote Poland)",dsa,,,saved,medium,Remote,Gdańsk,company_site,2026-09-27,,,,,,,,,,,1,8,Great combination of AI capabilities and Digital Solution Architect competencies.,digital-solution-architect,,,,,,,,
+atl-19,19,,Atlassian,atlassian-global,"Principal Forward Deployed Engineer, AI (Remote Poland)",dsa,https://www.atlassian.com/company/careers/details/27182,https://www.atlassian.com/company/careers/details/27182,subscribed,medium,Remote,Gdańsk,company_site,2026-09-27,,,,,,,,,,,1,8,Great combination of AI capabilities and Digital Solution Architect competencies.,digital-solution-architect,,,"{""opening_id"":""atl-19"",""recommended_resume"":""digital-solution-architect"",""form_url"":""https://www.atlassian.com/company/careers/details/27182"",""source_url"":""https://www.atlassian.com/company/careers/details/27182"",""imported_at"":""2026-09-30T01:18:45"",""fields"":[{""key"":""first_name"",""label"":""First Name"",""value"":""Eduardo"",""source"":""PROFILE CONTEXT"",""note"":""""},{""key"":""last_name"",""label"":""Last Name"",""value"":""Matos de Assis Figueiredo"",""source"":""PROFILE CONTEXT"",""note"":""""},{""key"":""email"",""label"":""Email"",""value"":""edu.evangelista.figueiredo@gmail.com"",""source"":""PROFILE CONTEXT"",""note"":""""},{""key"":""phone"",""label"":""Phone"",""value"":""+55 (19) 98176-6583"",""source"":""PROFILE CONTEXT"",""note"":""""},{""key"":""resume"",""label"":""Resume/CV"",""value"":"""",""source"":""PROFILE CONTEXT"",""note"":""Upload manually - use digital-solution-architect resume""},{""key"":""linkedin"",""label"":""LinkedIn Profile"",""value"":""[https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b)"",""source"":""PROFILE CONTEXT"",""note"":""""}]}","___
+Atlassian
+Products
+
+
+
+
+
+
+
+
+Solutions
+
+
+
+
+
+
+
+
+
+
+
+
+
+More +
+Get it free
+
+Sign in
+Company
+Customers
+Careers
+
+Investors
+Events
+Blog
+Newsroom
+Press kit
+Contact
+Careers
+Browse Jobs
+Our Teams
+Early Careers
+Team Experience
+Candidate Resources
+Principal Forward Deployed Engineer, AI (Remote Poland)
+Engineering | Gdańsk, Poland | Remote, Remote |
+
+Apply for this job
+This role is available remotely anywhere in Poland.
+
+Working at Atlassian
+
+Atlassians can choose where they work - whether in an office, from home, or a combination of the two. That way, Atlassians have more control over supporting their family, personal goals, and other priorities. We can hire people in any country where we have a legal entity.
+
+Your future team
+
+As a Principal Forward Deployed Engineer (FDE) at Atlassian, you'll be at the forefront of applied AI, working directly with customers and cross-functional teams to deliver innovative, AI-powered solutions. The FDE team partners with top organizations across industries, helping them leverage Atlassian's AI capabilities to solve complex, real-world problems. You'll collaborate with product, engineering, and design, rapidly growing your technical and domain expertise while making a tangible impact on business outcomes. This is a high-visibility, high-impact role for those who thrive in fast-paced, ambiguous environments and are passionate about shaping the future of AI-powered teamwork.
+
+
+What you'll do
+
+As a Principal Forward Deployed Engineer, you will:
+
+Lead the design, development, and deployment of AI/ML-powered solutions tailored to customer needs.
+
+Architect and implement robust application integrations using Python, JavaScript, or similar languages, with a focus on APIs, microservices, and enterprise-scale systems.
+
+Drive data-driven solution development by analyzing complex datasets to extract insights and inform product direction.
+
+Champion the adoption of AI-augmented workflow automation within customer environments, maximizing business value and operational efficiency.
+
+Oversee the end-to-end deployment of AI solutions into production, ensuring continuous evaluation, monitoring, and improvement.
+
+Navigate risk and compliance requirements, including AI risk assessment, data privacy (GDPR), and regulatory frameworks.
+
+Mentor and guide junior engineers, fostering a culture of innovation, collaboration, and continuous learning.
+
+Communicate complex technical concepts clearly to both technical and non-technical stakeholders, creating concise artifacts for peers, partners, and leadership.
+
+Align technical solutions with business objectives, setting a clear vision for technological progress and measurable results.
+
+
+At Atlassian, we strive to design equitable, explainable, and competitive compensation programs. We follow consistent hiring practices and account for each candidate's skills, knowledge, and experience when setting base pay within the range.
+
+This role may also be eligible for benefits, bonuses, commissions, and equity.
+
+
+In Poland, for this role, our current base pay range for new hires is:
+
+Poland: 350.100 zł - 457.075 zł
+
+
+On the first day, we'll expect you to have:
+
+10+ years of experience in backend software development.
+
+5+ years of experience delivering impactful AI/ML solutions in production environments, including experience as a founding or forward-deployed engineer in 0-to-1 product development.
+
+Deep expertise in applied AI/ML, including generative AI, LLMs, and agent-based frameworks.
+
+Proficiency in Python, JavaScript, or similar languages, and experience with APIs, microservices, and enterprise integration.
+
+Demonstrated ability to solve complex, ambiguous problems and thrive in rapidly changing environments.
+
+Strong communication and collaboration skills, with experience influencing cross-functional teams without formal authority.
+
+Experience with AI risk assessment, data privacy, and compliance (e.g., GDPR).
+
+Strategic and innovative thinking, with a track record of aligning technical solutions to business goals.
+
+It's great, but not required, if you have:
+
+Experience with Atlassian Intelligence, Rovo AI, or AI-powered Atlassian features.
+
+Familiarity with regulated industries (e.g., finance, healthcare).
+
+Experience deploying AI solutions to complex production systems at scale.
+
+Prior experience mentoring or leading engineering teams.
+
+Benefits & Perks
+
+Atlassian offers a wide range of perks and benefits designed to support you, your family and to help you engage with your local community. Our offerings include health and wellbeing resources, paid volunteer days, and so much more. To learn more, visit go.atlassian.com/perksandbenefits.
+
+About Atlassian
+
+At Atlassian, we're motivated by a common goal: to unleash the potential of every team. Our software products help teams all over the planet and our solutions are designed for all types of work. Team collaboration through our tools makes what may be impossible alone, possible together.
+
+We believe that the unique contributions of all Atlassians create our success. To ensure that our products and culture continue to incorporate everyone's perspectives and experience, we never discriminate based on race, religion, national origin, gender identity or expression, sexual orientation, age, or marital, veteran, or disability status. All your information will be kept confidential according to EEO guidelines.
+
+To provide you the best experience, we can support with accommodations or adjustments at any stage of the recruitment process. Simply inform our Recruitment team during your conversation with them.
+
+To learn more about our culture and hiring process, visit go.atlassian.com/crh.
+
+In line with local law, identity verification (which may include use of biometric data) is a condition of employment with Atlassian for employment fraud purposes.
+
+Apply for this job
+Join the Atlassian Talent Community
+Don't see an exact role match? No problem! Join our Talent Community and stay up-to-date on company and careers updates relevant to your career.
+
+Join now
+
+English
+Privacy Policy
+Your Privacy Choices
+Limit the Use of My Sensitive Personal Information
+Terms
+Impressum
+Copyright © 2026 Atlassian",,,,
 atl-20,20,,Atlassian,atlassian-global,"EMEA Field CTO, DX - Engineering Executive Advisor",dsa,,,watching,medium,Remote,London,company_site,2026-09-27,,,,,,,,,,,1,6,"Executive advisor role might demand more senior field experience, but maps conceptually to Solution Architect.",digital-solution-architect,,,,,,,,
 atl-21,21,,Atlassian,atlassian-global,Senior Machine Learning System Engineer,ds,,,excluded,medium,Remote,Remote,company_site,2026-09-27,,,,,,,,,,,1,7,"Leverages Python, stats, and agentic AI background, though system-level ML engineering might require deep C++/infrastructure expertise.",data-scientist,,,,,,,,
 atl-22,22,,Atlassian,atlassian-global,"Senior Fullstack Software Engineer, DX",other,,,saved,medium,Remote,San Francisco,company_site,2026-09-27,,,,,,,,,,,1,8,Perfect match for a 2.7-year React web developer with full-stack background in Python/SQL and Git.,general,,,,,,,,
-atl-23,23,,Atlassian,atlassian-global,Senior Incident Response Analyst,other,,,saved,medium,Remote,Gdańsk,company_site,2026-09-27,,,,,,,,,,,1,4,Cybersecurity/Incident Response is not a primary focus in the stated skills matrix.,general,,,,,,,,
-atl-24,24,,Atlassian,atlassian-global,Principal Enterprise Delivery Manager,dsa,,,saved,medium,Remote,Bengaluru,company_site,2026-09-27,,,,,,,,,,,1,7,"Delivery management aligns with CI, QA gates, and project management, suited for a Solutions architecture/delivery path.",digital-solution-architect,,,,,,,,
+atl-23,23,,Atlassian,atlassian-global,Senior Incident Response Analyst,other,,,excluded,medium,Remote,Gdańsk,company_site,2026-09-27,,,,,,,,,,,1,4,Cybersecurity/Incident Response is not a primary focus in the stated skills matrix.,general,,,,,,,,
+atl-24,24,,Atlassian,atlassian-global,Principal Enterprise Delivery Manager,dsa,,,excluded,medium,Remote,Bengaluru,company_site,2026-09-27,,,,,,,,,,,1,7,"Delivery management aligns with CI, QA gates, and project management, suited for a Solutions architecture/delivery path.",digital-solution-architect,,,,,,,,
 spotify-senior-web-engineer-subscriptions,1,,Spotify,spotify-global,"Senior Web Engineer, Subscriptions",other,,,excluded,medium,unknown,London,company_site,2026-09-27,,,,,,,,,,,1,8,"Matches 2.7 years of Web Developer experience using React, combined with continuous improvement background.",general,,,,,,,,
 spotify-senior-backend-data-engineer-content,2,,Spotify,spotify-global,"Senior Backend Data Engineer, Content Intelligence",da,,,excluded,medium,unknown,London or Stockholm,company_site,2026-09-27,,,,,,,,,,,1,6,"Partial match; utilizes SQL and Python pipelines, but profile is more geared towards analysis and UX rather than pure data engineering.",data-analyst,,,,,,,,
 spotify-security-engineer-detection,3,,Spotify,spotify-global,"Security Engineer, Detection and Response",other,,,excluded,medium,unknown,New York,company_site,2026-09-27,,,,,,,,,,,1,3,"Low match; relies heavily on cybersecurity ops, not present in the current web, AI, and research-focused profile.",general,,,,,,,,
