@@ -117,6 +117,7 @@
   let promptAutoCloseTimer = null;
   let promptAutoCloseSecondsLeft = 0;
   let promptAutoCloseTick = null;
+  let launchCompanyKey = "";
 
   function cell(v) {
     return v == null ? "" : String(v);
@@ -2001,6 +2002,17 @@
     const row = {};
     for (const key of OPENING_FIELDS) {
       row[key] = cell(raw[key]);
+    }
+    if (!cell(row.company_key) && launchCompanyKey) {
+      row.company_key = launchCompanyKey;
+      if (!cell(row.company)) {
+        const company = companyOptions().find(
+          (c) => cell(c.id) === launchCompanyKey,
+        );
+        row.company = company
+          ? cell(company.name_en) || launchCompanyKey
+          : launchCompanyKey;
+      }
     }
     const companyKey = row.company_key || "company";
     if (!row.id) row.id = `job-${companyKey}-${stamp}-${index}`;
@@ -3965,12 +3977,29 @@
     }, 3000);
   }
 
-  function openPromptModal() {
+  function selectAllPromptPaths() {
+    const all = document.getElementById("prompt-path-all");
+    if (all) {
+      all.checked = true;
+      all.indeterminate = false;
+    }
+    for (const box of promptPathBoxes()) box.checked = true;
+    syncSelectAllPaths();
+  }
+
+  function openPromptModal(opts = {}) {
     fillPromptCompanySelect();
     const dialog = document.getElementById("prompt-modal");
     const status = document.getElementById("prompt-status");
     const ignoreEl = document.getElementById("prompt-ignore");
     cancelPromptAutoClose({ keepStatus: true });
+    if (opts.companyId) {
+      const sel = document.getElementById("prompt-company");
+      if (sel && [...sel.options].some((o) => o.value === opts.companyId)) {
+        sel.value = opts.companyId;
+      }
+    }
+    if (opts.selectAllPaths) selectAllPromptPaths();
     if (ignoreEl && !cell(ignoreEl.value).trim()) {
       ignoreEl.value = "- nothing non IT related";
     }
@@ -3989,10 +4018,29 @@
     if (dialog && dialog.open) dialog.close();
   }
 
+  const IMPORT_HINT_BASE =
+    "Paste the JSON array returned by your AI companion. A successful import saves automatically. Invalid formatting triggers an AI-fix prompt copied to your clipboard.";
+
+  function companyDisplayName(companyId) {
+    const company = companyOptions().find((c) => cell(c.id) === companyId);
+    return company ? cell(company.name_en) || companyId : companyId;
+  }
+
+  function syncImportCompanyHint() {
+    const hint = document.getElementById("import-hint");
+    if (!hint) return;
+    if (!launchCompanyKey) {
+      hint.textContent = IMPORT_HINT_BASE;
+      return;
+    }
+    hint.textContent = `${IMPORT_HINT_BASE} Openings missing company_key will be filed under ${companyDisplayName(launchCompanyKey)}.`;
+  }
+
   function openImportModal() {
     const dialog = document.getElementById("import-modal");
     const status = document.getElementById("import-status");
     const rawEl = document.getElementById("import-raw");
+    syncImportCompanyHint();
     if (status) {
       status.textContent = "";
       status.className = "save-status";
@@ -4364,11 +4412,11 @@
           return;
         }
 
-        // Generate prompt — Alt+R
+        // Generate prompt — Alt+R (all career paths)
         if (!modalOpen && !typing && code === "KeyR") {
           event.preventDefault();
           event.stopPropagation();
-          openPromptModal();
+          openPromptModal({ selectAllPaths: true });
           return;
         }
 
@@ -4831,9 +4879,27 @@
       setDirty(false);
       setSaveStatus("");
       updateBulkBar();
+      consumeLaunchQuery();
     } catch (err) {
       setSaveStatus("Load error: " + (err.message || String(err)), "err");
     }
+  }
+
+  function consumeLaunchQuery() {
+    const params = new URLSearchParams(location.search);
+    const action = params.get("action");
+    const company = cell(params.get("company"));
+    if (action !== "prompt" && action !== "import") return;
+    history.replaceState(null, "", location.pathname);
+    if (company) launchCompanyKey = company;
+    if (action === "prompt") {
+      openPromptModal({ companyId: company, selectAllPaths: true });
+      requestAnimationFrame(() => {
+        document.getElementById("prompt-raw")?.focus();
+      });
+      return;
+    }
+    openImportModal();
   }
 
   init();

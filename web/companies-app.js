@@ -557,11 +557,7 @@
         "Estável",
         "Established employer without a clear 2025–2026 expansion wave",
       ],
-      unknown: [
-        "Unknown",
-        "Desconhecido",
-        "No clear public growth signal yet",
-      ],
+      unknown: ["Unknown", "Desconhecido", "No clear public growth signal yet"],
     };
     const [en, pt, title] = copy[value] || copy.unknown;
     const el = document.createElement("span");
@@ -1826,6 +1822,29 @@
       }
 
       if (event.altKey && !mod && !event.shiftKey) {
+        // Same openings shortcuts as the job board, scoped to this dossier
+        if (modalOpen && openCompanyId) {
+          if (event.code === "KeyR") {
+            event.preventDefault();
+            event.stopPropagation();
+            const params = new URLSearchParams({
+              action: "prompt",
+              company: openCompanyId,
+            });
+            location.assign(`/jobs.html?${params}`);
+            return;
+          }
+          if (event.code === "KeyI") {
+            event.preventDefault();
+            event.stopPropagation();
+            const params = new URLSearchParams({
+              action: "import",
+              company: openCompanyId,
+            });
+            location.assign(`/jobs.html?${params}`);
+            return;
+          }
+        }
         const isS =
           event.code === "KeyS" || (event.key || "").toLowerCase() === "s";
         if (isS) {
