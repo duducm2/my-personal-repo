@@ -44,9 +44,9 @@ rem Do NOT quote the executable name after START — Windows then looks for a fi
 rem with that literal name. Title must be quoted; script path must be quoted.
 pushd "%ROOT%"
 if defined USE_PY (
-  start "career-cockpit" py -3 "%SERVER%" --port %PORT%
+  start "career-cockpit" /MIN py -3 "%SERVER%" --port %PORT%
 ) else (
-  start "career-cockpit" python "%SERVER%" --port %PORT%
+  start "career-cockpit" /MIN python "%SERVER%" --port %PORT%
 )
 popd
 
