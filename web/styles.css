@@ -1921,8 +1921,22 @@ body.lang-en .field-row {
   border-radius: 0;
 }
 
-.growth-label {
-  margin-left: 1px;
+.growth-tag .panel-heading-en,
+.growth-tag .panel-heading-pt {
+  display: inline;
+}
+
+.growth-tag.is-moderate {
+  color: var(--text);
+  background: var(--input);
+  border-color: var(--line);
+}
+
+.growth-tag.is-unknown {
+  color: var(--muted);
+  background: transparent;
+  border-color: var(--line);
+  font-weight: 550;
 }
 
 .near-home-tag {

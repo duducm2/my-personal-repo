@@ -545,21 +545,47 @@
   }
 
   function appendGrowthFlag(parent, row) {
-    if (growthValue(row) !== "high") return null;
+    const value = growthValue(row);
+    const copy = {
+      high: [
+        "Growing",
+        "Em crescimento",
+        "Strong recent growth (revenue, hiring, or capex) based on 2025–2026 public signals",
+      ],
+      moderate: [
+        "Steady",
+        "Estável",
+        "Established employer without a clear 2025–2026 expansion wave",
+      ],
+      unknown: [
+        "Unknown",
+        "Desconhecido",
+        "No clear public growth signal yet",
+      ],
+    };
+    const [en, pt, title] = copy[value] || copy.unknown;
     const el = document.createElement("span");
-    el.className = "growth-tag";
-    el.title =
-      "Strong recent growth (revenue, hiring, or capex) based on 2025–2026 public signals";
-    const img = document.createElement("img");
-    img.className = "flag-img flag-img-icon";
-    img.src = "flags/growth.svg";
-    img.alt = "";
-    img.width = 12;
-    img.height = 12;
+    el.className = "growth-tag" + (value === "high" ? "" : " is-" + value);
+    el.title = title;
+    if (value === "high") {
+      const img = document.createElement("img");
+      img.className = "flag-img flag-img-icon";
+      img.src = "flags/growth.svg";
+      img.alt = "";
+      img.width = 12;
+      img.height = 12;
+      el.append(img);
+    }
     const label = document.createElement("span");
     label.className = "growth-label";
-    label.textContent = "Growing";
-    el.append(img, label);
+    const enSpan = document.createElement("span");
+    enSpan.className = "panel-heading-en";
+    enSpan.textContent = en;
+    const ptSpan = document.createElement("span");
+    ptSpan.className = "panel-heading-pt";
+    ptSpan.textContent = pt;
+    label.append(enSpan, ptSpan);
+    el.append(label);
     parent.append(el);
     return el;
   }
@@ -1002,10 +1028,10 @@
     appendEn(growthLabel, "Growth");
     growthRow.append(growthLabel);
     for (const chip of [
-      { key: "", en: "All" },
-      { key: "high", en: "Growing" },
-      { key: "moderate", en: "Steady" },
-      { key: "unknown", en: "Unknown" },
+      { key: "", en: "All", pt: "Todas" },
+      { key: "high", en: "Growing", pt: "Em crescimento" },
+      { key: "moderate", en: "Steady", pt: "Estável" },
+      { key: "unknown", en: "Unknown", pt: "Desconhecido" },
     ]) {
       growthRow.append(
         makeChip(chip, growthFilter, (key) => {
@@ -1487,10 +1513,16 @@
     appendEn(growthLab, "Growth");
     const growthSelect = document.createElement("select");
     growthSelect.className = "field-input";
+    const growthLabels = {
+      high: ["Growing", "Em crescimento"],
+      moderate: ["Steady", "Estável"],
+      unknown: ["Unknown", "Desconhecido"],
+    };
     for (const opt of GROWTH_OPTIONS) {
       const o = document.createElement("option");
       o.value = opt;
-      o.textContent = opt;
+      const pair = growthLabels[opt] || [opt, opt];
+      o.textContent = getLangMode() === "pt" ? pair[1] : pair[0];
       if (growthValue(row) === opt) o.selected = true;
       growthSelect.append(o);
     }

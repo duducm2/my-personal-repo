@@ -612,7 +612,13 @@ class CareerHandler(BaseHTTPRequestHandler):
         return self.server.store  # type: ignore[attr-defined]
 
     def log_message(self, format: str, *args: Any) -> None:
-        sys.stderr.write("[career-cockpit] " + format % args + "\n")
+        # pythonw has no console; writing to a missing stderr aborts the response.
+        if sys.stderr is None:
+            return
+        try:
+            sys.stderr.write("[career-cockpit] " + format % args + "\n")
+        except OSError:
+            return
 
     def _cors(self) -> None:
         self.send_header("Access-Control-Allow-Origin", "*")

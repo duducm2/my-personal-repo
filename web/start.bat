@@ -1,4 +1,8 @@
 @echo off
+if /I not "%~1"=="--hidden" (
+  wscript //nologo "%~dp0start-hidden.vbs"
+  exit /b 0
+)
 setlocal EnableExtensions
 cd /d "%~dp0"
 
@@ -13,20 +17,23 @@ set "URL=http://127.0.0.1:%PORT%/"
 set "HEALTH=http://127.0.0.1:%PORT%/health"
 
 if not exist "%SERVER%" (
-  echo Nao encontrei o servidor:
-  echo   %SERVER%
-  pause
+  call :fail_pause "Nao encontrei o servidor: %SERVER%"
   exit /b 1
 )
 
-rem Prefer the py launcher, then python on PATH
-set "USE_PY="
-where py >nul 2>&1 && set "USE_PY=1"
-if not defined USE_PY where python >nul 2>&1 || (
-  echo Python 3 nao encontrado. Instale Python 3.10+ e tente de novo.
-  pause
+rem Windowless Python: pyw creates no console. python.exe would open "career-cockpit".
+set "USE_PYW="
+where pyw >nul 2>&1 && set "USE_PYW=1"
+if not defined USE_PYW (
+  call :fail_pause "Python sem janela nao encontrado. Instale Python 3.10+ e tente de novo."
   exit /b 1
 )
+
+rem A previous launch may still be the visible career-cockpit console. Replace that one.
+powershell -NoProfile -Command ^
+  "$conns = Get-NetTCPConnection -LocalPort %PORT% -State Listen -ErrorAction SilentlyContinue;" ^
+  "foreach ($c in $conns) { $p = Get-Process -Id $c.OwningProcess -ErrorAction SilentlyContinue;" ^
+  "  if ($p -and $p.MainWindowTitle -eq 'career-cockpit') { Stop-Process -Id $p.Id -Force -ErrorAction SilentlyContinue } }" >nul 2>&1
 
 rem Already healthy?
 call :health_ok
@@ -39,15 +46,8 @@ powershell -NoProfile -Command ^
   "  try { Stop-Process -Id $procId -Force -ErrorAction Stop }" ^
   "  catch {} } }" >nul 2>&1
 
-echo Iniciando career cockpit em %URL% ...
-rem Do NOT quote the executable name after START — Windows then looks for a file
-rem with that literal name. Title must be quoted; script path must be quoted.
 pushd "%ROOT%"
-if defined USE_PY (
-  start "career-cockpit" /MIN py -3 "%SERVER%" --port %PORT%
-) else (
-  start "career-cockpit" /MIN python "%SERVER%" --port %PORT%
-)
+start "" pyw -3 "%SERVER%" --port %PORT%
 popd
 
 rem Wait for /health (avoid `timeout` — it fails when stdin is redirected)
@@ -59,10 +59,7 @@ call :health_ok
 if not errorlevel 1 goto :OPEN
 if %TRIES% LSS 30 goto :WAIT
 
-echo.
-echo O servidor nao respondeu em %HEALTH%
-echo Verifique a janela "career-cockpit" para erros do Python.
-pause
+call :fail_pause "O servidor nao respondeu em %HEALTH%."
 exit /b 1
 
 :OPEN
@@ -75,6 +72,10 @@ if defined CHROME (
   start "" "%URL%"
 )
 endlocal
+exit /b 0
+
+:fail_pause
+powershell -NoProfile -Command "Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.MessageBox]::Show('%~1','Career cockpit')" >nul 2>&1
 exit /b 0
 
 :find_chrome
