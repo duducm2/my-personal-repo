@@ -66,8 +66,22 @@ pause
 exit /b 1
 
 :OPEN
-start "" "%URL%"
+call :find_chrome
+if defined CHROME (
+  rem Separate profile so this window does not join an already running Chrome.
+  start "" "%CHROME%" --user-data-dir="%LOCALAPPDATA%\career-cockpit-chrome" --no-first-run --no-default-browser-check --new-window "%URL%"
+) else (
+  echo Chrome nao encontrado. Abrindo no navegador padrao.
+  start "" "%URL%"
+)
 endlocal
+exit /b 0
+
+:find_chrome
+set "CHROME="
+if exist "%ProgramFiles%\Google\Chrome\Application\chrome.exe" set "CHROME=%ProgramFiles%\Google\Chrome\Application\chrome.exe"
+if not defined CHROME if exist "%ProgramFiles(x86)%\Google\Chrome\Application\chrome.exe" set "CHROME=%ProgramFiles(x86)%\Google\Chrome\Application\chrome.exe"
+if not defined CHROME if exist "%LOCALAPPDATA%\Google\Chrome\Application\chrome.exe" set "CHROME=%LOCALAPPDATA%\Google\Chrome\Application\chrome.exe"
 exit /b 0
 
 :health_ok
