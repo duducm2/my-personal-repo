@@ -261,6 +261,7 @@ _BASE: dict[str, tuple[str, list[str]]] = {
             "fit_product_owner",
             "fit_digital_solution_architect",
             "fit_data_scientist",
+            "da_openings",
             "website",
             "careers_url",
             "ats_kind",

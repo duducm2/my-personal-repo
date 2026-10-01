@@ -2180,8 +2180,7 @@
           pageHeading && pageSection && !pageSection.hidden
             ? pageHeading
             : scrollCard;
-        const chrome = document.querySelector(".profile-sticky-chrome");
-        const offset = (chrome?.getBoundingClientRect().height || 0) + 8;
+        const offset = 8;
         const top = el.getBoundingClientRect().top + window.scrollY - offset;
         window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
       });

@@ -49,6 +49,7 @@
   let trackFilter = "";
   let homeOfficeFilter = "";
   let growthFilter = "";
+  let daOpeningsFilter = "";
   let openCompanyId = "";
 
   function cell(v) {
@@ -233,6 +234,7 @@
       trackFilter ||
       homeOfficeFilter ||
       growthFilter ||
+      daOpeningsFilter ||
       (query || "").trim()
     );
   }
@@ -244,6 +246,7 @@
     trackFilter = "";
     homeOfficeFilter = "";
     growthFilter = "";
+    daOpeningsFilter = "";
     query = "";
     const search = searchInputEl();
     if (search) search.value = "";
@@ -737,6 +740,18 @@
     return btn;
   }
 
+  function daOpeningsCount(row) {
+    const raw = cell(row.da_openings).trim();
+    if (!/^\d+$/.test(raw)) return null;
+    return Number(raw);
+  }
+
+  function matchesDaOpenings(row) {
+    if (!daOpeningsFilter) return true;
+    if (daOpeningsFilter === "with") return (daOpeningsCount(row) || 0) > 0;
+    return true;
+  }
+
   function matchesTrack(row) {
     if (!trackFilter) return true;
     if (trackFilter === "other") {
@@ -756,6 +771,7 @@
     rows = rows.filter(matchesTrack);
     rows = rows.filter(matchesHomeOffice);
     rows = rows.filter(matchesGrowth);
+    rows = rows.filter(matchesDaOpenings);
     const q = query.trim().toLowerCase();
     if (q) {
       const parts = q.split(/\s+/).filter(Boolean);
@@ -763,6 +779,14 @@
         const h = haystack(r);
         return parts.every((p) => h.includes(p));
       });
+    }
+    if (daOpeningsFilter === "with") {
+      rows.sort(
+        (a, b) =>
+          (daOpeningsCount(b) || 0) - (daOpeningsCount(a) || 0) ||
+          cell(a.name_en).localeCompare(cell(b.name_en)),
+      );
+      return rows;
     }
     rows.sort((a, b) => {
       const pr = pinRank(a) - pinRank(b);
@@ -885,6 +909,25 @@
       );
     }
     root.append(roleRow);
+
+    const daRow = document.createElement("div");
+    daRow.className = "company-filter-row";
+    const daLabel = document.createElement("span");
+    daLabel.className = "company-filter-label";
+    appendValues(daLabel, "DA openings", "Vagas de análise");
+    daRow.append(daLabel);
+    for (const chip of [
+      { key: "", en: "All", pt: "Todas" },
+      { key: "with", en: "With openings", pt: "Com vagas" },
+    ]) {
+      daRow.append(
+        makeChip(chip, daOpeningsFilter, (key) => {
+          daOpeningsFilter = key;
+          render();
+        }),
+      );
+    }
+    root.append(daRow);
 
     const trackRow = document.createElement("div");
     trackRow.className = "company-filter-row";
@@ -1054,6 +1097,19 @@
       s.className = "company-chip";
       s.textContent = row.status;
       chips.append(s);
+    }
+    const daCount = daOpeningsCount(row);
+    if (daCount != null) {
+      const da = document.createElement("span");
+      da.className = "company-chip company-chip-da-openings";
+      const en = document.createElement("span");
+      en.className = "panel-heading-en";
+      en.textContent = `${daCount} DA`;
+      const pt = document.createElement("span");
+      pt.className = "panel-heading-pt";
+      pt.textContent = `${daCount} AD`;
+      da.append(en, pt);
+      chips.append(da);
     }
 
     const badges = document.createElement("div");
@@ -1552,6 +1608,7 @@
     trackFilter = "";
     homeOfficeFilter = "";
     growthFilter = "";
+    daOpeningsFilter = "";
     query = "";
     const search = searchInputEl();
     if (search) search.value = "";
@@ -1613,6 +1670,7 @@
       fit_product_owner: "no",
       fit_digital_solution_architect: "no",
       fit_data_scientist: "yes",
+      da_openings: "",
       website: "",
       careers_url: "",
       ats_kind: "proprietary",
