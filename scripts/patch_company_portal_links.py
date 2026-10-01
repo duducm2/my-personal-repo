@@ -188,10 +188,10 @@ PATCH: dict[str, tuple[str | None, str, str, str]] = {
     ),
     # Proprietary careers with direct search (clear apply destination)
     "bosch-brasil": (
-        "https://jobs.bosch.com/en",
-        "proprietary",
-        "Bosch Jobs",
-        "https://jobs.bosch.com/en",
+        "https://careers.smartrecruiters.com/BoschGroup/brazil",
+        "third_party",
+        "SmartRecruiters",
+        "https://careers.smartrecruiters.com/BoschGroup/brazil",
     ),
     "microsoft-global": (
         "https://careers.microsoft.com/v2/global/en/search",
