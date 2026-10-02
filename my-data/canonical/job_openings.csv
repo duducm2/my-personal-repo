@@ -1,4 +1,111 @@
 id,sort_order,pinned,company,company_key,role_title,career_path,job_url,form_url,status,priority,work_mode,location,source,found_on,applied_on,next_action,next_action_date,salary_range,fit_interest,skills_gap,job_description,notes,contact_person,contact_note,is_new,match_score,match_reason,recommended_resume,result,result_on,application_answers,application_form_raw,cover_letter,cover_letter_lang,cover_letter_greeting,cover_letter_closing
+bosch-brasil-senior-supply-chain-data-analytics-analyst-36058,122,,Bosch Brasil,bosch-brasil,SENIOR SUPPLY CHAIN DATA ANALYTICS ANALYST (36058),da,,https://jobs.smartrecruiters.com/oneclick-ui/company/BoschGroup/publication/754e3332-6f14-499a-b7b3-6c1cc82d739c?dcr_ci=BoschGroup&sid=db56bb2e-8a0c-4faa-9b8d-298f76b85aae,subscribed,medium,unknown,"Campinas, Brasil",company_site,2026-10-01,,,,,,,Data analytics position within Supply Chain operations.,,,,1,8,"High match for the Data Analyst profile, leveraging applied analytics, Power BI, Python, and SQL skills applied to supply chain data.",data-analyst,,,"{""opening_id"":""bosch-brasil-senior-supply-chain-data-analytics-analyst-36058"",""recommended_resume"":""data-analyst"",""form_url"":""https://jobs.smartrecruiters.com/oneclick-ui/company/BoschGroup/publication/754e3332-6f14-499a-b7b3-6c1cc82d739c?dcr_ci=BoschGroup&sid=db56bb2e-8a0c-4faa-9b8d-298f76b85aae"",""source_url"":""https://jobs.smartrecruiters.com/oneclick-ui/company/BoschGroup/publication/754e3332-6f14-499a-b7b3-6c1cc82d739c"",""imported_at"":""2026-10-01T22:58:57"",""fields"":[{""key"":""resume"",""label"":""Currículo"",""value"":"""",""source"":""AIB instructions"",""note"":""Upload manually - use data-analyst resume""},{""key"":""first_name"",""label"":""Nome"",""value"":""Eduardo Matos de Assis"",""source"":""PROFILE"",""note"":""""},{""key"":""last_name"",""label"":""Sobrenome"",""value"":""Figueiredo"",""source"":""PROFILE"",""note"":""""},{""key"":""email"",""label"":""E-mail"",""value"":""edu.evangelista.figueiredo@gmail.com"",""source"":""PROFILE"",""note"":""""},{""key"":""confirm_email"",""label"":""Confirmar e-mail"",""value"":""edu.evangelista.figueiredo@gmail.com"",""source"":""PROFILE"",""note"":""""},{""key"":""location"",""label"":""Localidade"",""value"":""Nova Odessa, SP - Brazil"",""source"":""PROFILE"",""note"":""""},{""key"":""phone"",""label"":""Telefone"",""value"":""+55 19 98176-6583"",""source"":""PROFILE"",""note"":""""},{""key"":""linkedin"",""label"":""Perfil do LinkedIn"",""value"":""[https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b)"",""source"":""PROFILE"",""note"":""""},{""key"":""message_to_hiring_manager"",""label"":""Mensagem para o recrutador"",""value"":""Prezados, Como colaborador da Bosch desde 2017 com forte background em análise de dados, experiência do usuário e melhoria contínua, vejo na oportunidade de Senior Supply Chain Data Analytics Analyst o ambiente ideal para aplicar minha expertise técnica e organizacional. No meu dia a dia, trabalho intensamente com desenvolvimento, metodologias ágeis e ferramentas analíticas como Python, SQL e Power BI. Minha trajetória como Web Developer e Continuous Improvement Analyst na Bosch, somada ao meu atual cargo de Technology Researcher and Designer e ao mestrado em Sistemas de Informação e Comunicação pela Unicamp, fortaleceu minha capacidade de integrar requisitos de negócios complexos com soluções escaláveis de Data Analytics. A exigência da vaga por criação de interfaces focadas no usuário (UX/UIs) conecta-se diretamente com o foco da minha pesquisa e atuação atual. Estou altamente motivado para contribuir com a área SO/OPM-TS15-BR na padronização de estruturas de dados e no desenvolvimento de pipelines que suportem a tomada de decisões da cadeia de suprimentos."",""source"":""Generated explicitly per user prompt request"",""note"":""""}]}","Bosch Group logo
+SENIOR SUPPLY CHAIN DATA ANALYTICS ANALYST (36058)
+Av. Robert Bosch - Parque Via Norte, Campinas - SP, 13064-765, Brasil
+Tempo integral
+Legal Entity: Robert Bosch Ltda.
+Descrição da empresa
+Na Bosch, moldamos o futuro por meio das inovações tecnológicas de alta qualidade e de serviços que despertam entusiasmo e melhoram a vida das pessoas. Temos uma promessa sólida para nossos colaboradores: crescemos juntos, gostamos do nosso trabalho e inspiramos uns aos outros. Junte-se a nós e sinta a diferença.
+
+Descrição do emprego
+Principais responsabilidades:
+
+Definir e gerenciar BOs globais, assegurando estruturas de dados padronizados e modelos de BO
+Gerenciar os requisitos de diversos stakeholders internacionais e traduzir ""business requirements"" em soluções de BO e Data Analytics escaláveis e sustentáveis
+Desenvolver, manter e melhorar continuamente data pipelines complexos para soluções de M-BO
+Assegurar ""data processing"" escalável, confiável e de alta qualidade
+Projetar e aprimorar ""user-centric interfaces"" (UIs), oferecendo soluções intuitivas e eficientes
+Monitorar e manter o backend end-to-end dos M-BOs, assegurando estabilidade do sistema, data quality e a operação contínua das soluções de M-BO
+Criar, manter e aprimorar continuamente documentação técnica e funcional abrangente, para estabelecer uma ""single source of truth"" e permitir uma comunicação clara, consistente e transparente entre stakeholders em todo o mundo.
+Interface com Unidades de negócios, Plantas fabris da área automotiva: alinhamento dos requisitos de M-BO
+Interface com Áreas Centrais na Alemanha e Américas: alinhamento dos padrões de arquitetura e IT framework 
+ 
+Qualificações
+Minimum Qualifications
+
+Experiência geral em Logística (Logística Física/ Planejamento)
+Inglês avançado
+Conhecimento avançado de end-to-end supply chain
+Experiência de trabalho em organização cross-functional, cross-location e matricial
+Experiência operacional de vários anos em processos logísticos e SAP (ERP - módulos SD / PP / MM, APO)
+Experiência comprovada no desenvolvimento de Data Analytics solutions
+Conhecimento sólido de Microsoft Office Suite, com proficiência avançada em Excel e Power BI
+Proficiência em plataformas modernas de Data & Analytics (SAP Analytics Cloud, SAP Datasphere, Databricks, Azure etc.)
+Comunicar-se de forma eficaz com stakeholders em um ambiente internacional e multicultural
+Experiência com agile working methodologies em equipes internacionais e cross-functional
+Conhecimentos avançados de problem solving e Data Analytics, com alto grau de autonomia 
+ 
+
+Preferred Qualifications:
+
+ 
+
+Conhecimentos de Python scripting serão considerados um diferencial
+Conhecimento sólido de SQL programming, data architecture (como coletar, armazenar e organizar), data integration concepts e data utilization.(desejável)
+ 
+Informações Adicionais
+Benefícios da Bosch
+
+Programas de Bem-Estar e Saúde: avaliação preventiva anual, ambulatório dentro da localidade para atendimento durante o horário de trabalho, programa antitabagismo, programa de saúde mental, fisioterapia e curso de gestante
+Assistência médica e odontológica
+Política de reembolso para algumas condições especiais de saúde
+Subsídio para medicamentos através da Funcional Health
+Jornadas de trabalho flexível com política de home office (não aplicado para horistas)
+Short Friday para administrativo e horista do turno normal (apenas em Campinas)
+Participação nos lucros e resultados (PLR) 
+Política de expatriação internacional e de transferências nacionais 
+Plano de previdência privada e empréstimos com taxas diferenciadas
+Seguro de vida 
+Associação opcional ao Clube da Bosch dentro da planta com academia, piscinas, churrasqueiras, campos de futebol e society, espaço para eventos, ginásio de esportes, quadras de areia, quadra de tênis, lanchonete e calendário anual de eventos
+Auxílio para mamães com creche na planta (verificar vagas disponíveis)
+Licença maternidade e adoção estendida de 180 dias 
+Licença paternidade e adoção de 20 dias 
+Alimentação no local de trabalho e Vale Alimentação
+Ônibus fretado (ou Vale Transporte)
+Estacionamento gratuito (para quem vem presencial) 
+Benefícios de fim de ano com Cesta de Natal e ave congelada
+Brinquedo para filhos menores de 12 anos
+Material escolar para colaboradores (até nível universitário) e filhos (até final do ensino médio)
+Política de subsídios para cursos técnicos, pós-graduação, MBA, especializações e idiomas
+Treinamentos e capacitações através da nossa universidade corporativa
+Premiação por tempo de casa (a partir de 10 anos e a cada 5 anos) 
+Participação opcional em várias ações de voluntariado via Instituto Robert Bosch 
+Descontos com parceiros do clube: locação de veículos, mensalidade em universidades, cursos de idioma, lojas e outros
+
+Leia nossos artigos no Medium e saiba como é trabalhar na área de Tecnologia da Bosch Brasil: Bosch Tech Brasil - Medium https://medium.com/@boschtechbr
+Informações adicionais 
+
+- Vaga elegível para pessoas com deficiência ou reabilitadas
+
+- Não contratamos menores de 16 anos e somos contra o trabalho infantil
+
+- Modelo de trabalho: Presencial
+
+- Se esta vaga for elegível ao modelo Home Office, a avaliação do posto de trabalho será uma das etapas do processo seletivo
+
+- Área contratante: SO/OPM-TS15-BR
+
+Para colaboradores Bosch 
+
+- Prazo: 07/10/2026
+
+- Sua candidatura pode ser feita internamente pelo site SmartHub
+
+- Após se candidatar, recomendamos informar a sua liderança
+
+- Verifique a elegibilidade desta vaga em nosso Programa de Indicações ""Indica Ai"" (conforme RCD 12030-000)
+
+ Na Bosch, acreditamos que a diversidade é o motor da inovação, por isso, todas as vagas são elegíveis para pessoas com deficiência, em situação vulnerável e grupos minoritários.
+
+Junte-se a nós e sinta a diferença. Work#LikeABosch. 
+
+bosch.com.br/carreiras
+
+Ao clicar no link acima ou em qualquer link de terceiros nesta publicação, você sairá deste site e será redirecionado para um site de terceiros, no qual se aplicam os termos e a política de privacidade desse site.
+
+Aviso de privacidadeMarca
+
+compartilhar este emprego",,,,
 bosch-brasil-vaga-afirmativa-para-mulheres-senior-sap-developer-drc-global-e-invoicing-35988,121,,Bosch Brasil,bosch-brasil,VAGA AFIRMATIVA PARA MULHERES - SENIOR SAP DEVELOPER - DRC & GLOBAL E-INVOICING - 35988,other,,,excluded,medium,unknown,"Campinas, Brasil",company_site,2026-09-29,,,,,,"SAP Development, ABAP, E-Invoicing",SAP Developer focused on DRC & Global E-Invoicing. Affirmative action role exclusive to women.,,,,1,1,"Role is exclusively an affirmative action position for women. Furthermore, the focus on SAP Development does not align with your core stack of React, Python, Data Analytics, and UX Research.",general,,,,,,,,
 atl-01,1,,Atlassian,atlassian-global,Principal Data Scientist,ds,,,excluded,medium,Remote,Bengaluru,company_site,2026-09-27,,,,,,,,,,,1,6,"Matches background in Python, statistics, and ML evaluation, though Principal level may require more extensive purely quantitative experience.",data-scientist,,,,,,,,
 atl-02,2,,Atlassian,atlassian-global,Senior Data Engineering Manager,other,,,excluded,medium,Remote,Bengaluru,company_site,2026-09-27,,,,,,,,,,,1,5,"Strong in project management, but data engineering specific leadership might require deeper backend pipeline architecture expertise.",general,,,,,,,,
