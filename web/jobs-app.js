@@ -956,14 +956,20 @@
     icon.setAttribute("viewBox", "0 0 24 24");
     icon.setAttribute("aria-hidden", "true");
     icon.classList.add("ring-btn-icon");
-    const outer = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    const outer = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      "circle",
+    );
     outer.setAttribute("cx", "12");
     outer.setAttribute("cy", "12");
     outer.setAttribute("r", "7.2");
     outer.setAttribute("fill", "none");
     outer.setAttribute("stroke", "currentColor");
     outer.setAttribute("stroke-width", "1.7");
-    const inner = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    const inner = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      "circle",
+    );
     inner.setAttribute("cx", "12");
     inner.setAttribute("cy", "12");
     inner.setAttribute("r", "2.3");
@@ -2249,6 +2255,20 @@
     ].join("\n");
   }
 
+  const AI_FIX_COPIED = "AI fix copied. Paste it into your AI companion.";
+  const AI_FIX_COPY_FAILED =
+    "Could not copy the AI fix. It is in the import box.";
+
+  function importBoxForStatus(statusElId) {
+    const boxes = {
+      "import-status": "import-raw",
+      "form-import-status": "form-import-raw",
+      "cover-import-status": "cover-import-raw",
+    };
+    const id = boxes[statusElId];
+    return id ? document.getElementById(id) : null;
+  }
+
   async function deliverAiFixNote(kind, fixPrompt, statusElId) {
     const okCopy = await copyText(fixPrompt);
     if (okCopy) await signalPromptCopied();
@@ -2265,29 +2285,41 @@
       /* local write optional */
     }
     const status = statusElId ? document.getElementById(statusElId) : null;
-    const parts = [];
-    if (okCopy) parts.push("AI fix copied to clipboard");
-    if (desktopPath) parts.push(`Desktop note: ${desktopPath}`);
-    if (!parts.length) parts.push("AI fix ready — copy failed; see toast");
-    if (status) {
-      status.textContent = parts.join(" · ");
-      status.className = "save-status err";
+    if (okCopy) {
+      const note = desktopPath
+        ? `${AI_FIX_COPIED} Desktop note: ${desktopPath}`
+        : AI_FIX_COPIED;
+      if (status) {
+        status.textContent = note;
+        status.className = "save-status ok";
+      }
+      showToast(
+        desktopPath
+          ? `${AI_FIX_COPIED} Desktop note: ${desktopPath}`
+          : AI_FIX_COPIED,
+        5000,
+      );
+    } else {
+      const box = importBoxForStatus(statusElId);
+      if (box) {
+        box.value = fixPrompt;
+        box.focus();
+        box.select();
+      }
+      if (status) {
+        status.textContent = AI_FIX_COPY_FAILED;
+        status.className = "save-status err";
+      }
+      showToast(AI_FIX_COPY_FAILED, 5000);
     }
-    showToast(
-      desktopPath
-        ? "AI fix on Desktop — paste into your companion"
-        : okCopy
-          ? "AI fix copied — paste into your companion"
-          : "AI fix failed to save — copy manually from the import box",
-      5000,
-    );
     return { okCopy, desktopPath };
   }
 
   function isAiCompanionImportError(message) {
     const msg = String(message || "").toLowerCase();
     if (!msg) return false;
-    // Cockpit / server / tooling — not the AI companion's fault
+    // Cockpit / server / tooling — not the AI companion's fault.
+    // Every other thrown import error is bad AI output, including duplicates.
     const cockpitHints = [
       "not found",
       "não encontrado",
@@ -2304,23 +2336,7 @@
       "(502)",
       "(503)",
     ];
-    if (cockpitHints.some((h) => msg.includes(h))) return false;
-    // Payload / schema issues — ask AI to regenerate
-    const aiHints = [
-      "invalid json",
-      "expected a json",
-      "missing",
-      "empty",
-      "fields[",
-      "opening_id",
-      "recommended_resume",
-      "lang must",
-      "no matching opening",
-      "markdown",
-      "array",
-      "object",
-    ];
-    return aiHints.some((h) => msg.includes(h));
+    return !cockpitHints.some((h) => msg.includes(h));
   }
 
   async function reportImportFailure(opts) {
@@ -2664,10 +2680,8 @@
         lines.push(
           `- ${cell(e.institution_en) || cell(e.institution_pt)} | ${cell(e.location_en) || cell(e.location_pt)} | ${cell(e.degree_en) || cell(e.degree_pt)} | ${cell(e.field_en) || cell(e.field_pt)} | ${cell(e.date_display_en) || cell(e.date_display_pt)}`,
         );
-        const eduEn =
-          cell(e.description_detail_en) || cell(e.description_en);
-        const eduPt =
-          cell(e.description_detail_pt) || cell(e.description_pt);
+        const eduEn = cell(e.description_detail_en) || cell(e.description_en);
+        const eduPt = cell(e.description_detail_pt) || cell(e.description_pt);
         if (eduEn) lines.push(`  EN: ${eduEn}`);
         if (eduPt && eduPt !== eduEn) lines.push(`  PT: ${eduPt}`);
       }
@@ -2680,10 +2694,8 @@
         lines.push(
           `- ${cell(e.title_en) || cell(e.title_pt)} @ ${cell(e.company_en) || cell(e.company_pt)} | ${cell(e.date_display_en) || cell(e.date_display_pt)} | ${cell(e.location_en) || cell(e.location_pt)}`,
         );
-        const expEn =
-          cell(e.description_detail_en) || cell(e.description_en);
-        const expPt =
-          cell(e.description_detail_pt) || cell(e.description_pt);
+        const expEn = cell(e.description_detail_en) || cell(e.description_en);
+        const expPt = cell(e.description_detail_pt) || cell(e.description_pt);
         if (expEn) lines.push(`  EN: ${expEn}`);
         if (expPt && expPt !== expEn) lines.push(`  PT: ${expPt}`);
       }
@@ -2693,7 +2705,9 @@
     const bullets = (ctx.experienceBullets || [])
       .filter((b) => variants.has(cell(b.variant) || "general"))
       .sort((a, b) => {
-        const byRole = cell(a.experience_id).localeCompare(cell(b.experience_id));
+        const byRole = cell(a.experience_id).localeCompare(
+          cell(b.experience_id),
+        );
         if (byRole) return byRole;
         return Number(a.sort_order) - Number(b.sort_order);
       });
