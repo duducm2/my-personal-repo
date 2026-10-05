@@ -5,7 +5,7 @@
 // =============================================================================
 
 #let name = "Eduardo M. de A. Figueiredo"
-#let tagline = "Applied Data Scientist (pleno) | Stats, Python & LLM evaluation"
+#let tagline = "Applied Data Scientist (mid-level) | Stats, Python & LLM evaluation"
 #let phone = "+55 (19) 98176-6583"
 #let email = "edu.evangelista.figueiredo@gmail.com"
 #let linkedin = "LinkedIn"
@@ -35,7 +35,7 @@
 )
 
 #let profile = [
-  Applied researcher into Data Scientist pleno: experimental design, inferential stats, LLM evaluation (TrustMate); call-center text to Power BI (Data Insights); CSI/NPS at Bosch. Python, SQL, Power BI daily. Personal web apps for finances and for deciding on buying my house use many visual structures for analytics and decision making.
+  Applied researcher into a mid-level Data Scientist role: experimental design, inferential stats, LLM evaluation (TrustMate); call-center text to Power BI (Data Insights); CSI/NPS at Bosch. Python, SQL, Power BI daily. Personal web apps for finances and for deciding on buying my house use many visual structures for analytics and decision making.
 ]
 
 #let languages = "Portuguese (Native)   English (Fluent)"

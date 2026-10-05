@@ -388,7 +388,13 @@
     btn.title = isPinned(live)
       ? "Unpin from top (Alt+M)"
       : "Pin to top (Alt+M)";
-    btn.textContent = isPinned(live) ? "Pinned" : "Pin";
+    btn.setAttribute("aria-label", btn.title);
+    const icon = document.createElement("img");
+    icon.className = "pin-btn-icon";
+    icon.src = "icons/pin-pen.png";
+    icon.alt = "";
+    icon.setAttribute("aria-hidden", "true");
+    btn.append(icon);
     btn.addEventListener("click", (event) => {
       if (stopPropagation) {
         event.preventDefault();

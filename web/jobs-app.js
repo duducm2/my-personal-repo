@@ -423,7 +423,9 @@
     btn.className =
       "filter-chip" + (activeKey === chip.key ? " is-active" : "");
     btn.setAttribute("aria-pressed", activeKey === chip.key ? "true" : "false");
-    btn.textContent = chip.label;
+    const icon = statusIcon(chip.key);
+    if (icon) btn.append(icon);
+    btn.append(document.createTextNode(chip.label));
     btn.addEventListener("click", () => onSelect(chip.key));
     return btn;
   }
@@ -587,6 +589,17 @@
     parent.append(cue);
   }
 
+  function statusIcon(status) {
+    const key = cell(status).toLowerCase();
+    if (!STATUS_OPTIONS.includes(key)) return null;
+    const img = document.createElement("img");
+    img.className = "status-icon";
+    img.src = `icons/status-${key}.png`;
+    img.alt = "";
+    img.setAttribute("aria-hidden", "true");
+    return img;
+  }
+
   function statusTone(status) {
     const s = cell(status).toLowerCase();
     if (s === "offer" || s === "interviewing") return "hot";
@@ -669,7 +682,13 @@
     btn.title = isPinned(row)
       ? "Unpin from this status (Alt+M)"
       : "Pin to top of this status (Alt+M)";
-    btn.textContent = isPinned(row) ? "Pinned" : "Pin";
+    btn.setAttribute("aria-label", btn.title);
+    const icon = document.createElement("img");
+    icon.className = "pin-btn-icon";
+    icon.src = "icons/pin-pen.png";
+    icon.alt = "";
+    icon.setAttribute("aria-hidden", "true");
+    btn.append(icon);
     btn.addEventListener("click", (event) => {
       event.preventDefault();
       event.stopPropagation();
@@ -751,12 +770,17 @@
     const top = document.createElement("div");
     top.className = "job-tile-top";
     if (status) {
-      top.append(
-        makeTileChip(
-          status,
-          `job-tile-status job-tile-status--${statusTone(status)}`,
-        ),
-      );
+      const chip = document.createElement("span");
+      chip.className = `job-tile-status job-tile-status--${statusTone(status)}`;
+      chip.title = statusLabel(status);
+      chip.setAttribute("aria-label", statusLabel(status));
+      const icon = statusIcon(status);
+      if (icon) {
+        icon.alt = statusLabel(status);
+        icon.removeAttribute("aria-hidden");
+        chip.append(icon);
+      } else chip.textContent = status;
+      top.append(chip);
     }
     if (isNewOpening(row)) {
       const badge = document.createElement("span");
@@ -767,6 +791,8 @@
       badge.title = `New for ${companyLabel}`;
       top.append(badge);
     }
+    const topEnd = document.createElement("div");
+    topEnd.className = "job-tile-top-end";
     if (matchScore) {
       const match = document.createElement("span");
       match.className = "job-tile-match";
@@ -778,9 +804,11 @@
       l.className = "job-tile-match-l";
       l.textContent = "match";
       match.append(n, l);
-      top.append(match);
+      topEnd.append(match);
     }
-    if (top.childNodes.length) btn.append(top);
+    appendPinControl(topEnd, row);
+    top.append(topEnd);
+    btn.append(top);
 
     const title = document.createElement("div");
     title.className = "company-tile-title";
@@ -824,7 +852,6 @@
 
     const chips = document.createElement("div");
     chips.className = "company-tile-chips job-tile-chips";
-    appendPinControl(chips, row);
     if (priority) {
       chips.append(
         makeTileChip(
@@ -930,6 +957,8 @@
       const count = document.createElement("span");
       count.className = "job-status-group-count";
       count.textContent = String(group.rows.length);
+      const icon = statusIcon(group.status);
+      if (icon) head.append(icon);
       head.append(title, count);
       root.append(head);
       for (const row of group.rows) root.append(renderTile(row));
@@ -4188,7 +4217,12 @@
         ` job-status-menu-item--${statusTone(status)}`;
       item.setAttribute("role", "menuitemradio");
       item.setAttribute("aria-checked", status === current ? "true" : "false");
-      item.textContent = status;
+      const label = document.createElement("span");
+      label.className = "job-status-menu-label";
+      const icon = statusIcon(status);
+      if (icon) label.append(icon);
+      label.append(document.createTextNode(status));
+      item.append(label);
       if (status === current) {
         const mark = document.createElement("span");
         mark.className = "job-status-menu-check";
@@ -4422,11 +4456,15 @@
           return;
         }
 
-        // Generate prompt — Alt+R (all career paths)
-        if (!modalOpen && !typing && code === "KeyR") {
+        // Generate prompt — Alt+R, including from an open opening and while typing
+        if (code === "KeyR") {
           event.preventDefault();
           event.stopPropagation();
-          openPromptModal({ selectAllPaths: true });
+          const row = modalOpen ? currentOpenRow() : null;
+          openPromptModal({
+            companyId: cell(row?.company_key),
+            selectAllPaths: true,
+          });
           return;
         }
 
@@ -4439,15 +4477,15 @@
         }
 
         // Generate form prompt — Alt+F (job opening modal only)
-        if (modalOpen && !typing && code === "KeyF") {
+        if (modalOpen && code === "KeyF") {
           event.preventDefault();
           event.stopPropagation();
           openFormPromptModal();
           return;
         }
 
-        // Import form result — Alt+A (job opening modal only)
-        if (modalOpen && !typing && code === "KeyA") {
+        // Import form result — Alt+A (job opening modal only, including while typing)
+        if (modalOpen && code === "KeyA") {
           event.preventDefault();
           event.stopPropagation();
           openFormImportModal();
@@ -4455,7 +4493,7 @@
         }
 
         // Generate cover letter prompt — Alt+C (job opening modal only)
-        if (modalOpen && !typing && code === "KeyC") {
+        if (modalOpen && code === "KeyC") {
           event.preventDefault();
           event.stopPropagation();
           openCoverPromptModal();
@@ -4463,7 +4501,7 @@
         }
 
         // Import cover letter — Alt+L (job opening modal only)
-        if (modalOpen && !typing && code === "KeyL") {
+        if (modalOpen && code === "KeyL") {
           event.preventDefault();
           event.stopPropagation();
           openCoverImportModal();

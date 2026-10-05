@@ -1105,8 +1105,7 @@
     return rows
       .map((row, index) => ({ row, index }))
       .sort((a, b) => {
-        const pin =
-          (isRowPinned(a.row) ? 0 : 1) - (isRowPinned(b.row) ? 0 : 1);
+        const pin = (isRowPinned(a.row) ? 0 : 1) - (isRowPinned(b.row) ? 0 : 1);
         return pin || a.index - b.index;
       })
       .map((item) => item.row);
@@ -1210,7 +1209,13 @@
       pin.className = "pin-btn" + (pinned ? " is-on" : "");
       pin.setAttribute("aria-pressed", pinned ? "true" : "false");
       pin.title = pinned ? "Unpin from top (Alt+M)" : "Pin to top (Alt+M)";
-      pin.textContent = pinned ? "Pinned" : "Pin";
+      pin.setAttribute("aria-label", pin.title);
+      const icon = document.createElement("img");
+      icon.className = "pin-btn-icon";
+      icon.src = "icons/pin-pen.png";
+      icon.alt = "";
+      icon.setAttribute("aria-hidden", "true");
+      pin.append(icon);
       pin.addEventListener("click", (event) => {
         event.preventDefault();
         event.stopPropagation();

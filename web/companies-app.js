@@ -760,7 +760,13 @@
     btn.className = "pin-btn" + (isPinned(row) ? " is-on" : "");
     btn.setAttribute("aria-pressed", isPinned(row) ? "true" : "false");
     btn.title = isPinned(row) ? "Unpin from top (Alt+M)" : "Pin to top (Alt+M)";
-    btn.textContent = isPinned(row) ? "Pinned" : "Pin";
+    btn.setAttribute("aria-label", btn.title);
+    const icon = document.createElement("img");
+    icon.className = "pin-btn-icon";
+    icon.src = "icons/pin-pen.png";
+    icon.alt = "";
+    icon.setAttribute("aria-hidden", "true");
+    btn.append(icon);
     btn.addEventListener("click", (event) => {
       if (stopPropagation) {
         event.preventDefault();
