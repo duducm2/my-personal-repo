@@ -53,7 +53,7 @@
     [Daily VS Code + AI for research, method design, and faster iteration on global architecture work.],
     [Average CSI 4.86 / NPS 9.94 (2024–2025); international collaboration with Germany (2024, 2025).],
   )),
-  ("Jan 2020 – Dec 2022", "Bosch Brasil", "Web Developer", (
+  ("Jan 2020 – Nov 2022", "Bosch Brasil", "Web Developer", (
     [Built React front-ends and internal/customer web solutions in Scrum/Kanban—component boundaries and delivery ownership.],
     [Collaborated across design, research, and engineering to ship increments with clear ownership.],
   )),

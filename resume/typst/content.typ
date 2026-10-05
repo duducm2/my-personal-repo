@@ -54,7 +54,7 @@
     [Use agentic AI daily in VS Code for research, analysis, and problem-solving across the applied-research pipeline.],
     [Two trips to Germany (2024, 2025); tutor at SENAI Digital Talent Academy; AI tools training for 100+ people (4.88/5 satisfaction).],
   )),
-  ("Jan 2020 – Dec 2022", "Bosch Brasil", "Web Developer", (
+  ("Jan 2020 – Nov 2022", "Bosch Brasil", "Web Developer", (
     [Front-end development in React with Scrum and Kanban; applied research habits and teamwork-driven delivery.],
     [Worked on customer-facing applications and internal tools.],
   )),

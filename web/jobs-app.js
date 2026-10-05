@@ -1295,6 +1295,16 @@
     body.append(actions);
   }
 
+  function unwrapSameMarkdownLink(raw) {
+    const text = cell(raw).trim();
+    const md = text.match(/^\[([^\[\]]+)\]\(([^)]+)\)$/);
+    if (!md) return cell(raw);
+    const label = md[1].trim();
+    const target = md[2].trim();
+    if (label && label === target) return label;
+    return cell(raw);
+  }
+
   function cleanUrlValue(raw) {
     let u = cell(raw).trim();
     if (!u) return "";
@@ -2305,7 +2315,7 @@
           .map((f) => ({
             key: cell(f.key),
             label: cell(f.label) || cell(f.key),
-            value: cell(f.value),
+            value: unwrapSameMarkdownLink(f.value),
             source: cell(f.source),
             note: cell(f.note),
           })),
@@ -2390,6 +2400,8 @@
       "   (required and optional) by its on-page label.",
       "2. Resolve each field from PROFILE / EDUCATION / EXPERIENCE / NARRATIVES.",
       "   Prefer exact stored values. Never invent email, phone, or URLs.",
+      "   Put URLs as the bare https link only. Do not wrap a URL as markdown",
+      "   [url](url) when both sides are the same address.",
       "3. Split full_name into first_name / last_name when the form asks for them.",
       "4. For email confirmation fields, repeat the same email value.",
       "5. For phone country / dial code, derive from profile phone when present",
@@ -2647,7 +2659,7 @@
       fields.push({
         key: key || `field_${i + 1}`,
         label,
-        value: cell(f.value),
+        value: unwrapSameMarkdownLink(f.value),
         source: cell(f.source),
         note: cell(f.note),
       });

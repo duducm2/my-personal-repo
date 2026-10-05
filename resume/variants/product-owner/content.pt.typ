@@ -53,7 +53,7 @@
     [Evidência de resultado: média CSI 4,86 / NPS 9,94 nos meus projetos (2024–2025); Power BI para acompanhamento de projetos e recursos.],
     [Duas viagens à Alemanha (2024, 2025); tutor na SENAI Digital Talent Academy; treinamento de ferramentas de IA para 100+ pessoas (satisfação 4,88/5).],
   )),
-  ("Jan 2020 – Dez 2022", "Bosch Brasil", "Desenvolvedor Web", (
+  ("Jan 2020 – Nov 2022", "Bosch Brasil", "Desenvolvedor Web", (
     [Entreguei soluções web para clientes e internas em Scrum e Kanban; colaborei com design, pesquisa e engenharia.],
     [Traduzi necessidades em incrementos de front-end (React) entregues com o time.],
   )),

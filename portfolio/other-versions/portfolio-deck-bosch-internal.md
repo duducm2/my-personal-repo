@@ -662,7 +662,7 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 
 | Area                               | Achievement                                                                                                                        |
 | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| Role                               | Applied Research & Technology – Bosch Brasil (May 2023 – present); Applied Research Expert & Project Champion at GS/BDU            |
+| Role                               | Applied Research & Technology – Bosch Brasil (Jan 2023 – present); Applied Research Expert & Project Champion at GS/BDU            |
 | International                      | Two trips to Germany (2024, 2025) for role-related work                                                                            |
 | CO2 Tracking (GS/Applied Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand                                                               |
 | Tooling project (PT)               | Led technical delivery and project management from requirements through high-fidelity prototypes, with regular customer check-ins. |

@@ -66,7 +66,7 @@ body { margin: 0; padding: 0.2in; font-family: 'Segoe UI', system-ui, sans-serif
 <div class="cv-section">
 <div class="cv-section-title">EXPERIENCE</div>
 <div class="cv-job">
-<span class="cv-job-dates">(May 2023 – Present)</span> <span class="cv-job-company">Bosch Brasil</span><br>
+<span class="cv-job-dates">(Jan 2023 – Present)</span> <span class="cv-job-company">Bosch Brasil</span><br>
 <span class="cv-job-title">UX Research & Design Analyst</span>
 <ul class="cv-list">
 <li>Led Americas region to <strong>UX Maturity Level 4</strong> (Dec 2025): governance, templates, training for service lines.</li>
@@ -75,7 +75,7 @@ body { margin: 0; padding: 0.2in; font-family: 'Segoe UI', system-ui, sans-serif
 </ul>
 </div>
 <div class="cv-job">
-<span class="cv-job-dates">(May 2021 – Nov 2023)</span> <span class="cv-job-company">Bosch Brasil</span><br>
+<span class="cv-job-dates">(May 2021 – Nov 2022)</span> <span class="cv-job-company">Bosch Brasil</span><br>
 <span class="cv-job-title">Web Developer</span>
 <ul class="cv-list">
 <li>Web solutions, front-end technologies, teamwork-driven development; React, Scrum.</li>

@@ -53,7 +53,7 @@
     [Outcome evidence: average CSI 4.86 / NPS 9.94 across my projects (2024–2025); Power BI for project and resource oversight.],
     [Two trips to Germany (2024, 2025); tutor at SENAI Digital Talent Academy; AI tools training for 100+ people (4.88/5 satisfaction).],
   )),
-  ("Jan 2020 – Dec 2022", "Bosch Brasil", "Web Developer", (
+  ("Jan 2020 – Nov 2022", "Bosch Brasil", "Web Developer", (
     [Delivered customer-facing and internal web solutions in Scrum and Kanban; collaborated across design, research, and engineering.],
     [Translated needs into shipped front-end (React) increments with the team.],
   )),

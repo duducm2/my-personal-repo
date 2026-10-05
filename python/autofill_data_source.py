@@ -351,6 +351,21 @@ def url_key(url: str) -> str:
     return f"{p.scheme.lower()}://{p.netloc.lower()}{path}"
 
 
+def unwrap_same_markdown_link(raw: str) -> str:
+    """Turn [url](url) into url when both sides are the same text."""
+    text = (raw or "").strip()
+    if len(text) < 5 or text[0] != "[" or text[-1] != ")":
+        return "" if raw is None else str(raw)
+    end = text.find("](")
+    if end < 1:
+        return str(raw)
+    label = text[1:end].strip()
+    target = text[end + 2 : -1].strip()
+    if label and label == target:
+        return label
+    return str(raw)
+
+
 def parse_application_answers(raw: str) -> dict[str, Any] | None:
     text = (raw or "").strip()
     if not text:
@@ -369,7 +384,9 @@ def parse_application_answers(raw: str) -> dict[str, Any] | None:
             {
                 "key": str(f.get("key") or "").strip(),
                 "label": str(f.get("label") or f.get("key") or "").strip(),
-                "value": "" if f.get("value") is None else str(f.get("value")),
+                "value": unwrap_same_markdown_link(
+                    "" if f.get("value") is None else str(f.get("value"))
+                ),
                 "source": str(f.get("source") or "").strip(),
                 "note": str(f.get("note") or "").strip(),
             }

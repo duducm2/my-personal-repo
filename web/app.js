@@ -1666,8 +1666,11 @@
     }, 1200);
   }
 
+  let profileJumpToken = 0;
+
   function jumpToProfileTarget(opts) {
     const { headingId, rowId } = opts || {};
+    const token = ++profileJumpToken;
     let target = null;
     if (rowId) {
       target = document.querySelector(
@@ -1697,6 +1700,7 @@
       const input = target.querySelector(".field-input");
       if (input) {
         window.setTimeout(() => {
+          if (token !== profileJumpToken) return;
           try {
             input.focus({ preventScroll: true });
           } catch {
@@ -1705,6 +1709,18 @@
         }, 350);
       }
     }
+  }
+
+  function jumpToFirstProfileRecord(collection) {
+    const meta = SECTION_META[collection];
+    const root = meta ? document.getElementById(meta.root) : null;
+    const panel = root?.querySelector(".panel");
+    const headingId = collection + "-heading";
+    if (panel?.dataset.id) {
+      jumpToProfileTarget({ headingId, rowId: panel.dataset.id });
+      return;
+    }
+    jumpToProfileTarget({ headingId });
   }
 
   function renderProfileSummary() {
@@ -2367,6 +2383,23 @@
           event.preventDefault();
           event.stopPropagation();
           toggleSearchBar();
+          return;
+        }
+      }
+
+      // Alt+E opens the Chrome menu and Ctrl+E focuses the address bar.
+      // Alt+Shift+U / Alt+Shift+X are unused there.
+      if (event.altKey && event.shiftKey && !mod) {
+        if (event.code === "KeyU") {
+          event.preventDefault();
+          event.stopPropagation();
+          jumpToFirstProfileRecord("education");
+          return;
+        }
+        if (event.code === "KeyX") {
+          event.preventDefault();
+          event.stopPropagation();
+          jumpToFirstProfileRecord("experience");
           return;
         }
       }

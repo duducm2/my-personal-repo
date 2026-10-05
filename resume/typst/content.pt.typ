@@ -54,7 +54,7 @@
     [Uso IA agêntica diariamente no VS Code para pesquisa, análise e resolução de problemas no pipeline de pesquisa aplicada.],
     [Duas viagens à Alemanha (2024, 2025); tutor na SENAI Digital Talent Academy; treinamento de ferramentas de IA para 100+ pessoas (satisfação 4,88/5).],
   )),
-  ("Jan 2020 – Dez 2022", "Bosch Brasil", "Desenvolvedor Web", (
+  ("Jan 2020 – Nov 2022", "Bosch Brasil", "Desenvolvedor Web", (
     [Desenvolvimento front-end em React com Scrum e Kanban; hábitos de pesquisa aplicada e entrega em equipe.],
     [Atuei em aplicações para clientes e ferramentas internas.],
   )),

@@ -46,7 +46,7 @@ Data analyst with ~8 years at Bosch (intern → web developer → applied resear
 ### Experience timeline (for seniority calibration)
 
 - **Jan 2023 – Present** — Applied Research & Design Analyst, Bosch Brasil
-- **Jan 2020 – Dec 2022** — Web Developer, Bosch Brasil (React, data-backed UI)
+- **Jan 2020 – Nov 2022** — Web Developer, Bosch Brasil (React, data-backed UI)
 - **Jan 2019 – Dec 2019** — Digitization Support Analyst, Bosch Hungary (SQL Server, Kanban)
 - **Jan 2017 – Nov 2018** — Intern, Bosch Campinas (Excel/VBA automations)
 

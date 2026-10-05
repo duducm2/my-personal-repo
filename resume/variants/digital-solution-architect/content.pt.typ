@@ -53,7 +53,7 @@
     [VS Code + IA no dia a dia para pesquisa, metodo e iteracao em frentes globais de arquitetura.],
     [Média CSI 4,86 / NPS 9,94 (2024–2025); colaboração internacional com a Alemanha (2024, 2025).],
   )),
-  ("Jan 2020 – Dez 2022", "Bosch Brasil", "Desenvolvedor Web", (
+  ("Jan 2020 – Nov 2022", "Bosch Brasil", "Desenvolvedor Web", (
     [Front-ends React e solucoes web internas/clientes em Scrum/Kanban—limites de componentes e ownership.],
     [Colaborei com design, pesquisa e engenharia para entregar incrementos com ownership claro.],
   )),
