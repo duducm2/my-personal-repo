@@ -980,10 +980,9 @@
     tag.className = "lang-tag";
     tag.textContent = lang;
 
-    const useTall = tall || detailMode;
     const input = document.createElement("textarea");
-    input.className = "field-input" + (useTall ? " tall" : "");
-    input.rows = useTall ? 6 : 2;
+    input.className = "field-input" + (tall ? " tall" : "");
+    input.rows = 2;
     let shown = cell(row[key]);
     if (detailMode && !shown.trim() && key !== baseKey) {
       shown = cell(row[baseKey]);

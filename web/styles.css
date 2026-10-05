@@ -1055,6 +1055,27 @@ body.lang-en .field-row {
   outline: none;
 }
 
+.page-profile .field-cell {
+  padding: 2px 4px 2px 4px;
+}
+
+.page-profile .field-input,
+.page-profile .field-input.tall {
+  min-height: 0;
+  height: 28px;
+  max-height: 28px;
+  padding: 3px 4px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: #1a1a1a;
+  overflow: auto;
+  resize: none;
+}
+
+.page-profile .field-input:focus {
+  border-color: color-mix(in srgb, var(--gold) 55%, var(--line));
+}
+
 .lang-tag {
   display: block;
   font-size: 8px;
