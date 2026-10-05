@@ -5,7 +5,7 @@
 // =============================================================================
 
 #let name = "Eduardo M. de A. Figueiredo"
-#let tagline = "Cientista de Dados aplicado (pleno) | Stats, Python e LLM"
+#let tagline = "Pesquisador aplicado | Estatística, Python e avaliação de LLM"
 #let phone = "+55 (19) 98176-6583"
 #let email = "edu.evangelista.figueiredo@gmail.com"
 #let linkedin = "LinkedIn"
@@ -35,7 +35,7 @@
 )
 
 #let profile = [
-  Pesquisador aplicado rumo a Cientista de Dados pleno: desenho experimental, estatistica inferencial, avaliacao com LLM (TrustMate); texto de call center a Power BI (Data Insights); CSI/NPS na Bosch. Python, SQL e Power BI no dia a dia. Apps web pessoais de financas e de decisao de compra da casa usam muitas estruturas visuais para analytics e decisao.
+  Pesquisador aplicado: desenho experimental, estatistica inferencial, avaliacao com LLM (TrustMate); texto de call center a Power BI (Data Insights); CSI/NPS na Bosch. Python, SQL e Power BI no dia a dia. Apps web pessoais de financas e de decisao de compra da casa usam muitas estruturas visuais para analytics e decisao.
 ]
 
 #let languages = "Português (Nativo)   Inglês (Fluente)"

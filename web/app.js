@@ -275,6 +275,7 @@
       "source",
       "found_on",
       "applied_on",
+      "applied_date",
       "next_action",
       "next_action_date",
       "salary_range",
@@ -378,11 +379,6 @@
       },
       { label: "dateRange", pt: "date_display_pt", en: "date_display_en" },
       { label: "location", pt: "location_pt", en: "location_en" },
-      {
-        label: "workArrangement",
-        pt: "work_arrangement_pt",
-        en: "work_arrangement_en",
-      },
       {
         label: "experienceDescription",
         pt: "description_pt",
@@ -1213,7 +1209,7 @@
       pin.setAttribute("aria-label", pin.title);
       const icon = document.createElement("img");
       icon.className = "pin-btn-icon";
-      icon.src = "icons/pin-pen.png";
+      icon.src = "icons/pin-pen.png?v=3";
       icon.alt = "";
       icon.setAttribute("aria-hidden", "true");
       pin.append(icon);

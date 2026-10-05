@@ -472,7 +472,7 @@ table thead { display: none !important; }
 | Atributo    | Valor |
 | --------------------------- | ------------------------- |
 | Nome    | Eduardo M. de A. Figueiredo    |
-| Papel    | Cientista de Dados aplicado (trilha pleno)    |
+| Papel    | Pesquisador aplicado    |
 | Impacto  | Transformar pesquisa e dados operacionais ambiguos em experimentos, metricas e decisoes confiaveis — crescendo em ML com mentores.  |
 | Contato | Nova Odessa, SP – Brasil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583 |
 

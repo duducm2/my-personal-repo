@@ -763,7 +763,7 @@
     btn.setAttribute("aria-label", btn.title);
     const icon = document.createElement("img");
     icon.className = "pin-btn-icon";
-    icon.src = "icons/pin-pen.png";
+    icon.src = "icons/pin-pen.png?v=3";
     icon.alt = "";
     icon.setAttribute("aria-hidden", "true");
     btn.append(icon);

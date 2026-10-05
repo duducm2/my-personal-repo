@@ -65,6 +65,7 @@
     "source",
     "found_on",
     "applied_on",
+    "applied_date",
     "next_action",
     "next_action_date",
     "salary_range",
@@ -594,7 +595,7 @@
     if (!STATUS_OPTIONS.includes(key)) return null;
     const img = document.createElement("img");
     img.className = "status-icon";
-    img.src = `icons/status-${key}.png`;
+    img.src = `icons/status-${key}.png?v=3`;
     img.alt = "";
     img.setAttribute("aria-hidden", "true");
     return img;
@@ -685,7 +686,7 @@
     btn.setAttribute("aria-label", btn.title);
     const icon = document.createElement("img");
     icon.className = "pin-btn-icon";
-    icon.src = "icons/pin-pen.png";
+    icon.src = "icons/pin-pen.png?v=3";
     icon.alt = "";
     icon.setAttribute("aria-hidden", "true");
     btn.append(icon);
@@ -732,7 +733,8 @@
       "company-tile job-tile" +
       (status ? ` job-tile--${statusTone(status)}` : "") +
       (priority === "high" ? " job-tile--high" : "") +
-      (isPinned(row) ? " is-pinned" : "");
+      (isPinned(row) ? " is-pinned" : "") +
+      (isStaleOpening(row) ? " is-stale" : "");
     btn.dataset.id = row.id;
     btn.dataset.url = cell(row.job_url);
     if (cell(row.job_url)) {
@@ -793,6 +795,7 @@
     }
     const topEnd = document.createElement("div");
     topEnd.className = "job-tile-top-end";
+    appendRingControl(topEnd, row);
     if (matchScore) {
       const match = document.createElement("span");
       match.className = "job-tile-match";
@@ -894,6 +897,86 @@
     }
     wrap.append(btn);
     return wrap;
+  }
+
+  const STALE_AFTER_DAYS = 30;
+
+  function todayISO() {
+    const now = new Date();
+    const month = String(now.getMonth() + 1).padStart(2, "0");
+    const day = String(now.getDate()).padStart(2, "0");
+    return `${now.getFullYear()}-${month}-${day}`;
+  }
+
+  function parseISODate(value) {
+    const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(cell(value).trim());
+    if (!match) return null;
+    const year = Number(match[1]);
+    const month = Number(match[2]);
+    const day = Number(match[3]);
+    const date = new Date(year, month - 1, day);
+    if (
+      date.getFullYear() !== year ||
+      date.getMonth() !== month - 1 ||
+      date.getDate() !== day
+    ) {
+      return null;
+    }
+    return date;
+  }
+
+  function isStaleOpening(row) {
+    const start = parseISODate(row.applied_date);
+    if (!start) return false;
+    const today = parseISODate(todayISO());
+    const days = Math.round((today - start) / 86400000);
+    return days >= STALE_AFTER_DAYS;
+  }
+
+  function ringOpening(row) {
+    row.applied_date = todayISO();
+    setDirty(true);
+    setSaveStatus("");
+    render();
+  }
+
+  function appendRingControl(parent, row) {
+    const stale = isStaleOpening(row);
+    const started = cell(row.applied_date);
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "ring-btn" + (stale ? " is-due" : "");
+    btn.title = stale
+      ? `Stale since ${started}. Ring to confirm you are still monitoring and restart the 30-day timer.`
+      : started
+        ? `Subscribed on ${started}. Ring to restart the 30-day timer.`
+        : "Ring to start the 30-day monitoring timer.";
+    btn.setAttribute("aria-label", btn.title);
+    const icon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    icon.setAttribute("viewBox", "0 0 24 24");
+    icon.setAttribute("aria-hidden", "true");
+    icon.classList.add("ring-btn-icon");
+    const outer = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    outer.setAttribute("cx", "12");
+    outer.setAttribute("cy", "12");
+    outer.setAttribute("r", "7.2");
+    outer.setAttribute("fill", "none");
+    outer.setAttribute("stroke", "currentColor");
+    outer.setAttribute("stroke-width", "1.7");
+    const inner = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    inner.setAttribute("cx", "12");
+    inner.setAttribute("cy", "12");
+    inner.setAttribute("r", "2.3");
+    inner.setAttribute("fill", "currentColor");
+    icon.append(outer, inner);
+    btn.append(icon);
+    btn.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      ringOpening(row);
+    });
+    parent.append(btn);
+    return btn;
   }
 
   function isNewOpening(row) {
@@ -1033,6 +1116,7 @@
           "priority",
           "next_action",
           "result",
+          "applied_date",
         ].includes(key)
       ) {
         renderResults();
@@ -1148,6 +1232,12 @@
     );
     grid.append(
       fieldBlock("Applied on", textInput(row, "applied_on", { type: "date" })),
+    );
+    grid.append(
+      fieldBlock(
+        "Subscribed on",
+        textInput(row, "applied_date", { type: "date" }),
+      ),
     );
     grid.append(
       fieldBlock("Result", selectInput(row, "result", RESULT_OPTIONS)),
@@ -1489,6 +1579,7 @@
       source: "other",
       found_on: "",
       applied_on: "",
+      applied_date: todayISO(),
       next_action: "Capture JD",
       next_action_date: "",
       salary_range: "",
@@ -1537,6 +1628,14 @@
     }
     ta.remove();
     return ok;
+  }
+
+  async function signalPromptCopied() {
+    try {
+      await fetch("/api/prompt-hotkey", { method: "POST" });
+    } catch {
+      /* AutoHotkey chord is optional */
+    }
   }
 
   function showToast(message, ms = 2000) {
@@ -1747,6 +1846,7 @@
       "   general | data-analyst | product-owner | digital-solution-architect | data-scientist.",
       `${n + 3}. Set is_new to "1", status to "saved", source to "company_site" unless`,
       "   another source is obvious, and fill found_on with today's date (YYYY-MM-DD).",
+      "   Leave applied_date empty. The cockpit records the subscription date on import.",
       "   Leave result and result_on empty (historic outcome is set manually later).",
       `${n + 4}. Return ONLY a JSON array (no markdown fences, no prose before/after).`,
       "   Every object MUST include exactly these keys:",
@@ -1968,6 +2068,7 @@
       );
       const ok = await copyText(prompt);
       if (ok) {
+        await signalPromptCopied();
         if (status) {
           status.textContent = "Prompt copied — closing in 3s…";
           status.className = "save-status ok";
@@ -2060,6 +2161,7 @@
     if (!row.work_mode) row.work_mode = "unknown";
     if (!row.source) row.source = "company_site";
     row.is_new = "1";
+    row.applied_date = todayISO();
     row.result = "";
     row.result_on = "";
     row.application_answers = "";
@@ -2097,6 +2199,7 @@
       source: "company_site",
       found_on: "2026-09-22",
       applied_on: "",
+      applied_date: "",
       next_action: "Review JD",
       next_action_date: "",
       salary_range: "",
@@ -2134,6 +2237,7 @@
       OPENING_FIELDS.join(", "),
       "- Use empty strings for unknown optional fields.",
       '- Keep is_new as "1" and status as "saved" for new imports.',
+      "- Leave applied_date empty. The cockpit sets the subscription date on import.",
       "- Leave result and result_on empty for new imports (historic outcome is set later).",
       "",
       "EXAMPLE ROW",
@@ -2147,6 +2251,7 @@
 
   async function deliverAiFixNote(kind, fixPrompt, statusElId) {
     const okCopy = await copyText(fixPrompt);
+    if (okCopy) await signalPromptCopied();
     let desktopPath = "";
     try {
       const res = await fetch("/api/ai-fix-note", {
@@ -2425,7 +2530,7 @@
       "=== AIB FORM-FILL INSTRUCTIONS (mandatory) ===",
       "1. Read ATS / APPLICATION PAGE TEXT and list every distinct form field",
       "   (required and optional) by its on-page label.",
-      "2. Resolve each field from PROFILE / EDUCATION / EXPERIENCE / NARRATIVES.",
+      "2. Resolve each field from PROFILE / EDUCATION / EXPERIENCE / EXPERIENCE BULLETS / NARRATIVES.",
       "   Prefer exact stored values. Never invent email, phone, or URLs.",
       "   Put URLs as the bare https link only. Do not wrap a URL as markdown",
       "   [url](url) when both sides are the same address.",
@@ -2433,28 +2538,40 @@
       "4. For email confirmation fields, repeat the same email value.",
       "5. For phone country / dial code, derive from profile phone when present",
       "   (e.g. +55). Leave empty when unknown.",
-      "6. For education / experience multi-entry blocks, summarize concise",
-      "   paste-ready text from the context (institution, degree, dates;",
-      "   title, company, dates, short description).",
-      `7. Prefer narratives/skills for career paths: ${paths}.`,
-      "8. Choose exactly one résumé variant to upload for this opening.",
+      "6. For education / experience multi-entry blocks, use paste-ready facts",
+      "   from the context (institution, degree, dates, title, company).",
+      "   Keep those rows factual. Do not replace a description with a vague line.",
+      "7. Free-text fields that address people are a sales note, not a courtesy",
+      "   line. This includes message to the hiring team, cover note, motivation,",
+      "   why this role, why this company, additional information, and comments.",
+      "   - Write them dense. Name several concrete overlaps with THIS opening:",
+      "     tools, methods, and outcomes taken from EDUCATION descriptions,",
+      "     EXPERIENCE descriptions, EXPERIENCE BULLETS, and NARRATIVES.",
+      "   - Lead with the fit. Do not open with excitement, passion, or alignment.",
+      "   - Plain and specific. No adjective stacks. Never invent employers,",
+      "     dates, degrees, or metrics.",
+      "   - If the form shows a character limit, spend most of it on the strongest",
+      "     matches. If it does not, write about 120-180 words.",
+      "   - Use the page language, and the EN or PT description that matches it.",
+      `8. Prefer narratives/skills for career paths: ${paths}.`,
+      "9. Choose exactly one résumé variant to upload for this opening.",
       `   Set top-level recommended_resume to one of: ${resumes}.`,
       "   Pick the best match for the role title, career path, and ATS text",
       "   (not only the current opening.recommended_resume if a better fit exists).",
-      "9. For résumé / file upload fields, set value to empty string and put a",
+      "10. For résumé / file upload fields, set value to empty string and put a",
       "   note naming the chosen variant, e.g.:",
       '   "Upload manually — use digital-solution-architect resume".',
-      "10. Match label language to the page (PT or EN). Keep key as snake_case English.",
-      "11. Return ONLY one JSON object (no markdown fences, no prose):",
+      "11. Match label language to the page (PT or EN). Keep key as snake_case English.",
+      "12. Return ONLY one JSON object (no markdown fences, no prose):",
       '    { "opening_id": "' +
         openingId +
         '", "recommended_resume": "<one of the variants>",',
       '      "form_url": "<exact URL of the application form page>",',
       '      "source_url": "<job posting URL if different>",',
       '      "fields": [ { "key", "label", "value", "source", "note?" } ] }',
-      "12. Include every visible form field. Use empty value when unknown.",
-      "13. opening_id must equal the selected opening id provided above.",
-      "14. form_url must be the page you extracted (application form). source_url",
+      "13. Include every visible form field. Use empty value when unknown.",
+      "14. opening_id must equal the selected opening id provided above.",
+      "15. form_url must be the page you extracted (application form). source_url",
       "    is the main job posting URL when it differs from the form page.",
     ].join("\n");
   }
@@ -2547,6 +2664,12 @@
         lines.push(
           `- ${cell(e.institution_en) || cell(e.institution_pt)} | ${cell(e.location_en) || cell(e.location_pt)} | ${cell(e.degree_en) || cell(e.degree_pt)} | ${cell(e.field_en) || cell(e.field_pt)} | ${cell(e.date_display_en) || cell(e.date_display_pt)}`,
         );
+        const eduEn =
+          cell(e.description_detail_en) || cell(e.description_en);
+        const eduPt =
+          cell(e.description_detail_pt) || cell(e.description_pt);
+        if (eduEn) lines.push(`  EN: ${eduEn}`);
+        if (eduPt && eduPt !== eduEn) lines.push(`  PT: ${eduPt}`);
       }
       lines.push("");
     }
@@ -2557,8 +2680,30 @@
         lines.push(
           `- ${cell(e.title_en) || cell(e.title_pt)} @ ${cell(e.company_en) || cell(e.company_pt)} | ${cell(e.date_display_en) || cell(e.date_display_pt)} | ${cell(e.location_en) || cell(e.location_pt)}`,
         );
-        const desc = cell(e.description_en) || cell(e.description_pt);
-        if (desc) lines.push(`  ${desc.slice(0, 280)}`);
+        const expEn =
+          cell(e.description_detail_en) || cell(e.description_en);
+        const expPt =
+          cell(e.description_detail_pt) || cell(e.description_pt);
+        if (expEn) lines.push(`  EN: ${expEn}`);
+        if (expPt && expPt !== expEn) lines.push(`  PT: ${expPt}`);
+      }
+      lines.push("");
+    }
+
+    const bullets = (ctx.experienceBullets || [])
+      .filter((b) => variants.has(cell(b.variant) || "general"))
+      .sort((a, b) => {
+        const byRole = cell(a.experience_id).localeCompare(cell(b.experience_id));
+        if (byRole) return byRole;
+        return Number(a.sort_order) - Number(b.sort_order);
+      });
+    if (bullets.length) {
+      lines.push("=== EXPERIENCE BULLETS (evidence for hiring messages) ===");
+      for (const b of bullets) {
+        const bulletEn = cell(b.text_en);
+        const bulletPt = cell(b.text_pt);
+        if (bulletEn) lines.push(`- ${bulletEn}`);
+        if (bulletPt && bulletPt !== bulletEn) lines.push(`  PT: ${bulletPt}`);
       }
       lines.push("");
     }
@@ -2623,6 +2768,7 @@
       const prompt = await buildFormFillPrompt(openingId, careerPaths, rawText);
       const ok = await copyText(prompt);
       if (ok) {
+        await signalPromptCopied();
         if (status) {
           status.textContent = "Prompt copied — closing in 3s…";
           status.className = "save-status ok";
@@ -3207,6 +3353,7 @@
       const prompt = await buildCoverLetterPrompt(openingId, lang, jd);
       const ok = await copyText(prompt);
       if (ok) {
+        await signalPromptCopied();
         if (status) {
           status.textContent = "Prompt copied — paste into your AI companion";
           status.className = "save-status ok";

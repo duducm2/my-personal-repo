@@ -472,7 +472,7 @@ table thead { display: none !important; }
 | Attribute    | Value |
 | --------------------------- | ------------------------- |
 | Name    | Eduardo M. de A. Figueiredo    |
-| Role    | Applied Data Scientist (mid-level track)    |
+| Role    | Applied Researcher    |
 | Impact  | Turn ambiguous research and operational data into trustworthy experiments, metrics, and decisions — while growing ML craft with mentors.  |
 | Contact | Nova Odessa, SP – Brazil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583 |
 

@@ -1853,17 +1853,17 @@ body.lang-en .field-row {
 
 .pin-btn-icon {
   display: block;
-  width: 22px;
-  height: 22px;
-  border-radius: 5px;
+  width: 15px;
+  height: 15px;
+  opacity: 0.38;
 }
 
-.pin-btn:hover {
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--gold) 55%, var(--line));
+.pin-btn:hover .pin-btn-icon {
+  opacity: 0.85;
 }
 
-.pin-btn.is-on {
-  box-shadow: 0 0 0 1px var(--gold);
+.pin-btn.is-on .pin-btn-icon {
+  opacity: 0.72;
 }
 
 .company-tile.is-pinned {
@@ -2850,6 +2850,50 @@ body.lang-en .field-row {
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--gold) 18%, transparent);
 }
 
+.job-tile.is-stale {
+  background: #101014;
+  border-color: #2c2c32;
+  color: color-mix(in srgb, var(--text) 68%, #7d7d86);
+}
+
+.job-tile.is-stale .company-tile-title,
+.job-tile.is-stale .job-tile-company,
+.job-tile.is-stale .job-tile-location,
+.job-tile.is-stale .job-tile-next,
+.job-tile.is-stale .company-chip {
+  opacity: 0.72;
+}
+
+.ring-btn {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  width: 18px;
+  height: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.ring-btn-icon {
+  width: 14px;
+  height: 14px;
+  opacity: 0.4;
+}
+
+.ring-btn:hover .ring-btn-icon,
+.ring-btn.is-due .ring-btn-icon {
+  opacity: 0.95;
+}
+
+.ring-btn.is-due {
+  color: var(--gold);
+}
+
 .job-tile:hover {
   border-color: color-mix(in srgb, var(--gold) 45%, var(--line));
 }
@@ -2888,18 +2932,26 @@ body.lang-en .field-row {
 
 .status-icon {
   display: block;
-  width: 22px;
-  height: 22px;
-  border-radius: 5px;
+  width: 14px;
+  height: 14px;
   flex-shrink: 0;
+  opacity: 0.55;
 }
 
 .filter-chip .status-icon,
 .job-status-group-head .status-icon,
 .job-status-menu-label .status-icon {
-  width: 16px;
-  height: 16px;
-  border-radius: 4px;
+  width: 12px;
+  height: 12px;
+  opacity: 0.7;
+}
+
+.job-tile:hover .status-icon,
+.filter-chip:hover .status-icon,
+.filter-chip.is-active .status-icon,
+.job-status-menu-item:hover .status-icon,
+.job-status-menu-item.is-current .status-icon {
+  opacity: 0.9;
 }
 
 .job-status-menu-label {
@@ -3074,7 +3126,22 @@ body.lang-en .field-row {
 }
 
 .page-jobs .company-bento {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   align-items: stretch;
+}
+
+.page-jobs .job-status-group-head,
+.page-jobs .company-bento-empty {
+  grid-column: 1 / -1;
+}
+
+.page-jobs .job-tile-wrap,
+.page-jobs .job-tile-wrap.company-tile-wide {
+  flex: none;
+  width: auto;
+  max-width: none;
+  grid-column: auto;
 }
 
 .job-tile-wrap > .company-tile {
@@ -3479,12 +3546,22 @@ body.lang-en .field-row {
   .job-tile-wrap.company-tile-wide {
     grid-column: span 6;
   }
+
+  .page-jobs .job-tile-wrap,
+  .page-jobs .job-tile-wrap.company-tile-wide {
+    grid-column: auto;
+  }
 }
 
 @media (max-width: 520px) {
   .job-tile-wrap,
   .job-tile-wrap.company-tile-wide {
     grid-column: span 12;
+  }
+
+  .page-jobs .job-tile-wrap,
+  .page-jobs .job-tile-wrap.company-tile-wide {
+    grid-column: auto;
   }
 
   .job-bulk-bar {

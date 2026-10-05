@@ -37,6 +37,77 @@ OUTPUT_DIR = ROOT_DIR / "output"
 AUTOFILL_MAPPINGS_PATH = default_mappings_path(ROOT_DIR)
 AUTOFILL_PENDING_PATH = ROOT_DIR / "my-data" / "autofill" / "pending.json"
 
+# Win+Alt+Shift+L — AutoHotkey #!+l pastes the clipboard into a chosen window.
+_VK_LWIN = 0x5B
+_VK_MENU = 0x12
+_VK_SHIFT = 0x10
+_VK_L = 0x4C
+_KEYEVENTF_KEYUP = 0x0002
+_KEYEVENTF_EXTENDEDKEY = 0x0001
+_INPUT_KEYBOARD = 1
+
+
+def send_prompt_hotkey() -> None:
+    """Press Win+Alt+Shift+L so the local AutoHotkey chord runs."""
+    import ctypes
+    from ctypes import wintypes
+
+    class KEYBDINPUT(ctypes.Structure):
+        _fields_ = (
+            ("wVk", wintypes.WORD),
+            ("wScan", wintypes.WORD),
+            ("dwFlags", wintypes.DWORD),
+            ("time", wintypes.DWORD),
+            ("dwExtraInfo", ctypes.c_ulonglong),
+        )
+
+    class MOUSEINPUT(ctypes.Structure):
+        _fields_ = (
+            ("dx", wintypes.LONG),
+            ("dy", wintypes.LONG),
+            ("mouseData", wintypes.DWORD),
+            ("dwFlags", wintypes.DWORD),
+            ("time", wintypes.DWORD),
+            ("dwExtraInfo", ctypes.c_ulonglong),
+        )
+
+    class HARDWAREINPUT(ctypes.Structure):
+        _fields_ = (
+            ("uMsg", wintypes.DWORD),
+            ("wParamL", wintypes.WORD),
+            ("wParamH", wintypes.WORD),
+        )
+
+    class INPUT_UNION(ctypes.Union):
+        _fields_ = (("mi", MOUSEINPUT), ("ki", KEYBDINPUT), ("hi", HARDWAREINPUT))
+
+    class INPUT(ctypes.Structure):
+        _fields_ = (("type", wintypes.DWORD), ("union", INPUT_UNION))
+
+    if ctypes.sizeof(INPUT) != 40:
+        raise RuntimeError(f"INPUT size {ctypes.sizeof(INPUT)} is not 40")
+
+    def stroke(vk: int, up: bool) -> INPUT:
+        item = INPUT()
+        item.type = _INPUT_KEYBOARD
+        item.union.ki.wVk = vk
+        flags = _KEYEVENTF_KEYUP if up else 0
+        if vk == _VK_LWIN:
+            flags |= _KEYEVENTF_EXTENDEDKEY
+        item.union.ki.dwFlags = flags
+        return item
+
+    down = (_VK_LWIN, _VK_MENU, _VK_SHIFT, _VK_L)
+    sequence = [stroke(vk, False) for vk in down] + [
+        stroke(vk, True) for vk in reversed(down)
+    ]
+    batch = (INPUT * len(sequence))(*sequence)
+    user32 = ctypes.WinDLL("user32", use_last_error=True)
+    sent = user32.SendInput(len(sequence), ctypes.byref(batch), ctypes.sizeof(INPUT))
+    if sent != len(sequence):
+        err = ctypes.get_last_error()
+        raise OSError(f"SendInput sent {sent} of {len(sequence)} (error {err})")
+
 # Cover letters: Desktop deliverable + single overwriteable repo temp (no accumulation)
 COVER_LETTER_TEMP_FILENAME = "Cover-Letter-current.pdf"
 COVER_LETTER_CONTENT_FILENAME = "cover-current.typ"
@@ -775,6 +846,10 @@ class CareerHandler(BaseHTTPRequestHandler):
                     str(body.get("content") or ""),
                 )
                 self._json(200, result)
+                return
+            if path == "/api/prompt-hotkey":
+                send_prompt_hotkey()
+                self._json(200, {"ok": True})
                 return
             if path == "/api/autofill/map":
                 body = self._read_json()
