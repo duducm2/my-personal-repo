@@ -354,18 +354,19 @@
       { label: "fieldOfStudy", pt: "field_pt", en: "field_en" },
       { label: "dateRange", pt: "date_display_pt", en: "date_display_en" },
       {
+        label: "educationDescription",
+        pt: "description_pt",
+        en: "description_en",
+        tall: true,
+        important: true,
+      },
+      { label: "relatedSkills", pt: "skills_pt", en: "skills_en" },
+      {
         label: "activities",
         pt: "activities_pt",
         en: "activities_en",
         tall: true,
       },
-      {
-        label: "educationDescription",
-        pt: "description_pt",
-        en: "description_en",
-        tall: true,
-      },
-      { label: "relatedSkills", pt: "skills_pt", en: "skills_en" },
     ],
     experience: [
       { label: "jobTitle", pt: "title_pt", en: "title_en" },
@@ -1027,7 +1028,7 @@
 
   function createFieldRow(label, row, spec) {
     const rowEl = document.createElement("div");
-    rowEl.className = "field-row";
+    rowEl.className = "field-row" + (spec.important ? " is-important" : "");
 
     const labelEl = document.createElement("div");
     labelEl.className = "field-label";

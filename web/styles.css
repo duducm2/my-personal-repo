@@ -1001,6 +1001,19 @@ body.panels-collapsed .field-row {
   border-top-color: var(--line);
 }
 
+.field-row.is-important {
+  background: color-mix(in srgb, var(--gold) 14%, transparent);
+  box-shadow: inset 3px 0 0 var(--gold);
+  border-radius: 3px;
+  padding-left: 6px;
+  padding-right: 4px;
+}
+
+.field-row.is-important .field-label {
+  color: var(--gold);
+  font-weight: 700;
+}
+
 body.lang-pt .field-row,
 body.lang-en .field-row {
   grid-template-columns: minmax(88px, 110px) 1fr;
