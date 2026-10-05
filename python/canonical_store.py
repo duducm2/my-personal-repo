@@ -453,9 +453,9 @@ class CanonicalStore:
                 if not rid:
                     raise ValueError(f"{key}[{i}] missing id")
                 item = {col: _cell(row.get(col)) for col in columns}
-                for key, value in row.items():
-                    if key not in item:
-                        item[key] = _cell(value)
+                for field, value in row.items():
+                    if field not in item:
+                        item[field] = _cell(value)
                 item["id"] = rid
                 if "sort_order" in columns and not item["sort_order"]:
                     item["sort_order"] = str(i + 1)
@@ -536,10 +536,7 @@ class CanonicalStore:
             for row in rows:
                 previous = existing_rows.get(str(row.get("id") or ""), {})
                 writer.writerow(
-                    {
-                        col: row.get(col, previous.get(col, ""))
-                        for col in fieldnames
-                    }
+                    {col: row.get(col, previous.get(col, "")) for col in fieldnames}
                 )
             tmp_path = Path(tmp.name)
         tmp_path.replace(path)

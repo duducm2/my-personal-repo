@@ -37,6 +37,8 @@
 
   let collections = {};
   let companies = [];
+  let openings = [];
+  let lastOpeningByCompany = new Map();
   let dirty = false;
   let saving = false;
   let saveTimer = null;
@@ -559,6 +561,63 @@
     return isPinned(row) ? 0 : 1;
   }
 
+  const OPENING_MONTHS_EN = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  const OPENING_MONTHS_PT = [
+    "jan",
+    "fev",
+    "mar",
+    "abr",
+    "mai",
+    "jun",
+    "jul",
+    "ago",
+    "set",
+    "out",
+    "nov",
+    "dez",
+  ];
+
+  function indexLastOpenings() {
+    const map = new Map();
+    for (const opening of openings) {
+      const key = cell(opening.company_key);
+      const found = cell(opening.found_on);
+      if (!key || !/^\d{4}-\d{2}-\d{2}$/.test(found)) continue;
+      const prev = map.get(key);
+      if (!prev || found > prev) map.set(key, found);
+    }
+    lastOpeningByCompany = map;
+  }
+
+  function lastOpeningIso(row) {
+    return lastOpeningByCompany.get(cell(row?.id)) || "";
+  }
+
+  function formatOpeningDate(iso) {
+    const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || "");
+    if (!match) return null;
+    const month = Number(match[2]);
+    const day = Number(match[3]);
+    if (month < 1 || month > 12 || day < 1 || day > 31) return null;
+    return {
+      en: `${day} ${OPENING_MONTHS_EN[month - 1]} ${match[1]}`,
+      pt: `${day} ${OPENING_MONTHS_PT[month - 1]} ${match[1]}`,
+    };
+  }
+
   function geoTrackValue(row) {
     return cell(row?.geo_track).trim().toLowerCase();
   }
@@ -764,6 +823,13 @@
     rows.sort((a, b) => {
       const pr = pinRank(a) - pinRank(b);
       if (pr) return pr;
+      if (isPinned(a) && isPinned(b)) {
+        const da = lastOpeningIso(a);
+        const db = lastOpeningIso(b);
+        if (!da && db) return -1;
+        if (da && !db) return 1;
+        if (da && db && da !== db) return da < db ? -1 : 1;
+      }
       const tr = geoTrackSortKey(a) - geoTrackSortKey(b);
       if (tr) return tr;
       const ra = recRankNumber(a);
@@ -1045,6 +1111,21 @@
     head.append(title);
     if (signals.childNodes.length) head.append(signals);
 
+    const lastIso = lastOpeningIso(row);
+    const lastLabel = formatOpeningDate(lastIso);
+    let lastOpening = null;
+    if (lastLabel) {
+      lastOpening = document.createElement("div");
+      lastOpening.className = "company-last-opening";
+      lastOpening.title =
+        "Date the latest job opening was added for this company";
+      appendValues(
+        lastOpening,
+        `Last opening · ${lastLabel.en}`,
+        `Última vaga · ${lastLabel.pt}`,
+      );
+    }
+
     const meta = document.createElement("div");
     meta.className = "company-tile-meta";
     appendValues(
@@ -1106,7 +1187,9 @@
       badges.append(multi);
     }
 
-    btn.append(head, meta, chips, badges);
+    btn.append(head);
+    if (lastOpening) btn.append(lastOpening);
+    btn.append(meta, chips, badges);
     return btn;
   }
 
@@ -1681,6 +1764,10 @@
       ? collections.companies.map((row) => ({ ...row }))
       : [];
     collections.companies = companies;
+    openings = Array.isArray(collections.jobOpenings)
+      ? collections.jobOpenings
+      : [];
+    indexLastOpenings();
   }
 
   async function saveAll() {

@@ -1892,6 +1892,13 @@ body.lang-en .field-row {
   margin-top: 1px;
 }
 
+.page-companies .company-last-opening {
+  width: 100%;
+  font-size: 10px;
+  line-height: 1.3;
+  color: var(--gold);
+}
+
 .page-companies .near-home-label {
   position: absolute;
   width: 1px;

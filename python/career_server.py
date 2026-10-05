@@ -620,6 +620,21 @@ class CareerHandler(BaseHTTPRequestHandler):
         except OSError:
             return
 
+    def _error_text(self, exc: BaseException) -> str:
+        return f"{type(exc).__name__}: {exc}"
+
+    def _append_error_log(self, exc: BaseException) -> None:
+        """pyw has no console, so save crashes are written to a file."""
+        try:
+            local = os.environ.get("LOCALAPPDATA") or ""
+            log_dir = Path(local) / "career-cockpit" if local else ROOT_DIR / "output"
+            log_dir.mkdir(parents=True, exist_ok=True)
+            with (log_dir / "server.log").open("a", encoding="utf-8") as handle:
+                handle.write("\n")
+                traceback.print_exception(exc, file=handle)
+        except OSError:
+            return
+
     def _cors(self) -> None:
         self.send_header("Access-Control-Allow-Origin", "*")
         self.send_header("Access-Control-Allow-Methods", "GET, PUT, POST, OPTIONS")
@@ -732,10 +747,16 @@ class CareerHandler(BaseHTTPRequestHandler):
             result = self.store.save_all(collections)
             self._json(200, result)
         except ValueError as exc:
-            self._json(400, {"ok": False, "error": str(exc)})
+            self._append_error_log(exc)
+            self._json(400, {"ok": False, "error": self._error_text(exc)})
         except Exception as exc:  # noqa: BLE001
-            traceback.print_exc()
-            self._json(500, {"ok": False, "error": str(exc)})
+            self._append_error_log(exc)
+            if sys.stderr is not None:
+                try:
+                    traceback.print_exc()
+                except OSError:
+                    pass
+            self._json(500, {"ok": False, "error": self._error_text(exc)})
 
     def do_POST(self) -> None:  # noqa: N802
         try:
