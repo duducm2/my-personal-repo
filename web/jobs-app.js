@@ -244,10 +244,8 @@
 
   function focusedJobCard() {
     const el = document.activeElement;
-    if (!el || !el.classList.contains("company-tile")) return null;
-    const root = document.getElementById("jobs-results");
-    if (!root || !root.contains(el)) return null;
-    return el;
+    const card = el?.closest?.("#jobs-results .company-tile");
+    return card || null;
   }
 
   async function openFocusedJobUrl() {
@@ -2518,7 +2516,7 @@
       lines.push("=== EDUCATION ===");
       for (const e of education) {
         lines.push(
-          `- ${cell(e.institution_en) || cell(e.institution_pt)} | ${cell(e.degree_en) || cell(e.degree_pt)} | ${cell(e.field_en) || cell(e.field_pt)} | ${cell(e.date_display_en) || cell(e.date_display_pt)}`,
+          `- ${cell(e.institution_en) || cell(e.institution_pt)} | ${cell(e.location_en) || cell(e.location_pt)} | ${cell(e.degree_en) || cell(e.degree_pt)} | ${cell(e.field_en) || cell(e.field_pt)} | ${cell(e.date_display_en) || cell(e.date_display_pt)}`,
         );
       }
       lines.push("");
@@ -3127,7 +3125,7 @@
       lines.push("=== EDUCATION ===");
       for (const e of education) {
         lines.push(
-          `- ${cell(e.institution_en) || cell(e.institution_pt)} | ${cell(e.degree_en) || cell(e.degree_pt)} | ${cell(e.date_display_en) || cell(e.date_display_pt)}`,
+          `- ${cell(e.institution_en) || cell(e.institution_pt)} | ${cell(e.location_en) || cell(e.location_pt)} | ${cell(e.degree_en) || cell(e.degree_pt)} | ${cell(e.date_display_en) || cell(e.date_display_pt)}`,
         );
       }
       lines.push("");
@@ -4409,7 +4407,7 @@
         const code = event.code;
         const isM =
           event.code === "KeyM" || (event.key || "").toLowerCase() === "m";
-        if (isM && !typing) {
+        if (isM) {
           event.preventDefault();
           event.stopPropagation();
           pinFocusedOpening();

@@ -37,6 +37,7 @@
   const STRUCTURAL = new Set([
     "id",
     "sort_order",
+    "pinned",
     "path",
     "csi",
     "nps",
@@ -74,6 +75,7 @@
     targetTitles: [
       "id",
       "sort_order",
+      "pinned",
       "path",
       "path_label_en",
       "path_label_pt",
@@ -86,6 +88,7 @@
     ],
     projects: [
       "id",
+      "pinned",
       "name_en",
       "name_pt",
       "summary_en",
@@ -98,8 +101,11 @@
     education: [
       "id",
       "sort_order",
+      "pinned",
       "institution_en",
       "institution_pt",
+      "location_en",
+      "location_pt",
       "degree_en",
       "degree_pt",
       "field_en",
@@ -116,6 +122,7 @@
     experience: [
       "id",
       "sort_order",
+      "pinned",
       "company_en",
       "company_pt",
       "title_en",
@@ -138,6 +145,7 @@
     languages: [
       "id",
       "sort_order",
+      "pinned",
       "name_en",
       "name_pt",
       "level_en",
@@ -146,6 +154,7 @@
     recognitions: [
       "id",
       "sort_order",
+      "pinned",
       "title_en",
       "title_pt",
       "issuer_en",
@@ -159,6 +168,7 @@
     courses: [
       "id",
       "sort_order",
+      "pinned",
       "title_en",
       "title_pt",
       "associated_en",
@@ -167,6 +177,7 @@
     competences: [
       "id",
       "sort_order",
+      "pinned",
       "category_en",
       "category_pt",
       "name_en",
@@ -179,6 +190,7 @@
     volunteering: [
       "id",
       "sort_order",
+      "pinned",
       "title_en",
       "title_pt",
       "organization_en",
@@ -193,6 +205,7 @@
     certifications: [
       "id",
       "sort_order",
+      "pinned",
       "title_en",
       "title_pt",
       "issuer_en",
@@ -337,6 +350,7 @@
     education: [
       { label: "degree", pt: "degree_pt", en: "degree_en" },
       { label: "institution", pt: "institution_pt", en: "institution_en" },
+      { label: "location", pt: "location_pt", en: "location_en" },
       { label: "fieldOfStudy", pt: "field_pt", en: "field_en" },
       { label: "dateRange", pt: "date_display_pt", en: "date_display_en" },
       {
@@ -1078,10 +1092,76 @@
     return { en, pt };
   }
 
+  function isRowPinned(row) {
+    const v = cell(row?.pinned).toLowerCase();
+    return v === "1" || v === "true" || v === "yes" || v === "y";
+  }
+
+  function collectionCanPin(collection) {
+    return (SCHEMAS[collection] || []).includes("pinned");
+  }
+
+  function sortPinnedFirst(rows) {
+    return rows
+      .map((row, index) => ({ row, index }))
+      .sort((a, b) => {
+        const pin =
+          (isRowPinned(a.row) ? 0 : 1) - (isRowPinned(b.row) ? 0 : 1);
+        return pin || a.index - b.index;
+      })
+      .map((item) => item.row);
+  }
+
+  function toggleProfilePin(collection, row) {
+    if (!collectionCanPin(collection)) return false;
+    const live = (state[collection] || []).find((r) => r.id === row.id);
+    if (!live) return false;
+    live.pinned = isRowPinned(live) ? "" : "1";
+    setDirty(true);
+    setSaveStatus(isRowPinned(live) ? "Pinned" : "Unpinned", "ok");
+    renderSection(collection);
+    const rootId = SECTION_META[collection]?.root;
+    const panel = rootId
+      ? document.querySelector(
+          `#${rootId} .panel[data-id="${CSS.escape(live.id)}"]`,
+        )
+      : null;
+    panel?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    const field = panel?.querySelector(".field-input");
+    if (field) {
+      window.setTimeout(() => {
+        try {
+          field.focus({ preventScroll: true });
+        } catch {
+          field.focus();
+        }
+      }, 0);
+    }
+    return true;
+  }
+
+  function pinFocusedProfileRecord() {
+    const panel = document.activeElement?.closest?.(".panel[data-id]");
+    if (!panel) {
+      setSaveStatus("Focus a record, then Alt+M to pin it", "err");
+      return;
+    }
+    const host = panel.parentElement;
+    const collection = Object.keys(SECTION_META).find(
+      (key) => SECTION_META[key].root === host?.id,
+    );
+    const row = collection
+      ? (state[collection] || []).find((r) => r.id === panel.dataset.id)
+      : null;
+    if (!row || !toggleProfilePin(collection, row)) {
+      setSaveStatus("This record cannot be pinned", "err");
+    }
+  }
+
   function createPanel(collection, row, index) {
     const meta = SECTION_META[collection];
     const article = document.createElement("article");
-    article.className = "panel";
+    article.className = "panel" + (isRowPinned(row) ? " is-pinned" : "");
     article.dataset.id = row.id;
 
     const head = document.createElement("div");
@@ -1121,6 +1201,22 @@
         badges.append(multi);
       }
       head.append(badges);
+    }
+
+    if (collectionCanPin(collection)) {
+      const pinned = isRowPinned(row);
+      const pin = document.createElement("button");
+      pin.type = "button";
+      pin.className = "pin-btn" + (pinned ? " is-on" : "");
+      pin.setAttribute("aria-pressed", pinned ? "true" : "false");
+      pin.title = pinned ? "Unpin from top (Alt+M)" : "Pin to top (Alt+M)";
+      pin.textContent = pinned ? "Pinned" : "Pin";
+      pin.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        toggleProfilePin(collection, row);
+      });
+      head.append(pin);
     }
 
     if (collection !== "about") {
@@ -1311,6 +1407,10 @@
         return;
       }
       setSectionSearchVisibility(root, true);
+    }
+
+    if (collectionCanPin(collection)) {
+      rows = sortPinnedFirst(rows);
     }
 
     if (collection === "companies") {
@@ -2327,6 +2427,18 @@
     document.addEventListener("keydown", (event) => {
       const mod = event.ctrlKey || event.metaKey;
       const typing = isTypingTarget(document.activeElement);
+
+      if (
+        event.altKey &&
+        !mod &&
+        !event.shiftKey &&
+        (event.code === "KeyM" || (event.key || "").toLowerCase() === "m")
+      ) {
+        event.preventDefault();
+        event.stopPropagation();
+        pinFocusedProfileRecord();
+        return;
+      }
 
       if (
         !typing &&

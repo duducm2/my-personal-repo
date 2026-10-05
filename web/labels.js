@@ -9,8 +9,8 @@ window.CAREER_LABELS = {
   projectCsi: { en: "CSI", pt: "CSI" },
   projectNps: { en: "NPS", pt: "NPS" },
   degree: {
-    en: "Academic Degree / Graduation Name",
-    pt: "Grau acadêmico / Formação",
+    en: "Degree",
+    pt: "Grau",
   },
   institution: { en: "School", pt: "Instituição de ensino" },
   fieldOfStudy: { en: "Field of study", pt: "Área de estudo" },

@@ -1,8 +1,8 @@
-id,sort_order,title_en,title_detail_en,title_pt,title_detail_pt,associated_en,associated_detail_en,associated_pt,associated_detail_pt
-academic-writing,1,Academic Writing,Academic Writing,Escrita Acadêmica,Escrita Acadêmica,University of Campinas (Unicamp),University of Campinas (Unicamp),Universidade Estadual de Campinas,Universidade Estadual de Campinas
-innovation-creativity-bosch,2,Innovation and Creativity,Innovation and Creativity,Criatividade e Inovação,Criatividade e Inovação,Bosch,Bosch,Bosch,Bosch
-innovation-tech-transfer,3,Innovation and Technology Transfer,Innovation and Technology Transfer,Inovação e Transferência de Tecnologia,Inovação e Transferência de Tecnologia,University of Campinas (Unicamp),University of Campinas (Unicamp),Universidade Estadual de Campinas,Universidade Estadual de Campinas
-scientific-research,4,Scientific Research,Scientific Research,Pesquisa Científica,Pesquisa Científica,University of Campinas (Unicamp),University of Campinas (Unicamp),Universidade Estadual de Campinas,Universidade Estadual de Campinas
-storytelling,5,Storytelling,Storytelling,Storytelling,Storytelling,Bosch Brasil,Bosch Brasil,Bosch Brasil,Bosch Brasil
-storytelling-valeria-aguiar,6,Storytelling with Valéria Aguiar,Storytelling with Valéria Aguiar,Storytelling com Valéria Aguiar,Storytelling com Valéria Aguiar,Bosch Brasil,Bosch Brasil,Bosch Brasil,Bosch Brasil
-im-ux1-experience-design-thinking,7,[IM-UX1] Experience Design Thinking,[IM-UX1] Experience Design Thinking,[IM-UX1] Experience Design Thinking,[IM-UX1] Experience Design Thinking,Bosch Brasil,Bosch Brasil,Bosch Brasil,Bosch Brasil
+id,sort_order,pinned,title_en,title_detail_en,title_pt,title_detail_pt,associated_en,associated_detail_en,associated_pt,associated_detail_pt
+academic-writing,1,,Academic Writing,Academic Writing,Escrita Acadêmica,Escrita Acadêmica,University of Campinas (Unicamp),University of Campinas (Unicamp),Universidade Estadual de Campinas,Universidade Estadual de Campinas
+innovation-creativity-bosch,2,,Innovation and Creativity,Innovation and Creativity,Criatividade e Inovação,Criatividade e Inovação,Bosch,Bosch,Bosch,Bosch
+innovation-tech-transfer,3,,Innovation and Technology Transfer,Innovation and Technology Transfer,Inovação e Transferência de Tecnologia,Inovação e Transferência de Tecnologia,University of Campinas (Unicamp),University of Campinas (Unicamp),Universidade Estadual de Campinas,Universidade Estadual de Campinas
+scientific-research,4,,Scientific Research,Scientific Research,Pesquisa Científica,Pesquisa Científica,University of Campinas (Unicamp),University of Campinas (Unicamp),Universidade Estadual de Campinas,Universidade Estadual de Campinas
+storytelling,5,,Storytelling,Storytelling,Storytelling,Storytelling,Bosch Brasil,Bosch Brasil,Bosch Brasil,Bosch Brasil
+storytelling-valeria-aguiar,6,,Storytelling with Valéria Aguiar,Storytelling with Valéria Aguiar,Storytelling com Valéria Aguiar,Storytelling com Valéria Aguiar,Bosch Brasil,Bosch Brasil,Bosch Brasil,Bosch Brasil
+im-ux1-experience-design-thinking,7,,[IM-UX1] Experience Design Thinking,[IM-UX1] Experience Design Thinking,[IM-UX1] Experience Design Thinking,[IM-UX1] Experience Design Thinking,Bosch Brasil,Bosch Brasil,Bosch Brasil,Bosch Brasil

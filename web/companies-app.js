@@ -337,53 +337,6 @@
     return "";
   }
 
-  function appendCareerLinks(parent, row, opts = {}) {
-    const careers = cell(row.careers_url);
-    const website = cell(row.website);
-    const atsUrl = cell(row.ats_url);
-    const atsName = cell(row.ats_name);
-    const stop = !!opts.stopPropagation;
-    const links = document.createElement("div");
-    links.className = "portal-direct-links";
-
-    const addLink = (href, text, className, title) => {
-      if (!href) return;
-      const a = document.createElement("a");
-      a.className = className;
-      a.href = href;
-      a.target = "_blank";
-      a.rel = "noopener noreferrer";
-      a.textContent = text;
-      a.title = title || href;
-      if (stop) a.addEventListener("click", (e) => e.stopPropagation());
-      links.append(a);
-    };
-
-    if (careers) {
-      addLink(careers, "Careers", "portal-direct-link", careers);
-    } else if (website) {
-      addLink(website, "Website", "portal-direct-link", website);
-    }
-
-    if (atsUrl) {
-      const same =
-        careers && atsUrl.replace(/\/$/, "") === careers.replace(/\/$/, "");
-      addLink(
-        atsUrl,
-        same
-          ? atsName
-            ? `Apply · ${atsName}`
-            : "Apply board"
-          : `Board · ${atsName || "ATS"}`,
-        "portal-direct-link portal-direct-link-ats",
-        atsUrl,
-      );
-    }
-
-    if (links.childNodes.length) parent.append(links);
-    return links;
-  }
-
   function urlEditField(row, key, label, opts = {}) {
     const wrap = document.createElement("label");
     wrap.className = "company-edit-field company-url-field";
@@ -473,10 +426,8 @@
 
   function focusedCompanyCard() {
     const el = document.activeElement;
-    if (!el || !el.classList.contains("company-tile")) return null;
-    const root = document.getElementById("companies-results");
-    if (!root || !root.contains(el)) return null;
-    return el;
+    const card = el?.closest?.("#companies-results .company-tile");
+    return card || null;
   }
 
   async function openFocusedCompanyPortal() {
@@ -1069,27 +1020,30 @@
       openModal(row.id);
     });
 
+    const head = document.createElement("div");
+    head.className = "company-tile-head";
+
+    const enName = cell(row.name_en) || row.id;
+    const ptName = cell(row.name_pt) || enName;
     const title = document.createElement("div");
     title.className = "company-tile-title";
-    appendValues(
-      title,
-      cell(row.name_en) || row.id,
-      cell(row.name_pt) || cell(row.name_en) || row.id,
-    );
-
-    const geo = companyGeo(row);
-    const flagTitle = window.CountryFlags.prependFlags(btn, title, geo);
-    const flagRow = flagTitle.querySelector(".country-flags");
-    if (flagRow) {
-      appendHomeOfficeFlag(flagRow, row);
-      appendGrowthFlag(flagRow, row);
-    } else {
-      const wrap = document.createElement("div");
-      wrap.className = "country-flags";
-      appendHomeOfficeFlag(wrap, row);
-      appendGrowthFlag(wrap, row);
-      if (wrap.childNodes.length) flagTitle.insertBefore(wrap, title);
+    appendValues(title, enName, ptName);
+    if (enName.trim().toLowerCase() === ptName.trim().toLowerCase()) {
+      title.querySelector(".panel-heading-pt")?.remove();
     }
+
+    const signals = document.createElement("div");
+    signals.className = "company-tile-signals";
+    const geo = companyGeo(row);
+    const flagRow = window.CountryFlags.renderFlagRow(geo);
+    appendHomeOfficeFlag(flagRow, row);
+    appendGrowthFlag(flagRow, row);
+    if (flagRow.childNodes.length) {
+      flagRow.hidden = false;
+      signals.append(flagRow);
+    }
+    head.append(title);
+    if (signals.childNodes.length) head.append(signals);
 
     const meta = document.createElement("div");
     meta.className = "company-tile-meta";
@@ -1152,8 +1106,7 @@
       badges.append(multi);
     }
 
-    btn.append(meta, chips, badges);
-    appendCareerLinks(btn, row, { stopPropagation: true });
+    btn.append(head, meta, chips, badges);
     return btn;
   }
 
@@ -1867,7 +1820,7 @@
         }
         const isM =
           event.code === "KeyM" || (event.key || "").toLowerCase() === "m";
-        if (isM && !typing) {
+        if (isM) {
           event.preventDefault();
           event.stopPropagation();
           pinFocusedCompany();

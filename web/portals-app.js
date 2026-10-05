@@ -498,10 +498,8 @@
 
   function focusedPortalCard() {
     const el = document.activeElement;
-    if (!el || !el.classList.contains("company-tile")) return null;
-    const root = document.getElementById("portals-results");
-    if (!root || !root.contains(el)) return null;
-    return el;
+    const card = el?.closest?.("#portals-results .company-tile");
+    return card || null;
   }
 
   async function openFocusedPortal() {
@@ -1100,7 +1098,7 @@
         }
         const isM =
           event.code === "KeyM" || (event.key || "").toLowerCase() === "m";
-        if (isM && !typing) {
+        if (isM) {
           event.preventDefault();
           event.stopPropagation();
           pinFocusedPortal();

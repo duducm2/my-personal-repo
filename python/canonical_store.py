@@ -84,6 +84,7 @@ _BASE: dict[str, tuple[str, list[str]]] = {
         [
             "id",
             "sort_order",
+            "pinned",
             "path",
             "path_label_en",
             "path_label_pt",
@@ -99,6 +100,7 @@ _BASE: dict[str, tuple[str, list[str]]] = {
         "projects.csv",
         [
             "id",
+            "pinned",
             "name_en",
             "name_pt",
             "summary_en",
@@ -114,8 +116,11 @@ _BASE: dict[str, tuple[str, list[str]]] = {
         [
             "id",
             "sort_order",
+            "pinned",
             "institution_en",
             "institution_pt",
+            "location_en",
+            "location_pt",
             "degree_en",
             "degree_pt",
             "field_en",
@@ -135,6 +140,7 @@ _BASE: dict[str, tuple[str, list[str]]] = {
         [
             "id",
             "sort_order",
+            "pinned",
             "company_en",
             "company_pt",
             "title_en",
@@ -157,13 +163,14 @@ _BASE: dict[str, tuple[str, list[str]]] = {
     ),
     "languages": (
         "languages.csv",
-        ["id", "sort_order", "name_en", "name_pt", "level_en", "level_pt"],
+        ["id", "sort_order", "pinned", "name_en", "name_pt", "level_en", "level_pt"],
     ),
     "recognitions": (
         "recognitions.csv",
         [
             "id",
             "sort_order",
+            "pinned",
             "title_en",
             "title_pt",
             "issuer_en",
@@ -180,6 +187,7 @@ _BASE: dict[str, tuple[str, list[str]]] = {
         [
             "id",
             "sort_order",
+            "pinned",
             "title_en",
             "title_pt",
             "associated_en",
@@ -191,6 +199,7 @@ _BASE: dict[str, tuple[str, list[str]]] = {
         [
             "id",
             "sort_order",
+            "pinned",
             "category_en",
             "category_pt",
             "name_en",
@@ -206,6 +215,7 @@ _BASE: dict[str, tuple[str, list[str]]] = {
         [
             "id",
             "sort_order",
+            "pinned",
             "title_en",
             "title_pt",
             "organization_en",
@@ -223,6 +233,7 @@ _BASE: dict[str, tuple[str, list[str]]] = {
         [
             "id",
             "sort_order",
+            "pinned",
             "title_en",
             "title_pt",
             "issuer_en",
@@ -442,6 +453,9 @@ class CanonicalStore:
                 if not rid:
                     raise ValueError(f"{key}[{i}] missing id")
                 item = {col: _cell(row.get(col)) for col in columns}
+                for key, value in row.items():
+                    if key not in item:
+                        item[key] = _cell(value)
                 item["id"] = rid
                 if "sort_order" in columns and not item["sort_order"]:
                     item["sort_order"] = str(i + 1)
@@ -459,9 +473,13 @@ class CanonicalStore:
             return []
         with path.open(encoding="utf-8", newline="") as f:
             reader = csv.DictReader(f)
+            cols = list(columns)
+            for name in reader.fieldnames or []:
+                if name not in cols:
+                    cols.append(name)
             rows: list[dict[str, str]] = []
             for raw in reader:
-                rows.append({col: _cell(raw.get(col)) for col in columns})
+                rows.append({col: _cell(raw.get(col)) for col in cols})
             return rows
 
     def _read_csv_loose(self, filename: str) -> list[dict[str, str]]:
@@ -482,6 +500,24 @@ class CanonicalStore:
     ) -> None:
         path = self.canonical_dir / filename
         path.parent.mkdir(parents=True, exist_ok=True)
+        existing_rows: dict[str, dict[str, str]] = {}
+        existing_cols: list[str] = []
+        if path.exists():
+            with path.open(encoding="utf-8", newline="") as f:
+                reader = csv.DictReader(f)
+                existing_cols = list(reader.fieldnames or [])
+                for raw in reader:
+                    existing_rows[str(raw.get("id") or "")] = {
+                        col: raw.get(col) or "" for col in existing_cols
+                    }
+        fieldnames = list(columns)
+        for name in existing_cols:
+            if name not in fieldnames:
+                fieldnames.append(name)
+        for row in rows:
+            for key in row:
+                if key not in fieldnames:
+                    fieldnames.append(key)
         with tempfile.NamedTemporaryFile(
             mode="w",
             encoding="utf-8",
@@ -492,13 +528,19 @@ class CanonicalStore:
         ) as tmp:
             writer = csv.DictWriter(
                 tmp,
-                fieldnames=columns,
+                fieldnames=fieldnames,
                 lineterminator="\n",
                 quoting=csv.QUOTE_MINIMAL,
             )
             writer.writeheader()
             for row in rows:
-                writer.writerow({col: row.get(col, "") for col in columns})
+                previous = existing_rows.get(str(row.get("id") or ""), {})
+                writer.writerow(
+                    {
+                        col: row.get(col, previous.get(col, ""))
+                        for col in fieldnames
+                    }
+                )
             tmp_path = Path(tmp.name)
         tmp_path.replace(path)
 

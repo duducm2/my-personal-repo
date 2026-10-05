@@ -110,6 +110,9 @@
 
     if (onMain || (!onFilter && mains.length)) {
       if (onMain) lastCard = active;
+      const filterRoot = document.querySelector(filterRootSel);
+      const dock = filterRoot?.closest(".filters-dock");
+      if (dock && !dock.classList.contains("is-open")) setFiltersOpen(true);
       const target =
         lastFilter && chips.includes(lastFilter) ? lastFilter : chips[0];
       if (!target) return focusEl(mains[0], false);
@@ -128,6 +131,125 @@
 
   function toggleFiltersMain(filterRootSel, mainSel) {
     return toggleCardsFilters(null, filterRootSel, mainSel);
+  }
+
+  const FILTERS_OPEN_KEY = "career-filters-open";
+
+  function filtersAreOpen() {
+    try {
+      return sessionStorage.getItem(FILTERS_OPEN_KEY) === "1";
+    } catch {
+      return false;
+    }
+  }
+
+  function rememberFiltersOpen(open) {
+    try {
+      sessionStorage.setItem(FILTERS_OPEN_KEY, open ? "1" : "0");
+    } catch {
+      /* private mode */
+    }
+  }
+
+  function activeFilterCount(root) {
+    let count = 0;
+    root.querySelectorAll(".company-filter-row").forEach((row) => {
+      const chips = row.querySelectorAll(".filter-chip");
+      chips.forEach((chip, index) => {
+        if (index > 0 && chip.classList.contains("is-active")) count += 1;
+      });
+    });
+    return count;
+  }
+
+  function syncFilterDock(dock, open) {
+    const root = dock.querySelector(".company-filters");
+    const btn = dock.querySelector(".filters-toggle");
+    if (!root || !btn) return;
+    dock.classList.toggle("is-open", open);
+    root.classList.toggle("is-contracted", !open);
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+    btn.title = open
+      ? "Hide filters (Alt+Shift+B)"
+      : "Show filters (Alt+Shift+B)";
+    const count = activeFilterCount(root);
+    const badge = btn.querySelector(".filters-toggle-count");
+    if (badge) {
+      badge.hidden = count === 0;
+      badge.textContent = count ? String(count) : "";
+    }
+    if (!open && root.contains(document.activeElement)) btn.focus();
+  }
+
+  function setFiltersOpen(open) {
+    rememberFiltersOpen(open);
+    document.querySelectorAll(".filters-dock").forEach((dock) => {
+      syncFilterDock(dock, open);
+    });
+  }
+
+  function toggleFilterDock() {
+    setFiltersOpen(!filtersAreOpen());
+  }
+
+  function mountFilterDocks() {
+    document.querySelectorAll(".company-filters").forEach((root) => {
+      if (root.closest(".filters-dock")) return;
+      const dock = document.createElement("div");
+      dock.className = "filters-dock";
+      root.parentNode.insertBefore(dock, root);
+      dock.append(root);
+
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "filters-toggle";
+      if (root.id) btn.setAttribute("aria-controls", root.id);
+      const mark = document.createElement("span");
+      mark.className = "filters-toggle-mark";
+      mark.setAttribute("aria-hidden", "true");
+      const label = document.createElement("span");
+      label.textContent = "Filters";
+      const kbd = document.createElement("kbd");
+      kbd.className = "btn-kbd";
+      kbd.textContent = "Alt+Shift+B";
+      const badge = document.createElement("span");
+      badge.className = "filters-toggle-count";
+      badge.hidden = true;
+      btn.append(mark, label, kbd, badge);
+      btn.addEventListener("click", () => toggleFilterDock());
+      dock.insertBefore(btn, root);
+
+      const refresh = () => syncFilterDock(dock, filtersAreOpen());
+      const observer = new MutationObserver(refresh);
+      observer.observe(root, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+        attributeFilter: ["class"],
+      });
+      refresh();
+    });
+  }
+
+  document.addEventListener(
+    "keydown",
+    (event) => {
+      if (event.ctrlKey || event.metaKey || !event.altKey || !event.shiftKey) {
+        return;
+      }
+      if (event.code !== "KeyB") return;
+      if (!document.querySelector(".filters-dock, .company-filters")) return;
+      event.preventDefault();
+      event.stopPropagation();
+      toggleFilterDock();
+    },
+    true,
+  );
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", mountFilterDocks);
+  } else {
+    mountFilterDocks();
   }
 
   function filterLabel(chip) {
@@ -225,6 +347,8 @@
     moveInContext,
     toggleCardsFilters,
     toggleFiltersMain,
+    toggleFilterDock,
+    setFiltersOpen,
     jumpPrefix,
     jumpFilterPrefix,
     jumpInContext,
