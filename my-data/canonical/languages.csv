@@ -1,3 +1,3 @@
-id,sort_order,pinned,name_en,name_detail_en,name_pt,name_detail_pt,level_en,level_detail_en,level_pt,level_detail_pt
-pt,1,,Portuguese,Portuguese,Português,Português,Native,Native,Nativo,Nativo
-en,2,,English,English,Inglês,Inglês,Fluent,Fluent,Fluente,Fluente
+id,sort_order,name_en,name_detail_en,name_pt,name_detail_pt,level_en,level_detail_en,level_pt,level_detail_pt
+pt,1,Portuguese,Portuguese,Português,Português,Native,Native,Nativo,Nativo
+en,2,English,English,Inglês,Inglês,Fluent,Fluent,Fluente,Fluente
