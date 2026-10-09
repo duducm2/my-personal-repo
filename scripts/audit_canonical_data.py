@@ -458,21 +458,24 @@ def main() -> int:
     ok.append("publications.csv: IHC + ISSRE present")
 
     add = load("additional.csv")
-    if len(add) != 4:
-        issues.append(f"additional want 4 got {len(add)}")
-    ok.append("additional.csv: Talent Forum, X-Games, Sharing Successes, Hospitalhaços")
+    if len(add) != 5:
+        issues.append(f"additional want 5 got {len(add)}")
+    ok.append(
+        "additional.csv: TAR 2026, Talent Forum, X-Games, Sharing Successes, Hospitalhaços"
+    )
 
     rec = load("recognitions.csv")
-    if len(rec) != 3:
-        issues.append(f"recognitions want 3 got {len(rec)}")
+    if len(rec) != 4:
+        issues.append(f"recognitions want 4 got {len(rec)}")
     for rid in (
+        "bosch-tar-2026",
         "bosch-talent-forum-2018",
         "x-games-brazil-2018",
         "sharing-successes-2017",
     ):
         if not any(r.get("id") == rid for r in rec):
             issues.append(f"recognitions missing {rid}")
-    ok.append("recognitions.csv: Talent Forum, X-Games, Sharing Successes")
+    ok.append("recognitions.csv: TAR 2026, Talent Forum, X-Games, Sharing Successes")
 
     courses = load("courses.csv")
     if len(courses) != 7:
