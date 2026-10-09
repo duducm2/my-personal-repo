@@ -499,6 +499,7 @@
 
   function appendGrowthFlag(parent, row) {
     const value = growthValue(row);
+    if (value === "unknown") return null;
     const copy = {
       high: [
         "Growing",
@@ -510,9 +511,10 @@
         "Estável",
         "Established employer without a clear 2025–2026 expansion wave",
       ],
-      unknown: ["Unknown", "Desconhecido", "No clear public growth signal yet"],
     };
-    const [en, pt, title] = copy[value] || copy.unknown;
+    const spec = copy[value];
+    if (!spec) return null;
+    const [en, pt, title] = spec;
     const el = document.createElement("span");
     el.className = "growth-tag" + (value === "high" ? "" : " is-" + value);
     el.title = title;
@@ -527,13 +529,7 @@
     }
     const label = document.createElement("span");
     label.className = "growth-label";
-    const enSpan = document.createElement("span");
-    enSpan.className = "panel-heading-en";
-    enSpan.textContent = en;
-    const ptSpan = document.createElement("span");
-    ptSpan.className = "panel-heading-pt";
-    ptSpan.textContent = pt;
-    label.append(enSpan, ptSpan);
+    label.textContent = getLangMode() === "pt" ? pt : en;
     el.append(label);
     parent.append(el);
     return el;
@@ -885,17 +881,27 @@
     return wrap;
   }
 
-  /** Content values only — EN/PT spans switched by CSS lang mode. */
+  /** Content values only — EN/PT spans switched by CSS lang mode.
+   * Identical strings use one span with no language class, so Portuguese
+   * mode cannot hide the only remaining copy. */
   function appendValues(parent, enText, ptText, className) {
     const wrap = document.createElement("div");
     if (className) wrap.className = className;
-    const en = document.createElement("span");
-    en.className = "panel-heading-en";
-    en.textContent = enText || "";
-    const pt = document.createElement("span");
-    pt.className = "panel-heading-pt";
-    pt.textContent = ptText || enText || "";
-    wrap.append(en, pt);
+    const en = String(enText || "");
+    const pt = String(ptText || enText || "");
+    if (en.trim().toLowerCase() === pt.trim().toLowerCase()) {
+      const same = document.createElement("span");
+      same.textContent = en || pt;
+      wrap.append(same);
+    } else {
+      const enSpan = document.createElement("span");
+      enSpan.className = "panel-heading-en";
+      enSpan.textContent = en;
+      const ptSpan = document.createElement("span");
+      ptSpan.className = "panel-heading-pt";
+      ptSpan.textContent = pt;
+      wrap.append(enSpan, ptSpan);
+    }
     parent.append(wrap);
     return wrap;
   }
@@ -1100,9 +1106,6 @@
     const title = document.createElement("div");
     title.className = "company-tile-title";
     appendValues(title, enName, ptName);
-    if (enName.trim().toLowerCase() === ptName.trim().toLowerCase()) {
-      title.querySelector(".panel-heading-pt")?.remove();
-    }
 
     const signals = document.createElement("div");
     signals.className = "company-tile-signals";

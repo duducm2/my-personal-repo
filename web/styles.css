@@ -1887,28 +1887,29 @@ body.lang-en .field-row {
 
 .page-companies .company-tile-head {
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-start;
-  gap: 8px;
+  gap: 4px 8px;
   width: 100%;
   min-width: 0;
 }
 
 .page-companies .company-tile-head .company-tile-title {
-  flex: 1 1 auto;
-  min-width: 62%;
+  flex: 1 1 100%;
+  min-width: 0;
 }
 
 .page-companies .company-tile-signals {
   display: flex;
-  justify-content: flex-end;
-  flex: 0 1 auto;
-  max-width: 38%;
-  margin-left: auto;
+  justify-content: flex-start;
+  flex: 1 1 100%;
+  max-width: 100%;
+  margin-left: 0;
 }
 
 .page-companies .company-tile-signals .country-flags {
-  justify-content: flex-end;
-  margin-top: 1px;
+  justify-content: flex-start;
+  margin-top: 0;
 }
 
 .page-companies .company-last-opening {
