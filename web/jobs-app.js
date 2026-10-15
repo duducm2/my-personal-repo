@@ -262,6 +262,42 @@
     return true;
   }
 
+  function selectedOpening() {
+    if (openJobId) {
+      return openings.find((r) => r.id === openJobId) || null;
+    }
+    const card = focusedJobCard();
+    if (card) return openings.find((r) => r.id === card.dataset.id) || null;
+    if (selectedIds.size === 1) {
+      const id = [...selectedIds][0];
+      return openings.find((r) => r.id === id) || null;
+    }
+    return null;
+  }
+
+  function companyPortalUrl(company) {
+    if (!company) return "";
+    return (
+      cell(company.careers_url) ||
+      cell(company.ats_url) ||
+      cell(company.website) ||
+      ""
+    );
+  }
+
+  async function openSelectedCompanyPortal() {
+    const row = selectedOpening();
+    if (!row) return false;
+    const href = companyPortalUrl(resolveLinkedCompany(row));
+    if (!href) {
+      setSaveStatus("No careers portal for this company", "err");
+      return true;
+    }
+    const ok = await openUrlInNewWindow(href);
+    if (!ok) setSaveStatus("Could not open company portal", "err");
+    return true;
+  }
+
   function getLangMode() {
     if (document.body.classList.contains("lang-pt")) return "pt";
     if (document.body.classList.contains("lang-en")) return "en";
@@ -739,10 +775,10 @@
     btn.dataset.url = cell(row.job_url);
     if (cell(row.job_url)) {
       btn.title =
-        "Click to edit · Right-click to set status · Alt+M to pin in this status · Ctrl/Cmd+Enter to open job URL · Ctrl/Cmd+click for bulk";
+        "Click to edit · Right-click to set status · Alt+M to pin in this status · Shift+C to open the company portal · Ctrl/Cmd+Enter to open job URL · Ctrl/Cmd+click for bulk";
     } else {
       btn.title =
-        "Click to edit · Right-click to set status · Alt+M to pin in this status · Ctrl/Cmd+click for bulk select";
+        "Click to edit · Right-click to set status · Alt+M to pin in this status · Shift+C to open the company portal · Ctrl/Cmd+click for bulk select";
     }
     btn.addEventListener("click", (e) => {
       const mod = e.ctrlKey || e.metaKey;
@@ -4841,8 +4877,12 @@
         location.assign("/profile.html");
         return;
       }
-      if (event.key.toLowerCase() === "c") {
+      if (event.code === "KeyC" || event.key.toLowerCase() === "c") {
         event.preventDefault();
+        if (selectedOpening()) {
+          void openSelectedCompanyPortal();
+          return;
+        }
         location.assign("/companies.html");
         return;
       }
