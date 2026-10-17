@@ -1038,12 +1038,43 @@ body.sections-collapsed.page-profile main > .section > :not(.section-head) {
 }
 body.sections-collapsed.page-profile main > .section .section-head {
   margin-bottom: 0;
+  cursor: pointer;
 }
 body.sections-collapsed.page-profile main > .section .section-title {
   margin-bottom: 0;
 }
 body.sections-collapsed.page-profile main > .section .add-btn {
   display: none;
+}
+
+/* Click a collapsed section header to open just that container */
+body.sections-collapsed.page-profile main > .section.is-open {
+  padding-bottom: inherit;
+}
+body.sections-collapsed.page-profile
+  main
+  > .section.is-open
+  > :not(.section-head) {
+  display: revert !important;
+}
+body.sections-collapsed.page-profile main > .section.is-open .section-head {
+  margin-bottom: 6px;
+}
+body.sections-collapsed.page-profile main > .section.is-open .add-btn {
+  display: inline-flex;
+}
+body.panels-collapsed .section.is-open .field-row {
+  display: grid;
+}
+body.panels-collapsed .section.is-open .panel {
+  padding-bottom: inherit;
+  min-height: inherit;
+}
+body.panels-collapsed .section.is-open .panel-head,
+body.panels-collapsed .section.is-open .panel-heading {
+  margin-bottom: inherit;
+  padding-bottom: inherit;
+  border-bottom: inherit;
 }
 
 /* Profile: collapse field rows inside record panels */

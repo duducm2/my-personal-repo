@@ -2442,15 +2442,37 @@
     if (en) en.textContent = collapsed ? "Expand" : "Collapse";
   }
 
+  function clearSectionOpenFlags() {
+    document
+      .querySelectorAll("main > .section.is-open")
+      .forEach((section) => section.classList.remove("is-open"));
+  }
+
   function setSectionsCollapsed(collapsed) {
     document.body.classList.toggle("sections-collapsed", !!collapsed);
     document.body.classList.toggle("panels-collapsed", !!collapsed);
     document.body.setAttribute("aria-expanded", collapsed ? "false" : "true");
+    clearSectionOpenFlags();
     syncSectionsToggleBtn();
   }
 
   function togglePanelsCollapsed() {
     setSectionsCollapsed(!sectionsAreCollapsed());
+  }
+
+  function initSectionAccordionClicks() {
+    document.querySelector("main")?.addEventListener("click", (event) => {
+      if (!sectionsAreCollapsed()) return;
+      const head = event.target.closest(".section-head");
+      if (!head) return;
+      const section = head.closest("main > .section");
+      if (!section) return;
+      if (event.target.closest("a, button, input, textarea, select, label")) {
+        return;
+      }
+      event.preventDefault();
+      section.classList.toggle("is-open");
+    });
   }
 
   function scrollProfileToTop() {
@@ -2856,6 +2878,7 @@
     document
       .getElementById("sections-collapse-btn")
       ?.addEventListener("click", () => togglePanelsCollapsed());
+    initSectionAccordionClicks();
     syncSectionsToggleBtn();
     const openCompaniesBtn = document.getElementById("open-companies-btn");
     if (openCompaniesBtn) {
