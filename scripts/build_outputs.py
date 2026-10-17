@@ -20,7 +20,6 @@ VARIANTS = (
     "product-owner",
     "data-analyst",
     "digital-solution-architect",
-    "data-scientist",
 )
 
 OUTPUTS = {
@@ -88,22 +87,6 @@ OUTPUTS = {
     / "output"
     / "digital-solution-architect"
     / "portfolio-deck-digital-solution-architect-PT.pdf",
-    ("data-scientist", "en", "resume"): ROOT
-    / "output"
-    / "data-scientist"
-    / "CV-Eduardo-Figueiredo-EN-data-scientist.pdf",
-    ("data-scientist", "pt", "resume"): ROOT
-    / "output"
-    / "data-scientist"
-    / "CV-Eduardo-Figueiredo-PT-data-scientist.pdf",
-    ("data-scientist", "en", "portfolio"): ROOT
-    / "output"
-    / "data-scientist"
-    / "portfolio-deck-data-scientist-EN.pdf",
-    ("data-scientist", "pt", "portfolio"): ROOT
-    / "output"
-    / "data-scientist"
-    / "portfolio-deck-data-scientist-PT.pdf",
 }
 
 RESUME_MAIN = {
@@ -115,7 +98,6 @@ RESUME_MAIN = {
     / "variants"
     / "digital-solution-architect"
     / "main.typ",
-    "data-scientist": ROOT / "resume" / "variants" / "data-scientist" / "main.typ",
 }
 
 RESUME_CONTENT = {
@@ -126,7 +108,6 @@ RESUME_CONTENT = {
     / "resume"
     / "variants"
     / "digital-solution-architect",
-    "data-scientist": ROOT / "resume" / "variants" / "data-scientist",
 }
 
 DECK_SRC = {
@@ -145,11 +126,6 @@ DECK_SRC = {
     / "portfolio"
     / "variants"
     / "digital-solution-architect"
-    / "portfolio-deck.{lang}.md",
-    "data-scientist": ROOT
-    / "portfolio"
-    / "variants"
-    / "data-scientist"
     / "portfolio-deck.{lang}.md",
 }
 

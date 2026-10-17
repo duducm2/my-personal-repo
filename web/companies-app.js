@@ -23,13 +23,6 @@
       pt: "Digital Solution Architect",
       short: "DSA",
     },
-    {
-      key: "ds",
-      field: "fit_data_scientist",
-      en: "Data Scientist",
-      pt: "Data Scientist",
-      short: "DS",
-    },
   ];
 
   const HOME_OFFICE_OPTIONS = ["yes", "hybrid", "no", "unknown"];
@@ -868,7 +861,12 @@
     btn.className =
       "filter-chip" + (activeKey === chip.key ? " is-active" : "");
     btn.setAttribute("aria-pressed", activeKey === chip.key ? "true" : "false");
-    btn.textContent = getLangMode() === "pt" ? chip.pt || chip.en : chip.en;
+    const label = getLangMode() === "pt" ? chip.pt || chip.en : chip.en;
+    if (window.CareerPathIcons && chip.key) {
+      btn.append(window.CareerPathIcons.labelWithIcon(chip.key, label));
+    } else {
+      btn.textContent = label;
+    }
     btn.addEventListener("click", () => onSelect(chip.key));
     return btn;
   }
@@ -949,7 +947,6 @@
         en: "Digital Solution Architect",
         pt: "Digital Solution Architect",
       },
-      { key: "ds", en: "Data Scientist", pt: "Data Scientist" },
       { key: "multi", en: "Multi-role", pt: "Multi-role" },
     ]) {
       roleRow.append(
@@ -1184,7 +1181,11 @@
       const on = isFitYes(row[fit.field]);
       const badge = document.createElement("span");
       badge.className = "role-badge" + (on ? " is-on" : " is-off");
-      badge.textContent = fit.short;
+      if (window.CareerPathIcons) {
+        badge.append(window.CareerPathIcons.labelWithIcon(fit.key, fit.short));
+      } else {
+        badge.textContent = fit.short;
+      }
       badge.title = fit.en;
       badges.append(badge);
     }
@@ -1742,7 +1743,6 @@
       fit_data_analyst: "yes",
       fit_product_owner: "no",
       fit_digital_solution_architect: "no",
-      fit_data_scientist: "yes",
       da_openings: "",
       website: "",
       careers_url: "",
@@ -2090,6 +2090,7 @@
   }
 
   async function init() {
+    window.CardNav?.configureHome(CARD_SEL, FILTER_SEL);
     initLangMode();
     wireModal();
     const profileBtn = document.getElementById("open-profile-btn");

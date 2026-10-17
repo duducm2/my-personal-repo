@@ -20,7 +20,6 @@ Open this file in an editor or viewer that supports Mermaid (e.g. VS Code with M
 | `future-career-path`                            | Senior data analyst (general / DA)     | 13            |
 | `future-career-path-product-owner`              | Senior Product Owner                   | 13            |
 | `future-career-path-digital-solution-architect` | Mid-Level DSA                          | 13            |
-| `future-career-path-data-scientist`             | Data Scientist (Pleno)                 | 13            |
 
 **File naming:** Use the ID for sources and exports (e.g. `story-flow.mmd`, `story-flow.png`). All deck references use these IDs.
 
@@ -219,7 +218,7 @@ flowchart LR
 
 _Narrative for slide:_ A senior data analyst uses the scientific method: start from a question, run descriptive, inferential, and visual analysis, and leave a decision people can take quickly.
 
-Path-specific method exports (same 3-node shape, different labels): `ai-agile-research-product-owner-{en,pt}.png`, `ai-agile-research-digital-solution-architect-{en,pt}.png`, `ai-agile-research-data-scientist-{en,pt}.png`.
+Path-specific method exports (same 3-node shape, different labels): `ai-agile-research-product-owner-{en,pt}.png`, `ai-agile-research-digital-solution-architect-{en,pt}.png`.
 
 English export: `ai-agile-research-en.png`.
 
@@ -331,31 +330,5 @@ flowchart TB
   Now["Agora · Digitalização, gates e desenhos operáveis"]
   Next["Próximo · Arquiteto de Soluções Digitais Pleno"]
   Seniors["Resultados · Soluções que o time opera"]
-  Now --> Next --> Seniors
-```
-
----
-
-## 11c. [future-career-path-data-scientist] Data Scientist (Pleno) (Slide 13)
-
-English export: `future-career-path-data-scientist-en.png`.
-
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato', 'fontSize': '36px'}, 'flowchart': {'padding': 28, 'rankSpacing': 56, 'wrappingWidth': 900}}}%%
-flowchart TB
-  Now["Now · Applied research, stats, and analytics"]
-  Next["Next · Data Scientist Pleno"]
-  Seniors["Outcomes · Trustworthy experiments and decisions"]
-  Now --> Next --> Seniors
-```
-
-Portuguese export: `future-career-path-data-scientist-pt.png`.
-
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato', 'fontSize': '36px'}, 'flowchart': {'padding': 28, 'rankSpacing': 56, 'wrappingWidth': 900}}}%%
-flowchart TB
-  Now["Agora · Pesquisa aplicada, estatística e analytics"]
-  Next["Próximo · Cientista de Dados Pleno"]
-  Seniors["Resultados · Experimentos e decisões confiáveis"]
   Now --> Next --> Seniors
 ```

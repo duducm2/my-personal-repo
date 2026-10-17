@@ -1,6 +1,8 @@
 (() => {
   let lastCard = null;
   let lastFilter = null;
+  /** @type {{ cardSel: string, filterRootSel: string } | null} */
+  let homeTargets = null;
 
   function titleOf(card) {
     if (!card) return "";
@@ -46,6 +48,50 @@
       lastCard = cards[0];
     });
     return true;
+  }
+
+  function focusFirstFilter(filterRootSel) {
+    const chips = filterChips(filterRootSel);
+    if (!chips.length) return false;
+    requestAnimationFrame(() => {
+      chips[0].focus({ preventScroll: false });
+      lastFilter = chips[0];
+    });
+    return true;
+  }
+
+  function configureHome(cardSel, filterRootSel) {
+    homeTargets = {
+      cardSel: cardSel || "",
+      filterRootSel: filterRootSel || "",
+    };
+  }
+
+  function isTypingTarget(el) {
+    if (!el) return false;
+    const tag = el.tagName;
+    return (
+      tag === "INPUT" ||
+      tag === "TEXTAREA" ||
+      tag === "SELECT" ||
+      el.isContentEditable
+    );
+  }
+
+  /** Home: jump to the first card in the list (or first filter chip if filters are focused). */
+  function goHome() {
+    if (!homeTargets?.cardSel) return false;
+    const active = document.activeElement;
+    if (isTypingTarget(active)) return false;
+    if (active?.closest?.("dialog[open]")) return false;
+
+    const { cardSel, filterRootSel } = homeTargets;
+    if (filterRootSel && inFilters(active, filterRootSel)) {
+      return focusFirstFilter(filterRootSel);
+    }
+
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    return focusFirst(cardSel);
   }
 
   function move(selector, delta) {
@@ -120,8 +166,7 @@
     }
 
     if (onFilter && chips.includes(active)) lastFilter = active;
-    const target =
-      lastCard && mains.includes(lastCard) ? lastCard : mains[0];
+    const target = lastCard && mains.includes(lastCard) ? lastCard : mains[0];
     if (!target) {
       if (!chips[0]) return false;
       return focusEl(chips[0], true);
@@ -246,6 +291,20 @@
     true,
   );
 
+  document.addEventListener(
+    "keydown",
+    (event) => {
+      if (event.ctrlKey || event.metaKey || event.altKey || event.shiftKey) {
+        return;
+      }
+      if (event.key !== "Home" && event.code !== "Home") return;
+      if (!goHome()) return;
+      event.preventDefault();
+      event.stopPropagation();
+    },
+    true,
+  );
+
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", mountFilterDocks);
   } else {
@@ -342,6 +401,9 @@
     titleOf,
     filterLabel,
     focusFirst,
+    focusFirstFilter,
+    configureHome,
+    goHome,
     move,
     moveFilters,
     moveInContext,

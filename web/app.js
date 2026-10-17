@@ -56,7 +56,6 @@
     "fit_data_analyst",
     "fit_product_owner",
     "fit_digital_solution_architect",
-    "fit_data_scientist",
     "scope",
     "job_search_url",
     "system_kind",
@@ -235,7 +234,6 @@
       "fit_data_analyst",
       "fit_product_owner",
       "fit_digital_solution_architect",
-      "fit_data_scientist",
       "website",
       "careers_url",
       "ats_kind",
@@ -453,7 +451,6 @@
         label: "fitDigitalSolutionArchitect",
         mono: "fit_digital_solution_architect",
       },
-      { label: "fitDataScientist", mono: "fit_data_scientist" },
       { label: "companyWebsite", mono: "website" },
       { label: "careersUrl", mono: "careers_url" },
       { label: "atsKind", mono: "ats_kind" },
@@ -570,12 +567,6 @@
       en: "Digital Solution Architect",
       pt: "Digital Solution Architect",
     },
-    {
-      key: "data-scientist",
-      short: "DS",
-      en: "Data Scientist",
-      pt: "Data Scientist",
-    },
     { key: "general", short: "GEN", en: "General", pt: "General" },
   ];
 
@@ -603,14 +594,6 @@
       shortPt: "DSA",
       en: "Digital Solution Architect",
       pt: "Digital Solution Architect",
-    },
-    {
-      key: "ds",
-      field: "fit_data_scientist",
-      shortEn: "DS",
-      shortPt: "DS",
-      en: "Data Scientist",
-      pt: "Data Scientist",
     },
   ];
 
@@ -792,7 +775,6 @@
       row.fit_data_analyst = "no";
       row.fit_product_owner = "no";
       row.fit_digital_solution_architect = "no";
-      row.fit_data_scientist = "no";
       row.region_en = "Campinas metro";
       row.region_pt = "Região metropolitana de Campinas";
       row.region_detail_en = row.region_en;
@@ -1159,6 +1141,7 @@
     const article = document.createElement("article");
     article.className = "panel" + (isRowPinned(row) ? " is-pinned" : "");
     article.dataset.id = row.id;
+    article.tabIndex = 0;
 
     const head = document.createElement("div");
     head.className = "panel-head";
@@ -1368,7 +1351,6 @@
         en: "Digital Solution Architect",
         pt: "Digital Solution Architect",
       },
-      { key: "ds", en: "Data Scientist", pt: "Data Scientist" },
       { key: "multi", en: "Multi-role", pt: "Multi-role" },
     ];
     for (const chip of roleChips) {
@@ -1388,7 +1370,12 @@
     btn.className =
       "filter-chip" + (activeKey === chip.key ? " is-active" : "");
     btn.setAttribute("aria-pressed", activeKey === chip.key ? "true" : "false");
-    btn.textContent = getLangMode() === "pt" ? chip.pt || chip.en : chip.en;
+    const label = getLangMode() === "pt" ? chip.pt || chip.en : chip.en;
+    if (window.CareerPathIcons && chip.key) {
+      btn.append(window.CareerPathIcons.labelWithIcon(chip.key, label));
+    } else {
+      btn.textContent = label;
+    }
     btn.addEventListener("click", () => onSelect(chip.key));
     return btn;
   }
@@ -1784,8 +1771,7 @@
     }
     if (!target) return;
 
-    document.body.classList.remove("panels-collapsed");
-    document.body.setAttribute("aria-expanded", "true");
+    setSectionsCollapsed(false);
 
     target.scrollIntoView({ behavior: "smooth", block: "start" });
     target.classList.remove("profile-jump-flash");
@@ -2439,12 +2425,36 @@
     );
   }
 
-  function togglePanelsCollapsed() {
-    const collapsed = document.body.classList.toggle("panels-collapsed");
+  function sectionsAreCollapsed() {
+    return document.body.classList.contains("sections-collapsed");
+  }
+
+  function syncSectionsToggleBtn() {
+    const btn = document.getElementById("sections-collapse-btn");
+    if (!btn) return;
+    const collapsed = sectionsAreCollapsed();
+    btn.setAttribute("aria-pressed", collapsed ? "true" : "false");
+    btn.classList.toggle("is-active", collapsed);
+    btn.title = collapsed
+      ? "Expand all profile sections (Shift+E)"
+      : "Collapse all profile sections (Shift+E)";
+    const en = btn.querySelector(".sections-collapse-label");
+    if (en) en.textContent = collapsed ? "Expand" : "Collapse";
+  }
+
+  function setSectionsCollapsed(collapsed) {
+    document.body.classList.toggle("sections-collapsed", !!collapsed);
+    document.body.classList.toggle("panels-collapsed", !!collapsed);
     document.body.setAttribute("aria-expanded", collapsed ? "false" : "true");
+    syncSectionsToggleBtn();
+  }
+
+  function togglePanelsCollapsed() {
+    setSectionsCollapsed(!sectionsAreCollapsed());
   }
 
   function scrollProfileToTop() {
+    if (window.CardNav?.goHome()) return;
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   }
 
@@ -2462,18 +2472,6 @@
         event.preventDefault();
         event.stopPropagation();
         pinFocusedProfileRecord();
-        return;
-      }
-
-      if (
-        !typing &&
-        !mod &&
-        !event.altKey &&
-        !event.shiftKey &&
-        (event.key === "Home" || event.code === "Home")
-      ) {
-        event.preventDefault();
-        scrollProfileToTop();
         return;
       }
 
@@ -2705,7 +2703,6 @@
     root.replaceChildren();
 
     const order = [
-      "data-scientist",
       "digital-solution-architect",
       "data-analyst",
       "product-owner",
@@ -2726,7 +2723,13 @@
 
       const heading = document.createElement("h3");
       heading.className = "download-card-title";
-      heading.textContent = group[0].label_en;
+      if (window.CareerPathIcons) {
+        heading.append(
+          window.CareerPathIcons.labelWithIcon(variant, group[0].label_en),
+        );
+      } else {
+        heading.textContent = group[0].label_en;
+      }
       card.append(heading);
 
       const resumes = group.filter((i) => i.kind === "resume");
@@ -2850,6 +2853,10 @@
         if (detailMode) return;
         setDetailMode(true, true);
       });
+    document
+      .getElementById("sections-collapse-btn")
+      ?.addEventListener("click", () => togglePanelsCollapsed());
+    syncSectionsToggleBtn();
     const openCompaniesBtn = document.getElementById("open-companies-btn");
     if (openCompaniesBtn) {
       openCompaniesBtn.addEventListener("click", () => openCompaniesWindow());
@@ -2889,6 +2896,7 @@
       });
     }
     wireAddButtons();
+    window.CardNav?.configureHome("main .panel[data-id]", "#path-filters");
     initKeyboard();
     window.addEventListener("beforeunload", () => {
       flushSaveKeepalive();

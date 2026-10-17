@@ -14,7 +14,7 @@ These figures are negotiation anchors from public 2026 aggregates. They are not 
 | Floor (do not go below)                                  |         R$ 10.500 |
 | Stretch (São Paulo capital, product company, or fintech) |         R$ 14.000 |
 
-R$ 12.000 is the senior data-analyst median plus a modest premium for a master’s degree, fluent English, and about seven years at a multinational. It sits above the data-scientist pleno median without pricing a senior-scientist or lead-architect role that is not on the résumé yet.
+R$ 12.000 is the senior data-analyst median plus a modest premium for a master’s degree, fluent English, and about seven years at a multinational. It sits below a lead-architect number and in the pleno-to-low-senior band for Product Owner.
 
 All amounts in this note are **monthly CLT gross base**: before INSS and income tax, and before PLR, 13th salary, vacation, and benefits.
 
@@ -24,7 +24,7 @@ All amounts in this note are **monthly CLT gross base**: before INSS and income 
 - Bosch Brasil since 2017 (intern through 2018). Professional work from 2019. Current title: Applied Research and Design Analyst since January 2023. About seven years of professional work.
 - Unicamp technologist in Systems Analysis and Development. Master’s in Technology approved September 2026 (diploma December 2026). The thesis is applied evaluation with statistics, Python, and Power BI, not production machine-learning systems.
 - Day-to-day work: Excel and VBA, Power BI, Python and SQL, descriptive and inferential statistics, CSI/NPS, research, and stakeholder work. Earlier role was web development.
-- Target titles: Senior or Lead Data Analyst, Data Scientist pleno (bridge), Product Owner, Mid-level Digital Solution Architect.
+- Target titles: Senior or Lead Data Analyst, Product Owner, Mid-level Digital Solution Architect.
 
 ## Ask by career path
 
@@ -33,11 +33,9 @@ Use the row that matches the opening. If the form allows only one number and the
 | Path                             |       Ask |     Floor |   Stretch |
 | -------------------------------- | --------: | --------: | --------: |
 | Senior Data Analyst              | R$ 12.000 | R$ 10.500 | R$ 14.000 |
-| Data Scientist pleno             | R$ 11.000 | R$ 10.000 | R$ 13.000 |
 | Product Owner                    | R$ 11.500 |  R$ 9.500 | R$ 13.500 |
 | Digital Solution Architect pleno | R$ 13.000 | R$ 11.500 | R$ 15.000 |
 
-- Data Scientist pleno: do not quote the R$ 16.000 senior-scientist median. The bridge target is pleno, and the thesis is evaluation and statistics, not a production ML system.
 - Product Owner: title history is research and delivery, not a named product-owner seat. Stay in the pleno-to-low-senior band.
 - Digital Solution Architect pleno: stay under the CAGED architect median (about R$ 14.000) unless the posting is explicitly senior. That median mixes senior architects.
 
@@ -54,7 +52,6 @@ Default PJ ask: **R$ 15.500** per month (30% above R$ 12.000).
 | Path                             | PJ ask (about 30% above CLT ask) |
 | -------------------------------- | -------------------------------: |
 | Senior Data Analyst              |                        R$ 15.500 |
-| Data Scientist pleno             |                        R$ 14.500 |
 | Product Owner                    |                        R$ 15.000 |
 | Digital Solution Architect pleno |                        R$ 17.000 |
 

@@ -19,7 +19,6 @@ VARIANTS = (
     "product-owner",
     "data-analyst",
     "digital-solution-architect",
-    "data-scientist",
 )
 RESUME_DIR = {
     "general": ROOT / "resume" / "typst",
@@ -29,7 +28,6 @@ RESUME_DIR = {
     / "resume"
     / "variants"
     / "digital-solution-architect",
-    "data-scientist": ROOT / "resume" / "variants" / "data-scientist",
 }
 DECK_DIR = {
     "general": ROOT / "portfolio",
@@ -39,14 +37,12 @@ DECK_DIR = {
     / "portfolio"
     / "variants"
     / "digital-solution-architect",
-    "data-scientist": ROOT / "portfolio" / "variants" / "data-scientist",
 }
 ASSET_PREFIX = {
     "general": "../",
     "product-owner": "../../../",
     "data-analyst": "../../../",
     "digital-solution-architect": "../../../",
-    "data-scientist": "../../../",
 }
 # Shared pictures/diagrams stem for the Future method slide (lang suffix added in template).
 FUTURE_METHOD_DIAGRAM = {
@@ -54,7 +50,6 @@ FUTURE_METHOD_DIAGRAM = {
     "data-analyst": "ai-agile-research",
     "product-owner": "ai-agile-research-product-owner",
     "digital-solution-architect": "ai-agile-research-digital-solution-architect",
-    "data-scientist": "ai-agile-research-data-scientist",
 }
 
 SLOT_RE = re.compile(r"\{\{canonical:([a-z0-9_]+)\}\}")

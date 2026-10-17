@@ -100,21 +100,3 @@ digital-solution-architect,Tech,Tech,Tecnologias,15,Mermaid,Mermaid
 digital-solution-architect,Tech,Tech,Tecnologias,16,HTML / CSS,HTML / CSS
 digital-solution-architect,Tech,Tech,Tecnologias,17,Figma,Figma
 digital-solution-architect,Tech,Tech,Tecnologias,18,Terraform (IaC),Terraform (IaC)
-data-scientist,Core,Core,Núcleo,1,"Excel (formulas, VBA, databases)","Excel (fórmulas, VBA, bases de dados)"
-data-scientist,Core,Core,Núcleo,2,Applied analytics & experiments,Analytics aplicado e experimentos
-data-scientist,Core,Core,Núcleo,3,"Visualization, BI & InfoVis","Visualizacao, BI e InfoVis"
-data-scientist,Core,Core,Núcleo,4,Python / SQL / Statistics,Python / SQL / Estatistica
-data-scientist,Core,Core,Núcleo,5,Applied Research,Pesquisa Aplicada
-data-scientist,Core,Core,Núcleo,6,Autodidact,Autodidata
-data-scientist,Tech,Tech,Tecnologias,1,Excel,Excel
-data-scientist,Tech,Tech,Tecnologias,2,CSV,CSV
-data-scientist,Tech,Tech,Tecnologias,3,Power BI,Power BI
-data-scientist,Tech,Tech,Tecnologias,4,Python,Python
-data-scientist,Tech,Tech,Tecnologias,5,SQL,SQL
-data-scientist,Tech,Tech,Tecnologias,6,Matplotlib,Matplotlib
-data-scientist,Tech,Tech,Tecnologias,7,Seaborn,Seaborn
-data-scientist,Tech,Tech,Tecnologias,8,Azure,Azure
-data-scientist,Tech,Tech,Tecnologias,9,Git,Git
-data-scientist,Tech,Tech,Tecnologias,10,GitHub,GitHub
-data-scientist,Tech,Tech,Tecnologias,11,VS Code,VS Code
-data-scientist,Tech,Tech,Tech,12,LLM evaluation,Avaliacao com LLM

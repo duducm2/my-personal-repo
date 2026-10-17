@@ -18,7 +18,6 @@
     { key: "da", label: "Data Analyst" },
     { key: "po", label: "Product Owner" },
     { key: "dsa", label: "Digital Solution Architect" },
-    { key: "ds", label: "Data Scientist" },
     { key: "other", label: "Other" },
   ];
   const WORK_MODE_OPTIONS = ["remote", "hybrid", "onsite", "unknown"];
@@ -35,7 +34,6 @@
     "data-analyst",
     "product-owner",
     "digital-solution-architect",
-    "data-scientist",
   ];
   const RESULT_OPTIONS = [
     { key: "", label: "(none — in progress)" },
@@ -92,7 +90,6 @@
     da: "data-analyst",
     po: "product-owner",
     dsa: "digital-solution-architect",
-    ds: "data-scientist",
     other: "general",
   };
 
@@ -462,7 +459,15 @@
     btn.setAttribute("aria-pressed", activeKey === chip.key ? "true" : "false");
     const icon = statusIcon(chip.key);
     if (icon) btn.append(icon);
-    btn.append(document.createTextNode(chip.label));
+    if (
+      !icon &&
+      window.CareerPathIcons &&
+      window.CareerPathIcons.resolveKey(chip.key)
+    ) {
+      btn.append(window.CareerPathIcons.labelWithIcon(chip.key, chip.label));
+    } else {
+      btn.append(document.createTextNode(chip.label));
+    }
     btn.addEventListener("click", () => onSelect(chip.key));
     return btn;
   }
@@ -1885,7 +1890,7 @@
       `${n + 1}. Set career_path to exactly one of the selected contexts: ${paths}.`,
       "   Prefer the best-fitting selected path for each opening.",
       `${n + 2}. Set recommended_resume to exactly one of:`,
-      "   general | data-analyst | product-owner | digital-solution-architect | data-scientist.",
+      "   general | data-analyst | product-owner | digital-solution-architect.",
       `${n + 3}. Set is_new to "1", status to "saved", source to "company_site" unless`,
       "   another source is obvious, and fill found_on with today's date (YYYY-MM-DD).",
       "   Leave applied_date empty. The cockpit records the subscription date on import.",
@@ -1905,7 +1910,6 @@
     if (careerPath === "da") return "data-analyst";
     if (careerPath === "po") return "product-owner";
     if (careerPath === "dsa") return "digital-solution-architect";
-    if (careerPath === "ds") return "data-scientist";
     return "";
   }
 
@@ -5031,9 +5035,26 @@
     }
   }
 
+  function decoratePromptPathIcons() {
+    if (!window.CareerPathIcons) return;
+    document
+      .querySelectorAll("#prompt-paths label.prompt-path-check")
+      .forEach((label) => {
+        const input = label.querySelector('input[name="prompt-path"]');
+        if (!input || !window.CareerPathIcons.resolveKey(input.value)) return;
+        if (label.querySelector(".path-icon")) return;
+        const icon = window.CareerPathIcons.pathIconNode(input.value);
+        if (!icon) return;
+        // Place icon after the checkbox input
+        input.insertAdjacentElement("afterend", icon);
+      });
+  }
+
   async function init() {
+    decoratePromptPathIcons();
     initLangMode();
     wireModal();
+    window.CardNav?.configureHome(CARD_SEL, FILTER_SEL);
     initKeyboard();
 
     window.addEventListener("beforeunload", () => {

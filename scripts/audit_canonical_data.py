@@ -61,14 +61,10 @@ def main() -> int:
             ok.append("languages.csv: Portuguese + English")
 
     titles = load("target_titles.csv")
-    if len(titles) != 18:
-        issues.append(f"target_titles want 18 got {len(titles)}")
+    if len(titles) != 14:
+        issues.append(f"target_titles want 14 got {len(titles)}")
     for tid in (
-        "da-headline",
         "da-title-data-analyst",
-        "da-title-data-scientist-pl",
-        "da-title-applied-ds",
-        "da-title-ml-analyst",
         "po-headline",
         "po-title-product-owner",
         "general-headline",
@@ -77,7 +73,15 @@ def main() -> int:
     ):
         if not any(t.get("id") == tid for t in titles):
             issues.append(f"target_titles missing {tid}")
-    ok.append("target_titles.csv: DA / DS-bridge / PO / general / DSA CV titles")
+    for tid in (
+        "da-headline",
+        "da-title-data-scientist-pl",
+        "da-title-applied-ds",
+        "da-title-ml-analyst",
+    ):
+        if any(t.get("id") == tid for t in titles):
+            issues.append(f"target_titles should not retain DS-path id {tid}")
+    ok.append("target_titles.csv: DA / PO / general / DSA CV titles (no DS path)")
 
     exp = load("experience.csv")
     exp_ids = {r["id"] for r in exp}
@@ -121,7 +125,6 @@ def main() -> int:
             "general",
             "product-owner",
             "data-analyst",
-            "data-scientist",
             "digital-solution-architect",
         ):
             n = sum(
@@ -134,22 +137,18 @@ def main() -> int:
         ("bosch-ar-2023", "general"): 6,
         ("bosch-ar-2023", "product-owner"): 5,
         ("bosch-ar-2023", "data-analyst"): 7,
-        ("bosch-ar-2023", "data-scientist"): 6,
         ("bosch-ar-2023", "digital-solution-architect"): 5,
         ("bosch-web-2020", "general"): 2,
         ("bosch-web-2020", "product-owner"): 2,
         ("bosch-web-2020", "data-analyst"): 2,
-        ("bosch-web-2020", "data-scientist"): 2,
         ("bosch-web-2020", "digital-solution-architect"): 2,
         ("bosch-hu-2019", "general"): 2,
         ("bosch-hu-2019", "product-owner"): 2,
         ("bosch-hu-2019", "data-analyst"): 2,
-        ("bosch-hu-2019", "data-scientist"): 2,
         ("bosch-hu-2019", "digital-solution-architect"): 2,
         ("bosch-intern-2017", "general"): 1,
         ("bosch-intern-2017", "product-owner"): 1,
         ("bosch-intern-2017", "data-analyst"): 1,
-        ("bosch-intern-2017", "data-scientist"): 1,
         ("bosch-intern-2017", "digital-solution-architect"): 1,
     }
     for key, want in expected_counts.items():
@@ -301,20 +300,8 @@ def main() -> int:
         issues.append(f"DSA Core skills want 7 got {len(dsa_core)}")
     if len(dsa_tech) != 18:
         issues.append(f"DSA Tech skills want 18 got {len(dsa_tech)}")
-    dsc_core = [
-        s
-        for s in skills
-        if s["variant"] == "data-scientist" and s["category"] == "Core"
-    ]
-    dsc_tech = [
-        s
-        for s in skills
-        if s["variant"] == "data-scientist" and s["category"] == "Tech"
-    ]
-    if len(dsc_core) != 6:
-        issues.append(f"Data Scientist Core skills want 6 got {len(dsc_core)}")
-    if len(dsc_tech) != 12:
-        issues.append(f"Data Scientist Tech skills want 12 got {len(dsc_tech)}")
+    if any(s["variant"] == "data-scientist" for s in skills):
+        issues.append("skills.csv still has data-scientist rows")
     ok.append("skills.csv counts match resume baselines")
 
     edu = load("education.csv")
@@ -758,9 +745,13 @@ def main() -> int:
     path_variants = (
         "product-owner",
         "digital-solution-architect",
-        "data-scientist",
     )
     for row in load("narratives.csv"):
+        if row["variant"] == "data-scientist":
+            issues.append(
+                f"narratives still has data-scientist field {row.get('field')}"
+            )
+            continue
         if row["variant"] not in path_variants:
             continue
         if row["field"] not in future_fields:
@@ -772,7 +763,7 @@ def main() -> int:
                     f"narratives {row['variant']}/{row['field']} still has "
                     f"data-analyst future copy ({needle!r})"
                 )
-    ok.append("narratives.csv: PO / DSA / DS future_* free of senior-DA career copy")
+    ok.append("narratives.csv: PO / DSA future_* free of senior-DA career copy")
 
     # Generated files (EN lang-suffixed + legacy content.typ)
     gen_resume_g = (ROOT / "resume" / "typst" / "content.en.typ").read_text(

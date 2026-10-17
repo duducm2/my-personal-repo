@@ -83,10 +83,6 @@ window.CAREER_LABELS = {
     en: "Fit: Digital Solution Architect (yes/no)",
     pt: "Fit: Digital Solution Architect (sim/não)",
   },
-  fitDataScientist: {
-    en: "Fit: Data Scientist (yes/no)",
-    pt: "Fit: Data Scientist (sim/não)",
-  },
   skillsMatch: {
     en: "Matching skills (DA / path)",
     pt: "Competências alinhadas (DA / trilha)",

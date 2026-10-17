@@ -33,7 +33,6 @@ STRUCTURAL_COLS = frozenset(
         "fit_data_analyst",
         "fit_product_owner",
         "fit_digital_solution_architect",
-        "fit_data_scientist",
         # Job openings (mono / tracking metadata)
         "company",
         "company_key",
@@ -272,7 +271,6 @@ _BASE: dict[str, tuple[str, list[str]]] = {
             "fit_data_analyst",
             "fit_product_owner",
             "fit_digital_solution_architect",
-            "fit_data_scientist",
             "da_openings",
             "website",
             "careers_url",

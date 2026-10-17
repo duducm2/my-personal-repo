@@ -22,12 +22,6 @@ VARIANT_DIRS = {
     / "digital-solution-architect"
     / "pictures"
     / "diagrams",
-    "data-scientist": ROOT
-    / "portfolio"
-    / "variants"
-    / "data-scientist"
-    / "pictures"
-    / "diagrams",
 }
 
 INIT = (
@@ -62,18 +56,6 @@ CAREER = {
             "Resultados · Soluções que o time opera",
         ),
     },
-    "data-scientist": {
-        "en": (
-            "Now · Applied research, stats, and analytics",
-            "Next · Data Scientist Pleno",
-            "Outcomes · Trustworthy experiments and decisions",
-        ),
-        "pt": (
-            "Agora · Pesquisa aplicada, estatística e analytics",
-            "Próximo · Cientista de Dados Pleno",
-            "Resultados · Experimentos e decisões confiáveis",
-        ),
-    },
 }
 
 METHOD = {
@@ -84,10 +66,6 @@ METHOD = {
     "digital-solution-architect": {
         "en": ("Problem", "Design · operable boundaries", "Runnable solution"),
         "pt": ("Problema", "Desenho · limites operáveis", "Solução operável"),
-    },
-    "data-scientist": {
-        "en": ("Question", "Analysis · evidence and evaluation", "Owned decision"),
-        "pt": ("Pergunta", "Análise · evidência e avaliação", "Decisão assumida"),
     },
 }
 

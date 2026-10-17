@@ -1,19 +1,19 @@
 id,sort_order,pinned,scope,name,job_search_url,system_kind,ats_name,ats_url,fit_paths,notes
-linkedin-br,1,,brazil,LinkedIn Jobs (BR),https://www.linkedin.com/jobs/,proprietary,,,da;po;dsa;ds,Primary board for DA/PO/DSA in Brazil and remote.
-gupy,2,,brazil,Gupy,https://portal.gupy.io/job-search/sortBy=publishedDate,third_party,Gupy,https://www.gupy.io/,da;po;dsa;ds,Dominant BR ATS job search; many enterprise + mid-market employers.
-infojobs,3,,brazil,InfoJobs,https://www.infojobs.com.br/vagas-de-emprego.aspx,proprietary,,,da;po;ds,High volume CLT listings; good for DA and product-adjacent roles.
-catho,4,,brazil,Catho,https://www.catho.com.br/vagas/,proprietary,,,da;po;ds,Classic BR board; strong for analyst and business roles.
-indeed-br,5,,brazil,Indeed Brasil,https://br.indeed.com/,proprietary,,,da;po;dsa;ds,Aggregator with strong DA/DSA keyword search.
-vagas-com,6,,brazil,Vagas.com,https://www.vagas.com.br/vagas-de,proprietary,,,da;po;ds,Large BR board; also sells ATS to employers.
-solides,7,,brazil,Solides Vagas,https://vagas.solides.com.br/,third_party,Solides,https://solides.com.br/,da;po;ds,Common mid-market BR ATS candidate portal.
-programathor,8,,brazil,Programathor,https://programathor.com.br/,proprietary,,,da;dsa;ds,Tech-focused BR board; strong for data and engineering-adjacent.
-geekhunter,9,,brazil,GeekHunter,https://www.geekhunter.com.br/,proprietary,,,da;dsa;ds,Curated tech matching; useful for DA/DSA outreach.
-revelo,10,,brazil,Revelo,https://www.revelo.com.br/,proprietary,,,da;po;dsa;ds,Tech talent marketplace; profiles and opportunities.
-trampos,11,,brazil,Trampos,https://trampos.co/oportunidades,proprietary,,,da;po;dsa;ds,Startup and digital roles; good PO/DA coverage.
-glassdoor-br,12,,brazil,Glassdoor Brasil,https://www.glassdoor.com.br/Vaga/index.htm,proprietary,,,da;po;dsa;ds,Jobs plus company reviews for target employers.
-linkedin-intl,20,,international,LinkedIn Jobs,https://www.linkedin.com/jobs/,proprietary,,,da;po;dsa;ds,Global primary board for DA/PO/DSA and remote filters.
-indeed-intl,21,,international,Indeed,https://www.indeed.com/,proprietary,,,da;po;dsa;ds,Global aggregator; strong keyword and location filters.
-wellfound,22,,international,Wellfound,https://wellfound.com/jobs,proprietary,,,da;po;dsa;ds,Startup jobs; strong product/data roles.
-remote-ok,23,,international,Remote OK,https://remoteok.com/,proprietary,,,da;po;dsa;ds,Remote-first listings; filter Data / Product.
-wwr,24,,international,We Work Remotely,https://weworkremotely.com/,proprietary,,,da;po;dsa;ds,Remote boards including data and product categories.
-glassdoor-intl,25,,international,Glassdoor,https://www.glassdoor.com/Job/index.htm,proprietary,,,da;po;dsa;ds,Global jobs plus salary/review signal.
+linkedin-br,1,,brazil,LinkedIn Jobs (BR),https://www.linkedin.com/jobs/,proprietary,,,da;po;dsa,Primary board for DA/PO/DSA in Brazil and remote.
+gupy,2,,brazil,Gupy,https://portal.gupy.io/job-search/sortBy=publishedDate,third_party,Gupy,https://www.gupy.io/,da;po;dsa,Dominant BR ATS job search; many enterprise + mid-market employers.
+infojobs,3,,brazil,InfoJobs,https://www.infojobs.com.br/vagas-de-emprego.aspx,proprietary,,,da;po,High volume CLT listings; good for DA and product-adjacent roles.
+catho,4,,brazil,Catho,https://www.catho.com.br/vagas/,proprietary,,,da;po,Classic BR board; strong for analyst and business roles.
+indeed-br,5,,brazil,Indeed Brasil,https://br.indeed.com/,proprietary,,,da;po;dsa,Aggregator with strong DA/DSA keyword search.
+vagas-com,6,,brazil,Vagas.com,https://www.vagas.com.br/vagas-de,proprietary,,,da;po,Large BR board; also sells ATS to employers.
+solides,7,,brazil,Solides Vagas,https://vagas.solides.com.br/,third_party,Solides,https://solides.com.br/,da;po,Common mid-market BR ATS candidate portal.
+programathor,8,,brazil,Programathor,https://programathor.com.br/,proprietary,,,da;dsa,Tech-focused BR board; strong for data and engineering-adjacent.
+geekhunter,9,,brazil,GeekHunter,https://www.geekhunter.com.br/,proprietary,,,da;dsa,Curated tech matching; useful for DA/DSA outreach.
+revelo,10,,brazil,Revelo,https://www.revelo.com.br/,proprietary,,,da;po;dsa,Tech talent marketplace; profiles and opportunities.
+trampos,11,,brazil,Trampos,https://trampos.co/oportunidades,proprietary,,,da;po;dsa,Startup and digital roles; good PO/DA coverage.
+glassdoor-br,12,,brazil,Glassdoor Brasil,https://www.glassdoor.com.br/Vaga/index.htm,proprietary,,,da;po;dsa,Jobs plus company reviews for target employers.
+linkedin-intl,20,,international,LinkedIn Jobs,https://www.linkedin.com/jobs/,proprietary,,,da;po;dsa,Global primary board for DA/PO/DSA and remote filters.
+indeed-intl,21,,international,Indeed,https://www.indeed.com/,proprietary,,,da;po;dsa,Global aggregator; strong keyword and location filters.
+wellfound,22,,international,Wellfound,https://wellfound.com/jobs,proprietary,,,da;po;dsa,Startup jobs; strong product/data roles.
+remote-ok,23,,international,Remote OK,https://remoteok.com/,proprietary,,,da;po;dsa,Remote-first listings; filter Data / Product.
+wwr,24,,international,We Work Remotely,https://weworkremotely.com/,proprietary,,,da;po;dsa,Remote boards including data and product categories.
+glassdoor-intl,25,,international,Glassdoor,https://www.glassdoor.com/Job/index.htm,proprietary,,,da;po;dsa,Global jobs plus salary/review signal.

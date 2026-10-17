@@ -1,6 +1,6 @@
 # Supervised ML bridge — portfolio artifact #3
 
-End-to-end **supervised classification** on a public tabular dataset (scikit-learn Breast Cancer Wisconsin). Built for the Data Scientist transition: baseline → stronger model → error analysis → model card → production monitoring starter.
+End-to-end **supervised classification** on a public tabular dataset (scikit-learn Breast Cancer Wisconsin). Built as a Data Analyst learning artifact: baseline → stronger model → error analysis → model card → production monitoring starter.
 
 ## Run
 

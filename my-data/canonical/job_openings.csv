@@ -146,472 +146,7 @@ bosch-brasil-senior-sap-project-analyst-36014,1,,Bosch Brasil (Robert Bosch Ltda
 509123,7,,Siemens,siemens-global,Infrastructure Engineer - Advanced,dsa,,,saved,low,unknown,"Sao Caetano do Sul, Sao Paulo, Brazil",company_site,2026-10-05,,,,,,Cloud and infrastructure engineering.,More focused on core infrastructure than UX/data analytics.,"Manage, optimize, and maintain advanced IT infrastructure, server environments, and cloud operations for R&D systems.",Research & Development. Job ID: 509123.,,,1,6,"Touches on Azure, Docker, and systems administration skills, though more infrastructure-heavy than candidate's primary data/product focus.",digital-solution-architect,,,,,,,,
 cnpem-442866,1,,CNPEM,cnpem-campinas,Estágio Nível Superior (Engenharia de Sistemas) - 442866,dsa,,,excluded,low,on_site,Campinas - SP,company_site,2026-10-05,,,,,,Low fit due to significant seniority mismatch (internship vs. candidate's background).,"Targeted at current undergraduate students; role seniority is incompatible with candidate's extensive professional experience in technology, architecture, and research.",Estágio Nível Superior em Engenharia de Sistemas (código 442866) no CNPEM em Campinas - SP.,,,,1,3,"Posição na área de tecnologia/sistemas compatível em domínio técnico geral, porém com descompasso crítico de nível de senioridade (vaga de estágio).",digital-solution-architect,,,,,,,,
 bosch-usa-senior-principal-engineer-autonomous-driving-adas-data-loop-flywheel,1,,Bosch USA,bosch-usa,Senior Principal Engineer- Autonomous Driving (ADAS) Data Loop & Flywheel,dsa,,,excluded,medium,Hybrid,"Sunnyvale, CA",company_site,2026-10-04,,,,,,"Focus on data loop, flywheel architectures, and large-scale data systems aligns with digital solution architecture and continuous improvement background at Bosch.",Requires specialized senior principal-level ADAS domain expertise and autonomous vehicle engineering depth.,Field of work: Research & Development. Focuses on Autonomous Driving (ADAS) data loop and flywheel infrastructure. Posted: 09/29/2026.,,,,1,6,"Strong alignment with data architecture, pipelines, and Bosch ecosystems, but seniority is Principal level and targets specialized ADAS systems.",digital-solution-architect,,,,,,,,
-bosch-usa-senior-research-scientist-vision-language-action-vla-models,2,,Bosch USA,bosch-usa,Senior Research Scientist- Vision-Language-Action (VLA) Models,ds,,,watching,medium,Hybrid,"Sunnyvale, CA",company_site,2026-10-04,,,,,,"Appeals to applied research background, LLM/multimodal evaluation, and AI systems interest.",Demands advanced research scientist qualifications specifically in Vision-Language-Action foundation models.,Field of work: Research & Development. Research and development of Vision-Language-Action (VLA) foundation models. Posted: 09/29/2026.,,,,1,6,"Matches applied AI research and evaluation background, though senior research scientist roles typically require PhD-level specialized foundation model research.",data-scientist,,,,,,,,
-bosch-usa-radar-sensing-ai-research-intern,3,,Bosch USA,bosch-usa,Radar Sensing AI Research Intern,ds,,,excluded,low,On-Site,"Pittsburgh, PA",company_site,2026-10-04,,,,,,Combines AI research with experimentation and academic research background.,Targeted at student interns and focuses on radar sensing signal processing.,Field of work: Research & Development. AI research internship focusing on radar sensing applications. Posted: 09/28/2026.,,,,1,5,"Aligns with research mindset and AI topics, but level is an internship whereas profile represents experienced full-time Bosch associate.",data-scientist,,,,,,,,
-bosch-usa-ai-research-scientist-safety,4,,Bosch USA,bosch-usa,AI Research Scientist - Safety,ds,,,rejected,high,On-Site,"Sunnyvale, CA",company_site,2026-10-04,,,,,,"Direct overlap with software quality, LLM evaluation, experimentation, and applied AI research.",Formal theoretical safety verification frameworks for AI models.,"Field of work: Research & Development. Focuses on research into AI safety, model robustness, and validation. Posted: 09/10/2026.",,,,1,7,"Good synergy with software-quality research, ML evaluation, and current Bosch applied research experience.",data-scientist,,,"{""opening_id"":""bosch-usa-ai-research-scientist-safety"",""recommended_resume"":""data-scientist"",""form_url"":""https://jobs.smartrecruiters.com/BoschGroup/744000151876189-agentic-software-engineer?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702"",""source_url"":""https://jobs.smartrecruiters.com/BoschGroup/744000151876189-agentic-software-engineer?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702"",""imported_at"":""2026-10-05T02:11:27"",""fields"":[{""key"":""first_name"",""label"":""First name*"",""value"":""Eduardo"",""source"":""profile.full_name"",""note"":""""},{""key"":""last_name"",""label"":""Last name*"",""value"":""Matos de Assis Figueiredo"",""source"":""profile.full_name"",""note"":""""},{""key"":""email"",""label"":""Email*"",""value"":""edu.evangelista.figueiredo@gmail.com"",""source"":""profile.email"",""note"":""""},{""key"":""confirm_email"",""label"":""Confirm your email*"",""value"":""edu.evangelista.figueiredo@gmail.com"",""source"":""profile.email"",""note"":""""},{""key"":""city"",""label"":""City*"",""value"":""Nova Odessa"",""source"":""profile.location"",""note"":""""},{""key"":""phone_country_code"",""label"":""Phone country code"",""value"":""+55"",""source"":""profile.phone"",""note"":""""},{""key"":""phone_number"",""label"":""Phone number*"",""value"":""+55 (19) 98176-6583"",""source"":""profile.phone"",""note"":""""},{""key"":""experience"",""label"":""Experience"",""value"":""Technology Researcher and Designer @ Bosch Brasil (Jan 2023 - Present) - User experience, applied research, AI systems, and global problem-solving initiatives. Previously Web Developer @ Bosch Brasil (May 2021 - Nov 2022) - Front-end React applications, Scrum/Kanban delivery. Continuous Improvement Analyst @ Bosch Brasil (Jan 2020 - Jul 2021) - Agile concepts, PDCA, CIP methods. Digitization Support Analyst @ Bosch Magyarország (Jan 2019 - Dec 2019) - Web systems, SQL Server, Git, dynamic spreadsheets."",""source"":""profile.experience"",""note"":""""},{""key"":""education"",""label"":""Education"",""value"":""Master's in Technology: Information and Communication Systems (User Experience) - University of Campinas (Unicamp), Aug 2023 - Dec 2026. Systems Analysis and Development - University of Campinas (Unicamp), 2015 - 2020."",""source"":""profile.education"",""note"":""""},{""key"":""linkedin"",""label"":""LinkedIn"",""value"":""https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b"",""source"":""profile.linkedin"",""note"":""""},{""key"":""website"",""label"":""Website"",""value"":""https://lattes.cnpq.br/2708641049892967"",""source"":""profile.lattes"",""note"":""""},{""key"":""resume"",""label"":""Resume *"",""value"":"""",""source"":""resume.data-scientist"",""note"":""Upload manually - use data-scientist resume""},{""key"":""message_to_hiring_team"",""label"":""Message to the Hiring Team"",""value"":""I am a UX and software-quality researcher at Bosch with a strong foundation in applied research, statistics, Python, and AI systems. My work focuses on bridging continuous improvement, applied machine learning, and reliable software delivery to build safe and effective technologies."",""source"":""narratives.summary"",""note"":""""}]}","You are my AI companion (AIB) for job-opening extraction.
-
-=== PROFILE CONTEXT ===
-Name: Eduardo M. de A. Figueiredo
-Location: Nova Odessa, SP - Brazil
-Languages: Portuguese (Native) English (Fluent)
-Email: edu.evangelista.figueiredo@gmail.com
-LinkedIn: https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b
-Career path focus: Data Analyst (data-analyst); Product Owner (product-owner); Digital Solution Architect (digital-solution-architect); Data Scientist (data-scientist); Other (general)
-
-Tagline: Applied Research, Technology & Project Management
-Profile summary: I'm a UX and software-quality researcher. I use applied research, technology, and project management to help teams ship things people can actually use. Full-stack background; day to day I work with data, continuous improvement, and agentic AI across design, front-end, Power BI, and Python. Working toward an AI Scrum Master path.
-
-=== TARGET TITLES ===
-- Data Analyst -> Data Scientist PL | Stats, Python & Applied ML Evaluation (LinkedIn headline)
-- Data Analyst (Job title)
-- Senior Data Analyst (Job title)
-- Lead Data Analyst (Job title)
-- Business Data Analyst (Job title)
-- Data Scientist (Pleno) (Job title)
-- Applied Data Scientist (Job title)
-- Machine Learning Analyst (Job title)
-- Discovery, Delivery & Stakeholder Outcomes (LinkedIn headline)
-- Product Owner (Job title)
-- Product Analyst (Job title)
-- Technical Product Owner (Job title)
-- Digital Solution Architect | Cloud, Digitization & Evidence-Based Delivery (LinkedIn headline)
-- Mid-Level Digital Solution Architect (Job title)
-- Solution Architect (Job title)
-- Cloud Solution Architect (Job title)
-
-=== SKILLS ===
-Core:
-- Applied Research
-- Project Management
-- Continuous Improvement (CIP)
-- AI Systems
-- Autodidact
-- Statistics
-- Product discovery
-- Stakeholder alignment
-- Prioritization & outcomes
-- Applied Research
-- Agile (Scrum / Kanban) / CIP
-- Autodidact
-- Statistics
-- Excel (formulas, VBA, databases)
-- Data analysis & CSV
-- Visualization, BI & InfoVis
-- Python / SQL / Statistics
-- Applied Research
-- Autodidact
-- Solution & cloud architecture
-- Digitization & systems
-- DevOps / CI-CD
-- Applied Research & QA gates
-- Global stakeholder alignment
-- Autodidact
-- Statistics
-- Excel (formulas, VBA, databases)
-- Applied analytics & experiments
-- Visualization, BI & InfoVis
-- Python / SQL / Statistics
-- Applied Research
-- Autodidact
-Tech:
-- Power BI
-- Python
-- React
-- Figma
-- SQL
-- Matplotlib
-- Seaborn
-- Git
-- GitHub
-- Azure
-- Bitbucket
-- HTML
-- CSS
-- Mermaid
-- VS Code
-- Excel
-- VBA
-- AutoHotkey
-- Power BI
-- Python
-- React
-- Figma
-- SQL
-- Matplotlib
-- Seaborn
-- Git
-- GitHub
-- Azure
-- ServiceNow
-- Bitbucket
-- HTML
-- CSS
-- Mermaid
-- VS Code
-- Excel
-- VBA
-- AutoHotkey
-- Excel
-- VBA
-- CSV
-- Power BI
-- Python
-- SQL
-- Matplotlib
-- Seaborn
-- Azure
-- Git
-- GitHub
-- React
-- Figma
-- ServiceNow
-- Bitbucket
-- HTML
-- CSS
-- Mermaid
-- VS Code
-- AutoHotkey
-- Azure
-- Python
-- SQL / SQL Server
-- Power BI
-- ServiceNow
-- Git
-- GitHub
-- Bitbucket
-- VS Code
-- React
-- Windows Server / IIS
-- Docker
-- Excel / VBA
-- CSV pipelines
-- Mermaid
-- HTML / CSS
-- Figma
-- Terraform (IaC)
-- Excel
-- CSV
-- Power BI
-- Python
-- SQL
-- Matplotlib
-- Seaborn
-- Azure
-- Git
-- GitHub
-- VS Code
-- LLM evaluation
-
-=== RECENT EXPERIENCE ===
-- Technology Researcher and Designer @ Bosch Brasil (Jan 2023 - Present - 3 yrs 9 mos)
- I work in Bosch's main service unit on user experience and applied research. I coach colleagues to use UX methods in their own work, and I collaborate on global projects where we use research to find problems and design solutions.
-- Web Developer @ Bosch Brasil (May 2021 - Nov 2022 - 1 yr 7 mos)
- As a Web Developer at Bosch Brasil I built front-end work in React, mostly in Scrum and Kanban. The mix was customer-facing apps and internal tools, so interface clarity and reliable delivery mattered as much as the code itself. I worked closely with design, research, and enginee
-- Continuous Improvement Analyst @ Bosch Brasil (Jan 2020 - Jul 2021 - 1 yr 7 mos)
- I trained, coached, and managed activities around Continuous Improvement and organizational development-5S, PDCA, project and process management, agile concepts, personal organization, and related methods.
-- Digitization Support Analyst (Systems Analysis and Development) @ Bosch Magyarország (Jan 2019 - Dec 2019 - 1 yr)
- I supported the Business Excellence Development team at Bosch Hungary by digitizing their systems. Most of the year I built web systems with VS Code, SQL Server, Windows Server (IIS), and Git. I also used VBA in Excel for dynamic spreadsheets.
-- Intern @ Bosch (Jan 2017 - Oct 2018 - 1 yr 10 mos)
- Intern across Continuous Improvement and Internal Communication, providing IT support for both. I built dynamic Excel spreadsheets with VBA, often connected to Access-digital systems for CIP methods and registration tools for internal events.
-- Scholarship recipient @ University of Campinas (Unicamp) (Mar 2015 - Dec 2015 - 10 mos)
- Computational assistance for research with Dr. André Franceschi de Angelis. I also edited academic videos for teaching materials using Sony Vegas.
-
-=== SELECTED COMPANY ===
-company_key / id: bosch-usa
-name: Bosch USA
-careers_url: https://jobs.bosch.com/en?pages=1&country=us
-ats_url: https://jobs.bosch.com/en?pages=1&country=us
-website: https://www.bosch.com/
-skills_match: Power BI; Python; SQL; Excel/VBA; CSI/NPS; Applied research; AI tools; Stakeholder dashboards
-
-=== EXISTING OPENINGS FOR THIS COMPANY (do not re-import) ===
-- id=bosch-usa-senior-principal-engineer-autonomous-driving-adas-data-loop-flywheel | Senior Principal Engineer- Autonomous Driving (ADAS) Data Loop & Flywheel | Sunnyvale, CA | status=excluded | url=
-- id=bosch-usa-senior-research-scientist-vision-language-action-vla-models | Senior Research Scientist- Vision-Language-Action (VLA) Models | Sunnyvale, CA | status=watching | url=
-- id=bosch-usa-radar-sensing-ai-research-intern | Radar Sensing AI Research Intern | Pittsburgh, PA | status=excluded | url=
-- id=bosch-usa-ai-research-scientist-safety | AI Research Scientist - Safety | Sunnyvale, CA | status=saved | url=
-- id=bosch-usa-senior-ai-research-scientist-time-series-foundational-models | Senior AI Research Scientist- Time-Series Foundational Models | Sunnyvale, CA | status=saved | url=
-- id=bosch-usa-research-engineer-computational-materials-science-self-driving-materials-discovery | Research Engineer - Computational Materials Science & Self-Driving Materials Discovery | Watertown, MA | status=watching | url=
-- id=bosch-usa-senior-ai-research-scientist-world-model | Senior AI Research Scientist- World Model | Sunnyvale, CA | status=saved | url=
-- id=bosch-usa-product-manager-sr-product-manager | Product Manager / Sr. Product Manager | Oakbrook Terrace, IL | status=saved | url=
-- id=bosch-usa-vrf-product-manager | VRF Product Manager | Dallas, TX | status=excluded | url=
-- id=bosch-usa-senior-director-digital-engineering-it-services-sales-north-america | Senior Director - Digital Engineering & IT Services Sales - North America | Farmington Hills, MI | status=excluded | url=
-- id=bosch-usa-agentic-software-engineer-plymouth-mi | Agentic Software Engineer | Plymouth, MI | status=subscribed | url=
-- id=bosch-usa-cybersecurity-forensics-incident-response-analyst-pittsburgh-pa | Cybersecurity Forensics and Incident Response Analyst | Pittsburgh, PA | status=excluded | url=
-- id=bosch-usa-chief-expert-robotics-sunnyvale-ca | Chief Expert Robotics | Sunnyvale, CA | status=excluded | url=
-- id=bosch-usa-automation-experience-designer | Automation Experience Designer | Londonderry, NH | status=subscribed | url=
-
-=== IGNORE / DO NOT CONSIDER ===
-Do not extract, score, or return openings that match any of these rules:
-- nothing non IT related
-
-=== UNSTRUCTURED JOB DATA ===
-Bosch Group Logo
-AI Research Scientist - Safety
-
-384 Santa Trinita Ave, Sunnyvale, CA 94085, USA
-
-AI Research Scientist - Safety
-Easy Apply
-Choose an option to autocomplete your application. You can still fill your profile manually.
-
-Choose a file or drop it here
-Nenhum arquivo escolhido
-10MB size limit
-
-or
-
-
-Apply With Indeed
-undefinedApply with SEEK
-Personal information
-Fields marked with * are required.
-
-First name*
-
-Last name*
-
-Email*
-
-Confirm your email*
-
-City*
-
-Phone number*
-
-United States
-+1
-
-
-Experience
-Education
-Your Profiles
-Fields marked with * are required.
-
-LinkedIn
-
-Website
-
-Resume *
-Choose a file or drop it here
-Nenhum arquivo escolhido
-10MB size limit
-
-Message to the Hiring Team
-Let the company know about your interest working there
-
-
-Privacy Notice
-Imprint
-powered by
-
-SmartRecruiters - Logo
-Cookie Settings
-
-=== AIB PROCESSING INSTRUCTIONS (mandatory) ===
-1. Extract every distinct job opening from the UNSTRUCTURED JOB DATA below.
-2. Cross-reference EXISTING OPENINGS FOR THIS COMPANY and SKIP duplicates
- (same role_title + company + location, or same job_url).
-3. Honor IGNORE / DO NOT CONSIDER rules strictly: discard any opening
- that matches those instructions (role type, title keywords, location,
- seniority, language, or other criteria). Do not include them in output.
-4. For each kept opening, set match_score (1-10) vs the PROFILE CONTEXT and
- explain it briefly in match_reason.
-5. Set career_path to exactly one of the selected contexts: da | po | dsa | ds | other.
- Prefer the best-fitting selected path for each opening.
-6. Set recommended_resume to exactly one of:
- general | data-analyst | product-owner | digital-solution-architect | data-scientist.
-7. Set is_new to ""1"", status to ""saved"", source to ""company_site"" unless
- another source is obvious, and fill found_on with today's date (YYYY-MM-DD).
- Leave result and result_on empty",,,,
-bosch-usa-senior-ai-research-scientist-time-series-foundational-models,5,,Bosch USA,bosch-usa,Senior AI Research Scientist- Time-Series Foundational Models,ds,,,excluded,medium,Hybrid,"Sunnyvale, CA",company_site,2026-10-04,,,,,,"Relevant to statistical analysis, Python, and applied machine learning evaluation.",In-depth specialization in foundational time-series architectures and senior scientist track.,Field of work: Research & Development. Research on foundational AI models tailored for time-series data. Posted: 09/08/2026.,,,,1,6,"Strong connection to stats, Python, and ML evaluation, though leans heavily into academic/deep foundational research.",data-scientist,,,"{""opening_id"":""bosch-usa-senior-ai-research-scientist-time-series-foundational-models"",""recommended_resume"":""data-scientist"",""form_url"":""t"",""source_url"":""t"",""imported_at"":""2026-10-05T02:21:20"",""fields"":[{""key"":""first_name"",""label"":""First Name"",""value"":""Eduardo"",""source"":""PROFILE CONTEXT (Full name)"",""note"":""""},{""key"":""last_name"",""label"":""Last Name"",""value"":""Matos de Assis Figueiredo"",""source"":""PROFILE CONTEXT (Full name)"",""note"":""""},{""key"":""email"",""label"":""Email"",""value"":""edu.evangelista.figueiredo@gmail.com"",""source"":""PROFILE CONTEXT"",""note"":""""},{""key"":""confirm_email"",""label"":""Confirm Email"",""value"":""edu.evangelista.figueiredo@gmail.com"",""source"":""PROFILE CONTEXT"",""note"":""""},{""key"":""phone_country_code"",""label"":""Country Code"",""value"":""+55"",""source"":""PROFILE CONTEXT (Phone)"",""note"":""""},{""key"":""phone_number"",""label"":""Phone"",""value"":""+55 (19) 98176-6583"",""source"":""PROFILE CONTEXT"",""note"":""""},{""key"":""location"",""label"":""Location"",""value"":""Nova Odessa, SP - Brazil"",""source"":""PROFILE CONTEXT"",""note"":""""},{""key"":""resume"",""label"":""Resume / CV"",""value"":"""",""source"":""ATS / APPLICATION PAGE TEXT"",""note"":""Upload manually - use data-scientist resume""},{""key"":""linkedin_profile"",""label"":""LinkedIn Profile"",""value"":""https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b"",""source"":""PROFILE CONTEXT"",""note"":""""},{""key"":""website"",""label"":""Website / Portfolio / ORCID"",""value"":""https://orcid.org/0009-0002-5178-6157"",""source"":""PROFILE CONTEXT"",""note"":""""},{""key"":""academic_profile_lattes"",""label"":""Lattes Curriculum"",""value"":""https://lattes.cnpq.br/2708641049892967"",""source"":""PROFILE CONTEXT"",""note"":""""},{""key"":""hiring_message"",""label"":""Message to Hiring Manager / Motivation"",""value"":""Applied research and technology specialist at Bosch focusing on data systems, applied analytics, and agentic AI. Experienced in cross-functional collaboration, experimental design, Python, and machine learning models."",""source"":""NARRATIVES"",""note"":""""},{""key"":""work_experience"",""label"":""Work Experience"",""value"":""Technology Researcher and Designer @ Bosch Brasil (Jan 2023 - Present) - Campinas, Brazil: Applied research, UX methods, data systems, and cross-functional AI/CIP project collaboration.\nWeb Developer @ Bosch Brasil (May 2021 - Nov 2022) - Campinas, Brazil: Front-end engineering in React, Agile/Scrum delivery, data-driven internal tools.\nContinuous Improvement Analyst @ Bosch Brasil (Jan 2020 - Jul 2021) - Sorocaba, Brazil: Process optimization, PDCA, 5S, and organizational development.\nDigitization Support Analyst @ Bosch Magyarország (Jan 2019 - Dec 2019) - Budapest, Hungary: Web systems digitization, SQL Server, IIS, Git, and automated data processing."",""source"":""EXPERIENCE (recent)"",""note"":""""},{""key"":""education"",""label"":""Education"",""value"":""Master's in Technology: Information and Communication Systems | University of Campinas (Unicamp), Limeira, SP, Brazil (Aug 2023 - Dec 2026)\nSystems Analysis and Development | University of Campinas (Unicamp), Limeira, SP, Brazil (2015 - 2020)\nComputer Technician | ETEC Bento Quirino de Campinas, SP, Brazil (2012 - 2014)"",""source"":""EDUCATION"",""note"":""""}]}","Skip to main content
-
-Bosch Career Portal
-Senior AI Research Scientist- Time-Series Foundational Models
-stage
-Bosch Location
-Sunnyvale, CA
-Division
-Corporate
-Work Mode
-Hybrid
-Field of work
-Research & Development
-Join as
-Professional
-Working time
-Full-time
-Apply now
-Recommend Job
-Share a Job
-Senior AI Research Scientist- Time-Series Foundational Models
-JobID REF278973X
-Bosch data privacy statement eRecruiting
-SmartRecruiters data privacy statement
-Your tasks
-Job Responsibilites:
-
-Develop and lead research of AI projects that label, predict, classify, cluster, describe and fuse multi-sensor data (including acoustic, telemetry timeseries signals, vibration, radar, lidar, image, Wi-Fi, and ultrasound data), to improve / enable advance driver assistance system (ADAS) functionality in vehicles and AI functionalities in other Bosch products.
-Architect, design and validate multi-modal deep learning and Timeseries Foundation Models (TSFM) to work with multivariate time series signals. Must have a grasp of both low and high frequency models. 
-Integrate and extend timeseries models to leverage information from other auxiliary modalities such as videos and images to enhance context understanding.
-Offer expert insights to the management team in relevant technology sectors, aiding in strategic planning, R&D trajectory, and investment decisions.
-Stay abreast of the latest technological innovations, document and disseminate research findings through high-caliber publications and/or patent submissions.
-Your profile
-Basic Qualifications
-
-Ph.D. in Computer Science, Electrical Engineering, Information Technology or a related discipline OR Masters degree with 2-3 years of preferred professional experience
-Expertise with Time Series FMs (beyond the time series task of forecasting)
-In-depth experience in signal processing for sensor data and their integration with deep-learning methods
-Proficiency in Python, PyTorch (including libraries such as torchaudio, torchvision, torchmetrics), familiarity with PyTorch Lightning
-A strong publication record in relevant venues such as ICASSP, NeurIPS, InterSpeech, ICML, ICLR, KDD, ICRA, CVPR, ICCV, ECCV or equivalent contributions to the field such as patents or significant open-source projects
-Strong interpersonal, communication, and teamwork capabilities
-Preferred Qualifications
-
-3+ years of experience in industrial research
-Experience with one or more of the following areas: data-centric AI, synthetic data generation, agentic AI
-Proficiency with version control systems (Git), integrated development environment (VSCode or PyCharm) and experience with experiment tracking tools (MLFlow)
-Familiarity with high-performance computing systems and job schedulers (Slurm, LSF)
-Hands-on experience in product development in the above-mentioned areas for consumer/enterprise markets
-Experience leading projects with small teams, demonstrating the ability to mentor junior researchers and interns, manage project timelines, and deliver results within time constraints
-Contact & additional information
-Your well-being matters at Bosch! We offer a competitive compensation and a benefits package designed to empower you in every area of your life. This includes premium health coverage, a 401(k) with generous matching, resources for financial planning and goal setting, ample paid time off, parental leave, and comprehensive life and disability protection. We're investing in your success! 
-
-Equal Opportunity Employer, including disability / veterans 
-
-*Bosch adheres to Federal, State, and Local laws regarding drug-testing. Employment is contingent upon the successful completion of a drug screen and background check. Candidates who have been offered the position must pass both screenings before their start date.
-
-The U.S. base salary range for this full-time position is $165,000 - $ 195,000. Within the range, individual pay is determined based on several factors, including, but not limited to, work experience and job knowledge, complexity of the role, job location, etc. Your Recruiter can share more details about the specific salary range for this position during the interview process. 
-
-#LI-JM1
-
-
-
-Play
-YouTube
-We provide videos via YouTube. For these videos to be shown, you first have to give your consent. If you consent, data will be transferred to YouTube, cookies will be used, and the Google DoubleClick advertising network will be contacted. This may trigger further data processing operations. It cannot be ruled out that data will also be transferred to countries outside the European Economic Area.
-
-Welcome to Sunnyvale
-At Bosch, we care; for you, our business, and our environment.
-
-Let's turn visions into reality. At Bosch, we shape the future by inventing high-quality technologies and services that spark enthusiasm and enrich people's lives. Our areas of activity are every bit as diverse as our outstanding Bosch-teams around the world. Their creativity is the key to innovation through connected living, mobility or industry. Our responsibility goes far beyond 'business'. We're independent of stock markets and bound to the purpose of the Robert Bosch Foundation; our success directly benefits society, the environment, and future generations. Our promise to our associates is rock- solid: we grow together, we enjoy our work, and we inspire each other. Join in and feel the difference. Work #LikeABosch.
-
-Location benefits
-Emergency travel assistance services
-Zero landfill standard
-Associate discounts
-Bosch dining areas
-Business travel accident insurance
-Language class
-Will preparation service
-Employee Assistance Program (EAP)
-Game and music room
-Social and hobby clubs
-Flexible Work
-Parking & pool cars / e-Bikes
-Bosch Sites
-Wellness incentives
-
-
-Play
-YouTube
-We provide videos via YouTube. For these videos to be shown, you first have to give your consent. If you consent, data will be transferred to YouTube, cookies will be used, and the Google DoubleClick advertising network will be contacted. This may trigger further data processing operations. It cannot be ruled out that data will also be transferred to countries outside the European Economic Area.
-
-Welcome to Bosch
-The Bosch Research and Technology Center North America with offices in Sunnyvale, California, Pittsburgh, Pennsylvania, and Cambridge, Massachusetts is a part of the global Bosch Group (www.bosch.com), a company with over 70 billion euro revenue, 400,000 employees worldwide, a very diverse product portfolio, and a history spanning over 125 years. The Research and Technology Center North America (RTC-NA) is dedicated to providing technologies and system solutions for various Bosch business fields, primarily in the field of artificial intelligence, energy technologies, internet technologies, circuit design, semiconductors and wireless, as well as advanced MEMS design.
-
-As a part of the global research, our AI research in Silicon Valley focuses on Foundation Models, Natural Language Processing, Computer Vision & Mixed Reality, Cloud Robotics, Big Data Visual Analytics, Explainable AI (XAI), Data Science, AI System Engineering, Time-series Analysis. We develop scalable, intelligent, and trustworthy AIoT solutions for Bosch products and services in application areas such as automated driving, advanced driver assistance systems (ADAS), robotics, smart manufacturing, enterprise AI, health care, smart home and building solutions.
-
-Originating from the AI research in Silicon Valley, our Foundation Model Powered AI Enablers group plays a pivotal role in shaping the future of industrial AI experiences for Bosch products and services. By fusing cutting-edge machine learning, data analysis, and interactive visualization technologies, we research and develop scalable and transparent AI & big data analytic solutions (e.g., audio, images, sensor logs) for a range of domains, including Industry 4.0 (I4.0), IoT, autonomous driving, and connected vehicles. Our award-winning team (IEEE VIS best paper & best paper runner-ups) actively collaborates with leading academic and industry groups to advance research ideas and disseminate findings in top AI conferences and journals, such as CVPR, ICCV, ICRA, ECCV, NeurIPS, ICLR, SIGGRAPH, TVCG.
-
-Similar Jobs
-Senior Principal Engineer- Autonomous Driving (ADAS) Data Loop & Flywheel
-Field of work
-Research
-Bosch Location
-Sunnyvale, CA
-Job posted:
-09/29/2026
-Senior Research Scientist- Vision-Language-Action (VLA) Models
-Field of work
-Research
-Bosch Location
-Sunnyvale, CA
-Job posted:
-09/29/2026
-AI Research Scientist - Safety
-Field of work
-Research
-Bosch Location
-Sunnyvale, CA
-Job posted:
-09/10/2026
-See all jobs
-Upcoming Career Events
-CES® 2027 Las Vegas
-Jan
-
-06
-
--
-
-Jan
-
-09
-
-Las Vegas
-
-CES® 2027
-Read more
-Do you need technical support?
-Please use our e-mail form at https://www.bosch.us/contact/.
-
-Telephone
-+1(917) 421-7209
- 
-Do you need support during your application?
-Contact us
-Your new job is only a few clicks away
-How to explore open opportunities at Bosch and information about the hiring process.
-
-Smartphone showing Bosch career pages 
-1. Find a job
-
-
-
-
-
-
-woman working with computer 
-2. Apply
-
-
-
-
-
-Man using his smartphone
-3. Application received
-
-
-Man at the job interview
-4. Interview
-
-
-
-
-three persons looking on a tablet
-5. Welcome to Bosch!
-
-
-
-
-Invented for life
-Corporate information
-Legal notice
-Data protection notice
-Accessibility information
-Privacy settings
-© Robert Bosch GmbH 2026, all rights reserved",,,,
 bosch-usa-research-engineer-computational-materials-science-self-driving-materials-discovery,6,,Bosch USA,bosch-usa,Research Engineer - Computational Materials Science & Self-Driving Materials Discovery,other,,,watching,low,Hybrid,"Watertown, MA",company_site,2026-10-04,,,,,,Involves computational pipelines and automated discovery systems.,"Requires background in materials science, computational physics, or chemistry.",Field of work: Research & Development. Focuses on computational materials science and automated self-driving materials discovery pipelines. Posted: 09/03/2026.,,,,1,4,"IT and computational engineering role, but requires domain-specific materials science knowledge not present in profile.",general,,,,,,,,
-bosch-usa-senior-ai-research-scientist-world-model,7,,Bosch USA,bosch-usa,Senior AI Research Scientist- World Model,ds,,,excluded,medium,Hybrid,"Sunnyvale, CA",company_site,2026-10-04,,,,,,"Interest in advanced AI systems, simulation models, and research methodology.",Specialized generative world models and reinforcement learning at a senior research scientist level.,Field of work: Research & Development. Research into world models for AI and autonomous systems. Posted: 05/26/2026.,,,,1,6,"Relevant to AI systems and research methodology, but high bar for deep generative world modeling.",data-scientist,,,,,,,,
 bosch-usa-product-manager-sr-product-manager,1,,Bosch USA,bosch-usa,Product Manager / Sr. Product Manager,po,,,excluded,medium,Hybrid,"Oakbrook Terrace, IL",company_site,2026-10-04,,,,,,"Product strategy, stakeholder discovery, outcome delivery, and technical lifecycle alignment.",Specific HVAC/business domain knowledge depending on division requirements.,"Field of work: Strategy. Location: Oakbrook Terrace, IL (Hybrid). Posted: 09/14/2026.",Extracted from Bosch USA Career Portal strategy listings.,,,1,7,"Aligns well with Product Owner / Product Analyst career track and background in discovery, CIP, and stakeholder alignment, though domain-specific requirements need review.",product-owner,,,,,,,,
 bosch-usa-vrf-product-manager,2,,Bosch USA,bosch-usa,VRF Product Manager,po,,,excluded,low,Hybrid,"Dallas, TX",company_site,2026-10-04,,,,,,Product lifecycle management and roadmap execution.,VRF (Variable Refrigerant Flow) hardware and mechanical HVAC domain expertise.,"Field of work: Strategy. Location: Dallas, TX (Hybrid). Posted: 08/21/2026.",Extracted from Bosch USA Career Portal strategy listings.,,,1,5,"Matches general Product Owner/Manager capabilities, but heavily indexed on physical HVAC/VRF mechanical domain rather than digital/IT products.",product-owner,,,,,,,,
 bosch-usa-senior-director-digital-engineering-it-services-sales-north-america,3,,Bosch USA,bosch-usa,Senior Director - Digital Engineering & IT Services Sales - North America,other,,,excluded,low,On-Site,"Farmington Hills, MI",company_site,2026-10-04,,,,,,Digital engineering and enterprise IT services context.,Executive-level commercial/enterprise sales leadership in North America.,"Field of work: Strategy. Location: Farmington Hills, MI (On-Site). Posted: 07/09/2026.",Extracted from Bosch USA Career Portal strategy listings.,,,1,4,"IT services and digital engineering domain matches high-level technical context, but role is executive sales/commercial leadership beyond mid-level research/architecture target titles.",general,,,,,,,,
@@ -927,12 +462,8 @@ Aviso de privacidadeMarca
 
 compartilhar este emprego",,,,
 bosch-brasil-vaga-afirmativa-para-mulheres-senior-sap-developer-drc-global-e-invoicing-35988,121,,Bosch Brasil,bosch-brasil,VAGA AFIRMATIVA PARA MULHERES - SENIOR SAP DEVELOPER - DRC & GLOBAL E-INVOICING - 35988,other,,,excluded,medium,unknown,"Campinas, Brasil",company_site,2026-09-29,,,,,,,"SAP Development, ABAP, E-Invoicing",SAP Developer focused on DRC & Global E-Invoicing. Affirmative action role exclusive to women.,,,,1,1,"Role is exclusively an affirmative action position for women. Furthermore, the focus on SAP Development does not align with your core stack of React, Python, Data Analytics, and UX Research.",general,,,,,,,,
-atl-01,1,,Atlassian,atlassian-global,Principal Data Scientist,ds,,,excluded,medium,Remote,Bengaluru,company_site,2026-09-27,,,,,,,,,,,,1,6,"Matches background in Python, statistics, and ML evaluation, though Principal level may require more extensive purely quantitative experience.",data-scientist,,,,,,,,
 atl-02,2,,Atlassian,atlassian-global,Senior Data Engineering Manager,other,,,excluded,medium,Remote,Bengaluru,company_site,2026-09-27,,,,,,,,,,,,1,5,"Strong in project management, but data engineering specific leadership might require deeper backend pipeline architecture expertise.",general,,,,,,,,
 atl-03,3,,Atlassian,atlassian-global,Principal Data Engineer,other,,,watching,medium,Remote,Bengaluru,company_site,2026-09-27,,,,,,,,,,,,1,5,Requires heavy backend big data skills which is secondary to the analytics and visualization expertise in the profile.,general,,,,,,,,
-atl-04,4,,Atlassian,atlassian-global,Principal Data Scientist,ds,,,excluded,medium,Remote,Remote,company_site,2026-09-27,,,,,,,,,,,,1,6,"Matches background in Python, statistics, and ML evaluation. Remote position is a plus.",data-scientist,,,,,,,,
-atl-05,5,,Atlassian,atlassian-global,Principal Data Scientist,ds,,,excluded,medium,Remote,San Francisco,company_site,2026-09-27,,,,,,,,,,,,1,6,"Matches background in Python, statistics, and ML evaluation, though based in US timezone.",data-scientist,,,,,,,,
-atl-06,6,,Atlassian,atlassian-global,"Principal Data Scientist, Loom",ds,,,excluded,medium,Remote,San Francisco,company_site,2026-09-27,,,,,,,,,,,,1,7,Focus on product evaluation (Loom) aligns very well with UX and applied research methodologies.,data-scientist,,,,,,,,
 atl-07,7,,Atlassian,atlassian-global,Head of Data Engineering,other,,,watching,medium,Remote,San Francisco,company_site,2026-09-27,,,,,,,,,,,,1,4,"Executive level data engineering is outside the primary focus area of agile, UX, and analytics.",general,,,,,,,,
 atl-08,8,,Atlassian,atlassian-global,"Principal Product Designer, Rovo & AI",other,https://careers-americas.icims.com/jobs/27204/principal-product-designer%2c-rovo-%26-ai/job?mode=submit_apply,,subscribed,medium,Remote,San Francisco,company_site,2026-09-27,,,,,,,,"Atlassian
 Products
@@ -1463,7 +994,6 @@ Terms
 Impressum
 Copyright © 2026 Atlassian",,,,
 atl-20,20,,Atlassian,atlassian-global,"EMEA Field CTO, DX - Engineering Executive Advisor",dsa,,,watching,medium,Remote,London,company_site,2026-09-27,,,,,,,,,,,,1,6,"Executive advisor role might demand more senior field experience, but maps conceptually to Solution Architect.",digital-solution-architect,,,,,,,,
-atl-21,21,,Atlassian,atlassian-global,Senior Machine Learning System Engineer,ds,,,excluded,medium,Remote,Remote,company_site,2026-09-27,,,,,,,,,,,,1,7,"Leverages Python, stats, and agentic AI background, though system-level ML engineering might require deep C++/infrastructure expertise.",data-scientist,,,,,,,,
 atl-22,22,,Atlassian,atlassian-global,"Senior Fullstack Software Engineer, DX",other,,,watching,medium,Remote,San Francisco,company_site,2026-09-27,,,,,,,,,,,,1,8,Perfect match for a 2.7-year React web developer with full-stack background in Python/SQL and Git.,general,,,,,,,,
 atl-23,23,,Atlassian,atlassian-global,Senior Incident Response Analyst,other,,,excluded,medium,Remote,Gdańsk,company_site,2026-09-27,,,,,,,,,,,,1,4,Cybersecurity/Incident Response is not a primary focus in the stated skills matrix.,general,,,,,,,,
 atl-24,24,,Atlassian,atlassian-global,Principal Enterprise Delivery Manager,dsa,,,excluded,medium,Remote,Bengaluru,company_site,2026-09-27,,,,,,,,,,,,1,7,"Delivery management aligns with CI, QA gates, and project management, suited for a Solutions architecture/delivery path.",digital-solution-architect,,,,,,,,
@@ -1471,36 +1001,23 @@ spotify-senior-web-engineer-subscriptions,1,,Spotify,spotify-global,"Senior Web 
 spotify-senior-backend-data-engineer-content,2,,Spotify,spotify-global,"Senior Backend Data Engineer, Content Intelligence",da,,,excluded,medium,unknown,London or Stockholm,company_site,2026-09-27,,,,,,,,,,,,1,6,"Partial match; utilizes SQL and Python pipelines, but profile is more geared towards analysis and UX rather than pure data engineering.",data-analyst,,,,,,,,
 spotify-security-engineer-detection,3,,Spotify,spotify-global,"Security Engineer, Detection and Response",other,,,excluded,medium,unknown,New York,company_site,2026-09-27,,,,,,,,,,,,1,3,"Low match; relies heavily on cybersecurity ops, not present in the current web, AI, and research-focused profile.",general,,,,,,,,
 spotify-principal-product-manager-personalization,4,,Spotify,spotify-global,"Principal Product Manager, Personalization",po,,,excluded,medium,unknown,London or Stockholm,company_site,2026-09-27,,,,,,,,,,,,1,8,"Strong alignment with Product Owner path, leveraging stakeholder alignment, prioritization, UX background, and AI systems knowledge.",product-owner,,,,,,,,
-spotify-recsys-2026-intern,5,,Spotify,spotify-global,RecSys 2026 - Intern,ds,,,excluded,medium,unknown,"London, New York or Stockholm",company_site,2026-09-27,,,,,,,,,,,,1,5,"Matches ML/AI interests, but seniority level (Intern) is too low for current Master's student with existing Pleno/Senior experience.",data-scientist,,,,,,,,
-spotify-colm-2026-intern,6,,Spotify,spotify-global,CoLM 2026 - Intern,ds,,,excluded,medium,unknown,"London, New York or Stockholm",company_site,2026-09-27,,,,,,,,,,,,1,5,"Matches ML/AI interests, but seniority level (Intern) is too low for current Master's student with existing Pleno/Senior experience.",data-scientist,,,,,,,,
-spotify-recsys-2026-full-time,7,,Spotify,spotify-global,RecSys 2026 - Full Time,ds,,,excluded,medium,unknown,"London, New York or Stockholm",company_site,2026-09-27,,,,,,,,,,,,1,8,"Strong match for AI/ML focus utilizing Python, ML eval, and applied research background.",data-scientist,,,,,,,,
-spotify-colm-2026-full-time,8,,Spotify,spotify-global,CoLM 2026 - Full Time,ds,,,excluded,medium,unknown,"London, New York or Stockholm",company_site,2026-09-27,,,,,,,,,,,,1,8,"Strong match for AI/ML focus utilizing Python, ML eval, and applied research background.",data-scientist,,,,,,,,
 spotify-senior-product-manager-user-platform,9,,Spotify,spotify-global,"Senior Product Manager, User Platform",po,,,excluded,medium,unknown,London or Stockholm,company_site,2026-09-27,,,,,,,,,,,,1,8,"Matches target Product Owner title; leverages UX background, web development (React), and stakeholder alignment.",product-owner,,,,,,,,
 spotify-director-portfolio-monetization,10,,Spotify,spotify-global,"Director, Portfolio & Monetization Architecture",dsa,,,excluded,medium,unknown,New York or Stockholm,company_site,2026-09-27,,,,,,,,,,,,1,7,"Matches Digital Solution Architect path, though 'Director' implies high seniority; utilizes tech and cloud knowledge.",digital-solution-architect,,,,,,,,
-spotify-research-scientist-personalization,11,,Spotify,spotify-global,"Research Scientist, Personalization",ds,,,excluded,medium,unknown,London,company_site,2026-09-27,,,,,,,,,,,,1,9,Direct translation of current 'Technology Researcher' title to AI/ML context. Strong fit for Master's academic profile.,data-scientist,,,,,,,,
-spotify-senior-applied-research-scientist-ny,12,,Spotify,spotify-global,"Senior Applied Research Scientist, Personalization",ds,,,excluded,medium,unknown,New York,company_site,2026-09-27,,,,,,,,,,,,1,9,"Excellent match leveraging applied research expertise, continuous improvement mindset, and AI evaluation skills.",data-scientist,,,,,,,,
-spotify-senior-applied-research-scientist-london,13,,Spotify,spotify-global,"Senior Applied Research Scientist, Personalization",ds,,,excluded,medium,unknown,London or Stockholm,company_site,2026-09-27,,,,,,,,,,,,1,9,"Excellent match leveraging applied research expertise, continuous improvement mindset, and AI evaluation skills.",data-scientist,,,,,,,,
 spotify-senior-engineering-manager-it,14,,Spotify,spotify-global,"Senior Engineering Manager, Information Technology",other,,,excluded,medium,unknown,London or Stockholm,company_site,2026-09-27,,,,,,,,,,,,1,6,"Matches project management and AI Scrum Master path, but 'Senior Engineering Manager' leans heavily on traditional people management rather than individual tech/research.",general,,,,,,,,
 spotify-head-product-management-artist,15,,Spotify,spotify-global,"Head of Product Management, Artist Products",po,,,excluded,medium,unknown,New York,company_site,2026-09-27,,,,,,,,,,,,1,7,"Matches the Product line perfectly and utilizes UX mindset, though 'Head of' might be higher seniority than current Pleno/Senior trajectory.",product-owner,,,,,,,,
 spotify-principal-product-manager-audio,16,,Spotify,spotify-global,"Principal Product Manager, Audio and Media Playback",po,,,excluded,medium,unknown,London or Stockholm,company_site,2026-09-27,,,,,,,,,,,,1,8,"Strong alignment with Product Owner path, leveraging stakeholder alignment, prioritization, UX background.",product-owner,,,,,,,,
-spotify-data-scientist-music-promotion,17,,Spotify,spotify-global,"Data Scientist, Music Promotion",ds,,,excluded,medium,unknown,New York,company_site,2026-09-27,,,,,,,,,,,,1,9,"Matches target Data Scientist profile perfectly; aligns well with Python, stats, Power BI, and analytical experience.",data-scientist,,,,,,,,
-spotify-staff-machine-learning-engineer,18,,Spotify,spotify-global,"Staff Machine Learning Engineer, Home Surfaces",ds,,,excluded,medium,unknown,New York,company_site,2026-09-27,,,,,,,,,,,,1,7,"Utilizes AI and ML skills, but 'Staff' level is highly senior software engineering track, which might be a stretch from applied research/PO focus.",data-scientist,,,,,,,,
 spotify-product-manager-data-platform,19,,Spotify,spotify-global,"Product Manager, Data Platform",po,,,excluded,medium,unknown,Toronto,company_site,2026-09-27,,,,,,,,,,,,1,9,A perfect blend of Product Owner targets and Data background (Data Analyst/Python).,product-owner,,,,,,,,
 spotify-director-engineering-content,20,,Spotify,spotify-global,"Director of Engineering, Content Platform (Catalog)",other,,,excluded,medium,unknown,London or Stockholm,company_site,2026-09-27,,,,,,,,,,,,1,5,"Requires high-level software engineering management, whereas current focus is applied research, Agile/PO, and data science.",general,,,,,,,,
 spotify-senior-product-manager-subscriptions,21,,Spotify,spotify-global,"Senior Product Manager, Subscriptions",po,,,excluded,medium,unknown,London or Stockholm,company_site,2026-09-27,,,,,,,,,,,,1,8,Matches target PO titles; excellent leverage of user experience mindset and cross-functional agile leadership.,product-owner,,,,,,,,
 spotify-senior-product-manager-audiobooks,22,,Spotify,spotify-global,"Senior Product Manager, Audiobooks Format Foundations",po,,,excluded,medium,unknown,London or Stockholm,company_site,2026-09-27,,,,,,,,,,,,1,8,"Strong Product alignment, utilizing skills in UX research, stakeholder management, and iterative delivery.",product-owner,,,,,,,,
-spotify-staff-data-scientist-experience,23,,Spotify,spotify-global,"Staff Data Scientist, Experience",ds,,,excluded,medium,unknown,London or Stockholm,company_site,2026-09-27,,,,,,,,,,,,1,8,Combines Data Science target with current 'UX Researcher' background (Experience data). Very compelling overlap.,data-scientist,,,,,,,,
 spotify-c-engineer-experience,24,,Spotify,spotify-global,"C++ Engineer, Experience",other,,,excluded,medium,unknown,London or Stockholm,company_site,2026-09-27,,,,,,,,,,,,1,3,Low match; relies heavily on C++ programming which is outside the core Python/Web/SQL tech stack.,general,,,,,,,,
 spotify-manager-proposition-strategy,25,,Spotify,spotify-global,"Manager, Proposition Strategy",po,,,excluded,medium,unknown,London or New York,company_site,2026-09-27,,,,,,,,,,,,1,6,"Product strategy related, aligned with Product Owner skillsets, though less technical than current background.",product-owner,,,,,,,,
-spotify-data-scientist-planning,26,,Spotify,spotify-global,"Data Scientist, Company Planning & Execution",ds,,,excluded,medium,unknown,London or Stockholm,company_site,2026-09-27,,,,,,,,,,,,1,8,Matches target role; utilizes data skills plus aligns well with the continuous improvement and planning background.,data-scientist,,,,,,,,
 spotify-product-manager-customer-service,27,,Spotify,spotify-global,"Product Manager, Customer Service Platform",po,,,excluded,medium,unknown,London,company_site,2026-09-27,,,,,,,,,,,,1,8,"Excellent match leveraging ServiceNow experience, customer/UX focus, and product ownership.",product-owner,,,,,,,,
 spotify-engineering-manager-experimentation-london,28,,Spotify,spotify-global,"Engineering Manager, Experimentation",other,,,excluded,medium,unknown,London,company_site,2026-09-27,,,,,,,,,,,,1,7,Experimentation aligns strongly with current applied UX/ML research; Engineering Manager leverages Agile Scrum Master expertise.,general,,,,,,,,
 spotify-senior-data-engineer-data-platform,29,,Spotify,spotify-global,"Senior Data Engineer, Data Platform",da,,,excluded,medium,unknown,London,company_site,2026-09-27,,,,,,,,,,,,1,6,"Validates SQL, Python, and Azure skills, though Data Engineer is adjacent to the preferred Data Analyst/Data Scientist paths.",data-analyst,,,,,,,,
 spotify-senior-product-quality-analyst-ai-london,30,,Spotify,spotify-global,"Senior Product Quality Analyst, AI Voice",other,,,excluded,medium,unknown,London,company_site,2026-09-27,,,,,,,,,,,,1,10,Perfect alignment with current 'UX and software-quality researcher' profile working with AI systems.,general,,,,,,,,
 spotify-senior-product-quality-analyst-ai-us,31,,Spotify,spotify-global,"Senior Product Quality Analyst, AI Voice",other,,,excluded,medium,unknown,Los Angeles or New York,company_site,2026-09-27,,,,,,,,,,,,1,10,Perfect alignment with current 'UX and software-quality researcher' profile working with AI systems.,general,,,,,,,,
-spotify-data-scientist-music-mission,32,,Spotify,spotify-global,"Data Scientist, Music Mission",ds,,,excluded,medium,unknown,New York,company_site,2026-09-27,,,,,,,,,,,,1,9,"Directly hits the Data Scientist target title utilizing applied stats, ML, and Python skills.",data-scientist,,,,,,,,
 spotify-senior-software-engineer-enterprise-ai,33,,Spotify,spotify-global,"Senior Software Engineer, Enterprise AI",other,,,excluded,medium,unknown,New York,company_site,2026-09-27,,,,,,,,,,,,1,8,Blends past web development experience with current AI systems and continuous improvement expertise.,general,,,,,,,,
-spotify-research-scientist-generative-audio-london,34,,Spotify,spotify-global,"Research Scientist, Generative Audio",ds,,,excluded,medium,unknown,London or Stockholm,company_site,2026-09-27,,,,,,,,,,,,1,9,Matches 'Technology Researcher' title focusing on Generative AI and ML applications.,data-scientist,,,,,,,,
 spotify-senior-fullstack-engineer,35,,Spotify,spotify-global,Senior Fullstack Engineer,other,,,excluded,medium,unknown,London or Stockholm,company_site,2026-09-27,,,,,,,,,,,,1,8,"Strong fit for previous full-stack background (React, Python, SQL) and understanding of UX.",general,,,,,,,,
 spotify-engineering-manager-experimentation-stockholm,36,,Spotify,spotify-global,"Engineering Manager, Experimentation",other,,,excluded,medium,unknown,Stockholm,company_site,2026-09-27,,,,,,,,,,,,1,7,Experimentation aligns strongly with current applied UX/ML research; Engineering Manager leverages Agile Scrum Master expertise.,general,,,,,,,,
 bosch-brasil-desenvolvedor-fullstack-sr-019,59,,Bosch Brasil,bosch-brasil,DESENVOLVEDOR FULLSTACK SR - 019,other,,,watching,medium,unknown,"Campinas, Brasil",company_site,2026-09-27,,,,,,,,Desenvolvimento Fullstack de aplicações web e integração de sistemas.,,,,1,8,"Strong alignment with previous 2.5 years as a Web Developer at Bosch Brasil, utilizing React, SQL, HTML/CSS, and full-stack capabilities.",general,,,,,,,,
@@ -1873,7 +1390,6 @@ import * as route1 from ""https://job-boards.cdn.greenhouse.io/assets/_url_token
 window.__remixRouteModules = {""root"":route0,""routes/$url_token_.jobs_.$job_post_id"":route1};
 
 import(""https://job-boards.cdn.greenhouse.io/assets/entry.client-0V0STslm.js"");</script></body></html>",,,,
-gitlab-ai-engineer,4,,GitLab,gitlab-global,AI Engineer,ds,,,watching,Medium,Remote,"Remote, Bangalore",company_site,2026-09-24,,,,,,,,Develop and maintain AI capabilities and machine learning integrations for enterprise applications.,,,,1,8,"Excellent match for your Python, SQL, and LLM evaluation capabilities, integrating AI into live systems.",data-scientist,,,,,,,,
 gitlab-solutions-architect-germany,5,,GitLab,gitlab-global,Solutions Architect,dsa,,,watching,Medium,Remote,"Remote, Germany",company_site,2026-09-24,,,,,,,,Provide technical architectural guidance and design cloud-based DevSecOps solutions.,,,,1,8,"Aligns with your Azure/Cloud knowledge, tech digitization background, and stakeholder alignment skills. Bonus: Germany location aligns with your PhD geographic interests.",digital-solution-architect,,,,,,,,
 gitlab-customer-success-architect,6,,GitLab,gitlab-global,Customer Success Architect,dsa,,,watching,Medium,Remote,"Remote, United States",company_site,2026-09-24,,,,,,,,Ensure technical success for customers by providing architectural strategy and proactive technical support.,,,,1,8,"Requires a mix of cloud architecture, CI/CD knowledge, and heavy stakeholder engagement, matching your continuous improvement and tech backgrounds.",digital-solution-architect,,,,,,,,
 gitlab-dir-pm-agentic-delivery,7,,GitLab,gitlab-global,"Director of Product Management, Agentic Software Delivery",po,,,watching,Low,Remote,"Remote, United States",company_site,2026-09-24,,,,,,,,Lead the product management division focused on agentic AI capabilities in software delivery pipelines.,,,,1,7,"High relevance to your 'Agentic AI' skills, but a Director level role likely requires prior formal management experience of PM teams.",product-owner,,,,,,,,

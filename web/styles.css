@@ -369,6 +369,35 @@ body.is-dirty .brand::after {
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--gold) 40%, #000);
 }
 
+.sections-collapse-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--panel) 80%, transparent);
+  color: var(--muted);
+  font: inherit;
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  cursor: pointer;
+}
+.sections-collapse-btn:hover {
+  color: var(--text);
+}
+.sections-collapse-btn.is-active {
+  color: #121212;
+  background: var(--gold);
+  border-color: transparent;
+}
+.sections-collapse-btn .btn-kbd {
+  font-size: 9px;
+  opacity: 0.85;
+}
+
 .company-filter-row {
   display: flex;
   flex-wrap: wrap;
@@ -384,6 +413,34 @@ body.is-dirty .brand::after {
   flex: 0 0 auto;
   text-transform: uppercase;
   letter-spacing: 0.04em;
+}
+
+.path-icon {
+  display: inline-flex;
+  width: 1em;
+  height: 1em;
+  flex: 0 0 auto;
+  vertical-align: -0.125em;
+  margin-right: 0.35em;
+  color: inherit;
+}
+.path-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.filter-chip,
+.download-card-title,
+.prompt-path-check,
+.role-badge {
+  display: inline-flex;
+  align-items: center;
+}
+.filter-chip .path-icon,
+.download-card-title .path-icon,
+.prompt-path-check .path-icon,
+.role-badge .path-icon {
+  margin-right: 0.35em;
 }
 
 .filter-chip {
@@ -769,6 +826,11 @@ body.is-dirty .brand::after {
   border: 1px solid #8d8d8d;
 }
 
+.page-profile .panel:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
 .section-title {
   margin: 0 0 6px;
   font-size: 12px;
@@ -967,6 +1029,24 @@ body:not(.lang-pt):not(.lang-en) .panel-heading-pt {
   margin-top: 1px;
 }
 
+/* Profile: collapse all section containers (accordion) */
+body.sections-collapsed.page-profile main > .section {
+  padding-bottom: 8px;
+}
+body.sections-collapsed.page-profile main > .section > :not(.section-head) {
+  display: none !important;
+}
+body.sections-collapsed.page-profile main > .section .section-head {
+  margin-bottom: 0;
+}
+body.sections-collapsed.page-profile main > .section .section-title {
+  margin-bottom: 0;
+}
+body.sections-collapsed.page-profile main > .section .add-btn {
+  display: none;
+}
+
+/* Profile: collapse field rows inside record panels */
 body.panels-collapsed .panel {
   padding-bottom: 8px;
   min-height: 0;

@@ -3,7 +3,6 @@
     { key: "da", short: "DA", label: "Data Analyst" },
     { key: "po", short: "PO", label: "Product Owner" },
     { key: "dsa", short: "DSA", label: "Digital Solution Architect" },
-    { key: "ds", short: "DS", label: "Data Scientist" },
   ];
 
   const SCOPE_OPTIONS = ["brazil", "international"];
@@ -222,6 +221,10 @@
     btn.type = "button";
     btn.className =
       "filter-chip" + (chip.key === activeKey ? " is-active" : "");
+    if (window.CareerPathIcons && window.CareerPathIcons.resolveKey(chip.key)) {
+      const icon = window.CareerPathIcons.pathIconNode(chip.key);
+      if (icon) btn.append(icon);
+    }
     const en = document.createElement("span");
     en.className = "filter-chip-en";
     en.textContent = chip.en;
@@ -272,7 +275,6 @@
       { key: "da", en: "Data Analyst" },
       { key: "po", en: "Product Owner" },
       { key: "dsa", en: "Digital Solution Architect" },
-      { key: "ds", en: "Data Scientist" },
     ]) {
       pathRow.append(
         makeChip(chip, pathFilter, (key) => {
@@ -314,7 +316,7 @@
       system_kind: "",
       ats_name: "",
       ats_url: "",
-      fit_paths: "da;po;dsa;ds",
+      fit_paths: "da;po;dsa",
     }));
     const comm = communities.map((c) => ({
       card_kind: "community",
@@ -327,7 +329,7 @@
       system_kind: "",
       ats_name: "",
       ats_url: "",
-      fit_paths: "da;po;dsa;ds",
+      fit_paths: "da;po;dsa",
     }));
     return [...watch, ...comm];
   }
@@ -451,7 +453,11 @@
       const on = paths.includes(fit.key);
       const badge = document.createElement("span");
       badge.className = "role-badge" + (on ? " is-on" : " is-off");
-      badge.textContent = fit.short;
+      if (window.CareerPathIcons) {
+        badge.append(window.CareerPathIcons.labelWithIcon(fit.key, fit.short));
+      } else {
+        badge.textContent = fit.short;
+      }
       badge.title = fit.label;
       wrap.append(badge);
     }
@@ -865,7 +871,7 @@
     const pathsInput = document.createElement("input");
     pathsInput.className = "field-input";
     pathsInput.value = cell(row.fit_paths);
-    pathsInput.placeholder = "e.g. da;po;dsa;ds";
+    pathsInput.placeholder = "e.g. da;po;dsa";
     pathsInput.addEventListener("input", () => {
       row.fit_paths = pathsInput.value;
       setDirty(true);
@@ -938,7 +944,7 @@
       system_kind: "proprietary",
       ats_name: "",
       ats_url: "",
-      fit_paths: "da;po;dsa;ds",
+      fit_paths: "da;po;dsa",
       notes: "",
     };
   }
@@ -1226,6 +1232,7 @@
   }
 
   async function init() {
+    window.CardNav?.configureHome(CARD_SEL, FILTER_SEL);
     initKeyboard();
     wireModal();
     window.addEventListener("beforeunload", () => {

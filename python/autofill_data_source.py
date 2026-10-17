@@ -140,7 +140,6 @@ def build_autofill_bundle(
         "product-owner",
         "data-analyst",
         "digital-solution-architect",
-        "data-scientist",
     }:
         variant = "general"
 
