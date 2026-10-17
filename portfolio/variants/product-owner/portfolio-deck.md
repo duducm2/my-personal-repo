@@ -1352,9 +1352,9 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 }
 </style>
 
-## Future – Technical Product Owner
+## Future – Senior Product Owner
 
-I want to become a Technical Product Owner who stays with work from discovery through delivery. The method is discovery, prioritization, and validation with stakeholders. The diagram is how I work: a need, evidence-backed priority, then a shipped outcome people can trust.
+I want to become a Senior Product Owner who stays with work from discovery through delivery. The method is discovery, prioritization, and validation with stakeholders. The diagram is how I work: a need, evidence-backed priority, then a shipped outcome people can trust.
 
 <div class="ai-agile-wrap">
 <p><img src="../../../pictures/diagrams/ai-agile-research-product-owner-en.png" alt="Diagram: need, evidence-backed priority, then a shipped outcome" /></p>
@@ -1396,7 +1396,7 @@ I want to become a Technical Product Owner who stays with work from discovery th
 | Prioritization / intake | ServiceNow Applied Research gate in CIP |
 | Stakeholder enablement | Americas UX Maturity Level 4 (templates, training) |
 | Outcome ownership | CSI 4.86 / NPS 9.94 avg. (2024–2025) |
-| Next | Technical Product Owner: discovery → prioritize → validate |
+| Next | Senior Product Owner: discovery → prioritize → validate |
 
 </div>
 </div>
@@ -1427,7 +1427,7 @@ I want to become a Technical Product Owner who stays with work from discovery th
 ## Future – The path
 
 <div class="career-path-slide">
-<p><img src="../../../pictures/diagrams/future-career-path-product-owner-en.png" alt="Diagram: discovery and delivery today, then Technical Product Owner, then trusted product outcomes" /></p>
+<p><img src="../../../pictures/diagrams/future-career-path-product-owner-en.png" alt="Diagram: discovery and delivery today, then Senior Product Owner, then trusted product outcomes" /></p>
 </div>
 
 <!-- Diagram: future-career-path (mermaid/diagrams.md). Export to future-career-path.png -->

@@ -130,9 +130,9 @@ product-owner,tooling_h2,Tooling project heading,Título projeto tooling,Discove
 general,tooling_bullet,Tooling bullet,Item projeto tooling,"- Tooling project for Power Tools: I stayed with technical delivery and project management from requirements through high-fidelity prototypes, with regular customer check-ins.","- Projeto tooling para Power Tools: acompanhei a entrega técnica e a gestão do projeto de requisitos a protótipos de alta fidelidade, com check-ins regulares com clientes."
 product-owner,tooling_bullet,Tooling bullet,Item projeto tooling,"- Tooling project for Power Tools: I owned the path from requirements through high-fidelity prototypes, with regular customer check-ins baked into delivery.","- Projeto tooling para Power Tools: conduzi o caminho de requisitos a protótipos de alta fidelidade, com check-ins regulares com clientes integrados à entrega."
 general,future_h2,Future slide heading,Título slide Futuro,Future – Senior data analyst,Futuro – Analista de dados sênior
-product-owner,future_h2,Future slide heading,Título slide Futuro,Future – Technical Product Owner,Futuro – Product Owner Técnico
+product-owner,future_h2,Future slide heading,Título slide Futuro,Future – Senior Product Owner,Futuro – Product Owner Sênior
 general,future_intro,Future intro,Introdução slide Futuro,"I want to become a senior data analyst who turns insight into fast decisions. The method is scientific: descriptive, inferential, and visual analysis. The diagram is how I work: a question, that analysis, then a decision people can take quickly.","Quero me tornar analista de dados sênior que transforma insight em decisões rápidas. O método é científico: análise descritiva, inferencial e visual. O diagrama é como trabalho: uma pergunta, essa análise, depois uma decisão que as pessoas conseguem tomar rápido."
-product-owner,future_intro,Future intro,Introdução slide Futuro,"I want to become a Technical Product Owner who stays with work from discovery through delivery. The method is discovery, prioritization, and validation with stakeholders. The diagram is how I work: a need, evidence-backed priority, then a shipped outcome people can trust.","Quero me tornar Product Owner Técnico que acompanha o trabalho da descoberta à entrega. O método é descoberta, priorização e validação com stakeholders. O diagrama é como trabalho: uma necessidade, prioridade com evidência, depois um resultado entregue em que as pessoas confiem."
+product-owner,future_intro,Future intro,Introdução slide Futuro,"I want to become a Senior Product Owner who stays with work from discovery through delivery. The method is discovery, prioritization, and validation with stakeholders. The diagram is how I work: a need, evidence-backed priority, then a shipped outcome people can trust.","Quero me tornar Product Owner Sênior que acompanha o trabalho da descoberta à entrega. O método é descoberta, priorização e validação com stakeholders. O diagrama é como trabalho: uma necessidade, prioridade com evidência, depois um resultado entregue em que as pessoas confiem."
 general,future_diagram_alt,Future diagram alt text,Texto alt diagrama Futuro,"Diagram: question, descriptive inferential and visual analysis, then a fast decision","Diagrama: pergunta, análise descritiva, inferencial e visual, depois uma decisão rápida"
 product-owner,future_diagram_alt,Future diagram alt text,Texto alt diagrama Futuro,"Diagram: need, evidence-backed priority, then a shipped outcome","Diagrama: necessidade, prioridade com evidência, depois um resultado entregue"
 general,future_career_body,Future career body,Corpo slide carreira,"## Future – How I get there
@@ -231,7 +231,7 @@ product-owner,future_career_body,Future career body,Corpo slide carreira,"## Fut
 | Prioritization / intake | ServiceNow Applied Research gate in CIP |
 | Stakeholder enablement | Americas UX Maturity Level 4 (templates, training) |
 | Outcome ownership | CSI 4.86 / NPS 9.94 avg. (2024–2025) |
-| Next | Technical Product Owner: discovery → prioritize → validate |
+| Next | Senior Product Owner: discovery → prioritize → validate |
 
 </div>
 </div>
@@ -262,7 +262,7 @@ product-owner,future_career_body,Future career body,Corpo slide carreira,"## Fut
 ## Future – The path
 
 <div class=""career-path-slide"">
-<p><img src=""{{canonical:asset_prefix}}pictures/diagrams/future-career-path-product-owner-en.png"" alt=""Diagram: discovery and delivery today, then Technical Product Owner, then trusted product outcomes"" /></p>
+<p><img src=""{{canonical:asset_prefix}}pictures/diagrams/future-career-path-product-owner-en.png"" alt=""Diagram: discovery and delivery today, then Senior Product Owner, then trusted product outcomes"" /></p>
 </div>","## Futuro – Como Trabalho
 
 <div class=""future-career-wrap"">
@@ -274,7 +274,7 @@ product-owner,future_career_body,Future career body,Corpo slide carreira,"## Fut
 | Priorização / entrada | Gate de Pesquisa Aplicada no CIP ServiceNow |
 | Habilitação de stakeholders | Nível 4 de Maturidade em UX nas Américas (templates, treinamento) |
 | Ownership de resultados | CSI 4,86 / NPS 9,94 méd. (2024–2025) |
-| Próximo | Product Owner Técnico: descoberta → priorizar → validar |
+| Próximo | Product Owner Sênior: descoberta → priorizar → validar |
 
 </div>
 </div>
@@ -305,7 +305,7 @@ product-owner,future_career_body,Future career body,Corpo slide carreira,"## Fut
 ## Futuro – O caminho
 
 <div class=""career-path-slide"">
-<p><img src=""{{canonical:asset_prefix}}pictures/diagrams/future-career-path-product-owner-pt.png"" alt=""Diagrama: descoberta e entrega hoje, depois Product Owner Técnico, depois resultados de produto confiáveis"" /></p>
+<p><img src=""{{canonical:asset_prefix}}pictures/diagrams/future-career-path-product-owner-pt.png"" alt=""Diagrama: descoberta e entrega hoje, depois Product Owner Sênior, depois resultados de produto confiáveis"" /></p>
 </div>"
 general,future_career_style,Future career CSS,CSS slide carreira,".future-career-wrap {
   display: flex !important; flex-direction: column !important;

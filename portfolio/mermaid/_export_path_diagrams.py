@@ -41,12 +41,12 @@ CAREER = {
     "product-owner": {
         "en": (
             "Now · Discovery, prioritization, and delivery",
-            "Next · Technical Product Owner",
+            "Next · Senior Product Owner",
             "Outcomes · Trusted product results",
         ),
         "pt": (
             "Agora · Descoberta, priorização e entrega",
-            "Próximo · Product Owner Técnico",
+            "Próximo · Product Owner Sênior",
             "Resultados · Resultados de produto confiáveis",
         ),
     },

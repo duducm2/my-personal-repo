@@ -27,7 +27,7 @@ fields:
     | Priorização / entrada | Gate de Pesquisa Aplicada no CIP ServiceNow |
     | Habilitação de stakeholders | Nível 4 de Maturidade em UX nas Américas (templates, treinamento) |
     | Ownership de resultados | CSI 4,86 / NPS 9,94 méd. (2024–2025) |
-    | Próximo | Product Owner Técnico: descoberta → priorizar → validar |
+    | Próximo | Product Owner Sênior: descoberta → priorizar → validar |
     
     </div>
     </div>
@@ -58,7 +58,7 @@ fields:
     ## Futuro – O caminho
     
     <div class="career-path-slide">
-    <p><img src="../../../pictures/diagrams/future-career-path-product-owner-pt.png" alt="Diagrama: descoberta e entrega hoje, depois Product Owner Técnico, depois resultados de produto confiáveis" /></p>
+    <p><img src="../../../pictures/diagrams/future-career-path-product-owner-pt.png" alt="Diagrama: descoberta e entrega hoje, depois Product Owner Sênior, depois resultados de produto confiáveis" /></p>
     </div>
   future_career_style: |
     .future-career-wrap {
@@ -80,8 +80,8 @@ fields:
       overflow-wrap: anywhere; padding: 0.28em 0.5em !important;
     }
   future_diagram_alt: "Diagrama: necessidade, prioridade com evidência, depois um resultado entregue"
-  future_h2: "Futuro – Product Owner Técnico"
-  future_intro: "Quero me tornar Product Owner Técnico que acompanha o trabalho da descoberta à entrega. O método é descoberta, priorização e validação com stakeholders. O diagrama é como trabalho: uma necessidade, prioridade com evidência, depois um resultado entregue em que as pessoas confiem."
+  future_h2: "Futuro – Product Owner Sênior"
+  future_intro: "Quero me tornar Product Owner Sênior que acompanha o trabalho da descoberta à entrega. O método é descoberta, priorização e validação com stakeholders. O diagrama é como trabalho: uma necessidade, prioridade com evidência, depois um resultado entregue em que as pessoas confiem."
   future_method_diagram: "ai-agile-research-product-owner"
   h_academic_research: "Presente – Pesquisa aplicada acadêmica (confiança em IA e UI)"
   h_cip_artifacts: "Presente – Integração CIP e Pesquisa Aplicada: Artefatos"

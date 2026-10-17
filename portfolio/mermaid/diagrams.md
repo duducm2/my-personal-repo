@@ -18,7 +18,7 @@ Open this file in an editor or viewer that supports Mermaid (e.g. VS Code with M
 | `ai-agile-research`                             | Question, analysis, fast decision      | 11            |
 | `experience-timeline`                           | Experience timeline                    | 12            |
 | `future-career-path`                            | Senior data analyst (general / DA)     | 13            |
-| `future-career-path-product-owner`              | Technical Product Owner                | 13            |
+| `future-career-path-product-owner`              | Senior Product Owner                   | 13            |
 | `future-career-path-digital-solution-architect` | Mid-Level DSA                          | 13            |
 | `future-career-path-data-scientist`             | Data Scientist (Pleno)                 | 13            |
 
@@ -284,7 +284,7 @@ flowchart TB
 
 ---
 
-## 11a. [future-career-path-product-owner] Technical Product Owner (Slide 13)
+## 11a. [future-career-path-product-owner] Senior Product Owner (Slide 13)
 
 English export: `future-career-path-product-owner-en.png`.
 
@@ -292,7 +292,7 @@ English export: `future-career-path-product-owner-en.png`.
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato', 'fontSize': '36px'}, 'flowchart': {'padding': 28, 'rankSpacing': 56, 'wrappingWidth': 900}}}%%
 flowchart TB
   Now["Now · Discovery, prioritization, and delivery"]
-  Next["Next · Technical Product Owner"]
+  Next["Next · Senior Product Owner"]
   Seniors["Outcomes · Trusted product results"]
   Now --> Next --> Seniors
 ```
@@ -303,7 +303,7 @@ Portuguese export: `future-career-path-product-owner-pt.png`.
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2c3e50', 'primaryTextColor': '#fff', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#2c3e50', 'fontFamily': 'Lato', 'fontSize': '36px'}, 'flowchart': {'padding': 28, 'rankSpacing': 56, 'wrappingWidth': 900}}}%%
 flowchart TB
   Now["Agora · Descoberta, priorização e entrega"]
-  Next["Próximo · Product Owner Técnico"]
+  Next["Próximo · Product Owner Sênior"]
   Seniors["Resultados · Resultados de produto confiáveis"]
   Now --> Next --> Seniors
 ```

@@ -1,49 +1,137 @@
 # GENERATED — portfolio content layer
 variant: product-owner
+lang: en
 fields:
   asset_prefix: "../../../"
   cip_pipeline_h2: "Present – CIP Intake Gate: Methodology Pipeline"
-  closing_summary: "I connect discovery to delivery: clarifying needs, aligning stakeholders, prioritizing with evidence, and validating outcomes — creating trustworthy, user-centered products with measurable impact."
+  closing_summary: "I stay with work from discovery through delivery—clarifying needs, aligning people, prioritizing with evidence, and checking whether the outcome held up."
   csi_h2: "Present – Outcome Evidence: CSI & NPS (2024–2025)"
   deck_title: "Eduardo Figueiredo – Portfolio"
+  dissertation_pbi_bullets: |
+    - Topic: can AI agents triage perceived-trust scores on e-commerce UIs the way humans do? ITQM/MQCI + TrustMate; agents vs 127 IT students on three sites.
+    - Finding: AI agents don't replace human evaluation; they are a promising automated triage for interface quality (directional alignment on top/bottom attributes; stricter bias on most leaf scores).
+    - Normality first: Shapiro-Wilk on attribute score distributions before choosing inferential tests.
+    - Python → Power BI: Offline scripts compute Welch (Human–AI), paired t-tests (Human–Human), and independent t-tests (AI–AI) with Cohen's d and Benjamini-Hochberg FDR; results imported into Power BI for reporting.
+    - Descriptive + visual: DAX measures for mean, SD, variance, standard error, and CI bounds; 50+ chart structures (boxplots, forest plots, small multiples) aligned with InfoVis coursework.
+  dissertation_pbi_intro: "My Master's dissertation looks at perceived trust on e-commerce interfaces: can AI agents score what humans feel? Using ITQM/MQCI (ISO/IEC 25000) and the TrustMate tool I built, I compared ChatGPT o3 agents with 127 IT students on the same three sites. The research stays close to discovery and validation—whether automated triage is good enough before human judgment. Short answer from the study: triage yes, full replacement no."
   email: "edu.evangelista.figueiredo@gmail.com"
   future_career_body: |
     ## Future – How I Work
     
-    - **What I bring:** discovery → prototypes → stakeholder check-ins; intake/quality gates; outcome metrics (CSI/NPS).
-    
     <div class="future-career-wrap">
     <div class="future-po-bullets">
     
-    | Competency              | Evidence from my work                                     |
-    | ----------------------- | --------------------------------------------------------- |
-    | Discovery & validation  | Tooling PT requirements → prototypes → customer check-ins |
-    | Prioritization / intake | ServiceNow Applied Research gate in CIP                   |
-    | Stakeholder enablement  | Americas Research Maturity Level 4 (templates, training)  |
-    | Outcome ownership       | CSI 4.86 / NPS 9.94 avg. (2024–2025)                      |
+    | Competency | Evidence from my work |
+    | ---------- | --------------------- |
+    | Discovery & validation | Tooling PT requirements → prototypes → customer check-ins |
+    | Prioritization / intake | ServiceNow Applied Research gate in CIP |
+    | Stakeholder enablement | Americas UX Maturity Level 4 (templates, training) |
+    | Outcome ownership | CSI 4.86 / NPS 9.94 avg. (2024–2025) |
+    | Next | Senior Product Owner: discovery → prioritize → validate |
     
     </div>
-    <p><img src="../../../pictures/diagrams/future-career-path.png" alt="Diagram future-career-path: Prioritized career paths" /></p>
+    </div>
+    
+    ---
+    
+    <style scoped>
+    .career-path-slide {
+      display: flex !important;
+      justify-content: center !important;
+      align-items: flex-start !important;
+      width: 100% !important;
+      margin-top: 0.35rem !important;
+    }
+    .career-path-slide p { margin: 0 !important; text-align: center !important; width: 100% !important; }
+    .career-path-slide img {
+      width: 78% !important;
+      max-width: 78% !important;
+      height: auto !important;
+      max-height: 76vh !important;
+      display: block !important;
+      margin: 0 auto !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    </style>
+    
+    ## Future – The path
+    
+    <div class="career-path-slide">
+    <p><img src="../../../pictures/diagrams/future-career-path-product-owner-en.png" alt="Diagram: discovery and delivery today, then Senior Product Owner, then trusted product outcomes" /></p>
     </div>
   future_career_style: |
     .future-career-wrap {
       display: flex !important; flex-direction: column !important;
-      justify-content: center !important; align-items: center !important;
-      min-height: 55vh !important; width: 100% !important; margin-top: 0.75rem !important;
-      gap: 1rem !important;
+      justify-content: flex-start !important; align-items: stretch !important;
+      width: 100% !important; margin-top: 0.35rem !important;
+      gap: 0.4rem !important;
     }
-    .future-career-wrap p { margin: 0 !important; text-align: center !important; }
-    .future-career-wrap img {
-      width: 38% !important; max-width: 38% !important; height: auto !important;
-      display: block !important; margin: 10px auto 0 !important;
-      border: none !important; box-shadow: none !important;
-    }
+    .future-career-wrap p { margin: 0 !important; text-align: left !important; }
     .future-po-bullets {
-      max-width: 85% !important; text-align: left !important; font-size: 0.95em !important;
+      width: 100% !important; max-width: 100% !important; text-align: left !important; font-size: 0.85em !important;
     }
-  future_diagram_alt: "Diagram ai-agile-research: AI and Agile in Applied Research"
-  future_h2: "Future – Agile Delivery Context"
-  future_intro: "**Discovery, prioritization, and delivery** meet in how I work with teams today. The diagram below is the agile/research operating context I work in."
+    .future-po-bullets table {
+      width: 100% !important; table-layout: fixed !important; margin-top: 0.35rem !important;
+    }
+    .future-po-bullets th:first-child,
+    .future-po-bullets td:first-child { width: 22% !important; }
+    .future-po-bullets td, .future-po-bullets th {
+      overflow-wrap: anywhere; padding: 0.28em 0.5em !important;
+    }
+  future_diagram_alt: "Diagram: need, evidence-backed priority, then a shipped outcome"
+  future_h2: "Future – Senior Product Owner"
+  future_intro: "I want to become a Senior Product Owner who stays with work from discovery through delivery. The method is discovery, prioritization, and validation with stakeholders. The diagram is how I work: a need, evidence-backed priority, then a shipped outcome people can trust."
+  future_method_diagram: "ai-agile-research-product-owner"
+  h_academic_research: "Present – Academic Applied Research (Trust in AI & UI)"
+  h_cip_artifacts: "Present – CIP and Applied Research Integration: Applied Research Artifacts"
+  h_closing: "Closing & Contact"
+  h_closing_connect: "Let's connect"
+  h_closing_request: "Resume and this deck available on request."
+  h_diss_tech: "Technical Implementation – Dissertation (<span class=\"agentic-ai-emphasis\">Agentic AI</span> & Full Stack)"
+  h_diss_tech_bullet: "- **Architecture:** Database design supporting projects, experiments, attributes, scores, and <span class=\"agentic-ai-emphasis\">Agentic AI</span> runs."
+  h_dissertation_pbi: "Data Visualization – Dissertation Power BI"
+  h_infovis_diagram_alt: "InfoVis PNAD visual structures"
+  h_interests: "Personal Interests that Power My Work"
+  h_interests_bullet: "- **At home:** Two cats, learning piano, and a split keyboard I use for macros and productivity."
+  h_interests_col: "Interest"
+  h_interests_rows: |
+    <tr><td>Piano</td></tr>
+    <tr><td>Linguistics (phonology & phonetics)</td></tr>
+    <tr><td>Physics (GR & Quantum)</td></tr>
+    <tr><td>Acting</td></tr>
+    <tr><td>Impressionist art</td></tr>
+    <tr><td>Macro creation</td></tr>
+    <tr><td>Specialized keyboards</td></tr>
+  h_past_academic: "Past – Academic Foundations & Professional Profile"
+  h_past_experience: "Past – Experience Timeline (Condensed)"
+  h_past_feeling: "I feel proactive, self-reliant and organized."
+  h_past_grade: "Grade 'A' in all Master's coursework"
+  h_past_grade_note: "English proficiency test verification."
+  h_past_trajectory: "**Trajectory across Bosch locations:** Campinas, Hungary, Sorocaba, and Campinas."
+  h_pbi_work: "Data Visualization – Power BI Dashboards at Work"
+  h_pbi_work_bullet: "- **Bosch Applied Research Americas (GS):** Built Power BI dashboards for project and resource oversight and training tracking, so the team can see the numbers and make better calls."
+  h_proposal: "Technical Implementation – Proposal Generator (Excel VBA)"
+  h_publications: "Present – Scientific Publications"
+  h_publications_intro: "Published work in <strong>ISSRE 2025 (HFSD Workshop)</strong> and <strong>IHC 2025 (SBC SOL)</strong>; <span class=\"thesis-emphasis\">master's dissertation on software trustworthiness and Agentic AI</span>."
+  h_tech_impl: "Technical Implementation"
+  h_who: "Who I Am – Snapshot"
+  h_who_attr: "Attribute"
+  h_who_contact: "Contact"
+  h_who_impact: "Impact"
+  h_who_name: "Name"
+  h_who_role: "Role"
+  h_who_value: "Value"
+  infovis_phrasenet_bullets: |
+    - Course topics → analyst skills: Views & interaction (filtering, detail-on-demand); graphs & trees (network layout); text visualization (co-occurrence, patterns/outliers)—how to encode data and enable exploration.
+    - PhraseNets project: Web network viz for word relationships—structure that bar/line charts cannot show.
+    - Payoff for data work: Mapping variables to marks, choosing the right structure for the question—not just charts, but effective visual communication.
+  infovis_phrasenet_h2: "InfoVis – Text & Graph Visualization (PhraseNets)"
+  infovis_pnad_bullets: |
+    - MSc Information Visualization (Unicamp, Grade A): Card et al. pipeline—raw data → tables → visual structures; visual mapping (expressiveness & effectiveness); multivariate techniques (composition, small multiples, dimension handling).
+    - PNAD Contínua (Power BI): Sankey, choropleth, and faceted encodings for education–employment trajectories and socioeconomic patterns—the same structural choices behind executive dashboards.
+  infovis_pnad_h2: "Data Visualization – MSc InfoVis: PNAD Contínua (Power BI)"
+  lang: "en"
   lattes_url: "https://lattes.cnpq.br/2708641049892967"
   linkedin_display: "linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b"
   linkedin_url: "https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b"
@@ -53,23 +141,38 @@ fields:
   present_table: |
     | Area                               | Achievement                                                                                                                       |
     | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-    | Role (official)                    | Applied Research & Design Analyst – Bosch Brasil (May 2023 – present); Applied Research Expert & Project Champion at GS/BDU       |
+    | Role (official)                    | Applied Research & Design Analyst – Bosch Brasil (January 2023 – present); Applied Research Expert & Project Champion at GS/BDU       |
     | International                      | Two trips to Germany (2024, 2025) for role-related work                                                                           |
     | CO2 Tracking (GS/Applied Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand — a discovery outcome that stopped low-value work            |
-    | Tooling project (PT)               | Requirements → high-fidelity prototypes → regular **customer check-ins**; discovery-to-delivery ownership with technical partners |
-    | Applied Research Maturity          | Americas Level 4 – governance, templates, training that **productized** research practice for stakeholders                        |
-    | CIP + Applied Research             | ServiceNow CIM integration; Applied Research as an **intake / quality gate** so the right work advances                           |
-    | Collaboration                      | Tutor of Digital Talent Academy Students                                                                                          |
+    | Tooling project (PT)               | Requirements → high-fidelity prototypes → regular customer check-ins; discovery-to-delivery ownership with technical partners |
+    | UX Maturity          | Americas Level 4 – governance, templates, training that productized UX practice for stakeholders                        |
+    
+    ---
+    
+    <!-- _class: dense-content -->
+    
+    <style scoped>
+    table { font-size: 0.78em !important; line-height: 1.25 !important; width: 100% !important; table-layout: fixed !important; }
+    th:first-child, td:first-child { width: 28% !important; }
+    td, th { overflow-wrap: anywhere; padding: 0.22em 0.45em !important; }
+    </style>
+    
+    ## Present – Product-Shaped Work at Bosch Brasil (continued)
+    
+    | Area                               | Achievement                                                                                                                       |
+    | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+    | CIP CIM (Global Services)          | With UX team, improved strategic CIP dashboards so GS president could quickly identify main issues and efficiency/efficacy gains; automated UX relevance intake / quality gate in ServiceNow                           |
+    | Collaboration                      | Tutor of Digital Talent Academy Students; AI tools training for 100+ people (4.88/5 satisfaction)                                                                                          |
   relevance_h2: "Present – Prioritization Model (Low / Medium / High relevance)"
-  tooling_bullet: "- **Tooling project for PT:** Owned the path from **requirements** through **high-fidelity prototypes**, with **regular customer check-ins** — stakeholder validation baked into delivery."
+  tooling_bullet: "- Tooling project for Power Tools: I owned the path from requirements through high-fidelity prototypes, with regular customer check-ins baked into delivery."
   tooling_h2: "Discovery → Delivery – Tooling Project for PT"
   who_contact: "Nova Odessa, SP – Brazil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583"
-  who_impact: "I help teams prioritize and ship with clarity: Applied Research to decide, stakeholder alignment to commit, and measurable outcomes to prove value."
+  who_impact: "I help teams decide what to build next and get it shipped—research for the call, alignment for the commit, metrics afterward."
   who_name: "Eduardo M. de A. Figueiredo"
   who_role: "Discovery, Delivery & Stakeholder Outcomes"
   why_bullets: |
-    - I believe products in service organizations should be **trustworthy, usable, and useful**, especially when they affect real people and businesses.
-    - My work connects **stakeholder needs**, **prioritization**, and **Applied Research**: bringing evidence into what we build, why, and in what order.
-    - This portfolio shows that discovery → delivery path through real projects.
+    - I think products in service organizations have to be reliable and usable—especially when they affect real people and businesses.
+    - My work connects stakeholder needs, prioritization, and applied research: evidence shaping what we build, why, and in what order.
+    - This portfolio walks that discovery-to-delivery path through real projects.
   why_h1: "Why Discovery and Delivery Matter"
-  why_h2: "Discovery to delivery for trustworthy, human-centered products"
+  why_h2: "Products people can rely on in complex service work"

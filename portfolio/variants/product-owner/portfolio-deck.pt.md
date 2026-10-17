@@ -1352,9 +1352,9 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 }
 </style>
 
-## Futuro – Product Owner Técnico
+## Futuro – Product Owner Sênior
 
-Quero me tornar Product Owner Técnico que acompanha o trabalho da descoberta à entrega. O método é descoberta, priorização e validação com stakeholders. O diagrama é como trabalho: uma necessidade, prioridade com evidência, depois um resultado entregue em que as pessoas confiem.
+Quero me tornar Product Owner Sênior que acompanha o trabalho da descoberta à entrega. O método é descoberta, priorização e validação com stakeholders. O diagrama é como trabalho: uma necessidade, prioridade com evidência, depois um resultado entregue em que as pessoas confiem.
 
 <div class="ai-agile-wrap">
 <p><img src="../../../pictures/diagrams/ai-agile-research-product-owner-pt.png" alt="Diagrama: necessidade, prioridade com evidência, depois um resultado entregue" /></p>
@@ -1396,7 +1396,7 @@ Quero me tornar Product Owner Técnico que acompanha o trabalho da descoberta à
 | Priorização / entrada | Gate de Pesquisa Aplicada no CIP ServiceNow |
 | Habilitação de stakeholders | Nível 4 de Maturidade em UX nas Américas (templates, treinamento) |
 | Ownership de resultados | CSI 4,86 / NPS 9,94 méd. (2024–2025) |
-| Próximo | Product Owner Técnico: descoberta → priorizar → validar |
+| Próximo | Product Owner Sênior: descoberta → priorizar → validar |
 
 </div>
 </div>
@@ -1427,7 +1427,7 @@ Quero me tornar Product Owner Técnico que acompanha o trabalho da descoberta à
 ## Futuro – O caminho
 
 <div class="career-path-slide">
-<p><img src="../../../pictures/diagrams/future-career-path-product-owner-pt.png" alt="Diagrama: descoberta e entrega hoje, depois Product Owner Técnico, depois resultados de produto confiáveis" /></p>
+<p><img src="../../../pictures/diagrams/future-career-path-product-owner-pt.png" alt="Diagrama: descoberta e entrega hoje, depois Product Owner Sênior, depois resultados de produto confiáveis" /></p>
 </div>
 
 <!-- Diagram: future-career-path (mermaid/diagrams.md). Export to future-career-path.png -->
