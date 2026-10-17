@@ -1086,8 +1086,8 @@
     btn.dataset.id = row.id;
     btn.dataset.url = portalUrl;
     btn.title = portalUrl
-      ? "Click to edit · Ctrl/Cmd+click or Ctrl+Enter to open careers"
-      : "Click to edit";
+      ? "Click to edit · Alt+R to generate openings · Ctrl/Cmd+click or Ctrl+Enter to open careers"
+      : "Click to edit · Alt+R to generate openings";
     btn.addEventListener("click", (event) => {
       if (event.ctrlKey || event.metaKey) {
         event.preventDefault();
@@ -1871,28 +1871,26 @@
       }
 
       if (event.altKey && !mod && !event.shiftKey) {
-        // Same openings shortcuts as the job board, scoped to this dossier
-        if (modalOpen && openCompanyId) {
-          if (event.code === "KeyR") {
+        // Same openings shortcuts as the job board: focused card or open dossier
+        if (event.code === "KeyR" || event.code === "KeyI") {
+          const row = pinTargetCompany();
+          if (!row) {
             event.preventDefault();
             event.stopPropagation();
-            const params = new URLSearchParams({
-              action: "prompt",
-              company: openCompanyId,
-            });
-            location.assign(`/jobs.html?${params}`);
+            setSaveStatus(
+              "Focus a company card (or open its dossier) first",
+              "err",
+            );
             return;
           }
-          if (event.code === "KeyI") {
-            event.preventDefault();
-            event.stopPropagation();
-            const params = new URLSearchParams({
-              action: "import",
-              company: openCompanyId,
-            });
-            location.assign(`/jobs.html?${params}`);
-            return;
-          }
+          event.preventDefault();
+          event.stopPropagation();
+          const params = new URLSearchParams({
+            action: event.code === "KeyR" ? "prompt" : "import",
+            company: row.id,
+          });
+          location.assign(`/jobs.html?${params}`);
+          return;
         }
         const isS =
           event.code === "KeyS" || (event.key || "").toLowerCase() === "s";
