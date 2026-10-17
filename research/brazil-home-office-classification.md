@@ -69,3 +69,10 @@ US / China / global-remote enterprise rows left empty until a later pass (`seed_
 3. Home office → **Accepts remote / HO**.
 
 Use **Remote / HO** alone when you want `yes` only (Boticário, Leega, Kryptus).
+
+## Nova Odessa corridor (Oct 2026 add)
+
+West RMC employers (Goodyear, Romi, Denso, KSPG, Suzano Americana, …) were seeded via
+`scripts/seed_nova_odessa_corridor_companies.py`. See
+[`research/nova-odessa-corridor-companies.md`](nova-odessa-corridor-companies.md).
+Most plants are `home_office=no`; Romi / Suzano / Cargill are `hybrid`.
