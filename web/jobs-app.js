@@ -272,6 +272,25 @@
     return null;
   }
 
+  /** Open dossier, focused card, or single bulk selection — for dossier-style shortcuts. */
+  function activeOpening() {
+    return selectedOpening();
+  }
+
+  function activeOpeningId() {
+    return cell(activeOpening()?.id);
+  }
+
+  function requireActiveOpening(actionLabel) {
+    const row = activeOpening();
+    if (row) return row;
+    showToast(
+      `Focus a job card (or open its dossier) first to ${actionLabel}`,
+      2500,
+    );
+    return null;
+  }
+
   function companyPortalUrl(company) {
     if (!company) return "";
     return (
@@ -780,10 +799,10 @@
     btn.dataset.url = cell(row.job_url);
     if (cell(row.job_url)) {
       btn.title =
-        "Click to edit · Right-click to set status · Alt+M to pin in this status · Shift+C to open the company portal · Ctrl/Cmd+Enter to open job URL · Ctrl/Cmd+click for bulk";
+        "Click to edit · Right-click status · Alt+M pin · Alt+F/A form · Alt+C/L cover · Shift+C company portal · Ctrl/Cmd+Enter job URL · Ctrl/Cmd+click bulk";
     } else {
       btn.title =
-        "Click to edit · Right-click to set status · Alt+M to pin in this status · Shift+C to open the company portal · Ctrl/Cmd+click for bulk select";
+        "Click to edit · Right-click status · Alt+M pin · Alt+F/A form · Alt+C/L cover · Shift+C company portal · Ctrl/Cmd+click bulk";
     }
     btn.addEventListener("click", (e) => {
       const mod = e.ctrlKey || e.metaKey;
@@ -2525,8 +2544,8 @@
   function fillFormPromptOpeningSelect() {
     const sel = document.getElementById("form-prompt-opening");
     if (!sel) return;
-    // Prefer the open dossier so path/raw always match the modal opening
-    const prev = cell(openJobId) || cell(sel.value);
+    // Prefer open dossier or focused card so path/raw match the target opening
+    const prev = activeOpeningId() || cell(sel.value);
     sel.replaceChildren();
     const rows = openings.slice().sort((a, b) => {
       const ca = cell(a.company).localeCompare(cell(b.company));
@@ -2908,13 +2927,13 @@
       openingId = cell(document.getElementById("form-prompt-opening")?.value);
     }
     let row = openings.find((r) => cell(r.id) === openingId) || null;
-    if (!row && openJobId) {
-      row = openings.find((r) => cell(r.id) === openJobId) || null;
-      openingId = openJobId;
+    if (!row && activeOpeningId()) {
+      row = activeOpening();
+      openingId = activeOpeningId();
     }
     if (!row) {
       throw new Error(
-        "No matching opening for opening_id — open a dossier or set opening_id.",
+        "No matching opening for opening_id — focus a card, open a dossier, or set opening_id.",
       );
     }
     const resume = cell(payload.recommended_resume);
@@ -3188,8 +3207,8 @@
   function fillCoverPromptOpeningSelect() {
     const sel = document.getElementById("cover-prompt-opening");
     if (!sel) return;
-    // Prefer the open dossier so cover letter always matches this opening
-    const prev = cell(openJobId) || cell(sel.value);
+    // Prefer open dossier or focused card so cover letter matches the target opening
+    const prev = activeOpeningId() || cell(sel.value);
     sel.replaceChildren();
     const rows = openings.slice().sort((a, b) => {
       const ca = (cell(a.company) || cell(a.company_key)).toLowerCase();
@@ -3540,14 +3559,15 @@
     const rawEl = document.getElementById("cover-import-raw");
     try {
       const payload = parseCoverImportPayload(cell(rawEl?.value));
-      let openingId = payload.opening_id || openJobId;
+      let openingId = payload.opening_id || activeOpeningId();
       let row = openings.find((r) => cell(r.id) === openingId) || null;
-      if (!row && openJobId) {
-        row = openings.find((r) => cell(r.id) === openJobId) || null;
+      if (!row && activeOpeningId()) {
+        row = activeOpening();
+        openingId = activeOpeningId();
       }
       if (!row) {
         throw new Error(
-          "No matching opening for opening_id — open a dossier or set opening_id.",
+          "No matching opening for opening_id — focus a card, open a dossier, or set opening_id.",
         );
       }
       row.cover_letter = payload.body;
@@ -3601,10 +3621,7 @@
   }
 
   function openCoverPromptModal() {
-    if (!openJobId) {
-      showToast("Open a job opening first to generate a cover letter", 2500);
-      return;
-    }
+    if (!requireActiveOpening("generate a cover letter")) return;
     fillCoverPromptOpeningSelect();
     const dialog = document.getElementById("cover-prompt-modal");
     const status = document.getElementById("cover-prompt-status");
@@ -3623,10 +3640,7 @@
   }
 
   function openCoverImportModal() {
-    if (!openJobId) {
-      showToast("Open a job opening first to import a cover letter", 2500);
-      return;
-    }
+    if (!requireActiveOpening("import a cover letter")) return;
     const dialog = document.getElementById("cover-import-modal");
     const status = document.getElementById("cover-import-status");
     const rawEl = document.getElementById("cover-import-raw");
@@ -3747,14 +3761,11 @@
   }
 
   function openFormPromptModal() {
-    if (!openJobId) {
-      showToast("Open a job opening first to generate a form prompt", 2500);
-      return;
-    }
+    if (!requireActiveOpening("generate a form prompt")) return;
     fillFormPromptOpeningSelect();
     const openingId =
       cell(document.getElementById("form-prompt-opening")?.value) ||
-      cell(openJobId);
+      activeOpeningId();
     const row = openings.find((r) => cell(r.id) === openingId);
     if (clearOpeningFormAnswers(row, { refresh: true })) {
       showToast("Cleared previous form answers for a fresh prompt", 2200);
@@ -3778,10 +3789,7 @@
   }
 
   function openFormImportModal() {
-    if (!openJobId) {
-      showToast("Open a job opening first to import form answers", 2500);
-      return;
-    }
+    if (!requireActiveOpening("import form answers")) return;
     const dialog = document.getElementById("form-import-modal");
     const status = document.getElementById("form-import-status");
     const rawEl = document.getElementById("form-import-raw");
@@ -3792,7 +3800,7 @@
     }
     if (formUrlEl) {
       const row =
-        openings.find((r) => cell(r.id) === openJobId) ||
+        activeOpening() ||
         openings.find(
           (r) =>
             cell(r.id) ===
@@ -4624,22 +4632,26 @@
         }
       }
 
-      // Delete open dossier — Alt+Delete (works while typing in modal)
+      // Delete open dossier or focused card — Alt+Delete
       if (
-        modalOpen &&
         event.altKey &&
         !mod &&
         !event.shiftKey &&
         (event.key === "Delete" || event.code === "Delete")
       ) {
-        event.preventDefault();
-        deleteOpening(openJobId);
-        return;
+        const row = activeOpening();
+        if (row && (modalOpen || (!typing && focusedJobCard()))) {
+          event.preventDefault();
+          deleteOpening(row.id);
+          return;
+        }
       }
 
       // Openings page actions — Alt+letter (Shift reserved for global nav)
       if (event.altKey && !mod && !event.shiftKey) {
         const code = event.code;
+        const targetOpening = activeOpening();
+        const hasCardOrDossier = !!(modalOpen || focusedJobCard());
         const isM =
           event.code === "KeyM" || (event.key || "").toLowerCase() === "m";
         if (isM) {
@@ -4657,13 +4669,12 @@
           return;
         }
 
-        // Generate prompt — Alt+R, including from an open opening and while typing
+        // Generate prompt — Alt+R (board, open dossier, or focused card's company)
         if (code === "KeyR") {
           event.preventDefault();
           event.stopPropagation();
-          const row = modalOpen ? currentOpenRow() : null;
           openPromptModal({
-            companyId: cell(row?.company_key),
+            companyId: cell(targetOpening?.company_key),
             selectAllPaths: true,
           });
           return;
@@ -4677,32 +4688,28 @@
           return;
         }
 
-        // Generate form prompt — Alt+F (job opening modal only)
-        if (modalOpen && code === "KeyF") {
+        // Form / cover actions: open dossier OR focused card (same as dossier)
+        // Allow while typing only inside an open dossier (modal fields).
+        const dossierShortcutOk = hasCardOrDossier && (modalOpen || !typing);
+        if (dossierShortcutOk && code === "KeyF") {
           event.preventDefault();
           event.stopPropagation();
           openFormPromptModal();
           return;
         }
-
-        // Import form result — Alt+A (job opening modal only, including while typing)
-        if (modalOpen && code === "KeyA") {
+        if (dossierShortcutOk && code === "KeyA") {
           event.preventDefault();
           event.stopPropagation();
           openFormImportModal();
           return;
         }
-
-        // Generate cover letter prompt — Alt+C (job opening modal only)
-        if (modalOpen && code === "KeyC") {
+        if (dossierShortcutOk && code === "KeyC") {
           event.preventDefault();
           event.stopPropagation();
           openCoverPromptModal();
           return;
         }
-
-        // Import cover letter — Alt+L (job opening modal only)
-        if (modalOpen && code === "KeyL") {
+        if (dossierShortcutOk && code === "KeyL") {
           event.preventDefault();
           event.stopPropagation();
           openCoverImportModal();
