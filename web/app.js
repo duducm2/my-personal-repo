@@ -1934,10 +1934,33 @@
       },
       {
         id: "contact-linkedin",
-        label: "LinkedIn",
+        label:
+          cell(contactProfile.linkedin_label_en) ||
+          cell(contactProfile.linkedin_label_pt) ||
+          "LinkedIn",
         en: cell(contactProfile.linkedin_url),
         pt: cell(contactProfile.linkedin_url),
         hay: `linkedin profile perfil ${cell(contactProfile.linkedin_url)}`.toLowerCase(),
+      },
+      {
+        id: "contact-lattes",
+        label:
+          cell(contactProfile.lattes_label_en) ||
+          cell(contactProfile.lattes_label_pt) ||
+          "Lattes",
+        en: cell(contactProfile.lattes_url),
+        pt: cell(contactProfile.lattes_url),
+        hay: `lattes cnpq curriculum curriculo ${cell(contactProfile.lattes_url)}`.toLowerCase(),
+      },
+      {
+        id: "contact-orcid",
+        label:
+          cell(contactProfile.orcid_label_en) ||
+          cell(contactProfile.orcid_label_pt) ||
+          "ORCID",
+        en: cell(contactProfile.orcid_url),
+        pt: cell(contactProfile.orcid_url),
+        hay: `orcid researcher id ${cell(contactProfile.orcid_url)}`.toLowerCase(),
       },
       {
         id: "contact-bosch-campinas",
