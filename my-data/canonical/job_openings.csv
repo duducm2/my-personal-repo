@@ -1,69 +1,843 @@
 id,sort_order,pinned,company,company_key,role_title,career_path,job_url,form_url,status,priority,work_mode,location,source,found_on,applied_on,applied_date,next_action,next_action_date,salary_range,fit_interest,skills_gap,job_description,notes,contact_person,contact_note,is_new,match_score,match_reason,recommended_resume,result,result_on,application_answers,application_form_raw,cover_letter,cover_letter_lang,cover_letter_greeting,cover_letter_closing
-bosch-brasil-internal-senior-product-owner-azure-integration-services-ais-36180,160,,Bosch Group,bosch-brasil-internal,SENIOR PRODUCT OWNER - AZURE INTEGRATION SERVICES (AIS) - (36180),po,,,saved,medium,Hybrid,"Campinas, Brazil",company_site,2024-10-24,,2026-10-17,,,,,,"Senior Product Owner role for Azure Integration Services. Requires experience in product ownership, agile methodologies, and stakeholder management. Focus on cloud integration and Azure.",,,,1,9,"Excellent fit for Product Owner path. Aligns with Azure, stakeholder alignment, and product discovery skills. Senior level matches experience.",product-owner,,,,,,,,
-bosch-brasil-internal-senior-product-owner-sap-integration-suite-36193,161,,Bosch Group,bosch-brasil-internal,SENIOR PRODUCT OWNER - SAP INTEGRATION SUITE (36193),po,,https://jobs.smartrecruiters.com/BoschGroup/744000155791175-senior-product-owner-sap-integration-suite-36193-,saved,medium,Hybrid,"Campinas, Brazil",company_site,2024-10-24,,2026-10-17,,,,,,"Senior Product Owner for SAP Integration Suite. Requires product ownership, agile, and stakeholder skills. Focus on SAP integration projects.",,,,1,8,"Strong fit for the Product Owner path. While you don't list SAP as a core skill, your experience in integration, project management, and stakeholder alignment is highly relevant. Seniority level is appropriate.",product-owner,,,,"undefined Company Logo
+bosch-brasil-internal-senior-product-owner-azure-integration-services-ais-36180,160,,Bosch Group,bosch-brasil-internal,SENIOR PRODUCT OWNER - AZURE INTEGRATION SERVICES (AIS) - (36180),po,,https://jobs.smartrecruiters.com/BoschGroup/744000155793199-senior-product-owner-azure-integration-services-ais-36180-,subscribed,medium,Hybrid,"Campinas, Brazil",company_site,2024-10-24,,2026-10-17,,,,,,"Senior Product Owner role for Azure Integration Services. Requires experience in product ownership, agile methodologies, and stakeholder management. Focus on cloud integration and Azure.",,,,1,9,"Excellent fit for Product Owner path. Aligns with Azure, stakeholder alignment, and product discovery skills. Senior level matches experience.",product-owner,,,"{""opening_id"":""bosch-brasil-internal-senior-product-owner-azure-integration-services-ais-36180"",""recommended_resume"":""product-owner"",""form_url"":""https://jobs.smartrecruiters.com/BoschGroup/744000155793199-senior-product-owner-azure-integration-services-ais-36180-"",""source_url"":""https://jobs.smartrecruiters.com/BoschGroup/744000155793199-senior-product-owner-azure-integration-services-ais-36180-"",""imported_at"":""2026-10-17T18:22:10"",""fields"":[{""key"":""curriculo_auto_complete"",""label"":""Escolha um arquivo ou solte-o aqui"",""value"":"""",""source"":"""",""note"":""Preenchimento manual opcional para autocompletar candidatura.""},{""key"":""nome"",""label"":""Nome*"",""value"":""Eduardo"",""source"":""PROFILE CONTEXT (Name)"",""note"":""""},{""key"":""sobrenome"",""label"":""Sobrenome*"",""value"":""Matos de Assis Figueiredo"",""source"":""PROFILE CONTEXT (Full name)"",""note"":""""},{""key"":""email"",""label"":""E-mail*"",""value"":""edu.evangelista.figueiredo@gmail.com"",""source"":""PROFILE CONTEXT (Email)"",""note"":""""},{""key"":""confirme_email"",""label"":""Confirme seu e-mail*"",""value"":""edu.evangelista.figueiredo@gmail.com"",""source"":""PROFILE CONTEXT (Email)"",""note"":""""},{""key"":""cidade"",""label"":""Cidade"",""value"":""Nova Odessa"",""source"":""PROFILE CONTEXT (Location)"",""note"":""""},{""key"":""telefone"",""label"":""Número de telefone*"",""value"":""+55 (19) 98176-6583"",""source"":""PROFILE CONTEXT (Phone)"",""note"":""""},{""key"":""experiencia"",""label"":""Experiência"",""value"":""Technology Researcher and Designer @ Bosch Brasil (Jan 2023 - Present) | Web Developer @ Bosch Brasil (May 2021 - Nov 2022) | Continuous Improvement Analyst @ Bosch Brasil (Jan 2020 - Jul 2021) | Digitization Support Analyst @ Bosch Magyarország (Jan 2019 - Dec 2019) | Intern @ Bosch (Jan 2017 - Oct 2018)."",""source"":""EXPERIENCE (recent)"",""note"":""""},{""key"":""formacao_academica"",""label"":""Formação Acadêmica"",""value"":""Mestrado em Tecnologia: Sistemas de Informação e Comunicação @ Unicamp (Aug 2023 - Dec 2026) | Análise e Desenvolvimento de Sistemas @ Unicamp (2015 - 2020) | Técnico em Informática @ ETEC Bento Quirino (2012 - 2014)."",""source"":""EDUCATION"",""note"":""""},{""key"":""linkedin"",""label"":""LinkedIn"",""value"":""https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b"",""source"":""PROFILE CONTEXT (LinkedIn)"",""note"":""""},{""key"":""facebook"",""label"":""Facebook"",""value"":"""",""source"":"""",""note"":""""},{""key"":""twitter"",""label"":""X (antigo Twitter)"",""value"":"""",""source"":"""",""note"":""""},{""key"":""site"",""label"":""Site"",""value"":""https://lattes.cnpq.br/2708641049892967"",""source"":""PROFILE CONTEXT (Lattes)"",""note"":""""},{""key"":""curriculo_file"",""label"":""Currículo"",""value"":"""",""source"":""Available résumé variants to choose from"",""note"":""Upload manually - use product-owner resume""},{""key"":""mensagem_contratacao"",""label"":""Mensagem para a equipe de contratação"",""value"":""Minha trajetória na Bosch Brasil combina rigor de engenharia de software, vivência ágil contínua e arquitetura cloud, preparando-me diretamente para liderar o Azure Integration Services (AIS). No projeto tooling (Power Tools), liderei a ponte entre negócio e engenharia desde o levantamento de requisitos até protótipos de alta fidelidade no Figma, alinhando entregas técnicas em squads globais. Também apoiei as Américas a atingir o Nível 4 de Maturidade com governança e templates escaláveis, além de automatizar fluxos de relevância como quality gates no ServiceNow para Global Services. Possuo sólida prática com Scrum/Kanban e ambientes híbridos/full-stack (React, SQL Server, IIS). Em meu mestrado na Unicamp, construí a plataforma TrustMate empregando Azure Static Web Apps, App Service e Azure SQL com APIs REST em Python sob padrões ISO/IEC 25000. Essa bagagem prática em serviços Azure, governança de dados e gestão de stakeholders me capacita a definir roadmaps sólidos e priorizar o backlog de A2A/B2B com foco em confiabilidade e FinOps."",""source"":""EXPERIENCE BULLETS / EDUCATION / NARRATIVES"",""note"":""""}]}","Bosch Group Company Logo
 JobsMy ApplicationsMy Referrals
 EF
-Criar perfil
+
+Working Country
+
+Working Country
+Search items
+
+
+Brazil (94)
+
+
+China (1274)
+
+
+Germany (1273)
+
+
+United States (490)
+
+
+India (464)
+
+
+Location
+
+Location
+Search items
+
+
+Remote
+
+
+Hybrid
+
+
+Campinas (63)
+
+
+Curitiba (10)
+
+
+Sorocaba (6)
+
+
+Function
+
+Function
+Search items
+
+
+Accounting/Auditing (1)
+
+
+Administrative (1)
+
+
+Analyst (8)
+
+
+Customer Service (3)
+
+
+Engineering (11)
+
+
+Division
+
+Division
+Search items
+
+
+PS (15)
+
+
+GS (14)
+
+
+SO (12)
+
+
+MA (9)
+
+
+HC (9)
+
+
+Legal Entity
+
+Legal Entity
+
+Robert Bosch Ltda. (76)
+
+
+Bosch Soluções Integradas (8)
+
+
+Bosch Rexroth Ltda. (6)
+
+
+RB Direção Automotiva Ltd (4)
+
+
+Legal Entity(acronym)
+
+Legal Entity(acronym)
+
+RBLA (76)
+
+
+BISB (8)
+
+
+DCBR (6)
+
+
+ASBR (4)
+
+
+Working Location
+
+Working Location
+Search items
+
+
+Campinas (66)
+
+
+Curitiba (10)
+
+
+Joinville (5)
+
+
+Sorocaba (5)
+
+
+Itatiba (3)
+
+
+Local Grade
+
+Local Grade
+Search items
+
+
+BR_MN (64)
+
+
+BR_HD (12)
+
+
+BR_EB (7)
+
+
+BR__CH (4)
+
+
+BR_RBLA_MV (3)
+
+
+Global Salary Level
+
+Global Salary Level
+
+Experienced/ Middle Tariff (67)
+
+
+Junior/ Lower Tariff (19)
+
+
+Senior/ Upper Tariff (6)
+
+
+SL1 (2)
+
+
+Position type
+
+Position type
+
+Professional (76)
+
+
+Blue-collar workers (9)
+
+
+Intern (7)
+
+
+University Graduates (2)
+
+
+Working hours
+
+Working hours
+
+Full-time (91)
+
+
+Part-time (2)
+
+
+Full-time and/or part-time (1)
+
+
+Contract type
+
+Contract type
+
+Unlimited (84)
+
+
+Limited (10)
+
+
+Experience level
+
+Experience level
+Filter experience level
+
+
+Not Applicable (38)
+
+
+Associate (15)
+
+
+Executive (14)
+
+
+Mid-Senior Level (11)
+
+
+Entry Level (8)
+
+SENIOR PRODUCT OWNER 
+
+
+Internal jobs only
+
+Showing 10 of 15 jobs
+
+Sort:
+Working Country: Brazil
+
+Bosch Group company logo
+MID-LEVEL ALTERYX SUPPORT ANALYST (TEMPO DETERMINADO DE 180 DIAS) (35710)
+
+Bosch Group
+•
+Full-time
+•
+REF296057N
+Campinas, Brazil
+Referral available
+Oct 16, 2026October 16, 2026
+Bosch Group company logo
+SENIOR AI PRODUCT OWNER (36177)
+
+Bosch Group
+•
+Full-time
+•
+REF298712M
+Curitiba, Brazil
+Referral available
+Oct 15, 2026October 15, 2026
+Bosch Group company logo
+SENIOR PRODUCT OWNER - AZURE INTEGRATION SERVICES (AIS) - (36180)
+
+Bosch Group
+•
+Full-time
+•
+REF298702B
+Campinas, Brazil
+ Hybrid
+Referral available
+Oct 15, 2026October 15, 2026
+Bosch Group company logo
+SENIOR PRODUCT OWNER - SAP INTEGRATION SUITE (36193)
+
+Bosch Group
+•
+Full-time
+•
+REF298701A
+Campinas, Brazil
+ Hybrid
+Referral available
+Oct 15, 2026October 15, 2026
+Bosch Group company logo
+SENIOR PRODUCT OWNER - IBM INTEGRATION SUITE (36181)
+
+Bosch Group
+•
+Full-time
+•
+REF298699P
+Campinas, Brazil
+ Hybrid
+Referral available
+Oct 15, 2026October 15, 2026
+Bosch Group company logo
+SENIOR SUPPLY PLANNER ANALYST - 36090
+
+Bosch Group
+•
+Full-time
+•
+REF298433V
+Campinas, Brazil
+ Hybrid
+Referral available
+Oct 13, 2026October 13, 2026
+Bosch Group company logo
+MID LEVEL / SENIOR SAP MASTER DATA ANALYST (35666 / 35667)
+
+Bosch Group
+•
+Full-time
+•
+REF295327S
+Campinas, Brazil
+Referral available
+Sep 1, 2026September 1, 2026
+Bosch Group company logo
+SENIOR SAP SD ANALYST - FOCUS ON LOCALIZATION & BUSINESS PROCESSES (35459)
+
+Bosch Group
+•
+Full-time
+•
+REF293505D
+Campinas, Brazil
+Referral available
+Aug 7, 2026August 7, 2026
+Bosch Group company logo
+SENIOR SAP SD FUNCTIONAL ANALYST - Order-to-Cash (35352)
+
+Bosch Group
+•
+Full-time
+•
+REF291851X
+Campinas, Brazil
+ Hybrid
+Referral available
+Jul 24, 2026July 24, 2026
+Bosch Group company logo
+SENIOR SAP MM & ARIBA FUNCTIONAL ANALYST - Procure-to-Pay (35354)
+
+Bosch Group
+•
+Full-time
+•
+REF291850Y
+Campinas, Brazil
+ Hybrid
+Referral available
+Jul 24, 2026July 24, 2026
+Bosch Group company logo
+SENIOR PRODUCT OWNER - AZURE INTEGRATION SERVICES (AIS) - (36180)
+Bosch Group
+Tempo integral
+REF298702B
+
+Descrição da empresa
+Na Bosch, moldamos o futuro por meio das inovações tecnológicas de alta qualidade e de serviços que despertam entusiasmo e melhoram a vida das pessoas. Temos uma promessa sólida para nossos colaboradores: crescemos juntos, gostamos do nosso trabalho e inspiramos uns aos outros. Junte-se a nós e sinta a diferença.
+
+
+
+Descrição da vaga
+Role mission
+The position acts as the IT/Product Owner for the Azure Integration Services (AIS) Platform within
+HC/BDO2. In this role, you drive the global strategy, standardization, and scaling of AIS as a key
+pillar of our multi-platform integration landscape. Your mission is to deliver a secure, modern, and
+highly reliable cloud integration layer enabling seamless A2A and B2B data flows across a diverse
+global system landscape. By collaborating closely with other internal integration platform teams,
+you ensure optimal performance to support critical business operations and large-scale post-merger
+integration (PMI) initiatives.
+
+
+Core responsibilities
+
+ 
+
+Define and communicate the strategic roadmap for the AIS platform in alignment with our multi-platform integration strategy, and manage the product backlog by translating complex business and technical requirements into actionable agile user stories.
+Collaborate closely with the Integration IT Architect, other Integration Platform Owners (e.g. SAP PI, IBM MQ, Axway), and the Databricks PO to co-design robust, secure, and high-performing data exchange patterns.
+Establish platform-specific governance standards - including APIM policies, security guidelines, and reusable templates - while monitoring system performance, compliance, and cost- efficiency (FinOps) using operational KPIs.
+Steer external service providers, implementation partners, and software vendors during the design, build, and run phases of integration projects.
+ 
+
+
+
+Qualificações
+Expected background and capabilities
+
+Strong professional experience as an IT Product Owner, Solution Architect, or
+Technical Lead for enterprise application integration or cloud-based middleware platforms.
+Strong technical understanding of Microsoft Azure Integration Services (specifically API Management, Logic Apps, Service Bus, Event Grid, and Azure Functions). Experience with hybrid integration scenarios (connecting on-premises ERPs like SAP or Oracle to the cloud) is highly beneficial.
+Proven track record in agile methodologies (Scrum/Kanban) and managing high-performing technical engineering teams in an international environment.
+Strong stakeholder management and negotiation skills, with the ability to act as a credible translator between central platform teams, business units, and external partners.
+Fluent in English (written and spoken).
+ 
+
+
+
 Informações adicionais
-Candidatura simples
-Escolha uma opção para completar automaticamente a sua candidatura. Você ainda pode preencher o seu perfil manualmente.
+Benefícios da Bosch
 
-Escolha um arquivo ou solte-o aqui
-No file chosen
-10MB limite de tamanho
+Programas de Bem-Estar e Saúde: avaliação preventiva anual, ambulatório dentro da localidade para atendimento durante o horário de trabalho, programa antitabagismo, programa de saúde mental, fisioterapia e curso de gestante
+Assistência médica e odontológica
+Política de reembolso para algumas condições especiais de saúde
+Subsídio para medicamentos através da Funcional Health
+Jornadas de trabalho flexível com política de home office (não aplicado para horistas)
+Short Friday para administrativo e horista do turno normal (apenas em Campinas)
+Participação nos lucros e resultados (PLR) 
+Política de expatriação internacional e de transferências nacionais 
+Plano de previdência privada e empréstimos com taxas diferenciadas
+Seguro de vida 
+Associação opcional ao Clube da Bosch dentro da planta com academia, piscinas, churrasqueiras, campos de futebol e society, espaço para eventos, ginásio de esportes, quadras de areia, quadra de tênis, lanchonete e calendário anual de eventos
+Auxílio para mamães com creche na planta (verificar vagas disponíveis)
+Licença maternidade e adoção estendida de 180 dias 
+Licença paternidade e adoção de 20 dias 
+Alimentação no local de trabalho e Vale Alimentação
+Ônibus fretado (ou Vale Transporte)
+Estacionamento gratuito (para quem vem presencial) 
+Benefícios de fim de ano com Cesta de Natal e ave congelada
+Brinquedo para filhos menores de 12 anos
+Material escolar para colaboradores (até nível universitário) e filhos (até final do ensino médio)
+Política de subsídios para cursos técnicos, pós-graduação, MBA, especializações e idiomas
+Treinamentos e capacitações através da nossa universidade corporativa
+Premiação por tempo de casa (a partir de 10 anos e a cada 5 anos) 
+Participação opcional em várias ações de voluntariado via Instituto Robert Bosch 
+Descontos com parceiros do clube: locação de veículos, mensalidade em universidades, cursos de idioma, lojas e outros
 
-Sua candidatura foi preenchida automaticamente usando as informações do seu perfil. Mantenha seu perfil atualizado para agilizar suas candidaturas.
-Informações pessoais
-Os campos marcados com um * são obrigatórios
+Leia nossos artigos no Medium e saiba como é trabalhar na área de Tecnologia da Bosch Brasil: Bosch Tech Brasil - Medium https://medium.com/@boschtechbr
+Informações adicionais 
 
-Nome*
-EDUARDO MATOS DE ASSIS
+- Vaga elegível para pessoas com deficiência ou reabilitadas
 
-Sobrenome*
-FIGUEIREDO (SO/BDO-UX-LA)
+- Não contratamos menores de 16 anos e somos contra o trabalho infantil
 
-E-mail*
-EDUARDO.FIGUEIREDO@BR.BOSCH.COM
+- Modelo de trabalho: Híbrido 3x por semana. 
 
-Confirme seu e-mail*
-EDUARDO.FIGUEIREDO@BR.BOSCH.COM
+- Se esta vaga for elegível ao modelo Home Office, a avaliação do posto de trabalho será uma das etapas do processo seletivo
 
-Cidade
+- Área contratante: HC/BDO2-DI
 
-Número de telefone*
+Para colaboradores Bosch 
 
+- Prazo: 26/10/2026 
 
-Informe um número de telefone válido
-Informe um número de telefone válido
+- Sua candidatura pode ser feita internamente pelo site SmartHub
 
-Experiência
-Formação Acadêmica
-Seus perfis
-Os campos marcados com um * são obrigatórios
+- Após se candidatar, recomendamos informar a sua liderança
 
-LinkedIn
+- Verifique a elegibilidade desta vaga em nosso Programa de Indicações ""Indica Ai"" (conforme RCD 12030-000)
 
-Facebook
+ Na Bosch, acreditamos que a diversidade é o motor da inovação, por isso, todas as vagas são elegíveis para pessoas com deficiência, em situação vulnerável e grupos minoritários.
 
-X (antigo Twitter)
+Junte-se a nós e sinta a diferença. Work#LikeABosch. 
 
-Site
-
-Currículo
-Escolha um arquivo ou solte-o aqui
-No file chosen
-10MB limite de tamanho
-
-Mensagem para a equipe de contratação
-Deixe que a empresa saiba do seu interesse de trabalhar com ela
+bosch.com.br/carreiras
 
 
-Aviso de privacidade
-Logótipo
-disponibilizado por
 
-SmartRecruiters - Logo",,,,
-bosch-brasil-internal-senior-product-owner-ibm-integration-suite-36181,162,,Bosch Group,bosch-brasil-internal,SENIOR PRODUCT OWNER - IBM INTEGRATION SUITE (36181),po,,https://jobs.smartrecruiters.com/BoschGroup/744000155792147-senior-product-owner-ibm-integration-suite-36181-,saved,medium,Hybrid,"Campinas, Brazil",company_site,2024-10-24,,2026-10-17,,,,,,"Senior Product Owner role focusing on the IBM Integration Suite. Key responsibilities include managing the product backlog, defining user stories, and aligning with stakeholders.",,,,1,8,"Strong fit for the Product Owner path. Your extensive experience in product discovery, stakeholder alignment, and project management is directly applicable. Senior level is a good match.",product-owner,,,"{""opening_id"":""bosch-brasil-internal-senior-product-owner-ibm-integration-suite-36181"",""recommended_resume"":""product-owner"",""form_url"":""https://jobs.smartrecruiters.com/BoschGroup/744000155792147-senior-product-owner-ibm-integration-suite-36181-"",""source_url"":""https://jobs.smartrecruiters.com/BoschGroup/744000155792147-senior-product-owner-ibm-integration-suite-36181-"",""imported_at"":""2026-10-17T17:59:37"",""fields"":[{""key"":""curriculo_auto_complete"",""label"":""Escolha um arquivo ou solte-o aqui"",""value"":"""",""source"":"""",""note"":""Preenchimento manual opcional para autocompletar candidatura.""},{""key"":""nome"",""label"":""Nome*"",""value"":""Eduardo"",""source"":""PROFILE CONTEXT (Name)"",""note"":""""},{""key"":""sobrenome"",""label"":""Sobrenome*"",""value"":""Matos de Assis Figueiredo"",""source"":""PROFILE CONTEXT (Full name)"",""note"":""""},{""key"":""email"",""label"":""E-mail*"",""value"":""edu.evangelista.figueiredo@gmail.com"",""source"":""PROFILE CONTEXT (Email)"",""note"":""""},{""key"":""confirme_email"",""label"":""Confirme seu e-mail*"",""value"":""edu.evangelista.figueiredo@gmail.com"",""source"":""PROFILE CONTEXT (Email)"",""note"":""""},{""key"":""cidade"",""label"":""Cidade"",""value"":""Nova Odessa"",""source"":""PROFILE CONTEXT (Location)"",""note"":""""},{""key"":""telefone"",""label"":""Número de telefone*"",""value"":""+55 (19) 98176-6583"",""source"":""PROFILE CONTEXT (Phone)"",""note"":""""},{""key"":""experiencia"",""label"":""Experiência"",""value"":""Technology Researcher and Designer @ Bosch Brasil (Jan 2023 - Present) | Web Developer @ Bosch Brasil (May 2021 - Nov 2022) | Continuous Improvement Analyst @ Bosch Brasil (Jan 2020 - Jul 2021) | Digitization Support Analyst @ Bosch Magyarország (Jan 2019 - Dec 2019) | Intern @ Bosch (Jan 2017 - Oct 2018)."",""source"":""EXPERIENCE (recent)"",""note"":""""},{""key"":""formacao_academica"",""label"":""Formação Acadêmica"",""value"":""Mestrado em Tecnologia: Sistemas de Informação e Comunicação @ Unicamp (Aug 2023 - Dec 2026) | Análise e Desenvolvimento de Sistemas @ Unicamp (2015 - 2020) | Técnico em Informática @ ETEC Bento Quirino (2012 - 2014)."",""source"":""EDUCATION"",""note"":""""},{""key"":""linkedin"",""label"":""LinkedIn"",""value"":""https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b"",""source"":""PROFILE CONTEXT (LinkedIn)"",""note"":""""},{""key"":""facebook"",""label"":""Facebook"",""value"":"""",""source"":"""",""note"":""""},{""key"":""twitter"",""label"":""X (antigo Twitter)"",""value"":"""",""source"":"""",""note"":""""},{""key"":""site"",""label"":""Site"",""value"":""https://lattes.cnpq.br/2708641049892967"",""source"":""PROFILE CONTEXT (Lattes)"",""note"":""""},{""key"":""curriculo_file"",""label"":""Currículo"",""value"":"""",""source"":""Available résumé variants to choose from"",""note"":""Upload manually - use product-owner resume""},{""key"":""mensagem_contratacao"",""label"":""Mensagem para a equipe de contratação"",""value"":""Atuo na Bosch Brasil em iniciativas de tecnologia e gestão ágil, preparando-me diretamente para o papel de Product Owner do IBM Integration Suite. No projeto tooling (Power Tools), conduzi o fluxo completo de requisitos a protótipos de alta fidelidade no Figma, liderando check-ins constantes com clientes e coordenando a entrega técnica. Minha experiência inclui a automatização de regras de relevância e fluxos de intake como quality gates no ServiceNow para a liderança global de GS, além de evoluir dashboards estratégicos CIP CIM. Possuo sólida vivência ágil com Scrum/Kanban e desenvolvimento full-stack (React, SQL Server, IIS), facilitando a interface técnica com equipes de engenharia. Em meu mestrado na Unicamp, pesquisei qualidade e confiança de software sob a ISO/IEC 25000, integrando APIs Python e frentes no Azure, o que me conferiu forte raciocínio analítico para gerir roadmaps globais, gerenciar o backlog de A2A/B2B e arquitetar padrões robustos de integração integrando sistemas ERP à nuvem."",""source"":""EXPERIENCE BULLETS / EDUCATION / NARRATIVES"",""note"":""""}]}","Bosch Group Company Logo
+Local
+Av. Robert Bosch - Parque Via Norte, Campinas - SP, 13064-765, Brasil",,,,
+bosch-brasil-internal-senior-product-owner-sap-integration-suite-36193,161,,Bosch Group,bosch-brasil-internal,SENIOR PRODUCT OWNER - SAP INTEGRATION SUITE (36193),po,,https://jobs.smartrecruiters.com/BoschGroup/744000155791175-senior-product-owner-sap-integration-suite-36193-,watching,medium,Hybrid,"Campinas, Brazil",company_site,2024-10-24,,2026-10-17,,,,,,"Senior Product Owner for SAP Integration Suite. Requires product ownership, agile, and stakeholder skills. Focus on SAP integration projects.",,,,1,8,"Strong fit for the Product Owner path. While you don't list SAP as a core skill, your experience in integration, project management, and stakeholder alignment is highly relevant. Seniority level is appropriate.",product-owner,,,"{""opening_id"":""bosch-brasil-internal-senior-product-owner-sap-integration-suite-36193"",""recommended_resume"":""product-owner"",""form_url"":""https://jobs.smartrecruiters.com/BoschGroup/744000155791175-senior-product-owner-sap-integration-suite-36193-"",""source_url"":""https://jobs.smartrecruiters.com/BoschGroup/744000155791175-senior-product-owner-sap-integration-suite-36193-"",""imported_at"":""2026-10-17T18:30:33"",""fields"":[{""key"":""first_name"",""label"":""Primeiro nome / First name"",""value"":""Eduardo"",""source"":""PROFILE CONTEXT (Full name)"",""note"":""""},{""key"":""last_name"",""label"":""Sobrenome / Last name"",""value"":""Matos de Assis Figueiredo"",""source"":""PROFILE CONTEXT (Full name)"",""note"":""""},{""key"":""email"",""label"":""E-mail / Email"",""value"":""edu.evangelista.figueiredo@gmail.com"",""source"":""PROFILE CONTEXT (Email)"",""note"":""""},{""key"":""confirm_email"",""label"":""Confirmar e-mail / Confirm email"",""value"":""edu.evangelista.figueiredo@gmail.com"",""source"":""PROFILE CONTEXT (Email)"",""note"":""""},{""key"":""phone_country_code"",""label"":""Código do país / Country code"",""value"":""+55"",""source"":""PROFILE CONTEXT (Phone)"",""note"":""""},{""key"":""phone_number"",""label"":""Telefone / Phone number"",""value"":""+55 (19) 98176-6583"",""source"":""PROFILE CONTEXT (Phone)"",""note"":""""},{""key"":""location"",""label"":""Localização / Location"",""value"":""Nova Odessa, SP - Brazil"",""source"":""PROFILE CONTEXT (Location)"",""note"":""""},{""key"":""resume"",""label"":""Currículo / Resume"",""value"":"""",""source"":""AIB FORM-FILL INSTRUCTIONS"",""note"":""Upload manually - use product-owner resume""},{""key"":""linkedin_url"",""label"":""Perfil do LinkedIn / LinkedIn profile"",""value"":""https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b"",""source"":""PROFILE CONTEXT (LinkedIn)"",""note"":""""},{""key"":""experience_recent"",""label"":""Experiência profissional / Experience"",""value"":""Technology Researcher and Designer @ Bosch Brasil (Jan 2023 - Present) | Campinas, SP: Conduzi governança ágil e qualidade, apoiando as Américas a atingir o Nível 4 de Maturidade com governança e templates; liderei o projeto tooling (Power Tools) desde requisitos até protótipos de alta fidelidade e alinhamento com clientes e parceiros técnicos; avaliei e melhorei dashboards estratégicos CIP CIM para a liderança da Global Services e automatizei a entrada de relevância como quality gate no ServiceNow; desenvolvi dashboards em Power BI para acompanhamento de projetos e recursos, alcançando média de CSI 4,86 e NPS 9,94."",""source"":""EXPERIENCE / EXPERIENCE BULLETS"",""note"":""""},{""key"":""education"",""label"":""Formação acadêmica / Education"",""value"":""Universidade Estadual de Campinas (Unicamp) - Mestrado em Tecnologia: Sistemas de Informação e Comunicação (Ago 2023 - Dez 2026); Unicamp - Tecnologia em Análise e Desenvolvimento de Sistemas (2015 - 2020); ETEC Bento Quirino - Técnico em Informática (2012 - 2014)."",""source"":""EDUCATION"",""note"":""""},{""key"":""hiring_team_message"",""label"":""Mensagem para a equipe de contratação / Message to hiring team"",""value"":""Atuo na Bosch Brasil combinando gestão de produto, pesquisa aplicada e governança técnica em ambientes ágeis. Conduzi o projeto de tooling (Power Tools) de ponta a ponta, desde o levantamento e refinamento de requisitos até a coordenação de entregas técnicas e check-ins com clientes. Apoiei as Américas a alcançar o Nível 4 de Maturidade na Global Services estruturando governança e templates práticos para os stakeholders, além de manter média de CSI 4,86 e NPS 9,94 nos projetos entregues entre 2024 e 2025. Na Global Services, participei do aprimoramento de dashboards CIP CIM e automatizei a avaliação de relevância no ServiceNow como quality gate. Minha trajetória na Bosch inclui atuação internacional na Hungria com digitalização de processos em Kanban e desenvolvimento de sistemas com SQL Server, além de duas missões na Alemanha em 2024 e 2025. Tenho formação sólida em Análise e Desenvolvimento de Sistemas e mestrado em Tecnologia pela Unicamp, unindo visão analítica de dados e frameworks ágeis (Scrum/Kanban) para sustentação e evolução de soluções corporativas."",""source"":""NARRATIVES / EXPERIENCE / EDUCATION"",""note"":""""}]}","Bosch Group Company Logo
+JobsMy ApplicationsMy Referrals
+EF
+
+Working Country
+
+Working Country
+Search items
+
+
+Brazil (94)
+
+
+China (1274)
+
+
+Germany (1273)
+
+
+United States (490)
+
+
+India (464)
+
+
+Location
+
+Location
+Search items
+
+
+Remote
+
+
+Hybrid
+
+
+Campinas (63)
+
+
+Curitiba (10)
+
+
+Sorocaba (6)
+
+
+Function
+
+Function
+Search items
+
+
+Accounting/Auditing (1)
+
+
+Administrative (1)
+
+
+Analyst (8)
+
+
+Customer Service (3)
+
+
+Engineering (11)
+
+
+Division
+
+Division
+Search items
+
+
+PS (15)
+
+
+GS (14)
+
+
+SO (12)
+
+
+MA (9)
+
+
+HC (9)
+
+
+Legal Entity
+
+Legal Entity
+
+Robert Bosch Ltda. (76)
+
+
+Bosch Soluções Integradas (8)
+
+
+Bosch Rexroth Ltda. (6)
+
+
+RB Direção Automotiva Ltd (4)
+
+
+Legal Entity(acronym)
+
+Legal Entity(acronym)
+
+RBLA (76)
+
+
+BISB (8)
+
+
+DCBR (6)
+
+
+ASBR (4)
+
+
+Working Location
+
+Working Location
+Search items
+
+
+Campinas (66)
+
+
+Curitiba (10)
+
+
+Joinville (5)
+
+
+Sorocaba (5)
+
+
+Itatiba (3)
+
+
+Local Grade
+
+Local Grade
+Search items
+
+
+BR_MN (64)
+
+
+BR_HD (12)
+
+
+BR_EB (7)
+
+
+BR__CH (4)
+
+
+BR_RBLA_MV (3)
+
+
+Global Salary Level
+
+Global Salary Level
+
+Experienced/ Middle Tariff (67)
+
+
+Junior/ Lower Tariff (19)
+
+
+Senior/ Upper Tariff (6)
+
+
+SL1 (2)
+
+
+Position type
+
+Position type
+
+Professional (76)
+
+
+Blue-collar workers (9)
+
+
+Intern (7)
+
+
+University Graduates (2)
+
+
+Working hours
+
+Working hours
+
+Full-time (91)
+
+
+Part-time (2)
+
+
+Full-time and/or part-time (1)
+
+
+Contract type
+
+Contract type
+
+Unlimited (84)
+
+
+Limited (10)
+
+
+Experience level
+
+Experience level
+Filter experience level
+
+
+Not Applicable (38)
+
+
+Associate (15)
+
+
+Executive (14)
+
+
+Mid-Senior Level (11)
+
+
+Entry Level (8)
+
+SENIOR PRODUCT OWNER - SAP INTEGRATION SUITE (36193)
+
+
+Internal jobs only
+
+Showing 1 of 1 jobs
+
+Sort:
+Working Country: Brazil
+
+Bosch Group company logo
+SENIOR PRODUCT OWNER - SAP INTEGRATION SUITE (36193)
+
+Bosch Group
+•
+Full-time
+•
+REF298701A
+Campinas, Brazil
+ Hybrid
+Referral available
+Oct 15, 2026October 15, 2026
+Bosch Group company logo
+SENIOR PRODUCT OWNER - SAP INTEGRATION SUITE (36193)
+Bosch Group
+Tempo integral
+REF298701A
+
+Descrição da empresa
+Na Bosch, moldamos o futuro por meio das inovações tecnológicas de alta qualidade e de serviços que despertam entusiasmo e melhoram a vida das pessoas. Temos uma promessa sólida para nossos colaboradores: crescemos juntos, gostamos do nosso trabalho e inspiramos uns aos outros. Junte-se a nós e sinta a diferença.
+
+
+
+Descrição da vaga
+Role mission
+The position acts as the IT/Product Owner for the SAP Integration Platforms (PI / CPI) within
+HC/BDO2. Your mission is to take global product ownership of our central SAP middleware systems,
+managing both our established SAP Process Integration (PI/PO) environment and driving the strategic
+transition and cloud migration toward SAP Cloud Platform Integration (CPI / BTP Integration Suite).
+As a vital pillar of our multi-platform landscape, you ensure highly reliable, secure transactional
+data flows and coordinate the seamless integration of our core ERP systems with internal and
+external enterprise environments.
+
+
+Core responsibilities
+
+Define the product vision and backlog for SAP PI and CPI in an agile framework. Drive the strategic, hybrid transition of legacy on-premises PI interfaces to modern cloud-native SAP CPI (BTP Integration Suite) patterns, aligning with our overall post-merger integration (PMI) roadmap.
+Establish and enforce global integration standards, schema governance, and security policies for SAP-centric interfaces. Define best practices for interface design using standard SAP methodologies (e.g., IDocs, RFCs, Proxies, ABAP Gateway, OData, and REST APIs) to guarantee clean data mappings and sustainable integrations.
+Collaborate closely with other Integration Platform Owners (e.g., AIS, Axway MFT, IBM MQ) and enterprise architects. Ensure end-to-end data pipelines from core ERP/S/4HANA environments flow seamlessly into other platforms and modern cloud data warehouses like Databricks.
+Oversee the operational stability, system performance, and monitoring of all SAP integration interfaces to ensure high uptime and business continuity. Steer external partners and implementation teams (such as SAP and Infosys) for optimal service delivery.
+ 
+
+
+
+Qualificações
+Expected background and capabilities
+
+ 
+
+Several years of proven track record as an IT Product Owner, Solution Architect, or Technical Lead for enterprise-scale SAP integration solutions in a global corporate environment.
+Deep technical knowledge of SAP Process Integration/Orchestration (PI/PO) and modern SAP Cloud Integration (CPI) / SAP BTP Integration Suite. Strong experience with SAP core modules (SD/MM), standard SAP integration technologies, mapping mechanisms (graphical, XSLT, Java), and secure communication protocols.
+Strong experience in agile methodologies (Scrum/Kanban) and managing complex, international stakeholder landscapes. Confident communication and negotiation skills, acting as a trusted interface between SAP business units and central IT platform teams.
+Fluent in English (written and spoken).
+ 
+
+
+
+Informações adicionais
+Benefícios da Bosch
+
+Programas de Bem-Estar e Saúde: avaliação preventiva anual, ambulatório dentro da localidade para atendimento durante o horário de trabalho, programa antitabagismo, programa de saúde mental, fisioterapia e curso de gestante
+Assistência médica e odontológica
+Política de reembolso para algumas condições especiais de saúde
+Subsídio para medicamentos através da Funcional Health
+Jornadas de trabalho flexível com política de home office (não aplicado para horistas)
+Short Friday para administrativo e horista do turno normal (apenas em Campinas)
+Participação nos lucros e resultados (PLR) 
+Política de expatriação internacional e de transferências nacionais 
+Plano de previdência privada e empréstimos com taxas diferenciadas
+Seguro de vida 
+Associação opcional ao Clube da Bosch dentro da planta com academia, piscinas, churrasqueiras, campos de futebol e society, espaço para eventos, ginásio de esportes, quadras de areia, quadra de tênis, lanchonete e calendário anual de eventos
+Auxílio para mamães com creche na planta (verificar vagas disponíveis)
+Licença maternidade e adoção estendida de 180 dias 
+Licença paternidade e adoção de 20 dias 
+Alimentação no local de trabalho e Vale Alimentação
+Ônibus fretado (ou Vale Transporte)
+Estacionamento gratuito (para quem vem presencial) 
+Benefícios de fim de ano com Cesta de Natal e ave congelada
+Brinquedo para filhos menores de 12 anos
+Material escolar para colaboradores (até nível universitário) e filhos (até final do ensino médio)
+Política de subsídios para cursos técnicos, pós-graduação, MBA, especializações e idiomas
+Treinamentos e capacitações através da nossa universidade corporativa
+Premiação por tempo de casa (a partir de 10 anos e a cada 5 anos) 
+Participação opcional em várias ações de voluntariado via Instituto Robert Bosch 
+Descontos com parceiros do clube: locação de veículos, mensalidade em universidades, cursos de idioma, lojas e outros
+
+Leia nossos artigos no Medium e saiba como é trabalhar na área de Tecnologia da Bosch Brasil: Bosch Tech Brasil - Medium https://medium.com/@boschtechbr
+Informações adicionais 
+
+- Vaga elegível para pessoas com deficiência ou reabilitadas
+
+- Não contratamos menores de 16 anos e somos contra o trabalho infantil
+
+- Modelo de trabalho: Híbrido 3x por semana presencial.
+
+- Se esta vaga for elegível ao modelo Home Office, a avaliação do posto de trabalho será uma das etapas do processo seletivo
+
+- Área contratante: HC/BDO2-DI 
+
+Para colaboradores Bosch 
+
+- Prazo: 26/10/2026
+
+- Sua candidatura pode ser feita internamente pelo site SmartHub
+
+- Após se candidatar, recomendamos informar a sua liderança
+
+- Verifique a elegibilidade desta vaga em nosso Programa de Indicações ""Indica Ai"" (conforme RCD 12030-000)
+
+ Na Bosch, acreditamos que a diversidade é o motor da inovação, por isso, todas as vagas são elegíveis para pessoas com deficiência, em situação vulnerável e grupos minoritários.
+
+Junte-se a nós e sinta a diferença. Work#LikeABosch. 
+
+bosch.com.br/carreiras
+
+
+
+Local
+Av. Robert Bosch - Parque Via Norte, Campinas - SP, 13064-765, Brasil",,,,
+bosch-brasil-internal-senior-product-owner-ibm-integration-suite-36181,162,,Bosch Group,bosch-brasil-internal,SENIOR PRODUCT OWNER - IBM INTEGRATION SUITE (36181),po,,https://jobs.smartrecruiters.com/BoschGroup/744000155792147-senior-product-owner-ibm-integration-suite-36181-,subscribed,medium,Hybrid,"Campinas, Brazil",company_site,2024-10-24,,2026-10-17,,,,,,"Senior Product Owner role focusing on the IBM Integration Suite. Key responsibilities include managing the product backlog, defining user stories, and aligning with stakeholders.",,,,1,8,"Strong fit for the Product Owner path. Your extensive experience in product discovery, stakeholder alignment, and project management is directly applicable. Senior level is a good match.",product-owner,,,"{""opening_id"":""bosch-brasil-internal-senior-product-owner-ibm-integration-suite-36181"",""recommended_resume"":""product-owner"",""form_url"":""https://jobs.smartrecruiters.com/BoschGroup/744000155792147-senior-product-owner-ibm-integration-suite-36181-"",""source_url"":""https://jobs.smartrecruiters.com/BoschGroup/744000155792147-senior-product-owner-ibm-integration-suite-36181-"",""imported_at"":""2026-10-17T17:59:37"",""fields"":[{""key"":""curriculo_auto_complete"",""label"":""Escolha um arquivo ou solte-o aqui"",""value"":"""",""source"":"""",""note"":""Preenchimento manual opcional para autocompletar candidatura.""},{""key"":""nome"",""label"":""Nome*"",""value"":""Eduardo"",""source"":""PROFILE CONTEXT (Name)"",""note"":""""},{""key"":""sobrenome"",""label"":""Sobrenome*"",""value"":""Matos de Assis Figueiredo"",""source"":""PROFILE CONTEXT (Full name)"",""note"":""""},{""key"":""email"",""label"":""E-mail*"",""value"":""edu.evangelista.figueiredo@gmail.com"",""source"":""PROFILE CONTEXT (Email)"",""note"":""""},{""key"":""confirme_email"",""label"":""Confirme seu e-mail*"",""value"":""edu.evangelista.figueiredo@gmail.com"",""source"":""PROFILE CONTEXT (Email)"",""note"":""""},{""key"":""cidade"",""label"":""Cidade"",""value"":""Nova Odessa"",""source"":""PROFILE CONTEXT (Location)"",""note"":""""},{""key"":""telefone"",""label"":""Número de telefone*"",""value"":""+55 (19) 98176-6583"",""source"":""PROFILE CONTEXT (Phone)"",""note"":""""},{""key"":""experiencia"",""label"":""Experiência"",""value"":""Technology Researcher and Designer @ Bosch Brasil (Jan 2023 - Present) | Web Developer @ Bosch Brasil (May 2021 - Nov 2022) | Continuous Improvement Analyst @ Bosch Brasil (Jan 2020 - Jul 2021) | Digitization Support Analyst @ Bosch Magyarország (Jan 2019 - Dec 2019) | Intern @ Bosch (Jan 2017 - Oct 2018)."",""source"":""EXPERIENCE (recent)"",""note"":""""},{""key"":""formacao_academica"",""label"":""Formação Acadêmica"",""value"":""Mestrado em Tecnologia: Sistemas de Informação e Comunicação @ Unicamp (Aug 2023 - Dec 2026) | Análise e Desenvolvimento de Sistemas @ Unicamp (2015 - 2020) | Técnico em Informática @ ETEC Bento Quirino (2012 - 2014)."",""source"":""EDUCATION"",""note"":""""},{""key"":""linkedin"",""label"":""LinkedIn"",""value"":""https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b"",""source"":""PROFILE CONTEXT (LinkedIn)"",""note"":""""},{""key"":""facebook"",""label"":""Facebook"",""value"":"""",""source"":"""",""note"":""""},{""key"":""twitter"",""label"":""X (antigo Twitter)"",""value"":"""",""source"":"""",""note"":""""},{""key"":""site"",""label"":""Site"",""value"":""https://lattes.cnpq.br/2708641049892967"",""source"":""PROFILE CONTEXT (Lattes)"",""note"":""""},{""key"":""curriculo_file"",""label"":""Currículo"",""value"":"""",""source"":""Available résumé variants to choose from"",""note"":""Upload manually - use product-owner resume""},{""key"":""mensagem_contratacao"",""label"":""Mensagem para a equipe de contratação"",""value"":""Atuo na Bosch Brasil em iniciativas de tecnologia e gestão ágil, preparando-me diretamente para o papel de Product Owner do IBM Integration Suite. No projeto tooling (Power Tools), conduzi o fluxo completo de requisitos a protótipos de alta fidelidade no Figma, liderando check-ins constantes com clientes e coordenando a entrega técnica. Minha experiência inclui a automatização de regras de relevância e fluxos de intake como quality gates no ServiceNow para a liderança global de GS, além de evoluir dashboards estratégicos CIP CIM. Possuo sólida vivência ágil com Scrum/Kanban e desenvolvimento full-stack (React, SQL Server, IIS), facilitando a interface técnica com equipes de engenharia. Em meu mestrado na Unicamp, pesquisei qualidade e confiança de software sob a ISO/IEC 25000, integrando APIs Python e frentes no Azure, o que me conferiu forte raciocínio analítico para gerir roadmaps globais, gerenciar o backlog de A2A/B2B e arquitetar padrões robustos de integração integrando sistemas ERP à nuvem."",""source"":""EXPERIENCE BULLETS / EDUCATION / NARRATIVES"",""note"":""""}]}","Bosch Group Company Logo
 JobsMy ApplicationsMy Referrals
 EF
 
