@@ -79,6 +79,7 @@
 )
 
 #let additional = (
+  [TAR 2026 – Talent Associate Review (Bosch; nominated by manager and leadership, not self-nominated).],
   [3rd Place – Bosch Talent Forum 2018 (Project Model Canvas internship project).],
   [1st Place – X-Games Brazil 2018 (most creative project; new business consultancy).],
   [Sharing Successes award – HR Bosch Latin America (2017; new business for Bosch LatAm).],

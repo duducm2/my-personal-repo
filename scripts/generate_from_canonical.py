@@ -48,6 +48,14 @@ ASSET_PREFIX = {
     "digital-solution-architect": "../../../",
     "data-scientist": "../../../",
 }
+# Shared pictures/diagrams stem for the Future method slide (lang suffix added in template).
+FUTURE_METHOD_DIAGRAM = {
+    "general": "ai-agile-research",
+    "data-analyst": "ai-agile-research",
+    "product-owner": "ai-agile-research-product-owner",
+    "digital-solution-architect": "ai-agile-research-digital-solution-architect",
+    "data-scientist": "ai-agile-research-data-scientist",
+}
 
 SLOT_RE = re.compile(r"\{\{canonical:([a-z0-9_]+)\}\}")
 LANGS = ("en", "pt")
@@ -310,6 +318,7 @@ def build_slot_map(
         "future_h2": narrative(nars, variant, "future_h2"),
         "future_intro": narrative(nars, variant, "future_intro"),
         "future_diagram_alt": narrative(nars, variant, "future_diagram_alt"),
+        "future_method_diagram": FUTURE_METHOD_DIAGRAM[variant],
         "future_career_style": narrative(nars, variant, "future_career_style"),
         "future_career_body": narrative(nars, variant, "future_career_body").replace(
             "{{canonical:asset_prefix}}", prefix

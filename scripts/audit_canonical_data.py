@@ -743,6 +743,37 @@ def main() -> int:
                 issues.append(f"narratives missing {var}/{field}")
     ok.append(f"narratives.csv: {len(nars)} fields covering all variants")
 
+    # Future block must not reuse senior-DA copy on non-DA career paths
+    future_fields = (
+        "future_h2",
+        "future_intro",
+        "future_diagram_alt",
+        "future_career_body",
+    )
+    da_future_needles = (
+        "senior data analyst",
+        "analista de dados sênior",
+        "analista de dados senior",
+    )
+    path_variants = (
+        "product-owner",
+        "digital-solution-architect",
+        "data-scientist",
+    )
+    for row in load("narratives.csv"):
+        if row["variant"] not in path_variants:
+            continue
+        if row["field"] not in future_fields:
+            continue
+        blob = f"{row.get('text_en', '')} {row.get('text_pt', '')}".lower()
+        for needle in da_future_needles:
+            if needle in blob:
+                issues.append(
+                    f"narratives {row['variant']}/{row['field']} still has "
+                    f"data-analyst future copy ({needle!r})"
+                )
+    ok.append("narratives.csv: PO / DSA / DS future_* free of senior-DA career copy")
+
     # Generated files (EN lang-suffixed + legacy content.typ)
     gen_resume_g = (ROOT / "resume" / "typst" / "content.en.typ").read_text(
         encoding="utf-8"

@@ -16,17 +16,18 @@ fields:
   dissertation_pbi_intro: "Minha dissertação de mestrado olha a confiança percebida em interfaces de e-commerce: agentes de IA conseguem pontuar o que humanos sentem? Com o MQCI (ISO/IEC 25000) e a TrustMate que construí, comparei agentes ChatGPT o3 com 127 estudantes de TI nos mesmos três sites. A pergunta fica perto de descoberta e validação—se a triagem automatizada basta antes do julgamento humano. Resposta curta do estudo: triagem sim, substituição total não."
   email: "edu.evangelista.figueiredo@gmail.com"
   future_career_body: |
-    ## Futuro – Como chego lá
+    ## Futuro – Como Trabalho
     
     <div class="future-career-wrap">
     <div class="future-po-bullets">
     
-    | Passo | O que é |
-    | ----- | ------- |
-    | Agora | Desenho experimental e estatística inferencial (TrustMate: Welch, d de Cohen, FDR; avaliação com LLM versus humanos); texto confuso virando BI validado (Data Insights); CSI/NPS, Power BI, Python/SQL na Bosch |
-    | Próximo | Analista de dados sênior: insight pelo método científico |
-    | Método | Análise descritiva, inferencial e visual |
-    | Decisões | Decisões rápidas a partir dessa evidência |
+    | Competência | Evidência do meu trabalho |
+    | ----------- | ------------------------- |
+    | Descoberta e validação | Tooling PT requisitos → protótipos → check-ins com clientes |
+    | Priorização / entrada | Gate de Pesquisa Aplicada no CIP ServiceNow |
+    | Habilitação de stakeholders | Nível 4 de Maturidade em UX nas Américas (templates, treinamento) |
+    | Ownership de resultados | CSI 4,86 / NPS 9,94 méd. (2024–2025) |
+    | Próximo | Product Owner Técnico: descoberta → priorizar → validar |
     
     </div>
     </div>
@@ -57,7 +58,7 @@ fields:
     ## Futuro – O caminho
     
     <div class="career-path-slide">
-    <p><img src="../../../pictures/diagrams/future-career-path-pt.png" alt="Diagrama: análise descritiva, inferencial e visual, depois analista de dados sênior, depois decisões rápidas a partir do insight" /></p>
+    <p><img src="../../../pictures/diagrams/future-career-path-product-owner-pt.png" alt="Diagrama: descoberta e entrega hoje, depois Product Owner Técnico, depois resultados de produto confiáveis" /></p>
     </div>
   future_career_style: |
     .future-career-wrap {
@@ -78,9 +79,10 @@ fields:
     .future-po-bullets td, .future-po-bullets th {
       overflow-wrap: anywhere; padding: 0.28em 0.5em !important;
     }
-  future_diagram_alt: "Diagrama: pergunta, análise descritiva, inferencial e visual, depois uma decisão rápida"
-  future_h2: "Futuro – Analista de dados sênior"
-  future_intro: "Quero me tornar analista de dados sênior que transforma insight em decisões rápidas. O método é científico: análise descritiva, inferencial e visual. O diagrama é como trabalho: uma pergunta, essa análise, depois uma decisão que as pessoas conseguem tomar rápido."
+  future_diagram_alt: "Diagrama: necessidade, prioridade com evidência, depois um resultado entregue"
+  future_h2: "Futuro – Product Owner Técnico"
+  future_intro: "Quero me tornar Product Owner Técnico que acompanha o trabalho da descoberta à entrega. O método é descoberta, priorização e validação com stakeholders. O diagrama é como trabalho: uma necessidade, prioridade com evidência, depois um resultado entregue em que as pessoas confiem."
+  future_method_diagram: "ai-agile-research-product-owner"
   h_academic_research: "Presente – Pesquisa aplicada acadêmica (confiança em IA e UI)"
   h_cip_artifacts: "Presente – Integração CIP e Pesquisa Aplicada: Artefatos"
   h_closing: "Encerramento e contato"

@@ -1334,12 +1334,12 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 }
 </style>
 
-## Futuro – Analista de dados sênior
+## Futuro – Arquiteto de Soluções Digitais (Pleno)
 
-Quero me tornar analista de dados sênior que transforma insight em decisões rápidas. O método é científico: análise descritiva, inferencial e visual. O diagrama é como trabalho: uma pergunta, essa análise, depois uma decisão que as pessoas conseguem tomar rápido.
+Quero me tornar Arquiteto de Soluções Digitais (Pleno) que desenha digitalização e analytics que se sustentam em produção. O método é limites claros, revisões baseadas em evidência e resultados mensuráveis. O diagrama é como trabalho: um problema, um desenho operável, depois uma solução que o time consiga operar.
 
 <div class="ai-agile-wrap">
-<p><img src="../../../pictures/diagrams/ai-agile-research-pt.png" alt="Diagrama: pergunta, análise descritiva, inferencial e visual, depois uma decisão rápida" /></p>
+<p><img src="../../../pictures/diagrams/ai-agile-research-digital-solution-architect-pt.png" alt="Diagrama: problema, desenho operável, depois uma solução que o time opera" /></p>
 </div>
 
 ---
@@ -1374,10 +1374,10 @@ Quero me tornar analista de dados sênior que transforma insight em decisões r�
 
 | Passo | O que é |
 | ----- | ------- |
-| Agora | Desenho experimental e estatística inferencial (TrustMate: Welch, d de Cohen, FDR; avaliação com LLM versus humanos); texto confuso virando BI validado (Data Insights); CSI/NPS, Power BI, Python/SQL na Bosch |
-| Próximo | Analista de dados sênior: insight pelo método científico |
-| Método | Análise descritiva, inferencial e visual |
-| Decisões | Decisões rápidas a partir dessa evidência |
+| Agora | Sistemas de digitalização (Bosch HU), gates de arquitetura no CIP ServiceNow, analytics→insight (Data Insights), maturidade UX e resultados de entrega na Bosch |
+| Próximo | Arquiteto de Soluções Digitais (Pleno): cloud, digitalização e entrega baseada em evidência |
+| Método | Limites, gates de evidência e desenhos que sobrevivem à operação |
+| Decisões | Soluções julgadas por resultados em produção, não por slides |
 
 </div>
 </div>
@@ -1408,7 +1408,7 @@ Quero me tornar analista de dados sênior que transforma insight em decisões r�
 ## Futuro – O caminho
 
 <div class="career-path-slide">
-<p><img src="../../../pictures/diagrams/future-career-path-pt.png" alt="Diagrama: análise descritiva, inferencial e visual, depois analista de dados sênior, depois decisões rápidas a partir do insight" /></p>
+<p><img src="../../../pictures/diagrams/future-career-path-digital-solution-architect-pt.png" alt="Diagrama: digitalização e gates de arquitetura hoje, depois Arquiteto de Soluções Digitais Pleno, depois soluções operáveis" /></p>
 </div>
 
 <!-- Diagram: future-career-path (mermaid/diagrams.md). Export to future-career-path.png -->

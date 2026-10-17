@@ -1352,12 +1352,12 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 }
 </style>
 
-## Future – Senior data analyst
+## Future – Technical Product Owner
 
-I want to become a senior data analyst who turns insight into fast decisions. The method is scientific: descriptive, inferential, and visual analysis. The diagram is how I work: a question, that analysis, then a decision people can take quickly.
+I want to become a Technical Product Owner who stays with work from discovery through delivery. The method is discovery, prioritization, and validation with stakeholders. The diagram is how I work: a need, evidence-backed priority, then a shipped outcome people can trust.
 
 <div class="ai-agile-wrap">
-<p><img src="../../../pictures/diagrams/ai-agile-research-en.png" alt="Diagram: question, descriptive inferential and visual analysis, then a fast decision" /></p>
+<p><img src="../../../pictures/diagrams/ai-agile-research-product-owner-en.png" alt="Diagram: need, evidence-backed priority, then a shipped outcome" /></p>
 </div>
 
 ---
@@ -1385,17 +1385,18 @@ I want to become a senior data analyst who turns insight into fast decisions. Th
 }
 </style>
 
-## Future – How I get there
+## Future – How I Work
 
 <div class="future-career-wrap">
 <div class="future-po-bullets">
 
-| Step | What it is |
-| ---- | ---------- |
-| Now | Experimental design and inferential statistics (TrustMate: Welch, Cohen's d, FDR; LLM evaluation versus humans); messy text turned into validated BI (Data Insights); CSI/NPS, Power BI, Python/SQL at Bosch |
-| Next | Senior data analyst: insight through the scientific method |
-| Method | Descriptive, inferential, and visual analysis |
-| Decisions | Fast decisions from that evidence |
+| Competency | Evidence from my work |
+| ---------- | --------------------- |
+| Discovery & validation | Tooling PT requirements → prototypes → customer check-ins |
+| Prioritization / intake | ServiceNow Applied Research gate in CIP |
+| Stakeholder enablement | Americas UX Maturity Level 4 (templates, training) |
+| Outcome ownership | CSI 4.86 / NPS 9.94 avg. (2024–2025) |
+| Next | Technical Product Owner: discovery → prioritize → validate |
 
 </div>
 </div>
@@ -1426,7 +1427,7 @@ I want to become a senior data analyst who turns insight into fast decisions. Th
 ## Future – The path
 
 <div class="career-path-slide">
-<p><img src="../../../pictures/diagrams/future-career-path-en.png" alt="Diagram: descriptive, inferential, and visual analysis, then senior data analyst, then fast decisions from insight" /></p>
+<p><img src="../../../pictures/diagrams/future-career-path-product-owner-en.png" alt="Diagram: discovery and delivery today, then Technical Product Owner, then trusted product outcomes" /></p>
 </div>
 
 <!-- Diagram: future-career-path (mermaid/diagrams.md). Export to future-career-path.png -->

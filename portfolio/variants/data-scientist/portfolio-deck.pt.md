@@ -1359,12 +1359,12 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 }
 </style>
 
-## Futuro – Analista de dados sênior
+## Futuro – Cientista de Dados (Pleno)
 
-Quero me tornar analista de dados sênior que transforma insight em decisões rápidas. O método é científico: análise descritiva, inferencial e visual. O diagrama é como trabalho: uma pergunta, essa análise, depois uma decisão que as pessoas conseguem tomar rápido.
+Quero me tornar Cientista de Dados (Pleno) que transforma pesquisa e dados operacionais ambíguos em experimentos e decisões confiáveis—crescendo em hábitos de ML em produção com mentores. O método é evidência, avaliação e métricas claras. O diagrama é como trabalho: uma pergunta, análise rigorosa, depois uma decisão que o time consiga assumir.
 
 <div class="ai-agile-wrap">
-<p><img src="../../../pictures/diagrams/ai-agile-research-pt.png" alt="Diagrama: pergunta, análise descritiva, inferencial e visual, depois uma decisão rápida" /></p>
+<p><img src="../../../pictures/diagrams/ai-agile-research-data-scientist-pt.png" alt="Diagrama: pergunta, análise e avaliação rigorosas, depois uma decisão que o time assume" /></p>
 </div>
 
 ---
@@ -1399,10 +1399,10 @@ Quero me tornar analista de dados sênior que transforma insight em decisões r�
 
 | Passo | O que é |
 | ----- | ------- |
-| Agora | Desenho experimental e estatística inferencial (TrustMate: Welch, d de Cohen, FDR; avaliação com LLM versus humanos); texto confuso virando BI validado (Data Insights); CSI/NPS, Power BI, Python/SQL na Bosch |
-| Próximo | Analista de dados sênior: insight pelo método científico |
-| Método | Análise descritiva, inferencial e visual |
-| Decisões | Decisões rápidas a partir dessa evidência |
+| Agora | Desenho experimental e estatística inferencial (TrustMate); texto confuso → BI validado (Data Insights); CSI/NPS, Power BI, Python/SQL na Bosch; rigor de pesquisa aplicada |
+| Próximo | Cientista de Dados (Pleno) / Cientista de Dados Aplicado: evidência → avaliação → hábitos de ML em produção |
+| Método | Estatística, Python, avaliação de ML aplicado com ofício apoiado por mentores |
+| Decisões | Experimentos e métricas confiáveis em que stakeholders consigam agir |
 
 </div>
 </div>
@@ -1433,7 +1433,7 @@ Quero me tornar analista de dados sênior que transforma insight em decisões r�
 ## Futuro – O caminho
 
 <div class="career-path-slide">
-<p><img src="../../../pictures/diagrams/future-career-path-pt.png" alt="Diagrama: análise descritiva, inferencial e visual, depois analista de dados sênior, depois decisões rápidas a partir do insight" /></p>
+<p><img src="../../../pictures/diagrams/future-career-path-data-scientist-pt.png" alt="Diagrama: pesquisa aplicada e analytics hoje, depois Cientista de Dados Pleno, depois experimentos e decisões confiáveis" /></p>
 </div>
 
 <!-- Diagram: future-career-path (mermaid/diagrams.md). Export to future-career-path.png -->

@@ -1352,12 +1352,12 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 }
 </style>
 
-## Futuro – Analista de dados sênior
+## Futuro – Product Owner Técnico
 
-Quero me tornar analista de dados sênior que transforma insight em decisões rápidas. O método é científico: análise descritiva, inferencial e visual. O diagrama é como trabalho: uma pergunta, essa análise, depois uma decisão que as pessoas conseguem tomar rápido.
+Quero me tornar Product Owner Técnico que acompanha o trabalho da descoberta à entrega. O método é descoberta, priorização e validação com stakeholders. O diagrama é como trabalho: uma necessidade, prioridade com evidência, depois um resultado entregue em que as pessoas confiem.
 
 <div class="ai-agile-wrap">
-<p><img src="../../../pictures/diagrams/ai-agile-research-pt.png" alt="Diagrama: pergunta, análise descritiva, inferencial e visual, depois uma decisão rápida" /></p>
+<p><img src="../../../pictures/diagrams/ai-agile-research-product-owner-pt.png" alt="Diagrama: necessidade, prioridade com evidência, depois um resultado entregue" /></p>
 </div>
 
 ---
@@ -1385,17 +1385,18 @@ Quero me tornar analista de dados sênior que transforma insight em decisões r�
 }
 </style>
 
-## Futuro – Como chego lá
+## Futuro – Como Trabalho
 
 <div class="future-career-wrap">
 <div class="future-po-bullets">
 
-| Passo | O que é |
-| ----- | ------- |
-| Agora | Desenho experimental e estatística inferencial (TrustMate: Welch, d de Cohen, FDR; avaliação com LLM versus humanos); texto confuso virando BI validado (Data Insights); CSI/NPS, Power BI, Python/SQL na Bosch |
-| Próximo | Analista de dados sênior: insight pelo método científico |
-| Método | Análise descritiva, inferencial e visual |
-| Decisões | Decisões rápidas a partir dessa evidência |
+| Competência | Evidência do meu trabalho |
+| ----------- | ------------------------- |
+| Descoberta e validação | Tooling PT requisitos → protótipos → check-ins com clientes |
+| Priorização / entrada | Gate de Pesquisa Aplicada no CIP ServiceNow |
+| Habilitação de stakeholders | Nível 4 de Maturidade em UX nas Américas (templates, treinamento) |
+| Ownership de resultados | CSI 4,86 / NPS 9,94 méd. (2024–2025) |
+| Próximo | Product Owner Técnico: descoberta → priorizar → validar |
 
 </div>
 </div>
@@ -1426,7 +1427,7 @@ Quero me tornar analista de dados sênior que transforma insight em decisões r�
 ## Futuro – O caminho
 
 <div class="career-path-slide">
-<p><img src="../../../pictures/diagrams/future-career-path-pt.png" alt="Diagrama: análise descritiva, inferencial e visual, depois analista de dados sênior, depois decisões rápidas a partir do insight" /></p>
+<p><img src="../../../pictures/diagrams/future-career-path-product-owner-pt.png" alt="Diagrama: descoberta e entrega hoje, depois Product Owner Técnico, depois resultados de produto confiáveis" /></p>
 </div>
 
 <!-- Diagram: future-career-path (mermaid/diagrams.md). Export to future-career-path.png -->

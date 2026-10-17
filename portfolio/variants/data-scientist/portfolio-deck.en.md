@@ -1359,12 +1359,12 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 }
 </style>
 
-## Future – Senior data analyst
+## Future – Data Scientist (Pleno)
 
-I want to become a senior data analyst who turns insight into fast decisions. The method is scientific: descriptive, inferential, and visual analysis. The diagram is how I work: a question, that analysis, then a decision people can take quickly.
+I want to become a Data Scientist (Pleno) who turns ambiguous research and operational data into trustworthy experiments and decisions—while growing production ML habits with mentors. The method is evidence, evaluation, and clear metrics. The diagram is how I work: a question, rigorous analysis, then a decision the team can own.
 
 <div class="ai-agile-wrap">
-<p><img src="../../../pictures/diagrams/ai-agile-research-en.png" alt="Diagram: question, descriptive inferential and visual analysis, then a fast decision" /></p>
+<p><img src="../../../pictures/diagrams/ai-agile-research-data-scientist-en.png" alt="Diagram: question, rigorous analysis and evaluation, then a decision the team can own" /></p>
 </div>
 
 ---
@@ -1399,10 +1399,10 @@ I want to become a senior data analyst who turns insight into fast decisions. Th
 
 | Step | What it is |
 | ---- | ---------- |
-| Now | Experimental design and inferential statistics (TrustMate: Welch, Cohen's d, FDR; LLM evaluation versus humans); messy text turned into validated BI (Data Insights); CSI/NPS, Power BI, Python/SQL at Bosch |
-| Next | Senior data analyst: insight through the scientific method |
-| Method | Descriptive, inferential, and visual analysis |
-| Decisions | Fast decisions from that evidence |
+| Now | Experimental design and inferential statistics (TrustMate); messy text → validated BI (Data Insights); CSI/NPS, Power BI, Python/SQL at Bosch; applied research rigor |
+| Next | Data Scientist (Pleno) / Applied Data Scientist: evidence → evaluation → production ML habits |
+| Method | Stats, Python, applied ML evaluation with mentor-backed craft |
+| Decisions | Trustworthy experiments and metrics stakeholders can act on |
 
 </div>
 </div>
@@ -1433,7 +1433,7 @@ I want to become a senior data analyst who turns insight into fast decisions. Th
 ## Future – The path
 
 <div class="career-path-slide">
-<p><img src="../../../pictures/diagrams/future-career-path-en.png" alt="Diagram: descriptive, inferential, and visual analysis, then senior data analyst, then fast decisions from insight" /></p>
+<p><img src="../../../pictures/diagrams/future-career-path-data-scientist-en.png" alt="Diagram: applied research and analytics today, then Data Scientist Pleno, then trustworthy experiments and decisions" /></p>
 </div>
 
 <!-- Diagram: future-career-path (mermaid/diagrams.md). Export to future-career-path.png -->

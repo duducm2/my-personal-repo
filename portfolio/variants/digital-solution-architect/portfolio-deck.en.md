@@ -1334,12 +1334,12 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 }
 </style>
 
-## Future – Senior data analyst
+## Future – Mid-Level Digital Solution Architect
 
-I want to become a senior data analyst who turns insight into fast decisions. The method is scientific: descriptive, inferential, and visual analysis. The diagram is how I work: a question, that analysis, then a decision people can take quickly.
+I want to become a Mid-Level Digital Solution Architect who designs digitization and analytics that hold up in production. The method is clear boundaries, evidence-based reviews, and measurable outcomes. The diagram is how I work: a problem, an operable design, then a solution teams can run.
 
 <div class="ai-agile-wrap">
-<p><img src="../../../pictures/diagrams/ai-agile-research-en.png" alt="Diagram: question, descriptive inferential and visual analysis, then a fast decision" /></p>
+<p><img src="../../../pictures/diagrams/ai-agile-research-digital-solution-architect-en.png" alt="Diagram: problem, operable design, then a solution teams can run" /></p>
 </div>
 
 ---
@@ -1374,10 +1374,10 @@ I want to become a senior data analyst who turns insight into fast decisions. Th
 
 | Step | What it is |
 | ---- | ---------- |
-| Now | Experimental design and inferential statistics (TrustMate: Welch, Cohen's d, FDR; LLM evaluation versus humans); messy text turned into validated BI (Data Insights); CSI/NPS, Power BI, Python/SQL at Bosch |
-| Next | Senior data analyst: insight through the scientific method |
-| Method | Descriptive, inferential, and visual analysis |
-| Decisions | Fast decisions from that evidence |
+| Now | Digitization systems (Bosch HU), architecture gates in ServiceNow CIP, analytics→insight (Data Insights), UX maturity & delivery outcomes at Bosch |
+| Next | Mid-Level Digital Solution Architect: cloud, digitization & evidence-based delivery |
+| Method | Boundaries, evidence gates, and designs that survive operations |
+| Decisions | Solutions judged by production outcomes, not decks |
 
 </div>
 </div>
@@ -1408,7 +1408,7 @@ I want to become a senior data analyst who turns insight into fast decisions. Th
 ## Future – The path
 
 <div class="career-path-slide">
-<p><img src="../../../pictures/diagrams/future-career-path-en.png" alt="Diagram: descriptive, inferential, and visual analysis, then senior data analyst, then fast decisions from insight" /></p>
+<p><img src="../../../pictures/diagrams/future-career-path-digital-solution-architect-en.png" alt="Diagram: digitization and architecture gates today, then Mid-Level Digital Solution Architect, then operable solutions" /></p>
 </div>
 
 <!-- Diagram: future-career-path (mermaid/diagrams.md). Export to future-career-path.png -->
