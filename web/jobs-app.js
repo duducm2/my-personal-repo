@@ -3772,6 +3772,7 @@
     }
     const dialog = document.getElementById("form-prompt-modal");
     const status = document.getElementById("form-prompt-status");
+    const rawEl = document.getElementById("form-prompt-raw");
     cancelFormPromptAutoClose({ keepStatus: true });
     if (status) {
       status.textContent = "";
@@ -3780,6 +3781,11 @@
     if (dialog && typeof dialog.showModal === "function" && !dialog.open) {
       dialog.showModal();
     }
+    requestAnimationFrame(() => {
+      if (!rawEl) return;
+      rawEl.focus();
+      if (cell(rawEl.value).trim()) rawEl.select();
+    });
   }
 
   function closeFormPromptModal() {

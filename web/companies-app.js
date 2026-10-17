@@ -1028,7 +1028,7 @@
     hoRow.append(hoLabel);
     for (const chip of [
       { key: "", en: "All" },
-      { key: "accepts", en: "Accepts HO" },
+      { key: "accepts", en: "Accepts remote / HO" },
       { key: "yes", en: "Remote / HO" },
       { key: "hybrid", en: "Hybrid" },
       { key: "no", en: "Onsite" },
