@@ -56,6 +56,7 @@
     "career_path",
     "job_url",
     "form_url",
+    "form_window_name",
     "status",
     "priority",
     "work_mode",
@@ -210,16 +211,7 @@
   async function openUrlInNewWindow(url) {
     const href = cell(url);
     if (!href) return false;
-    try {
-      const res = await fetch("/api/open-url", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url: href }),
-      });
-      if (res.ok) return true;
-    } catch {
-      /* fall through */
-    }
+    let opened = false;
     try {
       const win = window.open(
         href,
@@ -232,12 +224,22 @@
         } catch {
           /* ignore */
         }
-        return true;
+        opened = true;
       }
     } catch {
       /* ignore */
     }
-    return false;
+    try {
+      const res = await fetch("/api/open-url", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url: href }),
+      });
+      if (res.ok) return true;
+    } catch {
+      /* fall through */
+    }
+    return opened;
   }
 
   function focusedJobCard() {
@@ -1638,6 +1640,7 @@
       career_path: "other",
       job_url: "",
       form_url: "",
+      form_window_name: "",
       status: "watching",
       priority: "medium",
       work_mode: "unknown",
@@ -2573,7 +2576,7 @@
       sel.value = prev;
     }
     syncFormPromptPathsFromOpening();
-    syncFormPromptRawFromOpening();
+    syncFormPromptWindowFromOpening();
   }
 
   function syncFormPromptPathsFromOpening() {
@@ -2586,72 +2589,78 @@
     }
   }
 
-  function syncFormPromptRawFromOpening() {
+  function syncFormPromptWindowFromOpening() {
     const id = cell(document.getElementById("form-prompt-opening")?.value);
     const row = openings.find((r) => cell(r.id) === id);
-    const rawEl = document.getElementById("form-prompt-raw");
-    if (!rawEl || !row) return;
-    if (!cell(rawEl.value).trim() && cell(row.application_form_raw)) {
-      rawEl.value = cell(row.application_form_raw);
+    const winEl = document.getElementById("form-prompt-window");
+    if (!winEl || !row) return;
+    if (!cell(winEl.value).trim() && cell(row.form_window_name)) {
+      winEl.value = cell(row.form_window_name);
     }
   }
 
-  function buildFormFillInstructions(openingId, careerPaths) {
+  function buildFormFillInstructions(openingId, careerPaths, windowName) {
     const paths = careerPaths.length
       ? careerPaths.join(" | ")
       : "da | po | dsa | ds | other";
     const resumes = RESUME_OPTIONS.join(" | ");
     return [
       "=== AIB FORM-FILL INSTRUCTIONS (mandatory) ===",
-      "1. Read ATS / APPLICATION PAGE TEXT and list every distinct form field",
-      "   (required and optional) by its on-page label.",
-      "2. Resolve each field from PROFILE / EDUCATION / EXPERIENCE / EXPERIENCE BULLETS / NARRATIVES.",
+      `1. Target Window: "${cell(windowName)}"`,
+      "   IMPORTANT: The user will provide the full UIA tree of this window in the NEXT message.",
+      "   Do not answer until you receive the UIA tree dump.",
+      "2. Once the UIA tree is received, inspect every visible interactive input element:",
+      "   - Type: Edit (text inputs, textareas, email, phone, numbers)",
+      "   - Type: ComboBox (dropdown selections)",
+      "   - Type: CheckBox / RadioButton (terms, authorizations, options)",
+      "3. Resolve each field from PROFILE / EDUCATION / EXPERIENCE / EXPERIENCE BULLETS / NARRATIVES.",
       "   Prefer exact stored values. Never invent email, phone, or URLs.",
-      "   Put URLs as the bare https link only. Do not wrap a URL as markdown",
-      "   [url](url) when both sides are the same address.",
-      "3. Split full_name into first_name / last_name when the form asks for them.",
-      "4. For email confirmation fields, repeat the same email value.",
-      "5. For phone country / dial code, derive from profile phone when present",
-      "   (e.g. +55). Leave empty when unknown.",
-      "6. For education / experience multi-entry blocks, use paste-ready facts",
-      "   from the context (institution, degree, dates, title, company).",
-      "   Keep those rows factual. Do not replace a description with a vague line.",
-      "7. Free-text fields that address people are a sales note, not a courtesy",
-      "   line. This includes message to the hiring team, cover note, motivation,",
-      "   why this role, why this company, additional information, and comments.",
-      "   - Write them dense. Name several concrete overlaps with THIS opening:",
-      "     tools, methods, and outcomes taken from EDUCATION descriptions,",
-      "     EXPERIENCE descriptions, EXPERIENCE BULLETS, and NARRATIVES.",
-      "   - Lead with the fit. Do not open with excitement, passion, or alignment.",
-      "   - Plain and specific. No adjective stacks. Never invent employers,",
-      "     dates, degrees, or metrics.",
-      "   - If the form shows a character limit, spend most of it on the strongest",
-      "     matches. If it does not, write about 120-180 words.",
-      "   - Use the page language, and the EN or PT description that matches it.",
+      "   Put URLs as the bare https link only.",
+      "4. Split full_name into first_name / last_name when the form asks for them.",
+      "5. For email confirmation fields, repeat the same email value.",
+      "6. For phone country / dial code, derive from profile phone when present (e.g. +55).",
+      "7. Free-text fields that address people (motivation, why this role, cover note):",
+      "   - Write them dense and factual. Name concrete overlaps with THIS opening:",
+      "     tools, methods, and outcomes taken from EDUCATION, EXPERIENCE, and NARRATIVES.",
+      "   - Lead with the fit. Do not open with generic courtesy or alignment.",
+      "   - About 120-180 words, matching the page language (EN or PT).",
       `8. Prefer narratives/skills for career paths: ${paths}.`,
       "9. Choose exactly one résumé variant to upload for this opening.",
       `   Set top-level recommended_resume to one of: ${resumes}.`,
-      "   Pick the best match for the role title, career path, and ATS text",
-      "   (not only the current opening.recommended_resume if a better fit exists).",
-      "10. For résumé / file upload fields, set value to empty string and put a",
-      "   note naming the chosen variant, e.g.:",
-      '   "Upload manually — use digital-solution-architect resume".',
-      "11. Match label language to the page (PT or EN). Keep key as snake_case English.",
-      "12. Return ONLY one JSON object (no markdown fences, no prose):",
-      '    { "opening_id": "' +
-        openingId +
-        '", "recommended_resume": "<one of the variants>",',
-      '      "form_url": "<exact URL of the application form page>",',
+      "10. For résumé / file upload fields, set action to 'skip', value to '', and put a",
+      "   note naming the chosen variant, e.g.: 'Upload manually — use digital-solution-architect resume'.",
+      "11. Return ONLY one valid JSON object (no markdown fences, no prose):",
+      "    {",
+      `      "opening_id": "${openingId}",`,
+      `      "window_name": "${cell(windowName)}",`,
+      '      "recommended_resume": "<one of the variants>",',
+      '      "form_url": "<exact URL of the application form page if available, else empty string>",',
       '      "source_url": "<job posting URL if different>",',
-      '      "fields": [ { "key", "label", "value", "source", "note?" } ] }',
-      "13. Include every visible form field. Use empty value when unknown.",
-      "14. opening_id must equal the selected opening id provided above.",
-      "15. form_url must be the page you extracted (application form). source_url",
-      "    is the main job posting URL when it differs from the form page.",
+      '      "fields": [',
+      '        {',
+      '          "key": "snake_case_key",',
+      '          "label": "On-screen field label",',
+      '          "value": "Value to populate",',
+      '          "action": "set_text" | "select" | "check" | "uncheck" | "skip",',
+      '          "source": "e.g. profile.email or experience",',
+      '          "note": "Optional note",',
+      '          "locator": {',
+      '            "type": "Edit" | "ComboBox" | "CheckBox" | "RadioButton",',
+      '            "name": "Name attribute from UIA element",',
+      '            "automation_id": "AutomationId attribute from UIA element if present",',
+      '            "class_name": "ClassName attribute from UIA element if present",',
+      '            "nth": 1,',
+      '            "path": "UIA path from the tree line prefix (e.g. 1,3,2,5)"',
+      '          }',
+      '        }',
+      '      ]',
+      "    }",
+      "12. Include every visible form field. Set value to '' if unknown.",
+      "13. opening_id must equal the selected opening id provided above.",
     ].join("\n");
   }
 
-  async function buildFormFillPrompt(openingId, careerPaths, rawFormText) {
+  async function buildFormFillPrompt(openingId, careerPaths, windowName) {
     const paths = (Array.isArray(careerPaths) ? careerPaths : [careerPaths])
       .map((p) => cell(p).toLowerCase())
       .filter(Boolean);
@@ -2682,7 +2691,7 @@
 
     const lines = [];
     lines.push(
-      "You are my AI companion (AIB) for ATS application form field extraction.",
+      "You are my AI companion (AIB) for ATS application form field extraction and UI automation.",
     );
     lines.push("");
     lines.push("=== SELECTED OPENING ===");
@@ -2694,6 +2703,7 @@
     lines.push(`location: ${cell(opening.location)}`);
     lines.push(`job_url: ${cell(opening.job_url)}`);
     lines.push(`form_url: ${cell(opening.form_url)}`);
+    lines.push(`form_window_name: ${cell(windowName || opening.form_window_name)}`);
     lines.push(
       `recommended_resume (current): ${cell(opening.recommended_resume) || "(none)"}`,
     );
@@ -2793,10 +2803,11 @@
       lines.push("");
     }
 
-    lines.push("=== ATS / APPLICATION PAGE TEXT ===");
-    lines.push(cell(rawFormText).trim() || "(empty)");
+    lines.push("=== TARGET APPLICATION WINDOW ===");
+    lines.push(`window_name: ${cell(windowName)}`);
+    lines.push("NOTICE: The full UIA tree for this window will be provided in the following message. Wait for it before answering.");
     lines.push("");
-    lines.push(buildFormFillInstructions(cell(opening.id), effectivePaths));
+    lines.push(buildFormFillInstructions(cell(opening.id), effectivePaths, windowName));
     return lines.join("\n");
   }
 
@@ -2805,7 +2816,7 @@
       document.getElementById("form-prompt-opening")?.value,
     );
     const careerPaths = selectedFormPromptPaths();
-    const rawText = cell(document.getElementById("form-prompt-raw")?.value);
+    const windowName = cell(document.getElementById("form-prompt-window")?.value);
     const status = document.getElementById("form-prompt-status");
     if (!openingId) {
       if (status) {
@@ -2821,16 +2832,17 @@
       }
       return;
     }
-    if (!rawText.trim()) {
+    if (!windowName.trim()) {
       if (status) {
-        status.textContent = "Paste ATS / application page text first.";
+        status.textContent = "Target tab / window name required.";
         status.className = "save-status err";
       }
+      document.getElementById("form-prompt-window")?.focus();
       return;
     }
     const opening = openings.find((r) => cell(r.id) === openingId);
     if (opening) {
-      opening.application_form_raw = rawText;
+      opening.form_window_name = windowName;
       setDirty(true);
     }
     if (status) {
@@ -2838,7 +2850,7 @@
       status.className = "save-status";
     }
     try {
-      const prompt = await buildFormFillPrompt(openingId, careerPaths, rawText);
+      const prompt = await buildFormFillPrompt(openingId, careerPaths, windowName);
       const ok = await copyText(prompt);
       if (ok) {
         await signalPromptCopied();
@@ -2846,21 +2858,14 @@
           status.textContent = "Prompt copied — closing in 3s…";
           status.className = "save-status ok";
         }
-        showToast("Form prompt copied — paste into your AI companion", 2500);
+        showToast("Form prompt copied — next: UIATreeInspector → Shift+C → paste tree", 3000);
         startFormPromptAutoClose();
       } else {
-        const rawEl = document.getElementById("form-prompt-raw");
-        if (rawEl) {
-          rawEl.value = prompt;
-          rawEl.focus();
-          rawEl.select();
-        }
         if (status) {
-          status.textContent =
-            "Clipboard blocked — prompt filled in the box; press Ctrl+C.";
-          status.className = "save-status ok";
+          status.textContent = "Clipboard write blocked. Check browser permissions.";
+          status.className = "save-status err";
         }
-        showToast("Prompt ready — press Ctrl+C to copy", 3500);
+        showToast("Clipboard write blocked", 3500);
         cancelFormPromptAutoClose();
       }
     } catch (err) {
@@ -2906,12 +2911,15 @@
         key: key || `field_${i + 1}`,
         label,
         value: unwrapSameMarkdownLink(f.value),
+        action: cell(f.action) || "set_text",
         source: cell(f.source),
         note: cell(f.note),
+        locator: f.locator && typeof f.locator === "object" ? f.locator : null,
       });
     }
     return {
       opening_id: cell(data.opening_id),
+      window_name: cell(data.window_name),
       recommended_resume: cell(data.recommended_resume),
       form_url: cell(data.form_url),
       source_url: cell(data.source_url),
@@ -2946,29 +2954,34 @@
       row.recommended_resume = resume;
     }
 
+    const winInput = cell(
+      document.getElementById("form-import-window")?.value,
+    );
+    const winName =
+      winInput || cell(payload.window_name) || row.form_window_name || "";
+    if (winName) {
+      row.form_window_name = winName;
+    }
+
     const formUrlInput = cell(
       document.getElementById("form-import-form-url")?.value,
     );
-    // Prefer explicit dossier form_url, then import modal, then JSON, never invent.
     const formUrl = cleanUrlValue(
       formUrlInput || payload.form_url || row.form_url || "",
     );
     const sourceUrl = cleanUrlValue(
       payload.source_url || row.job_url || formUrl || "",
     );
-    if (!formUrl) {
-      throw new Error(
-        "Application form URL required — set it on the dossier or in the import modal (field “Form page URL”).",
-      );
+    if (formUrl) {
+      row.form_url = formUrl;
     }
-    // Persist on the opening so autofill matches this URL even if JSON is re-imported later.
-    row.form_url = formUrl;
 
     const importedAt =
       cell(payload.imported_at) || new Date().toISOString().slice(0, 19);
 
     row.application_answers = JSON.stringify({
       opening_id: cell(row.id),
+      window_name: cell(row.form_window_name),
       recommended_resume: cell(row.recommended_resume),
       form_url: formUrl,
       source_url: sourceUrl,
@@ -2984,6 +2997,7 @@
     const sample = {
       opening_id:
         openJobId || "bosch-brasil-mid-level-digital-solution-architect-33992",
+      window_name: "Apply - Bosch - Google Chrome",
       recommended_resume: "digital-solution-architect",
       form_url: "https://example.com/jobs/123/apply",
       source_url: "https://example.com/jobs/123",
@@ -2992,26 +3006,53 @@
           key: "first_name",
           label: "Nome",
           value: "Eduardo",
+          action: "set_text",
           source: "profile.full_name",
+          locator: {
+            type: "Edit",
+            name: "Nome",
+            automation_id: "first_name",
+            path: "1,3,2,5",
+          },
         },
         {
           key: "last_name",
           label: "Sobrenome",
           value: "Matos de Assis Figueiredo",
+          action: "set_text",
           source: "profile.full_name",
+          locator: {
+            type: "Edit",
+            name: "Sobrenome",
+            automation_id: "last_name",
+            path: "1,3,2,6",
+          },
         },
         {
           key: "email",
           label: "E-mail",
           value: "edu.evangelista.figueiredo@gmail.com",
+          action: "set_text",
           source: "profile.email",
+          locator: {
+            type: "Edit",
+            name: "E-mail",
+            automation_id: "email",
+            path: "1,3,2,7",
+          },
         },
         {
           key: "resume",
           label: "Currículo",
           value: "",
+          action: "skip",
           source: "",
           note: "Upload manually — use digital-solution-architect resume",
+          locator: {
+            type: "Button",
+            name: "Anexar",
+            path: "1,3,2,9",
+          },
         },
       ],
     };
@@ -3026,12 +3067,11 @@
       "",
       "WHAT YOU MUST DO",
       "- Return ONLY a valid JSON object (no markdown fences, no commentary).",
-      '- Shape: { "opening_id": string, "recommended_resume": one of ' +
+      '- Shape: { "opening_id": string, "window_name": string, "recommended_resume": one of ' +
         RESUME_OPTIONS.join(" | ") +
         ",",
       '  "form_url": string, "source_url"?: string,',
-      '  "fields": [ { "key", "label", "value", "source", "note?" } ] }',
-      "- form_url is the application form page URL the Chrome extension will match.",
+      '  "fields": [ { "key", "label", "value", "action": "set_text"|"select"|"check"|"uncheck"|"skip", "locator": { "type", "name"?, "automation_id"?, "class_name"?, "nth"?, "path"? }, "source"?, "note?" } ] }',
       "- Use empty strings for unknown values. Never invent email/phone.",
       "",
       "EXAMPLE",
@@ -3124,6 +3164,7 @@
           document.getElementById("job-form-answers");
         if (panel)
           panel.scrollIntoView({ block: "nearest", behavior: "smooth" });
+        startUiFill(row.id);
       } else if (status) {
         status.textContent = "Answers applied, but autosave failed.";
         status.className = "save-status err";
@@ -3132,6 +3173,73 @@
     } catch (err) {
       await failFormImportWithAiFix(err.message || String(err), raw);
     }
+  }
+
+  let uiFillPollTimer = null;
+  async function startUiFill(openingId) {
+    if (!openingId) return;
+    const row = openings.find((r) => cell(r.id) === cell(openingId));
+    const statusEl = document.getElementById("job-ui-fill-status");
+    if (statusEl) {
+      statusEl.textContent = "⏳ Triggering AutoHotkey form fill…";
+      statusEl.className = "save-status";
+    }
+    showToast("Starting AutoHotkey form fill…", 2500);
+    try {
+      const res = await fetch("/api/ui-fill/start", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ job_id: openingId }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error || res.statusText);
+      pollUiFillStatus(openingId);
+    } catch (err) {
+      if (statusEl) {
+        statusEl.textContent = "Fill error: " + (err.message || String(err));
+        statusEl.className = "save-status err";
+      }
+      showToast("AutoHotkey fill failed: " + (err.message || err), 3500);
+    }
+  }
+
+  function pollUiFillStatus(openingId) {
+    if (uiFillPollTimer) clearTimeout(uiFillPollTimer);
+    const check = async () => {
+      try {
+        const res = await fetch("/api/ui-fill/status");
+        if (!res.ok) return;
+        const st = await res.json();
+        const statusEl = document.getElementById("job-ui-fill-status");
+        if (st.state === "running" || st.state === "starting") {
+          const msg = st.current
+            ? `⏳ ${st.current}`
+            : `⏳ Filling (${st.done || 0}/${st.total || 0})…`;
+          if (statusEl) {
+            statusEl.textContent = msg;
+            statusEl.className = "save-status";
+          }
+          uiFillPollTimer = setTimeout(check, 800);
+        } else if (st.state === "done") {
+          const msg = `✅ Filled: ${st.filled || 0}, skipped: ${st.skipped || 0}${st.failed && st.failed.length ? `, failed: ${st.failed.length}` : ""}`;
+          if (statusEl) {
+            statusEl.textContent = msg;
+            statusEl.className = "save-status ok";
+          }
+          showToast(msg, 3500);
+        } else if (st.state === "error" || st.state === "aborted") {
+          const msg = st.error ? `❌ ${st.error}` : "Fill ended with error";
+          if (statusEl) {
+            statusEl.textContent = msg;
+            statusEl.className = "save-status err";
+          }
+          showToast(msg, 3500);
+        }
+      } catch {
+        uiFillPollTimer = setTimeout(check, 1200);
+      }
+    };
+    uiFillPollTimer = setTimeout(check, 600);
   }
 
   function cancelFormPromptAutoClose(opts = {}) {
@@ -3772,19 +3880,22 @@
     }
     const dialog = document.getElementById("form-prompt-modal");
     const status = document.getElementById("form-prompt-status");
-    const rawEl = document.getElementById("form-prompt-raw");
+    const winEl = document.getElementById("form-prompt-window");
     cancelFormPromptAutoClose({ keepStatus: true });
     if (status) {
       status.textContent = "";
       status.className = "save-status";
     }
+    if (winEl && row) {
+      winEl.value = cell(row.form_window_name) || winEl.value || "";
+    }
     if (dialog && typeof dialog.showModal === "function" && !dialog.open) {
       dialog.showModal();
     }
     requestAnimationFrame(() => {
-      if (!rawEl) return;
-      rawEl.focus();
-      if (cell(rawEl.value).trim()) rawEl.select();
+      if (!winEl) return;
+      winEl.focus();
+      if (cell(winEl.value).trim()) winEl.select();
     });
   }
 
@@ -3794,32 +3905,61 @@
     if (dialog && dialog.open) dialog.close();
   }
 
-  function openFormImportModal() {
+  async function openFormImportModal() {
     if (!requireActiveOpening("import form answers")) return;
     const dialog = document.getElementById("form-import-modal");
     const status = document.getElementById("form-import-status");
     const rawEl = document.getElementById("form-import-raw");
     const formUrlEl = document.getElementById("form-import-form-url");
+    const winEl = document.getElementById("form-import-window");
     if (status) {
       status.textContent = "";
       status.className = "save-status";
     }
+    const row =
+      activeOpening() ||
+      openings.find(
+        (r) =>
+          cell(r.id) ===
+          cell(document.getElementById("form-prompt-opening")?.value),
+      );
+    const parsed = row
+      ? parseApplicationAnswers(row.application_answers)
+      : null;
     if (formUrlEl) {
-      const row =
-        activeOpening() ||
-        openings.find(
-          (r) =>
-            cell(r.id) ===
-            cell(document.getElementById("form-prompt-opening")?.value),
-        );
-      const parsed = row
-        ? parseApplicationAnswers(row.application_answers)
-        : null;
       formUrlEl.value =
         cleanUrlValue(row?.form_url) ||
         cleanUrlValue(parsed?.form_url) ||
         formUrlEl.value ||
         "";
+    }
+    if (winEl) {
+      winEl.value =
+        cell(row?.form_window_name) ||
+        cell(parsed?.window_name) ||
+        winEl.value ||
+        "";
+    }
+    if (rawEl) {
+      try {
+        if (navigator.clipboard && navigator.clipboard.readText) {
+          const clipText = await navigator.clipboard.readText();
+          if (clipText && clipText.trim()) {
+            try {
+              parseFormImportPayload(clipText);
+              rawEl.value = clipText.trim();
+              if (status) {
+                status.textContent = "Clipboard JSON detected and prefilled.";
+                status.className = "save-status ok";
+              }
+            } catch {
+              /* not a valid form JSON payload, do not auto-fill */
+            }
+          }
+        }
+      } catch {
+        /* clipboard permission or not focused */
+      }
     }
     if (dialog && typeof dialog.showModal === "function" && !dialog.open) {
       dialog.showModal();
@@ -3827,7 +3967,7 @@
     requestAnimationFrame(() => {
       if (!rawEl) return;
       rawEl.focus();
-      rawEl.select();
+      if (rawEl.value) rawEl.select();
     });
   }
 
@@ -3914,27 +4054,38 @@
     formPromptBtn.className = "nav-btn";
     formPromptBtn.textContent = "Generate form prompt";
     formPromptBtn.title =
-      "Build AI companion prompt from pasted ATS / form page text (Alt+F)";
+      "Build AI companion prompt from target tab window name (Alt+F)";
     formPromptBtn.addEventListener("click", () => openFormPromptModal());
     const formImportBtn = document.createElement("button");
     formImportBtn.type = "button";
     formImportBtn.className = "nav-btn";
     formImportBtn.textContent = "Import form JSON";
-    formImportBtn.title = "Import AI companion form answers JSON (Alt+A)";
+    formImportBtn.title = "Import AI companion form answers JSON & fill form (Alt+A)";
     formImportBtn.addEventListener("click", () => openFormImportModal());
     const autofill = document.createElement("button");
     autofill.type = "button";
     autofill.className = "save-btn";
-    autofill.textContent = "Fill with extension";
+    autofill.textContent = "Fill with AutoHotkey";
     autofill.title =
-      "Open form URL and hand this opening to the Chrome autofill extension (never auto-submits)";
-    autofill.addEventListener("click", () => void startAutofillForOpening(row));
-    actions.append(formPromptBtn, formImportBtn, autofill);
+      "Populate the target application form window using AutoHotkey (never auto-submits)";
+    autofill.addEventListener("click", () => void startUiFill(row.id));
+    const fillStatus = document.createElement("span");
+    fillStatus.id = "job-ui-fill-status";
+    fillStatus.className = "save-status";
+    actions.append(formPromptBtn, formImportBtn, autofill, fillStatus);
     head.append(actions);
     section.append(head);
 
+    const winField = fieldBlock(
+      "Target tab / window name (AutoHotkey autofill & UIA tree)",
+      textInput(row, "form_window_name", {
+        placeholder: "e.g. Apply - Bosch - Google Chrome",
+      }),
+    );
+    section.append(winField);
+
     const formUrlField = fieldBlock(
-      "Application form URL (autofill target — may differ / change)",
+      "Application form URL (optional)",
       textInput(row, "form_url", {
         placeholder: "https://…/apply or …/jobs/…#app",
       }),
@@ -3952,7 +4103,7 @@
     const urlHint = document.createElement("p");
     urlHint.className = "job-modal-hint";
     urlHint.textContent =
-      "The extension matches this form URL (not the posting URL). Update it when the ATS redirects or the apply link changes.";
+      "AutoHotkey identifies the form window by title and populates the fields using UIA. Update the title if the tab changes.";
     section.append(urlHint);
 
     renderFormAnswersContent(row, section);
@@ -4607,7 +4758,10 @@
       const modalOpen = !!(dialog && dialog.open);
 
       // Ctrl/Cmd+Enter or Shift+Enter: proceed on the open prompt or import modal
-      const isEnter = event.key === "Enter" || event.code === "Enter";
+      const isEnter =
+        event.key === "Enter" ||
+        event.code === "Enter" ||
+        event.code === "NumpadEnter";
       if (isEnter && !event.altKey && (mod || event.shiftKey)) {
         const proceed = [
           ["form-import-modal", handleImportFormRun],
@@ -4656,10 +4810,10 @@
       // Openings page actions — Alt+letter (Shift reserved for global nav)
       if (event.altKey && !mod && !event.shiftKey) {
         const code = event.code;
+        const keyLower = (event.key || "").toLowerCase();
         const targetOpening = activeOpening();
         const hasCardOrDossier = !!(modalOpen || focusedJobCard());
-        const isM =
-          event.code === "KeyM" || (event.key || "").toLowerCase() === "m";
+        const isM = code === "KeyM" || keyLower === "m";
         if (isM) {
           event.preventDefault();
           event.stopPropagation();
@@ -4668,7 +4822,7 @@
         }
 
         // Add new opening — Alt+N
-        if (!modalOpen && !typing && code === "KeyN") {
+        if (!modalOpen && !typing && (code === "KeyN" || keyLower === "n")) {
           event.preventDefault();
           event.stopPropagation();
           addOpening();
@@ -4676,7 +4830,7 @@
         }
 
         // Generate prompt — Alt+R (board, open dossier, or focused card's company)
-        if (code === "KeyR") {
+        if (code === "KeyR" || keyLower === "r") {
           event.preventDefault();
           event.stopPropagation();
           openPromptModal({
@@ -4687,7 +4841,7 @@
         }
 
         // Import openings — Alt+I
-        if (!modalOpen && !typing && code === "KeyI") {
+        if (!modalOpen && !typing && (code === "KeyI" || keyLower === "i")) {
           event.preventDefault();
           event.stopPropagation();
           openImportModal();
@@ -4697,25 +4851,25 @@
         // Form / cover actions: open dossier OR focused card (same as dossier)
         // Allow while typing only inside an open dossier (modal fields).
         const dossierShortcutOk = hasCardOrDossier && (modalOpen || !typing);
-        if (dossierShortcutOk && code === "KeyF") {
+        if (dossierShortcutOk && (code === "KeyF" || keyLower === "f")) {
           event.preventDefault();
           event.stopPropagation();
           openFormPromptModal();
           return;
         }
-        if (dossierShortcutOk && code === "KeyA") {
+        if (dossierShortcutOk && (code === "KeyA" || keyLower === "a")) {
           event.preventDefault();
           event.stopPropagation();
           openFormImportModal();
           return;
         }
-        if (dossierShortcutOk && code === "KeyC") {
+        if (dossierShortcutOk && (code === "KeyC" || keyLower === "c")) {
           event.preventDefault();
           event.stopPropagation();
           openCoverPromptModal();
           return;
         }
-        if (dossierShortcutOk && code === "KeyL") {
+        if (dossierShortcutOk && (code === "KeyL" || keyLower === "l")) {
           event.preventDefault();
           event.stopPropagation();
           openCoverImportModal();
@@ -4723,7 +4877,7 @@
         }
 
         // Search — Alt+S
-        const isS = code === "KeyS" || (event.key || "").toLowerCase() === "s";
+        const isS = code === "KeyS" || keyLower === "s";
         if (isS) {
           event.preventDefault();
           event.stopPropagation();

@@ -415,5 +415,6 @@
     jumpFilterPrefix,
     jumpInContext,
     isJumpKey,
+    getLastCard: () => lastCard,
   };
 })();

@@ -1,0 +1,49 @@
+{
+  "job_id": "bosch-brasil-internal-analista-seguranca-informacao-jr-36215",
+  "window_name": "Test Application Window",
+  "form_url": "https://example.com/apply",
+  "role_title": "ANALISTA SEGURANÇA INFORMAÇÃO JR - 36215",
+  "company": "Bosch Brasil (internal)",
+  "fields": [
+    {
+      "key": "full_name",
+      "label": "Full Name",
+      "action": "set_text",
+      "value": "Eduardo Valadares",
+      "locator": {
+        "type": "Edit",
+        "automation_id": "txt_fullname",
+        "name": "Full Name",
+        "nth": 1,
+        "path": "1,2,3"
+      }
+    },
+    {
+      "key": "email",
+      "label": "Email Address",
+      "action": "set_text",
+      "value": "eduardo@example.com",
+      "locator": {
+        "type": "Edit",
+        "automation_id": "txt_email",
+        "name": "Email",
+        "nth": 1,
+        "path": "1,2,4"
+      }
+    },
+    {
+      "key": "resume_file",
+      "label": "Attach Resume",
+      "action": "skip",
+      "value": "",
+      "locator": {
+        "type": "Button",
+        "automation_id": "btn_upload",
+        "name": "Upload Resume",
+        "nth": 1,
+        "path": "1,2,5"
+      }
+    }
+  ],
+  "set_at": "2026-10-22T20:59:57"
+}
