@@ -467,7 +467,19 @@
   async function openUrlInNewTab(url) {
     const href = cell(url);
     if (!href) return false;
-    let opened = false;
+    // Ask the local server to launch a new browser window so Chrome
+    // switches away from the cockpit tab (window.open only adds a background tab).
+    try {
+      const res = await fetch("/api/open-url", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url: href }),
+      });
+      if (res.ok) return true;
+    } catch {
+      /* fall through */
+    }
+    // Fallback when the server is old / offline: still try a client popup window.
     try {
       const win = window.open(
         href,
@@ -480,22 +492,12 @@
         } catch {
           /* ignore */
         }
-        opened = true;
+        return true;
       }
     } catch {
       /* ignore */
     }
-    try {
-      const res = await fetch("/api/open-url", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url: href }),
-      });
-      if (res.ok) return true;
-    } catch {
-      /* fall through */
-    }
-    return opened;
+    return false;
   }
 
   function openCardUrl(row) {
@@ -1048,12 +1050,7 @@
       const dialog = document.getElementById("portal-modal");
       const modalOpen = !!(dialog && dialog.open);
 
-      const isEnter =
-        event.key === "Enter" ||
-        event.code === "Enter" ||
-        event.code === "NumpadEnter";
-
-      if (mod && !event.altKey && isEnter) {
+      if (mod && !event.altKey && event.key === "Enter") {
         event.preventDefault();
         if (modalOpen) {
           void doneModal();
@@ -1082,7 +1079,7 @@
         !mod &&
         !event.altKey &&
         event.shiftKey &&
-        (event.code === "KeyN" || (event.key || "").toLowerCase() === "n")
+        event.code === "KeyN"
       ) {
         event.preventDefault();
         event.stopPropagation();

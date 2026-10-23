@@ -389,7 +389,16 @@
   async function openUrlInNewWindow(url) {
     const href = cell(url);
     if (!href) return false;
-    let opened = false;
+    try {
+      const res = await fetch("/api/open-url", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url: href }),
+      });
+      if (res.ok) return true;
+    } catch {
+      /* fall through */
+    }
     try {
       const win = window.open(
         href,
@@ -402,85 +411,40 @@
         } catch {
           /* ignore */
         }
-        opened = true;
+        return true;
       }
     } catch {
       /* ignore */
     }
-    try {
-      const res = await fetch("/api/open-url", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url: href }),
-      });
-      if (res.ok) return true;
-    } catch {
-      /* fall through */
-    }
-    return opened;
+    return false;
   }
 
   function focusedCompanyCard() {
     const el = document.activeElement;
-    if (!el) return null;
-    const card = el.closest?.("#companies-results .company-tile");
+    const card = el?.closest?.("#companies-results .company-tile");
     return card || null;
   }
 
-  function targetCompany() {
+  async function openFocusedCompanyPortal() {
+    const card = focusedCompanyCard();
+    if (!card) return false;
+    const href = cell(card.dataset.url);
+    if (!href) {
+      setSaveStatus("No careers / portal URL for this company", "err");
+      return true;
+    }
+    const ok = await openUrlInNewWindow(href);
+    if (!ok) setSaveStatus("Could not open careers URL", "err");
+    return true;
+  }
+
+  function pinTargetCompany() {
     if (openCompanyId) {
       return companies.find((c) => c.id === openCompanyId) || null;
     }
     const card = focusedCompanyCard();
-    if (card?.dataset?.id) {
-      return companies.find((c) => c.id === card.dataset.id) || null;
-    }
-    const last = window.CardNav?.getLastCard?.();
-    if (last?.dataset?.id) {
-      return companies.find((c) => c.id === last.dataset.id) || null;
-    }
-    const focusedInResults = document.activeElement?.closest?.("#companies-results [data-id]");
-    if (focusedInResults?.dataset?.id) {
-      return companies.find((c) => c.id === focusedInResults.dataset.id) || null;
-    }
-    const activeTile = document.querySelector("#companies-results .company-tile.is-active");
-    if (activeTile?.dataset?.id) {
-      return companies.find((c) => c.id === activeTile.dataset.id) || null;
-    }
-    const firstTile = document.querySelector("#companies-results .company-tile");
-    if (firstTile?.dataset?.id) {
-      return companies.find((c) => c.id === firstTile.dataset.id) || null;
-    }
-    return null;
-  }
-
-  function pinTargetCompany() {
-    return targetCompany();
-  }
-
-  async function openFocusedCompanyPortal() {
-    const row = targetCompany();
-    if (!row) {
-      setSaveStatus("Focus a company card (or open its dossier) first", "err");
-      return false;
-    }
-    const href = primaryCareersUrl(row);
-    if (!href) {
-      const name = cell(row.name_en) || row.id;
-      setSaveStatus(`No careers / portal URL for ${name}`, "err");
-      return false;
-    }
-    if (openCompanyId) {
-      await flushSave();
-    }
-    const ok = await openUrlInNewWindow(href);
-    if (!ok) {
-      setSaveStatus("Could not open careers URL", "err");
-    } else {
-      const name = cell(row.name_en) || row.id;
-      setSaveStatus(`Opened careers: ${name}`, "ok");
-    }
-    return true;
+    if (!card) return null;
+    return companies.find((c) => c.id === card.dataset.id) || null;
   }
 
   function pinFocusedCompany() {
@@ -1693,12 +1657,6 @@
 
     const actions = document.createElement("div");
     actions.className = "job-modal-actions";
-    const openPortalBtn = document.createElement("button");
-    openPortalBtn.type = "button";
-    openPortalBtn.className = "nav-btn";
-    openPortalBtn.textContent = "Open careers";
-    openPortalBtn.title = "Open company careers / portal (Shift+C)";
-    openPortalBtn.addEventListener("click", () => void openFocusedCompanyPortal());
     const done = document.createElement("button");
     done.type = "button";
     done.className = "save-btn";
@@ -1711,7 +1669,7 @@
     del.textContent = "Delete company";
     del.title = "Delete company (Shift+Delete)";
     del.addEventListener("click", () => deleteCompany(row.id));
-    actions.append(openPortalBtn, done, del);
+    actions.append(done, del);
     body.append(actions);
   }
 
@@ -1874,14 +1832,9 @@
       const typing = isTypingTarget(document.activeElement);
       const dialog = document.getElementById("company-modal");
       const modalOpen = !!(dialog && dialog.open);
-      const isEnter =
-        event.key === "Enter" ||
-        event.code === "Enter" ||
-        event.code === "NumpadEnter";
 
-      if (mod && !event.altKey && isEnter) {
+      if (mod && !event.altKey && event.key === "Enter") {
         event.preventDefault();
-        event.stopPropagation();
         if (modalOpen) {
           void doneModal();
           return;
@@ -1909,7 +1862,7 @@
         !mod &&
         !event.altKey &&
         event.shiftKey &&
-        (event.code === "KeyN" || (event.key || "").toLowerCase() === "n")
+        event.code === "KeyN"
       ) {
         event.preventDefault();
         event.stopPropagation();
@@ -1919,11 +1872,7 @@
 
       if (event.altKey && !mod && !event.shiftKey) {
         // Same openings shortcuts as the job board: focused card or open dossier
-        const isR =
-          event.code === "KeyR" || (event.key || "").toLowerCase() === "r";
-        const isI =
-          event.code === "KeyI" || (event.key || "").toLowerCase() === "i";
-        if (isR || isI) {
+        if (event.code === "KeyR" || event.code === "KeyI") {
           const row = pinTargetCompany();
           if (!row) {
             event.preventDefault();
@@ -1937,7 +1886,7 @@
           event.preventDefault();
           event.stopPropagation();
           const params = new URLSearchParams({
-            action: isR ? "prompt" : "import",
+            action: event.code === "KeyR" ? "prompt" : "import",
             company: row.id,
           });
           location.assign(`/jobs.html?${params}`);
@@ -2091,11 +2040,6 @@
       if (event.key.toLowerCase() === "g" || event.code === "KeyG") {
         event.preventDefault();
         openJobsWindow();
-        return;
-      }
-      if (event.key.toLowerCase() === "c" || event.code === "KeyC") {
-        event.preventDefault();
-        void openFocusedCompanyPortal();
         return;
       }
       if (event.key.toLowerCase() === "h") {

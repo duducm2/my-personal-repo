@@ -378,9 +378,9 @@
         </header>
         <div class="company-modal-body">
           <p class="job-modal-hint">
-            Enter the target Chrome tab / window name (as shown in UIATreeInspector).
-            The prompt copies career context and instructs your AI companion to wait for the UIA tree.
-            Next step: open UIATreeInspector, find the window, and use Shift+C to copy the full UI tree.
+            Paste ATS application page text. The prompt matches required fields
+            against your profile, education, and experience, and asks the AI to
+            pick which résumé variant to upload for this opening.
           </p>
           <div class="company-result-edit job-modal-grid">
             <label class="company-edit-field">
@@ -408,17 +408,18 @@
           </div>
           <label class="company-edit-field">
             <span class="company-research-label"
-              >Target tab / window name (required)</span
+              >ATS / application page text</span
             >
-            <input
-              id="form-prompt-window"
-              class="field-input"
-              type="text"
-              required
-              placeholder="e.g. Apply - Bosch - Google Chrome (or unique substring)"
-            />
+            <textarea
+              id="form-prompt-raw"
+              class="field-input tall"
+              rows="12"
+              placeholder="Prefer: extension → Capture page for AI (Ctrl+A text + form digest + HTML). Or paste field labels manually…"
+            ></textarea>
             <span class="job-modal-hint" style="margin-top: 4px"
-              >Target title used in UIATreeInspector (Shift+C) and by AutoHotkey to locate and populate the window.</span
+              >Tip: On the form tab, use the Chrome extension
+              <strong>Capture page for AI</strong> — it saves structured text
+              into this opening and prefills here.</span
             >
           </label>
           <div class="job-modal-actions">
@@ -485,39 +486,25 @@
         <div class="company-modal-body">
           <p class="job-modal-hint">
             Paste the JSON object returned by your AI companion. A successful
-            import fills this opening’s Application form answers panel, saves
-            automatically, and triggers AutoHotkey to populate the application form.
+            import fills this opening’s Application form answers panel and saves
+            automatically. The Chrome extension matches
+            <strong>form URL</strong> to fill that page.
           </p>
-          <div class="company-result-edit job-modal-grid">
-            <label class="company-edit-field">
-              <span class="company-research-label"
-                >Form page URL (optional)</span
-              >
-              <input
-                id="form-import-form-url"
-                class="field-input"
-                type="url"
-                placeholder="https://job-boards.greenhouse.io/…/jobs/…"
-              />
-              <span class="job-modal-hint" style="margin-top: 4px"
-                >URL of the application form page.</span
-              >
-            </label>
-            <label class="company-edit-field">
-              <span class="company-research-label"
-                >Target window name</span
-              >
-              <input
-                id="form-import-window"
-                class="field-input"
-                type="text"
-                placeholder="e.g. Apply - Bosch"
-              />
-              <span class="job-modal-hint" style="margin-top: 4px"
-                >Target window title for AutoHotkey autofill.</span
-              >
-            </label>
-          </div>
+          <label class="company-edit-field">
+            <span class="company-research-label"
+              >Form page URL (application form)</span
+            >
+            <input
+              id="form-import-form-url"
+              class="field-input"
+              type="url"
+              placeholder="https://job-boards.greenhouse.io/…/jobs/…"
+            />
+            <span class="job-modal-hint" style="margin-top: 4px"
+              >URL of the page you will autofill. Distinct from the job posting
+              source URL when they differ.</span
+            >
+          </label>
           <label class="company-edit-field">
             <span class="company-research-label">AI output (JSON)</span>
             <textarea

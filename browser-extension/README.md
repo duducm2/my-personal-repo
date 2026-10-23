@@ -1,9 +1,5 @@
 # Career Cockpit Autofill (Chrome Extension)
 
-> [!NOTE]
-> **Deprecated:** This browser extension is deprecated and no longer part of the primary Career Cockpit workflow.
-> Job application form filling is now handled via **AutoHotkey + UIA Automation** and the **AI Companion** (Alt+F / Alt+A in the cockpit).
-
 Manifest V3 extension that fills job application forms from:
 
 1. **Imported AI companion JSON** (`application_answers` with `form_url` + `fields[]`) — preferred

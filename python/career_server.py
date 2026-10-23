@@ -12,7 +12,6 @@ import subprocess
 import sys
 import traceback
 import webbrowser
-import datetime
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from typing import Any
@@ -37,34 +36,19 @@ CANONICAL_DIR = ROOT_DIR / "my-data" / "canonical"
 OUTPUT_DIR = ROOT_DIR / "output"
 AUTOFILL_MAPPINGS_PATH = default_mappings_path(ROOT_DIR)
 AUTOFILL_PENDING_PATH = ROOT_DIR / "my-data" / "autofill" / "pending.json"
-AUTOFILL_UI_FILL_PATH = ROOT_DIR / "my-data" / "autofill" / "ui-fill-pending.json"
 
-_UI_FILL_STATUS: dict[str, Any] = {
-    "state": "idle",
-    "job_id": "",
-    "done": 0,
-    "total": 0,
-    "current": "",
-    "filled": 0,
-    "skipped": 0,
-    "failed": [],
-    "error": "",
-}
-
-# Keyboard virtual keys
-_VK_LCONTROL = 0x11
+# Win+Alt+Shift+L — AutoHotkey #!+l pastes the clipboard into a chosen window.
+_VK_LWIN = 0x5B
 _VK_MENU = 0x12
 _VK_SHIFT = 0x10
-_VK_LWIN = 0x5B
 _VK_L = 0x4C
-_VK_F10 = 0x79
 _KEYEVENTF_KEYUP = 0x0002
 _KEYEVENTF_EXTENDEDKEY = 0x0001
 _INPUT_KEYBOARD = 1
 
 
-def send_chord(down: tuple[int, ...]) -> None:
-    """Press a sequence of keys down, then release in reverse order."""
+def send_prompt_hotkey() -> None:
+    """Press Win+Alt+Shift+L so the local AutoHotkey chord runs."""
     import ctypes
     from ctypes import wintypes
 
@@ -113,6 +97,7 @@ def send_chord(down: tuple[int, ...]) -> None:
         item.union.ki.dwFlags = flags
         return item
 
+    down = (_VK_LWIN, _VK_MENU, _VK_SHIFT, _VK_L)
     sequence = [stroke(vk, False) for vk in down] + [
         stroke(vk, True) for vk in reversed(down)
     ]
@@ -121,19 +106,7 @@ def send_chord(down: tuple[int, ...]) -> None:
     sent = user32.SendInput(len(sequence), ctypes.byref(batch), ctypes.sizeof(INPUT))
     if sent != len(sequence):
         err = ctypes.get_last_error()
-        sys.stderr.write(f"[career-server] SendInput sent {sent} of {len(sequence)} (win error {err})\n")
-        return False
-    return True
-
-
-def send_prompt_hotkey() -> bool:
-    """Press Win+Alt+Shift+L so the local AutoHotkey chord runs."""
-    return send_chord((_VK_LWIN, _VK_MENU, _VK_SHIFT, _VK_L))
-
-
-def send_ui_fill_hotkey() -> bool:
-    """Press Ctrl+Alt+Win+F10 so AutoHotkey job-form fill runs."""
-    return send_chord((_VK_LCONTROL, _VK_MENU, _VK_LWIN, _VK_F10))
+        raise OSError(f"SendInput sent {sent} of {len(sequence)} (error {err})")
 
 # Cover letters: Desktop deliverable + single overwriteable repo temp (no accumulation)
 COVER_LETTER_TEMP_FILENAME = "Cover-Letter-current.pdf"
@@ -354,26 +327,16 @@ def open_url_new_window(url: str) -> dict[str, Any]:
     if parsed.scheme not in ("http", "https") or not parsed.netloc:
         raise ValueError("only absolute http(s) URLs are allowed")
 
-    if sys.platform == "win32":
-        try:
-            os.startfile(url)
-            return {"ok": True, "via": "os.startfile", "mode": "shell_execute"}
-        except Exception as exc:
-            sys.stderr.write(f"[career-server] os.startfile error: {exc}\n")
-
     for exe in _browser_exe_candidates():
         if not exe.is_file():
             continue
-        try:
-            subprocess.Popen(  # noqa: S603
-                [str(exe), "--new-window", url],
-                close_fds=True,
-                stdout=subprocess.DEVNULL,
-                stderr=subprocess.DEVNULL,
-            )
-            return {"ok": True, "via": exe.name, "mode": "new-window"}
-        except Exception:
-            pass
+        subprocess.Popen(  # noqa: S603
+            [str(exe), "--new-window", url],
+            close_fds=True,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        )
+        return {"ok": True, "via": exe.name, "mode": "new-window"}
 
     # Last resort: OS default handler (may still open as a tab).
     webbrowser.open_new(url)
@@ -733,15 +696,6 @@ class CareerHandler(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(data)
 
-    def _text(self, status: int, text: str) -> None:
-        data = text.encode("utf-8")
-        self.send_response(status)
-        self.send_header("Content-Type", "text/plain; charset=utf-8")
-        self.send_header("Content-Length", str(len(data)))
-        self._cors()
-        self.end_headers()
-        self.wfile.write(data)
-
     def _read_json(self) -> Any:
         length = int(self.headers.get("Content-Length", "0"))
         raw = self.rfile.read(length) if length else b"{}"
@@ -757,58 +711,6 @@ class CareerHandler(BaseHTTPRequestHandler):
             path = urlparse(self.path).path
             if path == "/health":
                 self._json(200, {"ok": True})
-                return
-            if path == "/api/ui-fill/status":
-                self._json(200, _UI_FILL_STATUS)
-                return
-            if path == "/api/ui-fill/pending":
-                if not AUTOFILL_UI_FILL_PATH.is_file():
-                    self._json(404, {"ok": False, "error": "no pending ui fill"})
-                    return
-                try:
-                    pending_data = json.loads(
-                        AUTOFILL_UI_FILL_PATH.read_text(encoding="utf-8")
-                    )
-                except (OSError, json.JSONDecodeError) as e:
-                    self._json(500, {"ok": False, "error": str(e)})
-                    return
-
-                from urllib.parse import parse_qs
-
-                qs = parse_qs(urlparse(self.path).query or "")
-                if qs.get("format", [""])[0] == "json":
-                    self._json(200, {"ok": True, "pending": pending_data})
-                    return
-
-                lines = [
-                    f"JOB={pending_data.get('job_id', '')}",
-                    f"WINDOW={pending_data.get('window_name', '')}",
-                    f"URL={pending_data.get('form_url', '')}",
-                    f"ROLE={pending_data.get('role_title', '')}",
-                    f"COMPANY={pending_data.get('company', '')}",
-                ]
-                fields = pending_data.get("fields") or []
-                lines.append(f"TOTAL={len(fields)}")
-                for idx, fld in enumerate(fields, 1):
-                    action = str(fld.get("action") or "set_text")
-                    key = str(fld.get("key") or f"field_{idx}")
-                    val = str(fld.get("value") if fld.get("value") is not None else "")
-                    val_escaped = (
-                        val.replace("\\", "\\\\")
-                        .replace("\t", "\\t")
-                        .replace("\r", "\\r")
-                        .replace("\n", "\\n")
-                    )
-                    loc = fld.get("locator") or {}
-                    l_type = str(loc.get("type") or "Edit")
-                    l_aid = str(loc.get("automation_id") or "")
-                    l_name = str(loc.get("name") or fld.get("label") or "")
-                    l_nth = str(loc.get("nth") or "1")
-                    l_path = str(loc.get("path") or "")
-                    lines.append(
-                        f"FIELD\t{idx}\t{action}\t{l_type}\t{l_aid}\t{l_name}\t{l_nth}\t{l_path}\t{key}\t{val_escaped}"
-                    )
-                self._text(200, "\n".join(lines) + "\n")
                 return
             if path == "/api/state":
                 self._json(200, {"collections": self.store.load_all()})
@@ -914,91 +816,8 @@ class CareerHandler(BaseHTTPRequestHandler):
                 self._json(200, result)
                 return
             if path == "/api/prompt-hotkey":
-                ok = send_prompt_hotkey()
-                self._json(200, {"ok": True, "hotkey_sent": bool(ok)})
-                return
-            if path == "/api/ui-fill/start":
-                body = self._read_json()
-                if not isinstance(body, dict):
-                    raise ValueError("JSON object required")
-                job_id = str(body.get("job_id") or "").strip()
-                if not job_id:
-                    raise ValueError("job_id required")
-                collections = self.store.load_all()
-                openings = collections.get("jobOpenings") or []
-                row = next(
-                    (r for r in openings if str(r.get("id") or "") == job_id), None
-                )
-                if row is None:
-                    raise ValueError(f"opening not found: {job_id}")
-
-                answers: dict[str, Any] = {}
-                raw_ans = str(row.get("application_answers") or "").strip()
-                if raw_ans:
-                    try:
-                        answers = json.loads(raw_ans)
-                    except Exception:
-                        pass
-
-                window_name = str(
-                    row.get("form_window_name")
-                    or answers.get("window_name")
-                    or ""
-                ).strip()
-                form_url = str(
-                    row.get("form_url") or answers.get("form_url") or ""
-                ).strip()
-                fields = answers.get("fields") or []
-
-                payload = {
-                    "job_id": job_id,
-                    "window_name": window_name,
-                    "form_url": form_url,
-                    "role_title": str(row.get("role_title") or ""),
-                    "company": str(row.get("company") or ""),
-                    "fields": fields,
-                    "set_at": datetime.datetime.now().isoformat(timespec="seconds"),
-                }
-                AUTOFILL_UI_FILL_PATH.parent.mkdir(parents=True, exist_ok=True)
-                AUTOFILL_UI_FILL_PATH.write_text(
-                    json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
-                    encoding="utf-8",
-                )
-
-                _UI_FILL_STATUS.clear()
-                _UI_FILL_STATUS.update({
-                    "state": "starting",
-                    "job_id": job_id,
-                    "done": 0,
-                    "total": len(fields),
-                    "current": "Triggering AutoHotkey...",
-                    "filled": 0,
-                    "skipped": 0,
-                    "failed": [],
-                    "error": "",
-                })
-
-                try:
-                    send_ui_fill_hotkey()
-                except Exception as exc:
-                    _UI_FILL_STATUS["state"] = "error"
-                    _UI_FILL_STATUS["error"] = f"Could not trigger hotkey: {exc}"
-
-                self._json(
-                    200,
-                    {
-                        "ok": True,
-                        "job_id": job_id,
-                        "window_name": window_name,
-                        "fields_count": len(fields),
-                    },
-                )
-                return
-            if path == "/api/ui-fill/status":
-                body = self._read_json()
-                if isinstance(body, dict):
-                    _UI_FILL_STATUS.update(body)
-                self._json(200, {"ok": True, "status": _UI_FILL_STATUS})
+                send_prompt_hotkey()
+                self._json(200, {"ok": True})
                 return
             if path == "/api/autofill/map":
                 body = self._read_json()

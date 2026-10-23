@@ -313,7 +313,6 @@ _BASE: dict[str, tuple[str, list[str]]] = {
             "career_path",
             "job_url",
             "form_url",
-            "form_window_name",
             "status",
             "priority",
             "work_mode",
