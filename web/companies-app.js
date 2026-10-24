@@ -2062,6 +2062,11 @@
         openProfileWindow();
         return;
       }
+      if (event.key.toLowerCase() === "o" || event.code === "KeyO") {
+        event.preventDefault();
+        location.assign("/people.html");
+        return;
+      }
       if (event.key.toLowerCase() === "j") {
         event.preventDefault();
         openPortalsWindow();

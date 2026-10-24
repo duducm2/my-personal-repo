@@ -215,8 +215,8 @@
     root.classList.toggle("is-contracted", !open);
     btn.setAttribute("aria-expanded", open ? "true" : "false");
     btn.title = open
-      ? "Hide filters (Alt+Shift+B)"
-      : "Show filters (Alt+Shift+B)";
+      ? "Hide filters (Alt+Shift+K)"
+      : "Show filters (Alt+Shift+K)";
     const count = activeFilterCount(root);
     const badge = btn.querySelector(".filters-toggle-count");
     if (badge) {
@@ -256,7 +256,7 @@
       label.textContent = "Filters";
       const kbd = document.createElement("kbd");
       kbd.className = "btn-kbd";
-      kbd.textContent = "Alt+Shift+B";
+      kbd.textContent = "Alt+Shift+K";
       const badge = document.createElement("span");
       badge.className = "filters-toggle-count";
       badge.hidden = true;
@@ -282,7 +282,7 @@
       if (event.ctrlKey || event.metaKey || !event.altKey || !event.shiftKey) {
         return;
       }
-      if (event.code !== "KeyB") return;
+      if (event.code !== "KeyK") return;
       if (!document.querySelector(".filters-dock, .company-filters")) return;
       event.preventDefault();
       event.stopPropagation();

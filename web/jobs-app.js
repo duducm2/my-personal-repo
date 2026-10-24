@@ -4811,22 +4811,8 @@
     render();
   }
 
-  async function bulkDeleteSelected() {
-    if (!selectedIds.size) return;
-    const count = selectedIds.size;
-    openings = openings.filter((r) => !selectedIds.has(r.id));
-    collections.jobOpenings = openings;
-    selectedIds.clear();
-    setDirty(true);
-    setSaveStatus("");
-    render();
-    updateBulkBar();
-    const saved = await flushSave();
-    if (saved) {
-      showToast(`Deleted ${count} opening${count === 1 ? "" : "s"}`, 2200);
-    } else {
-      showToast(`Deleted ${count} — autosave failed`, 3500);
-    }
+  function bulkDeleteSelected() {
+    bulkSetStatus("excluded");
   }
 
   function bulkSelectAllVisible() {
@@ -4969,6 +4955,21 @@
           deleteOpening(row.id);
           return;
         }
+      }
+
+      // Bulk selection — Delete sets every selected opening to excluded.
+      if (
+        !event.altKey &&
+        !event.shiftKey &&
+        !mod &&
+        !typing &&
+        !modalOpen &&
+        selectedIds.size > 1 &&
+        (event.key === "Delete" || event.code === "Delete")
+      ) {
+        event.preventDefault();
+        bulkSetStatus("excluded");
+        return;
       }
 
       // Openings page actions — Alt+letter (Shift reserved for global nav)
@@ -5191,6 +5192,11 @@
       if (event.key.toLowerCase() === "p") {
         event.preventDefault();
         location.assign("/profile.html");
+        return;
+      }
+      if (event.key.toLowerCase() === "o" || event.code === "KeyO") {
+        event.preventDefault();
+        location.assign("/people.html");
         return;
       }
       if (event.code === "KeyC" || event.key.toLowerCase() === "c") {

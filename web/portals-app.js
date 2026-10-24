@@ -1204,6 +1204,11 @@
         openProfileWindow();
         return;
       }
+      if (k === "o" || event.code === "KeyO") {
+        event.preventDefault();
+        location.assign("/people.html");
+        return;
+      }
       if (k === "h") {
         event.preventDefault();
         location.assign("/help.html");
