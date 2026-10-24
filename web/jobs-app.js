@@ -2587,12 +2587,142 @@
   }
 
   function syncFormPromptRawFromOpening() {
-    const id = cell(document.getElementById("form-prompt-opening")?.value);
-    const row = openings.find((r) => cell(r.id) === id);
-    const rawEl = document.getElementById("form-prompt-raw");
-    if (!rawEl || !row) return;
-    if (!cell(rawEl.value).trim() && cell(row.application_form_raw)) {
-      rawEl.value = cell(row.application_form_raw);
+    void syncFormWindowName();
+  }
+
+  async function postCareerAutofill(path, body) {
+    const res = await fetch(path, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body || {}),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok || data.ok === false) {
+      throw new Error(data.error || res.statusText || "Request failed");
+    }
+    return data;
+  }
+
+  function formPromptOpeningId() {
+    return (
+      cell(document.getElementById("form-prompt-opening")?.value) ||
+      activeOpeningId()
+    );
+  }
+
+  function setFormPromptStatus(text, kind) {
+    const status = document.getElementById("form-prompt-status");
+    if (!status) return;
+    status.textContent = text || "";
+    status.className = kind ? `save-status ${kind}` : "save-status";
+  }
+
+  async function syncFormWindowName() {
+    const input = document.getElementById("form-prompt-window-name");
+    const openingId = formPromptOpeningId();
+    if (!input || !openingId) return;
+    try {
+      const res = await fetch(
+        "/api/career-autofill/session?" +
+          new URLSearchParams({ opening_id: openingId }),
+      );
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.window_name) input.value = data.window_name;
+    } catch {
+      /* cockpit server offline */
+    }
+  }
+
+  async function handleCaptureFormWindow() {
+    const openingId = formPromptOpeningId();
+    setFormPromptStatus("Reading Chrome windows…");
+    try {
+      const data = await postCareerAutofill(
+        "/api/career-autofill/capture-window",
+        { opening_id: openingId },
+      );
+      const input = document.getElementById("form-prompt-window-name");
+      if (input && data.window_name) input.value = data.window_name;
+      if (data.window_name) setFormPromptStatus("Window name captured.", "ok");
+      else {
+        setFormPromptStatus(
+          "No other Chrome window found. Paste the tab title.",
+          "err",
+        );
+      }
+    } catch (err) {
+      setFormPromptStatus(err.message || String(err), "err");
+    }
+  }
+
+  async function handleOpenUiaInspector() {
+    setFormPromptStatus("Opening UIA Tree Inspector…");
+    try {
+      await postCareerAutofill("/api/career-autofill/open-uia", {});
+      setFormPromptStatus(
+        "Inspector open. Select the window, then Shift+C to copy the full UI tree.",
+        "ok",
+      );
+    } catch (err) {
+      setFormPromptStatus(err.message || String(err), "err");
+    }
+  }
+
+  async function handleBuildAndSendFormPrompt() {
+    const openingId = formPromptOpeningId();
+    const windowName = cell(
+      document.getElementById("form-prompt-window-name")?.value,
+    );
+    if (!openingId) {
+      setFormPromptStatus("Pick an opening first.", "err");
+      return;
+    }
+    if (!windowName) {
+      setFormPromptStatus("Set the window name first.", "err");
+      return;
+    }
+    const button = document.getElementById("form-prompt-send-btn");
+    if (button) button.disabled = true;
+    setFormPromptStatus(
+      "Reading the UI tree and sending it to the AI companion…",
+    );
+    try {
+      const data = await postCareerAutofill(
+        "/api/career-autofill/build-and-send",
+        { opening_id: openingId, window_name: windowName },
+      );
+      setFormPromptStatus(
+        `Sent (${data.chars || 0} characters). Copy the JSON reply, then press Alt+A.`,
+        "ok",
+      );
+      showToast("Prompt sent to the AI companion", 2500);
+    } catch (err) {
+      setFormPromptStatus(err.message || String(err), "err");
+    } finally {
+      if (button) button.disabled = false;
+    }
+  }
+
+  async function fillFormWithAhk(row) {
+    if (!row || !row.id) return;
+    setSaveStatus("Filling the application form…");
+    try {
+      const data = await postCareerAutofill("/api/career-autofill/fill-form", {
+        opening_id: row.id,
+      });
+      const note =
+        data.skipped > 0
+          ? `Filled ${data.filled}, skipped ${data.skipped}.`
+          : `Filled ${data.filled} fields.`;
+      setSaveStatus(note, "ok");
+      showToast(`${note} The form was not submitted.`, 3500);
+      if (data.errors && data.errors.length) {
+        window.alert([note, "", ...data.errors].join("\n"));
+      }
+    } catch (err) {
+      const message = err.message || String(err);
+      setSaveStatus(message, "err");
+      window.alert(message);
     }
   }
 
@@ -3772,7 +3902,7 @@
     }
     const dialog = document.getElementById("form-prompt-modal");
     const status = document.getElementById("form-prompt-status");
-    const rawEl = document.getElementById("form-prompt-raw");
+    const nameEl = document.getElementById("form-prompt-window-name");
     cancelFormPromptAutoClose({ keepStatus: true });
     if (status) {
       status.textContent = "";
@@ -3781,10 +3911,11 @@
     if (dialog && typeof dialog.showModal === "function" && !dialog.open) {
       dialog.showModal();
     }
+    void syncFormWindowName();
     requestAnimationFrame(() => {
-      if (!rawEl) return;
-      rawEl.focus();
-      if (cell(rawEl.value).trim()) rawEl.select();
+      if (!nameEl) return;
+      nameEl.focus();
+      if (cell(nameEl.value).trim()) nameEl.select();
     });
   }
 
@@ -3914,7 +4045,7 @@
     formPromptBtn.className = "nav-btn";
     formPromptBtn.textContent = "Generate form prompt";
     formPromptBtn.title =
-      "Build AI companion prompt from pasted ATS / form page text (Alt+F)";
+      "Capture the ATS tab title, copy its UIA tree, and send a prompt to the AI companion (Alt+F)";
     formPromptBtn.addEventListener("click", () => openFormPromptModal());
     const formImportBtn = document.createElement("button");
     formImportBtn.type = "button";
@@ -3925,10 +4056,10 @@
     const autofill = document.createElement("button");
     autofill.type = "button";
     autofill.className = "save-btn";
-    autofill.textContent = "Fill with extension";
+    autofill.textContent = "Fill this form";
     autofill.title =
-      "Open form URL and hand this opening to the Chrome autofill extension (never auto-submits)";
-    autofill.addEventListener("click", () => void startAutofillForOpening(row));
+      "Type the imported answers into the Chrome window saved for this opening. Shows a loading bar and does not submit.";
+    autofill.addEventListener("click", () => void fillFormWithAhk(row));
     actions.append(formPromptBtn, formImportBtn, autofill);
     head.append(actions);
     section.append(head);
@@ -3952,8 +4083,32 @@
     const urlHint = document.createElement("p");
     urlHint.className = "job-modal-hint";
     urlHint.textContent =
-      "The extension matches this form URL (not the posting URL). Update it when the ATS redirects or the apply link changes.";
+      "Saved with the import. Filling uses the Chrome tab title from Alt+F, not this URL.";
     section.append(urlHint);
+    const windowHint = document.createElement("p");
+    windowHint.className = "job-modal-hint";
+    windowHint.textContent = "Form window: …";
+    section.append(windowHint);
+    const openingId = cell(row.id);
+    if (openingId) {
+      void fetch(
+        "/api/career-autofill/session?" +
+          new URLSearchParams({ opening_id: openingId }),
+      )
+        .then((res) => (res.ok ? res.json() : null))
+        .then((data) => {
+          if (!windowHint.isConnected) return;
+          const name = data && cell(data.window_name);
+          windowHint.textContent = name
+            ? `Form window: ${name}`
+            : "Form window: not saved yet. Use Alt+F and Capture window name.";
+        })
+        .catch(() => {
+          if (windowHint.isConnected) {
+            windowHint.textContent = "Form window: unavailable.";
+          }
+        });
+    }
 
     renderFormAnswersContent(row, section);
     parent.append(section);
@@ -3971,7 +4126,7 @@
       hint.className = "job-modal-hint";
       hint.style.marginBottom = "0";
       hint.textContent =
-        "No form answers yet. Use Generate form prompt → Import form JSON above, then Fill with extension.";
+        "No form answers yet. Alt+F sends the UIA tree to the AI companion. Alt+A imports the JSON. Then Fill this form.";
       answers.append(hint);
       parent.append(answers);
       return;
@@ -4611,7 +4766,7 @@
       if (isEnter && !event.altKey && (mod || event.shiftKey)) {
         const proceed = [
           ["form-import-modal", handleImportFormRun],
-          ["form-prompt-modal", handleCopyFormPrompt],
+          ["form-prompt-modal", handleBuildAndSendFormPrompt],
           ["cover-import-modal", handleCoverImportRun],
           ["cover-prompt-modal", handleCoverPromptCopy],
           ["import-modal", handleImportRun],
@@ -5003,8 +5158,14 @@
       });
     }
     document
-      .getElementById("form-prompt-copy-btn")
-      ?.addEventListener("click", () => handleCopyFormPrompt());
+      .getElementById("form-prompt-capture-window")
+      ?.addEventListener("click", () => void handleCaptureFormWindow());
+    document
+      .getElementById("form-prompt-open-uia")
+      ?.addEventListener("click", () => void handleOpenUiaInspector());
+    document
+      .getElementById("form-prompt-send-btn")
+      ?.addEventListener("click", () => void handleBuildAndSendFormPrompt());
     document
       .getElementById("form-prompt-stay-btn")
       ?.addEventListener("click", () => cancelFormPromptAutoClose());
@@ -5012,12 +5173,7 @@
       .getElementById("form-prompt-opening")
       ?.addEventListener("change", () => {
         syncFormPromptPathsFromOpening();
-        const rawEl = document.getElementById("form-prompt-raw");
-        const id = cell(document.getElementById("form-prompt-opening")?.value);
-        const row = openings.find((r) => cell(r.id) === id);
-        if (rawEl && row) {
-          rawEl.value = cell(row.application_form_raw);
-        }
+        void syncFormWindowName();
       });
 
     const formImportDialog = document.getElementById("form-import-modal");

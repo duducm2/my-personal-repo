@@ -28,6 +28,13 @@ from autofill_data_source import (  # noqa: E402
 from autofill_feedback import apply_feedback, load_mappings  # noqa: E402
 from autofill_mapper import map_fields  # noqa: E402
 from canonical_store import CanonicalStore  # noqa: E402
+from career_form_flow import (  # noqa: E402
+    build_and_send,
+    capture_window,
+    fill_form,
+    open_uia,
+    session_for,
+)
 
 DEFAULT_PORT = 8770
 ROOT_DIR = Path(__file__).resolve().parent.parent
@@ -754,6 +761,13 @@ class CareerHandler(BaseHTTPRequestHandler):
                     },
                 )
                 return
+            if path == "/api/career-autofill/session":
+                from urllib.parse import parse_qs
+
+                qs = parse_qs(urlparse(self.path).query or "")
+                opening_id = (qs.get("opening_id") or [""])[0].strip()
+                self._json(200, session_for(opening_id))
+                return
             if path == "/api/autofill/answers-for-url":
                 from urllib.parse import parse_qs
 
@@ -818,6 +832,40 @@ class CareerHandler(BaseHTTPRequestHandler):
             if path == "/api/prompt-hotkey":
                 send_prompt_hotkey()
                 self._json(200, {"ok": True})
+                return
+            if path == "/api/career-autofill/capture-window":
+                body = self._read_json()
+                if not isinstance(body, dict):
+                    body = {}
+                self._json(
+                    200,
+                    capture_window(str(body.get("opening_id") or "")),
+                )
+                return
+            if path == "/api/career-autofill/open-uia":
+                self._json(200, open_uia())
+                return
+            if path == "/api/career-autofill/build-and-send":
+                body = self._read_json()
+                if not isinstance(body, dict):
+                    raise ValueError("JSON object required")
+                self._json(
+                    200,
+                    build_and_send(
+                        self.store,
+                        str(body.get("opening_id") or ""),
+                        str(body.get("window_name") or ""),
+                    ),
+                )
+                return
+            if path == "/api/career-autofill/fill-form":
+                body = self._read_json()
+                if not isinstance(body, dict):
+                    raise ValueError("JSON object required")
+                self._json(
+                    200,
+                    fill_form(self.store, str(body.get("opening_id") or "")),
+                )
                 return
             if path == "/api/autofill/map":
                 body = self._read_json()

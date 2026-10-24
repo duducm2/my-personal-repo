@@ -378,9 +378,10 @@
         </header>
         <div class="company-modal-body">
           <p class="job-modal-hint">
-            Paste ATS application page text. The prompt matches required fields
-            against your profile, education, and experience, and asks the AI to
-            pick which résumé variant to upload for this opening.
+            Capture the application tab title (the window name AutoHotkey and
+            UIA use). Open UIA Tree Inspector, select that window, and press
+            Shift+C to copy the full UI tree. Build &amp; send pastes a prompt
+            — your career profile plus that tree — into the open AI companion.
           </p>
           <div class="company-result-edit job-modal-grid">
             <label class="company-edit-field">
@@ -408,28 +409,37 @@
           </div>
           <label class="company-edit-field">
             <span class="company-research-label"
-              >ATS / application page text</span
+              >Window / tab name</span
             >
-            <textarea
-              id="form-prompt-raw"
-              class="field-input tall"
-              rows="12"
-              placeholder="Prefer: extension → Capture page for AI (Ctrl+A text + form digest + HTML). Or paste field labels manually…"
-            ></textarea>
+            <input
+              id="form-prompt-window-name"
+              class="field-input"
+              type="text"
+              placeholder="ATS tab title, the same name UIA lists for the window"
+            />
             <span class="job-modal-hint" style="margin-top: 4px"
-              >Tip: On the form tab, use the Chrome extension
-              <strong>Capture page for AI</strong> — it saves structured text
-              into this opening and prefills here.</span
+              >Capture uses the Chrome window behind this cockpit. You can also
+              paste the tab title yourself.</span
             >
           </label>
           <div class="job-modal-actions">
             <button
               type="button"
-              id="form-prompt-copy-btn"
-              class="save-btn"
-              title="Copy prompt (Ctrl+Enter or Shift+Enter)"
+              id="form-prompt-capture-window"
+              class="nav-btn"
             >
-              Copy prompt
+              Capture window name
+            </button>
+            <button type="button" id="form-prompt-open-uia" class="nav-btn">
+              Open UIA Inspector
+            </button>
+            <button
+              type="button"
+              id="form-prompt-send-btn"
+              class="save-btn"
+              title="Build the prompt and send it to the AI companion (Ctrl+Enter or Shift+Enter)"
+            >
+              Build &amp; send
             </button>
             <button
               type="button"
@@ -487,8 +497,8 @@
           <p class="job-modal-hint">
             Paste the JSON object returned by your AI companion. A successful
             import fills this opening’s Application form answers panel and saves
-            automatically. The Chrome extension matches
-            <strong>form URL</strong> to fill that page.
+            automatically. Fill this form then types those answers into the
+            Chrome window whose tab title you saved.
           </p>
           <label class="company-edit-field">
             <span class="company-research-label"
