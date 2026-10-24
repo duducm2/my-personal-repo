@@ -928,6 +928,17 @@
     }
     const path = pathLabel(row.career_path);
     if (path) chips.append(makeTileChip(path, "company-chip"));
+    if (status === "subscribed") {
+      const subscribedOn = subscriptionDate(row);
+      if (subscribedOn) {
+        const chip = makeTileChip(
+          `Subscribed ${formatSubscriptionDate(subscribedOn)}`,
+          "company-chip",
+        );
+        chip.title = `Subscribed on ${subscribedOn}`;
+        chips.append(chip);
+      }
+    }
     const outcome = resultLabel(row.result);
     if (outcome) {
       chips.append(
@@ -983,6 +994,42 @@
       return null;
     }
     return date;
+  }
+
+  function subscriptionDate(row) {
+    const subscribed = cell(row.applied_date);
+    if (parseISODate(subscribed)) return subscribed;
+    const found = cell(row.found_on);
+    if (parseISODate(found)) return found;
+    return "";
+  }
+
+  function formatSubscriptionDate(iso) {
+    const date = parseISODate(iso);
+    if (!date) return cell(iso);
+    const months = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
+    return `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
+  }
+
+  function ensureSubscriptionDate(row) {
+    if (cell(row.status).toLowerCase() !== "subscribed") return false;
+    if (parseISODate(row.applied_date)) return false;
+    const found = cell(row.found_on);
+    row.applied_date = parseISODate(found) ? found : todayISO();
+    return true;
   }
 
   function isStaleOpening(row) {
@@ -1231,6 +1278,10 @@
       el.append(o);
     }
     el.addEventListener("change", () => {
+      if (key === "status" && cell(el.value).toLowerCase() === "excluded") {
+        excludeOpenings([row]);
+        return;
+      }
       row[key] = el.value;
       setDirty(true);
       setSaveStatus("");
@@ -1890,24 +1941,42 @@
       : "da | po | dsa | ds | other";
     const steps = [
       "=== AIB PROCESSING INSTRUCTIONS (mandatory) ===",
+      "This is an initial filter, not a shortlist. The user will exclude extras by hand.",
+      "Losing a slight fit is a failure. Returning only the single best match is a failure.",
       "1. Extract every distinct job opening from the UNSTRUCTURED JOB DATA below.",
+      "   Each role title is its own opening, even when several share a location or contract type.",
+      "   Do not merge nearby titles into one object.",
       "2. Cross-reference EXISTING OPENINGS FOR THIS COMPANY and SKIP duplicates",
-      "   (same role_title + company + location, or same job_url).",
+      "   (same role_title + company + location, same requisition number, or same job_url).",
+      "3. KEEP every opening that is even slightly related to any selected career path",
+      `   (${paths}) or to TARGET TITLES. Partial overlap is enough: technology, software,`,
+      "   data, analytics, architecture, automation, digital products, AI, research, or a",
+      "   junior/pleno/especialista variant of those areas. When unsure, KEEP it.",
+      "4. DROP only an opening that is clearly outside those paths, such as compensation,",
+      "   HR, legal, finance, facilities, or a pure trade with no technology work.",
+      "   A generic talent-bank line with no role title is not an opening.",
+      "   Calibration: keep 'Analista de Desenvolvimento Tecnológico',",
+      "   'Arquitetura de Software e Dados', 'Automação e Software de Controle', and a",
+      "   technology 'Pesquisador'. Drop 'Remuneração' and 'Manutenção Elétrica'.",
+      "   Do not keep only the closest title from a list like that.",
     ];
-    let n = 3;
+    let n = 5;
     if (hasIgnoreRules) {
       steps.push(
-        `${n}. Honor IGNORE / DO NOT CONSIDER rules strictly: discard any opening`,
-        "   that matches those instructions (role type, title keywords, location,",
-        "   seniority, language, or other criteria). Do not include them in output.",
+        `${n}. Apply IGNORE / DO NOT CONSIDER only to openings that clearly match those rules.`,
+        "   The line 'nothing non IT related' means the same as step 4: drop roles with no",
+        "   technology content. It does not mean 'weak match' and it does not mean 'not a",
+        "   perfect title'. A slight technology fit stays in the output.",
       );
       n += 1;
     }
     steps.push(
-      `${n}. For each kept opening, set match_score (1-10) vs the PROFILE CONTEXT and`,
-      "   explain it briefly in match_reason.",
+      `${n}. For every kept opening, set match_score from 1 to 10 against PROFILE CONTEXT`,
+      "   and explain the fit briefly in match_reason. Use 1-4 for a slight or uncertain fit.",
+      "   match_score never decides inclusion. A score of 1 is still returned.",
       `${n + 1}. Set career_path to exactly one of the selected contexts: ${paths}.`,
-      "   Prefer the best-fitting selected path for each opening.",
+      "   Pick the closest selected path. A weak fit still gets the closest path; do not",
+      "   drop the opening because no path is a perfect fit.",
       `${n + 2}. Set recommended_resume to exactly one of:`,
       "   general | data-analyst | product-owner | digital-solution-architect.",
       `${n + 3}. Set is_new to "1", status to "saved", source to "company_site" unless`,
@@ -1915,12 +1984,15 @@
       "   Leave applied_date empty. The cockpit records the subscription date on import.",
       "   Leave result and result_on empty (historic outcome is set manually later).",
       `${n + 4}. Return ONLY a JSON array (no markdown fences, no prose before/after).`,
+      "   The array must contain every kept opening, not a top-1 or top-N sample.",
       "   Every object MUST include exactly these keys:",
       OPENING_FIELDS.join(", "),
       `${n + 5}. Use empty strings for unknown optional fields. Do not invent job_url values;`,
       "   leave job_url empty when not present in the source text.",
       `${n + 6}. company_key must match the selected company id provided above.`,
       `${n + 7}. Prefer concise job_description (requirements + responsibilities).`,
+      "   If the paste has only a title and location, keep the opening and leave the",
+      "   description short. Missing detail is not a reason to drop it.",
     );
     return steps.join("\n");
   }
@@ -1938,11 +2010,17 @@
       .filter(Boolean);
     const effectivePaths = paths.length ? paths : ["da"];
     const ignoreRules = (() => {
-      const DEFAULT_IGNORE = "- nothing non IT related";
+      const DEFAULT_IGNORE =
+        "- clearly outside technology (compensation, HR, legal, finance, facilities, pure trades). Keep slight technology fits.";
       const custom = cell(ignoreText).trim();
       if (!custom) return DEFAULT_IGNORE;
       const lower = custom.toLowerCase();
-      if (lower.includes("nothing non it related")) return custom;
+      if (
+        lower.includes("nothing non it related") ||
+        lower.includes("clearly outside technology")
+      ) {
+        return custom;
+      }
       return `${DEFAULT_IGNORE}\n${custom}`;
     })();
 
@@ -2057,7 +2135,7 @@
     if (ignoreRules) {
       lines.push("=== IGNORE / DO NOT CONSIDER ===");
       lines.push(
-        "Do not extract, score, or return openings that match any of these rules:",
+        "Drop an opening only when it clearly matches one of these rules. A slight career-path fit stays:",
       );
       lines.push(ignoreRules);
       lines.push("");
@@ -2120,8 +2198,10 @@
       }
       return;
     }
+    const button = document.getElementById("prompt-copy-btn");
+    if (button) button.disabled = true;
     if (status) {
-      status.textContent = "Building prompt…";
+      status.textContent = "Sending the prompt to the AI companion…";
       status.className = "save-status";
     }
     try {
@@ -2131,36 +2211,27 @@
         rawText,
         ignoreText,
       );
-      const ok = await copyText(prompt);
-      if (ok) {
-        await signalPromptCopied();
-        if (status) {
-          status.textContent = "Prompt copied — closing in 3s…";
-          status.className = "save-status ok";
-        }
-        showToast("Prompt copied — paste into your AI companion", 2500);
-        startPromptAutoClose();
-      } else {
-        // Restricted browser clipboard: select raw field with prompt for manual Ctrl+C
-        const rawEl = document.getElementById("prompt-raw");
-        if (rawEl) {
-          rawEl.value = prompt;
-          rawEl.focus();
-          rawEl.select();
-        }
-        if (status) {
-          status.textContent =
-            "Clipboard blocked — prompt filled in the box; press Ctrl+C.";
-          status.className = "save-status ok";
-        }
-        showToast("Prompt ready — press Ctrl+C to copy", 3500);
-        cancelPromptAutoClose();
+      const res = await fetch("/api/prompt-send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text: prompt }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || data.ok === false) {
+        throw new Error(data.error || res.statusText || "Could not send the prompt");
       }
+      showToast("Prompt sent. Paste the JSON reply here.", 2800);
+      closePromptModal();
+      openImportModal({
+        note: "Prompt sent. Paste the companion’s JSON here.",
+      });
     } catch (err) {
       if (status) {
-        status.textContent = "Error: " + (err.message || String(err));
+        status.textContent = err.message || String(err);
         status.className = "save-status err";
       }
+    } finally {
+      if (button) button.disabled = false;
     }
   }
 
@@ -2446,6 +2517,10 @@
         row.id = `${row.id}-${i}`;
       }
       const key = openingDedupeKey(row);
+      if (cell(row.status).toLowerCase() === "excluded") {
+        skipped += 1;
+        continue;
+      }
       if (existingKeys.has(key)) {
         skipped += 1;
         continue;
@@ -4374,7 +4449,8 @@
     }
     if (opts.selectAllPaths) selectAllPromptPaths();
     if (ignoreEl && !cell(ignoreEl.value).trim()) {
-      ignoreEl.value = "- nothing non IT related";
+      ignoreEl.value =
+        "- clearly outside technology (compensation, HR, legal, finance, facilities, pure trades). Keep slight technology fits.";
     }
     if (status) {
       status.textContent = "";
@@ -4409,14 +4485,15 @@
     hint.textContent = `${IMPORT_HINT_BASE} Openings missing company_key will be filed under ${companyDisplayName(launchCompanyKey)}.`;
   }
 
-  function openImportModal() {
+  function openImportModal(opts = {}) {
     const dialog = document.getElementById("import-modal");
     const status = document.getElementById("import-status");
     const rawEl = document.getElementById("import-raw");
+    const note = cell(opts.note);
     syncImportCompanyHint();
     if (status) {
-      status.textContent = "";
-      status.className = "save-status";
+      status.textContent = note;
+      status.className = note ? "save-status ok" : "save-status";
     }
     if (dialog && typeof dialog.showModal === "function" && !dialog.open) {
       dialog.showModal();
@@ -4456,13 +4533,39 @@
     }
   }
 
+  function excludeOpenings(rows) {
+    const ids = new Set((rows || []).map((row) => row && row.id).filter(Boolean));
+    if (!ids.size) return 0;
+    const before = openings.length;
+    openings = openings.filter((row) => !ids.has(row.id));
+    collections.jobOpenings = openings;
+    for (const id of ids) selectedIds.delete(id);
+    const removed = before - openings.length;
+    if (!removed) return 0;
+    setDirty(true);
+    setSaveStatus("");
+    if (openJobId && ids.has(openJobId)) closeModal();
+    else render();
+    updateBulkBar();
+    showToast(
+      `Removed ${removed} opening${removed === 1 ? "" : "s"}`,
+      2200,
+    );
+    return removed;
+  }
+
   function bulkSetStatus(status) {
     const next = cell(status).toLowerCase();
     if (!selectedIds.size || !STATUS_OPTIONS.includes(next)) return;
+    if (next === "excluded") {
+      excludeOpenings(openings.filter((row) => selectedIds.has(row.id)));
+      return;
+    }
     let n = 0;
     for (const row of openings) {
       if (selectedIds.has(row.id)) {
         row.status = next;
+        if (next === "subscribed") ensureSubscriptionDate(row);
         n += 1;
       }
     }
@@ -4476,8 +4579,13 @@
   function setOpeningStatus(row, status) {
     const next = cell(status).toLowerCase();
     if (!row || !STATUS_OPTIONS.includes(next)) return false;
+    if (next === "excluded") {
+      excludeOpenings([row]);
+      return true;
+    }
     if (cell(row.status).toLowerCase() === next) return false;
     row.status = next;
+    if (next === "subscribed") ensureSubscriptionDate(row);
     setDirty(true);
     setSaveStatus("");
     render();
@@ -4535,13 +4643,28 @@
     const menu = ensureJobStatusMenu();
     hideJobStatusMenu();
     menu.hidden = false;
+    const bulk =
+      selectedIds.size > 1 && row && selectedIds.has(row.id);
 
     const head = document.createElement("div");
     head.className = "job-status-menu-head";
-    head.textContent = "Set status";
+    head.textContent = bulk
+      ? `Set status for ${selectedIds.size} openings`
+      : "Set status";
     menu.append(head);
 
-    const current = cell(row.status).toLowerCase();
+    const selectedRows = bulk
+      ? openings.filter((item) => selectedIds.has(item.id))
+      : [];
+    const current = bulk
+      ? selectedRows.every(
+          (item) =>
+            cell(item.status).toLowerCase() ===
+            cell(selectedRows[0].status).toLowerCase(),
+        )
+        ? cell(selectedRows[0].status).toLowerCase()
+        : ""
+      : cell(row.status).toLowerCase();
     for (const status of STATUS_OPTIONS) {
       const item = document.createElement("button");
       item.type = "button";
@@ -4568,7 +4691,8 @@
         e.preventDefault();
         e.stopPropagation();
         hideJobStatusMenu();
-        setOpeningStatus(row, status);
+        if (bulk) bulkSetStatus(status);
+        else setOpeningStatus(row, status);
       });
       menu.append(item);
     }
@@ -4660,6 +4784,11 @@
     openings = Array.isArray(collections.jobOpenings)
       ? collections.jobOpenings.map((row) => ({ ...row }))
       : [];
+    const kept = openings.filter(
+      (row) => cell(row.status).toLowerCase() !== "excluded",
+    );
+    const removedExcluded = openings.length - kept.length;
+    openings = kept;
     platforms = Array.isArray(collections.jobPlatforms)
       ? collections.jobPlatforms.map((row) => ({ ...row }))
       : [];
@@ -4669,6 +4798,11 @@
     collections.jobOpenings = openings;
     collections.jobPlatforms = platforms;
     collections.jobCommunities = communities;
+    let dated = 0;
+    for (const row of openings) {
+      if (ensureSubscriptionDate(row)) dated += 1;
+    }
+    if (removedExcluded || dated) setDirty(true);
   }
 
   async function saveAll() {

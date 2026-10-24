@@ -33,6 +33,7 @@ from career_form_flow import (  # noqa: E402
     capture_window,
     fill_form,
     open_uia,
+    send_prompt_text,
     session_for,
 )
 
@@ -832,6 +833,12 @@ class CareerHandler(BaseHTTPRequestHandler):
             if path == "/api/prompt-hotkey":
                 send_prompt_hotkey()
                 self._json(200, {"ok": True})
+                return
+            if path == "/api/prompt-send":
+                body = self._read_json()
+                if not isinstance(body, dict):
+                    raise ValueError("JSON object required")
+                self._json(200, send_prompt_text(str(body.get("text") or "")))
                 return
             if path == "/api/career-autofill/capture-window":
                 body = self._read_json()

@@ -95,6 +95,21 @@ def build_and_send(store: Any, opening_id: str, window_name: str) -> dict[str, A
     return {"ok": True, "chars": len(prompt), "tree_chars": len(tree)}
 
 
+def send_prompt_text(prompt: str) -> dict[str, Any]:
+    """Focus the AI companion and paste a finished prompt, then submit it."""
+    prompt = (prompt or "").strip()
+    if not prompt:
+        raise ValueError("Prompt is empty.")
+    with tempfile.TemporaryDirectory(prefix="career-prompt-") as tmp:
+        prompt_path = Path(tmp) / "prompt.txt"
+        prompt_path.write_text(prompt, encoding="utf-8", newline="\n")
+        send_companion_hotkey()
+        sent = run_ahk("send-prompt", timeout=45, file=str(prompt_path))
+        if not sent.get("ok"):
+            raise RuntimeError(str(sent.get("error") or "Could not send the prompt"))
+    return {"ok": True, "chars": len(prompt)}
+
+
 def fill_form(store: Any, opening_id: str) -> dict[str, Any]:
     opening = _opening(store, opening_id)
     session = load_session(opening_id)

@@ -25,6 +25,9 @@
             <button type="button" id="open-companies-btn" class="nav-btn">
               <span class="section-title-en">Companies</span>
             </button>
+            <a class="nav-btn" href="/hiring.html">
+              <span class="section-title-en">Hiring 2026</span>
+            </a>
             <button type="button" id="open-advice-btn" class="nav-btn">
               <span class="section-title-en">Advice</span>
             </button>
@@ -198,10 +201,10 @@
         </header>
         <div class="company-modal-body">
           <p class="job-modal-hint">
-            Paste unstructured job listings from a company careers page. The
-            prompt bundles your profile context, existing openings for that
-            company, optional ignore rules, and strict JSON output instructions
-            for your AI companion.
+            Paste unstructured job listings from a company careers page. This is
+            a first pass: the companion keeps every opening even slightly
+            related to the selected career paths. You exclude the rest by hand.
+            The prompt then goes to the AI companion.
           </p>
           <div class="company-result-edit job-modal-grid">
             <label class="company-edit-field">
@@ -256,7 +259,7 @@
               rows="4"
               placeholder="Add more bullets to skip (role types, locations, keywords)…"
             >
-- nothing non IT related</textarea
+- clearly outside technology (compensation, HR, legal, finance, facilities, pure trades). Keep slight technology fits.</textarea
             >
           </label>
           <label class="company-edit-field">
@@ -275,9 +278,9 @@
               type="button"
               id="prompt-copy-btn"
               class="save-btn"
-              title="Copy prompt (Ctrl+Enter or Shift+Enter)"
+              title="Send the prompt to the AI companion (Ctrl+Enter or Shift+Enter)"
             >
-              Copy prompt
+              Send to AI companion
             </button>
             <button type="button" id="prompt-stay-btn" class="nav-btn" hidden>
               Stay open

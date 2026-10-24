@@ -460,6 +460,12 @@ class CanonicalStore:
                 if "sort_order" in columns and not item["sort_order"]:
                     item["sort_order"] = str(i + 1)
                 cleaned.append(item)
+            if key == "jobOpenings":
+                cleaned = [
+                    row
+                    for row in cleaned
+                    if str(row.get("status") or "").strip().lower() != "excluded"
+                ]
             normalized[key] = cleaned
 
         for key, (filename, columns) in COLLECTIONS.items():
