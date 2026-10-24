@@ -2633,41 +2633,6 @@
     }
   }
 
-  async function handleCaptureFormWindow() {
-    const openingId = formPromptOpeningId();
-    setFormPromptStatus("Reading Chrome windows…");
-    try {
-      const data = await postCareerAutofill(
-        "/api/career-autofill/capture-window",
-        { opening_id: openingId },
-      );
-      const input = document.getElementById("form-prompt-window-name");
-      if (input && data.window_name) input.value = data.window_name;
-      if (data.window_name) setFormPromptStatus("Window name captured.", "ok");
-      else {
-        setFormPromptStatus(
-          "No other Chrome window found. Paste the tab title.",
-          "err",
-        );
-      }
-    } catch (err) {
-      setFormPromptStatus(err.message || String(err), "err");
-    }
-  }
-
-  async function handleOpenUiaInspector() {
-    setFormPromptStatus("Opening UIA Tree Inspector…");
-    try {
-      await postCareerAutofill("/api/career-autofill/open-uia", {});
-      setFormPromptStatus(
-        "Inspector open. Select the window, then Shift+C to copy the full UI tree.",
-        "ok",
-      );
-    } catch (err) {
-      setFormPromptStatus(err.message || String(err), "err");
-    }
-  }
-
   async function handleBuildAndSendFormPrompt() {
     const openingId = formPromptOpeningId();
     const windowName = cell(
@@ -2678,24 +2643,23 @@
       return;
     }
     if (!windowName) {
-      setFormPromptStatus("Set the window name first.", "err");
+      setFormPromptStatus("Type the application tab title first.", "err");
       return;
     }
     const button = document.getElementById("form-prompt-send-btn");
     if (button) button.disabled = true;
-    setFormPromptStatus(
-      "Reading the UI tree and sending it to the AI companion…",
-    );
+    setFormPromptStatus("Opening UIA Tree Inspector and copying that window…");
     try {
       const data = await postCareerAutofill(
         "/api/career-autofill/build-and-send",
         { opening_id: openingId, window_name: windowName },
       );
-      setFormPromptStatus(
-        `Sent (${data.chars || 0} characters). Copy the JSON reply, then press Alt+A.`,
-        "ok",
-      );
-      showToast("Prompt sent to the AI companion", 2500);
+      showToast("Prompt sent. Paste the JSON reply here.", 2800);
+      closeFormPromptModal();
+      openFormImportModal({
+        openingId,
+        note: "Prompt sent. Paste the companion’s JSON here.",
+      });
     } catch (err) {
       setFormPromptStatus(err.message || String(err), "err");
     } finally {
@@ -3243,7 +3207,7 @@
           status.className = "save-status ok";
         }
         showToast(
-          `Form answers applied (${payload.fields.length} fields)`,
+          `Imported ${payload.fields.length} fields. Filling the saved window…`,
           2500,
         );
         const dialog = document.getElementById("form-import-modal");
@@ -3254,6 +3218,7 @@
           document.getElementById("job-form-answers");
         if (panel)
           panel.scrollIntoView({ block: "nearest", behavior: "smooth" });
+        await fillFormWithAhk(row);
       } else if (status) {
         status.textContent = "Answers applied, but autosave failed.";
         status.className = "save-status err";
@@ -3925,27 +3890,23 @@
     if (dialog && dialog.open) dialog.close();
   }
 
-  function openFormImportModal() {
-    if (!requireActiveOpening("import form answers")) return;
+  function openFormImportModal(opts = {}) {
+    const forcedId = cell(opts.openingId);
+    const row = forcedId
+      ? openings.find((r) => cell(r.id) === forcedId)
+      : requireActiveOpening("import form answers");
+    if (!row) return;
     const dialog = document.getElementById("form-import-modal");
     const status = document.getElementById("form-import-status");
     const rawEl = document.getElementById("form-import-raw");
     const formUrlEl = document.getElementById("form-import-form-url");
+    const note = cell(opts.note);
     if (status) {
-      status.textContent = "";
-      status.className = "save-status";
+      status.textContent = note;
+      status.className = note ? "save-status ok" : "save-status";
     }
     if (formUrlEl) {
-      const row =
-        activeOpening() ||
-        openings.find(
-          (r) =>
-            cell(r.id) ===
-            cell(document.getElementById("form-prompt-opening")?.value),
-        );
-      const parsed = row
-        ? parseApplicationAnswers(row.application_answers)
-        : null;
+      const parsed = parseApplicationAnswers(row.application_answers);
       formUrlEl.value =
         cleanUrlValue(row?.form_url) ||
         cleanUrlValue(parsed?.form_url) ||
@@ -4045,20 +4006,21 @@
     formPromptBtn.className = "nav-btn";
     formPromptBtn.textContent = "Generate form prompt";
     formPromptBtn.title =
-      "Capture the ATS tab title, copy its UIA tree, and send a prompt to the AI companion (Alt+F)";
+      "Type the application tab title and send the form prompt to the AI companion (Alt+F)";
     formPromptBtn.addEventListener("click", () => openFormPromptModal());
     const formImportBtn = document.createElement("button");
     formImportBtn.type = "button";
     formImportBtn.className = "nav-btn";
     formImportBtn.textContent = "Import form JSON";
-    formImportBtn.title = "Import AI companion form answers JSON (Alt+A)";
+    formImportBtn.title =
+      "Import the AI JSON and start filling the saved Chrome window (Alt+A)";
     formImportBtn.addEventListener("click", () => openFormImportModal());
     const autofill = document.createElement("button");
     autofill.type = "button";
     autofill.className = "save-btn";
     autofill.textContent = "Fill this form";
     autofill.title =
-      "Type the imported answers into the Chrome window saved for this opening. Shows a loading bar and does not submit.";
+      "Type the imported answers into the saved Chrome window again. Shows a loading bar and does not submit.";
     autofill.addEventListener("click", () => void fillFormWithAhk(row));
     actions.append(formPromptBtn, formImportBtn, autofill);
     head.append(actions);
@@ -4101,7 +4063,7 @@
           const name = data && cell(data.window_name);
           windowHint.textContent = name
             ? `Form window: ${name}`
-            : "Form window: not saved yet. Use Alt+F and Capture window name.";
+            : "Form window: not saved yet. Type the tab title in Alt+F.";
         })
         .catch(() => {
           if (windowHint.isConnected) {
@@ -4126,7 +4088,7 @@
       hint.className = "job-modal-hint";
       hint.style.marginBottom = "0";
       hint.textContent =
-        "No form answers yet. Alt+F sends the UIA tree to the AI companion. Alt+A imports the JSON. Then Fill this form.";
+        "No form answers yet. Alt+F sends this window to the AI companion. Alt+A imports the JSON and fills the form.";
       answers.append(hint);
       parent.append(answers);
       return;
@@ -5158,17 +5120,8 @@
       });
     }
     document
-      .getElementById("form-prompt-capture-window")
-      ?.addEventListener("click", () => void handleCaptureFormWindow());
-    document
-      .getElementById("form-prompt-open-uia")
-      ?.addEventListener("click", () => void handleOpenUiaInspector());
-    document
       .getElementById("form-prompt-send-btn")
       ?.addEventListener("click", () => void handleBuildAndSendFormPrompt());
-    document
-      .getElementById("form-prompt-stay-btn")
-      ?.addEventListener("click", () => cancelFormPromptAutoClose());
     document
       .getElementById("form-prompt-opening")
       ?.addEventListener("change", () => {

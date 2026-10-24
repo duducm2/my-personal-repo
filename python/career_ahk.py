@@ -208,7 +208,7 @@ def run_ahk(action: str, *, timeout: float = 60, **args: str) -> dict[str, Any]:
         stdout = (completed.stdout or "").strip()
         if result_path.is_file():
             try:
-                payload = json.loads(result_path.read_text(encoding="utf-8"))
+                payload = json.loads(result_path.read_text(encoding="utf-8-sig"))
             except json.JSONDecodeError as exc:
                 raise RuntimeError(
                     f"AutoHotkey {action} returned invalid JSON: {exc}"
@@ -220,7 +220,9 @@ def run_ahk(action: str, *, timeout: float = 60, **args: str) -> dict[str, Any]:
             raise RuntimeError(f"AutoHotkey {action} returned a non-object result")
         if completed.returncode != 0 and payload.get("ok"):
             payload["ok"] = False
-            payload["error"] = payload.get("error") or stderr[:800] or "AutoHotkey failed"
+            payload["error"] = (
+                payload.get("error") or stderr[:800] or "AutoHotkey failed"
+            )
         if not payload.get("ok"):
             message = str(payload.get("error") or stderr or "AutoHotkey failed")
             if stderr and stderr not in message:

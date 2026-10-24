@@ -378,10 +378,9 @@
         </header>
         <div class="company-modal-body">
           <p class="job-modal-hint">
-            Capture the application tab title (the window name AutoHotkey and
-            UIA use). Open UIA Tree Inspector, select that window, and press
-            Shift+C to copy the full UI tree. Build &amp; send pastes a prompt
-            — your career profile plus that tree — into the open AI companion.
+            Type the application tab title, the same way it starts in UIA Tree
+            Inspector. Send opens the inspector, copies that window’s full UI
+            tree, and sends it with your profile and this opening’s career path.
           </p>
           <div class="company-result-edit job-modal-grid">
             <label class="company-edit-field">
@@ -408,46 +407,26 @@
             </div>
           </div>
           <label class="company-edit-field">
-            <span class="company-research-label"
-              >Window / tab name</span
-            >
+            <span class="company-research-label">Window / tab name</span>
             <input
               id="form-prompt-window-name"
               class="field-input"
               type="text"
-              placeholder="ATS tab title, the same name UIA lists for the window"
+              placeholder="Chrome tab title of the application form"
             />
             <span class="job-modal-hint" style="margin-top: 4px"
-              >Capture uses the Chrome window behind this cockpit. You can also
-              paste the tab title yourself.</span
+              >The same title shown on the Chrome tab. It is saved for the
+              fill.</span
             >
           </label>
           <div class="job-modal-actions">
             <button
               type="button"
-              id="form-prompt-capture-window"
-              class="nav-btn"
-            >
-              Capture window name
-            </button>
-            <button type="button" id="form-prompt-open-uia" class="nav-btn">
-              Open UIA Inspector
-            </button>
-            <button
-              type="button"
               id="form-prompt-send-btn"
               class="save-btn"
-              title="Build the prompt and send it to the AI companion (Ctrl+Enter or Shift+Enter)"
+              title="Read this Chrome window and send the prompt (Ctrl+Enter or Shift+Enter)"
             >
-              Build &amp; send
-            </button>
-            <button
-              type="button"
-              id="form-prompt-stay-btn"
-              class="nav-btn"
-              hidden
-            >
-              Stay open
+              Send to AI companion
             </button>
             <span
               id="form-prompt-status"
@@ -495,10 +474,10 @@
         </header>
         <div class="company-modal-body">
           <p class="job-modal-hint">
-            Paste the JSON object returned by your AI companion. A successful
-            import fills this opening’s Application form answers panel and saves
-            automatically. Fill this form then types those answers into the
-            Chrome window whose tab title you saved.
+            Paste the JSON from the AI companion. This box opens after a
+            successful send. Import saves the answers and starts typing them
+            into the Chrome window whose tab title you already saved. The form
+            is not submitted.
           </p>
           <label class="company-edit-field">
             <span class="company-research-label"

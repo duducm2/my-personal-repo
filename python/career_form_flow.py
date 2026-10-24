@@ -8,7 +8,7 @@ from typing import Any
 
 from autofill_data_source import parse_application_answers
 from build_ai_form_prompt import build_form_fill_prompt
-from career_ahk import read_clipboard_text, run_ahk, send_companion_hotkey
+from career_ahk import run_ahk, send_companion_hotkey
 from form_fill_executor import (
     build_fill_steps,
     load_session,
@@ -47,7 +47,9 @@ def capture_window(opening_id: str = "") -> dict[str, Any]:
 def open_uia() -> dict[str, Any]:
     result = run_ahk("open-uia", timeout=20)
     if not result.get("ok"):
-        raise RuntimeError(str(result.get("error") or "Could not open UIA Tree Inspector"))
+        raise RuntimeError(
+            str(result.get("error") or "Could not open UIA Tree Inspector")
+        )
     return {"ok": True}
 
 
@@ -55,16 +57,27 @@ def build_and_send(store: Any, opening_id: str, window_name: str) -> dict[str, A
     opening = _opening(store, opening_id)
     window_name = (window_name or "").strip()
     if not window_name:
-        raise ValueError(
-            "Window name is required. Capture the ATS tab title, or paste the name UIA shows."
-        )
+        raise ValueError("Type the application tab title first.")
     with tempfile.TemporaryDirectory(prefix="career-form-") as tmp:
         folder = Path(tmp)
-        tree = read_clipboard_text()
+        tree_path = folder / "tree.txt"
+        dumped = run_ahk(
+            "dump-tree",
+            timeout=180,
+            title=window_name,
+            out=str(tree_path),
+        )
+        if not dumped.get("ok"):
+            raise RuntimeError(
+                str(dumped.get("error") or "Could not read the application window")
+            )
+        tree = ""
+        if tree_path.is_file():
+            tree = tree_path.read_text(encoding="utf-8-sig")
         if not looks_like_uia_tree(tree):
-            raise ValueError(
-                "Clipboard is not a UIA tree. Open UIA Tree Inspector, select this window, "
-                "press Shift+C to copy the full UI tree, then Build & send again."
+            raise RuntimeError(
+                "UIA Tree Inspector did not copy a UI tree. "
+                "The tab title has to match the start of a window in that list."
             )
         save_session(opening_id, window_name=window_name, ui_tree=tree)
         prompt = build_form_fill_prompt(
@@ -99,7 +112,9 @@ def fill_form(store: Any, opening_id: str) -> dict[str, Any]:
     payload = parse_application_answers(str(opening.get("application_answers") or ""))
     fields = (payload or {}).get("fields") or []
     if not fields:
-        raise ValueError("No imported form answers. Press Alt+A after the AI companion replies.")
+        raise ValueError(
+            "No imported form answers. Press Alt+A after the AI companion replies."
+        )
     steps = build_fill_steps(tree, fields)
     if not steps:
         raise ValueError(
