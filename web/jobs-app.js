@@ -35,6 +35,18 @@
     "product-owner",
     "digital-solution-architect",
   ];
+  const HUMAN_VOICE = [
+    "=== VOICE (mandatory) ===",
+    "Every sentence you write must sound like a person wrote it, and stay professional.",
+    "An ATS should not be able to flag the text as generated.",
+    "Use short sentences and the concrete facts already in the source: tools, dates, employers, outcomes.",
+    "Do not open with excitement, passion, or a claim that you are thrilled.",
+    "Do not glue clauses with an em dash.",
+    'Do not use leverage, delve, robust, seamless, cutting-edge, holistic, foster, pivotal, landscape, tapestry, synergy, teamwork-driven, end-to-end ownership, or "not only ... but".',
+    "No stacked adjectives and no padded lists of three.",
+    "Copied facts stay exact: names, titles, URLs, dates, requisition numbers, and wording taken straight from the paste.",
+    "This applies in English and in Portuguese.",
+  ].join("\n");
   const RESULT_OPTIONS = [
     { key: "", label: "(none — in progress)" },
     { key: "hired", label: "Hired" },
@@ -1975,6 +1987,8 @@
       `${n}. For every kept opening, set match_score from 1 to 10 against PROFILE CONTEXT`,
       "   and explain the fit briefly in match_reason. Use 1-4 for a slight or uncertain fit.",
       "   match_score never decides inclusion. A score of 1 is still returned.",
+      "   match_reason follows VOICE. When the paste already describes the role,",
+      "   job_description keeps that wording instead of a rewritten summary.",
       `${n + 1}. Set career_path to exactly one of the selected contexts: ${paths}.`,
       "   Pick the closest selected path. This label is not a reason to drop the opening.",
       `${n + 2}. Set recommended_resume to exactly one of:`,
@@ -2068,6 +2082,8 @@
     lines.push(
       "Return every IT opening in the paste. Profile, target titles, skills, and career path fill scores and labels only. They never decide which openings to drop.",
     );
+    lines.push("");
+    lines.push(HUMAN_VOICE);
     lines.push("");
     lines.push("=== PROFILE CONTEXT ===");
     lines.push(
@@ -2376,6 +2392,7 @@
       String(brokenInput || "").slice(0, 4000),
       "",
       "WHAT YOU MUST DO",
+      HUMAN_VOICE,
       "- Return ONLY a valid JSON array (no markdown fences, no commentary).",
       "- Every object must include exactly these keys:",
       OPENING_FIELDS.join(", "),
@@ -2829,8 +2846,8 @@
       "     tools, methods, and outcomes taken from EDUCATION descriptions,",
       "     EXPERIENCE descriptions, EXPERIENCE BULLETS, and NARRATIVES.",
       "   - Lead with the fit. Do not open with excitement, passion, or alignment.",
-      "   - Plain and specific. No adjective stacks. Never invent employers,",
-      "     dates, degrees, or metrics.",
+      "   - Those answers follow VOICE. Plain and specific. No adjective stacks.",
+      "     Never invent employers, dates, degrees, or metrics.",
       "   - If the form shows a character limit, spend most of it on the strongest",
       "     matches. If it does not, write about 120-180 words.",
       "   - Use the page language, and the EN or PT description that matches it.",
@@ -2890,6 +2907,8 @@
     lines.push(
       "You are my AI companion (AIB) for ATS application form field extraction.",
     );
+    lines.push("");
+    lines.push(HUMAN_VOICE);
     lines.push("");
     lines.push("=== SELECTED OPENING ===");
     lines.push(`opening_id: ${cell(opening.id)}`);
@@ -3233,6 +3252,7 @@
       String(brokenInput || "").slice(0, 4000),
       "",
       "WHAT YOU MUST DO",
+      HUMAN_VOICE,
       "- Return ONLY a valid JSON object (no markdown fences, no commentary).",
       '- Shape: { "opening_id": string, "recommended_resume": one of ' +
         RESUME_OPTIONS.join(" | ") +
@@ -3276,6 +3296,7 @@
       String(brokenInput || "").slice(0, 4000),
       "",
       "WHAT YOU MUST DO",
+      HUMAN_VOICE,
       "- Return ONLY a valid JSON object (no markdown fences, no commentary).",
       '- Shape: { "opening_id": string, "lang": "en"|"pt", "greeting": string, "body": string, "closing": string }',
       "- body is required (cover letter paragraphs). greeting/closing optional but preferred.",
@@ -3466,7 +3487,7 @@
       "3. Keep the letter one page when printed (~250–400 words). No markdown headings.",
       "4. Separate body paragraphs with a blank line (\\n\\n).",
       `5. Write the letter in language code: ${lang} (en = English, pt = Portuguese).`,
-      "6. Match tone to the role (professional, concrete, human — not buzzword soup).",
+      "6. Follow VOICE. Professional, specific, and plain.",
       "7. Mention 2–3 concrete matches between my background and the job/project needs.",
       "8. NEVER use nicknames, shortened forms, or parenthetical aliases (e.g. Edu, (Edu)).",
       "   In the closing signature, use the exact Sign-off name from PROFILE CONTEXT.",
@@ -3512,6 +3533,8 @@
     lines.push(
       "You are my AI companion (AIB) for writing a job-application cover letter.",
     );
+    lines.push("");
+    lines.push(HUMAN_VOICE);
     lines.push("");
     lines.push(buildCoverLetterInstructions(cell(opening.id), letterLang));
     lines.push("");
@@ -3642,7 +3665,9 @@
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok || data.ok === false) {
-        throw new Error(data.error || res.statusText || "Could not send the prompt");
+        throw new Error(
+          data.error || res.statusText || "Could not send the prompt",
+        );
       }
       showToast("Prompt sent. Paste the JSON reply here.", 2800);
       closeCoverPromptModal();

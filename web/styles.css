@@ -4244,6 +4244,55 @@ a.nav-btn {
   font-size: 12px;
 }
 
+.market-cadence {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.market-cadence article {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 8px 10px 10px;
+  min-width: 0;
+}
+
+.market-cadence h3 {
+  margin: 0;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.market-cadence-time {
+  margin: 2px 0 8px;
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.market-cadence ol {
+  margin: 0;
+  padding-left: 1.1em;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.market-cadence li {
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+.market-cadence li strong {
+  display: block;
+  color: var(--text);
+  font-size: 12px;
+}
+
 .market-use {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -4291,7 +4340,8 @@ a.nav-btn {
   .market-split,
   .market-ghost,
   .market-use,
-  .market-loop {
+  .market-loop,
+  .market-cadence {
     grid-template-columns: 1fr;
   }
 

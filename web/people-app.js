@@ -13,6 +13,18 @@
   let saveTimer = null;
   let saveGeneration = 0;
   const SAVE_DEBOUNCE_MS = 500;
+  const HUMAN_VOICE = [
+    "=== VOICE (mandatory) ===",
+    "Every sentence you write must sound like a person wrote it, and stay professional.",
+    "An ATS should not be able to flag the text as generated.",
+    "Use short sentences and the concrete facts already in the source: tools, dates, employers, outcomes.",
+    "Do not open with excitement, passion, or a claim that you are thrilled.",
+    "Do not glue clauses with an em dash.",
+    'Do not use leverage, delve, robust, seamless, cutting-edge, holistic, foster, pivotal, landscape, tapestry, synergy, teamwork-driven, end-to-end ownership, or "not only ... but".',
+    "No stacked adjectives and no padded lists of three.",
+    "Copied facts stay exact: names, titles, URLs, dates, requisition numbers, and wording taken straight from the paste.",
+    "This applies in English and in Portuguese.",
+  ].join("\n");
   let companyFilter = "";
   let statusFilter = "";
   let editingId = "";
@@ -431,6 +443,11 @@
     lines.push("You extract hiring people from a pasted LinkedIn profile.");
     lines.push(
       "Return ONLY a JSON object. No markdown fence and no prose. The user will import it into a hiring-people list and delete anything wrong.",
+    );
+    lines.push("");
+    lines.push(HUMAN_VOICE);
+    lines.push(
+      "hiring_for and notes follow VOICE. full_name, headline, and linkedin_url are copied from the paste, not rewritten.",
     );
     lines.push(
       "Keys: full_name, headline, company_name, company_key, linkedin_url, hiring_for, opening_ids, location, notes.",

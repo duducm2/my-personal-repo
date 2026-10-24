@@ -28,6 +28,21 @@ PATH_TO_VARIANT = {
 }
 UI_TREE_LIMIT = 80000
 
+HUMAN_VOICE = "\n".join(
+    [
+        "=== VOICE (mandatory) ===",
+        "Every sentence you write must sound like a person wrote it, and stay professional.",
+        "An ATS should not be able to flag the text as generated.",
+        "Use short sentences and the concrete facts already in the source: tools, dates, employers, outcomes.",
+        "Do not open with excitement, passion, or a claim that you are thrilled.",
+        "Do not glue clauses with an em dash.",
+        'Do not use leverage, delve, robust, seamless, cutting-edge, holistic, foster, pivotal, landscape, tapestry, synergy, teamwork-driven, end-to-end ownership, or "not only ... but".',
+        "No stacked adjectives and no padded lists of three.",
+        "Copied facts stay exact: names, titles, URLs, dates, requisition numbers, and wording taken straight from the paste.",
+        "This applies in English and in Portuguese.",
+    ]
+)
+
 
 def _cell(row: dict[str, Any] | None, key: str) -> str:
     if not row:
@@ -71,8 +86,8 @@ def _instructions(opening_id: str, career_paths: list[str]) -> str:
             "     tools, methods, and outcomes taken from EDUCATION descriptions,",
             "     EXPERIENCE descriptions, EXPERIENCE BULLETS, and NARRATIVES.",
             "   - Lead with the fit. Do not open with excitement, passion, or alignment.",
-            "   - Plain and specific. No adjective stacks. Never invent employers,",
-            "     dates, degrees, or metrics.",
+            "   - Those answers follow VOICE. Plain and specific. No adjective stacks.",
+            "     Never invent employers, dates, degrees, or metrics.",
             "   - If the form shows a character limit, spend most of it on the strongest",
             "     matches. If it does not, write about 120-180 words.",
             "   - Use the page language, and the EN or PT description that matches it.",
@@ -140,6 +155,8 @@ def build_form_fill_prompt(
     lines: list[str] = [
         "You are my AI companion (AIB) for ATS application form field extraction.",
         "The form structure is a UI Automation tree copied from the application window.",
+        "",
+        HUMAN_VOICE,
         "",
         "=== SELECTED OPENING ===",
         f"opening_id: {opening_id}",
