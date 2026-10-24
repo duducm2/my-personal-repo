@@ -1995,30 +1995,45 @@ a.nav-btn {
   color: color-mix(in srgb, var(--gold) 35%, var(--text));
 }
 
-.page-companies .company-tile.is-sub-max {
-  border-color: #e6b800;
-  background: color-mix(in srgb, #f1c40f 24%, var(--panel));
-  box-shadow: inset 0 0 0 2px #e6b800;
+.page-companies .company-tile {
+  position: relative;
 }
 
-.page-companies .company-tile.is-pinned.is-sub-max {
-  box-shadow:
-    inset 3px 0 0 var(--gold),
-    inset 0 0 0 2px #e6b800;
-}
-
-.company-chip.company-chip-sub-over {
-  border-color: #e74c3c;
-  background: rgba(231, 76, 60, 0.2);
-  color: #ffb4ab;
+.page-companies .company-sub-count {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  z-index: 1;
+  box-sizing: border-box;
+  width: 92px;
+  padding: 1px 4px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: var(--panel);
+  color: var(--muted);
+  font-size: 9px;
   font-weight: 700;
+  letter-spacing: 0.03em;
+  line-height: 1.4;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
-.company-chip.company-chip-sub-max {
+.page-companies .company-sub-count.is-max {
   border-color: #e6b800;
   background: rgba(241, 196, 15, 0.22);
   color: #ffe08a;
-  font-weight: 700;
+}
+
+.page-companies .company-sub-count.is-over {
+  border-color: #e74c3c;
+  background: rgba(231, 76, 60, 0.2);
+  color: #ffb4ab;
+}
+
+.page-companies .company-tile-head .company-tile-title {
+  padding-right: 96px;
 }
 
 .page-companies .company-tile {
@@ -3771,15 +3786,38 @@ a.nav-btn {
   min-height: 72px;
 }
 
-.page-people .company-filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  align-items: center;
+.page-people .company-search-sticky {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    "toolbar"
+    "filters"
+    "count";
 }
 
-.page-people .company-filters .field-input {
+.page-people .company-search-sticky > .company-toolbar {
+  max-width: none;
+  justify-content: flex-start;
+}
+
+.page-people .company-filters {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px 16px;
+}
+
+.page-people .company-filters select.field-input {
+  width: 240px;
   max-width: 240px;
+  min-height: 0;
+  padding: 3px 8px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: var(--panel);
+  color: var(--text);
+  white-space: nowrap;
 }
 
 .page-people #people-edit-openings {

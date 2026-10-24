@@ -41,7 +41,9 @@
   }
 
   function openings() {
-    return Array.isArray(collections.jobOpenings) ? collections.jobOpenings : [];
+    return Array.isArray(collections.jobOpenings)
+      ? collections.jobOpenings
+      : [];
   }
 
   function companyById(id) {
@@ -51,7 +53,10 @@
 
   function companyLabel(row) {
     const linked = companyById(row.company_key);
-    if (linked) return cell(linked.name_en) || cell(linked.name_pt) || cell(row.company_name);
+    if (linked)
+      return (
+        cell(linked.name_en) || cell(linked.name_pt) || cell(row.company_name)
+      );
     return cell(row.company_name) || "No company";
   }
 
@@ -153,7 +158,11 @@
 
   function visiblePeople() {
     return people.filter((row) => {
-      if (companyFilter && cell(row.company_key) !== companyFilter && companyLabel(row) !== companyFilter) {
+      if (
+        companyFilter &&
+        cell(row.company_key) !== companyFilter &&
+        companyLabel(row) !== companyFilter
+      ) {
         return false;
       }
       if (statusFilter && cell(row.status) !== statusFilter) return false;
@@ -165,6 +174,12 @@
     const host = document.getElementById("people-filters");
     if (!host) return;
     host.replaceChildren();
+
+    const companyRow = document.createElement("div");
+    companyRow.className = "company-filter-row";
+    const companyLabelEl = document.createElement("span");
+    companyLabelEl.className = "company-filter-label";
+    companyLabelEl.textContent = "Company";
     const company = document.createElement("select");
     company.className = "field-input";
     company.setAttribute("aria-label", "Company");
@@ -182,23 +197,35 @@
       opt.textContent = companyLabel(row);
       company.append(opt);
     }
-    company.value = [...company.options].some((o) => o.value === companyFilter) ? companyFilter : "";
+    company.value = [...company.options].some((o) => o.value === companyFilter)
+      ? companyFilter
+      : "";
     company.addEventListener("change", () => {
       companyFilter = company.value;
       render();
     });
-    host.append(company);
+    companyRow.append(companyLabelEl, company);
+
+    const statusRow = document.createElement("div");
+    statusRow.className = "company-filter-row";
+    const statusLabel = document.createElement("span");
+    statusLabel.className = "company-filter-label";
+    statusLabel.textContent = "Status";
+    statusRow.append(statusLabel);
     for (const status of STATUSES) {
       const btn = document.createElement("button");
       btn.type = "button";
-      btn.className = "nav-btn" + (statusFilter === status.id ? " is-active" : "");
+      btn.className =
+        "filter-chip" + (statusFilter === status.id ? " is-active" : "");
       btn.textContent = status.label;
       btn.addEventListener("click", () => {
         statusFilter = statusFilter === status.id ? "" : status.id;
         render();
       });
-      host.append(btn);
+      statusRow.append(btn);
     }
+
+    host.append(companyRow, statusRow);
   }
 
   function render() {
@@ -221,7 +248,9 @@
       if (!groups.has(label)) groups.set(label, []);
       groups.get(label).push(row);
     }
-    for (const [label, group] of [...groups.entries()].sort((a, b) => a[0].localeCompare(b[0]))) {
+    for (const [label, group] of [...groups.entries()].sort((a, b) =>
+      a[0].localeCompare(b[0]),
+    )) {
       const section = document.createElement("section");
       section.className = "people-group";
       const heading = document.createElement("h2");
@@ -275,12 +304,15 @@
       opt.textContent = cell(company.name_en) || cell(company.id);
       select.append(opt);
     }
-    if ([...select.options].some((o) => o.value === selected)) select.value = selected;
+    if ([...select.options].some((o) => o.value === selected))
+      select.value = selected;
   }
 
   function fillOpeningSelect(select, companyKey, selectedIds) {
     select.replaceChildren();
-    const pool = openings().filter((o) => !companyKey || cell(o.company_key) === companyKey);
+    const pool = openings().filter(
+      (o) => !companyKey || cell(o.company_key) === companyKey,
+    );
     const source = pool.length ? pool : openings();
     for (const opening of source) {
       const opt = document.createElement("option");
@@ -299,20 +331,30 @@
       opt.textContent = status.label;
       select.append(opt);
     }
-    select.value = STATUSES.some((s) => s.id === selected) ? selected : "to-contact";
+    select.value = STATUSES.some((s) => s.id === selected)
+      ? selected
+      : "to-contact";
   }
 
   function readEditor(row) {
     row.full_name = cell(document.getElementById("people-edit-name")?.value);
     row.headline = cell(document.getElementById("people-edit-headline")?.value);
-    row.company_key = cell(document.getElementById("people-edit-company")?.value);
-    row.company_name = cell(document.getElementById("people-edit-company-name")?.value);
+    row.company_key = cell(
+      document.getElementById("people-edit-company")?.value,
+    );
+    row.company_name = cell(
+      document.getElementById("people-edit-company-name")?.value,
+    );
     const linked = companyById(row.company_key);
     if (linked && !row.company_name) row.company_name = cell(linked.name_en);
-    row.linkedin_url = cell(document.getElementById("people-edit-linkedin")?.value);
+    row.linkedin_url = cell(
+      document.getElementById("people-edit-linkedin")?.value,
+    );
     row.hiring_for = cell(document.getElementById("people-edit-need")?.value);
     row.location = cell(document.getElementById("people-edit-location")?.value);
-    row.status = cell(document.getElementById("people-edit-status")?.value) || "to-contact";
+    row.status =
+      cell(document.getElementById("people-edit-status")?.value) ||
+      "to-contact";
     row.notes = cell(document.getElementById("people-edit-notes")?.value);
     const openingSelect = document.getElementById("people-edit-openings");
     row.opening_ids = openingSelect
@@ -326,12 +368,22 @@
     editingId = id;
     document.getElementById("people-edit-name").value = cell(row.full_name);
     document.getElementById("people-edit-headline").value = cell(row.headline);
-    fillCompanySelect(document.getElementById("people-edit-company"), cell(row.company_key));
-    document.getElementById("people-edit-company-name").value = cell(row.company_name);
-    document.getElementById("people-edit-linkedin").value = cell(row.linkedin_url);
+    fillCompanySelect(
+      document.getElementById("people-edit-company"),
+      cell(row.company_key),
+    );
+    document.getElementById("people-edit-company-name").value = cell(
+      row.company_name,
+    );
+    document.getElementById("people-edit-linkedin").value = cell(
+      row.linkedin_url,
+    );
     document.getElementById("people-edit-need").value = cell(row.hiring_for);
     document.getElementById("people-edit-location").value = cell(row.location);
-    fillStatusSelect(document.getElementById("people-edit-status"), cell(row.status));
+    fillStatusSelect(
+      document.getElementById("people-edit-status"),
+      cell(row.status),
+    );
     document.getElementById("people-edit-notes").value = cell(row.notes);
     fillOpeningSelect(
       document.getElementById("people-edit-openings"),
@@ -392,12 +444,16 @@
     lines.push(
       "opening_ids is a pipe-separated list of ids from OPENINGS that this person is clearly hiring for. Leave it empty when that link is not explicit.",
     );
-    lines.push("Do not invent a LinkedIn URL. Copy one only if it is in the paste.");
+    lines.push(
+      "Do not invent a LinkedIn URL. Copy one only if it is in the paste.",
+    );
     lines.push("full_name is required.");
     lines.push("");
     lines.push("=== COMPANIES ===");
     for (const company of companies()) {
-      lines.push(`- ${cell(company.id)} | ${cell(company.name_en) || cell(company.name_pt)}`);
+      lines.push(
+        `- ${cell(company.id)} | ${cell(company.name_en) || cell(company.name_pt)}`,
+      );
     }
     lines.push("");
     lines.push("=== OPENINGS ===");
@@ -461,7 +517,9 @@
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok || data.ok === false) {
-        throw new Error(data.error || res.statusText || "Could not send the prompt");
+        throw new Error(
+          data.error || res.statusText || "Could not send the prompt",
+        );
       }
       document.getElementById("people-prompt-modal")?.close();
       openImport("Prompt sent. Paste the companion’s JSON here.");
@@ -477,9 +535,16 @@
 
   function parseImport(raw) {
     let text = cell(raw).trim();
-    text = text.replace(/^```(?:json)?/i, "").replace(/```$/, "").trim();
+    text = text
+      .replace(/^```(?:json)?/i, "")
+      .replace(/```$/, "")
+      .trim();
     const data = JSON.parse(text);
-    const list = Array.isArray(data) ? data : data && Array.isArray(data.people) ? data.people : [data];
+    const list = Array.isArray(data)
+      ? data
+      : data && Array.isArray(data.people)
+        ? data.people
+        : [data];
     return list.filter((item) => item && typeof item === "object");
   }
 
@@ -500,7 +565,9 @@
         if (!row) {
           row = blankPerson();
           const companyKey = cell(item.company_key).trim();
-          row.id = uniqueId(slug(`${fullName}-${companyKey || cell(item.company_name)}`));
+          row.id = uniqueId(
+            slug(`${fullName}-${companyKey || cell(item.company_name)}`),
+          );
           people.push(row);
         }
         row.full_name = fullName;
@@ -508,7 +575,8 @@
         row.company_name = cell(item.company_name);
         const companyKey = cell(item.company_key).trim();
         row.company_key = companyById(companyKey) ? companyKey : "";
-        if (!row.company_name && row.company_key) row.company_name = companyLabel(row);
+        if (!row.company_name && row.company_key)
+          row.company_name = companyLabel(row);
         row.linkedin_url = linkedin;
         row.hiring_for = cell(item.hiring_for);
         const ids = Array.isArray(item.opening_ids)
@@ -537,38 +605,70 @@
   function isTypingTarget(el) {
     if (!el) return false;
     const tag = el.tagName;
-    return tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT" || el.isContentEditable;
+    return (
+      tag === "INPUT" ||
+      tag === "TEXTAREA" ||
+      tag === "SELECT" ||
+      el.isContentEditable
+    );
   }
 
   function init() {
-    document.getElementById("people-add-btn")?.addEventListener("click", addPerson);
-    document.getElementById("people-prompt-btn")?.addEventListener("click", openPrompt);
-    document.getElementById("people-prompt-close")?.addEventListener("click", () => {
-      document.getElementById("people-prompt-modal")?.close();
-    });
-    document.getElementById("people-prompt-send")?.addEventListener("click", () => void sendPrompt());
-    document.getElementById("people-import-close")?.addEventListener("click", () => {
-      document.getElementById("people-import-modal")?.close();
-    });
-    document.getElementById("people-import-run")?.addEventListener("click", importPeople);
-    document.getElementById("people-edit-close")?.addEventListener("click", closeEditor);
-    document.getElementById("people-edit-delete")?.addEventListener("click", deleteEditing);
-    document.getElementById("people-edit-company")?.addEventListener("change", () => {
-      const key = cell(document.getElementById("people-edit-company")?.value);
-      const name = document.getElementById("people-edit-company-name");
-      const linked = companyById(key);
-      if (name && linked && !cell(name.value).trim()) name.value = cell(linked.name_en);
-      fillOpeningSelect(
-        document.getElementById("people-edit-openings"),
-        key,
-        [...(document.getElementById("people-edit-openings")?.selectedOptions || [])].map((o) => o.value),
-      );
-    });
+    document
+      .getElementById("people-add-btn")
+      ?.addEventListener("click", addPerson);
+    document
+      .getElementById("people-prompt-btn")
+      ?.addEventListener("click", openPrompt);
+    document
+      .getElementById("people-prompt-close")
+      ?.addEventListener("click", () => {
+        document.getElementById("people-prompt-modal")?.close();
+      });
+    document
+      .getElementById("people-prompt-send")
+      ?.addEventListener("click", () => void sendPrompt());
+    document
+      .getElementById("people-import-close")
+      ?.addEventListener("click", () => {
+        document.getElementById("people-import-modal")?.close();
+      });
+    document
+      .getElementById("people-import-run")
+      ?.addEventListener("click", importPeople);
+    document
+      .getElementById("people-edit-close")
+      ?.addEventListener("click", closeEditor);
+    document
+      .getElementById("people-edit-delete")
+      ?.addEventListener("click", deleteEditing);
+    document
+      .getElementById("people-edit-company")
+      ?.addEventListener("change", () => {
+        const key = cell(document.getElementById("people-edit-company")?.value);
+        const name = document.getElementById("people-edit-company-name");
+        const linked = companyById(key);
+        if (name && linked && !cell(name.value).trim())
+          name.value = cell(linked.name_en);
+        fillOpeningSelect(
+          document.getElementById("people-edit-openings"),
+          key,
+          [
+            ...(document.getElementById("people-edit-openings")
+              ?.selectedOptions || []),
+          ].map((o) => o.value),
+        );
+      });
     document.addEventListener("keydown", (event) => {
-      const modalOpen = ["people-prompt-modal", "people-import-modal", "people-edit-modal"].some(
-        (id) => document.getElementById(id)?.open,
-      );
-      if ((event.ctrlKey || event.metaKey || event.shiftKey) && event.key === "Enter") {
+      const modalOpen = [
+        "people-prompt-modal",
+        "people-import-modal",
+        "people-edit-modal",
+      ].some((id) => document.getElementById(id)?.open);
+      if (
+        (event.ctrlKey || event.metaKey || event.shiftKey) &&
+        event.key === "Enter"
+      ) {
         if (document.getElementById("people-prompt-modal")?.open) {
           event.preventDefault();
           void sendPrompt();
@@ -578,7 +678,8 @@
         }
         return;
       }
-      if (!event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+      if (!event.altKey || event.ctrlKey || event.metaKey || event.shiftKey)
+        return;
       if (event.code !== "KeyR") return;
       if (modalOpen || isTypingTarget(document.activeElement)) return;
       event.preventDefault();
@@ -609,5 +710,7 @@
   }
 
   init();
-  load().catch((err) => setSaveStatus("Load error: " + (err.message || String(err)), "err"));
+  load().catch((err) =>
+    setSaveStatus("Load error: " + (err.message || String(err)), "err"),
+  );
 })();

@@ -1092,7 +1092,6 @@
       "company-tile" +
       tileSpanClass(row) +
       (isPinned(row) ? " is-pinned" : "") +
-      (subscribedCount === 3 ? " is-sub-max" : "") +
       (openCompanyId === row.id ? " is-active" : "");
     btn.dataset.id = row.id;
     btn.dataset.url = portalUrl;
@@ -1159,22 +1158,25 @@
         .join(" · "),
     );
 
+    const subTag = document.createElement("span");
+    subTag.className =
+      "company-sub-count" +
+      (subscribedCount > 3
+        ? " is-over"
+        : subscribedCount === 3
+          ? " is-max"
+          : "");
+    subTag.textContent = `${subscribedCount} subscribed`;
+    subTag.title =
+      subscribedCount > 3
+        ? "More than 3 subscribed openings. Exclude some or change their status to clear the red tag."
+        : subscribedCount === 3
+          ? "3 subscribed openings, the maximum for this company."
+          : "Subscribed openings at this company.";
+    btn.append(subTag);
+
     const chips = document.createElement("div");
     chips.className = "company-tile-chips";
-    if (subscribedCount > 3) {
-      const over = document.createElement("span");
-      over.className = "company-chip company-chip-sub-over";
-      over.textContent = `${subscribedCount} subscribed`;
-      over.title =
-        "More than 3 subscribed openings at this company. This tag stays until you exclude them or change their status from subscribed.";
-      chips.append(over);
-    } else if (subscribedCount === 3) {
-      const max = document.createElement("span");
-      max.className = "company-chip company-chip-sub-max";
-      max.textContent = "Maximum applications";
-      max.title = "3 subscribed openings, the maximum for this company.";
-      chips.append(max);
-    }
     appendPinControl(chips, row);
     appendRecRankControls(chips, row);
     if (row.priority) {
