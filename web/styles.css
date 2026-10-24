@@ -3769,9 +3769,52 @@ a.nav-btn {
   }
 }
 
-/* --- People hiring --- */
+/* --- People --- */
+.page-people .people-kind {
+  margin: 0 0 18px;
+}
+
+.page-people .people-kind-title {
+  margin: 14px 0 2px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
 .page-people .people-group {
   margin: 0 0 14px;
+}
+
+.page-people .people-group .section-title {
+  margin: 8px 0;
+}
+
+.page-people .person-kind {
+  align-self: flex-start;
+  padding: 1px 6px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: var(--panel);
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.page-people .person-kind.is-hiring {
+  border-color: #e6b800;
+  background: rgba(241, 196, 15, 0.16);
+  color: #ffe08a;
+}
+
+.page-people .person-kind.is-network {
+  border-color: #3d7eae;
+  background: rgba(61, 126, 174, 0.18);
+  color: #9fd6ff;
 }
 
 .page-people .people-group .section-title {

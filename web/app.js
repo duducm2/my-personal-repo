@@ -300,6 +300,7 @@
       "id",
       "sort_order",
       "pinned",
+      "kind",
       "company_key",
       "company_name",
       "full_name",

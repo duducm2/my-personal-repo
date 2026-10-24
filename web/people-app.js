@@ -5,6 +5,10 @@
     { id: "replied", label: "Replied" },
     { id: "paused", label: "Paused" },
   ];
+  const KINDS = [
+    { id: "hiring", label: "Hiring" },
+    { id: "network", label: "Network" },
+  ];
 
   let collections = {};
   let people = [];
@@ -27,6 +31,7 @@
   ].join("\n");
   let companyFilter = "";
   let statusFilter = "";
+  let kindFilter = "";
   let editingId = "";
 
   function cell(v) {
@@ -138,11 +143,18 @@
     }
   }
 
+  function personKind(row) {
+    return cell(row && row.kind).toLowerCase() === "network"
+      ? "network"
+      : "hiring";
+  }
+
   function blankPerson() {
     return {
       id: "",
       sort_order: String(people.length + 1),
       pinned: "",
+      kind: kindFilter || "hiring",
       company_key: "",
       company_name: "",
       full_name: "",
@@ -177,6 +189,7 @@
       ) {
         return false;
       }
+      if (kindFilter && personKind(row) !== kindFilter) return false;
       if (statusFilter && cell(row.status) !== statusFilter) return false;
       return true;
     });
@@ -186,6 +199,25 @@
     const host = document.getElementById("people-filters");
     if (!host) return;
     host.replaceChildren();
+
+    const kindRow = document.createElement("div");
+    kindRow.className = "company-filter-row";
+    const kindLabelEl = document.createElement("span");
+    kindLabelEl.className = "company-filter-label";
+    kindLabelEl.textContent = "Category";
+    kindRow.append(kindLabelEl);
+    for (const kind of KINDS) {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className =
+        "filter-chip" + (kindFilter === kind.id ? " is-active" : "");
+      btn.textContent = kind.label;
+      btn.addEventListener("click", () => {
+        kindFilter = kindFilter === kind.id ? "" : kind.id;
+        render();
+      });
+      kindRow.append(btn);
+    }
 
     const companyRow = document.createElement("div");
     companyRow.className = "company-filter-row";
@@ -237,7 +269,7 @@
       statusRow.append(btn);
     }
 
-    host.append(companyRow, statusRow);
+    host.append(kindRow, companyRow, statusRow);
   }
 
   function render() {
@@ -247,58 +279,78 @@
     const rows = visiblePeople();
     if (count) {
       const companiesInView = new Set(rows.map(companyLabel)).size;
+      const hiringCount = rows.filter(
+        (row) => personKind(row) === "hiring",
+      ).length;
+      const networkCount = rows.length - hiringCount;
+      const peopleWord = rows.length === 1 ? "person" : "people";
+      const companyWord = companiesInView === 1 ? "company" : "companies";
       count.textContent = rows.length
-        ? `${rows.length} ${rows.length === 1 ? "person" : "people"} · ${companiesInView} ${companiesInView === 1 ? "company" : "companies"}`
-        : "No hiring people yet. Alt+R pastes a LinkedIn profile.";
+        ? `${rows.length} ${peopleWord} · ${hiringCount} hiring · ${networkCount} network · ${companiesInView} ${companyWord}`
+        : "No people yet. Alt+R pastes a LinkedIn profile.";
     }
     if (!host) return;
     host.replaceChildren();
     if (!rows.length) return;
-    const groups = new Map();
-    for (const row of rows) {
-      const label = companyLabel(row);
-      if (!groups.has(label)) groups.set(label, []);
-      groups.get(label).push(row);
-    }
-    for (const [label, group] of [...groups.entries()].sort((a, b) =>
-      a[0].localeCompare(b[0]),
-    )) {
-      const section = document.createElement("section");
-      section.className = "people-group";
-      const heading = document.createElement("h2");
-      heading.className = "section-title";
-      heading.textContent = `${label} · ${group.length}`;
-      section.append(heading);
-      const grid = document.createElement("div");
-      grid.className = "company-bento";
-      for (const row of group) {
-        const card = document.createElement("button");
-        card.type = "button";
-        card.className = "company-tile";
-        const title = document.createElement("span");
-        title.className = "company-tile-title";
-        title.textContent = cell(row.full_name) || "Unnamed";
-        const meta = document.createElement("span");
-        meta.className = "company-tile-meta";
-        const status = STATUSES.find((s) => s.id === cell(row.status));
-        const linked = splitIds(row.opening_ids)
-          .map((id) => openings().find((o) => cell(o.id) === id))
-          .filter(Boolean)
-          .map((o) => cell(o.role_title));
-        meta.textContent = [
-          cell(row.headline),
-          cell(row.hiring_for) ? `Hiring: ${cell(row.hiring_for)}` : "",
-          linked.length ? linked.join(" · ") : "",
-          status ? status.label : "",
-        ]
-          .filter(Boolean)
-          .join(" — ");
-        card.append(title, meta);
-        card.addEventListener("click", () => openEditor(row.id));
-        grid.append(card);
+    for (const kind of KINDS) {
+      const kindRows = rows.filter((row) => personKind(row) === kind.id);
+      if (!kindRows.length) continue;
+      const kindSection = document.createElement("section");
+      kindSection.className = "people-kind";
+      const kindHeading = document.createElement("h2");
+      kindHeading.className = "people-kind-title";
+      kindHeading.textContent = `${kind.label} · ${kindRows.length}`;
+      kindSection.append(kindHeading);
+      const groups = new Map();
+      for (const row of kindRows) {
+        const label = companyLabel(row);
+        if (!groups.has(label)) groups.set(label, []);
+        groups.get(label).push(row);
       }
-      section.append(grid);
-      host.append(section);
+      for (const [label, group] of [...groups.entries()].sort((a, b) =>
+        a[0].localeCompare(b[0]),
+      )) {
+        const section = document.createElement("section");
+        section.className = "people-group";
+        const heading = document.createElement("h3");
+        heading.className = "section-title";
+        heading.textContent = `${label} · ${group.length}`;
+        section.append(heading);
+        const grid = document.createElement("div");
+        grid.className = "company-bento";
+        for (const row of group) {
+          const card = document.createElement("button");
+          card.type = "button";
+          card.className = "company-tile";
+          const badge = document.createElement("span");
+          badge.className = `person-kind is-${kind.id}`;
+          badge.textContent = kind.label;
+          const title = document.createElement("span");
+          title.className = "company-tile-title";
+          title.textContent = cell(row.full_name) || "Unnamed";
+          const meta = document.createElement("span");
+          meta.className = "company-tile-meta";
+          const status = STATUSES.find((s) => s.id === cell(row.status));
+          const linked = splitIds(row.opening_ids)
+            .map((id) => openings().find((o) => cell(o.id) === id))
+            .filter(Boolean)
+            .map((o) => cell(o.role_title));
+          meta.textContent = [
+            cell(row.headline),
+            cell(row.hiring_for) ? `Hiring: ${cell(row.hiring_for)}` : "",
+            linked.length ? linked.join(" · ") : "",
+            status ? status.label : "",
+          ]
+            .filter(Boolean)
+            .join(" · ");
+          card.append(badge, title, meta);
+          card.addEventListener("click", () => openEditor(row.id));
+          grid.append(card);
+        }
+        section.append(grid);
+        kindSection.append(section);
+      }
+      host.append(kindSection);
     }
   }
 
@@ -362,6 +414,9 @@
     row.linkedin_url = cell(
       document.getElementById("people-edit-linkedin")?.value,
     );
+    row.kind = personKind({
+      kind: document.getElementById("people-edit-kind")?.value,
+    });
     row.hiring_for = cell(document.getElementById("people-edit-need")?.value);
     row.location = cell(document.getElementById("people-edit-location")?.value);
     row.status =
@@ -378,6 +433,8 @@
     const row = people.find((p) => cell(p.id) === id);
     if (!row) return;
     editingId = id;
+    const kindSelect = document.getElementById("people-edit-kind");
+    if (kindSelect) kindSelect.value = personKind(row);
     document.getElementById("people-edit-name").value = cell(row.full_name);
     document.getElementById("people-edit-headline").value = cell(row.headline);
     fillCompanySelect(
@@ -438,11 +495,18 @@
     render();
   }
 
+  function selectedKind(id) {
+    return personKind({ kind: document.getElementById(id)?.value });
+  }
+
   function buildPrompt(rawText) {
+    const kind = selectedKind("people-prompt-kind");
     const lines = [];
-    lines.push("You extract hiring people from a pasted LinkedIn profile.");
     lines.push(
-      "Return ONLY a JSON object. No markdown fence and no prose. The user will import it into a hiring-people list and delete anything wrong.",
+      "You extract one person from a pasted LinkedIn profile into a people list.",
+    );
+    lines.push(
+      "Return ONLY a JSON object. No markdown fence and no prose. The user will import it and delete anything wrong.",
     );
     lines.push("");
     lines.push(HUMAN_VOICE);
@@ -450,16 +514,26 @@
       "hiring_for and notes follow VOICE. full_name, headline, and linkedin_url are copied from the paste, not rewritten.",
     );
     lines.push(
-      "Keys: full_name, headline, company_name, company_key, linkedin_url, hiring_for, opening_ids, location, notes.",
+      "Keys: kind, full_name, headline, company_name, company_key, linkedin_url, hiring_for, opening_ids, location, notes.",
     );
+    lines.push(`kind is exactly "${kind}".`);
+    if (kind === "network") {
+      lines.push(
+        "This person is in the user's network. They are not being imported as someone who is hiring.",
+      );
+      lines.push(
+        "Leave hiring_for and opening_ids empty unless the paste explicitly says this person is hiring for a listed opening.",
+      );
+    } else {
+      lines.push(
+        "This person is hiring. hiring_for is the role or team they are hiring for, taken from the profile. Leave it empty when the paste does not say.",
+      );
+      lines.push(
+        "opening_ids is a pipe-separated list of ids from OPENINGS that this person is clearly hiring for. Leave it empty when that link is not explicit.",
+      );
+    }
     lines.push(
-      "company_key must be an id from COMPANIES or an empty string. Never invent an id.",
-    );
-    lines.push(
-      "hiring_for is the role or team this person is hiring for, taken from the profile. Leave it empty when the paste does not say.",
-    );
-    lines.push(
-      "opening_ids is a pipe-separated list of ids from OPENINGS that this person is clearly hiring for. Leave it empty when that link is not explicit.",
+      "Both categories can have a company. company_key must be an id from COMPANIES or an empty string. Never invent an id.",
     );
     lines.push(
       "Do not invent a LinkedIn URL. Copy one only if it is in the paste.",
@@ -492,6 +566,8 @@
       status.textContent = "";
       status.className = "save-status";
     }
+    const kindSelect = document.getElementById("people-prompt-kind");
+    if (kindSelect) kindSelect.value = kindFilter || "hiring";
     document.getElementById("people-prompt-modal")?.showModal();
     document.getElementById("people-prompt-raw")?.focus();
   }
@@ -503,6 +579,8 @@
       status.textContent = note || "";
       status.className = note ? "save-status ok" : "save-status";
     }
+    const kindSelect = document.getElementById("people-import-kind");
+    if (kindSelect) kindSelect.value = selectedKind("people-prompt-kind");
     document.getElementById("people-import-modal")?.showModal();
     requestAnimationFrame(() => {
       raw?.focus();
@@ -595,6 +673,7 @@
         if (!row.company_name && row.company_key)
           row.company_name = companyLabel(row);
         row.linkedin_url = linkedin;
+        row.kind = selectedKind("people-import-kind");
         row.hiring_for = cell(item.hiring_for);
         const ids = Array.isArray(item.opening_ids)
           ? item.opening_ids.map((id) => cell(id).trim()).filter(Boolean)
@@ -720,7 +799,10 @@
     const payload = await res.json();
     collections = payload.collections || {};
     people = Array.isArray(collections.hiringPeople)
-      ? collections.hiringPeople.map((row) => ({ ...row }))
+      ? collections.hiringPeople.map((row) => ({
+          ...row,
+          kind: personKind(row),
+        }))
       : [];
     collections.hiringPeople = people;
     render();

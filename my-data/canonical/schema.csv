@@ -364,6 +364,7 @@ job_openings.csv,cover_letter_closing,Cover letter closing,Despedida da carta
 hiring_people.csv,id,Person ID,ID da pessoa
 hiring_people.csv,sort_order,Sort order,Ordem
 hiring_people.csv,pinned,Pinned,Fixado
+hiring_people.csv,kind,Category,Categoria
 hiring_people.csv,company_key,Company key,Chave da empresa
 hiring_people.csv,company_name,Company name,Empresa
 hiring_people.csv,full_name,Full name,Nome completo

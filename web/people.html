@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>People hiring</title>
+    <title>People</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="page-people">
@@ -12,7 +12,7 @@
         <div class="hero-top">
           <div>
             <h1 class="brand">
-              <span class="section-title-en">People hiring</span>
+              <span class="section-title-en">People</span>
             </h1>
           </div>
           <div class="hero-actions">
@@ -37,22 +37,33 @@
             <button type="button" id="open-help-btn" class="nav-btn">
               <span class="section-title-en">Help</span>
             </button>
-            <span id="save-status" class="save-status" aria-live="polite"></span>
+            <span
+              id="save-status"
+              class="save-status"
+              aria-live="polite"
+            ></span>
           </div>
         </div>
       </header>
 
       <main>
-        <section class="section company-search-section" aria-label="People hiring">
+        <section class="section company-search-section" aria-label="People">
           <div class="company-search-sticky">
             <div class="company-toolbar">
-              <button type="button" id="people-add-btn" class="add-btn">+ Add</button>
+              <button type="button" id="people-add-btn" class="add-btn">
+                + Add
+              </button>
               <button type="button" id="people-prompt-btn" class="add-btn">
                 Prompt to import
                 <kbd class="btn-kbd">Alt+R</kbd>
               </button>
             </div>
-            <div id="people-filters" class="company-filters" role="group" aria-label="People filters"></div>
+            <div
+              id="people-filters"
+              class="company-filters"
+              role="group"
+              aria-label="People filters"
+            ></div>
             <p id="people-count" class="company-result-count"></p>
           </div>
           <div id="people-results"></div>
@@ -60,14 +71,32 @@
       </main>
     </div>
 
-    <dialog id="people-edit-modal" class="company-modal" aria-labelledby="people-edit-title">
+    <dialog
+      id="people-edit-modal"
+      class="company-modal"
+      aria-labelledby="people-edit-title"
+    >
       <div class="company-modal-inner">
         <header class="company-modal-head">
-          <h2 id="people-edit-title" class="company-modal-title">Hiring person</h2>
-          <button type="button" id="people-edit-close" class="company-modal-close" aria-label="Close">✕</button>
+          <h2 id="people-edit-title" class="company-modal-title">Person</h2>
+          <button
+            type="button"
+            id="people-edit-close"
+            class="company-modal-close"
+            aria-label="Close"
+          >
+            ✕
+          </button>
         </header>
         <div class="company-modal-body">
           <div class="company-result-edit job-modal-grid">
+            <label class="company-edit-field">
+              <span class="company-research-label">Category</span>
+              <select id="people-edit-kind" class="field-input">
+                <option value="hiring">Hiring</option>
+                <option value="network">Network</option>
+              </select>
+            </label>
             <label class="company-edit-field">
               <span class="company-research-label">Full name</span>
               <input id="people-edit-name" class="field-input" />
@@ -81,7 +110,9 @@
               <select id="people-edit-company" class="field-input"></select>
             </label>
             <label class="company-edit-field">
-              <span class="company-research-label">Company name on the profile</span>
+              <span class="company-research-label"
+                >Company name on the profile</span
+              >
               <input id="people-edit-company-name" class="field-input" />
             </label>
             <label class="company-edit-field">
@@ -90,11 +121,20 @@
             </label>
             <label class="company-edit-field">
               <span class="company-research-label">Hiring need</span>
-              <textarea id="people-edit-need" class="field-input" rows="3"></textarea>
+              <textarea
+                id="people-edit-need"
+                class="field-input"
+                rows="3"
+              ></textarea>
             </label>
             <label class="company-edit-field">
               <span class="company-research-label">Linked openings</span>
-              <select id="people-edit-openings" class="field-input" multiple size="5"></select>
+              <select
+                id="people-edit-openings"
+                class="field-input"
+                multiple
+                size="5"
+              ></select>
             </label>
             <label class="company-edit-field">
               <span class="company-research-label">Location</span>
@@ -106,29 +146,68 @@
             </label>
             <label class="company-edit-field">
               <span class="company-research-label">Notes</span>
-              <textarea id="people-edit-notes" class="field-input" rows="3"></textarea>
+              <textarea
+                id="people-edit-notes"
+                class="field-input"
+                rows="3"
+              ></textarea>
             </label>
           </div>
           <div class="job-modal-actions">
-            <a id="people-edit-open-link" class="nav-btn" href="#" target="_blank" rel="noopener">Open LinkedIn</a>
-            <button type="button" id="people-edit-delete" class="panel-delete">Delete</button>
-            <span id="people-edit-status-line" class="save-status" aria-live="polite"></span>
+            <a
+              id="people-edit-open-link"
+              class="nav-btn"
+              href="#"
+              target="_blank"
+              rel="noopener"
+              >Open LinkedIn</a
+            >
+            <button type="button" id="people-edit-delete" class="panel-delete">
+              Delete
+            </button>
+            <span
+              id="people-edit-status-line"
+              class="save-status"
+              aria-live="polite"
+            ></span>
           </div>
         </div>
       </div>
     </dialog>
 
-    <dialog id="people-prompt-modal" class="company-modal" aria-labelledby="people-prompt-title">
+    <dialog
+      id="people-prompt-modal"
+      class="company-modal"
+      aria-labelledby="people-prompt-title"
+    >
       <div class="company-modal-inner">
         <header class="company-modal-head">
-          <h2 id="people-prompt-title" class="company-modal-title">Prompt to import</h2>
-          <button type="button" id="people-prompt-close" class="company-modal-close" aria-label="Close">✕</button>
+          <h2 id="people-prompt-title" class="company-modal-title">
+            Prompt to import
+          </h2>
+          <button
+            type="button"
+            id="people-prompt-close"
+            class="company-modal-close"
+            aria-label="Close"
+          >
+            ✕
+          </button>
         </header>
         <div class="company-modal-body">
           <p class="job-modal-hint">
-            Paste a full LinkedIn profile. Send builds the extraction prompt,
-            gives it to the AI companion, and opens the import box for the JSON reply.
+            Pick Hiring or Network, then paste a full LinkedIn profile. Send
+            builds the extraction prompt, gives it to the AI companion, and
+            opens the import box for the JSON reply. Both categories can keep a
+            company.
           </p>
+          <label class="company-edit-field">
+            <span class="company-research-label">Category</span>
+            <select id="people-prompt-kind" class="field-input">
+              <option value="hiring">Hiring</option>
+              <option value="network">Network</option>
+            </select>
+          </label>
           <label class="company-edit-field">
             <span class="company-research-label">LinkedIn profile paste</span>
             <textarea
@@ -142,29 +221,64 @@
             <button type="button" id="people-prompt-send" class="save-btn">
               Send to AI companion
             </button>
-            <span id="people-prompt-status" class="save-status" aria-live="polite"></span>
+            <span
+              id="people-prompt-status"
+              class="save-status"
+              aria-live="polite"
+            ></span>
           </div>
         </div>
       </div>
     </dialog>
 
-    <dialog id="people-import-modal" class="company-modal" aria-labelledby="people-import-title">
+    <dialog
+      id="people-import-modal"
+      class="company-modal"
+      aria-labelledby="people-import-title"
+    >
       <div class="company-modal-inner">
         <header class="company-modal-head">
-          <h2 id="people-import-title" class="company-modal-title">Import hiring person</h2>
-          <button type="button" id="people-import-close" class="company-modal-close" aria-label="Close">✕</button>
+          <h2 id="people-import-title" class="company-modal-title">
+            Import person
+          </h2>
+          <button
+            type="button"
+            id="people-import-close"
+            class="company-modal-close"
+            aria-label="Close"
+          >
+            ✕
+          </button>
         </header>
         <div class="company-modal-body">
           <p class="job-modal-hint">
-            Paste the JSON from the AI companion. Import saves the person under their company.
+            Paste the JSON from the AI companion. The category below is what
+            gets saved. A company can be attached to either category.
           </p>
           <label class="company-edit-field">
+            <span class="company-research-label">Category</span>
+            <select id="people-import-kind" class="field-input">
+              <option value="hiring">Hiring</option>
+              <option value="network">Network</option>
+            </select>
+          </label>
+          <label class="company-edit-field">
             <span class="company-research-label">AI output (JSON)</span>
-            <textarea id="people-import-raw" class="field-input tall" rows="12"></textarea>
+            <textarea
+              id="people-import-raw"
+              class="field-input tall"
+              rows="12"
+            ></textarea>
           </label>
           <div class="job-modal-actions">
-            <button type="button" id="people-import-run" class="save-btn">Import</button>
-            <span id="people-import-status" class="save-status" aria-live="polite"></span>
+            <button type="button" id="people-import-run" class="save-btn">
+              Import
+            </button>
+            <span
+              id="people-import-status"
+              class="save-status"
+              aria-live="polite"
+            ></span>
           </div>
         </div>
       </div>

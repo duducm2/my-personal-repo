@@ -370,6 +370,7 @@ _BASE: dict[str, tuple[str, list[str]]] = {
             "id",
             "sort_order",
             "pinned",
+            "kind",
             "company_key",
             "company_name",
             "full_name",
@@ -485,6 +486,10 @@ class CanonicalStore:
                     for row in cleaned
                     if str(row.get("status") or "").strip().lower() != "excluded"
                 ]
+            if key == "hiringPeople":
+                for row in cleaned:
+                    kind = str(row.get("kind") or "").strip().lower()
+                    row["kind"] = kind if kind in ("hiring", "network") else "hiring"
             normalized[key] = cleaned
 
         for key, (filename, columns) in COLLECTIONS.items():
