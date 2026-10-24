@@ -2808,6 +2808,8 @@
     );
     lines.push(`Email: ${cell(profile.email)}`);
     lines.push(`Phone: ${cell(profile.phone)}`);
+    lines.push(`RG: ${cell(profile.rg)}`);
+    lines.push(`CPF: ${cell(profile.cpf)}`);
     lines.push(`LinkedIn: ${cell(profile.linkedin_url)}`);
     lines.push(`Lattes: ${cell(profile.lattes_url)}`);
     lines.push(`ORCID: ${cell(profile.orcid_url)}`);

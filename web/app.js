@@ -1919,6 +1919,20 @@
         hay: `phone number telefone número numero ${contactPhone}`.toLowerCase(),
       },
       {
+        id: "contact-rg",
+        label: "RG",
+        en: cell(contactProfile.rg),
+        pt: cell(contactProfile.rg),
+        hay: `rg registro geral identidade ${cell(contactProfile.rg)}`.toLowerCase(),
+      },
+      {
+        id: "contact-cpf",
+        label: "CPF",
+        en: cell(contactProfile.cpf),
+        pt: cell(contactProfile.cpf),
+        hay: `cpf cadastro de pessoas físicas ${cell(contactProfile.cpf)}`.toLowerCase(),
+      },
+      {
         id: "contact-linkedin",
         label:
           cell(contactProfile.linkedin_label_en) ||

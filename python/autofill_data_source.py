@@ -32,7 +32,9 @@ def _split_name(full_name: str) -> tuple[str, str]:
     return parts[0], " ".join(parts[1:])
 
 
-def _narrative_profile(narratives: list[dict[str, Any]], variant: str, lang: str = "en") -> str:
+def _narrative_profile(
+    narratives: list[dict[str, Any]], variant: str, lang: str = "en"
+) -> str:
     field_key = "text_en" if lang == "en" else "text_pt"
     # Prefer exact variant profile, then general
     for want in (variant, "general"):
@@ -44,7 +46,9 @@ def _narrative_profile(narratives: list[dict[str, Any]], variant: str, lang: str
     return ""
 
 
-def _skills_list(skills: list[dict[str, Any]], variant: str, lang: str = "en", limit: int = 12) -> str:
+def _skills_list(
+    skills: list[dict[str, Any]], variant: str, lang: str = "en", limit: int = 12
+) -> str:
     label_key = "label_en" if lang == "en" else "label_pt"
     picked: list[str] = []
     for want in (variant, "general"):
@@ -151,7 +155,9 @@ def build_autofill_bundle(
     linkedin = _cell(profile, "linkedin_url")
     location = _cell(profile, "location_en" if lang == "en" else "location_pt")
     city = location.split(",")[0].strip() if location else ""
-    country = "Brazil" if "brazil" in location.lower() or "brasil" in location.lower() else ""
+    country = (
+        "Brazil" if "brazil" in location.lower() or "brasil" in location.lower() else ""
+    )
 
     employer = _latest_employer(experience)
     about = _narrative_profile(narratives, variant, lang)
@@ -167,12 +173,20 @@ def build_autofill_bundle(
 
     lang_labels = []
     for row in languages:
-        name = _cell(row, "name_en" if lang == "en" else "name_pt") or _cell(row, "language_en") or _cell(row, "label_en")
-        level = _cell(row, "level_en" if lang == "en" else "level_pt") or _cell(row, "proficiency_en")
+        name = (
+            _cell(row, "name_en" if lang == "en" else "name_pt")
+            or _cell(row, "language_en")
+            or _cell(row, "label_en")
+        )
+        level = _cell(row, "level_en" if lang == "en" else "level_pt") or _cell(
+            row, "proficiency_en"
+        )
         if name:
             lang_labels.append(f"{name} ({level})" if level else name)
     if not lang_labels:
-        lang_labels = [_cell(profile, "languages_en" if lang == "en" else "languages_pt")]
+        lang_labels = [
+            _cell(profile, "languages_en" if lang == "en" else "languages_pt")
+        ]
 
     # Application-answer helpers from job record
     app_answers_raw = _cell(opening, "application_answers")
@@ -184,6 +198,8 @@ def build_autofill_bundle(
         "display_name": display_name,
         "email": email,
         "phone": phone,
+        "rg": _cell(profile, "rg"),
+        "cpf": _cell(profile, "cpf"),
         "linkedin_url": linkedin,
         "lattes_url": _cell(profile, "lattes_url"),
         "orcid_url": _cell(profile, "orcid_url"),
@@ -233,6 +249,8 @@ def build_autofill_bundle(
         "display_name": "Display name",
         "email": "Email",
         "phone": "Phone",
+        "rg": "RG",
+        "cpf": "CPF",
         "linkedin_url": "LinkedIn URL",
         "lattes_url": "Lattes URL",
         "orcid_url": "ORCID URL",
@@ -268,17 +286,19 @@ def build_autofill_bundle(
 
     return {
         "job_id": _cell(opening, "id") or job_id,
-        "job": {
-            "id": _cell(opening, "id"),
-            "company": _cell(opening, "company"),
-            "role_title": _cell(opening, "role_title"),
-            "job_url": _cell(opening, "job_url"),
-            "status": _cell(opening, "status"),
-            "recommended_resume": variant,
-            "match_score": _cell(opening, "match_score"),
-        }
-        if opening
-        else None,
+        "job": (
+            {
+                "id": _cell(opening, "id"),
+                "company": _cell(opening, "company"),
+                "role_title": _cell(opening, "role_title"),
+                "job_url": _cell(opening, "job_url"),
+                "status": _cell(opening, "status"),
+                "recommended_resume": variant,
+                "match_score": _cell(opening, "match_score"),
+            }
+            if opening
+            else None
+        ),
         "variant": variant,
         "lang": lang,
         "values_by_key": values,
@@ -286,7 +306,9 @@ def build_autofill_bundle(
     }
 
 
-def list_autofill_jobs(collections: dict[str, list[dict[str, Any]]]) -> list[dict[str, str]]:
+def list_autofill_jobs(
+    collections: dict[str, list[dict[str, Any]]],
+) -> list[dict[str, str]]:
     openings = collections.get("jobOpenings") or []
     if not openings:
         for key, rows in collections.items():
@@ -317,13 +339,16 @@ def list_autofill_jobs(collections: dict[str, list[dict[str, Any]]]) -> list[dic
                 "match_score": _cell(row, "match_score"),
             }
         )
+
     # Prefer high match / high priority first
     def sort_key(j: dict[str, str]) -> tuple:
         try:
             score = -int(j.get("match_score") or 0)
         except ValueError:
             score = 0
-        pri = {"high": 0, "medium": 1, "low": 2}.get((j.get("priority") or "").lower(), 3)
+        pri = {"high": 0, "medium": 1, "low": 2}.get(
+            (j.get("priority") or "").lower(), 3
+        )
         has = 0 if j.get("has_payload") == "1" else 1
         return (has, pri, score, j.get("company") or "", j.get("role_title") or "")
 
@@ -421,7 +446,9 @@ def find_payload_by_url(
     target = url_key(url)
     preferred = find_opening(openings, job_id) if job_id else {}
 
-    def pack(row: dict[str, Any], payload: dict[str, Any], reason: str) -> dict[str, Any]:
+    def pack(
+        row: dict[str, Any], payload: dict[str, Any], reason: str
+    ) -> dict[str, Any]:
         return {
             "ok": True,
             "match_reason": reason,
@@ -501,7 +528,9 @@ def find_payload_by_url(
                 "field_count": len((payload or {}).get("fields") or []),
             }
         )
-    suggestions.sort(key=lambda s: (0 if s["has_payload"] else 1, s["company"], s["role_title"]))
+    suggestions.sort(
+        key=lambda s: (0 if s["has_payload"] else 1, s["company"], s["role_title"])
+    )
 
     return {
         "ok": True,

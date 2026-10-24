@@ -60,6 +60,7 @@ def _instructions(opening_id: str, career_paths: list[str]) -> str:
             "4. For email confirmation fields, repeat the same email value.",
             "5. For phone country / dial code, derive from profile phone when present",
             "   (e.g. +55). Leave empty when unknown.",
+            "   For RG and CPF, copy the profile values exactly.",
             "6. For education / experience multi-entry blocks, use paste-ready facts",
             "   from the context (institution, degree, dates, title, company).",
             "   Keep those rows factual. Do not replace a description with a vague line.",
@@ -85,7 +86,9 @@ def _instructions(opening_id: str, career_paths: list[str]) -> str:
             '   "Upload manually — use digital-solution-architect resume".',
             "11. Match label language to the page (PT or EN). Keep key as snake_case English.",
             "12. Return ONLY one JSON object (no markdown fences, no prose):",
-            '    { "opening_id": "' + opening_id + '", "recommended_resume": "<one of the variants>",',
+            '    { "opening_id": "'
+            + opening_id
+            + '", "recommended_resume": "<one of the variants>",',
             '      "form_url": "<application form URL from SELECTED OPENING>",',
             '      "source_url": "<job posting URL when it differs>",',
             '      "fields": [ { "key", "label", "value", "source", "note?" } ] }',
@@ -158,6 +161,8 @@ def build_form_fill_prompt(
         f"Languages: {_cell(profile, 'languages_en') or _cell(profile, 'languages_pt')}",
         f"Email: {_cell(profile, 'email')}",
         f"Phone: {_cell(profile, 'phone')}",
+        f"RG: {_cell(profile, 'rg')}",
+        f"CPF: {_cell(profile, 'cpf')}",
         f"LinkedIn: {_cell(profile, 'linkedin_url')}",
         f"Lattes: {_cell(profile, 'lattes_url')}",
         f"ORCID: {_cell(profile, 'orcid_url')}",
@@ -165,8 +170,12 @@ def build_form_fill_prompt(
         "",
     ]
 
-    tagline = next((row for row in narratives if _cell(row, "field") == "tagline"), None)
-    summary = next((row for row in narratives if _cell(row, "field") == "profile"), None)
+    tagline = next(
+        (row for row in narratives if _cell(row, "field") == "tagline"), None
+    )
+    summary = next(
+        (row for row in narratives if _cell(row, "field") == "profile"), None
+    )
     if tagline or summary:
         lines.append("=== NARRATIVES (for hiring message / motivation) ===")
         if tagline:
@@ -224,6 +233,7 @@ def build_form_fill_prompt(
         for row in (context.get("experienceBullets") or [])
         if (_cell(row, "variant") or "general") in variants
     ]
+
     def sort_num(row: dict[str, Any]) -> int:
         raw = _cell(row, "sort_order")
         try:
