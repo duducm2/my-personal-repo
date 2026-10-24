@@ -172,7 +172,7 @@ def main() -> int:
         ("general", "Tooling project"),
         ("general", "SENAI"),
         ("product-owner", "customer check-ins"),
-        ("product-owner", "intake and quality gate"),
+        ("product-owner", "UX relevance intake"),
         ("product-owner", "Discovery, Delivery"),
         ("data-analyst", "Power BI"),
         ("data-analyst", "CSI 4.86"),

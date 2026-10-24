@@ -35,7 +35,7 @@
 )
 
 #let profile = [
-  Sou analista de dados. Transformo perguntas de pesquisa em números que as pessoas consigam usar—Excel avançado (fórmulas, VBA, planilhas no estilo banco), pipelines CSV, Power BI, Python/SQL e estatística descritiva e inferencial. Visualização da Informação no mestrado (nota A). Finanças e casa: visuais para decisão.
+  Sou analista de dados. Transformo perguntas de pesquisa em números que as pessoas consigam usar: Excel avançado (fórmulas, VBA, planilhas no estilo banco), pipelines CSV, Power BI, Python/SQL e estatística descritiva e inferencial. Visualização da Informação no mestrado (nota A). Também uso visuais para decidir em apps pessoais de finanças e da compra da casa.
 ]
 
 #let languages = "Português (Nativo)   Inglês (Fluente)"
@@ -50,14 +50,14 @@
     [Dashboards Power BI para acompanhamento de projetos e recursos; média CSI 4,86 / NPS 9,94 nos meus projetos (2024–2025).],
     [CIP CIM (Global Services): pontuação de relevância em UX e classificação de dados assistidas por IA no ServiceNow (pesos por propriedades); desenho de método com apoio de IA; avaliei dashboards estratégicos de CIP da GS para liderança sobre problemas e eficiência/eficácia.],
     [Projeto tooling (Power Tools): entrega de requisitos a protótipos; check-ins regulares; progresso acompanhado para decisões.],
-    [Data Insights (Power Tools B2B): teoria fundamentada straussiana em registros de call center—Python assistido por IA para manipulação e categorização; validação com stakeholders; insights em Power BI sobre finanças, transporte de material, logística e temas relacionados.],
+    [Data Insights (Power Tools B2B): teoria fundamentada straussiana em registros de call center. Python assistido por IA para manipulação e categorização; validação com stakeholders; insights em Power BI sobre finanças, transporte de material, logística e temas relacionados.],
     [Apoiei as Américas a atingir o Nível 4 de Maturidade em UX: governança, templates, treinamento; dashboard Power BI de auditoria buscando dados do Microsoft Lists para acompanhar documentação de gestão de projetos.],
-    [Uso IA agêntica diariamente no VS Code para pesquisa, análise e resolução de problemas no pipeline.],
+    [Uso IA no VS Code todo dia para pesquisa, análise e resolução de problemas.],
     [Duas viagens à Alemanha (2024, 2025); tutor na SENAI Digital Talent Academy; treinamento de ferramentas de IA para 100+ pessoas (satisfação 4,88/5).],
   )),
   ("Jan 2020 – Nov 2022", "Bosch Brasil", "Desenvolvedor Web", (
     [Front-end (React) e pesquisa aplicada em Scrum e Kanban; ferramentas para clientes e internas.],
-    [Entrega de UI baseada em dados e shipping de soluções web em equipe.],
+    [Construí aplicações para clientes e ferramentas internas com o time.],
   )),
   ("Jan 2019 – Dez 2019", "Bosch Magyarország (Hungary)", "Analista de Suporte à Digitalização", (
     [Digitalizei fluxos de Business Excellence em Kanban.],

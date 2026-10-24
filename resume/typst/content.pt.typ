@@ -35,7 +35,7 @@
 )
 
 #let profile = [
-  Sou pesquisador de UX e qualidade de software. Uso pesquisa aplicada, tecnologia e gestão de projetos para ajudar times a entregar coisas que as pessoas realmente usam. Base full-stack; no dia a dia trabalho com dados, melhoria contínua e IA agêntica em design, front-end, Power BI e Python. Quero seguir na direção de AI Scrum Master.
+  Sou pesquisador de UX e qualidade de software. Uso pesquisa aplicada, tecnologia e gestão de projetos para ajudar times a entregar coisas que as pessoas realmente usam. Base full-stack; no dia a dia trabalho com dados, melhoria contínua e IA no VS Code, em design, front-end, Power BI e Python. Quero seguir na direção de AI Scrum Master.
 ]
 
 #let languages = "Português (Nativo)   Inglês (Fluente)"
@@ -51,15 +51,15 @@
     [CIP CIM / Global Services: com a equipe de UX, avaliei dashboards estratégicos de CIP para a liderança da GS identificar problemas e ganhos de eficiência/eficácia com mais rapidez; automatizei a pontuação de relevância em UX no ServiceNow com pesos por propriedades.],
     [Projeto tooling (Power Tools): apoiei a entrega técnica e a gestão do projeto de requisitos a protótipos de alta fidelidade, com check-ins regulares com clientes.],
     [Dashboards Power BI para acompanhamento de projetos, recursos e treinamentos.],
-    [Uso IA agêntica diariamente no VS Code para pesquisa, análise e resolução de problemas no pipeline de pesquisa aplicada.],
+    [Uso IA no VS Code todo dia para pesquisa, análise e resolução de problemas na pesquisa aplicada.],
     [Duas viagens à Alemanha (2024, 2025); tutor na SENAI Digital Talent Academy; treinamento de ferramentas de IA para 100+ pessoas (satisfação 4,88/5).],
   )),
   ("Jan 2020 – Nov 2022", "Bosch Brasil", "Desenvolvedor Web", (
-    [Desenvolvimento front-end em React com Scrum e Kanban; hábitos de pesquisa aplicada e entrega em equipe.],
+    [Desenvolvimento front-end em React com Scrum e Kanban.],
     [Atuei em aplicações para clientes e ferramentas internas.],
   )),
   ("Jan 2019 – Dez 2019", "Bosch Magyarország (Hungary)", "Analista de Suporte à Digitalização", (
-    [Digitalização de Business Excellence em Kanban—ferramentas e fluxos internos.],
+    [Digitalização de Business Excellence em Kanban: ferramentas e fluxos internos.],
     [Desenvolvimento web full-stack com VS Code, SQL Server e Windows Server (IIS).],
   )),
   ("Jan 2017 – Nov 2018", "Bosch Brasil (Campinas)", "Estagiário", (

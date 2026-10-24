@@ -35,7 +35,7 @@
 )
 
 #let profile = [
-  I'm a data analyst. I turn research questions into numbers people can act on—advanced Excel (formulas, VBA, database-style workbooks), CSV pipelines, Power BI, Python/SQL, and descriptive and inferential stats. Information Visualization in my MSc (Grade A). Finance and house apps: visual decisions.
+  I'm a data analyst. I turn research questions into numbers people can act on: advanced Excel (formulas, VBA, database-style workbooks), CSV pipelines, Power BI, Python/SQL, and descriptive and inferential stats. Information Visualization in my MSc (Grade A). I also use visuals to decide in personal apps for finances and for buying a house.
 ]
 
 #let languages = "Portuguese (Native)   English (Fluent)"
@@ -50,14 +50,14 @@
     [Power BI dashboards for project and resource oversight; average CSI 4.86 / NPS 9.94 across my projects (2024–2025).],
     [CIP CIM (Global Services): AI-assisted UX relevance scoring and data classification in ServiceNow (property-based weights); AI-supported method design; evaluated GS strategic CIP dashboards for leadership on issues and efficiency/efficacy.],
     [Tooling project (Power Tools): delivery from requirements through prototypes; regular check-ins; progress tracked for decisions.],
-    [Data Insights (Power Tools B2B): Straussian grounded theory on call-center records—AI-assisted Python for manipulation and categorization; stakeholder validation; Power BI insights across finance, material transport, logistics, and related themes.],
+    [Data Insights (Power Tools B2B): Straussian grounded theory on call-center records. AI-assisted Python for manipulation and categorization; stakeholder validation; Power BI insights across finance, material transport, logistics, and related themes.],
     [Helped the Americas reach UX Maturity Level 4: governance, templates, training; Power BI audit dashboard auto-fetching Microsoft Lists data to track project-management document fulfillment.],
-    [Use agentic AI daily in VS Code for research, analysis, and problem-solving across the pipeline.],
+    [Use AI in VS Code every day for research, analysis, and problem-solving.],
     [Two trips to Germany (2024, 2025); tutor at SENAI Digital Talent Academy; AI tools training for 100+ people (4.88/5 satisfaction).],
   )),
   ("Jan 2020 – Nov 2022", "Bosch Brasil", "Web Developer", (
     [Front-end (React) and applied research in Scrum and Kanban; customer-facing and internal tools.],
-    [Data-backed UI delivery and teamwork-driven shipping of web solutions.],
+    [Built customer-facing and internal web tools with the team.],
   )),
   ("Jan 2019 – Dec 2019", "Bosch Magyarország (Hungary)", "Digitization Support Analyst", (
     [Digitized Business Excellence workflows in Kanban.],

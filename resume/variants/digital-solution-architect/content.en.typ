@@ -35,31 +35,31 @@
 )
 
 #let profile = [
-  I design digitization and analytics solutions teams can run—Azure-aware platforms, Python/SQL data paths, CI/CD and quality gates. Bridge research methods with delivery across Global Services and Power Tools. Personal web apps for finances and for deciding on buying my house use many visual structures for analytics and decision making.
+  I design digitization and analytics setups that teams can run: Azure, Python and SQL data paths, CI/CD, and quality checks. I connect research and delivery in Global Services and Power Tools. On personal web apps for finances and for buying my house, I use a lot of visuals to analyze and decide.
 ]
 
 #let languages = "Portuguese (Native)   English (Fluent)"
 
 #let skills = (
-  ("Core", "Core:", ("Solution & cloud architecture", "Digitization & systems", "DevOps / CI-CD", "Applied Research & QA gates", "Global stakeholder alignment", "Autodidact", "Statistics")),
+  ("Core", "Core:", ("Solution & cloud architecture", "Digitization & systems", "DevOps / CI-CD", "Applied research and quality checks", "Work with global stakeholders", "Autodidact", "Statistics")),
   ("Tech", "Tech:", ("Azure", "Python", "SQL / SQL Server", "Power BI", "ServiceNow", "Git", "GitHub", "Bitbucket", "VS Code", "React", "Windows Server / IIS", "Docker", "Excel / VBA", "CSV pipelines", "Mermaid", "HTML / CSS", "Figma", "Terraform (IaC)")),
 )
 
 #let experience = (
   ("Jan 2023 – Present", "Bosch Brasil", "Applied Research & Design Analyst", (
-    [Solution design for Global Services: CIP dashboards and automated UX relevance scoring in ServiceNow; AI-supported method design for leadership visibility.],
-    [Data Insights (Power Tools): Python + AI coding pipeline over call-center transcripts (Grounded Theory) with Power BI synthesis.],
-    [UX Maturity Level 4 (Americas): governance, templates, training; Power BI audit dashboard auto-fetching Microsoft Lists.],
-    [Daily VS Code + AI for research, method design, and faster iteration on global architecture work.],
+    [Solution design for Global Services: CIP dashboards and automated UX relevance scoring in ServiceNow, plus method design with AI so leadership could see the issues.],
+    [Data Insights (Power Tools): Python and AI on call-center transcripts (Grounded Theory), summarized in Power BI.],
+    [UX Maturity Level 4 (Americas): governance, templates, training; Power BI audit dashboard that reads Microsoft Lists.],
+    [I use VS Code with AI every day for research and method design on the global work.],
     [Average CSI 4.86 / NPS 9.94 (2024–2025); international collaboration with Germany (2024, 2025).],
   )),
   ("Jan 2020 – Nov 2022", "Bosch Brasil", "Web Developer", (
-    [Built React front-ends and internal/customer web solutions in Scrum/Kanban—component boundaries and delivery ownership.],
-    [Collaborated across design, research, and engineering to ship increments with clear ownership.],
+    [Built React front ends and internal and customer web tools in Scrum and Kanban.],
+    [Worked with design, research, and engineering to release them.],
   )),
   ("Jan 2019 – Dec 2019", "Bosch Magyarország (Hungary)", "Digitization Support Analyst", (
-    [Digitization Support Analyst (Budapest): Business Excellence systems in Kanban—workflow digitization and hosted web tools.],
-    [End-to-end ownership of internal digital tools: from process need to hosted web system (VS Code, SQL Server, IIS).],
+    [Business Excellence systems in Kanban: digitized workflows and hosted web tools.],
+    [Built the internal tools from the process need through the hosted site (VS Code, SQL Server, IIS).],
   )),
   ("Jan 2017 – Nov 2018", "Bosch Brasil (Campinas)", "Intern", (
     [Excel/VBA + Access digital systems for Continuous Improvement and Internal Communication; 3rd place, Bosch Talent Forum 2018.],

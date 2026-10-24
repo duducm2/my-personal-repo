@@ -35,7 +35,7 @@
 )
 
 #let profile = [
-  I'm a UX and software-quality researcher. I use applied research, technology, and project management to help teams ship things people can actually use. Full-stack background; day to day I work with data, continuous improvement, and agentic AI across design, front-end, Power BI, and Python. Working toward an AI Scrum Master path.
+  I'm a UX and software-quality researcher. I use applied research, technology, and project management to help teams ship things people can actually use. Full-stack background; day to day I work with data, continuous improvement, and AI in VS Code across design, front-end, Power BI, and Python. Working toward an AI Scrum Master path.
 ]
 
 #let languages = "Portuguese (Native)   English (Fluent)"
@@ -51,15 +51,15 @@
     [CIP CIM / Global Services: with the UX team, evaluated strategic CIP dashboards so GS leadership could spot main issues and efficiency/efficacy gains quickly; automated UX relevance scoring in ServiceNow with property-based weights.],
     [Tooling project (Power Tools): supported technical delivery and project management from requirements through high-fidelity prototypes, with regular customer check-ins.],
     [Power BI dashboards for project and resource oversight and training tracking.],
-    [Use agentic AI daily in VS Code for research, analysis, and problem-solving across the applied-research pipeline.],
+    [Use AI in VS Code every day for research, analysis, and problem-solving in applied research.],
     [Two trips to Germany (2024, 2025); tutor at SENAI Digital Talent Academy; AI tools training for 100+ people (4.88/5 satisfaction).],
   )),
   ("Jan 2020 – Nov 2022", "Bosch Brasil", "Web Developer", (
-    [Front-end development in React with Scrum and Kanban; applied research habits and teamwork-driven delivery.],
+    [Front-end development in React with Scrum and Kanban.],
     [Worked on customer-facing applications and internal tools.],
   )),
   ("Jan 2019 – Dec 2019", "Bosch Magyarország (Hungary)", "Digitization Support Analyst", (
-    [Business Excellence digitization in Kanban—internal tools and workflows.],
+    [Business Excellence digitization in Kanban: internal tools and workflows.],
     [Full-stack web development with VS Code, SQL Server, and Windows Server (IIS).],
   )),
   ("Jan 2017 – Nov 2018", "Bosch Brasil (Campinas)", "Intern", (

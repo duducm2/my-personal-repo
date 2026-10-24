@@ -35,7 +35,7 @@
 )
 
 #let profile = [
-  Trabalho perto da descoberta e da entrega: esclareço o que as pessoas precisam, mantenho stakeholders alinhados e acompanho o trabalho de requisitos até a validação. Background em pesquisa aplicada, UX e entrega de projetos, com base full-stack. Uso dados, CIP e check-ins com clientes na hora de priorizar.
+  Trabalho perto da descoberta e da entrega: esclareço o que as pessoas precisam, mantenho stakeholders alinhados e acompanho o trabalho de requisitos até a validação. Venho de pesquisa aplicada, UX e entrega de projetos, com base full-stack. Uso dados, CIP e check-ins com clientes na hora de priorizar.
 ]
 
 #let languages = "Português (Nativo)   Inglês (Fluente)"
@@ -48,17 +48,17 @@
 #let experience = (
   ("Jan 2023 – Atual", "Bosch Brasil", "Analista de Pesquisa Aplicada e Design", (
     [Projeto tooling (Power Tools): conduzi o caminho de requisitos a protótipos de alta fidelidade; check-ins regulares com clientes e coordenação de entrega com parceiros técnicos.],
-    [CIP CIM / Global Services: com a equipe de UX, melhorei dashboards estratégicos de CIP para clareza da liderança da GS sobre problemas e eficiência/eficácia; automatizei a entrada de relevância em UX como quality gate no ServiceNow.],
-    [Apoiei as Américas a atingir o Nível 4 de Maturidade em UX: governança, templates e treinamento que tornaram a prática de UX utilizável pelos stakeholders.],
-    [Evidência de resultado: média CSI 4,86 / NPS 9,94 nos meus projetos (2024–2025); Power BI para acompanhamento de projetos e recursos.],
+    [CIP CIM / Global Services: com a equipe de UX, melhorei dashboards estratégicos de CIP para a liderança da GS ver os problemas principais e os ganhos de eficiência e eficácia; automatizei a entrada de relevância em UX no ServiceNow.],
+    [Apoiei as Américas a atingir o Nível 4 de Maturidade em UX: governança, templates e treinamento para outros times aplicarem UX.],
+    [Média CSI 4,86 / NPS 9,94 nos meus projetos (2024–2025); Power BI para acompanhamento de projetos e recursos.],
     [Duas viagens à Alemanha (2024, 2025); tutor na SENAI Digital Talent Academy; treinamento de ferramentas de IA para 100+ pessoas (satisfação 4,88/5).],
   )),
   ("Jan 2020 – Nov 2022", "Bosch Brasil", "Desenvolvedor Web", (
     [Entreguei soluções web para clientes e internas em Scrum e Kanban; colaborei com design, pesquisa e engenharia.],
-    [Traduzi necessidades em incrementos de front-end (React) entregues com o time.],
+    [Transformei pedidos em telas React que o time publicou.],
   )),
   ("Jan 2019 – Dez 2019", "Bosch Magyarország (Hungary)", "Analista de Suporte à Digitalização", (
-    [Digitalizei fluxos de Business Excellence em Kanban—esclarecendo necessidades de processo e entregando ferramentas internas.],
+    [Digitalizei fluxos de Business Excellence em Kanban, esclarecendo o que o processo precisava e construindo as ferramentas internas.],
     [Desenvolvimento web full-stack com VS Code, SQL Server e Windows Server (IIS).],
   )),
   ("Jan 2017 – Nov 2018", "Bosch Brasil (Campinas)", "Estagiário", (

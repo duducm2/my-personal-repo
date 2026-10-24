@@ -773,6 +773,18 @@
     return Number(raw);
   }
 
+  function subscribedOpeningCount(row) {
+    const id = cell(row?.id);
+    if (!id) return 0;
+    let count = 0;
+    for (const opening of openings) {
+      if (cell(opening.company_key) !== id) continue;
+      if (cell(opening.status).toLowerCase() !== "subscribed") continue;
+      count += 1;
+    }
+    return count;
+  }
+
   function matchesDaOpenings(row) {
     if (!daOpeningsFilter) return true;
     if (daOpeningsFilter === "with") return (daOpeningsCount(row) || 0) > 0;
@@ -1075,10 +1087,12 @@
     const portalUrl = primaryCareersUrl(row);
     const btn = document.createElement("button");
     btn.type = "button";
+    const subscribedCount = subscribedOpeningCount(row);
     btn.className =
       "company-tile" +
       tileSpanClass(row) +
       (isPinned(row) ? " is-pinned" : "") +
+      (subscribedCount === 3 ? " is-sub-max" : "") +
       (openCompanyId === row.id ? " is-active" : "");
     btn.dataset.id = row.id;
     btn.dataset.url = portalUrl;
@@ -1147,6 +1161,20 @@
 
     const chips = document.createElement("div");
     chips.className = "company-tile-chips";
+    if (subscribedCount > 3) {
+      const over = document.createElement("span");
+      over.className = "company-chip company-chip-sub-over";
+      over.textContent = `${subscribedCount} subscribed`;
+      over.title =
+        "More than 3 subscribed openings at this company. This tag stays until you exclude them or change their status from subscribed.";
+      chips.append(over);
+    } else if (subscribedCount === 3) {
+      const max = document.createElement("span");
+      max.className = "company-chip company-chip-sub-max";
+      max.textContent = "Maximum applications";
+      max.title = "3 subscribed openings, the maximum for this company.";
+      chips.append(max);
+    }
     appendPinControl(chips, row);
     appendRecRankControls(chips, row);
     if (row.priority) {

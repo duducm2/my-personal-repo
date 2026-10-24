@@ -2512,12 +2512,33 @@
     });
   }
 
+  function showAlreadyNotice(rows) {
+    const bar = document.getElementById("job-already-notice");
+    const text = document.getElementById("job-already-notice-text");
+    if (!bar || !text) return;
+    const titles = rows.map((row) => cell(row.role_title)).filter(Boolean);
+    const lead =
+      titles.length === 1
+        ? `"${titles[0]}" is already on this Job openings page.`
+        : `These openings are already on this Job openings page: ${titles.join("; ")}.`;
+    text.textContent = `${lead} Hit X to close this notification.`;
+    bar.hidden = false;
+    bar.scrollIntoView({ block: "nearest" });
+  }
+
+  function hideAlreadyNotice() {
+    const bar = document.getElementById("job-already-notice");
+    if (bar) bar.hidden = true;
+  }
+
   async function importOpenings(text) {
     const rows = parseImportPayload(text);
     const stamp = Date.now();
-    const existingKeys = new Set(openings.map(openingDedupeKey));
+    const priorKeys = new Set(openings.map(openingDedupeKey));
+    const existingKeys = new Set(priorKeys);
     const existingIds = new Set(openings.map((o) => cell(o.id)));
     const imported = [];
+    const already = [];
     let skipped = 0;
     for (let i = 0; i < rows.length; i++) {
       const row = normalizeImportedRow(rows[i], i + 1, stamp);
@@ -2529,6 +2550,11 @@
         skipped += 1;
         continue;
       }
+      if (priorKeys.has(key)) {
+        skipped += 1;
+        already.push(row);
+        continue;
+      }
       if (existingKeys.has(key)) {
         skipped += 1;
         continue;
@@ -2537,19 +2563,17 @@
       existingIds.add(row.id);
       imported.push(row);
     }
-    if (!imported.length) {
-      throw new Error(
-        skipped
-          ? `All ${skipped} openings were duplicates of existing rows`
-          : "No openings to import",
-      );
+    if (!imported.length && !already.length) {
+      throw new Error("No openings to import");
     }
-    openings = [...imported, ...openings];
-    collections.jobOpenings = openings;
-    setDirty(true);
-    setSaveStatus("");
-    render();
-    return { imported: imported.length, skipped };
+    if (imported.length) {
+      openings = [...imported, ...openings];
+      collections.jobOpenings = openings;
+      setDirty(true);
+      setSaveStatus("");
+      render();
+    }
+    return { imported: imported.length, skipped, already };
   }
 
   async function handleImportRun() {
@@ -2564,6 +2588,12 @@
     }
     try {
       const result = await importOpenings(raw);
+      if (result.already.length) showAlreadyNotice(result.already);
+      const dialog = document.getElementById("import-modal");
+      if (!result.imported) {
+        if (dialog && dialog.open) dialog.close();
+        return;
+      }
       if (status) {
         status.textContent = `Imported ${result.imported} (skipped ${result.skipped} duplicates).`;
         status.className = "save-status";
@@ -2575,7 +2605,6 @@
           status.className = "save-status ok";
         }
         showToast(`Imported ${result.imported} openings`, 2500);
-        const dialog = document.getElementById("import-modal");
         if (dialog && dialog.open) dialog.close();
       } else if (status) {
         status.textContent = `Imported ${result.imported}, but autosave failed.`;
@@ -5354,6 +5383,9 @@
     document
       .getElementById("job-import-btn")
       ?.addEventListener("click", () => openImportModal());
+    document
+      .getElementById("job-already-notice-close")
+      ?.addEventListener("click", () => hideAlreadyNotice());
     document
       .getElementById("cover-prompt-modal-close")
       ?.addEventListener("click", () => closeCoverPromptModal());

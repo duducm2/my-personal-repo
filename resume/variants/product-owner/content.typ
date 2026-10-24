@@ -48,17 +48,17 @@
 #let experience = (
   ("Jan 2023 – Present", "Bosch Brasil", "Applied Research & Design Analyst", (
     [Tooling project (Power Tools): owned the path from requirements through high-fidelity prototypes; regular customer check-ins and delivery coordination with technical partners.],
-    [CIP CIM / Global Services: with the UX team, improved strategic CIP dashboards for GS leadership clarity on main issues and efficiency/efficacy; automated UX relevance intake as a quality gate in ServiceNow.],
-    [Helped the Americas reach UX Maturity Level 4: governance, templates, and training that made UX practice usable for stakeholders.],
-    [Outcome evidence: average CSI 4.86 / NPS 9.94 across my projects (2024–2025); Power BI for project and resource oversight.],
+    [CIP CIM / Global Services: with the UX team, improved strategic CIP dashboards so GS leadership could see the main issues and the efficiency and efficacy gains; automated UX relevance intake in ServiceNow.],
+    [Helped the Americas reach UX Maturity Level 4: governance, templates, and training so other teams could apply UX themselves.],
+    [Average CSI 4.86 / NPS 9.94 across my projects (2024–2025); Power BI for project and resource oversight.],
     [Two trips to Germany (2024, 2025); tutor at SENAI Digital Talent Academy; AI tools training for 100+ people (4.88/5 satisfaction).],
   )),
   ("Jan 2020 – Nov 2022", "Bosch Brasil", "Web Developer", (
     [Delivered customer-facing and internal web solutions in Scrum and Kanban; collaborated across design, research, and engineering.],
-    [Translated needs into shipped front-end (React) increments with the team.],
+    [Turned requests into React screens the team released.],
   )),
   ("Jan 2019 – Dec 2019", "Bosch Magyarország (Hungary)", "Digitization Support Analyst", (
-    [Digitized Business Excellence workflows in Kanban—clarifying process needs and shipping internal tools.],
+    [Digitized Business Excellence workflows in Kanban, clarifying what the process needed and building the internal tools.],
     [Full-stack web development with VS Code, SQL Server, and Windows Server (IIS).],
   )),
   ("Jan 2017 – Nov 2018", "Bosch Brasil (Campinas)", "Intern", (

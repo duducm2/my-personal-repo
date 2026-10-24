@@ -1995,6 +1995,32 @@ a.nav-btn {
   color: color-mix(in srgb, var(--gold) 35%, var(--text));
 }
 
+.page-companies .company-tile.is-sub-max {
+  border-color: #e6b800;
+  background: color-mix(in srgb, #f1c40f 24%, var(--panel));
+  box-shadow: inset 0 0 0 2px #e6b800;
+}
+
+.page-companies .company-tile.is-pinned.is-sub-max {
+  box-shadow:
+    inset 3px 0 0 var(--gold),
+    inset 0 0 0 2px #e6b800;
+}
+
+.company-chip.company-chip-sub-over {
+  border-color: #e74c3c;
+  background: rgba(231, 76, 60, 0.2);
+  color: #ffb4ab;
+  font-weight: 700;
+}
+
+.company-chip.company-chip-sub-max {
+  border-color: #e6b800;
+  background: rgba(241, 196, 15, 0.22);
+  color: #ffe08a;
+  font-weight: 700;
+}
+
 .page-companies .company-tile {
   min-height: 0;
   padding: 6px 8px;
@@ -3656,6 +3682,47 @@ a.nav-btn {
   font-size: 12px;
   text-align: center;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.job-already-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 0 0 12px;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  border: 1px solid var(--gold);
+  background: var(--panel);
+  color: var(--text);
+}
+
+.job-already-notice[hidden] {
+  display: none;
+}
+
+.job-already-notice p {
+  margin: 0;
+  flex: 1;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.job-already-notice-close {
+  flex: none;
+  border: 1px solid var(--gold);
+  background: transparent;
+  color: var(--text);
+  border-radius: var(--radius);
+  min-width: 28px;
+  height: 28px;
+  padding: 0 8px;
+  font-size: 13px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.job-already-notice-close:hover {
+  background: rgba(241, 196, 15, 0.15);
 }
 
 @media (max-width: 900px) {
