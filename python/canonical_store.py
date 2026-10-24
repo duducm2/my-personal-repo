@@ -364,6 +364,25 @@ _BASE: dict[str, tuple[str, list[str]]] = {
             "notes",
         ],
     ),
+    "hiringPeople": (
+        "hiring_people.csv",
+        [
+            "id",
+            "sort_order",
+            "pinned",
+            "company_key",
+            "company_name",
+            "full_name",
+            "headline",
+            "linkedin_url",
+            "hiring_for",
+            "opening_ids",
+            "location",
+            "status",
+            "notes",
+            "found_on",
+        ],
+    ),
 }
 
 

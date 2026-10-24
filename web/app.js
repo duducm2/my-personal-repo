@@ -20,6 +20,7 @@
     "jobOpenings",
     "jobPlatforms",
     "jobCommunities",
+    "hiringPeople",
   ];
 
   /** Profile window renders these; companies/jobs/portals live in their own windows */
@@ -31,6 +32,7 @@
         "jobOpenings",
         "jobPlatforms",
         "jobCommunities",
+        "hiringPeople",
       ].includes(k),
   );
 
@@ -294,6 +296,22 @@
     ],
     jobPlatforms: ["id", "sort_order", "company_key", "label", "url"],
     jobCommunities: ["id", "sort_order", "name", "url", "notes"],
+    hiringPeople: [
+      "id",
+      "sort_order",
+      "pinned",
+      "company_key",
+      "company_name",
+      "full_name",
+      "headline",
+      "linkedin_url",
+      "hiring_for",
+      "opening_ids",
+      "location",
+      "status",
+      "notes",
+      "found_on",
+    ],
   };
 
   function expandColumns(cols) {

@@ -25,6 +25,9 @@
             <button type="button" id="open-companies-btn" class="nav-btn">
               <span class="section-title-en">Companies</span>
             </button>
+            <a class="nav-btn" href="/people.html">
+              <span class="section-title-en">People</span>
+            </a>
             <a class="nav-btn" href="/hiring.html">
               <span class="section-title-en">Hiring 2026</span>
             </a>
@@ -90,10 +93,9 @@
                     type="button"
                     id="job-import-btn"
                     class="add-btn"
-                    title="Import openings (Alt+I)"
+                    title="Import openings JSON"
                   >
                     Import openings
-                    <kbd class="btn-kbd">Alt+I</kbd>
                   </button>
                 </div>
               </div>
@@ -201,10 +203,10 @@
         </header>
         <div class="company-modal-body">
           <p class="job-modal-hint">
-            Paste unstructured job listings from a company careers page. This is
-            a first pass: the companion keeps every opening even slightly
-            related to the selected career paths. You exclude the rest by hand.
-            The prompt then goes to the AI companion.
+            Paste unstructured job listings from a company careers page. The
+            companion returns every IT opening, including software, data, and
+            architecture titles. You remove the rest by hand. The prompt then
+            goes to the AI companion.
           </p>
           <div class="company-result-edit job-modal-grid">
             <label class="company-edit-field">
@@ -259,7 +261,7 @@
               rows="4"
               placeholder="Add more bullets to skip (role types, locations, keywords)…"
             >
-- clearly outside technology (compensation, HR, legal, finance, facilities, pure trades). Keep slight technology fits.</textarea
+- not IT (compensation, HR, legal, finance, facilities, pure trades such as electrical maintenance). Every IT title stays, including software architecture, data, automation, and technology development.</textarea
             >
           </label>
           <label class="company-edit-field">
@@ -547,8 +549,8 @@
         <div class="company-modal-body">
           <p class="job-modal-hint">
             Uses this opening’s job / project description plus your profile
-            context. Paste the copied prompt into your AI companion; then import
-            the JSON reply to build a cover letter PDF.
+            context. Send puts the prompt in the AI companion. The import box
+            opens when the send finishes.
           </p>
           <div class="company-result-edit job-modal-grid">
             <label class="company-edit-field">
@@ -579,17 +581,9 @@
               type="button"
               id="cover-prompt-copy-btn"
               class="save-btn"
-              title="Copy prompt (Ctrl+Enter or Shift+Enter)"
+              title="Send the prompt to the AI companion (Ctrl+Enter or Shift+Enter)"
             >
-              Copy prompt
-            </button>
-            <button
-              type="button"
-              id="cover-prompt-import-link"
-              class="nav-btn"
-              title="After the AI replies — open Import cover letter (Alt+L)"
-            >
-              Import cover letter →
+              Send to AI companion
             </button>
             <span
               id="cover-prompt-status"

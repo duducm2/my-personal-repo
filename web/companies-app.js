@@ -1872,7 +1872,7 @@
 
       if (event.altKey && !mod && !event.shiftKey) {
         // Same openings shortcuts as the job board: focused card or open dossier
-        if (event.code === "KeyR" || event.code === "KeyI") {
+        if (event.code === "KeyR") {
           const row = pinTargetCompany();
           if (!row) {
             event.preventDefault();
@@ -1886,7 +1886,7 @@
           event.preventDefault();
           event.stopPropagation();
           const params = new URLSearchParams({
-            action: event.code === "KeyR" ? "prompt" : "import",
+            action: "prompt",
             company: row.id,
           });
           location.assign(`/jobs.html?${params}`);

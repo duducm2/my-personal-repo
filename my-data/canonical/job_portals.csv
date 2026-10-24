@@ -1,9 +1,9 @@
 id,sort_order,pinned,scope,name,job_search_url,system_kind,ats_name,ats_url,fit_paths,notes
-linkedin-br,1,,brazil,LinkedIn Jobs (BR),https://www.linkedin.com/jobs/,proprietary,,,da;po;dsa;ds,Primary board for DA/PO/DSA in Brazil and remote.
+linkedin-br,1,,brazil,LinkedIn Jobs (BR),https://www.linkedin.com/jobs/,proprietary,,,da;po;dsa;ds,Directory for DA/PO/DSA in Brazil. 2026 report: message a hiring manager (12-25% interview). Skip Easy Apply (2-4%).
 gupy,2,,brazil,Gupy,https://portal.gupy.io/job-search/sortBy=publishedDate,third_party,Gupy,https://www.gupy.io/,da;po;dsa;ds,Dominant BR ATS job search; many enterprise + mid-market employers.
 infojobs,3,,brazil,InfoJobs,https://www.infojobs.com.br/vagas-de-emprego.aspx,proprietary,,,da;po;ds,High volume CLT listings; good for DA and product-adjacent roles.
 catho,4,,brazil,Catho,https://www.catho.com.br/vagas/,proprietary,,,da;po;ds,Classic BR board; strong for analyst and business roles.
-indeed-br,5,,brazil,Indeed Brasil,https://br.indeed.com/,proprietary,,,da;po;dsa;ds,Aggregator with strong DA/DSA keyword search.
+indeed-br,5,,brazil,Indeed Brasil,https://br.indeed.com/,proprietary,,,da;po;dsa;ds,Aggregator with DA/DSA keyword search. 2026 report: high volume and ghost-job risk; weaker than a company site in the first 72 hours or a niche board.
 vagas-com,6,,brazil,Vagas.com,https://www.vagas.com.br/vagas-de,proprietary,,,da;po;ds,Large BR board; also sells ATS to employers.
 solides,7,,brazil,Solides Vagas,https://vagas.solides.com.br/,third_party,Solides,https://solides.com.br/,da;po;ds,Common mid-market BR ATS candidate portal.
 programathor,8,,brazil,Programathor,https://programathor.com.br/,proprietary,,,da;dsa;ds,Tech-focused BR board; strong for data and engineering-adjacent.
@@ -11,9 +11,11 @@ geekhunter,9,,brazil,GeekHunter,https://www.geekhunter.com.br/,proprietary,,,da;
 revelo,10,,brazil,Revelo,https://www.revelo.com.br/,proprietary,,,da;po;dsa;ds,Tech talent marketplace; profiles and opportunities.
 trampos,11,,brazil,Trampos,https://trampos.co/oportunidades,proprietary,,,da;po;dsa;ds,Startup and digital roles; good PO/DA coverage.
 glassdoor-br,12,,brazil,Glassdoor Brasil,https://www.glassdoor.com.br/Vaga/index.htm,proprietary,,,da;po;dsa;ds,Jobs plus company reviews for target employers.
-linkedin-intl,20,,international,LinkedIn Jobs,https://www.linkedin.com/jobs/,proprietary,,,da;po;dsa;ds,Global primary board for DA/PO/DSA and remote filters.
-indeed-intl,21,,international,Indeed,https://www.indeed.com/,proprietary,,,da;po;dsa;ds,Global aggregator; strong keyword and location filters.
-wellfound,22,,international,Wellfound,https://wellfound.com/jobs,proprietary,,,da;po;dsa;ds,Startup jobs; strong product/data roles.
+linkedin-intl,20,,international,LinkedIn Jobs,https://www.linkedin.com/jobs/,proprietary,,,da;po;dsa;ds,Global directory for DA/PO/DSA and remote filters. 2026 report: message a person (12-25% interview). Skip Easy Apply (2-4%).
+indeed-intl,21,,international,Indeed,https://www.indeed.com/,proprietary,,,da;po;dsa;ds,Global aggregator with keyword and location filters. 2026 report: high volume and ghost-job risk; weaker than a company site in the first 72 hours or a niche board.
+wellfound,22,,international,Wellfound,https://wellfound.com/jobs,proprietary,,,da;po;dsa;ds,Startup niche board named in the 2026 hiring report. Smaller pools and about 8-15% to interview. Strong product and data roles.
+builtin,26,,international,Built In,https://builtin.com/jobs,proprietary,,,da;po;dsa;ds,Tech-ecosystem niche board named in the 2026 hiring report. High manual review and about 8-15% to interview. Filter to new posts and apply early.
+arc,27,,international,Arc,https://arc.dev/remote-jobs,proprietary,,,da;po;dsa;ds,Pre-screened remote board named in the 2026 hiring report. Restricted audience for software data and product roles; stronger visibility than an aggregator.
 remote-ok,23,,international,Remote OK,https://remoteok.com/,proprietary,,,da;po;dsa;ds,Remote-first listings; filter Data / Product.
 wwr,24,,international,We Work Remotely,https://weworkremotely.com/,proprietary,,,da;po;dsa;ds,Remote boards including data and product categories.
 glassdoor-intl,25,,international,Glassdoor,https://www.glassdoor.com/Job/index.htm,proprietary,,,da;po;dsa;ds,Global jobs plus salary/review signal.

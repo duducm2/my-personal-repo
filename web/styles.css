@@ -3687,6 +3687,38 @@ a.nav-btn {
   }
 }
 
+/* --- People hiring --- */
+.page-people .people-group {
+  margin: 0 0 14px;
+}
+
+.page-people .people-group .section-title {
+  margin: 8px 0;
+}
+
+.page-people .company-tile {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-height: 72px;
+}
+
+.page-people .company-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.page-people .company-filters .field-input {
+  max-width: 240px;
+}
+
+.page-people #people-edit-openings {
+  min-height: 96px;
+}
+
 /* --- Hiring 2026 briefing --- */
 .market {
   gap: 12px;

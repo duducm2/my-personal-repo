@@ -799,10 +799,10 @@
     btn.dataset.url = cell(row.job_url);
     if (cell(row.job_url)) {
       btn.title =
-        "Click to edit · Right-click status · Alt+M pin · Alt+F/A form · Alt+C/L cover · Shift+C company portal · Ctrl/Cmd+Enter job URL · Ctrl/Cmd+click bulk";
+        "Click to edit · Right-click status · Alt+M pin · Alt+F form · Alt+C cover · Shift+C company portal · Ctrl/Cmd+Enter job URL · Ctrl/Cmd+click bulk";
     } else {
       btn.title =
-        "Click to edit · Right-click status · Alt+M pin · Alt+F/A form · Alt+C/L cover · Shift+C company portal · Ctrl/Cmd+click bulk";
+        "Click to edit · Right-click status · Alt+M pin · Alt+F form · Alt+C cover · Shift+C company portal · Ctrl/Cmd+click bulk";
     }
     btn.addEventListener("click", (e) => {
       const mod = e.ctrlKey || e.metaKey;
@@ -1941,32 +1941,33 @@
       : "da | po | dsa | ds | other";
     const steps = [
       "=== AIB PROCESSING INSTRUCTIONS (mandatory) ===",
-      "This is an initial filter, not a shortlist. The user will exclude extras by hand.",
-      "Losing a slight fit is a failure. Returning only the single best match is a failure.",
+      "Return every IT opening. The user deletes what they do not want.",
+      "Profile, target titles, skills, and career path are scoring context only.",
+      "They never remove an opening. A weak match is still returned.",
+      "Omitting an IT title, including a software or data architect, is a failed answer.",
       "1. Extract every distinct job opening from the UNSTRUCTURED JOB DATA below.",
-      "   Each role title is its own opening, even when several share a location or contract type.",
-      "   Do not merge nearby titles into one object.",
-      "2. Cross-reference EXISTING OPENINGS FOR THIS COMPANY and SKIP duplicates",
-      "   (same role_title + company + location, same requisition number, or same job_url).",
-      "3. KEEP every opening that is even slightly related to any selected career path",
-      `   (${paths}) or to TARGET TITLES. Partial overlap is enough: technology, software,`,
-      "   data, analytics, architecture, automation, digital products, AI, research, or a",
-      "   junior/pleno/especialista variant of those areas. When unsure, KEEP it.",
-      "4. DROP only an opening that is clearly outside those paths, such as compensation,",
-      "   HR, legal, finance, facilities, or a pure trade with no technology work.",
-      "   A generic talent-bank line with no role title is not an opening.",
-      "   Calibration: keep 'Analista de Desenvolvimento Tecnológico',",
-      "   'Arquitetura de Software e Dados', 'Automação e Software de Controle', and a",
-      "   technology 'Pesquisador'. Drop 'Remuneração' and 'Manutenção Elétrica'.",
-      "   Do not keep only the closest title from a list like that.",
+      "   Each role title is its own opening. A different requisition number is a different",
+      "   opening. Do not merge 'Arquitetura de Software e Dados' into another",
+      "   'Desenvolvimento Tecnológico' title.",
+      "2. Skip an EXISTING OPENING only when the requisition number matches, or the full",
+      "   title and location match. A related title is not a duplicate.",
+      "3. KEEP every IT opening. IT means software, data, architecture, automation,",
+      "   development, digital, systems, analytics, AI, technology, or research that the",
+      "   paste does not clearly place outside IT. Junior, pleno, and especialista all stay.",
+      "   Seniority and how close the title is to the profile do not matter.",
+      "4. DROP only a posting that is not IT: compensation, HR, legal, finance, facilities,",
+      "   a pure trade such as electrical maintenance, or a talent bank with no role title.",
+      "   Required keeps from a mixed paste: 'Analista de Desenvolvimento Tecnológico Jr",
+      "   (445882)', 'Especialista Desenvolvimento Tecnológico (Arquitetura de Software e",
+      "   Dados) nº 424918', and 'Especialista Desenvolvimento Tecnológico (Automação e",
+      "   Software de Controle) nº 425100'. Also keep a technology 'Pesquisador'.",
+      "   Drop 'Remuneração', 'Manutenção Elétrica', and 'Banco de Talentos' with no role.",
     ];
     let n = 5;
     if (hasIgnoreRules) {
       steps.push(
-        `${n}. Apply IGNORE / DO NOT CONSIDER only to openings that clearly match those rules.`,
-        "   The line 'nothing non IT related' means the same as step 4: drop roles with no",
-        "   technology content. It does not mean 'weak match' and it does not mean 'not a",
-        "   perfect title'. A slight technology fit stays in the output.",
+        `${n}. IGNORE / DO NOT CONSIDER removes only non-IT postings. It never removes software,`,
+        "   data, architecture, automation, development, or any other IT title.",
       );
       n += 1;
     }
@@ -1975,8 +1976,7 @@
       "   and explain the fit briefly in match_reason. Use 1-4 for a slight or uncertain fit.",
       "   match_score never decides inclusion. A score of 1 is still returned.",
       `${n + 1}. Set career_path to exactly one of the selected contexts: ${paths}.`,
-      "   Pick the closest selected path. A weak fit still gets the closest path; do not",
-      "   drop the opening because no path is a perfect fit.",
+      "   Pick the closest selected path. This label is not a reason to drop the opening.",
       `${n + 2}. Set recommended_resume to exactly one of:`,
       "   general | data-analyst | product-owner | digital-solution-architect.",
       `${n + 3}. Set is_new to "1", status to "saved", source to "company_site" unless`,
@@ -2011,13 +2011,14 @@
     const effectivePaths = paths.length ? paths : ["da"];
     const ignoreRules = (() => {
       const DEFAULT_IGNORE =
-        "- clearly outside technology (compensation, HR, legal, finance, facilities, pure trades). Keep slight technology fits.";
+        "- not IT (compensation, HR, legal, finance, facilities, pure trades such as electrical maintenance). Every IT title stays, including software architecture, data, automation, and technology development.";
       const custom = cell(ignoreText).trim();
       if (!custom) return DEFAULT_IGNORE;
       const lower = custom.toLowerCase();
       if (
         lower.includes("nothing non it related") ||
-        lower.includes("clearly outside technology")
+        lower.includes("clearly outside technology") ||
+        lower.includes("every it title stays")
       ) {
         return custom;
       }
@@ -2064,6 +2065,9 @@
     const profile = (ctx.profile && ctx.profile[0]) || {};
     const lines = [];
     lines.push("You are my AI companion (AIB) for job-opening extraction.");
+    lines.push(
+      "Return every IT opening in the paste. Profile, target titles, skills, and career path fill scores and labels only. They never decide which openings to drop.",
+    );
     lines.push("");
     lines.push("=== PROFILE CONTEXT ===");
     lines.push(
@@ -2073,7 +2077,7 @@
     lines.push(`Languages: ${cell(profile.languages_en)}`);
     lines.push(`Email: ${cell(profile.email)}`);
     lines.push(`LinkedIn: ${cell(profile.linkedin_url)}`);
-    lines.push(`Career path focus: ${focusLabel}`);
+    lines.push(`Career path focus (label only, not a filter): ${focusLabel}`);
     lines.push("");
 
     const tagline = narratives.find((n) => cell(n.field) === "tagline");
@@ -2120,7 +2124,9 @@
     }
     lines.push("");
 
-    lines.push("=== EXISTING OPENINGS FOR THIS COMPANY (do not re-import) ===");
+    lines.push(
+      "=== EXISTING OPENINGS FOR THIS COMPANY (skip only an exact duplicate) ===",
+    );
     if (!existing.length) {
       lines.push("(none yet)");
     } else {
@@ -2135,7 +2141,7 @@
     if (ignoreRules) {
       lines.push("=== IGNORE / DO NOT CONSIDER ===");
       lines.push(
-        "Drop an opening only when it clearly matches one of these rules. A slight career-path fit stays:",
+        "Drop an opening only when it is not IT. An IT title always stays:",
       );
       lines.push(ignoreRules);
       lines.push("");
@@ -2218,7 +2224,9 @@
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok || data.ok === false) {
-        throw new Error(data.error || res.statusText || "Could not send the prompt");
+        throw new Error(
+          data.error || res.statusText || "Could not send the prompt",
+        );
       }
       showToast("Prompt sent. Paste the JSON reply here.", 2800);
       closePromptModal();
@@ -3585,36 +3593,40 @@
       }
       return;
     }
+    const button = document.getElementById("cover-prompt-copy-btn");
+    if (button) button.disabled = true;
+    if (status) {
+      status.textContent = "Sending the prompt to the AI companion…";
+      status.className = "save-status";
+    }
     try {
-      if (status) {
-        status.textContent = "Building prompt…";
-        status.className = "save-status";
-      }
       const opening = openings.find((r) => cell(r.id) === openingId);
       if (opening && jd.trim()) {
         opening.job_description = jd.trim();
         setDirty(true);
       }
       const prompt = await buildCoverLetterPrompt(openingId, lang, jd);
-      const ok = await copyText(prompt);
-      if (ok) {
-        await signalPromptCopied();
-        if (status) {
-          status.textContent = "Prompt copied — paste into your AI companion";
-          status.className = "save-status ok";
-        }
-        showToast("Cover letter prompt copied", 2500);
-        const importLink = document.getElementById("cover-prompt-import-link");
-        if (importLink) importLink.focus();
-      } else if (status) {
-        status.textContent = "Clipboard blocked — see console / try again";
-        status.className = "save-status err";
+      const res = await fetch("/api/prompt-send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text: prompt }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || data.ok === false) {
+        throw new Error(data.error || res.statusText || "Could not send the prompt");
       }
+      showToast("Prompt sent. Paste the JSON reply here.", 2800);
+      closeCoverPromptModal();
+      openCoverImportModal({
+        note: "Prompt sent. Paste the companion’s JSON here.",
+      });
     } catch (err) {
       if (status) {
-        status.textContent = "Error: " + (err.message || String(err));
+        status.textContent = err.message || String(err);
         status.className = "save-status err";
       }
+    } finally {
+      if (button) button.disabled = false;
     }
   }
 
@@ -3811,14 +3823,15 @@
     if (dialog && dialog.open) dialog.close();
   }
 
-  function openCoverImportModal() {
+  function openCoverImportModal(opts = {}) {
     if (!requireActiveOpening("import a cover letter")) return;
     const dialog = document.getElementById("cover-import-modal");
     const status = document.getElementById("cover-import-status");
     const rawEl = document.getElementById("cover-import-raw");
+    const note = cell(opts.note);
     if (status) {
-      status.textContent = "";
-      status.className = "save-status";
+      status.textContent = note;
+      status.className = note ? "save-status ok" : "save-status";
     }
     if (dialog && typeof dialog.showModal === "function" && !dialog.open) {
       dialog.showModal();
@@ -3858,7 +3871,7 @@
     imp.type = "button";
     imp.className = "nav-btn";
     imp.textContent = "Import & PDF";
-    imp.title = "Import cover letter & build PDF (Alt+L)";
+    imp.title = "Import a cover-letter JSON reply and build the PDF";
     imp.addEventListener("click", () => openCoverImportModal());
     actions.append(gen, imp);
     head.append(actions);
@@ -3869,7 +3882,7 @@
       const hint = document.createElement("p");
       hint.className = "job-modal-hint";
       hint.textContent =
-        "No cover letter yet. Fill Job / project description, generate a prompt (Alt+C), then import the AI JSON (Alt+L) to build a PDF.";
+        "No cover letter yet. Alt+C sends the prompt. The import box opens when the send finishes.";
       section.append(hint);
       parent.append(section);
       return;
@@ -4090,7 +4103,7 @@
     formImportBtn.className = "nav-btn";
     formImportBtn.textContent = "Import form JSON";
     formImportBtn.title =
-      "Import the AI JSON and start filling the saved Chrome window (Alt+A)";
+      "Import the AI JSON and start filling the saved Chrome window";
     formImportBtn.addEventListener("click", () => openFormImportModal());
     const autofill = document.createElement("button");
     autofill.type = "button";
@@ -4165,7 +4178,7 @@
       hint.className = "job-modal-hint";
       hint.style.marginBottom = "0";
       hint.textContent =
-        "No form answers yet. Alt+F sends this window to the AI companion. Alt+A imports the JSON and fills the form.";
+        "No form answers yet. Alt+F sends this window to the AI companion. The import box opens when the send finishes.";
       answers.append(hint);
       parent.append(answers);
       return;
@@ -4450,7 +4463,7 @@
     if (opts.selectAllPaths) selectAllPromptPaths();
     if (ignoreEl && !cell(ignoreEl.value).trim()) {
       ignoreEl.value =
-        "- clearly outside technology (compensation, HR, legal, finance, facilities, pure trades). Keep slight technology fits.";
+        "- not IT (compensation, HR, legal, finance, facilities, pure trades such as electrical maintenance). Every IT title stays, including software architecture, data, automation, and technology development.";
     }
     if (status) {
       status.textContent = "";
@@ -4534,7 +4547,9 @@
   }
 
   function excludeOpenings(rows) {
-    const ids = new Set((rows || []).map((row) => row && row.id).filter(Boolean));
+    const ids = new Set(
+      (rows || []).map((row) => row && row.id).filter(Boolean),
+    );
     if (!ids.size) return 0;
     const before = openings.length;
     openings = openings.filter((row) => !ids.has(row.id));
@@ -4547,10 +4562,7 @@
     if (openJobId && ids.has(openJobId)) closeModal();
     else render();
     updateBulkBar();
-    showToast(
-      `Removed ${removed} opening${removed === 1 ? "" : "s"}`,
-      2200,
-    );
+    showToast(`Removed ${removed} opening${removed === 1 ? "" : "s"}`, 2200);
     return removed;
   }
 
@@ -4643,8 +4655,7 @@
     const menu = ensureJobStatusMenu();
     hideJobStatusMenu();
     menu.hidden = false;
-    const bulk =
-      selectedIds.size > 1 && row && selectedIds.has(row.id);
+    const bulk = selectedIds.size > 1 && row && selectedIds.has(row.id);
 
     const head = document.createElement("div");
     head.className = "job-status-menu-head";
@@ -4928,7 +4939,7 @@
           return;
         }
 
-        // Generate prompt — Alt+R (board, open dossier, or focused card's company)
+        // Generate prompt — Alt+R. The import box opens after a successful send.
         if (code === "KeyR") {
           event.preventDefault();
           event.stopPropagation();
@@ -4939,16 +4950,9 @@
           return;
         }
 
-        // Import openings — Alt+I
-        if (!modalOpen && !typing && code === "KeyI") {
-          event.preventDefault();
-          event.stopPropagation();
-          openImportModal();
-          return;
-        }
-
-        // Form / cover actions: open dossier OR focused card (same as dossier)
+        // Form / cover prompts: open dossier OR focused card.
         // Allow while typing only inside an open dossier (modal fields).
+        // Import boxes open after a successful send, so they have no shortcut.
         const dossierShortcutOk = hasCardOrDossier && (modalOpen || !typing);
         if (dossierShortcutOk && code === "KeyF") {
           event.preventDefault();
@@ -4956,22 +4960,10 @@
           openFormPromptModal();
           return;
         }
-        if (dossierShortcutOk && code === "KeyA") {
-          event.preventDefault();
-          event.stopPropagation();
-          openFormImportModal();
-          return;
-        }
         if (dossierShortcutOk && code === "KeyC") {
           event.preventDefault();
           event.stopPropagation();
           openCoverPromptModal();
-          return;
-        }
-        if (dossierShortcutOk && code === "KeyL") {
-          event.preventDefault();
-          event.stopPropagation();
-          openCoverImportModal();
           return;
         }
 
@@ -5371,12 +5363,6 @@
     document
       .getElementById("cover-prompt-copy-btn")
       ?.addEventListener("click", () => handleCoverPromptCopy());
-    document
-      .getElementById("cover-prompt-import-link")
-      ?.addEventListener("click", () => {
-        closeCoverPromptModal();
-        openCoverImportModal();
-      });
     document
       .getElementById("cover-import-run-btn")
       ?.addEventListener("click", () => handleCoverImportRun());

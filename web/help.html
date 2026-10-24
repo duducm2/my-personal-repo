@@ -28,6 +28,9 @@
             <button type="button" id="open-profile-btn" class="nav-btn">
               <span class="section-title-en">Profile</span>
             </button>
+            <a class="nav-btn" href="/people.html">
+              <span class="section-title-en">People</span>
+            </a>
             <a class="nav-btn" href="/hiring.html">
               <span class="section-title-en">Hiring 2026</span>
             </a>
@@ -265,10 +268,11 @@
             similar fields). With a job card focused or its dossier open, use
             <kbd>Alt+F</kbd> to type the application tab title and send that
             window, with your profile and career path, to the AI companion.
-            <kbd>Alt+A</kbd> imports the JSON and starts filling that same
-            Chrome window. Use <kbd>Alt+C</kbd> / <kbd>Alt+L</kbd> for the same
-            opening’s Cover letter prompt and import the AI JSON into a one-page
-            PDF. Subscribed cards show the date you subscribed, taken from the
+            The import box opens when the send finishes, and importing starts
+            filling that same Chrome window. <kbd>Alt+C</kbd> does the same for
+            this opening’s cover letter: send the prompt, then paste the JSON
+            into the import box that opens and build a one-page PDF. Subscribed
+            cards show the date you subscribed, taken from the
             import. New openings record that date. After 30 days the card turns
             dark. The ring on the card means you are still monitoring it and
             restarts that 30-day count. Older openings stay as they are until
@@ -296,9 +300,9 @@
                   company card, or an open company dossier. Selects every career
                   path. From an opening or a company, that company is selected.
                   Send pastes the whole prompt into the AI companion. The prompt
-                  keeps every opening even slightly related to the selected
-                  career paths; exclude the rest by hand. The import box opens
-                  so you can paste the JSON reply.
+                  keeps every IT opening, including software, data, and
+                  architecture titles; remove the rest by hand. The import box
+                  opens so you can paste the JSON reply.
                 </td>
               </tr>
               <tr>
@@ -306,17 +310,9 @@
                 <td>Copy prompt or run import</td>
                 <td>
                   Any generate-prompt or import modal (openings, form fill,
-                  cover letter), including from the paste box. On the openings
-                  and form prompts, this sends the prompt to the AI companion.
-                </td>
-              </tr>
-              <tr>
-                <td><kbd>Alt+I</kbd></td>
-                <td>Import openings</td>
-                <td>
-                  Job openings board, a focused target company card, or an open
-                  company dossier. From a company, rows missing company_key are
-                  filed under that company.
+                  cover letter), including from the paste box. On a prompt
+                  modal this sends the prompt to the AI companion. The matching
+                  import box opens after a successful send.
                 </td>
               </tr>
               <tr>
@@ -336,25 +332,16 @@
                   Focused job card or open dossier. Type the Chrome tab title,
                   then send. That opens UIA Tree Inspector and runs Copy full UI
                   tree for that name. The prompt then goes to the AI companion.
-                </td>
-              </tr>
-              <tr>
-                <td><kbd>Alt+A</kbd></td>
-                <td>Import form result into opening copy panel</td>
-                <td>
-                  Focused job card or open dossier. Imports the AI JSON and
-                  starts filling the Chrome window saved with Alt+F.
+                  The import box opens when the send finishes.
                 </td>
               </tr>
               <tr>
                 <td><kbd>Alt+C</kbd></td>
                 <td>Generate cover letter prompt</td>
-                <td>Focused job card or open dossier · Cover letter</td>
-              </tr>
-              <tr>
-                <td><kbd>Alt+L</kbd></td>
-                <td>Import cover letter &amp; build PDF</td>
-                <td>Focused job card or open dossier · Cover letter</td>
+                <td>
+                  Focused job card or open dossier. Send goes to the AI
+                  companion. The import box opens when the send finishes.
+                </td>
               </tr>
               <tr>
                 <td><kbd>Ctrl+click</kbd></td>
@@ -505,6 +492,11 @@
             <li>
               <a href="/advice.html">Career advice</a> — which role fits, and
               the Brazilian salary ask
+            </li>
+            <li>
+              <a href="/people.html">People hiring</a> — recruiters and hiring
+              managers by company. <kbd>Alt+R</kbd> sends a pasted LinkedIn
+              profile to the AI companion; the import box opens after the send.
             </li>
             <li>
               <a href="/hiring.html">Hiring 2026</a> — visual briefing of which
