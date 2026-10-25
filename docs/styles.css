@@ -488,6 +488,16 @@ figcaption {
   grid-template-columns: 1fr 1fr;
 }
 
+.shots.shots-apps {
+  grid-template-columns: 1fr;
+}
+
+.shots.shots-apps img {
+  aspect-ratio: auto;
+  object-fit: contain;
+  background: #14110e;
+}
+
 #viewer {
   width: min(960px, 94vw);
   border: 0;

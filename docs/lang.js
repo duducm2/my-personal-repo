@@ -43,6 +43,12 @@ const UI = {
     deliverable2: "Power BI for allocation, training, and the TrustMate study.",
     deliverable3:
       "A results portal that publishes UX findings as cards, a recommendations library, and a task timeline, instead of a static PDF.",
+    appsTitle: "Personal apps",
+    appsLead:
+      "Three tools I built for my own work: a memory palace for study, a task board, and a finance cockpit.",
+    appsCapPalace: "Memory Palace, study palaces",
+    appsCapTasks: "Tasks, personal board",
+    appsCapFinance: "Finance cockpit, budgets and spending",
     modelTitle: "Relevance model",
     modelLead:
       "I built a model to score applied-research relevance for CIP initiatives. CIM (ServiceNow) fields are set by priority. The result is Low, Medium, or High, a triage for when deeper research involvement is needed. Python runs the pipeline on CIM-like data.",
@@ -204,6 +210,12 @@ const UI = {
     deliverable2: "Power BI para alocação, treinamento e o estudo TrustMate.",
     deliverable3:
       "Um portal de resultados que publica achados de UX em cartões, uma biblioteca de recomendações e uma linha do tempo de tarefas, em vez de um PDF estático.",
+    appsTitle: "Aplicativos pessoais",
+    appsLead:
+      "Três ferramentas que construí para o meu próprio uso: um palácio da memória para estudo, um quadro de tarefas e um cockpit financeiro.",
+    appsCapPalace: "Memory Palace, palácios de estudo",
+    appsCapTasks: "Tarefas, quadro pessoal",
+    appsCapFinance: "Cockpit financeiro, orçamentos e gastos",
     modelTitle: "Modelo de relevância",
     modelLead:
       "Construí um modelo para avaliar a relevância de pesquisa aplicada em iniciativas CIP. Campos do CIM (ServiceNow) entram por prioridade. O resultado é Baixa, Média ou Alta, uma triagem de quando a pesquisa precisa ir mais fundo. Python executa o pipeline em dados no formato do CIM.",
