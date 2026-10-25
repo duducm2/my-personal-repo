@@ -18,26 +18,104 @@
   </head>
   <body class="chooser">
     <main class="chooser-main">
-      <p class="eyebrow">Eduardo Figueiredo · Nova Odessa, SP, Brazil</p>
+      <p class="eyebrow" id="chooser-eyebrow">
+        Eduardo Figueiredo · Nova Odessa, SP, Brazil
+      </p>
       <h1>Eduardo Figueiredo</h1>
-      <p class="lede">Three career paths. Pick the portfolio that matches the role.</p>
+      <p class="lede" id="chooser-lede">
+        Three career paths. Pick the portfolio that matches the role.
+      </p>
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true">
+          English
+        </button>
+        <button type="button" data-lang="pt" aria-pressed="false">
+          Português
+        </button>
+      </div>
       <figure class="portrait">
-        <img src="media/eduardo.jpg" alt="Eduardo Figueiredo" width="1400" height="929" />
+        <img
+          src="media/eduardo.jpg"
+          alt="Eduardo Figueiredo"
+          width="1400"
+          height="929"
+        />
       </figure>
       <nav class="chooser-paths" aria-label="Career paths">
         <a href="data-analyst/">
           <span>01</span>
-          Data Analyst
+          <span data-chooser="da">Data Analyst</span>
         </a>
         <a href="product-owner/">
           <span>02</span>
-          Product Owner
+          <span data-chooser="po">Product Owner</span>
         </a>
         <a href="digital-solution-architect/">
           <span>03</span>
-          Digital Solution Architect
+          <span data-chooser="dsa">Digital Solution Architect</span>
         </a>
       </nav>
     </main>
+    <script>
+      const chooserCopy = {
+        en: {
+          title: "Eduardo Figueiredo — Portfolio",
+          eyebrow: "Eduardo Figueiredo · Nova Odessa, SP, Brazil",
+          lede: "Three career paths. Pick the portfolio that matches the role.",
+          label: "Language",
+          da: "Data Analyst",
+          po: "Product Owner",
+          dsa: "Digital Solution Architect",
+        },
+        pt: {
+          title: "Eduardo Figueiredo — Portfólio",
+          eyebrow: "Eduardo Figueiredo · Nova Odessa, SP, Brasil",
+          lede: "Três caminhos de carreira. Escolha o portfólio do papel.",
+          label: "Idioma",
+          da: "Analista de Dados",
+          po: "Product Owner",
+          dsa: "Arquiteto de Soluções Digitais",
+        },
+      };
+      let chooserLang = "en";
+      try {
+        const saved = localStorage.getItem("portfolio-lang");
+        if (saved === "en" || saved === "pt") chooserLang = saved;
+        else if ((navigator.language || "").toLowerCase().startsWith("pt"))
+          chooserLang = "pt";
+      } catch (error) {
+        chooserLang = "en";
+      }
+      function applyChooser() {
+        const copy = chooserCopy[chooserLang];
+        document.documentElement.lang = chooserLang === "pt" ? "pt-BR" : "en";
+        document.title = copy.title;
+        document.getElementById("chooser-eyebrow").textContent = copy.eyebrow;
+        document.getElementById("chooser-lede").textContent = copy.lede;
+        document.querySelectorAll("[data-chooser]").forEach((node) => {
+          node.textContent = copy[node.dataset.chooser];
+        });
+        const group = document.querySelector(".lang-switch");
+        group.setAttribute("aria-label", copy.label);
+        group.querySelectorAll("button").forEach((button) => {
+          button.setAttribute(
+            "aria-pressed",
+            button.dataset.lang === chooserLang ? "true" : "false",
+          );
+        });
+      }
+      document.querySelectorAll(".lang-switch button").forEach((button) => {
+        button.addEventListener("click", () => {
+          chooserLang = button.dataset.lang;
+          try {
+            localStorage.setItem("portfolio-lang", chooserLang);
+          } catch (error) {
+            chooserLang = button.dataset.lang;
+          }
+          applyChooser();
+        });
+      });
+      applyChooser();
+    </script>
   </body>
 </html>

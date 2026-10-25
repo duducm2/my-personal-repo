@@ -1,4 +1,4 @@
-const PATHS = {
+const PATH_EN = {
   "data-analyst": {
     label: "Data Analyst",
     eyebrow: "Data Analyst · Nova Odessa, SP, Brazil",
@@ -71,9 +71,25 @@ const PATHS = {
 };
 
 const pathKey = document.body.dataset.path;
-const pathCopy = PATHS[pathKey];
+
+let lang = "en";
+try {
+  const saved = localStorage.getItem("portfolio-lang");
+  if (saved === "en" || saved === "pt") lang = saved;
+  else if ((navigator.language || "").toLowerCase().startsWith("pt"))
+    lang = "pt";
+} catch (error) {
+  lang = "en";
+}
+let stopIndex = 0;
+let stepIndex = 0;
+
+function activePath() {
+  return (lang === "pt" ? PATH_PT : PATH_EN)[pathKey];
+}
 
 function applyPath() {
+  const pathCopy = activePath();
   if (!pathCopy) return;
   document.title = `Eduardo Figueiredo — ${pathCopy.label}`;
   const set = (id, text) => {
@@ -89,6 +105,11 @@ function applyPath() {
   set("present-title", pathCopy.presentTitle);
   set("present-lead", pathCopy.presentLead);
   set("next-title", pathCopy.nextTitle);
+  const contactLead = document.querySelector(
+    "#contact > p:not(.fine):not(.kicker)",
+  );
+  if (contactLead && pathCopy.contactLead)
+    contactLead.textContent = pathCopy.contactLead;
   document.querySelectorAll("#steps button").forEach((button, index) => {
     if (pathCopy.steps[index]) button.textContent = pathCopy.steps[index];
   });
@@ -99,7 +120,9 @@ function applyPath() {
   }
   const switcher = document.getElementById("rail-paths");
   if (switcher) {
-    Object.entries(PATHS).forEach(([key, item]) => {
+    switcher.replaceChildren();
+    const catalog = lang === "pt" ? PATH_PT : PATH_EN;
+    Object.entries(catalog).forEach(([key, item]) => {
       const link = document.createElement("a");
       link.href = `../${key}/`;
       link.textContent = item.label;
@@ -110,6 +133,16 @@ function applyPath() {
 }
 
 applyPath();
+
+const railMark = document.querySelector(".rail-mark");
+if (railMark) {
+  railMark.replaceChildren();
+  for (const word of ["Eduardo", "Figueiredo"]) {
+    const line = document.createElement("span");
+    line.textContent = word;
+    railMark.append(line);
+  }
+}
 
 const chapters = [...document.querySelectorAll("main section")];
 const nav = document.getElementById("chapter-nav");
@@ -142,38 +175,13 @@ const spy = new IntersectionObserver(
 );
 chapters.forEach((section) => spy.observe(section));
 
-const stops = [
-  {
-    text: "Campinas, 2018. Team recognition with Bosch.",
-    src: "media/bosch-2018.jpg",
-    alt: "Eduardo Figueiredo with the Bosch team in Campinas, 2018",
-    diagram: false,
-  },
-  {
-    text: "Hungary, 2019, with the Budapest team.",
-    src: "media/budapest-2019.jpg",
-    alt: "Bosch team in Budapest, 2019",
-    diagram: false,
-  },
-  {
-    text: "The condensed path: Campinas, Hungary, Sorocaba, then Campinas again.",
-    src: "media/timeline.png",
-    alt: "Experience timeline across Bosch locations",
-    diagram: true,
-  },
-  {
-    text: "Back in Campinas. Germany workshops in 2024 and 2025, and the Americas team in 2025.",
-    src: "media/americas-2025.jpg",
-    alt: "Americas team, 2025",
-    diagram: false,
-  },
-];
 const stopButtons = [...document.querySelectorAll(".stops button")];
 const stopNote = document.getElementById("stop-note");
 const stopPhoto = document.getElementById("stop-photo");
 
 function showStop(index) {
-  const stop = stops[index];
+  stopIndex = index;
+  const stop = UI[lang].stops[index];
   stopButtons.forEach((button, i) => {
     button.setAttribute("aria-selected", i === index ? "true" : "false");
   });
@@ -230,11 +238,13 @@ function renderScores() {
   tbody.replaceChildren();
   rows.forEach((row) => {
     const tr = document.createElement("tr");
-    [row.name, row.csi, row.nps == null ? "N/A" : row.nps].forEach((value) => {
-      const td = document.createElement("td");
-      td.textContent = value;
-      tr.append(td);
-    });
+    [row.name, row.csi, row.nps == null ? UI[lang].na : row.nps].forEach(
+      (value) => {
+        const td = document.createElement("td");
+        td.textContent = value;
+        tr.append(td);
+      },
+    );
     tbody.append(tr);
   });
 }
@@ -249,22 +259,17 @@ document.querySelectorAll("#score-table [data-sort]").forEach((button) => {
 });
 renderScores();
 
-const stepCopy = pathCopy
-  ? pathCopy.stepCopy
-  : [
-      "Experimental design and inferential statistics on TrustMate (Welch, Cohen's d, FDR, LLM evaluation versus humans). Messy text turned into validated BI. CSI, NPS, Power BI, Python, and SQL at Bosch.",
-      "Senior data analyst: insight through the scientific method.",
-      "Descriptive, inferential, and visual analysis.",
-      "Fast decisions from that evidence.",
-    ];
 const stepButtons = [...document.querySelectorAll("#steps button")];
 const stepText = document.getElementById("step-copy");
 
 function showStep(index) {
+  stepIndex = index;
+  const copy = activePath()?.stepCopy;
+  if (!copy) return;
   stepButtons.forEach((button, i) => {
     button.setAttribute("aria-pressed", i === index ? "true" : "false");
   });
-  stepText.textContent = stepCopy[index];
+  stepText.textContent = copy[index];
 }
 
 stepButtons.forEach((button) => {
@@ -290,3 +295,96 @@ document.querySelectorAll("figure.zoom").forEach((figure) => {
 document.getElementById("viewer-close").addEventListener("click", () => {
   viewer.close();
 });
+
+function fillList(nodes, values) {
+  nodes.forEach((node, index) => {
+    if (values[index] != null) node.textContent = values[index];
+  });
+}
+
+function applyLanguage() {
+  const copy = UI[lang];
+  document.documentElement.lang = lang === "pt" ? "pt-BR" : "en";
+  document.querySelectorAll("[data-i18n]").forEach((node) => {
+    const value = copy[node.dataset.i18n];
+    if (typeof value === "string") node.textContent = value;
+  });
+  const modelLead = document.querySelector(
+    "#model > p:not(.sample):not(.kicker)",
+  );
+  if (modelLead) modelLead.textContent = copy.modelLead;
+  fillList(
+    [...document.querySelectorAll("#research > p:not(.kicker)")],
+    [...copy.research, ...copy.researchTail],
+  );
+  fillList(
+    [...document.querySelectorAll("#research .plain li")],
+    copy.researchItems,
+  );
+  fillList(
+    [...document.querySelectorAll(".facts dt")],
+    copy.facts.map((row) => row[0]),
+  );
+  fillList(
+    [...document.querySelectorAll(".facts dd")],
+    copy.facts.map((row) => row[1]),
+  );
+  fillList(
+    [...document.querySelectorAll("#present .shots figcaption")],
+    copy.presentCaps,
+  );
+  fillList(
+    [...document.querySelectorAll("#research .shots figcaption")],
+    copy.researchCaps,
+  );
+  fillList([...document.querySelectorAll(".bar-row > span")], copy.bars);
+  const scoresLead = document.querySelector("#scores > p:not(.kicker)");
+  if (scoresLead) scoresLead.textContent = copy.scoresLead;
+  const interestsLead = document.querySelector("#interests > p:not(.kicker)");
+  if (interestsLead) interestsLead.textContent = copy.interestsLead;
+  fillList(
+    [...document.querySelectorAll("#interests .traits li")],
+    copy.interests,
+  );
+  fillList(
+    [...document.querySelectorAll("#interests .shots figcaption")],
+    copy.interestCaps,
+  );
+  const contactLead = document.querySelector(
+    "#contact > p:not(.fine):not(.kicker)",
+  );
+  if (contactLead) contactLead.textContent = copy.contactLead;
+  const infovis = document.getElementById("infovis-diagram");
+  if (infovis) infovis.src = copy.infovis;
+  const langSwitch = document.querySelector(".lang-switch");
+  if (langSwitch) langSwitch.setAttribute("aria-label", copy.langLabel);
+  document.querySelectorAll(".lang-switch button").forEach((button) => {
+    button.setAttribute(
+      "aria-pressed",
+      button.dataset.lang === lang ? "true" : "false",
+    );
+  });
+  links.forEach((link) => {
+    const id = link.getAttribute("href").slice(1);
+    if (copy.chapters[id]) link.textContent = copy.chapters[id];
+  });
+  applyPath();
+  showStop(stopIndex);
+  showStep(stepIndex);
+  renderScores();
+}
+
+document.querySelectorAll(".lang-switch button").forEach((button) => {
+  button.addEventListener("click", () => {
+    if (button.dataset.lang === lang) return;
+    lang = button.dataset.lang;
+    try {
+      localStorage.setItem("portfolio-lang", lang);
+    } catch (error) {
+      lang = button.dataset.lang;
+    }
+    applyLanguage();
+  });
+});
+
+applyLanguage();

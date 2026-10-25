@@ -17,17 +17,27 @@
     <link rel="stylesheet" href="../styles.css" />
   </head>
   <body data-path="product-owner">
-    <a class="skip" href="#story">Skip to the story</a>
+    <a class="skip" href="#story" data-i18n="skip">Skip to the story</a>
     <div class="shell">
       <nav class="rail" aria-label="Portfolio chapters">
-        <p class="rail-mark">Eduardo Figueiredo</p>
+        <p class="rail-mark"><span>Eduardo</span><span>Figueiredo</span></p>
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" data-lang="en" aria-pressed="true">
+            English
+          </button>
+          <button type="button" data-lang="pt" aria-pressed="false">
+            Português
+          </button>
+        </div>
         <p class="rail-paths" id="rail-paths"></p>
         <ol id="chapter-nav"></ol>
       </nav>
       <main id="story">
         <header class="hero" id="start">
           <div class="hero-copy">
-            <p class="eyebrow" id="path-eyebrow">Portfolio · Nova Odessa, SP, Brazil</p>
+            <p class="eyebrow" id="path-eyebrow">
+              Portfolio · Nova Odessa, SP, Brazil
+            </p>
             <h1>Eduardo Figueiredo</h1>
             <p class="role" id="path-role">
               Applied research, technology, and project management
@@ -74,54 +84,92 @@
               src="../media/story-flow.png"
               alt="Story flow: why, who, past, present, and future"
             />
-            <figcaption>The sequence of the portfolio deck</figcaption>
+            <figcaption data-i18n="storyCap">
+              The sequence of the portfolio deck
+            </figcaption>
           </figure>
         </section>
 
         <section id="foundations" data-chapter="Foundations">
           <p class="kicker">02</p>
-          <h2>Academic foundations</h2>
-          <p>
-            Technical school at ETEC Bento Quirino, then Unicamp. Grade A in
-            all master's coursework. English proficiency verified. Portuguese
-            is native, English is fluent.
+          <h2 id="foundations-title" data-i18n="foundationsTitle">
+            Academic foundations
+          </h2>
+          <p id="foundations-lead" data-i18n="foundationsLead">
+            Technical school at ETEC Bento Quirino, then Unicamp. Grade A in all
+            master's coursework. English proficiency verified. Portuguese is
+            native, English is fluent.
           </p>
-          <ul class="traits">
-            <li>Proactive</li>
-            <li>Self-reliant</li>
-            <li>Organized</li>
+          <ul class="traits" id="traits">
+            <li data-i18n="trait0">Proactive</li>
+            <li data-i18n="trait1">Self-reliant</li>
+            <li data-i18n="trait2">Organized</li>
           </ul>
           <div class="logos">
-            <img src="../media/etec.png" alt="ETEC Bento Quirino" width="225" height="225" />
-            <img src="../media/unicamp.png" alt="Unicamp" width="250" height="265" />
+            <img
+              src="../media/etec.png"
+              alt="ETEC Bento Quirino"
+              width="225"
+              height="225"
+            />
+            <img
+              src="../media/unicamp.png"
+              alt="Unicamp"
+              width="250"
+              height="265"
+            />
           </div>
           <figure class="wide zoom">
             <img
               src="../media/academic-writing.jpg"
               alt="Academic writing course at Unicamp"
             />
-            <figcaption>Academic writing, Unicamp</figcaption>
+            <figcaption data-i18n="academicCap">
+              Academic writing, Unicamp
+            </figcaption>
           </figure>
         </section>
 
         <section id="path" data-chapter="Path">
           <p class="kicker">03</p>
-          <h2>Bosch, place by place</h2>
-          <p>
+          <h2 id="path-title" data-i18n="pathTitle">Bosch, place by place</h2>
+          <p id="path-lead" data-i18n="pathLead">
             The condensed path crosses Bosch locations: Campinas, Hungary,
             Sorocaba, and Campinas again. Select a stop.
           </p>
           <div class="stops" role="tablist" aria-label="Bosch locations">
-            <button type="button" role="tab" aria-selected="true" data-stop="0">
+            <button
+              type="button"
+              role="tab"
+              aria-selected="true"
+              data-stop="0"
+              data-i18n="stop0"
+            >
               Campinas
             </button>
-            <button type="button" role="tab" aria-selected="false" data-stop="1">
+            <button
+              type="button"
+              role="tab"
+              aria-selected="false"
+              data-stop="1"
+              data-i18n="stop1"
+            >
               Hungary
             </button>
-            <button type="button" role="tab" aria-selected="false" data-stop="2">
+            <button
+              type="button"
+              role="tab"
+              aria-selected="false"
+              data-stop="2"
+            >
               Sorocaba
             </button>
-            <button type="button" role="tab" aria-selected="false" data-stop="3">
+            <button
+              type="button"
+              role="tab"
+              aria-selected="false"
+              data-stop="3"
+            >
               Campinas
             </button>
           </div>
@@ -141,7 +189,9 @@
           <dl class="facts">
             <div>
               <dt>International</dt>
-              <dd>Two trips to Germany, in 2024 and 2025, for role-related work.</dd>
+              <dd>
+                Two trips to Germany, in 2024 and 2025, for role-related work.
+              </dd>
             </div>
             <div>
               <dt>CO2 tracking</dt>
@@ -154,12 +204,15 @@
               <dt>Tooling, PT</dt>
               <dd>
                 Led technical delivery and project management from requirements
-                through high-fidelity prototypes, with regular customer check-ins.
+                through high-fidelity prototypes, with regular customer
+                check-ins.
               </dd>
             </div>
             <div>
               <dt>UX maturity</dt>
-              <dd>Led the Americas to Level 4: governance, templates, training.</dd>
+              <dd>
+                Led the Americas to Level 4: governance, templates, training.
+              </dd>
             </div>
             <div>
               <dt>CIP dashboards</dt>
@@ -172,26 +225,38 @@
             <div>
               <dt>Teaching</dt>
               <dd>
-                Tutor for Digital Talent Academy students. AI tools training
-                for 100+ people, satisfaction 4.88 / 5.
+                Tutor for Digital Talent Academy students. AI tools training for
+                100+ people, satisfaction 4.88 / 5.
               </dd>
             </div>
           </dl>
           <div class="shots">
             <figure class="zoom">
-              <img src="../media/bosch-building.jpg" alt="Eduardo Figueiredo in front of the Bosch building" />
+              <img
+                src="../media/bosch-building.jpg"
+                alt="Eduardo Figueiredo in front of the Bosch building"
+              />
               <figcaption>Bosch Brasil</figcaption>
             </figure>
             <figure class="zoom">
-              <img src="../media/germany-2024.jpg" alt="Germany workshop, 2024" />
+              <img
+                src="../media/germany-2024.jpg"
+                alt="Germany workshop, 2024"
+              />
               <figcaption>Germany workshop, 2024</figcaption>
             </figure>
             <figure class="zoom">
-              <img src="../media/joinville-2024.jpg" alt="Joinville workshop, 2024" />
+              <img
+                src="../media/joinville-2024.jpg"
+                alt="Joinville workshop, 2024"
+              />
               <figcaption>Joinville workshop, 2024</figcaption>
             </figure>
             <figure class="zoom">
-              <img src="../media/digital-ws.jpg" alt="Applied Research GS team in the digital workspace" />
+              <img
+                src="../media/digital-ws.jpg"
+                alt="Applied Research GS team in the digital workspace"
+              />
               <figcaption>Applied Research, GS</figcaption>
             </figure>
             <figure class="zoom">
@@ -199,15 +264,24 @@
               <figcaption>Tooling project, PT</figcaption>
             </figure>
             <figure class="zoom">
-              <img src="../media/cip-cover.jpg" alt="CIP applied research report cover" />
+              <img
+                src="../media/cip-cover.jpg"
+                alt="CIP applied research report cover"
+              />
               <figcaption>CIP research report</figcaption>
             </figure>
             <figure class="zoom">
-              <img src="../media/pbi-allocation.jpg" alt="Power BI allocation dashboard for Bosch Applied Research Americas" />
+              <img
+                src="../media/pbi-allocation.jpg"
+                alt="Power BI allocation dashboard for Bosch Applied Research Americas"
+              />
               <figcaption>Power BI, allocation</figcaption>
             </figure>
             <figure class="zoom">
-              <img src="../media/pbi-training.jpg" alt="Power BI training evolution dashboard" />
+              <img
+                src="../media/pbi-training.jpg"
+                alt="Power BI training evolution dashboard"
+              />
               <figcaption>Power BI, training</figcaption>
             </figure>
           </div>
@@ -215,14 +289,16 @@
 
         <section id="model" data-chapter="Model">
           <p class="kicker">05</p>
-          <h2>Relevance model</h2>
+          <h2 id="model-title" data-i18n="modelTitle">Relevance model</h2>
           <p>
             I built a model to score applied-research relevance for CIP
-            initiatives. CIM (ServiceNow) fields are set by priority. The
-            result is Low, Medium, or High, a triage for when deeper research
+            initiatives. CIM (ServiceNow) fields are set by priority. The result
+            is Low, Medium, or High, a triage for when deeper research
             involvement is needed. Python runs the pipeline on CIM-like data.
           </p>
-          <p class="sample">Sample of 35 projects</p>
+          <p class="sample" id="model-sample" data-i18n="modelSample">
+            Sample of 35 projects
+          </p>
           <div class="bars" id="bars">
             <div class="bar-row">
               <span>Low</span>
@@ -245,13 +321,17 @@
               src="../media/relevance.png"
               alt="Applied research relevance model: CIM fields, priority, then Low, Medium, or High"
             />
-            <figcaption>Relevance model from the portfolio deck</figcaption>
+            <figcaption data-i18n="modelCap">
+              Relevance model from the portfolio deck
+            </figcaption>
           </figure>
         </section>
 
         <section id="research" data-chapter="Research">
           <p class="kicker">06</p>
-          <h2>Trust in AI and interfaces</h2>
+          <h2 id="research-title" data-i18n="researchTitle">
+            Trust in AI and interfaces
+          </h2>
           <p>
             The master's dissertation asks whether AI agents can stand in for
             humans when scoring perceived trust on e-commerce interfaces. The
@@ -259,10 +339,10 @@
             the questionnaire and scores Usability, Accessibility, and UX.
           </p>
           <p>
-            ChatGPT o3 agents were compared with 127 IT students on three
-            sites. Agents do not replace human evaluation. They are a useful
-            automated triage: directional alignment on the top and bottom
-            attributes, and a stricter bias on most leaf scores.
+            ChatGPT o3 agents were compared with 127 IT students on three sites.
+            Agents do not replace human evaluation. They are a useful automated
+            triage: directional alignment on the top and bottom attributes, and
+            a stricter bias on most leaf scores.
           </p>
           <ul class="plain">
             <li>Shapiro-Wilk on attribute scores before inferential tests.</li>
@@ -276,52 +356,73 @@
               confidence intervals, and more than 50 chart structures.
             </li>
           </ul>
+          <p>Published at ISSRE 2025 (HFSD Workshop) and IHC 2025 (SBC SOL).</p>
           <p>
-            Published at ISSRE 2025 (HFSD Workshop) and IHC 2025 (SBC SOL).
-          </p>
-          <p>
-            InfoVis coursework at Unicamp (grade A) used PNAD Contínua in
-            Power BI: Sankey, choropleth, and faceted views of education and
+            InfoVis coursework at Unicamp (grade A) used PNAD Contínua in Power
+            BI: Sankey, choropleth, and faceted views of education and
             employment.
           </p>
           <div class="shots">
             <figure class="zoom">
-              <img src="../media/trustmate-pbi.jpg" alt="Power BI of human score variability between websites in the TrustMate study" />
+              <img
+                src="../media/trustmate-pbi.jpg"
+                alt="Power BI of human score variability between websites in the TrustMate study"
+              />
               <figcaption>TrustMate, Power BI</figcaption>
             </figure>
             <figure class="zoom">
-              <img src="../media/trustmate-pbi-2.jpg" alt="Power BI comparing AI and human homogeneity by attribute" />
+              <img
+                src="../media/trustmate-pbi-2.jpg"
+                alt="Power BI comparing AI and human homogeneity by attribute"
+              />
               <figcaption>AI and human scores</figcaption>
             </figure>
             <figure class="zoom">
-              <img src="../media/article.jpg" alt="First page of a published article" />
+              <img
+                src="../media/article.jpg"
+                alt="First page of a published article"
+              />
               <figcaption>Published article</figcaption>
             </figure>
             <figure class="zoom">
-              <img src="../media/ihc-2025.jpg" alt="Eduardo Figueiredo at IHC 2025" />
+              <img
+                src="../media/ihc-2025.jpg"
+                alt="Eduardo Figueiredo at IHC 2025"
+              />
               <figcaption>IHC 2025</figcaption>
             </figure>
             <figure class="zoom">
-              <img src="../media/hfsd-2025.jpg" alt="ISSRE 2025 HFSD workshop" />
+              <img
+                src="../media/hfsd-2025.jpg"
+                alt="ISSRE 2025 HFSD workshop"
+              />
               <figcaption>ISSRE 2025, HFSD</figcaption>
             </figure>
             <figure class="zoom">
-              <img src="../media/infovis.jpg" alt="Power BI Sankey of education and employment from PNAD Continua" />
+              <img
+                src="../media/infovis.jpg"
+                alt="Power BI Sankey of education and employment from PNAD Continua"
+              />
               <figcaption>PNAD Contínua, Power BI</figcaption>
             </figure>
           </div>
           <figure class="diagram zoom">
             <img
+              id="infovis-diagram"
               src="../media/infovis-structures.png"
               alt="InfoVis visual structures used for PNAD Continua"
             />
-            <figcaption>Visual structures from the InfoVis course</figcaption>
+            <figcaption data-i18n="infovisCap">
+              Visual structures from the InfoVis course
+            </figcaption>
           </figure>
         </section>
 
         <section id="scores" data-chapter="Scores">
           <p class="kicker">07</p>
-          <h2>CSI and NPS, 2024–2025</h2>
+          <h2 id="scores-title" data-i18n="scoresTitle">
+            CSI and NPS, 2024–2025
+          </h2>
           <p>
             Select a column to sort. Averages across these projects: CSI 4.86,
             NPS 9.94.
@@ -331,7 +432,13 @@
               <thead>
                 <tr>
                   <th scope="col">
-                    <button type="button" data-sort="name">Project</button>
+                    <button
+                      type="button"
+                      data-sort="name"
+                      data-i18n="sortProject"
+                    >
+                      Project
+                    </button>
                   </th>
                   <th scope="col">
                     <button type="button" data-sort="csi">CSI</button>
@@ -362,14 +469,21 @@
               src="../media/path.png"
               alt="Path from descriptive, inferential, and visual analysis to senior data analyst and fast decisions"
             />
-            <figcaption>The path in the portfolio deck</figcaption>
+            <figcaption id="path-cap" data-i18n="pathCap">
+              The path in the portfolio deck
+            </figcaption>
           </figure>
         </section>
 
         <section id="interests" data-chapter="Interests">
           <p class="kicker">09</p>
-          <h2>What I do outside the job</h2>
-          <p>At home: two cats, learning piano, and a split keyboard I use for macros.</p>
+          <h2 id="interests-title" data-i18n="interestsTitle">
+            What I do outside the job
+          </h2>
+          <p>
+            At home: two cats, learning piano, and a split keyboard I use for
+            macros.
+          </p>
           <ul class="traits">
             <li>Piano</li>
             <li>Linguistics</li>
@@ -380,11 +494,17 @@
           </ul>
           <div class="shots shots-two">
             <figure class="zoom">
-              <img src="../media/piano.jpg" alt="A cat on the piano during beginner practice" />
+              <img
+                src="../media/piano.jpg"
+                alt="A cat on the piano during beginner practice"
+              />
               <figcaption>Piano practice at home</figcaption>
             </figure>
             <figure class="zoom">
-              <img src="../media/keyboard.jpg" alt="A cat on the split keyboard used for macros" />
+              <img
+                src="../media/keyboard.jpg"
+                alt="A cat on the split keyboard used for macros"
+              />
               <figcaption>Split keyboard and macros</figcaption>
             </figure>
           </div>
@@ -392,7 +512,7 @@
 
         <section id="contact" data-chapter="Contact">
           <p class="kicker">10</p>
-          <h2>Let's connect</h2>
+          <h2 id="contact-title" data-i18n="contactTitle">Let's connect</h2>
           <p>
             I bring applied research, technology, and project delivery. What I
             care about is work people can trust and use, with clear data and
@@ -410,17 +530,22 @@
             <a href="https://orcid.org/0009-0002-5178-6157">ORCID</a>
             <span>+55 (19) 98176-6583</span>
           </address>
-          <p class="fine">Resume and the slide deck are available on request.</p>
+          <p class="fine" id="contact-fine" data-i18n="contactFine">
+            Resume and the slide deck are available on request.
+          </p>
         </section>
       </main>
     </div>
     <dialog id="viewer">
       <form method="dialog">
-        <button type="button" id="viewer-close">Close</button>
+        <button type="button" id="viewer-close" data-i18n="viewerClose">
+          Close
+        </button>
       </form>
       <img id="viewer-img" alt="" />
       <p id="viewer-cap"></p>
     </dialog>
+    <script src="../lang.js"></script>
     <script src="../site.js"></script>
   </body>
 </html>

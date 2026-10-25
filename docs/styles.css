@@ -37,7 +37,7 @@ body {
 
 .shell {
   display: grid;
-  grid-template-columns: 240px 1fr;
+  grid-template-columns: 15rem minmax(0, 1fr);
   min-height: 100vh;
 }
 
@@ -45,6 +45,7 @@ body {
   position: sticky;
   top: 0;
   height: 100vh;
+  min-width: 15rem;
   background: var(--rail);
   color: var(--rail-text);
   padding: 28px 18px;
@@ -52,11 +53,18 @@ body {
 }
 
 .rail-mark {
+  display: flex;
+  flex-direction: column;
   margin: 0 0 12px;
   font-family: var(--display);
   font-size: 1.35rem;
   line-height: 1.15;
   font-weight: 500;
+}
+
+.rail-mark span {
+  display: block;
+  white-space: nowrap;
 }
 
 .rail-paths {
@@ -77,6 +85,32 @@ body {
   opacity: 1;
   color: #ffb089;
 }
+
+.lang-switch {
+  display: flex;
+  gap: 6px;
+  margin: 0 0 16px;
+}
+
+.lang-switch button {
+  font: inherit;
+  font-size: 0.78rem;
+  background: transparent;
+  color: inherit;
+  border: 1px solid rgba(239, 230, 214, 0.4);
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+.lang-switch button[aria-pressed="true"] {
+  background: #ffb089;
+  color: #172421;
+  border-color: #ffb089;
+}
+
+.chooser .lang-switch { margin-top: 18px; }
+.chooser .lang-switch button { color: var(--ink); border-color: var(--ink); }
+.chooser .lang-switch button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
 
 .chooser { background: var(--paper); }
 .chooser-main { max-width: 720px; margin: 0 auto; padding: 8vh 24px 64px; }
@@ -436,7 +470,9 @@ figcaption {
     overflow-x: auto;
   }
   .rail a { white-space: nowrap; }
-  .rail-mark { font-size: 1.05rem; margin-bottom: 8px; }
+  .rail { min-width: 0; }
+  .rail-mark { font-size: 1.2rem; margin-bottom: 8px; }
+  .rail-mark span { white-space: normal; }
   main { padding: 0 20px 48px; }
   .hero {
     min-height: auto;
