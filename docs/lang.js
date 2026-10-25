@@ -112,6 +112,30 @@ const UI = {
         "Led the Americas to Level 4: governance, templates, training.",
       ],
       [
+        "UX services",
+        "In 2023 I presented our UX services to the GS UX team. Heading toward remarkable experiences. Each interaction shapes the path to a more human and engaging design. Grateful for the welcome from the team and for a productive week with neighboring areas.",
+      ],
+      [
+        "Digital journey",
+        "I presented the GS/TET-LA digital solution journey to a Purchasing customer team.",
+      ],
+      [
+        "Service Day",
+        "At GS Service Day in August 2022 I presented our technology and enabling services for the business unit.",
+      ],
+      [
+        "Buenos Aires",
+        "In August 2022 I presented our digital solutions and software development services in Buenos Aires, Argentina.",
+      ],
+      [
+        "Talent Forum",
+        "Third place at the Bosch Campinas Talent Forum in September 2018. The forum recognizes the plant's best internship projects. The awarded work was an internal Excel VBA tool for project management, based on the Project Model Canvas. It helped teams organize project information and reach their goals.",
+      ],
+      [
+        "CIP training",
+        "In August 2020 I trained the HR team at the Bosch plant in Sorocaba on the fundamentals of Continuous Improvement, covering the macro and micro concepts of the CIP process.",
+      ],
+      [
         "CIP dashboards",
         "With the UX team, evaluated strategic CIP dashboards for GS initiatives so leadership could spot main issues and efficiency gains. UX relevance in ServiceNow uses property-based weights.",
       ],
@@ -125,6 +149,12 @@ const UI = {
       "Germany workshop, 2024",
       "Joinville workshop, 2024",
       "Applied Research, GS",
+      "UX services, GS, 2023",
+      "Digital journey for Purchasing, GS/TET-LA, 2022",
+      "GS Service Day, Technology & Enabling, August 2022",
+      "Presenting our services in Buenos Aires, August 2022",
+      "3rd place, Bosch Talent Forum, Campinas, September 2018",
+      "CIP fundamentals for HR, Bosch Sorocaba, August 2020",
       "Tooling project, PT",
       "CIP research report",
       "Power BI, allocation",
@@ -279,6 +309,30 @@ const UI = {
         "Levei as Américas ao Nível 4: governança, templates e treinamento.",
       ],
       [
+        "Serviços de UX",
+        "Em 2023 apresentei nossos serviços de UX ao time de UX da GS. Navegando em direção a experiências incríveis. Cada interação molda nosso caminho para um design mais humano e envolvente. Imensamente grato pela recepção no time e pela semana produtiva de interação com áreas adjacentes.",
+      ],
+      [
+        "Jornada digital",
+        "Apresentação da jornada digital da GS/TET-LA para o time de Compras.",
+      ],
+      [
+        "Service Day",
+        "No GS Service Day, em agosto de 2022, apresentei nossos serviços de tecnologia e enabling da unidade de negócio.",
+      ],
+      [
+        "Buenos Aires",
+        "Em agosto de 2022 apresentei nossos serviços de soluções digitais e desenvolvimento de software em Buenos Aires, na Argentina.",
+      ],
+      [
+        "Fórum de Talentos",
+        "3º lugar no Fórum de Talentos dos estagiários da Bosch Campinas, em setembro de 2018. O fórum reconhece os melhores projetos de estágio da planta. O projeto premiado foi uma ferramenta interna em VBA para Excel, de gestão de projetos, baseada no Project Model Canvas. Ajudou times a organizar as informações dos projetos e a alcançar seus objetivos.",
+      ],
+      [
+        "Treinamento de CIP",
+        "Em agosto de 2020 ofereci ao time de RH da planta Bosch em Sorocaba o treinamento Fundamentos da Melhoria Contínua, com os conceitos macro e micro do processo de CIP.",
+      ],
+      [
         "Dashboards CIP",
         "Com a equipe de UX, avaliei dashboards estratégicos de CIP para a liderança da GS identificar problemas e ganhos de eficiência. A relevância de UX no ServiceNow usa pesos por propriedade.",
       ],
@@ -292,6 +346,12 @@ const UI = {
       "Workshop na Alemanha, 2024",
       "Workshop em Joinville, 2024",
       "Pesquisa Aplicada, GS",
+      "Serviços de UX, GS, 2023",
+      "Jornada digital da GS/TET-LA para Compras, 2022",
+      "GS Service Day, Technology & Enabling, agosto de 2022",
+      "Apresentação dos nossos serviços em Buenos Aires, agosto de 2022",
+      "3º lugar, Fórum de Talentos da Bosch, Campinas, setembro de 2018",
+      "Fundamentos de CIP para o RH, Bosch Sorocaba, agosto de 2020",
       "Projeto de tooling, PT",
       "Relatório de pesquisa CIP",
       "Power BI, alocação",

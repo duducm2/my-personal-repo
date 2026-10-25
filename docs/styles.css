@@ -484,6 +484,12 @@ figcaption {
   object-fit: cover;
 }
 
+.shots img.portrait {
+  aspect-ratio: 3 / 4;
+  object-fit: contain;
+  background: var(--paper);
+}
+
 .shots-two {
   grid-template-columns: 1fr 1fr;
 }
