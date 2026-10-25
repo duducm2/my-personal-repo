@@ -1982,6 +1982,27 @@
         hay: `orcid researcher id ${cell(contactProfile.orcid_url)}`.toLowerCase(),
       },
       {
+        id: "contact-site-da",
+        label: "Data Analyst site",
+        en: cell(contactProfile.site_data_analyst_url),
+        pt: cell(contactProfile.site_data_analyst_url),
+        hay: `site website portfolio github pages data analyst ${cell(contactProfile.site_data_analyst_url)}`.toLowerCase(),
+      },
+      {
+        id: "contact-site-po",
+        label: "Product Owner site",
+        en: cell(contactProfile.site_product_owner_url),
+        pt: cell(contactProfile.site_product_owner_url),
+        hay: `site website portfolio github pages product owner ${cell(contactProfile.site_product_owner_url)}`.toLowerCase(),
+      },
+      {
+        id: "contact-site-dsa",
+        label: "Digital Solution Architect site",
+        en: cell(contactProfile.site_digital_solution_architect_url),
+        pt: cell(contactProfile.site_digital_solution_architect_url),
+        hay: `site website portfolio github pages digital solution architect ${cell(contactProfile.site_digital_solution_architect_url)}`.toLowerCase(),
+      },
+      {
         id: "contact-bosch-campinas",
         label: "Bosch Campinas",
         en: boschAddressEn,

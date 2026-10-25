@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>People</title>
     <link rel="stylesheet" href="styles.css" />
+    <script src="portfolio-nav.js" defer></script>
   </head>
   <body class="page-people">
     <div class="page">
@@ -31,6 +32,47 @@
             <a class="nav-btn" href="/hiring.html">
               <span class="section-title-en">Hiring 2026</span>
             </a>
+            <div class="portfolio-nav">
+              <button
+                type="button"
+                class="nav-btn"
+                id="open-portfolio-btn"
+                aria-haspopup="menu"
+                aria-expanded="false"
+                aria-controls="portfolio-menu"
+                title="Portfolio"
+              >
+                <span class="section-title-en">Portfolio</span>
+              </button>
+              <div
+                class="portfolio-menu"
+                id="portfolio-menu"
+                role="menu"
+                hidden
+              >
+                <a
+                  role="menuitem"
+                  href="/portfolio/data-analyst/"
+                  target="_blank"
+                  rel="noopener"
+                  >Data Analyst</a
+                >
+                <a
+                  role="menuitem"
+                  href="/portfolio/product-owner/"
+                  target="_blank"
+                  rel="noopener"
+                  >Product Owner</a
+                >
+                <a
+                  role="menuitem"
+                  href="/portfolio/digital-solution-architect/"
+                  target="_blank"
+                  rel="noopener"
+                  >Digital Solution Architect</a
+                >
+              </div>
+            </div>
             <button type="button" id="open-advice-btn" class="nav-btn">
               <span class="section-title-en">Advice</span>
             </button>

@@ -40,6 +40,7 @@ from career_form_flow import (  # noqa: E402
 DEFAULT_PORT = 8770
 ROOT_DIR = Path(__file__).resolve().parent.parent
 WEB_DIR = ROOT_DIR / "web"
+PORTFOLIO_DIR = ROOT_DIR / "docs"
 CANONICAL_DIR = ROOT_DIR / "my-data" / "canonical"
 OUTPUT_DIR = ROOT_DIR / "output"
 AUTOFILL_MAPPINGS_PATH = default_mappings_path(ROOT_DIR)
@@ -1066,6 +1067,10 @@ class CareerHandler(BaseHTTPRequestHandler):
         if ".." in rel.replace("\\", "/").split("/"):
             self._json(400, {"ok": False, "error": "invalid path"})
             return
+        portfolio = self._portfolio_file(rel)
+        if portfolio is not None:
+            self._send_file(portfolio)
+            return
         file_path = (WEB_DIR / rel).resolve()
         if not str(file_path).startswith(str(WEB_DIR.resolve())):
             self._json(400, {"ok": False, "error": "invalid path"})
@@ -1077,6 +1082,27 @@ class CareerHandler(BaseHTTPRequestHandler):
         if not file_path.is_file():
             self._json(404, {"ok": False, "error": "not found"})
             return
+        self._send_file(file_path)
+
+    def _portfolio_file(self, rel: str) -> Path | None:
+        """Landing page in docs/, also published by GitHub Pages."""
+        if rel in ("portfolio", "portfolio/"):
+            inner = "index.html"
+        elif rel.startswith("portfolio/"):
+            inner = rel[len("portfolio/") :] or "index.html"
+        else:
+            return None
+        if ".." in inner.replace("\\", "/").split("/"):
+            return None
+        root = PORTFOLIO_DIR.resolve()
+        file_path = (PORTFOLIO_DIR / inner).resolve()
+        if not str(file_path).startswith(str(root)):
+            return None
+        if file_path.is_dir():
+            file_path = (file_path / "index.html").resolve()
+        return file_path if file_path.is_file() else None
+
+    def _send_file(self, file_path: Path) -> None:
         data = file_path.read_bytes()
         ctype = mimetypes.guess_type(str(file_path))[0] or "application/octet-stream"
         if file_path.suffix == ".js":

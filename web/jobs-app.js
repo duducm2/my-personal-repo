@@ -809,13 +809,11 @@
       (isStaleOpening(row) ? " is-stale" : "");
     btn.dataset.id = row.id;
     btn.dataset.url = cell(row.job_url);
-    if (cell(row.job_url)) {
-      btn.title =
-        "Click to edit · Right-click status · Alt+M pin · Alt+F form · Alt+C cover · Shift+C company portal · Ctrl/Cmd+Enter job URL · Ctrl/Cmd+click bulk";
-    } else {
-      btn.title =
-        "Click to edit · Right-click status · Alt+M pin · Alt+F form · Alt+C cover · Shift+C company portal · Ctrl/Cmd+click bulk";
-    }
+    const roleTitle = cell(row.role_title) || "(untitled role)";
+    const hints = cell(row.job_url)
+      ? "Click to edit · Right-click status · Alt+M pin · Alt+F form · Alt+C cover · Shift+C company portal · Ctrl/Cmd+Enter job URL · Ctrl/Cmd+click bulk"
+      : "Click to edit · Right-click status · Alt+M pin · Alt+F form · Alt+C cover · Shift+C company portal · Ctrl/Cmd+click bulk";
+    btn.title = `${roleTitle}\n${hints}`;
     btn.addEventListener("click", (e) => {
       const mod = e.ctrlKey || e.metaKey;
       if (mod && !bulkMode) {
@@ -887,7 +885,8 @@
 
     const title = document.createElement("div");
     title.className = "company-tile-title";
-    title.textContent = cell(row.role_title) || "(untitled role)";
+    title.textContent = roleTitle;
+    title.title = roleTitle;
 
     const geo = resolveOpeningGeo(row);
     const flagTitle = window.CountryFlags.prependFlags(btn, title, geo);

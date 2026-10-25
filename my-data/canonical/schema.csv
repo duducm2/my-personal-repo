@@ -12,6 +12,9 @@ profile.csv,lattes_url,Lattes URL,URL Lattes
 profile.csv,orcid_label_en,ORCID label (EN),Rótulo ORCID (EN)
 profile.csv,orcid_label_pt,ORCID label (PT),Rótulo ORCID (PT)
 profile.csv,orcid_url,ORCID URL,URL ORCID
+profile.csv,site_data_analyst_url,Data Analyst site,Site Data Analyst
+profile.csv,site_product_owner_url,Product Owner site,Site Product Owner
+profile.csv,site_digital_solution_architect_url,Digital Solution Architect site,Site Digital Solution Architect
 profile.csv,location_en,Location (EN),Localização (EN)
 profile.csv,location_pt,Location (PT),Localização (PT)
 profile.csv,languages_en,Languages (EN),Idiomas (EN)
