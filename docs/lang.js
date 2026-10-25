@@ -5,6 +5,7 @@ const UI = {
       foundations: "Foundations",
       path: "Path",
       present: "Present",
+      deliverables: "Deliverables",
       model: "Model",
       research: "Research",
       scores: "Scores",
@@ -27,6 +28,21 @@ const UI = {
     stop1: "Hungary",
     storyCap: "The sequence of the portfolio deck",
     pathCap: "The path in the portfolio deck",
+    deliverablesTitle: "Deliverables",
+    deliverablesLead:
+      "These are the pieces I shipped. They stay on this page whichever role you opened.",
+    uxTitle: "UX Super",
+    uxLead:
+      "A portal for the UX practice. It keeps each business with its offerings, personas, and opportunities, and it tracks project KPIs from a baseline to a target.",
+    uxCapBusinesses: "UX Super, businesses",
+    uxCapKpis: "UX Super, project KPIs",
+    deliverable0:
+      "Tooling for Power Tools, from requirements through high-fidelity prototypes.",
+    deliverable1:
+      "CIP research report, and the relevance model used in ServiceNow.",
+    deliverable2: "Power BI for allocation, training, and the TrustMate study.",
+    deliverable3:
+      "A results portal that publishes UX findings as cards, a recommendations library, and a task timeline, instead of a static PDF.",
     modelTitle: "Relevance model",
     modelLead:
       "I built a model to score applied-research relevance for CIP initiatives. CIM (ServiceNow) fields are set by priority. The result is Low, Medium, or High, a triage for when deeper research involvement is needed. Python runs the pipeline on CIM-like data.",
@@ -150,6 +166,7 @@ const UI = {
       foundations: "Formação",
       path: "Trajetória",
       present: "Presente",
+      deliverables: "Entregas",
       model: "Modelo",
       research: "Pesquisa",
       scores: "Resultados",
@@ -172,6 +189,21 @@ const UI = {
     stop1: "Hungria",
     storyCap: "A sequência do deck",
     pathCap: "O caminho no deck",
+    deliverablesTitle: "Entregas",
+    deliverablesLead:
+      "Estas são as peças que entreguei. Elas ficam nesta página qualquer que seja o papel que você abriu.",
+    uxTitle: "UX Super",
+    uxLead:
+      "Um portal para a prática de UX. Guarda cada negócio com ofertas, personas e oportunidades, e acompanha KPIs do projeto de uma linha de base até a meta.",
+    uxCapBusinesses: "UX Super, negócios",
+    uxCapKpis: "UX Super, KPIs do projeto",
+    deliverable0:
+      "Tooling para Power Tools, dos requisitos aos protótipos de alta fidelidade.",
+    deliverable1:
+      "Relatório de pesquisa CIP e o modelo de relevância usado no ServiceNow.",
+    deliverable2: "Power BI para alocação, treinamento e o estudo TrustMate.",
+    deliverable3:
+      "Um portal de resultados que publica achados de UX em cartões, uma biblioteca de recomendações e uma linha do tempo de tarefas, em vez de um PDF estático.",
     modelTitle: "Modelo de relevância",
     modelLead:
       "Construí um modelo para avaliar a relevância de pesquisa aplicada em iniciativas CIP. Campos do CIM (ServiceNow) entram por prioridade. O resultado é Baixa, Média ou Alta, uma triagem de quando a pesquisa precisa ir mais fundo. Python executa o pipeline em dados no formato do CIM.",
