@@ -52,7 +52,7 @@
     [Projeto tooling (Power Tools): apoiei a entrega técnica e a gestão do projeto de requisitos a protótipos de alta fidelidade, com check-ins regulares com clientes.],
     [Dashboards Power BI para acompanhamento de projetos, recursos e treinamentos.],
     [Uso IA no VS Code todo dia para pesquisa, análise e resolução de problemas na pesquisa aplicada.],
-    [Duas viagens à Alemanha (2024, 2025); tutor na SENAI Digital Talent Academy; treinamento de ferramentas de IA para 100+ pessoas (satisfação 4,88/5).],
+    [Duas viagens à Alemanha (2024, 2025); tutor na SENAI Digital Talent Academy; treinamento de ferramentas de IA para 100+ pessoas (satisfação 4,88/5); curso de IA de 8 sessões na Bosch em 2026 com Felipe Oshiro e Gabriel Reis.],
   )),
   ("Jan 2020 – Nov 2022", "Bosch Brasil", "Desenvolvedor Web", (
     [Desenvolvimento front-end em React com Scrum e Kanban.],

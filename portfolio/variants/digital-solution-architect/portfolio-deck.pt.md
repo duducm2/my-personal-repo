@@ -668,7 +668,7 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 | Analytics → insight | Data Insights: Teoria Fundamentada + Python/IA + Power BI em transcrições de call center |
 | Maturidade e governança | Nível 4 de Maturidade UX nas Américas; Power BI + Microsoft Lists para conformidade documental |
 | Resultados de entrega | Média CSI 4,86 / NPS 9,94 (2024–2025); tooling de requisitos a protótipos hi-fi |
-| Capacitação | Treinamento de ferramentas de IA para 100+ pessoas (4,88/5); viagens à Alemanha 2024–2025 |
+| Capacitação | Treinamento de ferramentas de IA para 100+ pessoas (4,88/5); curso de IA de 8 sessões na Bosch em 2026 com Felipe Oshiro e Gabriel Reis; viagens à Alemanha 2024–2025 |
 
 ---
 

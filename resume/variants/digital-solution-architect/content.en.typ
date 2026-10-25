@@ -51,7 +51,7 @@
     [Data Insights (Power Tools): Python and AI on call-center transcripts (Grounded Theory), summarized in Power BI.],
     [UX Maturity Level 4 (Americas): governance, templates, training; Power BI audit dashboard that reads Microsoft Lists.],
     [I use VS Code with AI every day for research and method design on the global work.],
-    [Average CSI 4.86 / NPS 9.94 (2024–2025); international collaboration with Germany (2024, 2025).],
+    [Average CSI 4.86 / NPS 9.94 (2024–2025); international collaboration with Germany (2024, 2025); 8-session Bosch AI course in 2026 with Felipe Oshiro and Gabriel Reis.],
   )),
   ("Jan 2020 – Nov 2022", "Bosch Brasil", "Web Developer", (
     [Built React front ends and internal and customer web tools in Scrum and Kanban.],

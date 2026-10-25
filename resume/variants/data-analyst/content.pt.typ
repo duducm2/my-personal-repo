@@ -53,7 +53,7 @@
     [Data Insights (Power Tools B2B): teoria fundamentada straussiana em registros de call center. Python assistido por IA para manipulação e categorização; validação com stakeholders; insights em Power BI sobre finanças, transporte de material, logística e temas relacionados.],
     [Apoiei as Américas a atingir o Nível 4 de Maturidade em UX: governança, templates, treinamento; dashboard Power BI de auditoria buscando dados do Microsoft Lists para acompanhar documentação de gestão de projetos.],
     [Uso IA no VS Code todo dia para pesquisa, análise e resolução de problemas.],
-    [Duas viagens à Alemanha (2024, 2025); tutor na SENAI Digital Talent Academy; treinamento de ferramentas de IA para 100+ pessoas (satisfação 4,88/5).],
+    [Duas viagens à Alemanha (2024, 2025); tutor na SENAI Digital Talent Academy; IA para 100+ pessoas (4,88/5) e 8 sessões na Bosch em 2026 com Felipe Oshiro e Gabriel Reis.],
   )),
   ("Jan 2020 – Nov 2022", "Bosch Brasil", "Desenvolvedor Web", (
     [Front-end (React) e pesquisa aplicada em Scrum e Kanban; ferramentas para clientes e internas.],

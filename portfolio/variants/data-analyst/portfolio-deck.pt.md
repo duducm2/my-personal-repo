@@ -691,7 +691,7 @@ td, th { overflow-wrap: anywhere; padding: 0.22em 0.45em !important; }
 | Dissertação (TrustMate estatística)     | Testes de normalidade Shapiro-Wilk; t de Welch/pareado, d de Cohen, FDR (Python → Power BI); média, DP, variância, EE, IC + análise gráfica; divisão descritivo vs inferencial (amostra → população)                                                                                                               |
 | Métodos de pesquisa                   | Disciplinas do mestrado + prática: raciocínio descritivo vs inferencial (amostra → população); teoria fundamentada, IPA, fenomenologia, PAR; conecta ao Data Insights (TFD straussiana)                                                                                                                       |
 | Análise aumentada (augmented)                | Uso diário de VS Code + Python/IA no pipeline analítico—mindset de análise aumentada para extrair insight mais rápido                                                                                           |
-| Colaboração                      | Sou tutor de estudantes da Digital Talent Academy; treinamento de ferramentas de IA para 100+ pessoas (satisfação 4,88/5)                                                                                           |
+| Colaboração                      | Sou tutor de estudantes da Digital Talent Academy; treinamento de ferramentas de IA para 100+ pessoas (satisfação 4,88/5); curso de IA de 8 sessões na Bosch em 2026 com Felipe Oshiro e Gabriel Reis                                                                                           |
 
 ---
 

@@ -684,7 +684,7 @@ td, th { overflow-wrap: anywhere; padding: 0.22em 0.45em !important; }
 | Área                               | Conquista                                                                                                                        |
 | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | CIP CIM (Global Services)          | Com equipe de UX, avaliei dashboards estratégicos de CIP de todas as iniciativas na GS—UX mais clara para a liderança identificar problemas e ganhos de eficiência/eficácia; relevância em UX automatizada no ServiceNow (pesos por propriedades) |
-| Colaboração                      | Sou tutor de estudantes da Digital Talent Academy; treinamento de ferramentas de IA para 100+ pessoas (satisfação 4,88/5)                                                                                           |
+| Colaboração                      | Sou tutor de estudantes da Digital Talent Academy; treinamento de ferramentas de IA para 100+ pessoas (satisfação 4,88/5); curso de IA de 8 sessões na Bosch em 2026 com Felipe Oshiro e Gabriel Reis                                                                                           |
 
 ---
 

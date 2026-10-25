@@ -1,81 +1,3 @@
-const PATH_PT = {
-  "data-analyst": {
-    label: "Analista de Dados",
-    eyebrow: "Analista de Dados · Nova Odessa, SP, Brasil",
-    role: "Analista de Dados. IA para manipulação, checagem de dados e insights aplicados.",
-    lede: "Ajudo times a decidir com números mais claros. Excel e CSV no dia a dia, dashboards para contar a história, pesquisa quando precisamos ir mais fundo.",
-    whyTitle: "Decisões apoiadas em números",
-    whyA: "Decisões devem partir de evidência, muitas vezes em Excel e CSV antes de escalar para BI e código.",
-    whyB: "O trabalho centra análise de dados, experimentação e pesquisa aplicada: mensurar resultados e alimentar a entrega com insight.",
-    presentTitle: "Dados, métricas e pesquisa aplicada",
-    presentLead:
-      "Pesquisa Aplicada e Tecnologia na Bosch Brasil, janeiro de 2023 até agora. O mesmo papel, lido pelos números: CSI, NPS, Power BI e o modelo de relevância.",
-    nextTitle: "Como chego a analista de dados sênior",
-    steps: ["Agora", "Próximo", "Método", "Decisões"],
-    stepCopy: [
-      "Desenho experimental e estatística inferencial no TrustMate (Welch, d de Cohen, FDR, avaliação com LLM versus humanos). Texto confuso virando BI validado. CSI, NPS, Power BI, Python e SQL na Bosch.",
-      "Analista de dados sênior: insight pelo método científico.",
-      "Análise descritiva, inferencial e visual.",
-      "Decisões rápidas a partir dessa evidência.",
-    ],
-    diagram: "../media/path-pt.png",
-    diagramAlt:
-      "Caminho da análise descritiva, inferencial e visual até analista de dados sênior e decisões rápidas",
-    contactLead:
-      "Conecto dados a decisões, de Excel e CSV a dashboards e pesquisa aplicada. Tento deixar quem decide com algo acionável, não só gráficos.",
-  },
-  "product-owner": {
-    label: "Product Owner",
-    eyebrow: "Product Owner · Nova Odessa, SP, Brasil",
-    role: "Descoberta, entrega e resultados com stakeholders.",
-    lede: "Ajudo times a decidir o que construir em seguida e colocar no ar. Pesquisa para a decisão, alinhamento para o compromisso, métricas depois.",
-    whyTitle: "Produtos em que as pessoas possam confiar",
-    whyA: "Produtos em organizações de serviço precisam ser confiáveis e utilizáveis, principalmente quando afetam pessoas e negócios de verdade.",
-    whyB: "O trabalho conecta necessidades de stakeholders, priorização e pesquisa aplicada. A evidência molda o que construímos, por quê e em qual ordem.",
-    presentTitle: "Trabalho orientado a produto na Bosch Brasil",
-    presentLead:
-      "Analista de Pesquisa Aplicada e Design, janeiro de 2023 até agora. Especialista em Pesquisa Aplicada e Project Champion na GS/BDU. Da descoberta à entrega, com check-ins de cliente no projeto de tooling.",
-    nextTitle: "Como trabalho em direção a Product Owner Sênior",
-    steps: ["Descoberta", "Prioridade", "Stakeholders", "Próximo"],
-    stepCopy: [
-      "Tooling para PT: requisitos, protótipos de alta fidelidade e check-ins regulares com clientes.",
-      "Entrada de pesquisa aplicada no CIP ServiceNow. Baixa, Média ou Alta, para o time saber quando o trabalho precisa ir mais fundo.",
-      "Maturidade de UX Nível 4 nas Américas: governança, templates e treinamento que os stakeholders reutilizam.",
-      "Product Owner Sênior. Descoberta, depois prioridade, depois validação com quem usa o resultado. CSI 4,86 e NPS 9,94 em 2024–2025.",
-    ],
-    diagram: "../media/path-po-pt.png",
-    diagramAlt:
-      "Caminho de uma necessidade e uma prioridade com evidência até um resultado entregue",
-    contactLead:
-      "Acompanho o trabalho da descoberta à entrega. Esclareço necessidades, alinho pessoas, priorizo com evidência e verifico se o resultado se sustentou.",
-  },
-  "digital-solution-architect": {
-    label: "Arquiteto de Soluções Digitais",
-    eyebrow: "Arquiteto de Soluções Digitais · Nova Odessa, SP, Brasil",
-    role: "Arquiteto de Soluções Digitais. Cloud, digitalização e entrega baseada em evidência.",
-    lede: "Ajudo times a desenhar digitalização e analytics que se sustentam em produção. Limites claros, resultados mensuráveis, revisões baseadas em evidência.",
-    whyTitle: "Soluções que sobrevivem à operação",
-    whyA: "Soluções digitais em organizações de serviço precisam sobreviver à operação real. Ficar bem em uma revisão não basta.",
-    whyB: "O trabalho conecta digitalização, caminhos de dados e quality gates de pesquisa aplicada. Arquitetura que os times consigam operar.",
-    presentTitle: "Digitalização, gates e entrega",
-    presentLead:
-      "Sistemas de digitalização na Bosch Hungria. Gates de arquitetura no ServiceNow CIP. Analytics virando insight, depois entrega com CSI e NPS mensuráveis.",
-    nextTitle: "Como chego a arquiteto de soluções digitais pleno",
-    steps: ["Agora", "Próximo", "Método", "Decisões"],
-    stepCopy: [
-      "Sistemas de digitalização na Bosch Hungria, gates de arquitetura no CIP ServiceNow, analytics virando insight e resultados de entrega na Bosch.",
-      "Arquiteto de Soluções Digitais (Pleno): cloud, digitalização e entrega baseada em evidência.",
-      "Limites, gates de evidência e desenhos que sobrevivem à operação.",
-      "Soluções julgadas pelo que acontece em produção.",
-    ],
-    diagram: "../media/path-dsa-pt.png",
-    diagramAlt:
-      "Caminho de um problema e um desenho operável até uma solução que o time consiga operar",
-    contactLead:
-      "Levo digitalização, pipelines analíticos e quality gates de pesquisa para arquitetura de soluções que times globais consigam operar, avaliada por resultados.",
-  },
-};
-
 const UI = {
   en: {
     chapters: {
@@ -173,7 +95,7 @@ const UI = {
       ],
       [
         "Teaching",
-        "Tutor for Digital Talent Academy students. AI tools training for 100+ people, satisfaction 4.88 / 5.",
+        "Tutor for Digital Talent Academy students. AI tools training for 100+ people, satisfaction 4.88 / 5. In 2026, eight sessions at Bosch with Felipe Oshiro and Gabriel Reis: the group learned AI terms and applied them with agents.",
       ],
     ],
     presentCaps: [
@@ -185,6 +107,7 @@ const UI = {
       "CIP research report",
       "Power BI, allocation",
       "Power BI, training",
+      "Bosch AI sessions, 2026, with Felipe Oshiro and Gabriel Reis",
     ],
     researchCaps: [
       "TrustMate, Power BI",
@@ -317,7 +240,7 @@ const UI = {
       ],
       [
         "Formação",
-        "Tutor de estudantes da Digital Talent Academy. Treinamento de ferramentas de IA para mais de 100 pessoas, satisfação 4,88 / 5.",
+        "Tutor de estudantes da Digital Talent Academy. Treinamento de ferramentas de IA para mais de 100 pessoas, satisfação 4,88 / 5. Em 2026, oito sessões na Bosch com Felipe Oshiro e Gabriel Reis: o grupo aprendeu termos de IA e aplicou na prática com agentes.",
       ],
     ],
     presentCaps: [
@@ -329,6 +252,7 @@ const UI = {
       "Relatório de pesquisa CIP",
       "Power BI, alocação",
       "Power BI, treinamento",
+      "Sessões de IA na Bosch, 2026, com Felipe Oshiro e Gabriel Reis",
     ],
     researchCaps: [
       "TrustMate, Power BI",

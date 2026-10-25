@@ -668,7 +668,7 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 | Analytics → insight | Data Insights: Grounded Theory + Python/AI + Power BI on call-center transcripts |
 | Maturity & governance | Americas UX Maturity Level 4; Power BI + Microsoft Lists document compliance |
 | Delivery outcomes | Avg CSI 4.86 / NPS 9.94 (2024–2025); tooling from requirements to hi-fi prototypes |
-| Enablement | AI tools training for 100+ people (4.88/5); Germany trips 2024–2025 |
+| Enablement | AI tools training for 100+ people (4.88/5); 8-session Bosch AI course in 2026 with Felipe Oshiro and Gabriel Reis; Germany trips 2024–2025 |
 
 ---
 

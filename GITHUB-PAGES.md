@@ -14,7 +14,7 @@ GitHub Pages serves `docs/` as the site root. There are three public portfolios,
 - Product Owner: https://duducm2.github.io/my-personal-repo/product-owner/
 - Digital Solution Architect: https://duducm2.github.io/my-personal-repo/digital-solution-architect/
 
-The root https://duducm2.github.io/my-personal-repo/ lists those three. The same three addresses are stored on the career profile. In the cockpit, **Portfolio** opens a menu with Data Analyst, Product Owner, and Digital Solution Architect. Each item opens the local page at `http://127.0.0.1:8770/portfolio/` plus that path.
+Each public page stands alone. It does not link to the other two, and the site root does not list them. Share one address with a given opening. The same three addresses stay on the career profile for you. In the cockpit, **Portfolio** opens a menu with Data Analyst, Product Owner, and Digital Solution Architect. Each item opens the local page at `http://127.0.0.1:8770/portfolio/` plus that path.
 
 ## 1. Commit and push `docs/`
 
@@ -37,7 +37,7 @@ Leave the custom domain empty. Do not enable Jekyll. `docs/.nojekyll` already te
 2. Wait until the deployment status is successful. The first run often takes one to two minutes.
 3. Open https://duducm2.github.io/my-personal-repo/
 
-You should see Eduardo Figueiredo and the three career paths. Open each path and confirm the portrait, the chapter rail, and the path-specific opening line.
+Open each path address on its own. You should see Eduardo Figueiredo, the portrait, the chapter rail, and that path's opening line. The page should not offer the other paths.
 
 If the page is a 404, check that `docs/index.html` is on `main` and that the folder setting is `/docs`, not `/ (root)`.
 

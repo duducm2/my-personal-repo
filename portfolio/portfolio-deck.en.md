@@ -684,7 +684,7 @@ td, th { overflow-wrap: anywhere; padding: 0.22em 0.45em !important; }
 | Area                               | Achievement                                                                                                                        |
 | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | CIP CIM (Global Services)          | With UX team, evaluated strategic CIP dashboards for all GS initiatives—clearer UX so leadership could quickly spot main issues and efficiency/efficacy gains; automated UX relevance in ServiceNow (property-based weights) |
-| Collaboration                      | Tutor of Digital Talent Academy Students; AI tools training for 100+ people (4.88/5 satisfaction)                                                                                           |
+| Collaboration                      | Tutor of Digital Talent Academy Students; AI tools training for 100+ people (4.88/5 satisfaction); 8-session Bosch AI course in 2026 with Felipe Oshiro and Gabriel Reis                                                                                           |
 
 ---
 

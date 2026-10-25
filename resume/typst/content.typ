@@ -52,7 +52,7 @@
     [Tooling project (Power Tools): supported technical delivery and project management from requirements through high-fidelity prototypes, with regular customer check-ins.],
     [Power BI dashboards for project and resource oversight and training tracking.],
     [Use AI in VS Code every day for research, analysis, and problem-solving in applied research.],
-    [Two trips to Germany (2024, 2025); tutor at SENAI Digital Talent Academy; AI tools training for 100+ people (4.88/5 satisfaction).],
+    [Two trips to Germany (2024, 2025); tutor at SENAI Digital Talent Academy; AI tools training for 100+ people (4.88/5 satisfaction); 8-session Bosch AI course in 2026 with Felipe Oshiro and Gabriel Reis.],
   )),
   ("Jan 2020 – Nov 2022", "Bosch Brasil", "Web Developer", (
     [Front-end development in React with Scrum and Kanban.],

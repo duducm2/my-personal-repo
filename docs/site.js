@@ -1,77 +1,3 @@
-const PATH_EN = {
-  "data-analyst": {
-    label: "Data Analyst",
-    eyebrow: "Data Analyst · Nova Odessa, SP, Brazil",
-    role: "Data analyst. AI for data manipulation, validation, and applied insights.",
-    lede: "I help teams make decisions with clearer numbers. Excel and CSV for the daily work, dashboards for the story, research when we need to go deeper.",
-    whyTitle: "Decisions backed by numbers",
-    whyA: "Decisions should start from evidence, often in Excel and CSV before they scale to BI and code.",
-    whyB: "The work centers data analysis, experimentation, and applied research: measuring outcomes and feeding that insight into delivery.",
-    presentTitle: "Data, metrics, and applied research",
-    presentLead:
-      "Applied Research and Technology at Bosch Brasil, January 2023 to the present. The same role, read through the numbers: CSI, NPS, Power BI, and the relevance model.",
-    nextTitle: "How I get to senior data analyst",
-    steps: ["Now", "Next", "Method", "Decisions"],
-    stepCopy: [
-      "Experimental design and inferential statistics on TrustMate (Welch, Cohen's d, FDR, LLM evaluation versus humans). Messy text turned into validated BI. CSI, NPS, Power BI, Python, and SQL at Bosch.",
-      "Senior data analyst: insight through the scientific method.",
-      "Descriptive, inferential, and visual analysis.",
-      "Fast decisions from that evidence.",
-    ],
-    diagram: "../media/path.png",
-    diagramAlt:
-      "Path from descriptive, inferential, and visual analysis to senior data analyst and fast decisions",
-  },
-  "product-owner": {
-    label: "Product Owner",
-    eyebrow: "Product Owner · Nova Odessa, SP, Brazil",
-    role: "Discovery, delivery, and stakeholder outcomes.",
-    lede: "I help teams decide what to build next and get it shipped. Research for the call, alignment for the commit, metrics afterward.",
-    whyTitle: "Products people can rely on",
-    whyA: "Products in service organizations have to be reliable and usable, especially when they affect real people and real businesses.",
-    whyB: "The work connects stakeholder needs, priority, and applied research. Evidence shapes what we build, why, and in what order.",
-    presentTitle: "Product-shaped work at Bosch Brasil",
-    presentLead:
-      "Applied Research and Design Analyst, January 2023 to the present. Applied Research Expert and Project Champion at GS/BDU. Discovery through delivery, with customer check-ins on the tooling project.",
-    nextTitle: "How I work toward Senior Product Owner",
-    steps: ["Discovery", "Priority", "Stakeholders", "Next"],
-    stepCopy: [
-      "Tooling for PT: requirements, high-fidelity prototypes, and regular customer check-ins.",
-      "ServiceNow applied-research intake in CIP. Low, Medium, or High, so the team knows when deeper work is needed.",
-      "Americas UX maturity Level 4: governance, templates, and training that stakeholders can reuse.",
-      "Senior Product Owner. Discovery, then priority, then validation with the people who use the result. CSI 4.86 and NPS 9.94 across 2024–2025.",
-    ],
-    diagram: "../media/path-po.png",
-    diagramAlt:
-      "Path from a need and an evidence-backed priority to a shipped outcome",
-  },
-  "digital-solution-architect": {
-    label: "Digital Solution Architect",
-    eyebrow: "Digital Solution Architect · Nova Odessa, SP, Brazil",
-    role: "Digital solution architect. Cloud, digitization, and evidence-based delivery.",
-    lede: "I help teams design digitization and analytics that hold up in production. Clear boundaries, measurable outcomes, reviews grounded in evidence.",
-    whyTitle: "Solutions that survive operations",
-    whyA: "Digital solutions in service organizations have to survive real operations. Looking good in a review is not enough.",
-    whyB: "The work connects digitization, data paths, and applied-research quality gates. Architecture that teams can actually run.",
-    presentTitle: "Digitization, gates, and delivery",
-    presentLead:
-      "Digitization systems at Bosch Hungary. Architecture gates in ServiceNow CIP. Analytics turned into insight, then delivery with measurable CSI and NPS.",
-    nextTitle: "How I get to mid-level digital solution architect",
-    steps: ["Now", "Next", "Method", "Decisions"],
-    stepCopy: [
-      "Digitization systems at Bosch Hungary, architecture gates in ServiceNow CIP, analytics turned into insight, and delivery outcomes at Bosch.",
-      "Mid-level digital solution architect: cloud, digitization, and evidence-based delivery.",
-      "Boundaries, evidence gates, and designs that survive operations.",
-      "Solutions judged by what happens in production.",
-    ],
-    diagram: "../media/path-dsa.png",
-    diagramAlt:
-      "Path from a problem and an operable design to a solution teams can run",
-  },
-};
-
-const pathKey = document.body.dataset.path;
-
 let lang = "en";
 try {
   const saved = localStorage.getItem("portfolio-lang");
@@ -85,7 +11,7 @@ let stopIndex = 0;
 let stepIndex = 0;
 
 function activePath() {
-  return (lang === "pt" ? PATH_PT : PATH_EN)[pathKey];
+  return PATH_COPY[lang];
 }
 
 function applyPath() {
@@ -117,18 +43,6 @@ function applyPath() {
   if (diagram) {
     diagram.src = pathCopy.diagram;
     diagram.alt = pathCopy.diagramAlt;
-  }
-  const switcher = document.getElementById("rail-paths");
-  if (switcher) {
-    switcher.replaceChildren();
-    const catalog = lang === "pt" ? PATH_PT : PATH_EN;
-    Object.entries(catalog).forEach(([key, item]) => {
-      const link = document.createElement("a");
-      link.href = `../${key}/`;
-      link.textContent = item.label;
-      if (key === pathKey) link.setAttribute("aria-current", "page");
-      switcher.append(link);
-    });
   }
 }
 
