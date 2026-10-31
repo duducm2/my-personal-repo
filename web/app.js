@@ -2820,42 +2820,116 @@
     return topic.section_en || topic.section_pt || "";
   }
 
-  function appendTopicList(parent, topics, variant, canRaise) {
-    const list = document.createElement("ul");
-    list.className = "resume-priority-list";
-    for (const topic of topics) {
-      const item = document.createElement("li");
-      const copy = document.createElement("div");
-      const section = document.createElement("div");
-      section.className = "resume-priority-meta";
-      section.textContent = `${topicSection(topic)} · priority ${topic.priority}`;
-      const text = document.createElement("div");
-      text.textContent = topicLine(topic);
-      copy.append(section, text);
-      if (
-        getLangMode() === "both" &&
-        topic.text_pt &&
-        topic.text_pt !== topic.text_en
-      ) {
-        const pt = document.createElement("div");
-        pt.className = "resume-priority-meta";
-        pt.textContent = topic.text_pt;
-        copy.append(pt);
-      }
-      item.append(copy);
-      if (canRaise) {
-        const button = document.createElement("button");
-        button.type = "button";
-        button.className = "download-btn download-btn-view";
-        button.textContent = "Prioritize";
-        button.addEventListener("click", () =>
-          raiseResumeTopic(variant, topic.id),
-        );
-        item.append(button);
-      }
-      list.append(item);
+  function priorityTile(title, count, className) {
+    const tile = document.createElement("section");
+    tile.className = `priority-tile ${className || ""}`.trim();
+    const head = document.createElement("h3");
+    head.textContent = title;
+    if (count != null) {
+      const mark = document.createElement("span");
+      mark.className = "priority-count";
+      mark.textContent = String(count);
+      head.append(mark);
     }
-    parent.append(list);
+    tile.append(head);
+    return tile;
+  }
+
+  function priorityCard(topic, variant, canRaise) {
+    const card = document.createElement("article");
+    card.className = "priority-card";
+    const kicker = document.createElement("div");
+    kicker.className = "priority-card-kicker";
+    kicker.textContent = topicSection(topic);
+    const text = document.createElement("p");
+    text.className = "priority-card-text";
+    text.textContent = topicLine(topic);
+    card.append(kicker, text);
+    if (
+      getLangMode() === "both" &&
+      topic.text_pt &&
+      topic.text_pt !== topic.text_en
+    ) {
+      const pt = document.createElement("p");
+      pt.className = "priority-card-pt";
+      pt.textContent = topic.text_pt;
+      card.append(pt);
+    }
+    if (canRaise) {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "download-btn download-btn-view";
+      button.textContent = "Prioritize";
+      button.addEventListener("click", () =>
+        raiseResumeTopic(variant, topic.id),
+      );
+      card.append(button);
+    }
+    return card;
+  }
+
+  function groupTopics(topics) {
+    const groups = [];
+    const index = new Map();
+    for (const topic of topics) {
+      const key = topicSection(topic) || "Other";
+      if (!index.has(key)) {
+        const group = { title: key, topics: [] };
+        index.set(key, group);
+        groups.push(group);
+      }
+      index.get(key).topics.push(topic);
+    }
+    const rank = (group) => {
+      const kind = group.topics[0] && group.topics[0].kind;
+      const title = group.title.toLowerCase();
+      if (title.startsWith("core") || title.startsWith("núcleo")) return 0;
+      if (kind === "bullet") return 1;
+      if (kind === "extra") return 2;
+      return 3;
+    };
+    groups.sort((a, b) => {
+      const byKind = rank(a) - rank(b);
+      if (byKind) return byKind;
+      const aMax = Math.max(...a.topics.map((topic) => topic.priority || 0));
+      const bMax = Math.max(...b.topics.map((topic) => topic.priority || 0));
+      return bMax - aMax;
+    });
+    return groups;
+  }
+
+  function appendGroupTile(parent, group) {
+    const skills = group.topics.filter((topic) => topic.kind === "skill");
+    const prose = group.topics.filter((topic) => topic.kind !== "skill");
+    const tile = document.createElement("section");
+    tile.className =
+      "priority-tile priority-tile-group" +
+      (prose.length ? " is-copy" : " is-chips");
+    const head = document.createElement("h3");
+    head.textContent = group.title;
+    const mark = document.createElement("span");
+    mark.className = "priority-count";
+    mark.textContent = String(group.topics.length);
+    head.append(mark);
+    tile.append(head);
+    if (skills.length) {
+      const chips = document.createElement("div");
+      chips.className = "priority-chips";
+      for (const topic of skills) {
+        const chip = document.createElement("span");
+        chip.className = "priority-chip";
+        chip.textContent = topicLine(topic);
+        chips.append(chip);
+      }
+      tile.append(chips);
+    }
+    for (const topic of prose) {
+      const line = document.createElement("p");
+      line.className = "priority-line";
+      line.textContent = topicLine(topic);
+      tile.append(line);
+    }
+    parent.append(tile);
   }
 
   async function openResumePriority(variant, label) {
@@ -2899,36 +2973,95 @@
       body.append(empty);
       return;
     }
-    const intro = document.createElement("p");
-    intro.className = "resume-priority-intro";
-    const left = (entry.deprioritized || []).length;
-    intro.textContent = entry.one_page
-      ? `English and Portuguese each fit on one page. ${left} topic${left === 1 ? "" : "s"} ${left === 1 ? "was" : "were"} left off.`
-      : "This resume is still longer than one page.";
-    body.append(intro);
-
-    const leftHead = document.createElement("h3");
-    leftHead.textContent = "Left off this page";
-    body.append(leftHead);
-    if (!left) {
-      const none = document.createElement("p");
-      none.className = "resume-priority-intro";
-      none.textContent =
-        "Every droppable topic still fits. The list below is the order they would leave, lowest priority first.";
-      body.append(none);
-    } else {
-      appendTopicList(body, entry.deprioritized, variant, true);
-    }
-
-    const keptHead = document.createElement("h3");
-    keptHead.textContent = "On this page";
-    body.append(keptHead);
+    const off = entry.deprioritized || [];
     const kept = (entry.kept || []).filter((topic) => !topic.pinned);
-    appendTopicList(body, kept, variant, false);
+    const edge = kept.slice(0, 6);
+    const rest = kept.slice(6);
+    const pages = entry.pages || {};
+
+    const bento = document.createElement("div");
+    bento.className = "priority-bento";
+
+    const stats = document.createElement("div");
+    stats.className = "priority-stats";
+    const stat = (value, caption, extra) => {
+      const box = document.createElement("div");
+      box.className = `priority-stat ${extra || ""}`.trim();
+      const strong = document.createElement("strong");
+      strong.textContent = value;
+      const label = document.createElement("span");
+      label.textContent = caption;
+      box.append(strong, label);
+      return box;
+    };
+    stats.append(
+      stat(String(off.length), "Left off the page", "is-off"),
+      stat(String(kept.length), "On this page", "is-on"),
+      stat(
+        entry.one_page ? `${pages.en || 1} · ${pages.pt || 1}` : "Over",
+        entry.one_page ? "EN and PT pages" : "Still over one page",
+      ),
+    );
+    bento.append(stats);
+
+    const offTile = priorityTile(
+      "Left off the page",
+      off.length,
+      "priority-tile-off",
+    );
+    if (!off.length) {
+      const none = document.createElement("p");
+      none.className = "priority-tile-note";
+      none.textContent = "Every topic still fits on the one page.";
+      offTile.append(none);
+    } else {
+      for (const topic of off)
+        offTile.append(priorityCard(topic, variant, true));
+    }
+    bento.append(offTile);
+
+    const edgeTile = priorityTile(
+      "Lowest on this page",
+      edge.length,
+      "priority-tile-edge",
+    );
+    const edgeNote = document.createElement("p");
+    edgeNote.className = "priority-tile-note";
+    edgeNote.textContent = "These stay on the page and would leave first.";
+    edgeTile.append(edgeNote);
+    const edgeSkills = edge.filter((topic) => topic.kind === "skill");
+    const edgeProse = edge.filter((topic) => topic.kind !== "skill");
+    if (edgeSkills.length) {
+      const chips = document.createElement("div");
+      chips.className = "priority-chips";
+      for (const topic of edgeSkills) {
+        const chip = document.createElement("span");
+        chip.className = "priority-chip";
+        chip.textContent = topicLine(topic);
+        chips.append(chip);
+      }
+      edgeTile.append(chips);
+    }
+    for (const topic of edgeProse)
+      edgeTile.append(priorityCard(topic, variant, false));
+    bento.append(edgeTile);
+
+    const onTile = priorityTile(
+      "On this page",
+      rest.length,
+      "priority-tile-on",
+    );
+    const groups = document.createElement("div");
+    groups.className = "priority-groups";
+    for (const group of groupTopics(rest)) appendGroupTile(groups, group);
+    onTile.append(groups);
     const pin = document.createElement("p");
-    pin.className = "resume-priority-intro";
+    pin.className = "priority-tile-note";
     pin.textContent = "The opening line of the current role stays on the page.";
-    body.append(pin);
+    onTile.append(pin);
+    bento.append(onTile);
+
+    body.append(bento);
   }
 
   async function raiseResumeTopic(variant, topicId) {
@@ -3008,16 +3141,12 @@
       const portfolios = group.filter((i) => i.kind === "portfolio");
 
       card.append(
-        buildDownloadRow("Resume", resumes, { isResume: true, policy }),
+        buildDownloadRow("Resume", resumes, {
+          isResume: true,
+          policy,
+          onLeftOff: () => openResumePriority(variant, group[0].label_en),
+        }),
       );
-      const leftOff = document.createElement("button");
-      leftOff.type = "button";
-      leftOff.className = "download-btn download-btn-view resume-priority-open";
-      leftOff.textContent = "Left off this page";
-      leftOff.addEventListener("click", () =>
-        openResumePriority(variant, group[0].label_en),
-      );
-      card.append(leftOff);
       card.append(
         buildDownloadRow("Portfolio", portfolios, { isResume: false }),
       );
@@ -3047,6 +3176,15 @@
       const hint = document.createElement("span");
       hint.className = "download-row-hint";
       hint.textContent = "1-page limit";
+      if (opts.onLeftOff) {
+        hint.append(document.createTextNode(" · "));
+        const leftOff = document.createElement("button");
+        leftOff.type = "button";
+        leftOff.className = "resume-priority-open";
+        leftOff.textContent = "Left off this page";
+        leftOff.addEventListener("click", opts.onLeftOff);
+        hint.append(leftOff);
+      }
       label.append(hint);
     }
     row.append(label);
