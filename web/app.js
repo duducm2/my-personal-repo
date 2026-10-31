@@ -2772,10 +2772,178 @@
         const frame = document.getElementById("resume-viewer-frame");
         if (frame) frame.src = "about:blank";
       });
-      dialog.addEventListener("click", (e) => {
-        if (e.target === dialog) closeResumeViewer();
+      dialog.addEventListener("click", (event) => {
+        if (event.target === dialog) closeResumeViewer();
       });
     }
+    const priorityDialog = document.getElementById("resume-priority-modal");
+    const priorityClose = document.getElementById("resume-priority-close");
+    if (priorityClose) {
+      priorityClose.addEventListener("click", () => {
+        if (priorityDialog && priorityDialog.open) priorityDialog.close();
+      });
+    }
+  }
+
+  function topicLine(topic) {
+    const mode = getLangMode();
+    if (mode === "pt") return topic.text_pt || topic.text_en || "";
+    return topic.text_en || topic.text_pt || "";
+  }
+
+  function topicSection(topic) {
+    const mode = getLangMode();
+    if (mode === "pt") return topic.section_pt || topic.section_en || "";
+    return topic.section_en || topic.section_pt || "";
+  }
+
+  function appendTopicList(parent, topics, variant, canRaise) {
+    const list = document.createElement("ul");
+    list.className = "resume-priority-list";
+    for (const topic of topics) {
+      const item = document.createElement("li");
+      const copy = document.createElement("div");
+      const section = document.createElement("div");
+      section.className = "resume-priority-meta";
+      section.textContent = `${topicSection(topic)} · priority ${topic.priority}`;
+      const text = document.createElement("div");
+      text.textContent = topicLine(topic);
+      copy.append(section, text);
+      if (
+        getLangMode() === "both" &&
+        topic.text_pt &&
+        topic.text_pt !== topic.text_en
+      ) {
+        const pt = document.createElement("div");
+        pt.className = "resume-priority-meta";
+        pt.textContent = topic.text_pt;
+        copy.append(pt);
+      }
+      item.append(copy);
+      if (canRaise) {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "download-btn download-btn-view";
+        button.textContent = "Prioritize";
+        button.addEventListener("click", () =>
+          raiseResumeTopic(variant, topic.id),
+        );
+        item.append(button);
+      }
+      list.append(item);
+    }
+    parent.append(list);
+  }
+
+  async function openResumePriority(variant, label) {
+    const dialog = document.getElementById("resume-priority-modal");
+    const title = document.getElementById("resume-priority-title");
+    const body = document.getElementById("resume-priority-body");
+    if (!dialog || !title || !body) return;
+    title.textContent = `${label} · left off this page`;
+    body.replaceChildren();
+    const loading = document.createElement("p");
+    loading.className = "resume-priority-intro";
+    loading.textContent = "Loading the priority list…";
+    body.append(loading);
+    if (typeof dialog.showModal === "function" && !dialog.open)
+      dialog.showModal();
+    try {
+      const res = await fetch("/api/resume-priority");
+      const data = await res.json();
+      renderResumePriority(variant, label, data);
+    } catch (err) {
+      body.replaceChildren();
+      const fail = document.createElement("p");
+      fail.className = "resume-priority-intro";
+      fail.textContent = "The priority list could not be loaded.";
+      body.append(fail);
+    }
+  }
+
+  function renderResumePriority(variant, label, data) {
+    const title = document.getElementById("resume-priority-title");
+    const body = document.getElementById("resume-priority-body");
+    if (!title || !body) return;
+    title.textContent = `${label} · left off this page`;
+    body.replaceChildren();
+    const entry = data && data.variants ? data.variants[variant] : null;
+    if (!entry) {
+      const empty = document.createElement("p");
+      empty.className = "resume-priority-intro";
+      empty.textContent =
+        "The priority list has not been built for this resume yet.";
+      body.append(empty);
+      return;
+    }
+    const intro = document.createElement("p");
+    intro.className = "resume-priority-intro";
+    const left = (entry.deprioritized || []).length;
+    intro.textContent = entry.one_page
+      ? `English and Portuguese each fit on one page. ${left} topic${left === 1 ? "" : "s"} ${left === 1 ? "was" : "were"} left off.`
+      : "This resume is still longer than one page.";
+    body.append(intro);
+
+    const leftHead = document.createElement("h3");
+    leftHead.textContent = "Left off this page";
+    body.append(leftHead);
+    if (!left) {
+      const none = document.createElement("p");
+      none.className = "resume-priority-intro";
+      none.textContent =
+        "Every droppable topic still fits. The list below is the order they would leave, lowest priority first.";
+      body.append(none);
+    } else {
+      appendTopicList(body, entry.deprioritized, variant, true);
+    }
+
+    const keptHead = document.createElement("h3");
+    keptHead.textContent = "On this page";
+    body.append(keptHead);
+    const kept = (entry.kept || []).filter((topic) => !topic.pinned);
+    appendTopicList(body, kept, variant, false);
+    const pin = document.createElement("p");
+    pin.className = "resume-priority-intro";
+    pin.textContent = "The opening line of the current role stays on the page.";
+    body.append(pin);
+  }
+
+  async function raiseResumeTopic(variant, topicId) {
+    const body = document.getElementById("resume-priority-body");
+    const title = document.getElementById("resume-priority-title");
+    const label = title
+      ? title.textContent.replace(/ · left off this page$/, "")
+      : variant;
+    if (body) {
+      body.querySelectorAll("button").forEach((button) => {
+        button.disabled = true;
+      });
+      const status = document.createElement("p");
+      status.className = "resume-priority-intro";
+      status.textContent = "Rebuilding the one-page resume…";
+      body.prepend(status);
+    }
+    const res = await fetch("/api/resume-priority", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ variant, topic_id: topicId }),
+    });
+    const data = await res.json();
+    if (!res.ok || !data.ok) {
+      if (body) {
+        const fail = document.createElement("p");
+        fail.className = "resume-priority-intro";
+        fail.textContent =
+          "The resume could not be rebuilt. Close the PDF if it is open, then try again.";
+        body.prepend(fail);
+      }
+      return;
+    }
+    const index = await fetch("/api/resume-priority").then((response) =>
+      response.json(),
+    );
+    renderResumePriority(variant, label, index);
+    loadDownloads();
   }
 
   function renderDownloads(items, policy) {
@@ -2819,6 +2987,14 @@
       card.append(
         buildDownloadRow("Resume", resumes, { isResume: true, policy }),
       );
+      const leftOff = document.createElement("button");
+      leftOff.type = "button";
+      leftOff.className = "download-btn download-btn-view resume-priority-open";
+      leftOff.textContent = "Left off this page";
+      leftOff.addEventListener("click", () =>
+        openResumePriority(variant, group[0].label_en),
+      );
+      card.append(leftOff);
       card.append(
         buildDownloadRow("Portfolio", portfolios, { isResume: false }),
       );

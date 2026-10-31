@@ -41,7 +41,7 @@
 #let languages = "Portuguese (Native)   English (Fluent)"
 
 #let skills = (
-  ("Core", "Core:", ("Applied Research", "Project Management", "Continuous Improvement (CIP)", "AI Systems", "Autodidact", "Statistics")),
+  ("Core", "Core:", ("Applied Research", "Project Management", "Continuous Improvement (CIP)", "AI Systems", "Autodidact", "Statistics", "Vibe coding")),
   ("Tech", "Tech:", ("Power BI", "Python", "React", "Figma", "SQL", "Matplotlib", "Seaborn", "Git", "GitHub", "Azure", "Bitbucket", "HTML", "CSS", "Mermaid", "VS Code", "Excel", "VBA", "AutoHotkey")),
 )
 
@@ -51,7 +51,7 @@
     [CIP CIM / Global Services: with the UX team, evaluated strategic CIP dashboards so GS leadership could spot main issues and efficiency/efficacy gains quickly; automated UX relevance scoring in ServiceNow with property-based weights.],
     [Tooling project (Power Tools): supported technical delivery and project management from requirements through high-fidelity prototypes, with regular customer check-ins.],
     [Power BI dashboards for project and resource oversight and training tracking.],
-    [Use AI in VS Code every day for research, analysis, and problem-solving in applied research.],
+    [Use AI in VS Code every day, including vibe coding, for research, analysis, and problem-solving in applied research.],
     [Two trips to Germany (2024, 2025); tutor at SENAI Digital Talent Academy; AI tools training for 100+ people (4.88/5 satisfaction); 8-session Bosch AI course in 2026 with Felipe Oshiro and Gabriel Reis.],
   )),
   ("Jan 2020 – Nov 2022", "Bosch Brasil", "Web Developer", (

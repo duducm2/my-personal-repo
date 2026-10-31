@@ -41,7 +41,7 @@
 #let languages = "Português (Nativo)   Inglês (Fluente)"
 
 #let skills = (
-  ("Core", "Núcleo:", ("Pesquisa Aplicada", "Gestão de Projetos", "Melhoria Contínua (CIP)", "Sistemas de IA", "Autodidata", "Estatística")),
+  ("Core", "Núcleo:", ("Pesquisa Aplicada", "Gestão de Projetos", "Melhoria Contínua (CIP)", "Sistemas de IA", "Autodidata", "Estatística", "Vibe coding")),
   ("Tech", "Tecnologias:", ("Power BI", "Python", "React", "Figma", "SQL", "Matplotlib", "Seaborn", "Git", "GitHub", "Azure", "Bitbucket", "HTML", "CSS", "Mermaid", "VS Code", "Excel", "VBA", "AutoHotkey")),
 )
 
@@ -51,7 +51,7 @@
     [CIP CIM / Global Services: com a equipe de UX, avaliei dashboards estratégicos de CIP para a liderança da GS identificar problemas e ganhos de eficiência/eficácia com mais rapidez; automatizei a pontuação de relevância em UX no ServiceNow com pesos por propriedades.],
     [Projeto tooling (Power Tools): apoiei a entrega técnica e a gestão do projeto de requisitos a protótipos de alta fidelidade, com check-ins regulares com clientes.],
     [Dashboards Power BI para acompanhamento de projetos, recursos e treinamentos.],
-    [Uso IA no VS Code todo dia para pesquisa, análise e resolução de problemas na pesquisa aplicada.],
+    [Uso IA no VS Code todo dia, inclusive vibe coding, para pesquisa, análise e resolução de problemas na pesquisa aplicada.],
     [Duas viagens à Alemanha (2024, 2025); tutor na SENAI Digital Talent Academy; treinamento de ferramentas de IA para 100+ pessoas (satisfação 4,88/5); curso de IA de 8 sessões na Bosch em 2026 com Felipe Oshiro e Gabriel Reis.],
   )),
   ("Jan 2020 – Nov 2022", "Bosch Brasil", "Desenvolvedor Web", (

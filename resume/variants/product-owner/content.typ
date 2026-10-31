@@ -41,7 +41,7 @@
 #let languages = "Portuguese (Native)   English (Fluent)"
 
 #let skills = (
-  ("Core", "Core:", ("Product discovery", "Stakeholder alignment", "Prioritization & outcomes", "Applied Research", "Agile (Scrum / Kanban) / CIP", "Autodidact", "Statistics")),
+  ("Core", "Core:", ("Product discovery", "Stakeholder alignment", "Prioritization & outcomes", "Applied Research", "Agile (Scrum / Kanban) / CIP", "Autodidact", "Statistics", "Vibe coding")),
   ("Tech", "Tech:", ("Power BI", "Python", "React", "Figma", "SQL", "Matplotlib", "Seaborn", "Git", "GitHub", "Azure", "ServiceNow", "Bitbucket", "HTML", "CSS", "Mermaid", "VS Code", "Excel", "VBA", "AutoHotkey")),
 )
 

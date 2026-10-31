@@ -35,14 +35,14 @@
 )
 
 #let profile = [
-  Sou analista de dados. Transformo perguntas de pesquisa em números que as pessoas consigam usar: Excel avançado (fórmulas, VBA, planilhas no estilo banco), pipelines CSV, Power BI, Python/SQL e estatística descritiva e inferencial. Visualização da Informação no mestrado (nota A). Também uso visuais para decidir em apps pessoais de finanças e da compra da casa.
+  Sou analista de dados, mestre em Sistemas de Informação e Comunicação (Unicamp). Faço pesquisa aplicada há mais de quatro anos e uso raciocínio e evidência para escolher a ação de negócio certa. Transformo perguntas em números que as pessoas consigam usar, com Power BI, Python, SQL e estatística descritiva e inferencial. Visualização da Informação, nota A. Também uso visuais para decidir em apps pessoais de finanças e da compra da casa. Estou aprendendo Databricks, PySpark e Apache Spark.
 ]
 
 #let languages = "Português (Nativo)   Inglês (Fluente)"
 
 #let skills = (
-  ("Core", "Núcleo:", ("Excel (fórmulas, VBA, bases de dados)", "Análise de dados e CSV", "Visualização, BI e InfoVis", "Python / SQL / Estatística", "Pesquisa Aplicada", "Autodidata")),
-  ("Tech", "Tecnologias:", ("Excel", "VBA", "CSV", "Power BI", "Python", "SQL", "Matplotlib", "Seaborn", "Azure", "Git", "GitHub", "React", "Figma", "ServiceNow", "Bitbucket", "HTML", "CSS", "Mermaid", "VS Code", "AutoHotkey")),
+  ("Core", "Núcleo:", ("Raciocínio de pesquisa para a ação de negócio", "Análise descritiva, inferencial e visual", "Python / SQL / Estatística", "Visualização, BI e InfoVis", "Sistemas de Informação (mestrado)", "Databricks, PySpark e Apache Spark (em aprendizado)", "Autodidata", "Vibe coding")),
+  ("Tech", "Tecnologias:", ("Power BI", "Python", "SQL", "Matplotlib", "Seaborn", "Azure", "Git", "GitHub", "React", "Figma", "ServiceNow", "Bitbucket", "HTML", "CSS", "Mermaid", "VS Code", "AutoHotkey", "Excel", "VBA", "CSV")),
 )
 
 #let experience = (
@@ -52,7 +52,7 @@
     [Projeto tooling (Power Tools): entrega de requisitos a protótipos; check-ins regulares; progresso acompanhado para decisões.],
     [Data Insights (Power Tools B2B): teoria fundamentada straussiana em registros de call center. Python assistido por IA para manipulação e categorização; validação com stakeholders; insights em Power BI sobre finanças, transporte de material, logística e temas relacionados.],
     [Apoiei as Américas a atingir o Nível 4 de Maturidade em UX: governança, templates, treinamento; dashboard Power BI de auditoria buscando dados do Microsoft Lists para acompanhar documentação de gestão de projetos.],
-    [Uso IA no VS Code todo dia para pesquisa, análise e resolução de problemas.],
+    [Uso IA no VS Code todo dia, inclusive vibe coding, para pesquisa, análise e resolução de problemas.],
     [Duas viagens à Alemanha (2024, 2025); tutor na SENAI Digital Talent Academy; IA para 100+ pessoas (4,88/5) e 8 sessões na Bosch em 2026 com Felipe Oshiro e Gabriel Reis.],
   )),
   ("Jan 2020 – Nov 2022", "Bosch Brasil", "Desenvolvedor Web", (
@@ -62,9 +62,6 @@
   ("Jan 2019 – Dez 2019", "Bosch Magyarország (Hungary)", "Analista de Suporte à Digitalização", (
     [Digitalizei fluxos de Business Excellence em Kanban.],
     [Desenvolvimento web full-stack com VS Code, SQL Server e Windows Server (IIS).],
-  )),
-  ("Jan 2017 – Nov 2018", "Bosch Brasil (Campinas)", "Estagiário", (
-    [Excel e VBA: fórmulas avançadas, macros, planilhas no estilo banco, atalhos e fluxos CSV; 3º lugar no Fórum de Talentos Bosch 2018 (macro Excel).],
   )),
 )
 

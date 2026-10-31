@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import json
 import re
 import sys
 from collections import defaultdict
@@ -133,11 +134,52 @@ def deck_out_path(variant: str, lang: str) -> Path:
     return DECK_DIR[variant] / f"{base}.{lang}.md"
 
 
+PRIORITY_DIR = ROOT / "my-data" / "generated" / "resume-priority"
+
+
+def typst_string_tuple(labels: list[str]) -> str:
+    """Typst array literal body. A one-item array needs a trailing comma."""
+    if not labels:
+        return ""
+    quoted = []
+    for label in labels:
+        safe = label.replace("\\", "\\\\").replace('"', '\\"')
+        quoted.append(f'"{safe}"')
+    body = ", ".join(quoted)
+    if len(labels) == 1:
+        body += ","
+    return body
+
+
+def topic_id_bullet(row: dict[str, str]) -> str:
+    return f"bullet:{row['experience_id']}:{row['variant']}:{row['sort_order']}"
+
+
+def topic_id_skill(row: dict[str, str]) -> str:
+    return f"skill:{row['variant']}:{row['category']}:{row['sort_order']}"
+
+
+def topic_id_extra(row: dict[str, str]) -> str:
+    return f"extra:{row['sort_order']}"
+
+
+def load_omitted(variant: str) -> set[str]:
+    path = PRIORITY_DIR / f"{variant}.json"
+    if not path.is_file():
+        return set()
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return set()
+    return {item["id"] for item in data.get("deprioritized", []) if item.get("id")}
+
+
 def render_resume(
     variant: str,
     nars: dict[str, dict[str, str]],
     warnings: list[str],
     lang: str = DEFAULT_LANG,
+    omit: set[str] | None = None,
 ) -> str:
     profile = load_csv("profile.csv")[0]
     experience = sorted(load_csv("experience.csv"), key=lambda r: int(r["sort_order"]))
@@ -149,6 +191,8 @@ def render_resume(
     )
     additional = sorted(load_csv("additional.csv"), key=lambda r: int(r["sort_order"]))
     ui = load_resume_ui(lang)
+    if omit is None:
+        omit = load_omitted(variant)
 
     exp_ids = {r["id"] for r in experience}
     for b in bullets_all:
@@ -165,23 +209,31 @@ def render_resume(
     compact_layout = True  # Hard rule: all resumes target a single A4 page.
 
     core = sorted(
-        [r for r in skills_all if r["category"] == "Core"],
+        [
+            r
+            for r in skills_all
+            if r["category"] == "Core" and topic_id_skill(r) not in omit
+        ],
         key=lambda r: int(r["sort_order"]),
     )
     tech = sorted(
-        [r for r in skills_all if r["category"] == "Tech"],
+        [
+            r
+            for r in skills_all
+            if r["category"] == "Tech" and topic_id_skill(r) not in omit
+        ],
         key=lambda r: int(r["sort_order"]),
     )
     if not core:
         warnings.append(f"No Core skills for variant={variant}")
     core_label = lang_col(core[0], "category_label", lang) + ":" if core else "Core:"
     tech_label = lang_col(tech[0], "category_label", lang) + ":" if tech else "Tech:"
-    core_tuple = ", ".join(f'"{lang_col(s, "label", lang)}"' for s in core)
-    tech_tuple = ", ".join(f'"{lang_col(s, "label", lang)}"' for s in tech)
+    core_tuple = typst_string_tuple([lang_col(s, "label", lang) for s in core])
+    tech_tuple = typst_string_tuple([lang_col(s, "label", lang) for s in tech])
 
     exp_blocks: list[str] = []
     for exp in experience:
-        bs = sorted(
+        raw_bs = sorted(
             [
                 r
                 for r in bullets_all
@@ -189,8 +241,11 @@ def render_resume(
             ],
             key=lambda r: int(r["sort_order"]),
         )
-        if not bs:
+        bs = [row for row in raw_bs if topic_id_bullet(row) not in omit]
+        if not raw_bs:
             warnings.append(f"No bullets for {exp['id']} variant={variant}")
+        if not bs:
+            continue
         bullet_lines = ",\n    ".join(
             f"[{md_bold_to_typst(lang_col(b, 'text', lang))}]" for b in bs
         )
@@ -219,7 +274,11 @@ def render_resume(
         pub_lines.append(f'  ("{lang_col(p, "venue", lang)}", "{cite}")')
     publications_typst = ",\n".join(pub_lines)
 
-    add_lines = ",\n".join(f"  [{lang_col(a, 'text', lang)}]" for a in additional)
+    add_lines = ",\n".join(
+        f"  [{lang_col(a, 'text', lang)}]"
+        for a in additional
+        if topic_id_extra(a) not in omit
+    )
 
     ui_fields = "\n".join(
         f'  {key.replace("-", "_")}: "{val.replace(chr(92), chr(92)*2).replace(chr(34), chr(92)+chr(34))}",'

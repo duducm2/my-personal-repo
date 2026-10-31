@@ -440,8 +440,8 @@ img[src*="story-flow"] {
 
 ## Decisões apoiadas em números que as pessoas consigam usar
 
-- Acredito que decisões devem partir de evidência—muitas vezes em Excel e CSV antes de escalar para BI e código.
-- Meu trabalho centra análise de dados, experimentação e pesquisa aplicada: mensurar resultados e alimentar a entrega com insight.
+- Acredito que decisões devem partir de raciocínio e evidência, e então escalar para análise, BI e código.
+- Meu trabalho centra análise de dados, experimentação e pesquisa aplicada: mensurar resultados e alimentar a entrega com insight.
 - Este portfólio mostra esse caminho em projetos reais e métricas.
 
 <p><img src="../../../pictures/diagrams/story-flow.png" alt="Diagram story-flow: Why story flow" /></p>
@@ -473,7 +473,7 @@ table thead { display: none !important; }
 | --------------------------- | ------------------------- |
 | Nome    | Eduardo M. de A. Figueiredo    |
 | Papel    | Analista de Dados \| IA para Manipulação, Checagem de Dados e Insights Aplicados    |
-| Impacto  | Ajudo times a decidir com números mais claros—Excel e CSV no dia a dia, dashboards para contar a história, pesquisa quando precisamos ir mais fundo.  |
+| Impacto  | Ajudo times a decidir com números mais claros. Tenho mestrado em Sistemas de Informação e Comunicação e faço pesquisa aplicada há mais de quatro anos: raciocínio e evidência para a ação de negócio certa. Estou aprendendo Databricks, PySpark e Apache Spark.  |
 | Contato | Nova Odessa, SP – Brasil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583 |
 
 <p class="photo-at-bottom"><img src="../../../pictures/personal/my-photo-rectangle.png" alt="Eduardo Figueiredo" /></p>  
@@ -661,36 +661,36 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 <p class="americas-img"><img src="../../../pictures/work/americas-team-2025.jpg" alt="Americas Team 2025 - UX Maturity Level 4" /></p>
 </div>
 
-| Área                               | Conquista                                                                                                                        |
-| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| Cargo                               | Analista de Pesquisa Aplicada e Design – Bosch Brasil (jan 2023 – atual); Especialista em Pesquisa Aplicada e Project Champion na GS/BDU            |
-| Excel e CSV                        | Excel avançado (fórmulas, VBA, planilhas como banco de dados, atalhos); uso intenso de CSV; 3º lugar, Fórum de talentos Bosch 2018 (macro Excel) |
-| Métricas e BI                       | Dashboards Power BI para projetos/recursos; CSI 4,86 / NPS 9,94 méd. nos meus projetos (2024–2025)                         |
-| Internacional                      | Realizei duas viagens à Alemanha (2024, 2025) por trabalho relacionado ao cargo                                                                            |
-| Rastreamento CO2 (GS/Pesquisa Aplicada) | Conduzi prospecção de mercado para telemetria CO2; achado: falta de demanda — interrupção baseada em dados                                       |
-
----
-
-<!-- _class: dense-content -->
-
-<style scoped>
-table { font-size: 0.78em !important; line-height: 1.25 !important; width: 100% !important; table-layout: fixed !important; }
-th:first-child, td:first-child { width: 28% !important; }
-td, th { overflow-wrap: anywhere; padding: 0.22em 0.45em !important; }
-</style>
-
-## Presente – Dados, Métricas e Pesquisa Aplicada (continuação)
-
-| Área                               | Conquista                                                                                                                        |
-| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| Projeto tooling (PT)               | Requisitos a protótipos de alta fidelidade com check-ins regulares; progresso e feedback acompanhados para decisões         |
-| Data Insights (Power Tools B2B)    | Registros do call center analisados com teoria fundamentada straussiana (datasets, Python, IA); codificação aberta → axial → seletiva; categorias semânticas controladas; insights validados com stakeholders no Power BI—finanças, transporte de materiais, logística e mais |
-| Maturidade em UX                        | Nível 4 nas Américas – governança, templates, treinamento; dashboard Power BI de auditoria com ingestão automática de Microsoft Lists para documentação de gestão de projetos                                                |
-| CIP CIM (Global Services)          | Relevância em UX automatizada no ServiceNow (manipulação de dados, pesos por propriedades); com equipe de UX, avaliei dashboards estratégicos de CIP para a liderança da GS identificar problemas e melhorias de eficiência/eficácia                                           |
-| Visualização da Informação (Mestrado)      | Nota A (Unicamp)—estruturas visuais e mapeamento, dados multivariados, visões/interação, grafos/árvores, viz de textos; PNAD Contínua Power BI + projeto web PhraseNets                                                                                           |
-| Dissertação (TrustMate estatística)     | Testes de normalidade Shapiro-Wilk; t de Welch/pareado, d de Cohen, FDR (Python → Power BI); média, DP, variância, EE, IC + análise gráfica; divisão descritivo vs inferencial (amostra → população)                                                                                                               |
-| Métodos de pesquisa                   | Disciplinas do mestrado + prática: raciocínio descritivo vs inferencial (amostra → população); teoria fundamentada, IPA, fenomenologia, PAR; conecta ao Data Insights (TFD straussiana)                                                                                                                       |
-| Análise aumentada (augmented)                | Uso diário de VS Code + Python/IA no pipeline analítico—mindset de análise aumentada para extrair insight mais rápido                                                                                           |
+| Área                               | Conquista                                                                                                                        |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Cargo                               | Analista de Pesquisa Aplicada e Design – Bosch Brasil (jan 2023 – atual); Especialista em Pesquisa Aplicada e Project Champion na GS/BDU            |
+| Pesquisa | Mestrado em Sistemas de Informação e Comunicação (Unicamp). Pesquisa aplicada há mais de quatro anos: raciocínio e evidência para a ação de negócio certa. |
+| Métricas e BI                       | Dashboards Power BI para projetos/recursos; CSI 4,86 / NPS 9,94 méd. nos meus projetos (2024–2025)                         |
+| Internacional                      | Realizei duas viagens à Alemanha (2024, 2025) por trabalho relacionado ao cargo                                                                            |
+| Rastreamento CO2 (GS/Pesquisa Aplicada) | Conduzi prospecção de mercado para telemetria CO2; achado: falta de demanda — interrupção baseada em dados                                       |
+
+---
+
+<!-- _class: dense-content -->
+
+<style scoped>
+table { font-size: 0.78em !important; line-height: 1.25 !important; width: 100% !important; table-layout: fixed !important; }
+th:first-child, td:first-child { width: 28% !important; }
+td, th { overflow-wrap: anywhere; padding: 0.22em 0.45em !important; }
+</style>
+
+## Presente – Dados, Métricas e Pesquisa Aplicada (continuação)
+
+| Área                               | Conquista                                                                                                                        |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Projeto tooling (PT)               | Requisitos a protótipos de alta fidelidade com check-ins regulares; progresso e feedback acompanhados para decisões         |
+| Data Insights (Power Tools B2B)    | Registros do call center analisados com teoria fundamentada straussiana (datasets, Python, IA); codificação aberta → axial → seletiva; categorias semânticas controladas; insights validados com stakeholders no Power BI—finanças, transporte de materiais, logística e mais |
+| Maturidade em UX                        | Nível 4 nas Américas – governança, templates, treinamento; dashboard Power BI de auditoria com ingestão automática de Microsoft Lists para documentação de gestão de projetos                                                |
+| CIP CIM (Global Services)          | Relevância em UX automatizada no ServiceNow (manipulação de dados, pesos por propriedades); com equipe de UX, avaliei dashboards estratégicos de CIP para a liderança da GS identificar problemas e melhorias de eficiência/eficácia                                           |
+| Visualização da Informação (Mestrado)      | Nota A (Unicamp)—estruturas visuais e mapeamento, dados multivariados, visões/interação, grafos/árvores, viz de textos; PNAD Contínua Power BI + projeto web PhraseNets                                                                                           |
+| Dissertação (TrustMate estatística)     | Testes de normalidade Shapiro-Wilk; t de Welch/pareado, d de Cohen, FDR (Python → Power BI); média, DP, variância, EE, IC + análise gráfica; divisão descritivo vs inferencial (amostra → população)                                                                                                               |
+| Métodos de pesquisa                   | Disciplinas do mestrado + prática: raciocínio descritivo vs inferencial (amostra → população); teoria fundamentada, IPA, fenomenologia, PAR; conecta ao Data Insights (TFD straussiana)                                                                                                                       |
+| Análise aumentada (augmented)                | Uso diário de VS Code + Python/IA no pipeline analítico—mindset de análise aumentada para extrair insight mais rápido                                                                                           |
 | Colaboração                      | Sou tutor de estudantes da Digital Talent Academy; treinamento de ferramentas de IA para 100+ pessoas (satisfação 4,88/5); curso de IA de 8 sessões na Bosch em 2026 com Felipe Oshiro e Gabriel Reis                                                                                           |
 
 ---
@@ -1034,10 +1034,10 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 
 <p class="dissertation-pbi-intro"><span class="thesis-emphasis">Minha dissertação de mestrado compara pontuações humanas e de agentes de IA sobre confiança percebida em interfaces de e-commerce. A TrustMate aplica o questionário do MQCI (ISO/IEC 25000) e calcula pontuações hierárquicas de Usabilidade, Acessibilidade e UX; agentes ChatGPT o3 e 127 estudantes de TI avaliaram os mesmos três sites. Além do método, o aprendizado é prático: os agentes mostraram alinhamento direcional nos melhores/piores atributos, mas não foram estatisticamente intercambiáveis com humanos na maior parte das pontuações—triagem, não substituição. A análise cobre descritivas, visuais e inferência de Python ao Power BI.</span></p>
 
-- Tema: pontuações de confiança percebida humano vs agente de IA em interfaces de e-commerce (MQCI via TrustMate; três sites; 127 estudantes de TI vs ChatGPT o3).
-- Achado: agentes de IA não substituem a avaliação humana; são triagem automatizada promissora da qualidade da interface (alinhamento direcional nos melhores/piores atributos; viés mais rigoroso na maior parte das pontuações folha).
-- Normalidade primeiro: Shapiro-Wilk nas distribuições de scores por atributo antes de escolher testes inferenciais.
-- Python → Power BI: Scripts offline calculam Welch (Humano–IA), t pareado (Humano–Humano) e t independente (IA–IA) com d de Cohen e FDR Benjamini-Hochberg; resultados importados ao Power BI para reporting.
+- Tema: pontuações de confiança percebida humano vs agente de IA em interfaces de e-commerce (MQCI via TrustMate; três sites; 127 estudantes de TI vs ChatGPT o3).
+- Achado: agentes de IA não substituem a avaliação humana; são triagem automatizada promissora da qualidade da interface (alinhamento direcional nos melhores/piores atributos; viés mais rigoroso na maior parte das pontuações folha).
+- Normalidade primeiro: Shapiro-Wilk nas distribuições de scores por atributo antes de escolher testes inferenciais.
+- Python → Power BI: Scripts offline calculam Welch (Humano–IA), t pareado (Humano–Humano) e t independente (IA–IA) com d de Cohen e FDR Benjamini-Hochberg; resultados importados ao Power BI para reporting.
 - Descritivo + visual: Medidas DAX para média, DP, variância, erro padrão e limites de IC; 50+ estruturas de gráficos (boxplots, forest plots, small multiples) alinhadas ao curso de InfoVis.
 
 <div class="dissertation-pbi-row">
@@ -1092,7 +1092,7 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 
 ## Visualização de dados – InfoVis (Mestrado): PNAD Contínua (Power BI)
 
-- Visualização da Informação (Unicamp, nota A): Pipeline de Card et al.—dados brutos → tabelas → estruturas visuais; mapeamento visual (expressividade e efetividade); técnicas multivariadas (composição, small multiples, redução de dimensões).
+- Visualização da Informação (Unicamp, nota A): Pipeline de Card et al.—dados brutos → tabelas → estruturas visuais; mapeamento visual (expressividade e efetividade); técnicas multivariadas (composição, small multiples, redução de dimensões).
 - PNAD Contínua (Power BI): Codificações Sankey, coropleta e facetadas para trajetórias educação–emprego e padrões socioeconômicos—as mesmas decisões estruturais em dashboards executivos.
 
 <div class="infovis-split">
@@ -1329,8 +1329,8 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 
 ## InfoVis – Visualização de textos e grafos (PhraseNets)
 
-- Tópicos do curso → skills de analista: Visões e interação (filtros, detalhes sob demanda); grafos e árvores (layout de redes); visualização de textos (coocorrência, padrões/outliers)—como codificar dados e permitir exploração.
-- Projeto PhraseNets: Viz web em rede para relações entre palavras—estrutura que gráficos de barras/linhas não mostram.
+- Tópicos do curso → skills de analista: Visões e interação (filtros, detalhes sob demanda); grafos e árvores (layout de redes); visualização de textos (coocorrência, padrões/outliers)—como codificar dados e permitir exploração.
+- Projeto PhraseNets: Viz web em rede para relações entre palavras—estrutura que gráficos de barras/linhas não mostram.
 - Ganho para trabalho com dados: Mapear variáveis a marcas e escolher a estrutura certa para a pergunta—não só gráficos, mas comunicação visual eficaz.
 
 <div class="phrase-net-row">
@@ -1372,68 +1372,68 @@ Quero me tornar analista de dados sênior que transforma insight em decisões r�
 <!-- Slide 21 – Future (Career) -->
 
 <style scoped>
-.future-career-wrap {
-  display: flex !important; flex-direction: column !important;
-  justify-content: flex-start !important; align-items: stretch !important;
-  width: 100% !important; margin-top: 0.35rem !important;
-  gap: 0.4rem !important;
-}
-.future-career-wrap p { margin: 0 !important; text-align: left !important; }
-.future-po-bullets {
-  width: 100% !important; max-width: 100% !important; text-align: left !important; font-size: 0.85em !important;
-}
-.future-po-bullets table {
-  width: 100% !important; table-layout: fixed !important; margin-top: 0.35rem !important;
-}
-.future-po-bullets th:first-child,
-.future-po-bullets td:first-child { width: 22% !important; }
-.future-po-bullets td, .future-po-bullets th {
-  overflow-wrap: anywhere; padding: 0.28em 0.5em !important;
-}
-</style>
-
-## Futuro – Como chego lá
-
-<div class="future-career-wrap">
-<div class="future-po-bullets">
-
-| Passo | O que é |
-| ----- | ------- |
-| Agora | Desenho experimental e estatística inferencial (TrustMate: Welch, d de Cohen, FDR; avaliação com LLM versus humanos); texto confuso virando BI validado (Data Insights); CSI/NPS, Power BI, Python/SQL na Bosch |
-| Próximo | Analista de dados sênior: insight pelo método científico |
-| Método | Análise descritiva, inferencial e visual |
-| Decisões | Decisões rápidas a partir dessa evidência |
-
-</div>
-</div>
-
----
-
-<style scoped>
-.career-path-slide {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: flex-start !important;
-  width: 100% !important;
-  margin-top: 0.35rem !important;
-}
-.career-path-slide p { margin: 0 !important; text-align: center !important; width: 100% !important; }
-.career-path-slide img {
-  width: 78% !important;
-  max-width: 78% !important;
-  height: auto !important;
-  max-height: 76vh !important;
-  display: block !important;
-  margin: 0 auto !important;
-  border: none !important;
-  box-shadow: none !important;
+.future-career-wrap {
+  display: flex !important; flex-direction: column !important;
+  justify-content: flex-start !important; align-items: stretch !important;
+  width: 100% !important; margin-top: 0.35rem !important;
+  gap: 0.4rem !important;
+}
+.future-career-wrap p { margin: 0 !important; text-align: left !important; }
+.future-po-bullets {
+  width: 100% !important; max-width: 100% !important; text-align: left !important; font-size: 0.85em !important;
+}
+.future-po-bullets table {
+  width: 100% !important; table-layout: fixed !important; margin-top: 0.35rem !important;
+}
+.future-po-bullets th:first-child,
+.future-po-bullets td:first-child { width: 22% !important; }
+.future-po-bullets td, .future-po-bullets th {
+  overflow-wrap: anywhere; padding: 0.28em 0.5em !important;
 }
 </style>
 
-## Futuro – O caminho
-
-<div class="career-path-slide">
-<p><img src="../../../pictures/diagrams/future-career-path-pt.png" alt="Diagrama: análise descritiva, inferencial e visual, depois analista de dados sênior, depois decisões rápidas a partir do insight" /></p>
+## Futuro – Como chego lá
+
+<div class="future-career-wrap">
+<div class="future-po-bullets">
+
+| Passo | O que é |
+| ----- | ------- |
+| Agora | Desenho experimental e estatística inferencial (TrustMate: Welch, d de Cohen, FDR; avaliação com LLM versus humanos); texto confuso virando BI validado (Data Insights); CSI/NPS, Power BI, Python/SQL na Bosch |
+| Próximo | Analista de dados sênior: insight pelo método científico |
+| Método | Análise descritiva, inferencial e visual |
+| Decisões | Decisões rápidas a partir dessa evidência |
+
+</div>
+</div>
+
+---
+
+<style scoped>
+.career-path-slide {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  width: 100% !important;
+  margin-top: 0.35rem !important;
+}
+.career-path-slide p { margin: 0 !important; text-align: center !important; width: 100% !important; }
+.career-path-slide img {
+  width: 78% !important;
+  max-width: 78% !important;
+  height: auto !important;
+  max-height: 76vh !important;
+  display: block !important;
+  margin: 0 auto !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+</style>
+
+## Futuro – O caminho
+
+<div class="career-path-slide">
+<p><img src="../../../pictures/diagrams/future-career-path-pt.png" alt="Diagrama: análise descritiva, inferencial e visual, depois analista de dados sênior, depois decisões rápidas a partir do insight" /></p>
 </div>
 
 <!-- Diagram: future-career-path (mermaid/diagrams.md). Export to future-career-path.png -->
@@ -1478,12 +1478,12 @@ Quero me tornar analista de dados sênior que transforma insight em decisões r�
 <table>
 <thead><tr><th>Interesse</th></tr></thead>
 <tbody>
-<tr><td>Piano</td></tr>
-<tr><td>Linguística (fonologia e fonética)</td></tr>
-<tr><td>Física (relatividade e quântica)</td></tr>
-<tr><td>Atuação</td></tr>
-<tr><td>Arte impressionista</td></tr>
-<tr><td>Criação de macros</td></tr>
+<tr><td>Piano</td></tr>
+<tr><td>Linguística (fonologia e fonética)</td></tr>
+<tr><td>Física (relatividade e quântica)</td></tr>
+<tr><td>Atuação</td></tr>
+<tr><td>Arte impressionista</td></tr>
+<tr><td>Criação de macros</td></tr>
 <tr><td>Teclados especializados</td></tr>
 </tbody>
 </table>
@@ -1547,7 +1547,7 @@ section.closing-redesign h2 {
 ## Encerramento e contato
 
 <div class="closing-summary">
-<p>Conecto dados a decisões—de Excel e CSV a dashboards e pesquisa aplicada. Tento deixar stakeholders com algo acionável, não só gráficos.</p>
+<p>Conecto pesquisa à ação de negócio certa. O mestrado em Sistemas de Informação e Comunicação e mais de quatro anos de pesquisa aplicada estão por trás dos números. Tento deixar quem decide com algo acionável, não só gráficos.</p>
 </div>
 
 <div class="closing-contact">

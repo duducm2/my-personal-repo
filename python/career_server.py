@@ -301,6 +301,56 @@ def resume_policy() -> dict[str, Any]:
     }
 
 
+RESUME_VARIANTS = {
+    "general",
+    "product-owner",
+    "data-analyst",
+    "digital-solution-architect",
+}
+
+
+def resume_priority_index() -> dict[str, Any]:
+    path = ROOT_DIR / "my-data" / "generated" / "resume-priority" / "index.json"
+    if not path.is_file():
+        return {"variants": {}}
+    data = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(data, dict):
+        return {"variants": {}}
+    return data
+
+
+def raise_resume_topic(variant: str, topic_id: str) -> dict[str, Any]:
+    if variant not in RESUME_VARIANTS:
+        raise ValueError("Unknown resume career path")
+    if not topic_id or any(ch in topic_id for ch in "/\\"):
+        raise ValueError("Topic id required")
+    script = ROOT_DIR / "scripts" / "fit_resumes.py"
+    proc = subprocess.run(
+        [
+            sys.executable,
+            str(script),
+            "--variant",
+            variant,
+            "--raise",
+            topic_id,
+        ],
+        cwd=str(ROOT_DIR),
+        capture_output=True,
+        text=True,
+        timeout=180,
+        check=False,
+    )
+    if proc.returncode != 0:
+        detail = (proc.stderr or proc.stdout or "Could not rebuild the resume").strip()
+        raise RuntimeError(detail[-1800:])
+    data = resume_priority_index()
+    return {
+        "ok": True,
+        "variant": variant,
+        "entry": (data.get("variants") or {}).get(variant),
+    }
+
+
 def _browser_exe_candidates() -> list[Path]:
     candidates: list[Path] = []
     if sys.platform == "win32":
@@ -737,6 +787,9 @@ class CareerHandler(BaseHTTPRequestHandler):
                     },
                 )
                 return
+            if path == "/api/resume-priority":
+                self._json(200, resume_priority_index())
+                return
             if path == "/api/autofill/state":
                 collections = self.store.load_all()
                 jobs = list_autofill_jobs(collections)
@@ -820,6 +873,14 @@ class CareerHandler(BaseHTTPRequestHandler):
                 body = self._read_json()
                 result = build_cover_letter_pdf(body if isinstance(body, dict) else {})
                 self._json(200, result)
+                return
+            if path == "/api/resume-priority":
+                body = self._read_json()
+                if not isinstance(body, dict):
+                    raise ValueError("JSON object required")
+                variant = str(body.get("variant") or "").strip()
+                topic_id = str(body.get("topic_id") or "").strip()
+                self._json(200, raise_resume_topic(variant, topic_id))
                 return
             if path == "/api/ai-fix-note":
                 body = self._read_json()

@@ -4,7 +4,7 @@ lang: en
 fields:
   asset_prefix: "../../../"
   cip_pipeline_h2: "Present – CIP and Applied Research: Data-Informed Methodology Pipeline"
-  closing_summary: "I connect data to decisions, from Excel and CSV work through dashboards and applied research. I try to leave stakeholders with something they can act on, not just charts."
+  closing_summary: "I connect research to the right business action. A Master's in Information Systems and Communication and more than four years of applied research sit behind the numbers. I try to leave the people deciding with something they can act on, not only charts."
   csi_h2: "Present – Outcome Metrics: CSI & NPS (2024–2025)"
   deck_title: "Eduardo Figueiredo – Portfolio"
   dissertation_pbi_bullets: |
@@ -141,7 +141,7 @@ fields:
     | Area                               | Achievement                                                                                                                        |
     | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
     | Role                               | Applied Research & Design Analyst – Bosch Brasil (January 2023 – present); Applied Research Expert & Project Champion at GS/BDU            |
-    | Excel & CSV                        | Advanced Excel (formulas, VBA, database-style workbooks, shortcuts); heavy CSV use; 3rd place, Bosch Talent Forum 2018 (Excel macro) |
+    | Research | Master's in Information Systems and Communication (Unicamp). Applied research for more than four years: reasoning and evidence for the right business action. |
     | Metrics & BI                       | Power BI dashboards for project/resource oversight; CSI 4.86 / NPS 9.94 avg. across my projects (2024–2025)                         |
     | International                      | Two trips to Germany (2024, 2025) for role-related work                                                                            |
     | CO2 Tracking (GS/Applied Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand — a data-informed stop                                       |
@@ -173,11 +173,11 @@ fields:
   tooling_bullet: "- Tooling project for Power Tools: delivery from requirements through prototypes, with regular check-ins and progress tracked for decisions."
   tooling_h2: "Measurement in Delivery – Tooling Project for PT"
   who_contact: "Nova Odessa, SP – Brazil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583"
-  who_impact: "I help teams make decisions with clearer numbers—Excel and CSV for the daily work, dashboards for the story, research when we need to go deeper."
+  who_impact: "I help teams make decisions with clearer numbers. I hold a Master's in Information Systems and Communication, and I have done applied research for more than four years: reasoning and evidence for the right business action. I am currently learning Databricks, PySpark, and Apache Spark."
   who_name: "Eduardo M. de A. Figueiredo"
   who_role: "Data Analyst \\| AI for Data Manipulation, Validation & Applied Insights"
   why_bullets: |
-    - I believe decisions should start from evidence—often in Excel and CSV before scaling to BI and code.
+    - I believe decisions should start from reasoning and evidence, then scale to analysis, BI, and code.
     - My work centers data analysis, experimentation, and applied research: measuring outcomes and feeding insight into delivery.
     - This portfolio shows that path through real projects and metrics.
   why_h1: "Why I Work with Data, Experimentation & Applied Research"

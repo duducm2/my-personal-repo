@@ -41,7 +41,7 @@
 #let languages = "Portuguese (Native)   English (Fluent)"
 
 #let skills = (
-  ("Core", "Core:", ("Solution & cloud architecture", "Digitization & systems", "DevOps / CI-CD", "Applied research and quality checks", "Work with global stakeholders", "Autodidact", "Statistics")),
+  ("Core", "Core:", ("Solution & cloud architecture", "Digitization & systems", "DevOps / CI-CD", "Applied research and quality checks", "Work with global stakeholders", "Autodidact", "Statistics", "Vibe coding")),
   ("Tech", "Tech:", ("Azure", "Python", "SQL / SQL Server", "Power BI", "ServiceNow", "Git", "GitHub", "Bitbucket", "VS Code", "React", "Windows Server / IIS", "Docker", "Excel / VBA", "CSV pipelines", "Mermaid", "HTML / CSS", "Figma", "Terraform (IaC)")),
 )
 
@@ -50,7 +50,7 @@
     [Solution design for Global Services: CIP dashboards and automated UX relevance scoring in ServiceNow, plus method design with AI so leadership could see the issues.],
     [Data Insights (Power Tools): Python and AI on call-center transcripts (Grounded Theory), summarized in Power BI.],
     [UX Maturity Level 4 (Americas): governance, templates, training; Power BI audit dashboard that reads Microsoft Lists.],
-    [I use VS Code with AI every day for research and method design on the global work.],
+    [I use VS Code with AI every day, including vibe coding, for research and method design on the global work.],
     [Average CSI 4.86 / NPS 9.94 (2024–2025); international collaboration with Germany (2024, 2025); 8-session Bosch AI course in 2026 with Felipe Oshiro and Gabriel Reis.],
   )),
   ("Jan 2020 – Nov 2022", "Bosch Brasil", "Web Developer", (
