@@ -22,7 +22,17 @@ function applyPath() {
     const node = document.getElementById(id);
     if (node && text) node.textContent = text;
   };
-  set("path-eyebrow", pathCopy.eyebrow);
+  const eyebrow = document.getElementById("path-eyebrow");
+  if (eyebrow && pathCopy.eyebrow) {
+    const [role, place] = pathCopy.eyebrow.split(" · ");
+    eyebrow.replaceChildren(document.createTextNode(role));
+    if (place) {
+      const placeNode = document.createElement("span");
+      placeNode.className = "eyebrow-place";
+      placeNode.textContent = place;
+      eyebrow.append(placeNode);
+    }
+  }
   set("path-role", pathCopy.role);
   set("path-lede", pathCopy.lede);
   set("why-title", pathCopy.whyTitle);
@@ -103,6 +113,7 @@ function showStop(index) {
   stopPhoto.src = stop.src;
   stopPhoto.alt = stop.alt;
   stopPhoto.classList.toggle("is-diagram", stop.diagram);
+  stopPhoto.closest("figure").classList.toggle("stage-diagram", stop.diagram);
 }
 
 stopButtons.forEach((button) => {
@@ -252,8 +263,10 @@ function applyLanguage() {
     copy.researchCaps,
   );
   fillList([...document.querySelectorAll(".bar-row > span")], copy.bars);
-  const scoresLead = document.querySelector("#scores > p:not(.kicker)");
+  const scoresLead = document.getElementById("scores-lead");
   if (scoresLead) scoresLead.textContent = copy.scoresLead;
+  const scoresHint = document.getElementById("scores-hint");
+  if (scoresHint && copy.scoresHint) scoresHint.textContent = copy.scoresHint;
   const interestsLead = document.querySelector("#interests > p:not(.kicker)");
   if (interestsLead) interestsLead.textContent = copy.interestsLead;
   fillList(
@@ -270,6 +283,16 @@ function applyLanguage() {
   if (contactLead) contactLead.textContent = copy.contactLead;
   const infovis = document.getElementById("infovis-diagram");
   if (infovis) infovis.src = copy.infovis;
+  const story = document.getElementById("story-diagram");
+  if (story && copy.story) {
+    story.src = copy.story;
+    if (copy.storyAlt) story.alt = copy.storyAlt;
+  }
+  const relevance = document.getElementById("relevance-diagram");
+  if (relevance && copy.relevance) {
+    relevance.src = copy.relevance;
+    if (copy.relevanceAlt) relevance.alt = copy.relevanceAlt;
+  }
   const langSwitch = document.querySelector(".lang-switch");
   if (langSwitch) langSwitch.setAttribute("aria-label", copy.langLabel);
   document.querySelectorAll(".lang-switch button").forEach((button) => {
@@ -283,9 +306,109 @@ function applyLanguage() {
     if (copy.chapters[id]) link.textContent = copy.chapters[id];
   });
   applyPath();
+  applyPdfLink();
   showStop(stopIndex);
   showStep(stepIndex);
   renderScores();
+  expandForPrint();
+}
+
+function applyPdfLink() {
+  const link = document.getElementById("pdf-export");
+  const pathCopy = activePath();
+  if (!link || !pathCopy || !pathCopy.pdf) return;
+  link.href = pathCopy.pdf;
+  link.textContent = UI[lang].pdfButton || link.textContent;
+}
+
+function expandForPrint() {
+  if (!new URLSearchParams(location.search).has("print")) return;
+  document.body.classList.add("for-print");
+  if (!document.querySelector(".print-mark")) {
+    const mark = document.createElement("p");
+    mark.className = "print-mark";
+    mark.textContent = "Eduardo Figueiredo";
+    document.body.append(mark);
+  }
+  if (!document.getElementById("print-bleed")) {
+    const bleed = document.createElement("div");
+    bleed.id = "print-bleed";
+    bleed.className = "print-bleed";
+    document.body.prepend(bleed);
+  }
+
+  const stage = document.getElementById("stop-stage");
+  let printedStops = document.getElementById("print-stops");
+  if (!printedStops && stage) {
+    printedStops = document.createElement("div");
+    printedStops.id = "print-stops";
+    printedStops.className = "print-stops";
+    stage.after(printedStops);
+  }
+  if (printedStops) {
+    printedStops.replaceChildren();
+    (UI[lang].stops || []).forEach((stop) => {
+      const fig = document.createElement("figure");
+      fig.className = stop.diagram ? "diagram" : "wide";
+      const img = document.createElement("img");
+      img.src = stop.src;
+      img.alt = stop.alt || "";
+      const cap = document.createElement("figcaption");
+      cap.textContent = stop.text || "";
+      fig.append(img, cap);
+      printedStops.append(fig);
+    });
+  }
+  const stopsRoot = document.querySelector("#path .stops");
+  if (stopsRoot) stopsRoot.hidden = true;
+  if (stage) stage.hidden = true;
+
+  const steps = document.getElementById("steps");
+  const stepCopy = document.getElementById("step-copy");
+  const pathCopy = activePath();
+  let printedSteps = document.getElementById("print-steps");
+  if (!printedSteps && stepCopy) {
+    printedSteps = document.createElement("div");
+    printedSteps.id = "print-steps";
+    printedSteps.className = "print-steps";
+    stepCopy.after(printedSteps);
+  }
+  if (printedSteps && pathCopy) {
+    printedSteps.replaceChildren();
+    (pathCopy.steps || []).forEach((label, index) => {
+      const heading = document.createElement("h3");
+      heading.textContent = label;
+      const paragraph = document.createElement("p");
+      paragraph.textContent =
+        (pathCopy.stepCopy && pathCopy.stepCopy[index]) || "";
+      printedSteps.append(heading, paragraph);
+    });
+  }
+  if (steps) steps.hidden = true;
+  if (stepCopy) stepCopy.hidden = true;
+
+  const lead = document.getElementById("path-lead");
+  if (lead) {
+    lead.textContent = lead.textContent
+      .replace(/\s*Select a stop\.?/, "")
+      .replace(/\s*Escolha uma parada\.?/, "")
+      .trim();
+  }
+
+  document.querySelectorAll(".shots").forEach((grid) => {
+    if (grid.dataset.paired === "1" || grid.classList.contains("shots-apps")) {
+      return;
+    }
+    const figures = [...grid.querySelectorAll(":scope > figure")];
+    for (let index = 0; index < figures.length; index += 2) {
+      const row = document.createElement("div");
+      row.className = "shot-row";
+      grid.insertBefore(row, figures[index]);
+      row.append(figures[index]);
+      if (figures[index + 1]) row.append(figures[index + 1]);
+    }
+    grid.dataset.paired = "1";
+  });
 }
 
 document.querySelectorAll(".lang-switch button").forEach((button) => {

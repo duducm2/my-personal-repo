@@ -21,6 +21,9 @@ const PATH_COPY = {
     diagram: "../media/path.png",
     diagramAlt:
       "Path from descriptive, inferential, and visual analysis to senior data analyst and fast decisions",
+    pdf: "/download/data-analyst/portfolio-deck-data-analyst-EN.pdf",
+    contactLead:
+      "I connect data to decisions, from Excel and CSV to dashboards and applied research. I try to leave the people deciding with something they can act on, not only charts.",
   },
   pt: {
     label: "Analista de Dados",
@@ -44,6 +47,7 @@ const PATH_COPY = {
     diagram: "../media/path-pt.png",
     diagramAlt:
       "Caminho da análise descritiva, inferencial e visual até analista de dados sênior e decisões rápidas",
+    pdf: "/download/data-analyst/portfolio-deck-data-analyst-PT.pdf",
     contactLead:
       "Conecto dados a decisões, de Excel e CSV a dashboards e pesquisa aplicada. Tento deixar quem decide com algo acionável, não só gráficos.",
   },

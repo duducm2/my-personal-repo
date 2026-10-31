@@ -21,6 +21,9 @@ const PATH_COPY = {
     diagram: "../media/path-po.png",
     diagramAlt:
       "Path from a need and an evidence-backed priority to a shipped outcome",
+    pdf: "/download/product-owner/portfolio-deck-product-owner-EN.pdf",
+    contactLead:
+      "I stay with the work from discovery through delivery. I clarify needs, align people, prioritize with evidence, and check that the result held.",
   },
   pt: {
     label: "Product Owner",
@@ -44,6 +47,7 @@ const PATH_COPY = {
     diagram: "../media/path-po-pt.png",
     diagramAlt:
       "Caminho de uma necessidade e uma prioridade com evidência até um resultado entregue",
+    pdf: "/download/product-owner/portfolio-deck-product-owner-PT.pdf",
     contactLead:
       "Acompanho o trabalho da descoberta à entrega. Esclareço necessidades, alinho pessoas, priorizo com evidência e verifico se o resultado se sustentou.",
   },

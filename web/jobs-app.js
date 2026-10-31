@@ -2221,8 +2221,9 @@
     }
     const button = document.getElementById("prompt-copy-btn");
     if (button) button.disabled = true;
+    setPromptGenerating("prompt-modal", true);
     if (status) {
-      status.textContent = "Sending the prompt to the AI companion…";
+      status.textContent = "Generating the prompt…";
       status.className = "save-status";
     }
     try {
@@ -2254,6 +2255,7 @@
         status.className = "save-status err";
       }
     } finally {
+      setPromptGenerating("prompt-modal", false);
       if (button) button.disabled = false;
     }
   }
@@ -2776,7 +2778,8 @@
     }
     const button = document.getElementById("form-prompt-send-btn");
     if (button) button.disabled = true;
-    setFormPromptStatus("Opening UIA Tree Inspector and copying that window…");
+    setPromptGenerating("form-prompt-modal", true);
+    setFormPromptStatus("Generating the prompt…");
     try {
       const data = await postCareerAutofill(
         "/api/career-autofill/build-and-send",
@@ -2791,6 +2794,7 @@
     } catch (err) {
       setFormPromptStatus(err.message || String(err), "err");
     } finally {
+      setPromptGenerating("form-prompt-modal", false);
       if (button) button.disabled = false;
     }
   }
@@ -3646,8 +3650,9 @@
     }
     const button = document.getElementById("cover-prompt-copy-btn");
     if (button) button.disabled = true;
+    setPromptGenerating("cover-prompt-modal", true);
     if (status) {
-      status.textContent = "Sending the prompt to the AI companion…";
+      status.textContent = "Generating the prompt…";
       status.className = "save-status";
     }
     try {
@@ -3679,6 +3684,7 @@
         status.className = "save-status err";
       }
     } finally {
+      setPromptGenerating("cover-prompt-modal", false);
       if (button) button.disabled = false;
     }
   }
@@ -3862,6 +3868,7 @@
     fillCoverPromptOpeningSelect();
     const dialog = document.getElementById("cover-prompt-modal");
     const status = document.getElementById("cover-prompt-status");
+    setPromptGenerating("cover-prompt-modal", false);
     if (status) {
       status.textContent = "";
       status.className = "save-status";
@@ -3872,6 +3879,7 @@
   }
 
   function closeCoverPromptModal() {
+    setPromptGenerating("cover-prompt-modal", false);
     const dialog = document.getElementById("cover-prompt-modal");
     if (dialog && dialog.open) dialog.close();
   }
@@ -4011,6 +4019,7 @@
     const dialog = document.getElementById("form-prompt-modal");
     const status = document.getElementById("form-prompt-status");
     const nameEl = document.getElementById("form-prompt-window-name");
+    setPromptGenerating("form-prompt-modal", false);
     cancelFormPromptAutoClose({ keepStatus: true });
     if (status) {
       status.textContent = "";
@@ -4029,6 +4038,7 @@
 
   function closeFormPromptModal() {
     cancelFormPromptAutoClose({ keepStatus: true });
+    setPromptGenerating("form-prompt-modal", false);
     const dialog = document.getElementById("form-prompt-modal");
     if (dialog && dialog.open) dialog.close();
   }
@@ -4501,6 +4511,13 @@
     syncSelectAllPaths();
   }
 
+  function setPromptGenerating(dialogId, on) {
+    const dialog = document.getElementById(dialogId);
+    if (!dialog) return;
+    dialog.classList.toggle("is-generating", !!on);
+    dialog.setAttribute("aria-busy", on ? "true" : "false");
+  }
+
   function openPromptModal(opts = {}) {
     fillPromptCompanySelect();
     const dialog = document.getElementById("prompt-modal");
@@ -4529,6 +4546,7 @@
 
   function closePromptModal() {
     cancelPromptAutoClose({ keepStatus: true });
+    setPromptGenerating("prompt-modal", false);
     const dialog = document.getElementById("prompt-modal");
     if (dialog && dialog.open) dialog.close();
   }

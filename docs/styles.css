@@ -207,11 +207,16 @@ main {
 }
 
 .eyebrow {
-  letter-spacing: 0.14em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   font-size: 0.78rem;
   color: var(--signal);
   margin: 0 0 12px;
+}
+
+.eyebrow-place {
+  display: block;
+  margin-top: 0.35em;
 }
 
 h1 {
@@ -237,6 +242,25 @@ h1 {
 address a,
 address span {
   margin-right: 16px;
+}
+
+.hero-export {
+  margin: 18px 0 0;
+}
+
+.pdf-export {
+  display: inline-block;
+  padding: 8px 14px;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  font-size: 0.92rem;
+}
+
+.pdf-export:hover {
+  background: var(--ink);
+  color: var(--paper);
 }
 
 a {
@@ -441,7 +465,7 @@ address {
 
 .stage img.is-diagram {
   object-fit: contain;
-  background: #fff;
+  background: transparent;
   max-height: none;
 }
 
@@ -452,6 +476,15 @@ address {
   height: auto;
   background: #fff;
   cursor: zoom-in;
+}
+
+figure.diagram,
+figure.stage.stage-diagram {
+  background: transparent;
+}
+
+.diagram img {
+  background: transparent;
 }
 
 figcaption {
@@ -581,5 +614,284 @@ figcaption {
   }
   .shots {
     grid-template-columns: 1fr;
+  }
+}
+
+@page {
+  size: A4;
+  margin: 0;
+}
+
+.print-bleed {
+  display: none;
+}
+
+.screen-only {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.print-mark {
+  display: none;
+}
+
+@media print {
+  .skip,
+  .rail,
+  .hero-export,
+  .stops,
+  #steps,
+  #step-copy,
+  #stop-stage,
+  .fine,
+  .portrait figcaption,
+  .screen-only,
+  dialog {
+    display: none !important;
+  }
+
+  .print-mark {
+    display: block;
+    position: fixed;
+    left: 14mm;
+    right: 14mm;
+    bottom: 6mm;
+    margin: 0;
+    font-size: 8pt;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+  }
+
+  .eyebrow {
+    letter-spacing: 0.05em;
+    font-size: 8pt;
+    line-height: 1.35;
+  }
+
+  html,
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+  }
+
+  body {
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    padding: 12mm 14mm 16mm;
+    font-size: 10.5pt;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .shell {
+    display: block;
+    background: var(--paper);
+  }
+
+  main {
+    max-width: none;
+    padding: 0;
+    background: transparent;
+  }
+
+  .hero {
+    min-height: 0;
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 8mm;
+    align-items: end;
+    padding: 0 0 2mm;
+  }
+
+  h1 {
+    font-size: 28pt;
+  }
+
+  h2 {
+    font-size: 18pt;
+    break-after: avoid;
+  }
+
+  h3 {
+    break-after: avoid;
+  }
+
+  section {
+    padding: 5mm 0 1mm;
+    break-inside: auto;
+  }
+
+  #contact {
+    break-inside: avoid;
+  }
+
+  #scores {
+    break-before: page;
+  }
+
+  #score-table th,
+  #score-table td {
+    padding: 1.4mm 2mm;
+  }
+
+  p,
+  li,
+  dd {
+    orphans: 3;
+    widows: 3;
+  }
+
+  figure,
+  img,
+  .facts > div,
+  .print-steps h3,
+  .print-steps p,
+  tr {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .wide,
+  .diagram,
+  .print-stops figure {
+    display: table;
+    width: 100%;
+  }
+
+  .portrait,
+  .stage,
+  .wide,
+  .diagram,
+  .shots figure,
+  table,
+  .facts div {
+    background: transparent;
+  }
+
+  figcaption {
+    padding: 1.5mm 0 0;
+  }
+
+  .portrait img {
+    max-height: 88mm;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .facts {
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5mm 7mm;
+  }
+
+  .facts div {
+    padding: 0 0 2.5mm;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .shots {
+    display: block;
+  }
+
+  .shot-row {
+    display: flex;
+    align-items: stretch;
+    gap: 5mm;
+    margin: 0 0 5mm;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .shots figure {
+    display: block;
+    flex: 1 1 0;
+    width: auto;
+    margin: 0;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .shot-row > figure {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0;
+    width: auto;
+    margin: 0;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .shot-row > figure > figcaption {
+    margin-top: auto;
+  }
+
+  .table-wrap {
+    overflow: visible;
+  }
+
+  table {
+    background: transparent;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tfoot {
+    display: table-footer-group;
+  }
+
+  #score-table button {
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
+  }
+
+  .shots img,
+  .shots img.portrait,
+  .wide img,
+  .print-stops .wide img {
+    aspect-ratio: auto;
+    width: 100%;
+    height: auto;
+    max-height: 115mm;
+    object-fit: contain;
+    object-position: center;
+    background: transparent;
+  }
+
+  .shots.shots-apps figure {
+    display: table;
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .shots.shots-apps img {
+    aspect-ratio: auto;
+    max-height: 78mm;
+    object-fit: contain;
+    background: #14110e;
+  }
+
+  .diagram img,
+  .print-stops .diagram img {
+    width: 100%;
+    max-height: none;
+    aspect-ratio: auto;
+    object-fit: contain;
+    background: transparent;
+  }
+
+  a {
+    color: var(--signal);
+    text-decoration: none;
   }
 }

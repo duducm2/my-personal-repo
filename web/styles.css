@@ -2457,6 +2457,31 @@ body.lang-en .field-row {
   flex-shrink: 0;
 }
 
+.company-modal.is-generating .company-modal-head {
+  position: relative;
+  overflow: hidden;
+}
+
+.company-modal.is-generating .company-modal-head::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 28%;
+  height: 3px;
+  background: var(--gold);
+  animation: prompt-generating 0.9s ease-in-out infinite;
+}
+
+@keyframes prompt-generating {
+  from {
+    transform: translateX(-120%);
+  }
+  to {
+    transform: translateX(380%);
+  }
+}
+
 .company-modal-title {
   margin: 0;
   font-size: 16px;

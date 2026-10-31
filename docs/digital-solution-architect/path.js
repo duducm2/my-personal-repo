@@ -21,6 +21,9 @@ const PATH_COPY = {
     diagram: "../media/path-dsa.png",
     diagramAlt:
       "Path from a problem and an operable design to a solution teams can run",
+    pdf: "/download/digital-solution-architect/portfolio-deck-digital-solution-architect-EN.pdf",
+    contactLead:
+      "I bring digitization, analytic pipelines, and research quality gates into solution architecture that global teams can run, judged by results.",
   },
   pt: {
     label: "Arquiteto de Soluções Digitais",
@@ -44,6 +47,7 @@ const PATH_COPY = {
     diagram: "../media/path-dsa-pt.png",
     diagramAlt:
       "Caminho de um problema e um desenho operável até uma solução que o time consiga operar",
+    pdf: "/download/digital-solution-architect/portfolio-deck-digital-solution-architect-PT.pdf",
     contactLead:
       "Levo digitalização, pipelines analíticos e quality gates de pesquisa para arquitetura de soluções que times globais consigam operar, avaliada por resultados.",
   },

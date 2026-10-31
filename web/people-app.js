@@ -600,8 +600,13 @@
       return;
     }
     if (button) button.disabled = true;
+    const dialog = document.getElementById("people-prompt-modal");
+    if (dialog) {
+      dialog.classList.add("is-generating");
+      dialog.setAttribute("aria-busy", "true");
+    }
     if (status) {
-      status.textContent = "Sending the prompt to the AI companion…";
+      status.textContent = "Generating the prompt…";
       status.className = "save-status";
     }
     try {
@@ -624,6 +629,10 @@
         status.className = "save-status err";
       }
     } finally {
+      if (dialog) {
+        dialog.classList.remove("is-generating");
+        dialog.setAttribute("aria-busy", "false");
+      }
       if (button) button.disabled = false;
     }
   }

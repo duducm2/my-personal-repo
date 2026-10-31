@@ -26,11 +26,15 @@ const UI = {
       "The condensed path crosses Bosch locations: Campinas, Hungary, Sorocaba, and Campinas again. Select a stop.",
     stop0: "Campinas",
     stop1: "Hungary",
-    storyCap: "The sequence of the portfolio deck",
-    pathCap: "The path in the portfolio deck",
+    story: "../media/story-flow.png",
+    storyAlt: "Past foundations, present impact, and future directions",
+    relevance: "../media/relevance.png",
+    relevanceAlt:
+      "Applied research relevance model: CIM fields, priority, then Low, Medium, or High",
+    storyCap: "Past, present, and what comes next",
+    pathCap: "How the next step is shaped",
     deliverablesTitle: "Deliverables",
-    deliverablesLead:
-      "These are the pieces I shipped. They stay on this page whichever role you opened.",
+    deliverablesLead: "These are the pieces I shipped.",
     uxTitle: "UX Super",
     uxLead:
       "A portal for the UX practice. It keeps each business with its offerings, personas, and opportunities, and it tracks project KPIs from a baseline to a target.",
@@ -53,7 +57,7 @@ const UI = {
     modelLead:
       "I built a model to score applied-research relevance for CIP initiatives. CIM (ServiceNow) fields are set by priority. The result is Low, Medium, or High, a triage for when deeper research involvement is needed. Python runs the pipeline on CIM-like data.",
     modelSample: "Sample of 35 projects",
-    modelCap: "Relevance model from the portfolio deck",
+    modelCap: "Relevance model for CIP initiatives",
     bars: ["Low", "Medium", "High"],
     researchTitle: "Trust in AI and interfaces",
     research: [
@@ -72,8 +76,8 @@ const UI = {
     infovisCap: "Visual structures from the InfoVis course",
     infovis: "../media/infovis-structures.png",
     scoresTitle: "CSI and NPS, 2024–2025",
-    scoresLead:
-      "Select a column to sort. Averages across these projects: CSI 4.86, NPS 9.94.",
+    scoresLead: "Averages across these projects: CSI 4.86, NPS 9.94.",
+    scoresHint: "Select a column to sort.",
     sortProject: "Project",
     na: "N/A",
     interestsTitle: "What I do outside the job",
@@ -91,7 +95,8 @@ const UI = {
     contactTitle: "Let's connect",
     contactLead:
       "I bring applied research, technology, and project delivery. What I care about is work people can trust and use, with clear data and results you can measure.",
-    contactFine: "Resume and the slide deck are available on request.",
+    pdfButton: "Download PDF",
+    contactFine: "The PDF button at the top saves this page.",
     viewerClose: "Close",
     langLabel: "Language",
     facts: [
@@ -223,11 +228,15 @@ const UI = {
       "A trajetória resumida passa por unidades Bosch: Campinas, Hungria, Sorocaba e Campinas de novo. Escolha uma parada.",
     stop0: "Campinas",
     stop1: "Hungria",
-    storyCap: "A sequência do deck",
-    pathCap: "O caminho no deck",
+    story: "../media/story-flow-pt.png",
+    storyAlt: "Fundamentos passados, impacto presente e direções futuras",
+    relevance: "../media/relevance-pt.png",
+    relevanceAlt:
+      "Modelo de relevância da pesquisa aplicada: campos do CIM, prioridade, depois Baixa, Média ou Alta",
+    storyCap: "Passado, presente e o que vem depois",
+    pathCap: "Como o próximo passo se desenha",
     deliverablesTitle: "Entregas",
-    deliverablesLead:
-      "Estas são as peças que entreguei. Elas ficam nesta página qualquer que seja o papel que você abriu.",
+    deliverablesLead: "Estas são as peças que entreguei.",
     uxTitle: "UX Super",
     uxLead:
       "Um portal para a prática de UX. Guarda cada negócio com ofertas, personas e oportunidades, e acompanha KPIs do projeto de uma linha de base até a meta.",
@@ -250,7 +259,7 @@ const UI = {
     modelLead:
       "Construí um modelo para avaliar a relevância de pesquisa aplicada em iniciativas CIP. Campos do CIM (ServiceNow) entram por prioridade. O resultado é Baixa, Média ou Alta, uma triagem de quando a pesquisa precisa ir mais fundo. Python executa o pipeline em dados no formato do CIM.",
     modelSample: "Amostra de 35 projetos",
-    modelCap: "Modelo de relevância do deck",
+    modelCap: "Modelo de relevância para iniciativas CIP",
     bars: ["Baixa", "Média", "Alta"],
     researchTitle: "Confiança em IA e interfaces",
     research: [
@@ -269,8 +278,8 @@ const UI = {
     infovisCap: "Estruturas visuais do curso de InfoVis",
     infovis: "../media/infovis-structures-pt.png",
     scoresTitle: "CSI e NPS, 2024–2025",
-    scoresLead:
-      "Escolha uma coluna para ordenar. Médias nestes projetos: CSI 4,86, NPS 9,94.",
+    scoresLead: "Médias nestes projetos: CSI 4,86, NPS 9,94.",
+    scoresHint: "Escolha uma coluna para ordenar.",
     sortProject: "Projeto",
     na: "N/D",
     interestsTitle: "O que faço fora do trabalho",
@@ -288,7 +297,8 @@ const UI = {
     contactTitle: "Vamos conversar",
     contactLead:
       "Trago pesquisa aplicada, tecnologia e entrega de projetos. O que me importa é trabalho em que as pessoas possam confiar e usar, com dados claros e resultados que dá para medir.",
-    contactFine: "Currículo e este deck disponíveis sob pedido.",
+    pdfButton: "Baixar PDF",
+    contactFine: "O botão de PDF no topo salva esta página.",
     viewerClose: "Fechar",
     langLabel: "Idioma",
     facts: [
@@ -381,7 +391,7 @@ const UI = {
       },
       {
         text: "A trajetória resumida: Campinas, Hungria, Sorocaba e Campinas de novo.",
-        src: "../media/timeline.png",
+        src: "../media/timeline-pt.png",
         alt: "Linha do tempo entre unidades Bosch",
         diagram: true,
       },
