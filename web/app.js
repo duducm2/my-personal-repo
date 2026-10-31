@@ -2534,7 +2534,24 @@
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   }
 
+  function closeResumePriority() {
+    const dialog = document.getElementById("resume-priority-modal");
+    if (dialog && dialog.open) dialog.close();
+  }
+
   function initKeyboard() {
+    document.addEventListener(
+      "keydown",
+      (event) => {
+        if (event.key !== "Escape") return;
+        const priorityDialog = document.getElementById("resume-priority-modal");
+        if (!priorityDialog || !priorityDialog.open) return;
+        event.preventDefault();
+        event.stopPropagation();
+        priorityDialog.close();
+      },
+      true,
+    );
     document.addEventListener("keydown", (event) => {
       const mod = event.ctrlKey || event.metaKey;
       const typing = isTypingTarget(document.activeElement);
@@ -2552,6 +2569,12 @@
       }
 
       if (event.key === "Escape") {
+        const priorityDialog = document.getElementById("resume-priority-modal");
+        if (priorityDialog && priorityDialog.open) {
+          event.preventDefault();
+          closeResumePriority();
+          return;
+        }
         const resumeDialog = document.getElementById("resume-viewer-modal");
         if (resumeDialog && resumeDialog.open) {
           closeResumeViewer();
