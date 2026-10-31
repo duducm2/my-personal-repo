@@ -7,7 +7,6 @@ try {
 } catch (error) {
   lang = "en";
 }
-let stopIndex = 0;
 let stepIndex = 0;
 
 function activePath() {
@@ -99,30 +98,6 @@ const spy = new IntersectionObserver(
 );
 chapters.forEach((section) => spy.observe(section));
 
-const stopButtons = [...document.querySelectorAll(".stops button")];
-const stopNote = document.getElementById("stop-note");
-const stopPhoto = document.getElementById("stop-photo");
-
-function showStop(index) {
-  stopIndex = index;
-  const stop = UI[lang].stops[index];
-  stopButtons.forEach((button, i) => {
-    button.setAttribute("aria-selected", i === index ? "true" : "false");
-  });
-  stopNote.textContent = stop.text;
-  stopPhoto.src = stop.src;
-  stopPhoto.alt = stop.alt;
-  stopPhoto.classList.toggle("is-diagram", stop.diagram);
-  stopPhoto.closest("figure").classList.toggle("stage-diagram", stop.diagram);
-  const internPhotos = document.getElementById("intern-photos");
-  if (internPhotos) internPhotos.hidden = index !== 0;
-}
-
-stopButtons.forEach((button) => {
-  button.addEventListener("click", () => showStop(Number(button.dataset.stop)));
-});
-showStop(0);
-
 const bars = document.getElementById("bars");
 const barObserver = new IntersectionObserver(
   (entries) => {
@@ -209,7 +184,7 @@ const viewerImg = document.getElementById("viewer-img");
 const viewerCap = document.getElementById("viewer-cap");
 
 document.querySelectorAll("figure.zoom").forEach((figure) => {
-  const source = figure.querySelector("img");
+  const source = figure.querySelector("img:not(.sticker)");
   source.addEventListener("click", () => {
     viewerImg.src = source.currentSrc || source.src;
     viewerImg.alt = source.alt;
@@ -309,7 +284,6 @@ function applyLanguage() {
   });
   applyPath();
   applyPdfLink();
-  showStop(stopIndex);
   showStep(stepIndex);
   renderScores();
   expandForPrint();
@@ -338,32 +312,6 @@ function expandForPrint() {
     bleed.className = "print-bleed";
     document.body.prepend(bleed);
   }
-
-  const stage = document.getElementById("stop-stage");
-  let printedStops = document.getElementById("print-stops");
-  if (!printedStops && stage) {
-    printedStops = document.createElement("div");
-    printedStops.id = "print-stops";
-    printedStops.className = "print-stops";
-    stage.after(printedStops);
-  }
-  if (printedStops) {
-    printedStops.replaceChildren();
-    (UI[lang].stops || []).forEach((stop) => {
-      const fig = document.createElement("figure");
-      fig.className = stop.diagram ? "diagram" : "wide";
-      const img = document.createElement("img");
-      img.src = stop.src;
-      img.alt = stop.alt || "";
-      const cap = document.createElement("figcaption");
-      cap.textContent = stop.text || "";
-      fig.append(img, cap);
-      printedStops.append(fig);
-    });
-  }
-  const stopsRoot = document.querySelector("#path .stops");
-  if (stopsRoot) stopsRoot.hidden = true;
-  if (stage) stage.hidden = true;
 
   const steps = document.getElementById("steps");
   const stepCopy = document.getElementById("step-copy");

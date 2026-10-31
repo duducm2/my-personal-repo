@@ -25,11 +25,20 @@ const UI = {
       "Undergraduate degree in Systems Analysis and Development, School of Technology, Unicamp, with colleagues",
     tccCap:
       "Defending my technical course conclusion work (TCC), ETEC Bento Quirino",
+    tccDelivery: "Internal social network, built as a web application",
+    ftDelivery:
+      "Web application for student activities, with traditional project management",
+    thesisDelivery: "Master's dissertation on perceived trust, with TrustMate",
+    gradeSticker: "Best score in every discipline",
     internCap0: "Starting as an intern at Bosch Campinas, with colleagues",
     internCap1: "The intern group at Bosch Campinas, when I started",
     pathTitle: "Bosch, place by place",
     pathLead:
-      "The condensed path crosses Bosch locations: Campinas, Hungary, Sorocaba, and Campinas again. Select a stop.",
+      "The path crosses Bosch locations: Campinas, Hungary, Sorocaba, and Campinas again.",
+    pathCap2018: "Campinas, 2018. Team recognition with Bosch.",
+    pathCapHungary: "Hungary, 2019, with the Budapest team.",
+    pathCapReturn:
+      "Back in Campinas. Germany workshops in 2024 and 2025, and the Americas team in 2025.",
     stop0: "Campinas",
     stop1: "Hungary",
     story: "../media/story-flow.png",
@@ -55,8 +64,8 @@ const UI = {
       "A results portal that publishes UX findings as cards, a recommendations library, and a task timeline, instead of a static PDF.",
     appsTitle: "Personal apps",
     appsLead:
-      "Three tools I built for my own work: a memory palace for study, a task board, and a finance cockpit.",
-    appsCapPalace: "Memory Palace, study palaces",
+      "Three tools I built for my own work: a system for memorization, a task board, and a finance cockpit.",
+    appsCapPalace: "A system for memorization",
     appsCapTasks: "Tasks, personal board",
     appsCapFinance: "Finance cockpit, budgets and spending",
     modelTitle: "Relevance model",
@@ -168,12 +177,14 @@ const UI = {
       "3rd place, Bosch Talent Forum, Campinas, September 2018, with my boss at the time",
       "CIP fundamentals for HR, Bosch Sorocaba, August 2020",
       "Tooling project, PT",
-      "CIP research report",
+      "Delivery report for my research",
       "Power BI, allocation",
       "Power BI, training",
       "Bosch AI sessions, 2026, with Felipe Oshiro and Gabriel Reis",
     ],
     researchCaps: [
+      "Dissertation charts in Python and Power BI",
+      "TrustMate, the web application",
       "TrustMate, Power BI",
       "AI and human scores",
       "Published article",
@@ -233,11 +244,21 @@ const UI = {
     ftCap:
       "Graduação em Análise e Desenvolvimento de Sistemas, Faculdade de Tecnologia, Unicamp, com colegas",
     tccCap: "Defesa do TCC do curso técnico, ETEC Bento Quirino",
+    tccDelivery: "Rede social interna, feita como aplicação web",
+    ftDelivery:
+      "Aplicação web para atividades estudantis, com gestão tradicional de projetos",
+    thesisDelivery:
+      "Dissertação de mestrado sobre confiança percebida, com o TrustMate",
+    gradeSticker: "Melhor nota em todas as disciplinas",
     internCap0: "Começando como estagiário na Bosch Campinas, com os colegas",
     internCap1: "O grupo de estagiários na Bosch Campinas, quando comecei",
     pathTitle: "Bosch, lugar por lugar",
     pathLead:
-      "A trajetória resumida passa por unidades Bosch: Campinas, Hungria, Sorocaba e Campinas de novo. Escolha uma parada.",
+      "A trajetória passa por unidades Bosch: Campinas, Hungria, Sorocaba e Campinas de novo.",
+    pathCap2018: "Campinas, 2018. Reconhecimento de equipe na Bosch.",
+    pathCapHungary: "Hungria, 2019, com o time de Budapeste.",
+    pathCapReturn:
+      "De volta a Campinas. Workshops na Alemanha em 2024 e 2025, e o time das Américas em 2025.",
     stop0: "Campinas",
     stop1: "Hungria",
     story: "../media/story-flow-pt.png",
@@ -263,8 +284,8 @@ const UI = {
       "Um portal de resultados que publica achados de UX em cartões, uma biblioteca de recomendações e uma linha do tempo de tarefas, em vez de um PDF estático.",
     appsTitle: "Aplicativos pessoais",
     appsLead:
-      "Três ferramentas que construí para o meu próprio uso: um palácio da memória para estudo, um quadro de tarefas e um cockpit financeiro.",
-    appsCapPalace: "Memory Palace, palácios de estudo",
+      "Três ferramentas que construí para o meu próprio uso: um sistema para memorização, um quadro de tarefas e um cockpit financeiro.",
+    appsCapPalace: "Um sistema para memorização",
     appsCapTasks: "Tarefas, quadro pessoal",
     appsCapFinance: "Cockpit financeiro, orçamentos e gastos",
     modelTitle: "Modelo de relevância",
@@ -376,12 +397,14 @@ const UI = {
       "3º lugar, Fórum de Talentos da Bosch, Campinas, setembro de 2018, com meu chefe na época",
       "Fundamentos de CIP para o RH, Bosch Sorocaba, agosto de 2020",
       "Projeto de tooling, PT",
-      "Relatório de pesquisa CIP",
+      "Relatório de entrega da minha pesquisa",
       "Power BI, alocação",
       "Power BI, treinamento",
       "Sessões de IA na Bosch, 2026, com Felipe Oshiro e Gabriel Reis",
     ],
     researchCaps: [
+      "Gráficos da dissertação em Python e Power BI",
+      "TrustMate, a aplicação web",
       "TrustMate, Power BI",
       "Pontuações de IA e humanos",
       "Artigo publicado",
