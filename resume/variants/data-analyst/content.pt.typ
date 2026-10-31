@@ -63,6 +63,9 @@
     [Digitalizei fluxos de Business Excellence em Kanban.],
     [Desenvolvimento web full-stack com VS Code, SQL Server e Windows Server (IIS).],
   )),
+  ("Jan 2017 – Nov 2018", "Bosch Brasil (Campinas)", "Estagiário", (
+    [Excel e VBA: fórmulas avançadas, macros, planilhas no estilo banco, atalhos e fluxos CSV; 3º lugar no Fórum de Talentos Bosch 2018 (macro Excel).],
+  )),
 )
 
 #let education = (

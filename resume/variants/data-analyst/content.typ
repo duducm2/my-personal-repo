@@ -63,6 +63,9 @@
     [Digitized Business Excellence workflows in Kanban.],
     [Full-stack web development with VS Code, SQL Server, and Windows Server (IIS).],
   )),
+  ("Jan 2017 – Nov 2018", "Bosch Brasil (Campinas)", "Intern", (
+    [Excel and VBA: advanced formulas, macros, database-style workbooks, shortcuts, and CSV workflows; 3rd place, Bosch Talent Forum 2018 (Excel macro).],
+  )),
 )
 
 #let education = (

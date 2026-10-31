@@ -21,6 +21,12 @@ const UI = {
     trait1: "Self-reliant",
     trait2: "Organized",
     academicCap: "Academic writing, Unicamp",
+    ftCap:
+      "Undergraduate degree in Systems Analysis and Development, School of Technology, Unicamp, with colleagues",
+    tccCap:
+      "Defending my technical course conclusion work (TCC), ETEC Bento Quirino",
+    internCap0: "Starting as an intern at Bosch Campinas, with colleagues",
+    internCap1: "The intern group at Bosch Campinas, when I started",
     pathTitle: "Bosch, place by place",
     pathLead:
       "The condensed path crosses Bosch locations: Campinas, Hungary, Sorocaba, and Campinas again. Select a stop.",
@@ -159,6 +165,7 @@ const UI = {
       "GS Service Day, Technology & Enabling, August 2022",
       "Presenting our services in Buenos Aires, August 2022",
       "3rd place, Bosch Talent Forum, Campinas, September 2018",
+      "3rd place, Bosch Talent Forum, Campinas, September 2018, with my boss at the time",
       "CIP fundamentals for HR, Bosch Sorocaba, August 2020",
       "Tooling project, PT",
       "CIP research report",
@@ -223,6 +230,11 @@ const UI = {
     trait1: "Autônomo",
     trait2: "Organizado",
     academicCap: "Escrita acadêmica, Unicamp",
+    ftCap:
+      "Graduação em Análise e Desenvolvimento de Sistemas, Faculdade de Tecnologia, Unicamp, com colegas",
+    tccCap: "Defesa do TCC do curso técnico, ETEC Bento Quirino",
+    internCap0: "Começando como estagiário na Bosch Campinas, com os colegas",
+    internCap1: "O grupo de estagiários na Bosch Campinas, quando comecei",
     pathTitle: "Bosch, lugar por lugar",
     pathLead:
       "A trajetória resumida passa por unidades Bosch: Campinas, Hungria, Sorocaba e Campinas de novo. Escolha uma parada.",
@@ -361,6 +373,7 @@ const UI = {
       "GS Service Day, Technology & Enabling, agosto de 2022",
       "Apresentação dos nossos serviços em Buenos Aires, agosto de 2022",
       "3º lugar, Fórum de Talentos da Bosch, Campinas, setembro de 2018",
+      "3º lugar, Fórum de Talentos da Bosch, Campinas, setembro de 2018, com meu chefe na época",
       "Fundamentos de CIP para o RH, Bosch Sorocaba, agosto de 2020",
       "Projeto de tooling, PT",
       "Relatório de pesquisa CIP",

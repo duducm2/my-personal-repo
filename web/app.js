@@ -2727,9 +2727,17 @@
       const res = await fetch("/api/downloads");
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const payload = await res.json();
+      let priority = downloadsCache.priority || null;
+      try {
+        const priorityRes = await fetch("/api/resume-priority");
+        if (priorityRes.ok) priority = await priorityRes.json();
+      } catch (err) {
+        priority = downloadsCache.priority || null;
+      }
       downloadsCache = {
         items: payload.items || [],
         policy: payload.resume_policy || null,
+        priority,
       };
       renderDownloads(downloadsCache.items, downloadsCache.policy);
     } catch (err) {
@@ -3102,6 +3110,29 @@
     loadDownloads();
   }
 
+  function leftOffCount(variant) {
+    const entry = downloadsCache.priority?.variants?.[variant];
+    if (!entry) return null;
+    return (entry.deprioritized || []).length;
+  }
+
+  function buildLeftOffControl(variant, label) {
+    const count = leftOffCount(variant);
+    const known = Number.isFinite(count);
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className =
+      "resume-priority-open" + (known && count > 0 ? " has-left" : "");
+    button.textContent =
+      known && count > 0 ? `Left off · ${count}` : "Left off";
+    button.title =
+      known && count > 0
+        ? `${count} topic${count === 1 ? "" : "s"} left off this one-page resume`
+        : "Topics on this page, and any that had to wait";
+    button.addEventListener("click", () => openResumePriority(variant, label));
+    return button;
+  }
+
   function renderDownloads(items, policy) {
     const root = document.getElementById("downloads-root");
     if (!root) return;
@@ -3136,16 +3167,13 @@
         heading.textContent = group[0].label_en;
       }
       card.append(heading);
+      card.append(buildLeftOffControl(variant, group[0].label_en));
 
       const resumes = group.filter((i) => i.kind === "resume");
       const portfolios = group.filter((i) => i.kind === "portfolio");
 
       card.append(
-        buildDownloadRow("Resume", resumes, {
-          isResume: true,
-          policy,
-          onLeftOff: () => openResumePriority(variant, group[0].label_en),
-        }),
+        buildDownloadRow("Resume", resumes, { isResume: true, policy }),
       );
       card.append(
         buildDownloadRow("Portfolio", portfolios, { isResume: false }),
@@ -3172,21 +3200,6 @@
     en.className = "field-label-en";
     en.textContent = labelEn;
     label.append(en);
-    if (opts?.isResume) {
-      const hint = document.createElement("span");
-      hint.className = "download-row-hint";
-      hint.textContent = "1-page limit";
-      if (opts.onLeftOff) {
-        hint.append(document.createTextNode(" · "));
-        const leftOff = document.createElement("button");
-        leftOff.type = "button";
-        leftOff.className = "resume-priority-open";
-        leftOff.textContent = "Left off this page";
-        leftOff.addEventListener("click", opts.onLeftOff);
-        hint.append(leftOff);
-      }
-      label.append(hint);
-    }
     row.append(label);
 
     const actions = document.createElement("div");

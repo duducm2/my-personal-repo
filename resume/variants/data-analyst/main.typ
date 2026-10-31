@@ -32,11 +32,11 @@
 
 #let sec-title-above = if compact-layout { 0.48em } else { 0.58em }
 #let sec-title-below = if compact-layout { 0.54em } else { 0.68em }
-#let exp-role-above = if compact-layout { 0.52em } else { 0.62em }
-#let exp-role-below = if compact-layout { 0.34em } else { 0.44em }
-#let role-title-above = if compact-layout { 0.14em } else { 0.16em }
-#let role-title-below = if compact-layout { 0.24em } else { 0.28em }
-#let bullet-above = if compact-layout { 0.38em } else { 0.5em }
+#let exp-role-above = if compact-layout { 0.42em } else { 0.62em }
+#let exp-role-below = if compact-layout { 0.28em } else { 0.44em }
+#let role-title-above = if compact-layout { 0.12em } else { 0.16em }
+#let role-title-below = if compact-layout { 0.18em } else { 0.28em }
+#let bullet-above = if compact-layout { 0.28em } else { 0.5em }
 #let edu-above = if compact-layout { 0.46em } else { 0.54em }
 #let edu-thesis-above = if compact-layout { 0.3em } else { 0.38em }
 #let divider-above = if compact-layout { 0.38em } else { 0.46em }

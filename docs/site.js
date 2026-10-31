@@ -114,6 +114,8 @@ function showStop(index) {
   stopPhoto.alt = stop.alt;
   stopPhoto.classList.toggle("is-diagram", stop.diagram);
   stopPhoto.closest("figure").classList.toggle("stage-diagram", stop.diagram);
+  const internPhotos = document.getElementById("intern-photos");
+  if (internPhotos) internPhotos.hidden = index !== 0;
 }
 
 stopButtons.forEach((button) => {

@@ -326,6 +326,17 @@
       "status": "kept"
     },
     {
+      "id": "bullet:bosch-intern-2017:data-analyst:1",
+      "kind": "bullet",
+      "section_en": "Intern",
+      "section_pt": "Estagiário",
+      "priority": 55,
+      "pinned": false,
+      "text_en": "Excel and VBA: advanced formulas, macros, database-style workbooks, shortcuts, and CSV workflows; 3rd place, Bosch Talent Forum 2018 (Excel macro).",
+      "text_pt": "Excel e VBA: fórmulas avançadas, macros, planilhas no estilo banco, atalhos e fluxos CSV; 3º lugar no Fórum de Talentos Bosch 2018 (macro Excel).",
+      "status": "kept"
+    },
+    {
       "id": "skill:data-analyst:Core:8",
       "kind": "skill",
       "section_en": "Core",
@@ -491,17 +502,5 @@
       "status": "kept"
     }
   ],
-  "deprioritized": [
-    {
-      "id": "bullet:bosch-intern-2017:data-analyst:1",
-      "kind": "bullet",
-      "section_en": "Intern",
-      "section_pt": "Estagiário",
-      "priority": 19,
-      "pinned": false,
-      "text_en": "Excel and VBA: advanced formulas, macros, database-style workbooks, shortcuts, and CSV workflows; 3rd place, Bosch Talent Forum 2018 (Excel macro).",
-      "text_pt": "Excel e VBA: fórmulas avançadas, macros, planilhas no estilo banco, atalhos e fluxos CSV; 3º lugar no Fórum de Talentos Bosch 2018 (macro Excel).",
-      "status": "deprioritized"
-    }
-  ]
+  "deprioritized": []
 }
