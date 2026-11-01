@@ -37,6 +37,7 @@ const UI = {
       "The path crosses Bosch locations: Campinas, Hungary, Sorocaba, and Campinas again.",
     pathCap2018: "Campinas, 2018. Team recognition with Bosch.",
     pathCapHungary: "Hungary, 2019, with the Budapest team.",
+    pathCapDev: "With the development team, 2020 to 2022.",
     pathCapReturn:
       "Back in Campinas. Germany workshops in 2024 and 2025, and the Americas team in 2025.",
     stop0: "Campinas",
@@ -257,6 +258,7 @@ const UI = {
       "A trajetória passa por unidades Bosch: Campinas, Hungria, Sorocaba e Campinas de novo.",
     pathCap2018: "Campinas, 2018. Reconhecimento de equipe na Bosch.",
     pathCapHungary: "Hungria, 2019, com o time de Budapeste.",
+    pathCapDev: "Com o time de desenvolvimento, 2020 a 2022.",
     pathCapReturn:
       "De volta a Campinas. Workshops na Alemanha em 2024 e 2025, e o time das Américas em 2025.",
     stop0: "Campinas",

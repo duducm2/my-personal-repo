@@ -507,17 +507,18 @@ figcaption {
   margin: 22px auto 0;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 22px;
+  padding-left: 28px;
 }
 
 .school-line::before {
   content: "";
   position: absolute;
-  z-index: 2;
-  left: 18px;
-  top: 8px;
-  bottom: 8px;
-  border-left: 2px dashed var(--signal);
+  left: 8px;
+  top: 6px;
+  bottom: 6px;
+  width: 1px;
+  background: rgba(28, 23, 18, 0.28);
   pointer-events: none;
 }
 
@@ -527,75 +528,76 @@ figcaption {
   background: var(--card);
 }
 
-.school-shot figcaption {
-  padding-left: 36px;
-}
-
-.shot-frame {
-  position: relative;
-}
-
-.shot-frame > img:first-child {
+.school-shot > img {
   display: block;
   width: 100%;
   height: auto;
 }
 
+.shot-frame {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 12px;
+  padding: 0 14px 4px;
+}
+
+.shot-frame > img:first-child {
+  display: block;
+  flex: 0 0 calc(100% + 28px);
+  width: calc(100% + 28px);
+  max-width: none;
+  height: auto;
+  margin: 0 -14px;
+}
+
+.school-shot figcaption {
+  padding: 2px 14px 14px;
+}
+
 .school-shot .delivery {
-  position: absolute;
-  z-index: 3;
-  left: 32px;
-  bottom: 12px;
-  max-width: calc(100% - 48px);
+  position: static;
+  flex: 1 1 12rem;
   margin: 0;
-  padding: 8px 12px;
-  background: var(--card);
+  padding: 0;
+  background: transparent;
   color: var(--ink);
   font-family: var(--display);
-  font-size: 1.15rem;
+  font-size: 1.12rem;
   line-height: 1.25;
-  border-radius: 8px;
-  box-shadow: 0 8px 16px rgba(28, 23, 18, 0.16);
+  box-shadow: none;
 }
 
 .school-shot .sticker {
-  position: absolute;
-  z-index: 3;
-  top: 12px;
-  right: 12px;
-  width: 76px;
+  position: static;
+  flex: 0 0 auto;
+  width: 62px;
   height: auto;
-  padding: 7px;
+  margin: 2px 0;
+  padding: 6px;
   background: #fff;
   border: 1px solid rgba(28, 23, 18, 0.14);
   border-radius: 12px;
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.9) inset,
-    3px 4px 0 rgba(28, 23, 18, 0.14),
-    0 10px 16px rgba(28, 23, 18, 0.16);
-  transform: rotate(7deg);
+    2px 3px 0 rgba(28, 23, 18, 0.12);
+  transform: rotate(-6deg);
   cursor: default;
 }
 
 .school-shot:nth-child(2) .sticker {
-  top: 14px;
-  right: 16px;
-  transform: rotate(-6deg);
+  transform: rotate(5deg);
 }
 
 .school-shot:nth-child(3) .sticker {
-  top: 10px;
-  right: 14px;
-  transform: rotate(4deg);
+  transform: rotate(-4deg);
 }
 
 .grade-sticker {
-  position: absolute;
-  z-index: 3;
-  top: 16px;
-  left: 28px;
-  max-width: 46%;
-  margin: 0;
+  position: static;
+  flex: 0 0 auto;
+  max-width: 11rem;
+  margin: 2px 0;
   padding: 8px 10px;
   background: #fff;
   color: var(--ink);
@@ -603,11 +605,10 @@ figcaption {
   border-radius: 12px;
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.9) inset,
-    3px 4px 0 rgba(28, 23, 18, 0.14),
-    0 10px 16px rgba(28, 23, 18, 0.16);
-  transform: rotate(-7deg);
+    2px 3px 0 rgba(28, 23, 18, 0.12);
+  transform: rotate(3deg);
   font-family: var(--display);
-  font-size: 1rem;
+  font-size: 0.95rem;
   line-height: 1.2;
 }
 
@@ -1016,14 +1017,24 @@ figcaption {
     width: 70%;
   }
 
+  .school-line::before {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
   .school-shot .sticker,
-  .school-shot .delivery,
   .grade-sticker {
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
     box-shadow: none;
     border: 1px solid #1c1712;
     background: #fff;
+  }
+
+  .school-shot .delivery {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
   }
 
   .diagram img,
