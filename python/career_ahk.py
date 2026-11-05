@@ -221,16 +221,21 @@ def send_companion_hotkey() -> None:
         item.union.ki.dwFlags = flags
         return item
 
+    import time
+
     down = (_VK_LWIN, _VK_MENU, _VK_SHIFT, _VK_I)
-    sequence = [stroke(vk, False) for vk in down] + [
-        stroke(vk, True) for vk in reversed(down)
-    ]
-    batch = (INPUT * len(sequence))(*sequence)
+    down_seq = [stroke(vk, False) for vk in down]
+    up_seq = [stroke(vk, True) for vk in reversed(down)]
+
     user32 = ctypes.WinDLL("user32", use_last_error=True)
-    sent = user32.SendInput(len(sequence), ctypes.byref(batch), ctypes.sizeof(INPUT))
-    if sent != len(sequence):
+    batch_down = (INPUT * len(down_seq))(*down_seq)
+    sent_down = user32.SendInput(len(down_seq), ctypes.byref(batch_down), ctypes.sizeof(INPUT))
+    time.sleep(0.05)
+    batch_up = (INPUT * len(up_seq))(*up_seq)
+    sent_up = user32.SendInput(len(up_seq), ctypes.byref(batch_up), ctypes.sizeof(INPUT))
+    if sent_down != len(down_seq) or sent_up != len(up_seq):
         err = ctypes.get_last_error()
-        raise OSError(f"SendInput sent {sent} of {len(sequence)} (error {err})")
+        raise OSError(f"SendInput failed (error {err})")
 
 
 def run_ahk(action: str, *, timeout: float = 60, **args: str) -> dict[str, Any]:
