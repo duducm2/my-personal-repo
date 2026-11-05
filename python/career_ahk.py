@@ -26,10 +26,61 @@ _KEYEVENTF_EXTENDEDKEY = 0x0001
 _INPUT_KEYBOARD = 1
 
 
+def _script_dir_candidates() -> list[Path]:
+    candidates: list[Path] = []
+    override = os.environ.get("CAREER_SCRIPTS_DIR", "").strip()
+    if override:
+        candidates.append(Path(override))
+
+    # Sibling folder next to repository root (personal workspace setup)
+    candidates.append(ROOT_DIR.parent / "scripts")
+
+    # User Documents/scripts (common in work/corporate environments)
+    home = Path.home()
+    candidates.append(home / "Documents" / "scripts")
+
+    userprofile = os.environ.get("USERPROFILE", "").strip()
+    if userprofile:
+        candidates.append(Path(userprofile) / "Documents" / "scripts")
+
+    onedrive = os.environ.get("OneDrive", "").strip()
+    if onedrive:
+        candidates.append(Path(onedrive) / "Documents" / "scripts")
+
+    onedrive_commercial = os.environ.get("OneDriveCommercial", "").strip()
+    if onedrive_commercial:
+        candidates.append(Path(onedrive_commercial) / "Documents" / "scripts")
+
+    # Parent of parent (if repos are nested under a category folder)
+    candidates.append(ROOT_DIR.parent.parent / "scripts")
+
+    # Repository-local scripts folder
+    candidates.append(ROOT_DIR / "scripts")
+
+    unique: list[Path] = []
+    seen: set[str] = set()
+    for candidate in candidates:
+        key = str(candidate).lower()
+        if key not in seen:
+            seen.add(key)
+            unique.append(candidate)
+    return unique
+
+
 def scripts_dir() -> Path:
     override = os.environ.get("CAREER_SCRIPTS_DIR", "").strip()
     if override:
         return Path(override)
+    # Prefer a candidate that actually contains career_form_fill.ahk
+    for candidate in _script_dir_candidates():
+        if (candidate / "Utils" / "career_form_fill.ahk").is_file() or (
+            candidate / "career_form_fill.ahk"
+        ).is_file():
+            return candidate
+    # Next, prefer a candidate that exists as a directory
+    for candidate in _script_dir_candidates():
+        if candidate.is_dir():
+            return candidate
     return ROOT_DIR.parent / "scripts"
 
 
@@ -37,6 +88,11 @@ def ahk_script_path() -> Path:
     override = os.environ.get("CAREER_FORM_FILL_AHK", "").strip()
     if override:
         return Path(override)
+    for sdir in _script_dir_candidates():
+        for subpath in ("Utils/career_form_fill.ahk", "career_form_fill.ahk"):
+            target = sdir / subpath
+            if target.is_file():
+                return target
     return scripts_dir() / "Utils" / "career_form_fill.ahk"
 
 
@@ -50,7 +106,13 @@ def ahk_exe() -> Path:
         candidates.append(
             Path(local) / "Programs" / "AutoHotkey" / "v2" / "AutoHotkey64.exe"
         )
+        candidates.append(
+            Path(local) / "Programs" / "AutoHotkey" / "AutoHotkey64.exe"
+        )
     candidates.append(Path(r"C:\Program Files\AutoHotkey\v2\AutoHotkey64.exe"))
+    candidates.append(Path(r"C:\Program Files\AutoHotkey\AutoHotkey64.exe"))
+    candidates.append(Path(r"C:\Program Files (x86)\AutoHotkey\v2\AutoHotkey64.exe"))
+    candidates.append(Path(r"C:\Program Files (x86)\AutoHotkey\AutoHotkey64.exe"))
     for candidate in candidates:
         if candidate.is_file():
             return candidate
@@ -175,7 +237,14 @@ def run_ahk(action: str, *, timeout: float = 60, **args: str) -> dict[str, Any]:
     """Run career_form_fill.ahk. Extra args are passed as --name value."""
     script = ahk_script_path()
     if not script.is_file():
-        raise RuntimeError(f"AutoHotkey script not found: {script}")
+        searched = "\n  - ".join(
+            str(d / "Utils" / "career_form_fill.ahk") for d in _script_dir_candidates()
+        )
+        raise RuntimeError(
+            f"AutoHotkey script not found: {script}\n"
+            f"Checked locations:\n  - {searched}\n"
+            "Set CAREER_SCRIPTS_DIR or CAREER_FORM_FILL_AHK if your scripts repo is elsewhere."
+        )
     exe = ahk_exe()
     with tempfile.TemporaryDirectory(prefix="career-ahk-") as tmp:
         result_path = Path(tmp) / "result.json"
