@@ -221,3 +221,4 @@ def get_debug_summary() -> dict[str, Any]:
 
 # Log startup environment detection
 log_info(f"Career Cockpit Environment initialized: {CURRENT_ENV.upper()}", get_debug_summary())
+
