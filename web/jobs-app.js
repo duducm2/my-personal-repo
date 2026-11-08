@@ -5428,20 +5428,6 @@
       });
     }
     document
-      .getElementById("form-prompt-open-uia-btn")
-      ?.addEventListener("click", async () => {
-        setFormPromptStatus("Opening UIA Inspector on screen…");
-        try {
-          const res = await postCareerAutofill("/api/career-autofill/open-uia", {});
-          setFormPromptStatus(
-            res.message || "UIA Tree Inspector is open. Press Shift+C in it to copy UI tree.",
-            "ok",
-          );
-        } catch (err) {
-          setFormPromptStatus(err.message || String(err), "err");
-        }
-      });
-    document
       .getElementById("form-prompt-send-btn")
       ?.addEventListener("click", () => void handleBuildAndSendFormPrompt());
     document

@@ -238,8 +238,22 @@ def send_companion_hotkey() -> None:
         raise OSError(f"SendInput failed (error {err})")
 
 
+def _is_default_desktop() -> bool:
+    try:
+        import ctypes
+        u = ctypes.windll.user32
+        hdesk = u.GetThreadDesktop(ctypes.windll.kernel32.GetCurrentThreadId())
+        buf = ctypes.create_unicode_buffer(256)
+        u.GetUserObjectInformationW(hdesk, 2, buf, 256, None)
+        return buf.value.lower() == "default"
+    except Exception:
+        return False
+
+
 def run_ahk(action: str, *, timeout: float = 60, **args: str) -> dict[str, Any]:
     """Run career_form_fill.ahk. Extra args are passed as --name value."""
+    import time
+
     script = ahk_script_path()
     if not script.is_file():
         searched = "\n  - ".join(
@@ -264,22 +278,54 @@ def run_ahk(action: str, *, timeout: float = 60, **args: str) -> dict[str, Any]:
         ]
         for key, value in args.items():
             command.extend([f"--{key.replace('_', '-')}", str(value)])
-        try:
-            completed = subprocess.run(  # noqa: S603
-                command,
-                check=False,
-                capture_output=True,
-                text=True,
-                encoding="utf-8",
-                errors="replace",
-                timeout=timeout,
-            )
-        except subprocess.TimeoutExpired as exc:
-            raise RuntimeError(
-                f"AutoHotkey {action} timed out after {int(timeout)}s"
-            ) from exc
-        stderr = (completed.stderr or "").strip()
-        stdout = (completed.stdout or "").strip()
+
+        stderr = ""
+        stdout = ""
+        completed_code = 0
+
+        if not _is_default_desktop():
+            bat_path = Path(tmp) / "run_ahk.bat"
+            bat_parts = []
+            for part in command:
+                if " " in part or not part.startswith("--"):
+                    bat_parts.append(f'"{part}"')
+                else:
+                    bat_parts.append(part)
+            bat_path.write_text(f"@echo off\n{' '.join(bat_parts)}\n", encoding="ascii", errors="ignore")
+            tn = f"CareerAHK_{os.getpid()}"
+            try:
+                subprocess.run(
+                    ["schtasks", "/create", "/tn", tn, "/tr", str(bat_path), "/sc", "once", "/st", "23:59", "/it", "/f"],
+                    check=False,
+                    capture_output=True,
+                )
+                subprocess.run(["schtasks", "/run", "/tn", tn], check=False, capture_output=True)
+                deadline = time.monotonic() + timeout
+                while time.monotonic() < deadline:
+                    if result_path.is_file() and result_path.stat().st_size > 0:
+                        break
+                    time.sleep(0.1)
+            finally:
+                subprocess.run(["schtasks", "/delete", "/tn", tn, "/f"], check=False, capture_output=True)
+        else:
+            try:
+                completed = subprocess.run(  # noqa: S603
+                    command,
+                    check=False,
+                    capture_output=True,
+                    text=True,
+                    encoding="utf-8",
+                    errors="replace",
+                    timeout=timeout,
+                )
+                completed_code = completed.returncode
+                stderr = (completed.stderr or "").strip()
+                stdout = (completed.stdout or "").strip()
+            except subprocess.TimeoutExpired as exc:
+                raise RuntimeError(
+                    f"AutoHotkey {action} timed out after {int(timeout)}s"
+                ) from exc
+
         if result_path.is_file():
             try:
                 payload = json.loads(result_path.read_text(encoding="utf-8-sig"))
@@ -288,11 +334,11 @@ def run_ahk(action: str, *, timeout: float = 60, **args: str) -> dict[str, Any]:
                     f"AutoHotkey {action} returned invalid JSON: {exc}"
                 ) from exc
         else:
-            detail = stderr or stdout or f"exit {completed.returncode}"
+            detail = stderr or stdout or f"exit {completed_code}"
             raise RuntimeError(f"AutoHotkey {action} failed: {detail[:800]}")
         if not isinstance(payload, dict):
             raise RuntimeError(f"AutoHotkey {action} returned a non-object result")
-        if completed.returncode != 0 and payload.get("ok"):
+        if completed_code != 0 and payload.get("ok"):
             payload["ok"] = False
             payload["error"] = (
                 payload.get("error") or stderr[:800] or "AutoHotkey failed"

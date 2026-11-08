@@ -63,12 +63,24 @@ def capture_window(opening_id: str = "") -> dict[str, Any]:
 
     if not chrome_titles:
         try:
-            result = run_ahk("capture-window", timeout=5)
+            result = run_ahk("capture-window", timeout=8)
             if result.get("ok"):
                 suggested = str(result.get("window_name") or "")
                 chrome_titles = result.get("windows") or []
         except Exception:
             pass
+
+    if opening_id and chrome_titles:
+        sess = load_session(opening_id)
+        if sess.get("window_name") and sess["window_name"] in chrome_titles:
+            suggested = sess["window_name"]
+        else:
+            tokens = [tok.lower() for tok in opening_id.replace("-", " ").replace("_", " ").split() if len(tok) >= 4]
+            for t in chrome_titles:
+                t_low = t.lower()
+                if any(tok in t_low for tok in tokens):
+                    suggested = t
+                    break
 
     if opening_id and suggested:
         save_session(opening_id, window_name=suggested)
@@ -136,50 +148,49 @@ def build_and_send(store: Any, opening_id: str, window_name: str) -> dict[str, A
         raise ValueError("Type the application tab title first.")
 
     tree = ""
-    # 1. Check if the clipboard already contains a valid UIA tree (e.g. from Shift+C in inspector)
-    try:
-        cb = read_clipboard_text(timeout=0.5)
-        if looks_like_uia_tree(cb):
-            tree = cb
-    except Exception:
-        pass
+    # 1. Direct AHK dump-tree from the live Chrome window (fast, 100% automatic)
+    with tempfile.TemporaryDirectory(prefix="career-form-") as tmp:
+        tree_path = Path(tmp) / "tree.txt"
+        try:
+            dumped = run_ahk(
+                "dump-tree",
+                timeout=15,
+                title=window_name,
+                out=str(tree_path),
+            )
+            if dumped.get("ok") and tree_path.is_file():
+                candidate = tree_path.read_text(encoding="utf-8-sig")
+                if looks_like_uia_tree(candidate):
+                    tree = candidate
+        except Exception:
+            pass
 
-    # 2. Check if a saved tree exists in session for this opening
+    # 2. Check if the clipboard contains a valid UIA tree
+    if not tree:
+        try:
+            cb = read_clipboard_text(timeout=0.5)
+            if looks_like_uia_tree(cb):
+                tree = cb
+        except Exception:
+            pass
+
+    # 3. Check if a saved tree exists in session for this opening
     if not tree:
         session = load_session(opening_id)
         saved_tree = str(session.get("ui_tree") or "")
         if looks_like_uia_tree(saved_tree):
             tree = saved_tree
 
-    # 3. If still no tree, try direct AHK dump-tree
-    if not tree:
-        with tempfile.TemporaryDirectory(prefix="career-form-") as tmp:
-            tree_path = Path(tmp) / "tree.txt"
-            try:
-                dumped = run_ahk(
-                    "dump-tree",
-                    timeout=8,
-                    title=window_name,
-                    out=str(tree_path),
-                )
-                if dumped.get("ok") and tree_path.is_file():
-                    candidate = tree_path.read_text(encoding="utf-8-sig")
-                    if looks_like_uia_tree(candidate):
-                        tree = candidate
-            except Exception:
-                pass
-
-    # 4. If still no tree, check if opening has raw form text saved
+    # 4. Check if opening has raw form text saved
     if not tree:
         raw_form = str(opening.get("application_form_raw") or "").strip()
         if raw_form and len(raw_form) > 30:
             tree = raw_form
 
-    # 5. If still no tree, launch UIA Tree Inspector right onto the user's screen
+    # 5. If still no tree, report error clearly
     if not tree:
-        open_uia()
         raise ValueError(
-            "Opened UIA Tree Inspector on screen. In the inspector, press Shift+C to select your application window and copy the tree, then click Send to AI companion."
+            f"Could not read the application window UI tree automatically. Make sure the application tab ({window_name}) is open in Chrome."
         )
 
     save_session(opening_id, window_name=window_name, ui_tree=tree)
