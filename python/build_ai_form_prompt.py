@@ -9,18 +9,21 @@ from __future__ import annotations
 from typing import Any
 
 RESUME_OPTIONS = (
+    "ux-researcher",
     "general",
     "data-analyst",
     "product-owner",
     "digital-solution-architect",
 )
 PATH_LABELS = {
+    "uxr": "UX Researcher & Design Technologist",
     "da": "Data Analyst",
     "po": "Product Owner",
     "dsa": "Digital Solution Architect",
     "other": "Other",
 }
 PATH_TO_VARIANT = {
+    "uxr": "ux-researcher",
     "da": "data-analyst",
     "po": "product-owner",
     "dsa": "digital-solution-architect",
@@ -54,7 +57,7 @@ def _cell(row: dict[str, Any] | None, key: str) -> str:
 
 
 def _instructions(opening_id: str, career_paths: list[str]) -> str:
-    paths = " | ".join(career_paths) if career_paths else "da | po | dsa | other"
+    paths = " | ".join(career_paths) if career_paths else "uxr | da | po | dsa | other"
     resumes = " | ".join(RESUME_OPTIONS)
     return "\n".join(
         [

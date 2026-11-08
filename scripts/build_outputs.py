@@ -16,6 +16,7 @@ LANGS = ("en", "pt")
 LANG_SUFFIX = {"en": "EN", "pt": "PT"}
 
 VARIANTS = (
+    "ux-researcher",
     "general",
     "product-owner",
     "data-analyst",
@@ -87,9 +88,26 @@ OUTPUTS = {
     / "output"
     / "digital-solution-architect"
     / "portfolio-deck-digital-solution-architect-PT.pdf",
+    ("ux-researcher", "en", "resume"): ROOT
+    / "output"
+    / "ux-researcher"
+    / "CV-Eduardo-Figueiredo-EN-ux-researcher.pdf",
+    ("ux-researcher", "pt", "resume"): ROOT
+    / "output"
+    / "ux-researcher"
+    / "CV-Eduardo-Figueiredo-PT-ux-researcher.pdf",
+    ("ux-researcher", "en", "portfolio"): ROOT
+    / "output"
+    / "ux-researcher"
+    / "portfolio-deck-ux-researcher-EN.pdf",
+    ("ux-researcher", "pt", "portfolio"): ROOT
+    / "output"
+    / "ux-researcher"
+    / "portfolio-deck-ux-researcher-PT.pdf",
 }
 
 RESUME_MAIN = {
+    "ux-researcher": ROOT / "resume" / "variants" / "ux-researcher" / "main.typ",
     "general": ROOT / "resume" / "typst" / "main.typ",
     "product-owner": ROOT / "resume" / "variants" / "product-owner" / "main.typ",
     "data-analyst": ROOT / "resume" / "variants" / "data-analyst" / "main.typ",
@@ -101,6 +119,7 @@ RESUME_MAIN = {
 }
 
 RESUME_CONTENT = {
+    "ux-researcher": ROOT / "resume" / "variants" / "ux-researcher",
     "general": ROOT / "resume" / "typst",
     "product-owner": ROOT / "resume" / "variants" / "product-owner",
     "data-analyst": ROOT / "resume" / "variants" / "data-analyst",
@@ -111,6 +130,11 @@ RESUME_CONTENT = {
 }
 
 DECK_SRC = {
+    "ux-researcher": ROOT
+    / "portfolio"
+    / "variants"
+    / "ux-researcher"
+    / "portfolio-deck.{lang}.md",
     "general": ROOT / "portfolio" / "portfolio-deck.{lang}.md",
     "product-owner": ROOT
     / "portfolio"
@@ -207,6 +231,7 @@ def compile_portfolio(variant: str, lang: str) -> None:
             "-o",
             str(out),
             "--allow-local-files",
+            "--no-stdin",
         ]
     )
 

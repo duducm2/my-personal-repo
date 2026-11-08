@@ -140,6 +140,7 @@ def build_autofill_bundle(
     opening = find_opening(openings, job_id)
     variant = _cell(opening, "recommended_resume") or "general"
     if variant not in {
+        "ux-researcher",
         "general",
         "product-owner",
         "data-analyst",

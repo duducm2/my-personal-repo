@@ -6,16 +6,19 @@
 
 ```
 output/
+  ux-researcher/
   general/
   product-owner/
   data-analyst/
   digital-solution-architect/
 ```
 
-## Deliverables (16 PDFs)
+## Deliverables (20 PDFs)
 
 | Folder                          | Language | Resume                                                            | Portfolio                                              |
 | ------------------------------- | -------- | ----------------------------------------------------------------- | ------------------------------------------------------ |
+| `ux-researcher/`                | EN       | `CV-Eduardo-Figueiredo-EN-ux-researcher.pdf`                      | `portfolio-deck-ux-researcher-EN.pdf`                  |
+| `ux-researcher/`                | PT       | `CV-Eduardo-Figueiredo-PT-ux-researcher.pdf`                      | `portfolio-deck-ux-researcher-PT.pdf`                  |
 | `general/`                      | EN       | `CV-Eduardo-Figueiredo-EN.pdf`                                    | `portfolio-deck-EN.pdf`                                |
 | `general/`                      | PT       | `CV-Eduardo-Figueiredo-PT.pdf`                                    | `portfolio-deck-PT.pdf`                                |
 | `product-owner/`                | EN       | `CV-Eduardo-Figueiredo-EN-product-owner.pdf`                      | `portfolio-deck-product-owner-EN.pdf`                  |

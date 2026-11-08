@@ -103,7 +103,13 @@ def send_prompt_text(prompt: str) -> dict[str, Any]:
     with tempfile.TemporaryDirectory(prefix="career-prompt-") as tmp:
         prompt_path = Path(tmp) / "prompt.txt"
         prompt_path.write_text(prompt, encoding="utf-8", newline="\n")
-        send_companion_hotkey()
+        try:
+            send_companion_hotkey()
+        except Exception:
+            # SendInput can fail with ERROR_ACCESS_DENIED when running
+            # non-interactively or in a background session; run_ahk
+            # activates the window directly.
+            pass
         sent = run_ahk("send-prompt", timeout=45, file=str(prompt_path))
         if not sent.get("ok"):
             raise RuntimeError(str(sent.get("error") or "Could not send the prompt"))

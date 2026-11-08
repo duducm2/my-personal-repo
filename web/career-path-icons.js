@@ -1,5 +1,8 @@
 (() => {
   const ALIASES = {
+    "ux-researcher": "ux-researcher",
+    uxr: "ux-researcher",
+    ux: "ux-researcher",
     general: "general",
     gen: "general",
     "data-analyst": "data-analyst",
@@ -12,6 +15,13 @@
 
   // Simple 16×16 stroke icons (currentColor) for path chips / downloads.
   const ICONS = {
+    "ux-researcher":
+      '<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+      '<circle cx="7" cy="5.5" r="2.75" stroke="currentColor" stroke-width="1.25"/>' +
+      '<path d="M2 13.5c0-2.5 2.25-4 5-4s5 1.5 5 4" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>' +
+      '<circle cx="11.5" cy="5.5" r="2" stroke="currentColor" stroke-width="1.25"/>' +
+      '<path d="M13 7l2 2" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/>' +
+      "</svg>",
     general:
       '<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">' +
       '<path d="M2.5 5.5h11v8h-11z" stroke="currentColor" stroke-width="1.25" stroke-linejoin="round"/>' +

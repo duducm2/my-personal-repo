@@ -58,6 +58,7 @@
     "fit_data_analyst",
     "fit_product_owner",
     "fit_digital_solution_architect",
+    "fit_ux_researcher",
     "scope",
     "job_search_url",
     "system_kind",
@@ -236,6 +237,7 @@
       "fit_data_analyst",
       "fit_product_owner",
       "fit_digital_solution_architect",
+      "fit_ux_researcher",
       "website",
       "careers_url",
       "ats_kind",
@@ -470,6 +472,10 @@
         label: "fitDigitalSolutionArchitect",
         mono: "fit_digital_solution_architect",
       },
+      {
+        label: "fitUxResearcher",
+        mono: "fit_ux_researcher",
+      },
       { label: "companyWebsite", mono: "website" },
       { label: "careersUrl", mono: "careers_url" },
       { label: "atsKind", mono: "ats_kind" },
@@ -569,6 +575,12 @@
 
   const CAREER_PATHS = [
     {
+      key: "ux-researcher",
+      short: "UXR",
+      en: "UX Researcher & Design Technologist",
+      pt: "Pesquisador de UX e Design Technologist",
+    },
+    {
       key: "data-analyst",
       short: "DA",
       en: "Data Analyst",
@@ -590,6 +602,14 @@
   ];
 
   const COMPANY_ROLES = [
+    {
+      key: "uxr",
+      field: "fit_ux_researcher",
+      shortEn: "UXR",
+      shortPt: "UXR",
+      en: "UX Researcher",
+      pt: "UX Researcher",
+    },
     {
       key: "da",
       field: "fit_data_analyst",
@@ -794,6 +814,7 @@
       row.fit_data_analyst = "no";
       row.fit_product_owner = "no";
       row.fit_digital_solution_architect = "no";
+      row.fit_ux_researcher = "no";
       row.region_en = "Campinas metro";
       row.region_pt = "Região metropolitana de Campinas";
       row.region_detail_en = row.region_en;
@@ -2003,6 +2024,13 @@
         hay: `site website portfolio github pages digital solution architect ${cell(contactProfile.site_digital_solution_architect_url)}`.toLowerCase(),
       },
       {
+        id: "contact-site-uxr",
+        label: "UX Researcher site",
+        en: cell(contactProfile.site_ux_researcher_url),
+        pt: cell(contactProfile.site_ux_researcher_url),
+        hay: `site website portfolio github pages ux researcher design technologist ${cell(contactProfile.site_ux_researcher_url)}`.toLowerCase(),
+      },
+      {
         id: "contact-bosch-campinas",
         label: "Bosch Campinas",
         en: boschAddressEn,
@@ -3139,6 +3167,7 @@
     root.replaceChildren();
 
     const order = [
+      "ux-researcher",
       "digital-solution-architect",
       "data-analyst",
       "product-owner",

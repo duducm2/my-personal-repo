@@ -1,0 +1,123 @@
+# GENERATED — portfolio content layer
+variant: ux-researcher
+lang: pt
+fields:
+  asset_prefix: "../../../"
+  cip_pipeline_h2: "Presente – Da Pesquisa do Usuário à Implementação: Intake → Avaliação → Governança"
+  closing_summary: "Combino pesquisa rigorosa com métodos mistos, prototipagem em código como design technologist e medição empírica de confiança para construir produtos de alta tecnologia e IA que os usuários confiam e adotam—validados por resultados mensuráveis."
+  csi_h2: "Presente – Resultados de Satisfação do Usuário: CSI e NPS (2024–2025)"
+  deck_title: "Eduardo Figueiredo – Portfólio de UX Research e Design"
+  dissertation_pbi_bullets: |
+    - **Avaliação empírica de UX:** escalas quantitativas de confiança, métricas comportamentais de tarefas e modelagem da percepção do usuário em touchpoints humano-IA.
+    - **Pesquisa publicada em IHC:** artigos com peer-review no IHC 2025 e ISSRE 2025 sobre medição de confiança e dinâmica de decisões do usuário em interação com IA.
+  dissertation_pbi_intro: "Minha dissertação de mestrado investiga **confiança do usuário** em experiências digitais e avalia como usuários interagem e adotam **sistemas de IA agêntica** em comparação a fluxos tradicionais."
+  email: "edu.evangelista.figueiredo@gmail.com"
+  future_career_body: |
+    ## Futuro – Como conduzo Pesquisa e Design de UX em Alta Tecnologia
+    
+    - **Rigor em métodos mistos:** descoberta generativa (entrevistas, pesquisa contextual) combinada com testes avaliativos (SUS, benchmarks de usabilidade, escalas quantitativas de confiança).
+    - **Ponte de design technologist:** traduzindo conceitos de UX em protótipos interativos em **React** e especificações de componentes que aceleram o handoff de engenharia.
+    - **Interação com IA confiável:** aplicando diretrizes Microsoft HAX, Google PAIR e medição empírica de confiança em fluxos de trabalho com IA.
+    - **ResearchOps e insights escaláveis:** repositórios de pesquisa, achados atômicos e kits de ferramentas self-service para squads multidisciplinares.
+    - **Compromisso com resultados:** conectando intervenções de design diretamente à eficiência de tarefas do usuário, adoção, redução de erros e **CSI/NPS** sustentados.
+  future_career_style: |
+    .future-career-wrap {
+      display: flex !important; flex-direction: column !important;
+      justify-content: flex-start !important; align-items: stretch !important;
+      width: 100% !important; margin-top: 0.35rem !important;
+      gap: 0.4rem !important;
+    }
+    .future-career-wrap p { margin: 0 !important; text-align: left !important; }
+    .future-po-bullets {
+      width: 100% !important; max-width: 100% !important; text-align: left !important; font-size: 0.85em !important;
+    }
+    .future-po-bullets table {
+      width: 100% !important; table-layout: fixed !important; margin-top: 0.35rem !important;
+    }
+    .future-po-bullets th:first-child,
+    .future-po-bullets td:first-child { width: 22% !important; }
+    .future-po-bullets td, .future-po-bullets th {
+      overflow-wrap: anywhere; padding: 0.28em 0.5em !important;
+    }
+  future_diagram_alt: "Diagrama ai-agile-research-ux-researcher: Pesquisa e Design de UX em Entrega de Alta Tecnologia"
+  future_h2: "Futuro – Pesquisa e Design de UX para Tecnologias Emergentes e IA"
+  future_intro: "**Pesquisa centrada no usuário, design technology e IA confiável** definem minha trajetória como Pesquisador de UX e Design Technologist. O diagrama abaixo ilustra o ciclo de pesquisa e entrega em que atuo."
+  future_method_diagram: "ai-agile-research-ux-researcher"
+  h_academic_research: "Presente – Pesquisa aplicada acadêmica (confiança em IA e UI)"
+  h_cip_artifacts: "Presente – Integração CIP e Pesquisa Aplicada: Artefatos"
+  h_closing: "Encerramento e contato"
+  h_closing_connect: "Vamos conversar"
+  h_closing_request: "Currículo e este deck disponíveis sob pedido."
+  h_diss_tech: "Implementação técnica – Dissertação (<span class=\"agentic-ai-emphasis\">IA agêntica</span> e full stack)"
+  h_diss_tech_bullet: "- **Arquitetura:** desenho de banco para projetos, experimentos, atributos, pontuações e execuções de <span class=\"agentic-ai-emphasis\">IA agêntica</span>."
+  h_dissertation_pbi: "Visualização de dados – Power BI da dissertação"
+  h_infovis_diagram_alt: "Estruturas visuais da PNAD no InfoVis"
+  h_interests: "Interesses pessoais que alimentam o trabalho"
+  h_interests_bullet: "- **Em casa:** dois gatos, piano iniciante e um teclado dividido que uso para macros e produtividade."
+  h_interests_col: "Interesse"
+  h_interests_rows: |
+    <tr><td>Piano</td></tr>
+    <tr><td>Linguística (fonologia e fonética)</td></tr>
+    <tr><td>Física (relatividade e quântica)</td></tr>
+    <tr><td>Atuação</td></tr>
+    <tr><td>Arte impressionista</td></tr>
+    <tr><td>Criação de macros</td></tr>
+    <tr><td>Teclados especializados</td></tr>
+  h_past_academic: "Passado – Formação acadêmica e perfil profissional"
+  h_past_experience: "Passado – Linha do tempo (resumida)"
+  h_past_feeling: "Me sinto proativo, autônomo e organizado."
+  h_past_grade: "Nota A em todas as disciplinas do mestrado"
+  h_past_grade_note: "comprovação de proficiência em inglês."
+  h_past_trajectory: "**Trajetória entre unidades Bosch:** Campinas, Hungria, Sorocaba e Campinas."
+  h_pbi_work: "Visualização de dados – Dashboards Power BI no trabalho"
+  h_pbi_work_bullet: "- **Pesquisa Aplicada Américas da Bosch (GS):** Construí dashboards Power BI para acompanhar projetos, recursos e treinamentos, para o time ver os números e decidir melhor."
+  h_proposal: "Implementação técnica – Gerador de propostas (Excel VBA)"
+  h_publications: "Presente – Publicações científicas"
+  h_publications_intro: "Trabalho publicado no <strong>ISSRE 2025 (Workshop HFSD)</strong> e no <strong>IHC 2025 (SBC SOL)</strong>; <span class=\"thesis-emphasis\">dissertação de mestrado sobre confiabilidade de software e IA agêntica</span>."
+  h_tech_impl: "Implementação técnica"
+  h_who: "Quem sou – Retrato"
+  h_who_attr: "Atributo"
+  h_who_contact: "Contato"
+  h_who_impact: "Impacto"
+  h_who_name: "Nome"
+  h_who_role: "Papel"
+  h_who_value: "Valor"
+  infovis_phrasenet_bullets: |
+    - **Mapeamento de expressões qualitativas do usuário:** visualização de termos, padrões semânticos e relações conceituais não estruturadas por grafos de rede.
+    - **Princípios de design de interação:** aplicação do mantra de Shneiderman para exploração de hierarquias complexas de informação.
+  infovis_phrasenet_h2: "Análise Qualitativa e Textual – Estruturas de Texto e Redes (PhraseNets)"
+  infovis_pnad_bullets: |
+    - **Visualização da Informação (Mestrado Unicamp, nota A):** percepção visual do usuário, carga cognitiva e mapeamento visual—princípios aplicados para desenhar interfaces legíveis e eficientes para tarefas.
+    - **PNAD Contínua no Power BI:** desenhei interfaces exploratórias priorizando legibilidade para o usuário, velocidade de fluxo e filtragem intuitiva.
+  infovis_pnad_h2: "Ergonomia Visual e Avaliação – InfoVis (Mestrado): PNAD Contínua (Power BI)"
+  lang: "pt"
+  lattes_url: "https://lattes.cnpq.br/2708641049892967"
+  linkedin_display: "linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b"
+  linkedin_url: "https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b"
+  orcid_url: "https://orcid.org/0009-0002-5178-6157"
+  phone: "+55 (19) 98176-6583"
+  present_h2: "Presente – Pesquisa de UX, Design Technologist e Governança (Bosch)"
+  present_table: |
+    | Área | Conquista |
+    |------|-----------|
+    | Maturidade e Governança UX | Conduzi as Américas ao **Nível 4 de Maturidade em UX** (Global Services); templates e governança |
+    | Síntese Qualitativa | **Data Insights**: Teoria Fundamentada (codificação aberta/axial) + **Python/IA** em transcrições → Power BI |
+    | Gates Automatizados de UX | Pontuação de relevância em UX no **ServiceNow** e dashboards **CIP** para visibilidade da liderança |
+    | Design Technologist | Tooling ponta a ponta de requisitos a **protótipos interativos** com check-ins contínuos de usuários |
+    | Resultados de Entrega | Média sustentada de **CSI 4,86 / NPS 9,94** (2024–2025); treinamento de IA para **100+** pessoas (**4,88**/5) |
+    | Pesquisa em IHC e Confiança | Mestrado Unicamp (nota A); artigos com peer-review sobre **confiança do usuário em IA** (**IHC 2025, ISSRE 2025**) |
+  relevance_h2: "Presente – Modelo de Pontuação de Relevância em UX no ServiceNow"
+  tooling_bullet: "- **Projeto tooling para PT:** Traduzi fluxos complexos de domínio em protótipos interativos com **check-ins regulares de usuários e stakeholders**—unindo modelos mentais do usuário à arquitetura técnica de produção."
+  tooling_h2: "Design Technologist na Entrega – Projeto Tooling para Power Tools"
+  who_contact: "Nova Odessa, SP – Brasil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583"
+  who_impact: "Ajudo times de tecnologia e IA a descobrir necessidades reais de usuários, desenhar sistemas usáveis e validar paradigmas de interação por meio de métodos mistos, métricas (CSI/NPS, SUS) e protótipos de alta fidelidade em código."
+  who_name: "Eduardo M. de A. Figueiredo"
+  who_role: "Pesquisador de UX e Design Technologist | Pesquisa com Métodos Mistos, Prototipagem e IA Confiável"
+  why_bullets: |
+    - Acredito que produtos tecnológicos vencem quando **pesquisa rigorosa com usuários e prototipagem rápida em engenharia** avançam juntas.
+    - A Pesquisa Aplicada na Bosch me ensinou a estruturar **governança de UX escalável**: gates de intake, templates padronizados e maturidade mensurável (Nível 4).
+    - A Teoria Fundamentada em transcrições de suporte mostrou como a voz qualitativa do usuário se traduz em **decisões quantificadas e priorizadas de backlog**.
+    - Minha pesquisa de mestrado na Unicamp (IHC 2025, ISSRE 2025) consolidou minha prática em **calibração de confiança do usuário para IA e interfaces complexas**.
+    - A capacidade de design technologist em **React, Figma, Python e Power BI** me permite prototipar soluções em código real para validar viabilidade cedo.
+  why_h1: "Por que atuo em Pesquisa e Design de UX em Tecnologia"
+  why_h2: "Design baseado em evidências unindo modelos mentais do usuário e sistemas técnicos complexos"

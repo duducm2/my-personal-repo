@@ -3,6 +3,13 @@
 
   const FIT_FIELDS = [
     {
+      key: "uxr",
+      field: "fit_ux_researcher",
+      en: "UX Researcher",
+      pt: "UX Researcher",
+      short: "UXR",
+    },
+    {
       key: "da",
       field: "fit_data_analyst",
       en: "Data Analyst",
@@ -386,25 +393,27 @@
     );
   }
 
-  async function openUrlInNewWindow(url) {
+  function openUrlInNewWindow(url) {
     const href = cell(url);
     if (!href) return false;
+
+    // 1. Browser-native anchor click: immune to popup blockers during key/click gestures
     try {
-      const res = await fetch("/api/open-url", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url: href }),
-      });
-      if (res.ok) return true;
+      const a = document.createElement("a");
+      a.href = href;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      document.body.append(a);
+      a.click();
+      a.remove();
+      return true;
     } catch {
       /* fall through */
     }
+
+    // 2. Direct window.open in the active browser tab
     try {
-      const win = window.open(
-        href,
-        "_blank",
-        "noopener,noreferrer,width=1280,height=900",
-      );
+      const win = window.open(href, "_blank", "noopener,noreferrer");
       if (win) {
         try {
           win.focus();
@@ -414,6 +423,18 @@
         return true;
       }
     } catch {
+      /* fall through */
+    }
+
+    // 3. Last resort fallback to local server
+    try {
+      fetch("/api/open-url", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url: href }),
+      });
+      return true;
+    } catch {
       /* ignore */
     }
     return false;
@@ -422,29 +443,84 @@
   function focusedCompanyCard() {
     const el = document.activeElement;
     const card = el?.closest?.("#companies-results .company-tile");
-    return card || null;
-  }
+    if (card) return card;
 
-  async function openFocusedCompanyPortal() {
-    const card = focusedCompanyCard();
-    if (!card) return false;
-    const href = cell(card.dataset.url);
-    if (!href) {
-      setSaveStatus("No careers / portal URL for this company", "err");
-      return true;
+    const hovered = window.CardNav?.getHoveredCard?.();
+    if (hovered && hovered.closest?.("#companies-results")) {
+      return hovered.closest(".company-tile");
     }
-    const ok = await openUrlInNewWindow(href);
-    if (!ok) setSaveStatus("Could not open careers URL", "err");
-    return true;
+
+    try {
+      const qHover = document.querySelector(
+        "#companies-results .company-tile:hover",
+      );
+      if (qHover) return qHover;
+    } catch {
+      /* ignore */
+    }
+
+    const last = window.CardNav?.getLastCard?.();
+    if (last && last.closest?.("#companies-results")) {
+      return last.closest(".company-tile");
+    }
+
+    if (openCompanyId) {
+      const openCard = document.querySelector(
+        `#companies-results .company-tile[data-id="${CSS.escape(openCompanyId)}"]`,
+      );
+      if (openCard) return openCard;
+    }
+
+    return null;
   }
 
-  function pinTargetCompany() {
+  function targetCompany() {
     if (openCompanyId) {
       return companies.find((c) => c.id === openCompanyId) || null;
     }
     const card = focusedCompanyCard();
-    if (!card) return null;
-    return companies.find((c) => c.id === card.dataset.id) || null;
+    if (card?.dataset?.id) {
+      return companies.find((c) => c.id === card.dataset.id) || null;
+    }
+    const activeTile = document.querySelector(
+      "#companies-results .company-tile.is-active",
+    );
+    if (activeTile?.dataset?.id) {
+      return companies.find((c) => c.id === activeTile.dataset.id) || null;
+    }
+    return null;
+  }
+
+  async function openFocusedCompanyPortal() {
+    const card = focusedCompanyCard();
+    const row = targetCompany();
+    const href = card?.dataset?.url || (row ? primaryCareersUrl(row) : "");
+    if (!href) {
+      const name = row ? cell(row.name_en) || row.id : "this company";
+      setSaveStatus(`No careers / portal URL for ${name}`, "err");
+      return false;
+    }
+    if (openCompanyId) {
+      await flushSave();
+    }
+    const ok = openUrlInNewWindow(href);
+    if (!ok) {
+      setSaveStatus("Could not open careers URL", "err");
+      return false;
+    }
+    const name = row ? cell(row.name_en) || row.id : "";
+    if (name) setSaveStatus(`Opened careers: ${name}`, "ok");
+    return true;
+  }
+
+  function openCompanyOpeningsInCockpit(companyId) {
+    const id = cell(companyId);
+    if (!id) return;
+    location.assign(`/jobs.html?company=${encodeURIComponent(id)}`);
+  }
+
+  function pinTargetCompany() {
+    return targetCompany();
   }
 
   function pinFocusedCompany() {
@@ -1098,11 +1174,19 @@
     btn.title = portalUrl
       ? "Click to edit · Alt+R to generate openings · Ctrl/Cmd+click or Ctrl+Enter to open careers"
       : "Click to edit · Alt+R to generate openings";
+    btn.addEventListener("pointerenter", () => {
+      window.CardNav?.setLastCard?.(btn);
+    });
     btn.addEventListener("click", (event) => {
       if (event.ctrlKey || event.metaKey) {
         event.preventDefault();
-        if (portalUrl) void openUrlInNewWindow(portalUrl);
-        else setSaveStatus("No careers / portal URL for this company", "err");
+        if (portalUrl) {
+          void openUrlInNewWindow(portalUrl);
+          const name = cell(row.name_en) || row.id;
+          setSaveStatus(`Opened careers: ${name}`, "ok");
+        } else {
+          setSaveStatus("No careers / portal URL for this company", "err");
+        }
         return;
       }
       openModal(row.id);
@@ -1168,11 +1252,17 @@
           : "");
     subTag.textContent = `${subscribedCount} subscribed`;
     subTag.title =
-      subscribedCount > 3
+      (subscribedCount > 3
         ? "More than 3 subscribed openings. Exclude some or change their status to clear the red tag."
         : subscribedCount === 3
           ? "3 subscribed openings, the maximum for this company."
-          : "Subscribed openings at this company.";
+          : "Subscribed openings at this company.") +
+      " Click to view openings in the job board.";
+    subTag.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      openCompanyOpeningsInCockpit(row.id);
+    });
     btn.append(subTag);
 
     const chips = document.createElement("div");
@@ -1195,6 +1285,12 @@
     if (daCount != null) {
       const da = document.createElement("span");
       da.className = "company-chip company-chip-da-openings";
+      da.title = "Click to view openings in the job board.";
+      da.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        openCompanyOpeningsInCockpit(row.id);
+      });
       const en = document.createElement("span");
       en.className = "panel-heading-en";
       en.textContent = `${daCount} DA`;
@@ -1687,6 +1783,15 @@
 
     const actions = document.createElement("div");
     actions.className = "job-modal-actions";
+    const openPortalBtn = document.createElement("button");
+    openPortalBtn.type = "button";
+    openPortalBtn.className = "nav-btn";
+    openPortalBtn.textContent = "Open careers";
+    openPortalBtn.title = "Open company careers / portal (Shift+C)";
+    openPortalBtn.addEventListener(
+      "click",
+      () => void openFocusedCompanyPortal(),
+    );
     const done = document.createElement("button");
     done.type = "button";
     done.className = "save-btn";
@@ -1699,7 +1804,7 @@
     del.textContent = "Delete company";
     del.title = "Delete company (Shift+Delete)";
     del.addEventListener("click", () => deleteCompany(row.id));
-    actions.append(done, del);
+    actions.append(openPortalBtn, done, del);
     body.append(actions);
   }
 
@@ -1773,6 +1878,7 @@
       fit_data_analyst: "yes",
       fit_product_owner: "no",
       fit_digital_solution_architect: "no",
+      fit_ux_researcher: "no",
       da_openings: "",
       website: "",
       careers_url: "",
@@ -1862,13 +1968,42 @@
       const typing = isTypingTarget(document.activeElement);
       const dialog = document.getElementById("company-modal");
       const modalOpen = !!(dialog && dialog.open);
+      const isEnter =
+        event.key === "Enter" ||
+        event.code === "Enter" ||
+        event.code === "NumpadEnter";
 
-      if (mod && !event.altKey && event.key === "Enter") {
+      // Ctrl/Cmd+Shift+Enter: open company portal even while in modal
+      if (mod && event.shiftKey && !event.altKey && isEnter) {
         event.preventDefault();
+        event.stopPropagation();
+        void openFocusedCompanyPortal();
+        return;
+      }
+
+      // Ctrl/Cmd+Enter: close modal (when open) or open focused company portal (when viewing board)
+      if (mod && !event.altKey && isEnter) {
+        event.preventDefault();
+        event.stopPropagation();
         if (modalOpen) {
           void doneModal();
           return;
         }
+        void openFocusedCompanyPortal();
+        return;
+      }
+
+      // Shift+C: open company portal (dossier open or card focused/hovered)
+      if (
+        (modalOpen || focusedCompanyCard()) &&
+        !typing &&
+        !mod &&
+        !event.altKey &&
+        event.shiftKey &&
+        (event.code === "KeyC" || (event.key || "").toLowerCase() === "c")
+      ) {
+        event.preventDefault();
+        event.stopPropagation();
         void openFocusedCompanyPortal();
         return;
       }
@@ -1892,7 +2027,7 @@
         !mod &&
         !event.altKey &&
         event.shiftKey &&
-        event.code === "KeyN"
+        (event.code === "KeyN" || (event.key || "").toLowerCase() === "n")
       ) {
         event.preventDefault();
         event.stopPropagation();
@@ -1902,7 +2037,11 @@
 
       if (event.altKey && !mod && !event.shiftKey) {
         // Same openings shortcuts as the job board: focused card or open dossier
-        if (event.code === "KeyR") {
+        const isR =
+          event.code === "KeyR" || (event.key || "").toLowerCase() === "r";
+        const isI =
+          event.code === "KeyI" || (event.key || "").toLowerCase() === "i";
+        if (isR || isI) {
           const row = pinTargetCompany();
           if (!row) {
             event.preventDefault();
@@ -1916,7 +2055,7 @@
           event.preventDefault();
           event.stopPropagation();
           const params = new URLSearchParams({
-            action: "prompt",
+            action: isR ? "prompt" : "import",
             company: row.id,
           });
           location.assign(`/jobs.html?${params}`);

@@ -83,6 +83,10 @@ window.CAREER_LABELS = {
     en: "Fit: Digital Solution Architect (yes/no)",
     pt: "Fit: Digital Solution Architect (sim/não)",
   },
+  fitUxResearcher: {
+    en: "Fit: UX Researcher (yes/no)",
+    pt: "Fit: UX Researcher (sim/não)",
+  },
   skillsMatch: {
     en: "Matching skills (DA / path)",
     pt: "Competências alinhadas (DA / trilha)",

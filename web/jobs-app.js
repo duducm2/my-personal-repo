@@ -15,6 +15,7 @@
   ];
   const PRIORITY_OPTIONS = ["high", "medium", "low"];
   const PATH_OPTIONS = [
+    { key: "uxr", label: "UX Researcher & Design Technologist" },
     { key: "da", label: "Data Analyst" },
     { key: "po", label: "Product Owner" },
     { key: "dsa", label: "Digital Solution Architect" },
@@ -30,6 +31,7 @@
     "other",
   ];
   const RESUME_OPTIONS = [
+    "ux-researcher",
     "general",
     "data-analyst",
     "product-owner",
@@ -99,6 +101,7 @@
     "cover_letter_closing",
   ];
   const PATH_TO_VARIANT = {
+    uxr: "ux-researcher",
     da: "data-analyst",
     po: "product-owner",
     dsa: "digital-solution-architect",
@@ -219,25 +222,27 @@
     return !!window.CardNav?.moveInContext(CARD_SEL, FILTER_SEL, delta);
   }
 
-  async function openUrlInNewWindow(url) {
+  function openUrlInNewWindow(url) {
     const href = cell(url);
     if (!href) return false;
+
+    // 1. Browser-native anchor click: immune to popup blockers during key/click gestures
     try {
-      const res = await fetch("/api/open-url", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url: href }),
-      });
-      if (res.ok) return true;
+      const a = document.createElement("a");
+      a.href = href;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      document.body.append(a);
+      a.click();
+      a.remove();
+      return true;
     } catch {
       /* fall through */
     }
+
+    // 2. Direct window.open in the active browser tab
     try {
-      const win = window.open(
-        href,
-        "_blank",
-        "noopener,noreferrer,width=1280,height=900",
-      );
+      const win = window.open(href, "_blank", "noopener,noreferrer");
       if (win) {
         try {
           win.focus();
@@ -247,6 +252,18 @@
         return true;
       }
     } catch {
+      /* fall through */
+    }
+
+    // 3. Last resort fallback to local server
+    try {
+      fetch("/api/open-url", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url: href }),
+      });
+      return true;
+    } catch {
       /* ignore */
     }
     return false;
@@ -255,7 +272,28 @@
   function focusedJobCard() {
     const el = document.activeElement;
     const card = el?.closest?.("#jobs-results .company-tile");
-    return card || null;
+    if (card) return card;
+
+    const hovered = window.CardNav?.getHoveredCard?.();
+    if (hovered && hovered.closest?.("#jobs-results")) {
+      return hovered.closest(".company-tile");
+    }
+
+    try {
+      const qHover = document.querySelector(
+        "#jobs-results .company-tile:hover",
+      );
+      if (qHover) return qHover;
+    } catch {
+      /* ignore */
+    }
+
+    const last = window.CardNav?.getLastCard?.();
+    if (last && last.closest?.("#jobs-results")) {
+      return last.closest(".company-tile");
+    }
+
+    return null;
   }
 
   async function openFocusedJobUrl() {
@@ -1962,23 +2000,25 @@
       "   'Desenvolvimento Tecnológico' title.",
       "2. Skip an EXISTING OPENING only when the requisition number matches, or the full",
       "   title and location match. A related title is not a duplicate.",
-      "3. KEEP every IT opening. IT means software, data, architecture, automation,",
+      "3. KEEP every IT or UX opening. IT means software, data, architecture, automation,",
       "   development, digital, systems, analytics, AI, technology, or research that the",
-      "   paste does not clearly place outside IT. Junior, pleno, and especialista all stay.",
+      "   paste does not clearly place outside IT. UX means user research, UX/UI or product design,",
+      "   interaction design, design technologist, service design, HCI, usability, accessibility,",
+      "   or design systems. Junior, pleno, and especialista all stay.",
       "   Seniority and how close the title is to the profile do not matter.",
-      "4. DROP only a posting that is not IT: compensation, HR, legal, finance, facilities,",
+      "4. DROP only a posting that is not IT or UX: compensation, HR, legal, finance, facilities,",
       "   a pure trade such as electrical maintenance, or a talent bank with no role title.",
       "   Required keeps from a mixed paste: 'Analista de Desenvolvimento Tecnológico Jr",
       "   (445882)', 'Especialista Desenvolvimento Tecnológico (Arquitetura de Software e",
       "   Dados) nº 424918', and 'Especialista Desenvolvimento Tecnológico (Automação e",
-      "   Software de Controle) nº 425100'. Also keep a technology 'Pesquisador'.",
+      "   Software de Controle) nº 425100'. Also keep 'Pesquisador' or 'UX Researcher'.",
       "   Drop 'Remuneração', 'Manutenção Elétrica', and 'Banco de Talentos' with no role.",
     ];
     let n = 5;
     if (hasIgnoreRules) {
       steps.push(
-        `${n}. IGNORE / DO NOT CONSIDER removes only non-IT postings. It never removes software,`,
-        "   data, architecture, automation, development, or any other IT title.",
+        `${n}. IGNORE / DO NOT CONSIDER removes only non-IT and non-UX postings. It never removes software,`,
+        "   data, architecture, automation, development, UX, research, or any other IT/UX title.",
       );
       n += 1;
     }
@@ -1991,7 +2031,7 @@
       `${n + 1}. Set career_path to exactly one of the selected contexts: ${paths}.`,
       "   Pick the closest selected path. This label is not a reason to drop the opening.",
       `${n + 2}. Set recommended_resume to exactly one of:`,
-      "   general | data-analyst | product-owner | digital-solution-architect.",
+      "   ux-researcher | general | data-analyst | product-owner | digital-solution-architect.",
       `${n + 3}. Set is_new to "1", status to "saved", source to "company_site" unless`,
       "   another source is obvious, and fill found_on with today's date (YYYY-MM-DD).",
       "   Leave applied_date empty. The cockpit records the subscription date on import.",
@@ -2011,6 +2051,7 @@
   }
 
   function pathSlugFor(careerPath) {
+    if (careerPath === "uxr") return "ux-researcher";
     if (careerPath === "da") return "data-analyst";
     if (careerPath === "po") return "product-owner";
     if (careerPath === "dsa") return "digital-solution-architect";
@@ -2021,10 +2062,10 @@
     const paths = (Array.isArray(careerPaths) ? careerPaths : [careerPaths])
       .map((p) => cell(p).toLowerCase())
       .filter(Boolean);
-    const effectivePaths = paths.length ? paths : ["da"];
+    const effectivePaths = paths.length ? paths : ["uxr"];
     const ignoreRules = (() => {
       const DEFAULT_IGNORE =
-        "- not IT (compensation, HR, legal, finance, facilities, pure trades such as electrical maintenance). Every IT title stays, including software architecture, data, automation, and technology development.";
+        "- not IT / technology (compensation, HR, legal, finance, facilities, pure trades such as electrical maintenance). Every technology title stays, including UX research, design technology, software architecture, data, automation, and product.";
       const custom = cell(ignoreText).trim();
       if (!custom) return DEFAULT_IGNORE;
       const lower = custom.toLowerCase();
@@ -2226,30 +2267,68 @@
       status.textContent = "Generating the prompt…";
       status.className = "save-status";
     }
+    let prompt = "";
     try {
-      const prompt = await buildJobPrompt(
+      prompt = await buildJobPrompt(
         companyKey,
         careerPaths,
         rawText,
         ignoreText,
       );
-      const res = await fetch("/api/prompt-send", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text: prompt }),
-      });
-      const data = await res.json().catch(() => ({}));
-      if (!res.ok || data.ok === false) {
-        throw new Error(
-          data.error || res.statusText || "Could not send the prompt",
+
+      // Always copy to clipboard first as a guaranteed baseline
+      try {
+        await navigator.clipboard.writeText(prompt);
+      } catch {
+        /* ignore */
+      }
+
+      let sentOk = false;
+      try {
+        const res = await fetch("/api/prompt-send", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ text: prompt }),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (res.ok && data.ok !== false) {
+          sentOk = true;
+        }
+      } catch {
+        /* backend send failed, clipboard fallback will proceed */
+      }
+
+      if (sentOk) {
+        showToast(
+          "Prompt sent to AI companion. Paste the JSON reply here.",
+          3000,
+        );
+      } else {
+        showToast(
+          "Prompt copied to clipboard. Paste into your AI companion.",
+          3500,
         );
       }
-      showToast("Prompt sent. Paste the JSON reply here.", 2800);
       closePromptModal();
       openImportModal({
-        note: "Prompt sent. Paste the companion’s JSON here.",
+        note: sentOk
+          ? "Prompt sent. Paste the companion’s JSON here."
+          : "Prompt copied to clipboard. Paste into your companion, then paste the JSON here.",
       });
     } catch (err) {
+      if (prompt) {
+        try {
+          await navigator.clipboard.writeText(prompt);
+          showToast("Prompt copied to clipboard.", 3000);
+          closePromptModal();
+          openImportModal({
+            note: "Prompt copied to clipboard. Paste into your companion, then paste the JSON here.",
+          });
+          return;
+        } catch {
+          /* ignore */
+        }
+      }
       if (status) {
         status.textContent = err.message || String(err);
         status.className = "save-status err";
@@ -2861,7 +2940,7 @@
       "   (not only the current opening.recommended_resume if a better fit exists).",
       "10. For résumé / file upload fields, set value to empty string and put a",
       "   note naming the chosen variant, e.g.:",
-      '   "Upload manually — use digital-solution-architect resume".',
+      '   "Upload manually — use ux-researcher resume".',
       "11. Match label language to the page (PT or EN). Keep key as snake_case English.",
       "12. Return ONLY one JSON object (no markdown fences, no prose):",
       '    { "opening_id": "' +
@@ -4533,7 +4612,7 @@
     if (opts.selectAllPaths) selectAllPromptPaths();
     if (ignoreEl && !cell(ignoreEl.value).trim()) {
       ignoreEl.value =
-        "- not IT (compensation, HR, legal, finance, facilities, pure trades such as electrical maintenance). Every IT title stays, including software architecture, data, automation, and technology development.";
+        "- not IT / technology (compensation, HR, legal, finance, facilities, pure trades such as electrical maintenance). Every technology title stays, including UX research, design technology, software architecture, data, automation, and product.";
     }
     if (status) {
       status.textContent = "";
@@ -4928,7 +5007,10 @@
       const modalOpen = !!(dialog && dialog.open);
 
       // Ctrl/Cmd+Enter or Shift+Enter: proceed on the open prompt or import modal
-      const isEnter = event.key === "Enter" || event.code === "Enter";
+      const isEnter =
+        event.key === "Enter" ||
+        event.code === "Enter" ||
+        event.code === "NumpadEnter";
       if (isEnter && !event.altKey && (mod || event.shiftKey)) {
         const proceed = [
           ["form-import-modal", handleImportFormRun],
@@ -5483,9 +5565,22 @@
     const params = new URLSearchParams(location.search);
     const action = params.get("action");
     const company = cell(params.get("company"));
-    if (action !== "prompt" && action !== "import") return;
+    const qParam = cell(params.get("q"));
+    if (company) {
+      launchCompanyKey = company;
+      query = company;
+      const search = searchInputEl();
+      if (search) search.value = company;
+    } else if (qParam) {
+      query = qParam;
+      const search = searchInputEl();
+      if (search) search.value = qParam;
+    }
+    if (action !== "prompt" && action !== "import") {
+      if (company || qParam) renderResults();
+      return;
+    }
     history.replaceState(null, "", location.pathname);
-    if (company) launchCompanyKey = company;
     if (action === "prompt") {
       openPromptModal({ companyId: company, selectAllPaths: true });
       requestAnimationFrame(() => {

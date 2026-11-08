@@ -61,8 +61,8 @@ def main() -> int:
             ok.append("languages.csv: Portuguese + English")
 
     titles = load("target_titles.csv")
-    if len(titles) != 14:
-        issues.append(f"target_titles want 14 got {len(titles)}")
+    if len(titles) != 24:
+        issues.append(f"target_titles want 24 got {len(titles)}")
     for tid in (
         "da-title-data-analyst",
         "po-headline",
@@ -70,6 +70,8 @@ def main() -> int:
         "general-headline",
         "dsa-headline",
         "dsa-title-mid-dsa",
+        "uxr-headline",
+        "uxr-title-ux-researcher",
     ):
         if not any(t.get("id") == tid for t in titles):
             issues.append(f"target_titles missing {tid}")
@@ -126,6 +128,7 @@ def main() -> int:
             "product-owner",
             "data-analyst",
             "digital-solution-architect",
+            "ux-researcher",
         ):
             n = sum(
                 1 for b in bullets if b["experience_id"] == eid and b["variant"] == var
@@ -138,18 +141,22 @@ def main() -> int:
         ("bosch-ar-2023", "product-owner"): 5,
         ("bosch-ar-2023", "data-analyst"): 7,
         ("bosch-ar-2023", "digital-solution-architect"): 5,
+        ("bosch-ar-2023", "ux-researcher"): 5,
         ("bosch-web-2020", "general"): 2,
         ("bosch-web-2020", "product-owner"): 2,
         ("bosch-web-2020", "data-analyst"): 2,
         ("bosch-web-2020", "digital-solution-architect"): 2,
+        ("bosch-web-2020", "ux-researcher"): 2,
         ("bosch-hu-2019", "general"): 2,
         ("bosch-hu-2019", "product-owner"): 2,
         ("bosch-hu-2019", "data-analyst"): 2,
         ("bosch-hu-2019", "digital-solution-architect"): 2,
+        ("bosch-hu-2019", "ux-researcher"): 2,
         ("bosch-intern-2017", "general"): 1,
         ("bosch-intern-2017", "product-owner"): 1,
         ("bosch-intern-2017", "data-analyst"): 1,
         ("bosch-intern-2017", "digital-solution-architect"): 1,
+        ("bosch-intern-2017", "ux-researcher"): 1,
     }
     for key, want in expected_counts.items():
         got = sum(
@@ -181,6 +188,9 @@ def main() -> int:
         ("digital-solution-architect", "ServiceNow"),
         ("digital-solution-architect", "Azure"),
         ("digital-solution-architect", "Digitization"),
+        ("ux-researcher", "UX Maturity Level 4"),
+        ("ux-researcher", "Grounded Theory"),
+        ("ux-researcher", "prototyping"),
     ]
     all_bullet_text = {
         "general": " ".join(
@@ -202,6 +212,11 @@ def main() -> int:
             b.get("text_en", b.get("text", ""))
             for b in bullets
             if b["variant"] == "digital-solution-architect"
+        ),
+        "ux-researcher": " ".join(
+            b.get("text_en", b.get("text", ""))
+            for b in bullets
+            if b["variant"] == "ux-researcher"
         ),
     }
     nars = {
@@ -300,6 +315,20 @@ def main() -> int:
         issues.append(f"DSA Core skills want 7 got {len(dsa_core)}")
     if len(dsa_tech) != 18:
         issues.append(f"DSA Tech skills want 18 got {len(dsa_tech)}")
+    uxr_core = [
+        s
+        for s in skills
+        if s["variant"] == "ux-researcher" and s["category"] == "Core"
+    ]
+    uxr_tech = [
+        s
+        for s in skills
+        if s["variant"] == "ux-researcher" and s["category"] == "Tech"
+    ]
+    if len(uxr_core) != 7:
+        issues.append(f"UXR Core skills want 7 got {len(uxr_core)}")
+    if len(uxr_tech) != 18:
+        issues.append(f"UXR Tech skills want 18 got {len(uxr_tech)}")
     if any(s["variant"] == "data-scientist" for s in skills):
         issues.append("skills.csv still has data-scientist rows")
     ok.append("skills.csv counts match resume baselines")
@@ -365,6 +394,7 @@ def main() -> int:
         ("product-owner", "future_career_style"),
         ("data-analyst", "future_career_style"),
         ("digital-solution-architect", "future_career_style"),
+        ("ux-researcher", "future_career_style"),
         ("general", "future_intro"),  # intentionally empty in EN and PT
     }
     narratives_rows = load("narratives.csv")
@@ -572,6 +602,7 @@ def main() -> int:
             "fit_data_analyst",
             "fit_product_owner",
             "fit_digital_solution_architect",
+            "fit_ux_researcher",
             "skills_match_en",
             "fit_why_en",
             "notes_en",
@@ -588,6 +619,7 @@ def main() -> int:
                     "fit_data_analyst",
                     "fit_product_owner",
                     "fit_digital_solution_architect",
+                    "fit_ux_researcher",
                 )
                 if (c.get(k) or "").strip().lower() in ("yes", "y", "1", "true")
             )
@@ -601,6 +633,7 @@ def main() -> int:
                 "fit_data_analyst",
                 "fit_product_owner",
                 "fit_digital_solution_architect",
+                "fit_ux_researcher",
             ):
                 if (bosch.get(k) or "").strip().lower() not in (
                     "yes",
@@ -724,6 +757,7 @@ def main() -> int:
         "product-owner",
         "data-analyst",
         "digital-solution-architect",
+        "ux-researcher",
     ):
         for field in required_fields:
             if (var, field) not in nars:
@@ -745,6 +779,7 @@ def main() -> int:
     path_variants = (
         "product-owner",
         "digital-solution-architect",
+        "ux-researcher",
     )
     for row in load("narratives.csv"):
         if row["variant"] == "data-scientist":
@@ -778,6 +813,9 @@ def main() -> int:
     gen_resume_dsa = (
         ROOT / "resume" / "variants" / "digital-solution-architect" / "content.en.typ"
     ).read_text(encoding="utf-8")
+    gen_resume_uxr = (
+        ROOT / "resume" / "variants" / "ux-researcher" / "content.en.typ"
+    ).read_text(encoding="utf-8") if (ROOT / "resume" / "variants" / "ux-researcher" / "content.en.typ").is_file() else ""
     gen_resume_g_pt = (ROOT / "resume" / "typst" / "content.pt.typ").read_text(
         encoding="utf-8"
     )
@@ -832,6 +870,18 @@ def main() -> int:
                 "digitization",
             ],
         ),
+        (
+            "UXR content.typ",
+            gen_resume_uxr,
+            [
+                "GENERATED",
+                "2023–2026",
+                "UX Researcher & Design Technologist",
+                "Grounded Theory",
+                "UX Maturity Level 4",
+                "Figma",
+            ],
+        ),
     ):
         for n in needles:
             if n not in text:
@@ -874,6 +924,14 @@ def main() -> int:
         / "digital-solution-architect"
         / "portfolio-deck.en.md"
     ).read_text(encoding="utf-8")
+    deck_uxr_file = (
+        ROOT
+        / "portfolio"
+        / "variants"
+        / "ux-researcher"
+        / "portfolio-deck.en.md"
+    )
+    deck_uxr = deck_uxr_file.read_text(encoding="utf-8") if deck_uxr_file.is_file() else ""
     deck_g_pt = (ROOT / "portfolio" / "portfolio-deck.pt.md").read_text(
         encoding="utf-8"
     )
@@ -882,6 +940,7 @@ def main() -> int:
         or "{{canonical:" in deck_po
         or "{{canonical:" in deck_ds
         or "{{canonical:" in deck_dsa
+        or (deck_uxr and "{{canonical:" in deck_uxr)
     ):
         issues.append("unresolved {{canonical:}} slots in generated decks")
     for label, deck, needles in (
@@ -930,6 +989,17 @@ def main() -> int:
                 "Digital Solution Architect",
                 "Digitization, Architecture Gates",
                 "Cloud Architecture",
+                "../../../pictures/",
+            ],
+        ),
+        (
+            "UXR deck",
+            deck_uxr,
+            [
+                "Why I Practice UX Research and Design",
+                "UX Researcher & Design Technologist",
+                "UX Research, Design Technologist & Governance",
+                "UX Research & Design for Emerging Technologies",
                 "../../../pictures/",
             ],
         ),

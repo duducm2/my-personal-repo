@@ -9,6 +9,7 @@ row.pop("site_url", None)
 row["site_data_analyst_url"] = base + "data-analyst/"
 row["site_product_owner_url"] = base + "product-owner/"
 row["site_digital_solution_architect_url"] = base + "digital-solution-architect/"
+row["site_ux_researcher_url"] = base + "ux-researcher/"
 fieldnames = [name for name in row.keys()]
 with p.open("w", encoding="utf-8", newline="") as handle:
     writer = csv.DictWriter(handle, fieldnames=fieldnames, lineterminator="\n")
@@ -17,3 +18,4 @@ with p.open("w", encoding="utf-8", newline="") as handle:
 print(row["site_data_analyst_url"])
 print(row["site_product_owner_url"])
 print(row["site_digital_solution_architect_url"])
+print(row["site_ux_researcher_url"])

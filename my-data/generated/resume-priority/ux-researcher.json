@@ -1,0 +1,452 @@
+{
+  "variant": "ux-researcher",
+  "pages": {
+    "en": 1,
+    "pt": 1
+  },
+  "one_page": true,
+  "kept": [
+    {
+      "id": "skill:ux-researcher:Tech:18",
+      "kind": "skill",
+      "section_en": "Tech",
+      "section_pt": "Tecnologias",
+      "priority": 12,
+      "pinned": false,
+      "text_en": "Miro / FigJam",
+      "text_pt": "Miro / FigJam",
+      "status": "kept"
+    },
+    {
+      "id": "skill:ux-researcher:Tech:17",
+      "kind": "skill",
+      "section_en": "Tech",
+      "section_pt": "Tecnologias",
+      "priority": 13,
+      "pinned": false,
+      "text_en": "Agile / Scrum / Kanban",
+      "text_pt": "Agile / Scrum / Kanban",
+      "status": "kept"
+    },
+    {
+      "id": "skill:ux-researcher:Tech:16",
+      "kind": "skill",
+      "section_en": "Tech",
+      "section_pt": "Tecnologias",
+      "priority": 14,
+      "pinned": false,
+      "text_en": "Qualtrics / survey tools",
+      "text_pt": "Qualtrics / ferramentas de survey",
+      "status": "kept"
+    },
+    {
+      "id": "skill:ux-researcher:Tech:15",
+      "kind": "skill",
+      "section_en": "Tech",
+      "section_pt": "Tecnologias",
+      "priority": 15,
+      "pinned": false,
+      "text_en": "AI-assisted coding & prompt engineering",
+      "text_pt": "Coding assistido por IA e engenharia de prompt",
+      "status": "kept"
+    },
+    {
+      "id": "skill:ux-researcher:Tech:14",
+      "kind": "skill",
+      "section_en": "Tech",
+      "section_pt": "Tecnologias",
+      "priority": 16,
+      "pinned": false,
+      "text_en": "CSV pipelines",
+      "text_pt": "Pipelines CSV",
+      "status": "kept"
+    },
+    {
+      "id": "skill:ux-researcher:Tech:13",
+      "kind": "skill",
+      "section_en": "Tech",
+      "section_pt": "Tecnologias",
+      "priority": 17,
+      "pinned": false,
+      "text_en": "Excel / VBA",
+      "text_pt": "Excel / VBA",
+      "status": "kept"
+    },
+    {
+      "id": "skill:ux-researcher:Tech:12",
+      "kind": "skill",
+      "section_en": "Tech",
+      "section_pt": "Tecnologias",
+      "priority": 18,
+      "pinned": false,
+      "text_en": "VS Code",
+      "text_pt": "VS Code",
+      "status": "kept"
+    },
+    {
+      "id": "skill:ux-researcher:Tech:11",
+      "kind": "skill",
+      "section_en": "Tech",
+      "section_pt": "Tecnologias",
+      "priority": 19,
+      "pinned": false,
+      "text_en": "Bitbucket",
+      "text_pt": "Bitbucket",
+      "status": "kept"
+    },
+    {
+      "id": "skill:ux-researcher:Tech:10",
+      "kind": "skill",
+      "section_en": "Tech",
+      "section_pt": "Tecnologias",
+      "priority": 20,
+      "pinned": false,
+      "text_en": "GitHub",
+      "text_pt": "GitHub",
+      "status": "kept"
+    },
+    {
+      "id": "skill:ux-researcher:Tech:9",
+      "kind": "skill",
+      "section_en": "Tech",
+      "section_pt": "Tecnologias",
+      "priority": 21,
+      "pinned": false,
+      "text_en": "Git",
+      "text_pt": "Git",
+      "status": "kept"
+    },
+    {
+      "id": "skill:ux-researcher:Tech:8",
+      "kind": "skill",
+      "section_en": "Tech",
+      "section_pt": "Tecnologias",
+      "priority": 22,
+      "pinned": false,
+      "text_en": "Mermaid",
+      "text_pt": "Mermaid",
+      "status": "kept"
+    },
+    {
+      "id": "skill:ux-researcher:Tech:7",
+      "kind": "skill",
+      "section_en": "Tech",
+      "section_pt": "Tecnologias",
+      "priority": 23,
+      "pinned": false,
+      "text_en": "ServiceNow",
+      "text_pt": "ServiceNow",
+      "status": "kept"
+    },
+    {
+      "id": "skill:ux-researcher:Tech:6",
+      "kind": "skill",
+      "section_en": "Tech",
+      "section_pt": "Tecnologias",
+      "priority": 24,
+      "pinned": false,
+      "text_en": "SQL / SQL Server",
+      "text_pt": "SQL / SQL Server",
+      "status": "kept"
+    },
+    {
+      "id": "skill:ux-researcher:Tech:5",
+      "kind": "skill",
+      "section_en": "Tech",
+      "section_pt": "Tecnologias",
+      "priority": 25,
+      "pinned": false,
+      "text_en": "Power BI",
+      "text_pt": "Power BI",
+      "status": "kept"
+    },
+    {
+      "id": "skill:ux-researcher:Tech:4",
+      "kind": "skill",
+      "section_en": "Tech",
+      "section_pt": "Tecnologias",
+      "priority": 26,
+      "pinned": false,
+      "text_en": "Python",
+      "text_pt": "Python",
+      "status": "kept"
+    },
+    {
+      "id": "skill:ux-researcher:Tech:3",
+      "kind": "skill",
+      "section_en": "Tech",
+      "section_pt": "Tecnologias",
+      "priority": 27,
+      "pinned": false,
+      "text_en": "HTML / CSS",
+      "text_pt": "HTML / CSS",
+      "status": "kept"
+    },
+    {
+      "id": "skill:ux-researcher:Tech:2",
+      "kind": "skill",
+      "section_en": "Tech",
+      "section_pt": "Tecnologias",
+      "priority": 28,
+      "pinned": false,
+      "text_en": "React",
+      "text_pt": "React",
+      "status": "kept"
+    },
+    {
+      "id": "skill:ux-researcher:Tech:1",
+      "kind": "skill",
+      "section_en": "Tech",
+      "section_pt": "Tecnologias",
+      "priority": 29,
+      "pinned": false,
+      "text_en": "Figma",
+      "text_pt": "Figma",
+      "status": "kept"
+    },
+    {
+      "id": "bullet:bosch-hu-2019:ux-researcher:1",
+      "kind": "bullet",
+      "section_en": "Digitization Support Analyst",
+      "section_pt": "Analista de Suporte à Digitalização",
+      "priority": 39,
+      "pinned": false,
+      "text_en": "**Digitization & user workflow optimization (Budapest):** conducted user workflow analysis and developed intuitive web applications for Business Excellence using SQL Server, IIS, Git, and VBA automations.",
+      "text_pt": "**Digitalização e otimização do fluxo do usuário (Budapeste):** conduzi análise de fluxo de trabalho do usuário e desenvolvi aplicações web intuitivas para Business Excellence com SQL Server, IIS, Git e automações VBA.",
+      "status": "kept"
+    },
+    {
+      "id": "bullet:bosch-web-2020:ux-researcher:2",
+      "kind": "bullet",
+      "section_en": "Web Developer",
+      "section_pt": "Desenvolvedor Web",
+      "priority": 48,
+      "pinned": false,
+      "text_en": "**User-centered collaboration:** partnered across design, research, and engineering squads to iterate on usability improvements, reduce user interaction friction, and validate production increments.",
+      "text_pt": "**Colaboração centrada no usuário:** atuei em conjunto com times de design, pesquisa e engenharia para iterar melhorias de usabilidade, reduzir atritos de interação e validar incrementos em produção.",
+      "status": "kept"
+    },
+    {
+      "id": "bullet:bosch-web-2020:ux-researcher:1",
+      "kind": "bullet",
+      "section_en": "Web Developer",
+      "section_pt": "Desenvolvedor Web",
+      "priority": 49,
+      "pinned": false,
+      "text_en": "**Design technologist delivery (React):** built accessible front-end interfaces, reusable design system components, and data-backed web applications in Scrum/Kanban—bridging the gap between UI design intent and production implementation.",
+      "text_pt": "**Entrega como design technologist (React):** construí interfaces acessíveis, componentes reutilizáveis de design system e aplicações web baseadas em dados em Scrum/Kanban—fazendo a ponte entre o design de UI e a implementação em produção.",
+      "status": "kept"
+    },
+    {
+      "id": "extra:5",
+      "kind": "extra",
+      "section_en": "Additional",
+      "section_pt": "Adicional",
+      "priority": 50,
+      "pinned": false,
+      "text_en": "Volunteer – IT Assistant at Hospitalhaços NGO (Dec 2016 – Present).",
+      "text_pt": "Voluntário – Assistente de TI na ONG Hospitalhaços (dez/2016 – atual).",
+      "status": "kept"
+    },
+    {
+      "id": "extra:4",
+      "kind": "extra",
+      "section_en": "Additional",
+      "section_pt": "Adicional",
+      "priority": 51,
+      "pinned": false,
+      "text_en": "Sharing Successes award – HR Bosch Latin America (2017; new business for Bosch LatAm).",
+      "text_pt": "Prêmio Compartilhando Sucessos – RH Bosch América Latina (2017; novo negócio Bosch LatAm).",
+      "status": "kept"
+    },
+    {
+      "id": "extra:3",
+      "kind": "extra",
+      "section_en": "Additional",
+      "section_pt": "Adicional",
+      "priority": 52,
+      "pinned": false,
+      "text_en": "1st Place – X-Games Brazil 2018 (most creative project; new business consultancy).",
+      "text_pt": "1º Lugar – X-Games Brazil 2018 (projeto mais criativo; nova consultoria de negócio).",
+      "status": "kept"
+    },
+    {
+      "id": "extra:2",
+      "kind": "extra",
+      "section_en": "Additional",
+      "section_pt": "Adicional",
+      "priority": 53,
+      "pinned": false,
+      "text_en": "3rd Place – Bosch Talent Forum 2018 (Project Model Canvas internship project).",
+      "text_pt": "3º Lugar – Fórum de Talentos da Bosch 2018 (projeto de estágio Project Model Canvas).",
+      "status": "kept"
+    },
+    {
+      "id": "extra:1",
+      "kind": "extra",
+      "section_en": "Additional",
+      "section_pt": "Adicional",
+      "priority": 54,
+      "pinned": false,
+      "text_en": "TAR 2026 – Talent Associate Review (Bosch; nominated by manager and leadership, not self-nominated).",
+      "text_pt": "TAR 2026 – Talent Associate Review (Bosch; indicação do gestor e da liderança, sem autoindicação).",
+      "status": "kept"
+    },
+    {
+      "id": "skill:ux-researcher:Core:7",
+      "kind": "skill",
+      "section_en": "Core",
+      "section_pt": "Núcleo",
+      "priority": 73,
+      "pinned": false,
+      "text_en": "Cross-functional stakeholder alignment",
+      "text_pt": "Alinhamento multidisciplinar de stakeholders",
+      "status": "kept"
+    },
+    {
+      "id": "skill:ux-researcher:Core:6",
+      "kind": "skill",
+      "section_en": "Core",
+      "section_pt": "Núcleo",
+      "priority": 74,
+      "pinned": false,
+      "text_en": "UX metrics & governance (CSI/NPS, SUS)",
+      "text_pt": "Métricas de UX e governança (CSI/NPS, SUS)",
+      "status": "kept"
+    },
+    {
+      "id": "skill:ux-researcher:Core:5",
+      "kind": "skill",
+      "section_en": "Core",
+      "section_pt": "Núcleo",
+      "priority": 75,
+      "pinned": false,
+      "text_en": "Interaction design & code prototyping",
+      "text_pt": "Design de interação e prototipagem em código",
+      "status": "kept"
+    },
+    {
+      "id": "skill:ux-researcher:Core:4",
+      "kind": "skill",
+      "section_en": "Core",
+      "section_pt": "Núcleo",
+      "priority": 76,
+      "pinned": false,
+      "text_en": "Human-AI interaction & trust measurement",
+      "text_pt": "Interação humano-IA e medição de confiança",
+      "status": "kept"
+    },
+    {
+      "id": "skill:ux-researcher:Core:3",
+      "kind": "skill",
+      "section_en": "Core",
+      "section_pt": "Núcleo",
+      "priority": 77,
+      "pinned": false,
+      "text_en": "Qualitative synthesis & Grounded Theory",
+      "text_pt": "Síntese qualitativa e Teoria Fundamentada",
+      "status": "kept"
+    },
+    {
+      "id": "skill:ux-researcher:Core:2",
+      "kind": "skill",
+      "section_en": "Core",
+      "section_pt": "Núcleo",
+      "priority": 78,
+      "pinned": false,
+      "text_en": "Usability & heuristic evaluation",
+      "text_pt": "Avaliação de usabilidade e heurística",
+      "status": "kept"
+    },
+    {
+      "id": "skill:ux-researcher:Core:1",
+      "kind": "skill",
+      "section_en": "Core",
+      "section_pt": "Núcleo",
+      "priority": 79,
+      "pinned": false,
+      "text_en": "Mixed-methods UX research",
+      "text_pt": "Pesquisa de UX com métodos mistos",
+      "status": "kept"
+    },
+    {
+      "id": "bullet:bosch-ar-2023:ux-researcher:5",
+      "kind": "bullet",
+      "section_en": "Applied Research & Design Analyst",
+      "section_pt": "Analista de Pesquisa Aplicada e Design",
+      "priority": 95,
+      "pinned": false,
+      "text_en": "**Measured user outcomes:** maintained average **CSI 4.86 / NPS 9.94** across delivery projects (2024–2025); delivered AI-assisted tools training to 100+ participants (rating 4.88/5); international collaboration with Germany (2024, 2025).",
+      "text_pt": "**Resultados de usuário mensurados:** mantive média **CSI 4,86 / NPS 9,94** nos projetos entregues (2024–2025); ministrei treinamento de ferramentas com IA para 100+ pessoas (avaliação 4,88/5); colaboração internacional com a Alemanha (2024, 2025).",
+      "status": "kept"
+    },
+    {
+      "id": "bullet:bosch-ar-2023:ux-researcher:4",
+      "kind": "bullet",
+      "section_en": "Applied Research & Design Analyst",
+      "section_pt": "Analista de Pesquisa Aplicada e Design",
+      "priority": 96,
+      "pinned": false,
+      "text_en": "**End-to-end UX & rapid prototyping (Power Tools):** translated domain requirements into user journey flows and interactive prototypes with continuous stakeholder and user check-ins—aligning user needs and engineering feasibility.",
+      "text_pt": "**UX ponta a ponta e prototipagem rápida (Power Tools):** traduzi requisitos de domínio em jornadas do usuário e protótipos interativos com check-ins contínuos de stakeholders e usuários—alinhando necessidades do usuário e viabilidade técnica.",
+      "status": "kept"
+    },
+    {
+      "id": "bullet:bosch-ar-2023:ux-researcher:3",
+      "kind": "bullet",
+      "section_en": "Applied Research & Design Analyst",
+      "section_pt": "Analista de Pesquisa Aplicada e Design",
+      "priority": 97,
+      "pinned": false,
+      "text_en": "**Qualitative synthesis at scale (Power Tools CX):** applied Straussian Grounded Theory (open, axial, selective coding) to call-center transcripts using Python, AI-assisted coding, and Power BI—transforming raw customer voice into prioritized UX recommendations.",
+      "text_pt": "**Síntese qualitativa em escala (CX Power Tools):** apliquei Teoria Fundamentada (codificação aberta, axial e seletiva) a transcrições de call center com Python, IA e Power BI—transformando a voz do cliente em recomendações de UX priorizadas.",
+      "status": "kept"
+    },
+    {
+      "id": "bullet:bosch-ar-2023:ux-researcher:2",
+      "kind": "bullet",
+      "section_en": "Applied Research & Design Analyst",
+      "section_pt": "Analista de Pesquisa Aplicada e Design",
+      "priority": 98,
+      "pinned": false,
+      "text_en": "**Automated UX relevance & CIP gates (ServiceNow):** designed property-based relevance scoring for UX intake and evaluated strategic CIP dashboards—connecting leadership visibility to user-friction evidence.",
+      "text_pt": "**Relevância em UX automatizada e gates CIP (ServiceNow):** desenhei pontuação de relevância baseada em propriedades para intake de UX e avaliei dashboards estratégicos de CIP—conectando visibilidade da liderança a evidências de atrito do usuário.",
+      "status": "kept"
+    },
+    {
+      "id": "bullet:bosch-ar-2023:ux-researcher:1",
+      "kind": "bullet",
+      "section_en": "Applied Research & Design Analyst",
+      "section_pt": "Analista de Pesquisa Aplicada e Design",
+      "priority": 99,
+      "pinned": true,
+      "text_en": "**UX Maturity Level 4 (Americas):** helped the Americas reach Level 4 in Global Services through governance, standardized templates, and training—enabling distributed teams to self-serve UX research and design.",
+      "text_pt": "**Nível 4 de Maturidade em UX (Américas):** apoiei as Américas a atingir o Nível 4 em Global Services via governança, templates padronizados e treinamentos—capacitando times distribuídos a aplicar UX research e design com autonomia.",
+      "status": "kept"
+    }
+  ],
+  "deprioritized": [
+    {
+      "id": "bullet:bosch-intern-2017:ux-researcher:1",
+      "kind": "bullet",
+      "section_en": "Intern",
+      "section_pt": "Estagiário",
+      "priority": 19,
+      "pinned": false,
+      "text_en": "**Interface tooling & usability:** built user-friendly Excel/VBA continuous improvement systems; awarded **3rd place in Bosch Talent Forum 2018** for a Project Model Canvas visual management tool.",
+      "text_pt": "**Tooling de interface e usabilidade:** construí sistemas de melhoria contínua amigáveis em Excel/VBA; premiado com **3º lugar no Fórum de Talentos Bosch 2018** por ferramenta de gestão visual do Project Model Canvas.",
+      "status": "deprioritized"
+    },
+    {
+      "id": "bullet:bosch-hu-2019:ux-researcher:2",
+      "kind": "bullet",
+      "section_en": "Digitization Support Analyst",
+      "section_pt": "Analista de Suporte à Digitalização",
+      "priority": 38,
+      "pinned": false,
+      "text_en": "**Internal user experience ownership:** gathered operational pain points directly from process owners, rapidly iterating digital tool interfaces to simplify complex data entry and tracking.",
+      "text_pt": "**Ownership de experiência do usuário interno:** mapeei dores operacionais diretamente com responsáveis de processos, iterando interfaces de ferramentas digitais para simplificar entradas e rastreamento de dados complexos.",
+      "status": "deprioritized"
+    }
+  ]
+}

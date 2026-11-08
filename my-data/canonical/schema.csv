@@ -379,3 +379,5 @@ hiring_people.csv,location,Location,Local
 hiring_people.csv,status,Status,Status
 hiring_people.csv,notes,Notes,Notas
 hiring_people.csv,found_on,Found on,Encontrado em
+profile.csv,site_ux_researcher_url,UX Researcher site,Site UX Researcher
+companies.csv,fit_ux_researcher,Fit UX Researcher,Aderência UX Researcher

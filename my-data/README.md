@@ -6,6 +6,6 @@
 
 Generate with language: `python scripts/generate_from_canonical.py --lang en` or `--lang pt`.
 
-**Career paths:** general, product-owner, data-analyst, digital-solution-architect.
+**Career paths:** ux-researcher, general, product-owner, data-analyst, digital-solution-architect.
 
 **PDF deliverables** live in [`../output/`](../output/) — EN/PT resumes and portfolios per path. Build with `python scripts/build_outputs.py`. See [`../output/README.md`](../output/README.md).

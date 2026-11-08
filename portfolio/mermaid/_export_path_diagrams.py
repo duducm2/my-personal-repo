@@ -10,6 +10,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "pictures" / "diagrams"
 VARIANT_DIRS = {
+    "ux-researcher": ROOT
+    / "portfolio"
+    / "variants"
+    / "ux-researcher"
+    / "pictures"
+    / "diagrams",
     "product-owner": ROOT
     / "portfolio"
     / "variants"
@@ -32,6 +38,18 @@ INIT = (
 )
 
 CAREER = {
+    "ux-researcher": {
+        "en": (
+            "Now · Mixed-methods, prototypes, and UX maturity",
+            "Next · Senior UX Researcher & Design Technologist",
+            "Outcomes · Products users trust and adopt",
+        ),
+        "pt": (
+            "Agora · Métodos mistos, protótipos e maturidade UX",
+            "Próximo · UX Researcher Sênior e Design Technologist",
+            "Resultados · Produtos que o usuário confia e adota",
+        ),
+    },
     "product-owner": {
         "en": (
             "Now · Discovery, prioritization, and delivery",
@@ -59,6 +77,18 @@ CAREER = {
 }
 
 METHOD = {
+    "ux-researcher": {
+        "en": (
+            "User Mental Model",
+            "Research & Code Prototype · evidence-backed",
+            "Validated Product UX",
+        ),
+        "pt": (
+            "Modelo Mental do Usuário",
+            "Pesquisa e Protótipo em Código · com evidência",
+            "UX Validada do Produto",
+        ),
+    },
     "product-owner": {
         "en": ("Need", "Priority · evidence-backed", "Shipped outcome"),
         "pt": ("Necessidade", "Prioridade · com evidência", "Resultado entregue"),

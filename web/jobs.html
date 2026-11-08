@@ -52,6 +52,13 @@
               >
                 <a
                   role="menuitem"
+                  href="/portfolio/ux-researcher/"
+                  target="_blank"
+                  rel="noopener"
+                  >UX Researcher &amp; Design Technologist</a
+                >
+                <a
+                  role="menuitem"
                   href="/portfolio/data-analyst/"
                   target="_blank"
                   rel="noopener"
@@ -263,9 +270,9 @@
         <div class="company-modal-body">
           <p class="job-modal-hint">
             Paste unstructured job listings from a company careers page. The
-            companion returns every IT opening, including software, data, and
-            architecture titles. You remove the rest by hand. The prompt then
-            goes to the AI companion.
+            companion returns every technology opening, including UX research,
+            design technology, data, product, and architecture titles. You
+            remove the rest by hand. The prompt then goes to the AI companion.
           </p>
           <div class="company-result-edit job-modal-grid">
             <label class="company-edit-field">
@@ -290,8 +297,16 @@
                   <input
                     type="checkbox"
                     name="prompt-path"
-                    value="da"
+                    value="uxr"
                     checked
+                  />
+                  UX Researcher
+                </label>
+                <label class="prompt-path-check">
+                  <input
+                    type="checkbox"
+                    name="prompt-path"
+                    value="da"
                   />
                   Data Analyst
                 </label>
@@ -320,7 +335,7 @@
               rows="4"
               placeholder="Add more bullets to skip (role types, locations, keywords)…"
             >
-- not IT (compensation, HR, legal, finance, facilities, pure trades such as electrical maintenance). Every IT title stays, including software architecture, data, automation, and technology development.</textarea
+- not IT / technology (compensation, HR, legal, finance, facilities, pure trades such as electrical maintenance). Every technology title stays, including UX research, design technology, software architecture, data, automation, and product.</textarea
             >
           </label>
           <label class="company-edit-field">

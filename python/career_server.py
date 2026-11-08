@@ -128,6 +128,38 @@ RESUME_PAPER = "A4"
 # Career deliverables under output/<variant>/ (resume + portfolio, EN/PT)
 DOWNLOAD_CATALOG: list[dict[str, str]] = [
     {
+        "variant": "ux-researcher",
+        "label_en": "UX Researcher & Design Technologist",
+        "label_pt": "Pesquisador de UX e Design Technologist",
+        "lang": "en",
+        "kind": "resume",
+        "filename": "CV-Eduardo-Figueiredo-EN-ux-researcher.pdf",
+    },
+    {
+        "variant": "ux-researcher",
+        "label_en": "UX Researcher & Design Technologist",
+        "label_pt": "Pesquisador de UX e Design Technologist",
+        "lang": "pt",
+        "kind": "resume",
+        "filename": "CV-Eduardo-Figueiredo-PT-ux-researcher.pdf",
+    },
+    {
+        "variant": "ux-researcher",
+        "label_en": "UX Researcher & Design Technologist",
+        "label_pt": "Pesquisador de UX e Design Technologist",
+        "lang": "en",
+        "kind": "portfolio",
+        "filename": "portfolio-deck-ux-researcher-EN.pdf",
+    },
+    {
+        "variant": "ux-researcher",
+        "label_en": "UX Researcher & Design Technologist",
+        "label_pt": "Pesquisador de UX e Design Technologist",
+        "lang": "pt",
+        "kind": "portfolio",
+        "filename": "portfolio-deck-ux-researcher-PT.pdf",
+    },
+    {
         "variant": "general",
         "label_en": "General",
         "label_pt": "Geral",
@@ -302,6 +334,7 @@ def resume_policy() -> dict[str, Any]:
 
 
 RESUME_VARIANTS = {
+    "ux-researcher",
     "general",
     "product-owner",
     "data-analyst",
@@ -385,6 +418,15 @@ def open_url_new_window(url: str) -> dict[str, Any]:
     parsed = urlparse(url)
     if parsed.scheme not in ("http", "https") or not parsed.netloc:
         raise ValueError("only absolute http(s) URLs are allowed")
+
+    # On Windows, ShellExecute via os.startfile properly targets the user's
+    # active default browser on the interactive desktop.
+    if sys.platform == "win32":
+        try:
+            os.startfile(url)  # noqa: S606
+            return {"ok": True, "via": "os.startfile", "mode": "shell-execute"}
+        except Exception:
+            pass
 
     for exe in _browser_exe_candidates():
         if not exe.is_file():

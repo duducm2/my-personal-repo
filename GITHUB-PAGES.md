@@ -13,6 +13,7 @@ GitHub Pages serves `docs/` as the site root. There are three public portfolios,
 - Data Analyst: https://duducm2.github.io/my-personal-repo/data-analyst/
 - Product Owner: https://duducm2.github.io/my-personal-repo/product-owner/
 - Digital Solution Architect: https://duducm2.github.io/my-personal-repo/digital-solution-architect/
+- UX Researcher & Design Technologist: https://duducm2.github.io/my-personal-repo/ux-researcher/
 
 Each public page stands alone. It does not link to the other two, and the site root does not list them. Share one address with a given opening. The same three addresses stay on the career profile for you. In the cockpit, **Portfolio** opens a menu with Data Analyst, Product Owner, and Digital Solution Architect. Each item opens the local page at `http://127.0.0.1:8770/portfolio/` plus that path.
 
@@ -41,8 +42,9 @@ Open each path address on its own. You should see Eduardo Figueiredo, the portra
 
 If the page is a 404, check that `docs/index.html` is on `main` and that the folder setting is `/docs`, not `/ (root)`.
 
-## 4. Share the three links
+## 4. Share the four links
 
+- https://duducm2.github.io/my-personal-repo/ux-researcher/
 - https://duducm2.github.io/my-personal-repo/data-analyst/
 - https://duducm2.github.io/my-personal-repo/product-owner/
 - https://duducm2.github.io/my-personal-repo/digital-solution-architect/

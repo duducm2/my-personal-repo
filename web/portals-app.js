@@ -464,28 +464,27 @@
     parent.append(wrap);
   }
 
-  async function openUrlInNewTab(url) {
+  function openUrlInNewTab(url) {
     const href = cell(url);
     if (!href) return false;
-    // Ask the local server to launch a new browser window so Chrome
-    // switches away from the cockpit tab (window.open only adds a background tab).
+
+    // 1. Browser-native anchor click: immune to popup blockers during key/click gestures
     try {
-      const res = await fetch("/api/open-url", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url: href }),
-      });
-      if (res.ok) return true;
+      const a = document.createElement("a");
+      a.href = href;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      document.body.append(a);
+      a.click();
+      a.remove();
+      return true;
     } catch {
       /* fall through */
     }
-    // Fallback when the server is old / offline: still try a client popup window.
+
+    // 2. Direct window.open in the active browser tab
     try {
-      const win = window.open(
-        href,
-        "_blank",
-        "noopener,noreferrer,width=1280,height=900",
-      );
+      const win = window.open(href, "_blank", "noopener,noreferrer");
       if (win) {
         try {
           win.focus();
@@ -494,6 +493,18 @@
         }
         return true;
       }
+    } catch {
+      /* fall through */
+    }
+
+    // 3. Last resort fallback to local server
+    try {
+      fetch("/api/open-url", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url: href }),
+      });
+      return true;
     } catch {
       /* ignore */
     }
@@ -511,7 +522,28 @@
   function focusedPortalCard() {
     const el = document.activeElement;
     const card = el?.closest?.("#portals-results .company-tile");
-    return card || null;
+    if (card) return card;
+
+    const hovered = window.CardNav?.getHoveredCard?.();
+    if (hovered && hovered.closest?.("#portals-results")) {
+      return hovered.closest(".company-tile");
+    }
+
+    try {
+      const qHover = document.querySelector(
+        "#portals-results .company-tile:hover",
+      );
+      if (qHover) return qHover;
+    } catch {
+      /* ignore */
+    }
+
+    const last = window.CardNav?.getLastCard?.();
+    if (last && last.closest?.("#portals-results")) {
+      return last.closest(".company-tile");
+    }
+
+    return null;
   }
 
   async function openFocusedPortal() {
@@ -1049,8 +1081,12 @@
       const typing = isTypingTarget(document.activeElement);
       const dialog = document.getElementById("portal-modal");
       const modalOpen = !!(dialog && dialog.open);
+      const isEnter =
+        event.key === "Enter" ||
+        event.code === "Enter" ||
+        event.code === "NumpadEnter";
 
-      if (mod && !event.altKey && event.key === "Enter") {
+      if (mod && !event.altKey && isEnter) {
         event.preventDefault();
         if (modalOpen) {
           void doneModal();

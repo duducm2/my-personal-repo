@@ -991,3 +991,150 @@ digital-solution-architect,h_closing,Closing heading,Título encerramento,Closin
 digital-solution-architect,h_closing_connect,Closing connect,Chamada de contato,Let's connect,Vamos conversar
 digital-solution-architect,h_closing_request,Closing request,Disponibilidade,Resume and this deck available on request.,Currículo e este deck disponíveis sob pedido.
 digital-solution-architect,h_infovis_diagram_alt,InfoVis diagram alt,Alt diagrama InfoVis,InfoVis PNAD visual structures,Estruturas visuais da PNAD no InfoVis
+ux-researcher,tagline,Tagline,Linha de apresentação,"UX Researcher & Design Technologist | Mixed-Methods Research, Prototyping & Trustworthy AI","Pesquisador de UX e Design Technologist | Pesquisa com Métodos Mistos, Prototipagem e IA Confiável"
+ux-researcher,profile,Profile summary,Resumo do perfil,"UX researcher and design technologist with ~8 years of technology experience at Bosch (intern → web developer → applied research & design analyst). Combines **mixed-methods research** (Straussian Grounded Theory, qualitative coding, surveys, usability testing) with **design technologist execution** (React, high-fidelity code prototypes, Figma, Power BI). Master's in Technology approved Sep 2026 (Unicamp, Grade A across coursework); published peer-reviewed research on user trust in human-AI interaction (IHC 2025, ISSRE 2025). Guided Americas UX Maturity to Level 4; sustained average CSI 4.86 / NPS 9.94 across projects.","Pesquisador de UX e design technologist com ~8 anos de experiência em tecnologia na Bosch (estágio → desenvolvedor web → analista de pesquisa aplicada e design). Combino **pesquisa com métodos mistos** (Teoria Fundamentada de Strauss, codificação qualitativa, surveys, testes de usabilidade) com **execução de design technologist** (React, protótipos de alta fidelidade em código, Figma, Power BI). Mestrado em Tecnologia aprovado em set/2026 (Unicamp, nota A em todas as disciplinas); pesquisa publicada com peer-review sobre confiança do usuário na interação humano-IA (IHC 2025, ISSRE 2025). Conduzi a maturidade de UX das Américas ao Nível 4; média sustentada de CSI 4,86 / NPS 9,94."
+ux-researcher,deck_title,Deck title,Título do portfólio,Eduardo Figueiredo – UX Research & Design Portfolio,Eduardo Figueiredo – Portfólio de UX Research e Design
+ux-researcher,why_h1,Why slide heading,Título slide Por quê,Why I Practice UX Research and Design in Technology,Por que atuo em Pesquisa e Design de UX em Tecnologia
+ux-researcher,why_h2,Why slide subheading,Subtítulo slide Por quê,Evidence-based design that bridges user mental models and complex technical systems,Design baseado em evidências unindo modelos mentais do usuário e sistemas técnicos complexos
+ux-researcher,why_bullets,Why slide bullets,Tópicos slide Por quê,"- I believe technological products succeed when **rigorous user research and rapid engineering prototyping** move together.
+- Applied Research at Bosch taught me to build **scalable UX governance**: intake gates, standardized templates, and measurable UX maturity (Level 4).
+- Grounded Theory on call-center transcripts showed how qualitative user voice turns into **quantified, prioritized backlog decisions**.
+- My master's research at Unicamp (IHC 2025, ISSRE 2025) grounded my practice in **user trust calibration for AI and complex interfaces**.
+- Design technologist capability in **React, Figma, Python, and Power BI** allows me to prototype solutions in real code to validate feasibility early.","- Acredito que produtos tecnológicos vencem quando **pesquisa rigorosa com usuários e prototipagem rápida em engenharia** avançam juntas.
+- A Pesquisa Aplicada na Bosch me ensinou a estruturar **governança de UX escalável**: gates de intake, templates padronizados e maturidade mensurável (Nível 4).
+- A Teoria Fundamentada em transcrições de suporte mostrou como a voz qualitativa do usuário se traduz em **decisões quantificadas e priorizadas de backlog**.
+- Minha pesquisa de mestrado na Unicamp (IHC 2025, ISSRE 2025) consolidou minha prática em **calibração de confiança do usuário para IA e interfaces complexas**.
+- A capacidade de design technologist em **React, Figma, Python e Power BI** me permite prototipar soluções em código real para validar viabilidade cedo."
+ux-researcher,who_role,Who slide role,Papel slide Quem sou,"UX Researcher & Design Technologist | Mixed-Methods Research, Prototyping & Trustworthy AI","Pesquisador de UX e Design Technologist | Pesquisa com Métodos Mistos, Prototipagem e IA Confiável"
+ux-researcher,who_impact,Who slide impact,Impacto slide Quem sou,"I help technology and AI teams discover real user needs, design usable systems, and validate interaction paradigms through mixed-methods research, metrics (CSI/NPS, SUS), and high-fidelity code prototypes.","Ajudo times de tecnologia e IA a descobrir necessidades reais de usuários, desenhar sistemas usáveis e validar paradigmas de interação por meio de métodos mistos, métricas (CSI/NPS, SUS) e protótipos de alta fidelidade em código."
+ux-researcher,present_h2,Present slide heading,Título slide Presente,"Present – UX Research, Design Technologist & Governance (Bosch)","Presente – Pesquisa de UX, Design Technologist e Governança (Bosch)"
+ux-researcher,present_table,Present achievements table,Tabela de conquistas,"| Area | Achievement |
+|------|-------------|
+| UX Maturity & Governance | Guided Americas to **UX Maturity Level 4** (Global Services); standardized templates & compliance tracking |
+| Qualitative Synthesis | **Data Insights**: Grounded Theory (open/axial coding) + **Python/AI** on call-center transcripts → Power BI |
+| Automated UX Gates | **ServiceNow** automated UX relevance scoring and strategic **CIP dashboards** for leadership visibility |
+| Design Technologist | End-to-end tooling from requirements to **interactive prototypes** with regular user check-ins |
+| Delivery Outcomes | Sustained average **CSI 4.86 / NPS 9.94** (2024–2025); delivered AI tools training to **100+** people (**4.88**/5) |
+| HCI & Trust Research | Unicamp MSc (Grade A); peer-reviewed publications on **user trust in AI** (**IHC 2025, ISSRE 2025**) |","| Área | Conquista |
+|------|-----------|
+| Maturidade e Governança UX | Conduzi as Américas ao **Nível 4 de Maturidade em UX** (Global Services); templates e governança |
+| Síntese Qualitativa | **Data Insights**: Teoria Fundamentada (codificação aberta/axial) + **Python/IA** em transcrições → Power BI |
+| Gates Automatizados de UX | Pontuação de relevância em UX no **ServiceNow** e dashboards **CIP** para visibilidade da liderança |
+| Design Technologist | Tooling ponta a ponta de requisitos a **protótipos interativos** com check-ins contínuos de usuários |
+| Resultados de Entrega | Média sustentada de **CSI 4,86 / NPS 9,94** (2024–2025); treinamento de IA para **100+** pessoas (**4,88**/5) |
+| Pesquisa em IHC e Confiança | Mestrado Unicamp (nota A); artigos com peer-review sobre **confiança do usuário em IA** (**IHC 2025, ISSRE 2025**) |"
+ux-researcher,cip_pipeline_h2,CIP pipeline heading,Título pipeline CIP,Present – User Research to Implementation: Intake → Evaluation → Governance,Presente – Da Pesquisa do Usuário à Implementação: Intake → Avaliação → Governança
+ux-researcher,relevance_h2,Relevance model heading,Título modelo de relevância,Present – UX Relevance Scoring Model in ServiceNow,Presente – Modelo de Pontuação de Relevância em UX no ServiceNow
+ux-researcher,csi_h2,CSI/NPS heading,Título CSI/NPS,Present – User Satisfaction Outcomes: CSI & NPS (2024–2025),Presente – Resultados de Satisfação do Usuário: CSI e NPS (2024–2025)
+ux-researcher,tooling_h2,Tooling project heading,Título projeto tooling,Design Technologist in Delivery – Tooling for Power Tools,Design Technologist na Entrega – Projeto Tooling para Power Tools
+ux-researcher,tooling_bullet,Tooling bullet,Item projeto tooling,- **Tooling project for PT:** Translated complex domain workflows into interactive prototypes with **regular user and stakeholder check-ins**—bridging user mental models and production technical architecture.,- **Projeto tooling para PT:** Traduzi fluxos complexos de domínio em protótipos interativos com **check-ins regulares de usuários e stakeholders**—unindo modelos mentais do usuário à arquitetura técnica de produção.
+ux-researcher,infovis_pnad_h2,InfoVis PNAD heading,Título InfoVis PNAD,Visual Ergonomics & Evaluation – MSc InfoVis: PNAD Contínua (Power BI),Ergonomia Visual e Avaliação – InfoVis (Mestrado): PNAD Contínua (Power BI)
+ux-researcher,infovis_pnad_bullets,InfoVis PNAD bullets,Tópicos InfoVis PNAD,"- **MSc Information Visualization (Unicamp, Grade A):** user visual perception, cognitive load, and visual mapping—principles applied to design readable, task-efficient user interfaces.
+- **PNAD Contínua in Power BI:** designed exploratory data interfaces prioritizing user legibility, workflow speed, and intuitive filtering.","- **Visualização da Informação (Mestrado Unicamp, nota A):** percepção visual do usuário, carga cognitiva e mapeamento visual—princípios aplicados para desenhar interfaces legíveis e eficientes para tarefas.
+- **PNAD Contínua no Power BI:** desenhei interfaces exploratórias priorizando legibilidade para o usuário, velocidade de fluxo e filtragem intuitiva."
+ux-researcher,infovis_phrasenet_h2,InfoVis PhraseNets heading,Título InfoVis PhraseNets,Qualitative & Text Analysis – Text & Network Structures (PhraseNets),Análise Qualitativa e Textual – Estruturas de Texto e Redes (PhraseNets)
+ux-researcher,infovis_phrasenet_bullets,InfoVis PhraseNets bullets,Tópicos InfoVis PhraseNets,"- **Qualitative user expression mapping:** visualized unstructured user expressions, semantic patterns, and terminology through network graphs.
+- **Interaction design principles:** Shneiderman's visual information seeking mantra applied to complex information hierarchies.","- **Mapeamento de expressões qualitativas do usuário:** visualização de termos, padrões semânticos e relações conceituais não estruturadas por grafos de rede.
+- **Princípios de design de interação:** aplicação do mantra de Shneiderman para exploração de hierarquias complexas de informação."
+ux-researcher,dissertation_pbi_intro,Dissertation PBI intro,Intro dissertação PBI,My master's dissertation investigates **user trust** in digital experiences and evaluates how users interact with and adopt **Agentic AI systems** compared to traditional workflows.,Minha dissertação de mestrado investiga **confiança do usuário** em experiências digitais e avalia como usuários interagem e adotam **sistemas de IA agêntica** em comparação a fluxos tradicionais.
+ux-researcher,dissertation_pbi_bullets,Dissertation PBI bullets,Tópicos dissertação PBI,"- **Empirical UX evaluation:** quantitative trust scales, behavioral task metrics, and user perception modeling across human-AI touchpoints.
+- **Published HCI research:** peer-reviewed contributions at IHC 2025 and ISSRE 2025 on trust measurement and user decision dynamics in AI interaction.","- **Avaliação empírica de UX:** escalas quantitativas de confiança, métricas comportamentais de tarefas e modelagem da percepção do usuário em touchpoints humano-IA.
+- **Pesquisa publicada em IHC:** artigos com peer-review no IHC 2025 e ISSRE 2025 sobre medição de confiança e dinâmica de decisões do usuário em interação com IA."
+ux-researcher,future_h2,Future slide heading,Título slide Futuro,Future – UX Research & Design for Emerging Technologies & AI,Futuro – Pesquisa e Design de UX para Tecnologias Emergentes e IA
+ux-researcher,future_intro,Future intro,Introdução slide Futuro,"**Human-centered research, design technology, and trustworthy AI** define my trajectory as a UX Researcher & Design Technologist. The diagram below illustrates the research and delivery loop I operate in.","**Pesquisa centrada no usuário, design technology e IA confiável** definem minha trajetória como Pesquisador de UX e Design Technologist. O diagrama abaixo ilustra o ciclo de pesquisa e entrega em que atuo."
+ux-researcher,future_diagram_alt,Future diagram alt text,Texto alt diagrama Futuro,Diagram ai-agile-research-ux-researcher: UX Research and Design in High-Tech Delivery,Diagrama ai-agile-research-ux-researcher: Pesquisa e Design de UX em Entrega de Alta Tecnologia
+ux-researcher,future_career_body,Future career body,Corpo slide carreira,"## Future – How I Conduct UX Research & Design in High-Tech
+
+- **Mixed-methods rigor:** generative discovery (interviews, contextual inquiry) combined with evaluative testing (SUS, usability benchmarks, quantitative trust scales).
+- **Design technologist bridge:** translating UX concepts into interactive **React** prototypes and component specs that speed up engineering handoff.
+- **Trustworthy AI interaction:** applying Microsoft HAX, Google PAIR, and empirical trust measurement to AI-augmented workflows.
+- **ResearchOps & scalable insights:** repository-driven research findings, atomic UX nuggets, and self-service toolkits for cross-functional squads.
+- **Outcome accountability:** tying design interventions directly to user task efficiency, adoption, error reduction, and sustained **CSI/NPS**.
+","## Futuro – Como conduzo Pesquisa e Design de UX em Alta Tecnologia
+
+- **Rigor em métodos mistos:** descoberta generativa (entrevistas, pesquisa contextual) combinada com testes avaliativos (SUS, benchmarks de usabilidade, escalas quantitativas de confiança).
+- **Ponte de design technologist:** traduzindo conceitos de UX em protótipos interativos em **React** e especificações de componentes que aceleram o handoff de engenharia.
+- **Interação com IA confiável:** aplicando diretrizes Microsoft HAX, Google PAIR e medição empírica de confiança em fluxos de trabalho com IA.
+- **ResearchOps e insights escaláveis:** repositórios de pesquisa, achados atômicos e kits de ferramentas self-service para squads multidisciplinares.
+- **Compromisso com resultados:** conectando intervenções de design diretamente à eficiência de tarefas do usuário, adoção, redução de erros e **CSI/NPS** sustentados.
+"
+ux-researcher,future_career_style,Future career CSS,CSS slide carreira,".future-career-wrap {
+  display: flex !important; flex-direction: column !important;
+  justify-content: flex-start !important; align-items: stretch !important;
+  width: 100% !important; margin-top: 0.35rem !important;
+  gap: 0.4rem !important;
+}
+.future-career-wrap p { margin: 0 !important; text-align: left !important; }
+.future-po-bullets {
+  width: 100% !important; max-width: 100% !important; text-align: left !important; font-size: 0.85em !important;
+}
+.future-po-bullets table {
+  width: 100% !important; table-layout: fixed !important; margin-top: 0.35rem !important;
+}
+.future-po-bullets th:first-child,
+.future-po-bullets td:first-child { width: 22% !important; }
+.future-po-bullets td, .future-po-bullets th {
+  overflow-wrap: anywhere; padding: 0.28em 0.5em !important;
+}",".future-career-wrap {
+  display: flex !important; flex-direction: column !important;
+  justify-content: flex-start !important; align-items: stretch !important;
+  width: 100% !important; margin-top: 0.35rem !important;
+  gap: 0.4rem !important;
+}
+.future-career-wrap p { margin: 0 !important; text-align: left !important; }
+.future-po-bullets {
+  width: 100% !important; max-width: 100% !important; text-align: left !important; font-size: 0.85em !important;
+}
+.future-po-bullets table {
+  width: 100% !important; table-layout: fixed !important; margin-top: 0.35rem !important;
+}
+.future-po-bullets th:first-child,
+.future-po-bullets td:first-child { width: 22% !important; }
+.future-po-bullets td, .future-po-bullets th {
+  overflow-wrap: anywhere; padding: 0.28em 0.5em !important;
+}"
+ux-researcher,closing_summary,Closing summary,Resumo de encerramento,"I combine rigorous mixed-methods research, design technologist code prototyping, and empirical trust measurement to build high-tech and AI products that users trust and adopt—validated by measurable outcomes.","Combino pesquisa rigorosa com métodos mistos, prototipagem em código como design technologist e medição empírica de confiança para construir produtos de alta tecnologia e IA que os usuários confiam e adotam—validados por resultados mensuráveis."
+ux-researcher,h_who,Who heading,Título Quem sou,Who I Am – Snapshot,Quem sou – Retrato
+ux-researcher,h_who_attr,Who attribute,Atributo,Attribute,Atributo
+ux-researcher,h_who_value,Who value,Valor,Value,Valor
+ux-researcher,h_who_name,Who name label,Rótulo nome,Name,Nome
+ux-researcher,h_who_role,Who role label,Rótulo papel,Role,Papel
+ux-researcher,h_who_impact,Who impact label,Rótulo impacto,Impact,Impacto
+ux-researcher,h_who_contact,Who contact label,Rótulo contato,Contact,Contato
+ux-researcher,h_past_academic,Past academic heading,Título formação,Past – Academic Foundations & Professional Profile,Passado – Formação acadêmica e perfil profissional
+ux-researcher,h_past_feeling,Past feeling,Frase de perfil,"I feel proactive, self-reliant and organized.","Me sinto proativo, autônomo e organizado."
+ux-researcher,h_past_grade,Past grade,Nota do mestrado,Grade 'A' in all Master's coursework,Nota A em todas as disciplinas do mestrado
+ux-researcher,h_past_grade_note,Past grade note,Nota de proficiência,English proficiency test verification.,comprovação de proficiência em inglês.
+ux-researcher,h_past_experience,Past experience heading,Título trajetória,Past – Experience Timeline (Condensed),Passado – Linha do tempo (resumida)
+ux-researcher,h_past_trajectory,Past trajectory,Trajetória Bosch,"**Trajectory across Bosch locations:** Campinas, Hungary, Sorocaba, and Campinas.","**Trajetória entre unidades Bosch:** Campinas, Hungria, Sorocaba e Campinas."
+ux-researcher,h_cip_artifacts,CIP artifacts heading,Título artefatos CIP,Present – CIP and Applied Research Integration: Applied Research Artifacts,Presente – Integração CIP e Pesquisa Aplicada: Artefatos
+ux-researcher,h_academic_research,Academic research heading,Título pesquisa acadêmica,Present – Academic Applied Research (Trust in AI & UI),Presente – Pesquisa aplicada acadêmica (confiança em IA e UI)
+ux-researcher,h_publications,Publications heading,Título publicações,Present – Scientific Publications,Presente – Publicações científicas
+ux-researcher,h_publications_intro,Publications intro,Intro publicações,"Published work in <strong>ISSRE 2025 (HFSD Workshop)</strong> and <strong>IHC 2025 (SBC SOL)</strong>; <span class=""thesis-emphasis"">master's dissertation on software trustworthiness and Agentic AI</span>.","Trabalho publicado no <strong>ISSRE 2025 (Workshop HFSD)</strong> e no <strong>IHC 2025 (SBC SOL)</strong>; <span class=""thesis-emphasis"">dissertação de mestrado sobre confiabilidade de software e IA agêntica</span>."
+ux-researcher,h_pbi_work,Work dashboards heading,Título dashboards,Data Visualization – Power BI Dashboards at Work,Visualização de dados – Dashboards Power BI no trabalho
+ux-researcher,h_pbi_work_bullet,Work dashboards bullet,Item dashboards,"- **Bosch Applied Research Americas (GS):** Built Power BI dashboards for project and resource oversight and training tracking, so the team can see the numbers and make better calls.","- **Pesquisa Aplicada Américas da Bosch (GS):** Construí dashboards Power BI para acompanhar projetos, recursos e treinamentos, para o time ver os números e decidir melhor."
+ux-researcher,h_dissertation_pbi,Dissertation PBI heading,Título Power BI dissertação,Data Visualization – Dissertation Power BI,Visualização de dados – Power BI da dissertação
+ux-researcher,h_diss_tech,Dissertation tech heading,Título implementação dissertação,"Technical Implementation – Dissertation (<span class=""agentic-ai-emphasis"">Agentic AI</span> & Full Stack)","Implementação técnica – Dissertação (<span class=""agentic-ai-emphasis"">IA agêntica</span> e full stack)"
+ux-researcher,h_diss_tech_bullet,Dissertation tech bullet,Item arquitetura,"- **Architecture:** Database design supporting projects, experiments, attributes, scores, and <span class=""agentic-ai-emphasis"">Agentic AI</span> runs.","- **Arquitetura:** desenho de banco para projetos, experimentos, atributos, pontuações e execuções de <span class=""agentic-ai-emphasis"">IA agêntica</span>."
+ux-researcher,h_tech_impl,Technical implementation heading,Título implementação,Technical Implementation,Implementação técnica
+ux-researcher,h_proposal,Proposal generator heading,Título gerador de propostas,Technical Implementation – Proposal Generator (Excel VBA),Implementação técnica – Gerador de propostas (Excel VBA)
+ux-researcher,h_interests,Interests heading,Título interesses,Personal Interests that Power My Work,Interesses pessoais que alimentam o trabalho
+ux-researcher,h_interests_bullet,Interests bullet,Item interesses,"- **At home:** Two cats, learning piano, and a split keyboard I use for macros and productivity.","- **Em casa:** dois gatos, piano iniciante e um teclado dividido que uso para macros e produtividade."
+ux-researcher,h_interests_col,Interests column,Coluna interesses,Interest,Interesse
+ux-researcher,h_interests_rows,Interests rows,Linhas interesses,"<tr><td>Piano</td></tr>
+<tr><td>Linguistics (phonology & phonetics)</td></tr>
+<tr><td>Physics (GR & Quantum)</td></tr>
+<tr><td>Acting</td></tr>
+<tr><td>Impressionist art</td></tr>
+<tr><td>Macro creation</td></tr>
+<tr><td>Specialized keyboards</td></tr>","<tr><td>Piano</td></tr>
+<tr><td>Linguística (fonologia e fonética)</td></tr>
+<tr><td>Física (relatividade e quântica)</td></tr>
+<tr><td>Atuação</td></tr>
+<tr><td>Arte impressionista</td></tr>
+<tr><td>Criação de macros</td></tr>
+<tr><td>Teclados especializados</td></tr>"
+ux-researcher,h_closing,Closing heading,Título encerramento,Closing & Contact,Encerramento e contato
+ux-researcher,h_closing_connect,Closing connect,Chamada de contato,Let's connect,Vamos conversar
+ux-researcher,h_closing_request,Closing request,Disponibilidade,Resume and this deck available on request.,Currículo e este deck disponíveis sob pedido.
+ux-researcher,h_infovis_diagram_alt,InfoVis diagram alt,Alt diagrama InfoVis,InfoVis PNAD visual structures,Estruturas visuais da PNAD no InfoVis

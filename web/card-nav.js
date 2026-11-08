@@ -1,8 +1,49 @@
 (() => {
   let lastCard = null;
   let lastFilter = null;
+  let hoveredCard = null;
   /** @type {{ cardSel: string, filterRootSel: string } | null} */
   let homeTargets = null;
+
+  document.addEventListener(
+    "pointerover",
+    (event) => {
+      const card = event.target?.closest?.(
+        ".company-tile, .job-tile, .panel[data-id]",
+      );
+      if (card) {
+        hoveredCard = card;
+        lastCard = card;
+      }
+    },
+    { passive: true },
+  );
+
+  document.addEventListener(
+    "pointerout",
+    (event) => {
+      const card = event.target?.closest?.(
+        ".company-tile, .job-tile, .panel[data-id]",
+      );
+      if (card && hoveredCard === card) {
+        hoveredCard = null;
+      }
+    },
+    { passive: true },
+  );
+
+  document.addEventListener(
+    "focusin",
+    (event) => {
+      const card = event.target?.closest?.(
+        ".company-tile, .job-tile, .panel[data-id]",
+      );
+      if (card) {
+        lastCard = card;
+      }
+    },
+    { passive: true },
+  );
 
   function titleOf(card) {
     if (!card) return "";
@@ -415,5 +456,10 @@
     jumpFilterPrefix,
     jumpInContext,
     isJumpKey,
+    getLastCard: () => lastCard,
+    setLastCard: (card) => {
+      lastCard = card;
+    },
+    getHoveredCard: () => hoveredCard,
   };
 })();

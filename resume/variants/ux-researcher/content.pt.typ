@@ -1,0 +1,82 @@
+// =============================================================================
+// GENERATED from my-data/canonical — do not edit by hand.
+// Variant: ux-researcher, lang: pt. Re-run: python scripts/generate_from_canonical.py
+// Layout: main.typ (do not change layout here).
+// =============================================================================
+
+#let name = "Eduardo M. de A. Figueiredo"
+#let tagline = "Pesquisador de UX e Design Technologist | Pesquisa com Métodos Mistos, Prototipagem e IA Confiável"
+#let phone = "+55 (19) 98176-6583"
+#let email = "edu.evangelista.figueiredo@gmail.com"
+#let linkedin = "LinkedIn"
+#let linkedin-url = "https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b"
+#let lattes = "Lattes"
+#let lattes-url = "https://lattes.cnpq.br/2708641049892967"
+#let orcid = "ORCID"
+#let orcid-url = "https://orcid.org/0009-0002-5178-6157"
+#let location = "Nova Odessa, SP - Brasil"
+#let compact-layout = true
+
+#let ui = (
+  contact: "Contato",
+  phone_abbr: "Tel.",
+  email: "E-mail",
+  linkedin: "LinkedIn",
+  lattes: "Lattes",
+  orcid: "ORCID",
+  location: "Localização",
+  profile: "Perfil",
+  languages: "Idiomas",
+  skills: "Habilidades",
+  experience: "EXPERIÊNCIA",
+  education: "FORMAÇÃO",
+  publications: "PUBLICAÇÕES",
+  additional: "ADICIONAL",
+)
+
+#let profile = [
+  Pesquisador de UX e design technologist com ~8 anos de experiência em tecnologia na Bosch (estágio → desenvolvedor web → analista de pesquisa aplicada e design). Combino #strong[pesquisa com métodos mistos] (Teoria Fundamentada de Strauss, codificação qualitativa, surveys, testes de usabilidade) com #strong[execução de design technologist] (React, protótipos de alta fidelidade em código, Figma, Power BI). Mestrado em Tecnologia aprovado em set/2026 (Unicamp, nota A em todas as disciplinas); pesquisa publicada com peer-review sobre confiança do usuário na interação humano-IA (IHC 2025, ISSRE 2025). Conduzi a maturidade de UX das Américas ao Nível 4; média sustentada de CSI 4,86 / NPS 9,94.
+]
+
+#let languages = "Português (Nativo)   Inglês (Fluente)"
+
+#let skills = (
+  ("Core", "Núcleo:", ("Pesquisa de UX com métodos mistos", "Avaliação de usabilidade e heurística", "Síntese qualitativa e Teoria Fundamentada", "Interação humano-IA e medição de confiança", "Design de interação e prototipagem em código", "Métricas de UX e governança (CSI/NPS, SUS)", "Alinhamento multidisciplinar de stakeholders")),
+  ("Tech", "Tecnologias:", ("Figma", "React", "HTML / CSS", "Python", "Power BI", "SQL / SQL Server", "ServiceNow", "Mermaid", "Git", "GitHub", "Bitbucket", "VS Code", "Excel / VBA", "Pipelines CSV", "Coding assistido por IA e engenharia de prompt", "Qualtrics / ferramentas de survey", "Agile / Scrum / Kanban", "Miro / FigJam")),
+)
+
+#let experience = (
+  ("Jan 2023 – Atual", "Bosch Brasil", "Analista de Pesquisa Aplicada e Design", (
+    [#strong[Nível 4 de Maturidade em UX (Américas):] apoiei as Américas a atingir o Nível 4 em Global Services via governança, templates padronizados e treinamentos—capacitando times distribuídos a aplicar UX research e design com autonomia.],
+    [#strong[Relevância em UX automatizada e gates CIP (ServiceNow):] desenhei pontuação de relevância baseada em propriedades para intake de UX e avaliei dashboards estratégicos de CIP—conectando visibilidade da liderança a evidências de atrito do usuário.],
+    [#strong[Síntese qualitativa em escala (CX Power Tools):] apliquei Teoria Fundamentada (codificação aberta, axial e seletiva) a transcrições de call center com Python, IA e Power BI—transformando a voz do cliente em recomendações de UX priorizadas.],
+    [#strong[UX ponta a ponta e prototipagem rápida (Power Tools):] traduzi requisitos de domínio em jornadas do usuário e protótipos interativos com check-ins contínuos de stakeholders e usuários—alinhando necessidades do usuário e viabilidade técnica.],
+    [#strong[Resultados de usuário mensurados:] mantive média #strong[CSI 4,86 / NPS 9,94] nos projetos entregues (2024–2025); ministrei treinamento de ferramentas com IA para 100+ pessoas (avaliação 4,88/5); colaboração internacional com a Alemanha (2024, 2025).],
+  )),
+  ("Jan 2020 – Nov 2022", "Bosch Brasil", "Desenvolvedor Web", (
+    [#strong[Entrega como design technologist (React):] construí interfaces acessíveis, componentes reutilizáveis de design system e aplicações web baseadas em dados em Scrum/Kanban—fazendo a ponte entre o design de UI e a implementação em produção.],
+    [#strong[Colaboração centrada no usuário:] atuei em conjunto com times de design, pesquisa e engenharia para iterar melhorias de usabilidade, reduzir atritos de interação e validar incrementos em produção.],
+  )),
+  ("Jan 2019 – Dez 2019", "Bosch Magyarország (Hungary)", "Analista de Suporte à Digitalização", (
+    [#strong[Digitalização e otimização do fluxo do usuário (Budapeste):] conduzi análise de fluxo de trabalho do usuário e desenvolvi aplicações web intuitivas para Business Excellence com SQL Server, IIS, Git e automações VBA.],
+  )),
+)
+
+#let education = (
+  ("Mestrado em Tecnologia:", "Sist. Info. e Comunicação. Unicamp (2023–2026).", [Dissertação — Confiança Percebida em Websites de E-commerce. Construí o TrustMate para pontuar Usabilidade, Acessibilidade e UX, e comparei agentes ChatGPT o3 com 127 estudantes de TI em três sites. Agentes não substituem a avaliação humana #v(0.28em) funcionam como triagem automatizada da qualidade da interface. Análise: descritiva, visual e inferencial (Python → Power BI). Nota A em todas as disciplinas, inclusive Visualização da Informação.]),
+  ("Análise e Desenvolvimento de Sistemas.", "Unicamp (2015–2020).", none),
+  ("Técnico em Informática.", "ETEC Bento Quirino (2012–2014).", none),
+)
+
+#let publications = (
+  ("IHC 2025:", "\"Measuring User Trust in Websites: A Digital Support Tool\" (SOL / SBC Open Lib)."),
+  ("ISSRE 2025 (HFSD Workshop):", "\"Measuring Perceived Trust in Websites: A Digital Tool Providing a Score for Evaluation.\""),
+)
+
+#let additional = (
+  [TAR 2026 – Talent Associate Review (Bosch; indicação do gestor e da liderança, sem autoindicação).],
+  [3º Lugar – Fórum de Talentos da Bosch 2018 (projeto de estágio Project Model Canvas).],
+  [1º Lugar – X-Games Brazil 2018 (projeto mais criativo; nova consultoria de negócio).],
+  [Prêmio Compartilhando Sucessos – RH Bosch América Latina (2017; novo negócio Bosch LatAm).],
+  [Voluntário – Assistente de TI na ONG Hospitalhaços (dez/2016 – atual).],
+)
