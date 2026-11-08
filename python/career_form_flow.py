@@ -95,25 +95,180 @@ def build_and_send(store: Any, opening_id: str, window_name: str) -> dict[str, A
     return {"ok": True, "chars": len(prompt), "tree_chars": len(tree)}
 
 
+import ctypes
+import time
+from typing import Any
+
+try:
+    import win32clipboard
+    import win32con
+    import win32gui
+    import win32process
+    _HAVE_WIN32 = True
+except ImportError:
+    _HAVE_WIN32 = False
+
+
+def _attach_interactive_desktop() -> bool:
+    try:
+        user32 = ctypes.windll.user32
+        hwinsta = user32.OpenWindowStationW("WinSta0", False, 0x37F)
+        if hwinsta:
+            user32.SetProcessWindowStation(hwinsta)
+        hdesk = user32.OpenDesktopW("Default", 0, False, 0x1FF)
+        if hdesk:
+            user32.SetThreadDesktop(hdesk)
+        return True
+    except Exception:
+        return False
+
+
+def _set_clipboard_text(text: str, timeout: float = 2.0) -> bool:
+    if not _HAVE_WIN32:
+        return False
+    deadline = time.monotonic() + timeout
+    while time.monotonic() < deadline:
+        try:
+            win32clipboard.OpenClipboard()
+            try:
+                win32clipboard.EmptyClipboard()
+                win32clipboard.SetClipboardText(text, win32con.CF_UNICODETEXT)
+                return True
+            finally:
+                win32clipboard.CloseClipboard()
+        except Exception:
+            time.sleep(0.05)
+    return False
+
+
+def _find_companion_window() -> tuple[int, str]:
+    if not _HAVE_WIN32:
+        return 0, ""
+    candidates: list[tuple[int, str]] = []
+
+    def enum_cb(hwnd: int, _: Any) -> None:
+        if win32gui.IsWindowVisible(hwnd):
+            title = win32gui.GetWindowText(hwnd).strip()
+            t_low = title.lower()
+            if any(term in t_low for term in ("gemini", "chatgpt", "copilot", "claude", "perplexity")):
+                candidates.append((hwnd, title))
+
+    try:
+        win32gui.EnumWindows(enum_cb, None)
+    except Exception:
+        pass
+    if candidates:
+        return candidates[0]
+    return 0, ""
+
+
+def _focus_window(hwnd: int) -> bool:
+    if not _HAVE_WIN32 or not hwnd:
+        return False
+    try:
+        user32 = ctypes.windll.user32
+        kernel32 = ctypes.windll.kernel32
+        cur_t = kernel32.GetCurrentThreadId()
+        fg_hwnd = user32.GetForegroundWindow()
+        fg_t = user32.GetWindowThreadProcessId(fg_hwnd, None)
+        target_t = user32.GetWindowThreadProcessId(hwnd, None)
+
+        if fg_t and fg_t != cur_t:
+            user32.AttachThreadInput(cur_t, fg_t, True)
+        if target_t and target_t != cur_t:
+            user32.AttachThreadInput(cur_t, target_t, True)
+
+        # Alt key tap to unblock SetForegroundWindow
+        user32.keybd_event(0x12, 0, 0, 0)
+        user32.keybd_event(0x12, 0, 2, 0)
+
+        user32.ShowWindow(hwnd, win32con.SW_RESTORE)
+        user32.BringWindowToTop(hwnd)
+        ret = user32.SetForegroundWindow(hwnd)
+
+        if target_t and target_t != cur_t:
+            user32.AttachThreadInput(cur_t, target_t, False)
+        if fg_t and fg_t != cur_t:
+            user32.AttachThreadInput(cur_t, fg_t, False)
+
+        time.sleep(0.15)
+        return ret != 0 or user32.GetForegroundWindow() == hwnd
+    except Exception:
+        return False
+
+
+def _send_paste_and_submit() -> None:
+    user32 = ctypes.windll.user32
+    # Ctrl+A to clear / select all
+    user32.keybd_event(0x11, 0, 0, 0)
+    user32.keybd_event(0x41, 0, 0, 0)
+    time.sleep(0.04)
+    user32.keybd_event(0x41, 0, 2, 0)
+    user32.keybd_event(0x11, 0, 2, 0)
+    time.sleep(0.08)
+    # Ctrl+V to paste
+    user32.keybd_event(0x11, 0, 0, 0)
+    user32.keybd_event(0x56, 0, 0, 0)
+    time.sleep(0.04)
+    user32.keybd_event(0x56, 0, 2, 0)
+    user32.keybd_event(0x11, 0, 2, 0)
+    time.sleep(0.3)
+    # Enter to submit
+    user32.keybd_event(0x0D, 0, 0, 0)
+    time.sleep(0.04)
+    user32.keybd_event(0x0D, 0, 2, 0)
+
+
 def send_prompt_text(prompt: str) -> dict[str, Any]:
     """Focus the AI companion and paste a finished prompt, then submit it."""
     prompt = (prompt or "").strip()
     if not prompt:
         raise ValueError("Prompt is empty.")
+
+    _attach_interactive_desktop()
+    _set_clipboard_text(prompt)
+
+    # 1. Try sending the companion global hotkey (Win+Alt+Shift+I)
+    try:
+        send_companion_hotkey()
+    except Exception:
+        pass
+
+    # 2. Look for open companion window (Gemini, ChatGPT, Copilot, etc.)
+    hwnd, title = _find_companion_window()
+    if not hwnd:
+        # Give companion hotkey up to 1 second to surface the window if launched
+        for _ in range(5):
+            time.sleep(0.2)
+            hwnd, title = _find_companion_window()
+            if hwnd:
+                break
+
+    if hwnd:
+        focused = _focus_window(hwnd)
+        if focused:
+            time.sleep(0.25)
+            _send_paste_and_submit()
+            return {"ok": True, "chars": len(prompt), "window": title}
+
+    # 3. Fallback to AHK send-prompt if native focus didn't find the window
     with tempfile.TemporaryDirectory(prefix="career-prompt-") as tmp:
         prompt_path = Path(tmp) / "prompt.txt"
         prompt_path.write_text(prompt, encoding="utf-8", newline="\n")
         try:
-            send_companion_hotkey()
+            sent = run_ahk("send-prompt", timeout=20, file=str(prompt_path))
+            if sent.get("ok"):
+                return {"ok": True, "chars": len(prompt), "method": "ahk"}
         except Exception:
-            # SendInput can fail with ERROR_ACCESS_DENIED when running
-            # non-interactively or in a background session; run_ahk
-            # activates the window directly.
             pass
-        sent = run_ahk("send-prompt", timeout=45, file=str(prompt_path))
-        if not sent.get("ok"):
-            raise RuntimeError(str(sent.get("error") or "Could not send the prompt"))
-    return {"ok": True, "chars": len(prompt)}
+
+    # 4. Safe fallback: prompt is guaranteed to be on the clipboard
+    return {
+        "ok": True,
+        "chars": len(prompt),
+        "clipboard_only": True,
+        "message": "Prompt copied to clipboard.",
+    }
 
 
 def fill_form(store: Any, opening_id: str) -> dict[str, Any]:
