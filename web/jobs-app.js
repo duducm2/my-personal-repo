@@ -1987,7 +1987,7 @@
   function buildAiInstructions(careerPaths, hasIgnoreRules) {
     const paths = careerPaths.length
       ? careerPaths.join(" | ")
-      : "da | po | dsa | ds | other";
+      : "uxr | da | po | dsa | other";
     const steps = [
       "=== AIB PROCESSING INSTRUCTIONS (mandatory) ===",
       "Return every IT opening. The user deletes what they do not want.",
@@ -2836,9 +2836,25 @@
           new URLSearchParams({ opening_id: openingId }),
       );
       const data = await res.json().catch(() => ({}));
-      if (res.ok && data.window_name) input.value = data.window_name;
+      if (res.ok && data.window_name) {
+        input.value = data.window_name;
+        return;
+      }
     } catch {
       /* cockpit server offline */
+    }
+    try {
+      const capRes = await fetch("/api/career-autofill/capture-window", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ opening_id: openingId }),
+      });
+      const capData = await capRes.json().catch(() => ({}));
+      if (capRes.ok && capData.window_name && !input.value) {
+        input.value = capData.window_name;
+      }
+    } catch {
+      /* ignore */
     }
   }
 
@@ -2904,7 +2920,7 @@
   function buildFormFillInstructions(openingId, careerPaths) {
     const paths = careerPaths.length
       ? careerPaths.join(" | ")
-      : "da | po | dsa | ds | other";
+      : "uxr | da | po | dsa | other";
     const resumes = RESUME_OPTIONS.join(" | ");
     return [
       "=== AIB FORM-FILL INSTRUCTIONS (mandatory) ===",
@@ -3741,6 +3757,11 @@
         setDirty(true);
       }
       const prompt = await buildCoverLetterPrompt(openingId, lang, jd);
+      try {
+        await navigator.clipboard.writeText(prompt);
+      } catch {
+        /* ignore */
+      }
       const res = await fetch("/api/prompt-send", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -5406,6 +5427,20 @@
         if (e.target === formPromptDialog) closeFormPromptModal();
       });
     }
+    document
+      .getElementById("form-prompt-open-uia-btn")
+      ?.addEventListener("click", async () => {
+        setFormPromptStatus("Opening UIA Inspector on screen…");
+        try {
+          const res = await postCareerAutofill("/api/career-autofill/open-uia", {});
+          setFormPromptStatus(
+            res.message || "UIA Tree Inspector is open. Press Shift+C in it to copy UI tree.",
+            "ok",
+          );
+        } catch (err) {
+          setFormPromptStatus(err.message || String(err), "err");
+        }
+      });
     document
       .getElementById("form-prompt-send-btn")
       ?.addEventListener("click", () => void handleBuildAndSendFormPrompt());

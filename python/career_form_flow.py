@@ -8,7 +8,7 @@ from typing import Any
 
 from autofill_data_source import parse_application_answers
 from build_ai_form_prompt import build_form_fill_prompt
-from career_ahk import run_ahk, send_companion_hotkey
+from career_ahk import read_clipboard_text, run_ahk, send_companion_hotkey
 from form_fill_executor import (
     build_fill_steps,
     load_session,
@@ -31,25 +31,101 @@ def _opening(store: Any, opening_id: str) -> dict[str, Any]:
 
 
 def capture_window(opening_id: str = "") -> dict[str, Any]:
-    result = run_ahk("capture-window", timeout=25)
-    if not result.get("ok"):
-        raise RuntimeError(str(result.get("error") or "Could not read Chrome windows"))
-    window_name = str(result.get("window_name") or "")
-    if opening_id and window_name:
-        save_session(opening_id, window_name=window_name)
+    _attach_interactive_desktop()
+    chrome_titles: list[str] = []
+    suggested = ""
+    if _HAVE_WIN32:
+        try:
+            def enum_chrome(hwnd: int, _: Any) -> None:
+                if win32gui.IsWindowVisible(hwnd):
+                    t = win32gui.GetWindowText(hwnd).strip()
+                    t_low = t.lower()
+                    if any(b in t_low for b in ("chrome", "edge", "brave", "firefox")):
+                        if not any(
+                            skip in t_low
+                            for skip in (
+                                "career cockpit",
+                                "job openings — home",
+                                "gemini",
+                                "chatgpt",
+                                "copilot",
+                                "claude",
+                                "clipangel",
+                            )
+                        ):
+                            chrome_titles.append(t)
+
+            win32gui.EnumWindows(enum_chrome, None)
+            if chrome_titles:
+                suggested = chrome_titles[0]
+        except Exception:
+            pass
+
+    if not chrome_titles:
+        try:
+            result = run_ahk("capture-window", timeout=5)
+            if result.get("ok"):
+                suggested = str(result.get("window_name") or "")
+                chrome_titles = result.get("windows") or []
+        except Exception:
+            pass
+
+    if opening_id and suggested:
+        save_session(opening_id, window_name=suggested)
     return {
         "ok": True,
-        "window_name": window_name,
-        "windows": result.get("windows") or [],
+        "window_name": suggested,
+        "windows": chrome_titles,
     }
 
 
 def open_uia() -> dict[str, Any]:
-    result = run_ahk("open-uia", timeout=20)
-    if not result.get("ok"):
-        raise RuntimeError(
-            str(result.get("error") or "Could not open UIA Tree Inspector")
+    _attach_interactive_desktop()
+    inspector_hwnd = 0
+    if _HAVE_WIN32:
+        try:
+            def find_inspector(hwnd: int, _: Any) -> None:
+                nonlocal inspector_hwnd
+                if win32gui.IsWindowVisible(hwnd) and "UIATreeInspector" in win32gui.GetWindowText(hwnd):
+                    inspector_hwnd = hwnd
+
+            win32gui.EnumWindows(find_inspector, None)
+        except Exception:
+            pass
+
+    if inspector_hwnd:
+        _focus_window(inspector_hwnd)
+        return {"ok": True, "hwnd": inspector_hwnd}
+
+    # Launch interactively on the user's interactive desktop via task scheduler
+    short_bat = r"C:\Users\eduev\MEUDRI~1\17-PRO~1\scripts\Utils\open_uia.bat"
+    try:
+        subprocess.run(
+            ["schtasks", "/create", "/tn", "OpenUIA", "/tr", short_bat, "/sc", "once", "/st", "23:59", "/it", "/f"],
+            check=False,
+            capture_output=True,
         )
+        subprocess.run(["schtasks", "/run", "/tn", "OpenUIA"], check=False, capture_output=True)
+        subprocess.run(["schtasks", "/delete", "/tn", "OpenUIA", "/f"], check=False, capture_output=True)
+    except Exception:
+        pass
+
+    for _ in range(10):
+        time.sleep(0.3)
+        if _HAVE_WIN32:
+            try:
+                def find_inspector2(hwnd: int, _: Any) -> None:
+                    nonlocal inspector_hwnd
+                    if win32gui.IsWindowVisible(hwnd) and "UIATreeInspector" in win32gui.GetWindowText(hwnd):
+                        inspector_hwnd = hwnd
+
+                win32gui.EnumWindows(find_inspector2, None)
+                if inspector_hwnd:
+                    _focus_window(inspector_hwnd)
+                    return {"ok": True, "hwnd": inspector_hwnd}
+            except Exception:
+                pass
+
     return {"ok": True}
 
 
@@ -58,41 +134,69 @@ def build_and_send(store: Any, opening_id: str, window_name: str) -> dict[str, A
     window_name = (window_name or "").strip()
     if not window_name:
         raise ValueError("Type the application tab title first.")
-    with tempfile.TemporaryDirectory(prefix="career-form-") as tmp:
-        folder = Path(tmp)
-        tree_path = folder / "tree.txt"
-        dumped = run_ahk(
-            "dump-tree",
-            timeout=180,
-            title=window_name,
-            out=str(tree_path),
+
+    tree = ""
+    # 1. Check if the clipboard already contains a valid UIA tree (e.g. from Shift+C in inspector)
+    try:
+        cb = read_clipboard_text(timeout=0.5)
+        if looks_like_uia_tree(cb):
+            tree = cb
+    except Exception:
+        pass
+
+    # 2. Check if a saved tree exists in session for this opening
+    if not tree:
+        session = load_session(opening_id)
+        saved_tree = str(session.get("ui_tree") or "")
+        if looks_like_uia_tree(saved_tree):
+            tree = saved_tree
+
+    # 3. If still no tree, try direct AHK dump-tree
+    if not tree:
+        with tempfile.TemporaryDirectory(prefix="career-form-") as tmp:
+            tree_path = Path(tmp) / "tree.txt"
+            try:
+                dumped = run_ahk(
+                    "dump-tree",
+                    timeout=8,
+                    title=window_name,
+                    out=str(tree_path),
+                )
+                if dumped.get("ok") and tree_path.is_file():
+                    candidate = tree_path.read_text(encoding="utf-8-sig")
+                    if looks_like_uia_tree(candidate):
+                        tree = candidate
+            except Exception:
+                pass
+
+    # 4. If still no tree, check if opening has raw form text saved
+    if not tree:
+        raw_form = str(opening.get("application_form_raw") or "").strip()
+        if raw_form and len(raw_form) > 30:
+            tree = raw_form
+
+    # 5. If still no tree, launch UIA Tree Inspector right onto the user's screen
+    if not tree:
+        open_uia()
+        raise ValueError(
+            "Opened UIA Tree Inspector on screen. In the inspector, press Shift+C to select your application window and copy the tree, then click Send to AI companion."
         )
-        if not dumped.get("ok"):
-            raise RuntimeError(
-                str(dumped.get("error") or "Could not read the application window")
-            )
-        tree = ""
-        if tree_path.is_file():
-            tree = tree_path.read_text(encoding="utf-8-sig")
-        if not looks_like_uia_tree(tree):
-            raise RuntimeError(
-                "UIA Tree Inspector did not copy a UI tree. "
-                "The tab title has to match the start of a window in that list."
-            )
-        save_session(opening_id, window_name=window_name, ui_tree=tree)
-        prompt = build_form_fill_prompt(
-            opening,
-            store.load_prompt_context(),
-            tree,
-            window_name,
-        )
-        prompt_path = folder / "prompt.txt"
-        prompt_path.write_text(prompt, encoding="utf-8", newline="\n")
-        send_companion_hotkey()
-        sent = run_ahk("send-prompt", timeout=45, file=str(prompt_path))
-        if not sent.get("ok"):
-            raise RuntimeError(str(sent.get("error") or "Could not send the prompt"))
-    return {"ok": True, "chars": len(prompt), "tree_chars": len(tree)}
+
+    save_session(opening_id, window_name=window_name, ui_tree=tree)
+    prompt = build_form_fill_prompt(
+        opening,
+        store.load_prompt_context(),
+        tree,
+        window_name,
+    )
+    sent = send_prompt_text(prompt)
+    return {
+        "ok": True,
+        "chars": len(prompt),
+        "tree_chars": len(tree),
+        "window": sent.get("window") or "",
+        "method": sent.get("method") or "native",
+    }
 
 
 import ctypes
