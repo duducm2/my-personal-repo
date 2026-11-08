@@ -15,6 +15,9 @@ import tempfile
 from pathlib import Path
 from typing import Any
 
+import environment
+from environment import log_debug, log_info, log_error
+
 ROOT_DIR = Path(__file__).resolve().parent.parent
 
 _VK_LWIN = 0x5B
@@ -68,60 +71,15 @@ def _script_dir_candidates() -> list[Path]:
 
 
 def scripts_dir() -> Path:
-    override = os.environ.get("CAREER_SCRIPTS_DIR", "").strip()
-    if override:
-        return Path(override)
-    # Prefer a candidate that actually contains career_form_fill.ahk
-    for candidate in _script_dir_candidates():
-        if (candidate / "Utils" / "career_form_fill.ahk").is_file() or (
-            candidate / "career_form_fill.ahk"
-        ).is_file():
-            return candidate
-    # Next, prefer a candidate that exists as a directory
-    for candidate in _script_dir_candidates():
-        if candidate.is_dir():
-            return candidate
-    return ROOT_DIR.parent / "scripts"
+    return environment.get_scripts_dir()
 
 
 def ahk_script_path() -> Path:
-    override = os.environ.get("CAREER_FORM_FILL_AHK", "").strip()
-    if override:
-        return Path(override)
-    for sdir in _script_dir_candidates():
-        for subpath in ("Utils/career_form_fill.ahk", "career_form_fill.ahk"):
-            target = sdir / subpath
-            if target.is_file():
-                return target
-    return scripts_dir() / "Utils" / "career_form_fill.ahk"
+    return environment.get_ahk_script()
 
 
 def ahk_exe() -> Path:
-    override = os.environ.get("CAREER_AHK_EXE", "").strip()
-    candidates = []
-    if override:
-        candidates.append(Path(override))
-    local = os.environ.get("LOCALAPPDATA", "")
-    if local:
-        candidates.append(
-            Path(local) / "Programs" / "AutoHotkey" / "v2" / "AutoHotkey64.exe"
-        )
-        candidates.append(
-            Path(local) / "Programs" / "AutoHotkey" / "AutoHotkey64.exe"
-        )
-    candidates.append(Path(r"C:\Program Files\AutoHotkey\v2\AutoHotkey64.exe"))
-    candidates.append(Path(r"C:\Program Files\AutoHotkey\AutoHotkey64.exe"))
-    candidates.append(Path(r"C:\Program Files (x86)\AutoHotkey\v2\AutoHotkey64.exe"))
-    candidates.append(Path(r"C:\Program Files (x86)\AutoHotkey\AutoHotkey64.exe"))
-    for candidate in candidates:
-        if candidate.is_file():
-            return candidate
-    found = shutil.which("AutoHotkey64.exe") or shutil.which("AutoHotkey.exe")
-    if found:
-        return Path(found)
-    raise RuntimeError(
-        "AutoHotkey v2 was not found. Set CAREER_AHK_EXE to AutoHotkey64.exe."
-    )
+    return environment.get_ahk_exe()
 
 
 def read_clipboard_text(timeout: float = 2.0) -> str:
@@ -253,17 +211,16 @@ def _is_default_desktop() -> bool:
 def run_ahk(action: str, *, timeout: float = 60, **args: str) -> dict[str, Any]:
     """Run career_form_fill.ahk. Extra args are passed as --name value."""
     import time
+    start_t = time.monotonic()
 
     script = ahk_script_path()
     if not script.is_file():
         searched = "\n  - ".join(
             str(d / "Utils" / "career_form_fill.ahk") for d in _script_dir_candidates()
         )
-        raise RuntimeError(
-            f"AutoHotkey script not found: {script}\n"
-            f"Checked locations:\n  - {searched}\n"
-            "Set CAREER_SCRIPTS_DIR or CAREER_FORM_FILL_AHK if your scripts repo is elsewhere."
-        )
+        msg = f"AutoHotkey script not found: {script}\nChecked locations:\n  - {searched}"
+        log_error(msg)
+        raise RuntimeError(msg)
     exe = ahk_exe()
     with tempfile.TemporaryDirectory(prefix="career-ahk-") as tmp:
         result_path = Path(tmp) / "result.json"
@@ -282,8 +239,11 @@ def run_ahk(action: str, *, timeout: float = 60, **args: str) -> dict[str, Any]:
         stderr = ""
         stdout = ""
         completed_code = 0
+        use_schtasks = not _is_default_desktop()
 
-        if not _is_default_desktop():
+        log_debug(f"run_ahk starting: action={action}, use_schtasks={use_schtasks}", {"command": command})
+
+        if use_schtasks:
             bat_path = Path(tmp) / "run_ahk.bat"
             bat_parts = []
             for part in command:
@@ -322,21 +282,26 @@ def run_ahk(action: str, *, timeout: float = 60, **args: str) -> dict[str, Any]:
                 stderr = (completed.stderr or "").strip()
                 stdout = (completed.stdout or "").strip()
             except subprocess.TimeoutExpired as exc:
+                log_error(f"AutoHotkey {action} timed out after {int(timeout)}s")
                 raise RuntimeError(
                     f"AutoHotkey {action} timed out after {int(timeout)}s"
                 ) from exc
 
+        dur = round(time.monotonic() - start_t, 2)
         if result_path.is_file():
             try:
                 payload = json.loads(result_path.read_text(encoding="utf-8-sig"))
             except json.JSONDecodeError as exc:
+                log_error(f"AutoHotkey {action} returned invalid JSON ({dur}s)", exc)
                 raise RuntimeError(
                     f"AutoHotkey {action} returned invalid JSON: {exc}"
                 ) from exc
         else:
             detail = stderr or stdout or f"exit {completed_code}"
+            log_error(f"AutoHotkey {action} produced no result file ({dur}s): {detail[:800]}")
             raise RuntimeError(f"AutoHotkey {action} failed: {detail[:800]}")
         if not isinstance(payload, dict):
+            log_error(f"AutoHotkey {action} returned a non-object result ({dur}s)")
             raise RuntimeError(f"AutoHotkey {action} returned a non-object result")
         if completed_code != 0 and payload.get("ok"):
             payload["ok"] = False
@@ -348,4 +313,7 @@ def run_ahk(action: str, *, timeout: float = 60, **args: str) -> dict[str, Any]:
             if stderr and stderr not in message:
                 message = f"{message} ({stderr[:400]})"
             payload["error"] = message
+            log_error(f"AutoHotkey {action} failed ({dur}s): {message}")
+        else:
+            log_info(f"AutoHotkey {action} succeeded ({dur}s)", payload)
         return payload

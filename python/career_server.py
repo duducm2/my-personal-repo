@@ -878,6 +878,18 @@ class CareerHandler(BaseHTTPRequestHandler):
                 result = find_payload_by_url(collections, url=url, job_id=job_id)
                 self._json(200, result)
                 return
+            if path == "/api/debug/environment":
+                import environment
+                self._json(200, environment.get_debug_summary())
+                return
+            if path == "/api/debug/logs":
+                import environment
+                lines = []
+                if environment.LOG_FILE.is_file():
+                    all_lines = environment.LOG_FILE.read_text(encoding="utf-8", errors="replace").splitlines()
+                    lines = all_lines[-150:]
+                self._json(200, {"ok": True, "count": len(lines), "lines": lines})
+                return
             if path.startswith("/download/"):
                 self._serve_download(path)
                 return
@@ -948,18 +960,24 @@ class CareerHandler(BaseHTTPRequestHandler):
                 body = self._read_json()
                 if not isinstance(body, dict):
                     body = {}
+                import environment
+                environment.log_info("POST /api/career-autofill/capture-window", body)
                 self._json(
                     200,
                     capture_window(str(body.get("opening_id") or "")),
                 )
                 return
             if path == "/api/career-autofill/open-uia":
+                import environment
+                environment.log_info("POST /api/career-autofill/open-uia")
                 self._json(200, open_uia())
                 return
             if path == "/api/career-autofill/build-and-send":
                 body = self._read_json()
                 if not isinstance(body, dict):
                     raise ValueError("JSON object required")
+                import environment
+                environment.log_info("POST /api/career-autofill/build-and-send", body)
                 self._json(
                     200,
                     build_and_send(

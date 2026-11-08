@@ -2880,6 +2880,7 @@
         "/api/career-autofill/build-and-send",
         { opening_id: openingId, window_name: windowName },
       );
+      console.log("[Career Cockpit] build-and-send response:", data);
       showToast("Prompt sent. Paste the JSON reply here.", 2800);
       closeFormPromptModal();
       openFormImportModal({
@@ -2887,6 +2888,7 @@
         note: "Prompt sent. Paste the companion’s JSON here.",
       });
     } catch (err) {
+      console.error("[Career Cockpit] build-and-send error:", err);
       setFormPromptStatus(err.message || String(err), "err");
     } finally {
       setPromptGenerating("form-prompt-modal", false);
@@ -5571,6 +5573,12 @@
       ?.addEventListener("click", () => bulkDeleteSelected());
 
     try {
+      fetch("/api/debug/environment")
+        .then((r) => r.json())
+        .then((env) => {
+          console.log("[Career Cockpit] Active environment:", env);
+        })
+        .catch(() => {});
       await loadState();
       render();
       setDirty(false);

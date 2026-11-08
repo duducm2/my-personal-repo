@@ -9,6 +9,7 @@ from typing import Any
 from autofill_data_source import parse_application_answers
 from build_ai_form_prompt import build_form_fill_prompt
 from career_ahk import read_clipboard_text, run_ahk, send_companion_hotkey
+from environment import get_uia_inspector_path, log_debug, log_error, log_info
 from form_fill_executor import (
     build_fill_steps,
     load_session,
@@ -36,6 +37,7 @@ def capture_window(opening_id: str = "") -> dict[str, Any]:
     suggested = ""
     if _HAVE_WIN32:
         try:
+
             def enum_chrome(hwnd: int, _: Any) -> None:
                 if win32gui.IsWindowVisible(hwnd):
                     t = win32gui.GetWindowText(hwnd).strip()
@@ -75,7 +77,11 @@ def capture_window(opening_id: str = "") -> dict[str, Any]:
         if sess.get("window_name") and sess["window_name"] in chrome_titles:
             suggested = sess["window_name"]
         else:
-            tokens = [tok.lower() for tok in opening_id.replace("-", " ").replace("_", " ").split() if len(tok) >= 4]
+            tokens = [
+                tok.lower()
+                for tok in opening_id.replace("-", " ").replace("_", " ").split()
+                if len(tok) >= 4
+            ]
             for t in chrome_titles:
                 t_low = t.lower()
                 if any(tok in t_low for tok in tokens):
@@ -84,6 +90,7 @@ def capture_window(opening_id: str = "") -> dict[str, Any]:
 
     if opening_id and suggested:
         save_session(opening_id, window_name=suggested)
+    log_info(f"capture_window: opening={opening_id}, selected='{suggested}'", {"windows": chrome_titles})
     return {
         "ok": True,
         "window_name": suggested,
@@ -106,24 +113,44 @@ def open_uia() -> dict[str, Any]:
             pass
 
     if inspector_hwnd:
+        log_info(f"open_uia: focusing already-open inspector (HWND={inspector_hwnd})")
         _focus_window(inspector_hwnd)
         return {"ok": True, "hwnd": inspector_hwnd}
 
-    # Launch interactively on the user's interactive desktop via task scheduler
-    short_bat = r"C:\Users\eduev\MEUDRI~1\17-PRO~1\scripts\Utils\open_uia.bat"
+    inspector_path = get_uia_inspector_path()
+    if not inspector_path.is_file():
+        log_error(f"open_uia: inspector script not found at {inspector_path}")
+        return {"ok": False, "error": f"Inspector script not found: {inspector_path}"}
+
+    ahk_exe_path = environment.get_ahk_exe()
+    inspector_dir = inspector_path.parent
+
+    # Launch interactively on the user's interactive desktop
+    with tempfile.NamedTemporaryFile("w", suffix=".bat", delete=False) as tf:
+        tf.write(f'@echo off\ncd /d "{inspector_dir}"\nstart "" "{ahk_exe_path}" "{inspector_path.name}"\n')
+        bat_file = tf.name
+
+    tn = f"OpenUIA_{os.getpid()}"
+    log_info(f"open_uia: launching {inspector_path.name} via task scheduler ({bat_file})")
     try:
         subprocess.run(
-            ["schtasks", "/create", "/tn", "OpenUIA", "/tr", short_bat, "/sc", "once", "/st", "23:59", "/it", "/f"],
+            ["schtasks", "/create", "/tn", tn, "/tr", bat_file, "/sc", "once", "/st", "23:59", "/it", "/f"],
             check=False,
             capture_output=True,
         )
-        subprocess.run(["schtasks", "/run", "/tn", "OpenUIA"], check=False, capture_output=True)
-        subprocess.run(["schtasks", "/delete", "/tn", "OpenUIA", "/f"], check=False, capture_output=True)
-    except Exception:
-        pass
+        subprocess.run(["schtasks", "/run", "/tn", tn], check=False, capture_output=True)
+        time.sleep(0.5)
+        subprocess.run(["schtasks", "/delete", "/tn", tn, "/f"], check=False, capture_output=True)
+    except Exception as e:
+        log_error("open_uia: failed running schtasks", e)
+    finally:
+        try:
+            os.remove(bat_file)
+        except Exception:
+            pass
 
-    for _ in range(10):
-        time.sleep(0.3)
+    for _ in range(12):
+        time.sleep(0.25)
         if _HAVE_WIN32:
             try:
                 def find_inspector2(hwnd: int, _: Any) -> None:
@@ -133,15 +160,18 @@ def open_uia() -> dict[str, Any]:
 
                 win32gui.EnumWindows(find_inspector2, None)
                 if inspector_hwnd:
+                    log_info(f"open_uia: launched and focused inspector (HWND={inspector_hwnd})")
                     _focus_window(inspector_hwnd)
                     return {"ok": True, "hwnd": inspector_hwnd}
             except Exception:
                 pass
 
+    log_info("open_uia: launched command, awaiting UI appearance")
     return {"ok": True}
 
 
 def build_and_send(store: Any, opening_id: str, window_name: str) -> dict[str, Any]:
+    log_info(f"build_and_send: started for opening='{opening_id}', target_window='{window_name}'")
     opening = _opening(store, opening_id)
     window_name = (window_name or "").strip()
     if not window_name:
@@ -162,8 +192,9 @@ def build_and_send(store: Any, opening_id: str, window_name: str) -> dict[str, A
                 candidate = tree_path.read_text(encoding="utf-8-sig")
                 if looks_like_uia_tree(candidate):
                     tree = candidate
-        except Exception:
-            pass
+                    log_info(f"build_and_send: live dump-tree succeeded ({len(tree)} chars)")
+        except Exception as e:
+            log_error("build_and_send: dump-tree failed", e)
 
     # 2. Check if the clipboard contains a valid UIA tree
     if not tree:
@@ -171,6 +202,7 @@ def build_and_send(store: Any, opening_id: str, window_name: str) -> dict[str, A
             cb = read_clipboard_text(timeout=0.5)
             if looks_like_uia_tree(cb):
                 tree = cb
+                log_info(f"build_and_send: using UIA tree from clipboard ({len(tree)} chars)")
         except Exception:
             pass
 
@@ -180,18 +212,20 @@ def build_and_send(store: Any, opening_id: str, window_name: str) -> dict[str, A
         saved_tree = str(session.get("ui_tree") or "")
         if looks_like_uia_tree(saved_tree):
             tree = saved_tree
+            log_info(f"build_and_send: using saved session tree ({len(tree)} chars)")
 
     # 4. Check if opening has raw form text saved
     if not tree:
         raw_form = str(opening.get("application_form_raw") or "").strip()
         if raw_form and len(raw_form) > 30:
             tree = raw_form
+            log_info(f"build_and_send: using application_form_raw text ({len(tree)} chars)")
 
     # 5. If still no tree, report error clearly
     if not tree:
-        raise ValueError(
-            f"Could not read the application window UI tree automatically. Make sure the application tab ({window_name}) is open in Chrome."
-        )
+        msg = f"Could not read the application window UI tree automatically. Make sure the application tab ({window_name}) is open in Chrome."
+        log_error(f"build_and_send: {msg}")
+        raise ValueError(msg)
 
     save_session(opening_id, window_name=window_name, ui_tree=tree)
     prompt = build_form_fill_prompt(
@@ -200,7 +234,9 @@ def build_and_send(store: Any, opening_id: str, window_name: str) -> dict[str, A
         tree,
         window_name,
     )
+    log_info(f"build_and_send: prompt built ({len(prompt)} chars). Sending to companion...")
     sent = send_prompt_text(prompt)
+    log_info("build_and_send: finished successfully", sent)
     return {
         "ok": True,
         "chars": len(prompt),
@@ -219,6 +255,7 @@ try:
     import win32con
     import win32gui
     import win32process
+
     _HAVE_WIN32 = True
 except ImportError:
     _HAVE_WIN32 = False
@@ -265,7 +302,10 @@ def _find_companion_window() -> tuple[int, str]:
         if win32gui.IsWindowVisible(hwnd):
             title = win32gui.GetWindowText(hwnd).strip()
             t_low = title.lower()
-            if any(term in t_low for term in ("gemini", "chatgpt", "copilot", "claude", "perplexity")):
+            if any(
+                term in t_low
+                for term in ("gemini", "chatgpt", "copilot", "claude", "perplexity")
+            ):
                 candidates.append((hwnd, title))
 
     try:
@@ -340,19 +380,19 @@ def send_prompt_text(prompt: str) -> dict[str, Any]:
     if not prompt:
         raise ValueError("Prompt is empty.")
 
+    log_info(f"send_prompt_text: starting delivery of {len(prompt)} chars")
     _attach_interactive_desktop()
     _set_clipboard_text(prompt)
 
     # 1. Try sending the companion global hotkey (Win+Alt+Shift+I)
     try:
         send_companion_hotkey()
-    except Exception:
-        pass
+    except Exception as e:
+        log_debug("send_companion_hotkey note", e)
 
     # 2. Look for open companion window (Gemini, ChatGPT, Copilot, etc.)
     hwnd, title = _find_companion_window()
     if not hwnd:
-        # Give companion hotkey up to 1 second to surface the window if launched
         for _ in range(5):
             time.sleep(0.2)
             hwnd, title = _find_companion_window()
@@ -360,29 +400,34 @@ def send_prompt_text(prompt: str) -> dict[str, Any]:
                 break
 
     if hwnd:
+        log_info(f"send_prompt_text: found companion window '{title}' (HWND={hwnd}). Focusing and submitting...")
         focused = _focus_window(hwnd)
         if focused:
             time.sleep(0.25)
             _send_paste_and_submit()
-            return {"ok": True, "chars": len(prompt), "window": title}
+            log_info(f"send_prompt_text: paste and Enter sent to '{title}'")
+            return {"ok": True, "chars": len(prompt), "window": title, "method": "native"}
 
     # 3. Fallback to AHK send-prompt if native focus didn't find the window
+    log_info("send_prompt_text: native companion focus missed; attempting AHK send-prompt fallback")
     with tempfile.TemporaryDirectory(prefix="career-prompt-") as tmp:
         prompt_path = Path(tmp) / "prompt.txt"
         prompt_path.write_text(prompt, encoding="utf-8", newline="\n")
         try:
             sent = run_ahk("send-prompt", timeout=20, file=str(prompt_path))
             if sent.get("ok"):
+                log_info("send_prompt_text: AHK send-prompt succeeded", sent)
                 return {"ok": True, "chars": len(prompt), "method": "ahk"}
-        except Exception:
-            pass
+        except Exception as e:
+            log_error("send_prompt_text: AHK send-prompt fallback failed", e)
 
     # 4. Safe fallback: prompt is guaranteed to be on the clipboard
+    log_info("send_prompt_text: companion not focused; prompt retained on clipboard")
     return {
         "ok": True,
         "chars": len(prompt),
         "clipboard_only": True,
-        "message": "Prompt copied to clipboard.",
+        "message": "Prompt copied to clipboard. Paste into your AI companion tab.",
     }
 
 
