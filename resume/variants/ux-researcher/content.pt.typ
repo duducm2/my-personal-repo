@@ -59,6 +59,10 @@
   )),
   ("Jan 2019 – Dez 2019", "Bosch Magyarország (Hungary)", "Analista de Suporte à Digitalização", (
     [#strong[Digitalização e otimização do fluxo do usuário (Budapeste):] conduzi análise de fluxo de trabalho do usuário e desenvolvi aplicações web intuitivas para Business Excellence com SQL Server, IIS, Git e automações VBA.],
+    [#strong[Ownership de experiência do usuário interno:] mapeei dores operacionais diretamente com responsáveis de processos, iterando interfaces de ferramentas digitais para simplificar entradas e rastreamento de dados complexos.],
+  )),
+  ("Jan 2017 – Nov 2018", "Bosch Brasil (Campinas)", "Estagiário", (
+    [#strong[Tooling de interface e usabilidade:] construí sistemas de melhoria contínua amigáveis em Excel/VBA; premiado com #strong[3º lugar no Fórum de Talentos Bosch 2018] por ferramenta de gestão visual do Project Model Canvas.],
   )),
 )
 

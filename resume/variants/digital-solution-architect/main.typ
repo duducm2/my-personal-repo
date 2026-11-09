@@ -1,13 +1,13 @@
-﻿// =============================================================================
-// RESUME LAYOUT — Digital Solution Architect variant entry.
-// Content: content.typ in this folder. Photo: shared from resume/typst/pictures/.
-// General resume layout source remains resume/typst/main.typ (unchanged).
+// =============================================================================
+// RESUME LAYOUT — Do not edit for content changes. Edit content.typ only.
+// HARD RULE: every resume must fit on ONE A4 page (compact-layout always on).
+// Two-column grid (32% Sidebar / 68% Main)
 // =============================================================================
 
 #import sys.inputs.at("content", default: "content.en.typ"): *
 
 // -----------------------------------------------------------------------------
-// 1. Setup and Global Styles (Plan §1)
+// 1. Setup and Global Styles
 // -----------------------------------------------------------------------------
 #let page-margin = if compact-layout {
   (left: 0.38cm, right: 0.38cm, top: 0.38cm, bottom: 0.38cm)
@@ -15,10 +15,10 @@
   (left: 0.4cm, right: 0.4cm, top: 0.4cm, bottom: 0.4cm)
 }
 #set page(paper: "a4", margin: page-margin)
-// Lato: put Lato *.ttf in resume/typst/fonts/ and compile with --font-path
 #set text(font: "Lato", size: 10pt)
-#set par(leading: 1.12em, spacing: 0em)
+#set par(leading: 0.58em, spacing: 0em)
 
+// Palette: grey + brownish-beige (Alfredo-style); accent for optional highlight
 #let sidebar-header-bg = rgb("#fff")
 #let accent-line = rgb("#7A5C3A")
 #let accent-color = rgb("#6A0DAD")
@@ -31,22 +31,22 @@
 #show strong: it => text(weight: "bold", fill: highlight-blue)[#it]
 
 #let sec-title-above = if compact-layout { 0.48em } else { 0.58em }
-#let sec-title-below = if compact-layout { 0.54em } else { 0.68em }
-#let exp-role-above = if compact-layout { 0.52em } else { 0.62em }
-#let exp-role-below = if compact-layout { 0.34em } else { 0.44em }
-#let role-title-above = if compact-layout { 0.14em } else { 0.16em }
-#let role-title-below = if compact-layout { 0.24em } else { 0.28em }
-#let bullet-above = if compact-layout { 0.48em } else { 0.5em }
-#let edu-above = if compact-layout { 0.46em } else { 0.54em }
-#let edu-thesis-above = if compact-layout { 0.3em } else { 0.38em }
-#let divider-above = if compact-layout { 0.38em } else { 0.46em }
-#let divider-below = if compact-layout { 0.24em } else { 0.3em }
-#let pub-above = if compact-layout { 0.38em } else { 0.46em }
-#let add-above = if compact-layout { 0.34em } else { 0.42em }
-#let footer-above = if compact-layout { 0.45em } else { 0.55em }
-#let sidebar-head-above = if compact-layout { 0.36em } else { 0.38em }
-#let sidebar-head-below = if compact-layout { 0.24em } else { 0.26em }
-#let sidebar-head-line = if compact-layout { 0.48em } else { 0.52em }
+#let sec-title-below = if compact-layout { 0.42em } else { 0.54em }
+#let exp-role-above = if compact-layout { 0.62em } else { 0.68em }
+#let exp-role-below = if compact-layout { 0.28em } else { 0.36em }
+#let role-title-above = if compact-layout { 0.35em } else { 0.38em }
+#let role-title-below = if compact-layout { 0.32em } else { 0.36em }
+#let bullet-above = if compact-layout { 0.34em } else { 0.42em }
+#let edu-above = if compact-layout { 0.44em } else { 0.52em }
+#let edu-thesis-above = if compact-layout { 0.28em } else { 0.34em }
+#let divider-above = if compact-layout { 0.34em } else { 0.42em }
+#let divider-below = if compact-layout { 0.22em } else { 0.28em }
+#let pub-above = if compact-layout { 0.36em } else { 0.42em }
+#let add-above = if compact-layout { 0.34em } else { 0.40em }
+#let footer-above = if compact-layout { 0.40em } else { 0.50em }
+#let sidebar-head-above = if compact-layout { 0.42em } else { 0.46em }
+#let sidebar-head-below = if compact-layout { 0.22em } else { 0.26em }
+#let sidebar-head-line = if compact-layout { 0.44em } else { 0.50em }
 
 #let section-title(body) = {
   set text(size: 9pt, weight: "bold", fill: highlight-blue)
@@ -61,7 +61,7 @@
 
 #let sidebar-text(body) = {
   set text(size: 8.5pt, fill: rgb("#444444"))
-  set par(leading: 1.12em, spacing: 0em)
+  set par(leading: 0.58em, spacing: 0em)
   body
 }
 
@@ -69,7 +69,7 @@
 
 #let body-prose(body) = {
   set text(size: 9.5pt, fill: heading-color)
-  set par(leading: 1.12em, spacing: 0em)
+  set par(leading: 0.58em, spacing: 0em)
   show strong: body-emphasis
   body
 }
@@ -87,6 +87,9 @@
   )
 ]
 
+// -----------------------------------------------------------------------------
+// 2. Layout Structure (Grid)
+// -----------------------------------------------------------------------------
 #grid(
   columns: (32%, 1fr),
   gutter: 2em,
@@ -100,7 +103,7 @@
             height: 7.7em,
             stroke: (paint: highlight-blue, thickness: 4pt),
             clip: true
-          )[#align(bottom)[#image("../../typst/pictures/my-photo-rectangle.png", width: 100%, height: 8.2em)]]
+          )[#align(bottom)[#image("/resume/typst/pictures/my-photo-rectangle.png", width: 100%, height: 8.2em)]]
         ]
       ]
       #sidebar-heading[#ui.contact]
@@ -119,36 +122,36 @@
       #block(below: 0.55em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[#ui.location:] #h(0.5em) #text(size: 9pt)[#location]]
       #sidebar-heading[#ui.profile]
       #block(width: 100%, below: 0.5em)[#sidebar-text[#profile]]
-    #sidebar-heading[#ui.languages]
-    #block(below: 0.3em)[
-      #text(size: 9pt, fill: rgb("#444444"))[#languages]
-    ]
-    #block(below: 0.35em)[]
-    #sidebar-heading[#ui.skills]
-    #for (key, cat, sub) in skills [
-      #block(above: 0.4em)[
-        #text(weight: "bold", size: 9pt, fill: highlight-blue)[#cat]
-        #linebreak()
-        #if key == "Tech" [
-          #block(above: 0.2em)[
-            #columns(2, gutter: 0.4em)[
-              #for (i, item) in sub.enumerate() [
-                #if i == ((sub.len() + 1) / 2) [#colbreak()]
-                #block(fill: pill-bg, radius: 0.18em, inset: (left: 0.25em, right: 0.25em, top: 0.08em, bottom: 0.08em), below: 0.18em)[#text(size: 8.5pt, fill: rgb("#444444"))[#item]]
+      #sidebar-heading[#ui.languages]
+      #block(below: 0.3em)[
+        #text(size: 9pt, fill: rgb("#444444"))[#languages]
+      ]
+      #block(below: 0.35em)[]
+      #sidebar-heading[#ui.skills]
+      #for (key, cat, sub) in skills [
+        #block(above: 0.4em)[
+          #text(weight: "bold", size: 9pt, fill: highlight-blue)[#cat]
+          #linebreak()
+          #if key == "Tech" [
+            #block(above: 0.2em)[
+              #columns(2, gutter: 0.4em)[
+                #for (i, item) in sub.enumerate() [
+                  #if i == calc.ceil(sub.len() / 2) [#colbreak()]
+                  #block(fill: pill-bg, radius: 0.18em, inset: (left: 0.25em, right: 0.25em, top: 0.08em, bottom: 0.08em), below: 0.18em)[#text(size: 8.5pt, fill: rgb("#444444"))[#item]]
+                ]
               ]
             ]
+          ] else [
+            #for item in sub [#block(inset: (left: 0.75em), above: 0.28em)[#text(size: 9pt, fill: rgb("#444444"))[• #item]]]
           ]
-        ] else [
-          #for item in sub [#block(inset: (left: 0.75em), above: 0.28em)[#text(size: 9pt, fill: rgb("#444444"))[• #item]]]
         ]
       ]
-    ]
     ]
   ],
   [
     #block(above: 0em, below: 0.6em)[
       #set par(leading: 0.72em)
-        #text(size: 20pt, weight: "bold", fill: highlight-blue)[#upper(name)]
+      #text(size: 20pt, weight: "bold", fill: highlight-blue)[#upper(name)]
     ]
     #block(below: 0.35em)[
       #line(length: 2.5em, stroke: (paint: highlight-blue, thickness: 0.6pt))
@@ -178,7 +181,7 @@
         #if thesis != none [
           #block(inset: (left: 0.65em), above: edu-thesis-above)[
             #set text(size: 9pt, style: "italic", fill: rgb("#444444"))
-            #set par(leading: 1.12em, spacing: 0em)
+            #set par(leading: 0.58em, spacing: 0em)
             #thesis
           ]
         ]

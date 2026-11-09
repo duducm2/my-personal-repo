@@ -86,6 +86,17 @@
           "status": "kept"
         },
         {
+          "id": "bullet:bosch-intern-2017:ux-researcher:1",
+          "kind": "bullet",
+          "section_en": "Intern",
+          "section_pt": "Estagiário",
+          "priority": 19,
+          "pinned": false,
+          "text_en": "**Interface tooling & usability:** built user-friendly Excel/VBA continuous improvement systems; awarded **3rd place in Bosch Talent Forum 2018** for a Project Model Canvas visual management tool.",
+          "text_pt": "**Tooling de interface e usabilidade:** construí sistemas de melhoria contínua amigáveis em Excel/VBA; premiado com **3º lugar no Fórum de Talentos Bosch 2018** por ferramenta de gestão visual do Project Model Canvas.",
+          "status": "kept"
+        },
+        {
           "id": "skill:ux-researcher:Tech:11",
           "kind": "skill",
           "section_en": "Tech",
@@ -204,6 +215,17 @@
           "pinned": false,
           "text_en": "Figma",
           "text_pt": "Figma",
+          "status": "kept"
+        },
+        {
+          "id": "bullet:bosch-hu-2019:ux-researcher:2",
+          "kind": "bullet",
+          "section_en": "Digitization Support Analyst",
+          "section_pt": "Analista de Suporte à Digitalização",
+          "priority": 38,
+          "pinned": false,
+          "text_en": "**Internal user experience ownership:** gathered operational pain points directly from process owners, rapidly iterating digital tool interfaces to simplify complex data entry and tracking.",
+          "text_pt": "**Ownership de experiência do usuário interno:** mapeei dores operacionais diretamente com responsáveis de processos, iterando interfaces de ferramentas digitais para simplificar entradas e rastreamento de dados complexos.",
           "status": "kept"
         },
         {
@@ -427,30 +449,7 @@
           "status": "kept"
         }
       ],
-      "deprioritized": [
-        {
-          "id": "bullet:bosch-intern-2017:ux-researcher:1",
-          "kind": "bullet",
-          "section_en": "Intern",
-          "section_pt": "Estagiário",
-          "priority": 19,
-          "pinned": false,
-          "text_en": "**Interface tooling & usability:** built user-friendly Excel/VBA continuous improvement systems; awarded **3rd place in Bosch Talent Forum 2018** for a Project Model Canvas visual management tool.",
-          "text_pt": "**Tooling de interface e usabilidade:** construí sistemas de melhoria contínua amigáveis em Excel/VBA; premiado com **3º lugar no Fórum de Talentos Bosch 2018** por ferramenta de gestão visual do Project Model Canvas.",
-          "status": "deprioritized"
-        },
-        {
-          "id": "bullet:bosch-hu-2019:ux-researcher:2",
-          "kind": "bullet",
-          "section_en": "Digitization Support Analyst",
-          "section_pt": "Analista de Suporte à Digitalização",
-          "priority": 38,
-          "pinned": false,
-          "text_en": "**Internal user experience ownership:** gathered operational pain points directly from process owners, rapidly iterating digital tool interfaces to simplify complex data entry and tracking.",
-          "text_pt": "**Ownership de experiência do usuário interno:** mapeei dores operacionais diretamente com responsáveis de processos, iterando interfaces de ferramentas digitais para simplificar entradas e rastreamento de dados complexos.",
-          "status": "deprioritized"
-        }
-      ]
+      "deprioritized": []
     },
     "general": {
       "variant": "general",

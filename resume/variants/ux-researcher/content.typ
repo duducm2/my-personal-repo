@@ -59,6 +59,10 @@
   )),
   ("Jan 2019 – Dec 2019", "Bosch Magyarország (Hungary)", "Digitization Support Analyst", (
     [#strong[Digitization & user workflow optimization (Budapest):] conducted user workflow analysis and developed intuitive web applications for Business Excellence using SQL Server, IIS, Git, and VBA automations.],
+    [#strong[Internal user experience ownership:] gathered operational pain points directly from process owners, rapidly iterating digital tool interfaces to simplify complex data entry and tracking.],
+  )),
+  ("Jan 2017 – Nov 2018", "Bosch Brasil (Campinas)", "Intern", (
+    [#strong[Interface tooling & usability:] built user-friendly Excel/VBA continuous improvement systems; awarded #strong[3rd place in Bosch Talent Forum 2018] for a Project Model Canvas visual management tool.],
   )),
 )
 
