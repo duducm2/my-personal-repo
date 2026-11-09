@@ -117,6 +117,7 @@ def send_prompt_hotkey() -> None:
         err = ctypes.get_last_error()
         raise OSError(f"SendInput sent {sent} of {len(sequence)} (error {err})")
 
+
 # Cover letters: Desktop deliverable + single overwriteable repo temp (no accumulation)
 COVER_LETTER_TEMP_FILENAME = "Cover-Letter-current.pdf"
 COVER_LETTER_CONTENT_FILENAME = "cover-current.typ"
@@ -884,13 +885,17 @@ class CareerHandler(BaseHTTPRequestHandler):
                 return
             if path == "/api/debug/environment":
                 import environment
+
                 self._json(200, environment.get_debug_summary())
                 return
             if path == "/api/debug/logs":
                 import environment
+
                 lines = []
                 if environment.LOG_FILE.is_file():
-                    all_lines = environment.LOG_FILE.read_text(encoding="utf-8", errors="replace").splitlines()
+                    all_lines = environment.LOG_FILE.read_text(
+                        encoding="utf-8", errors="replace"
+                    ).splitlines()
                     lines = all_lines[-150:]
                 self._json(200, {"ok": True, "count": len(lines), "lines": lines})
                 return
@@ -965,6 +970,7 @@ class CareerHandler(BaseHTTPRequestHandler):
                 if not isinstance(body, dict):
                     body = {}
                 import environment
+
                 environment.log_info("POST /api/career-autofill/capture-window", body)
                 self._json(
                     200,
@@ -973,6 +979,7 @@ class CareerHandler(BaseHTTPRequestHandler):
                 return
             if path == "/api/career-autofill/open-uia":
                 import environment
+
                 environment.log_info("POST /api/career-autofill/open-uia")
                 self._json(200, open_uia())
                 return
@@ -981,6 +988,7 @@ class CareerHandler(BaseHTTPRequestHandler):
                 if not isinstance(body, dict):
                     raise ValueError("JSON object required")
                 import environment
+
                 environment.log_info("POST /api/career-autofill/build-and-send", body)
                 self._json(
                     200,
@@ -1134,8 +1142,12 @@ class CareerHandler(BaseHTTPRequestHandler):
             result = open_url_new_window(url)
             self._json(200, result)
         except ValueError as exc:
+            import environment
+            environment.log_error(f"POST {path} ValueError: {exc}")
             self._json(400, {"ok": False, "error": str(exc)})
         except Exception as exc:  # noqa: BLE001
+            import environment
+            environment.log_error(f"POST {path} Exception: {exc}", exc)
             traceback.print_exc()
             self._json(500, {"ok": False, "error": str(exc)})
 
