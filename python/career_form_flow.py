@@ -2,14 +2,17 @@
 
 from __future__ import annotations
 
+import os
+import subprocess
 import tempfile
+import time
 from pathlib import Path
 from typing import Any
 
 from autofill_data_source import parse_application_answers
 from build_ai_form_prompt import build_form_fill_prompt
 from career_ahk import read_clipboard_text, run_ahk, send_companion_hotkey
-from environment import get_uia_inspector_path, log_debug, log_error, log_info
+from environment import get_ahk_exe, get_uia_inspector_path, log_debug, log_error, log_info
 from form_fill_executor import (
     build_fill_steps,
     load_session,
@@ -122,19 +125,23 @@ def open_uia() -> dict[str, Any]:
         log_error(f"open_uia: inspector script not found at {inspector_path}")
         return {"ok": False, "error": f"Inspector script not found: {inspector_path}"}
 
-    ahk_exe_path = environment.get_ahk_exe()
+    ahk_exe_path = get_ahk_exe()
     inspector_dir = inspector_path.parent
 
-    # Launch interactively on the user's interactive desktop
-    with tempfile.NamedTemporaryFile("w", suffix=".bat", delete=False) as tf:
-        tf.write(f'@echo off\ncd /d "{inspector_dir}"\nstart "" "{ahk_exe_path}" "{inspector_path.name}"\n')
-        bat_file = tf.name
+    # Launch interactively on the user's interactive desktop via silent VBS runner (no terminal window)
+    with tempfile.NamedTemporaryFile("w", suffix=".vbs", delete=False) as tf:
+        tf.write(
+            f'Set sh = CreateObject("WScript.Shell")\n'
+            f'sh.CurrentDirectory = "{inspector_dir}"\n'
+            f'sh.Run """{ahk_exe_path}"" ""{inspector_path}""", 1, False\n'
+        )
+        vbs_file = tf.name
 
     tn = f"OpenUIA_{os.getpid()}"
-    log_info(f"open_uia: launching {inspector_path.name} via task scheduler ({bat_file})")
+    log_info(f"open_uia: launching {inspector_path.name} via task scheduler ({vbs_file})")
     try:
         subprocess.run(
-            ["schtasks", "/create", "/tn", tn, "/tr", bat_file, "/sc", "once", "/st", "23:59", "/it", "/f"],
+            ["schtasks", "/create", "/tn", tn, "/tr", f'wscript.exe "{vbs_file}"', "/sc", "once", "/st", "23:59", "/it", "/f"],
             check=False,
             capture_output=True,
         )
@@ -145,7 +152,7 @@ def open_uia() -> dict[str, Any]:
         log_error("open_uia: failed running schtasks", e)
     finally:
         try:
-            os.remove(bat_file)
+            os.remove(vbs_file)
         except Exception:
             pass
 

@@ -252,10 +252,16 @@ def run_ahk(action: str, *, timeout: float = 60, **args: str) -> dict[str, Any]:
                 else:
                     bat_parts.append(part)
             bat_path.write_text(f"@echo off\n{' '.join(bat_parts)}\n", encoding="ascii", errors="ignore")
+
+            # Silent VBScript wrapper to prevent cmd.exe from flashing a terminal window or stealing focus
+            vbs_path = Path(tmp) / "run_ahk.vbs"
+            vbs_content = f'Set sh = CreateObject("WScript.Shell")\nsh.Run """{bat_path}""", 0, False\n'
+            vbs_path.write_text(vbs_content, encoding="ascii", errors="ignore")
+
             tn = f"CareerAHK_{os.getpid()}"
             try:
                 subprocess.run(
-                    ["schtasks", "/create", "/tn", tn, "/tr", str(bat_path), "/sc", "once", "/st", "23:59", "/it", "/f"],
+                    ["schtasks", "/create", "/tn", tn, "/tr", f'wscript.exe "{vbs_path}"', "/sc", "once", "/st", "23:59", "/it", "/f"],
                     check=False,
                     capture_output=True,
                 )
