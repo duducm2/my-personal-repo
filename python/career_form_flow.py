@@ -191,7 +191,7 @@ def build_and_send(store: Any, opening_id: str, window_name: str) -> dict[str, A
         try:
             dumped = run_ahk(
                 "dump-tree",
-                timeout=15,
+                timeout=45,
                 title=window_name,
                 out=str(tree_path),
             )
