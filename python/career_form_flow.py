@@ -12,7 +12,13 @@ from typing import Any
 from autofill_data_source import parse_application_answers
 from build_ai_form_prompt import build_form_fill_prompt
 from career_ahk import read_clipboard_text, run_ahk, send_companion_hotkey
-from environment import get_ahk_exe, get_uia_inspector_path, log_debug, log_error, log_info
+from environment import (
+    get_ahk_exe,
+    get_uia_inspector_path,
+    log_debug,
+    log_error,
+    log_info,
+)
 from form_fill_executor import (
     build_fill_steps,
     load_session,
@@ -93,7 +99,10 @@ def capture_window(opening_id: str = "") -> dict[str, Any]:
 
     if opening_id and suggested:
         save_session(opening_id, window_name=suggested)
-    log_info(f"capture_window: opening={opening_id}, selected='{suggested}'", {"windows": chrome_titles})
+    log_info(
+        f"capture_window: opening={opening_id}, selected='{suggested}'",
+        {"windows": chrome_titles},
+    )
     return {
         "ok": True,
         "window_name": suggested,
@@ -106,9 +115,12 @@ def open_uia() -> dict[str, Any]:
     inspector_hwnd = 0
     if _HAVE_WIN32:
         try:
+
             def find_inspector(hwnd: int, _: Any) -> None:
                 nonlocal inspector_hwnd
-                if win32gui.IsWindowVisible(hwnd) and "UIATreeInspector" in win32gui.GetWindowText(hwnd):
+                if win32gui.IsWindowVisible(
+                    hwnd
+                ) and "UIATreeInspector" in win32gui.GetWindowText(hwnd):
                     inspector_hwnd = hwnd
 
             win32gui.EnumWindows(find_inspector, None)
@@ -138,16 +150,35 @@ def open_uia() -> dict[str, Any]:
         vbs_file = tf.name
 
     tn = f"OpenUIA_{os.getpid()}"
-    log_info(f"open_uia: launching {inspector_path.name} via task scheduler ({vbs_file})")
+    log_info(
+        f"open_uia: launching {inspector_path.name} via task scheduler ({vbs_file})"
+    )
     try:
         subprocess.run(
-            ["schtasks", "/create", "/tn", tn, "/tr", f'wscript.exe "{vbs_file}"', "/sc", "once", "/st", "23:59", "/it", "/f"],
+            [
+                "schtasks",
+                "/create",
+                "/tn",
+                tn,
+                "/tr",
+                f'wscript.exe "{vbs_file}"',
+                "/sc",
+                "once",
+                "/st",
+                "23:59",
+                "/it",
+                "/f",
+            ],
             check=False,
             capture_output=True,
         )
-        subprocess.run(["schtasks", "/run", "/tn", tn], check=False, capture_output=True)
+        subprocess.run(
+            ["schtasks", "/run", "/tn", tn], check=False, capture_output=True
+        )
         time.sleep(0.5)
-        subprocess.run(["schtasks", "/delete", "/tn", tn, "/f"], check=False, capture_output=True)
+        subprocess.run(
+            ["schtasks", "/delete", "/tn", tn, "/f"], check=False, capture_output=True
+        )
     except Exception as e:
         log_error("open_uia: failed running schtasks", e)
     finally:
@@ -160,14 +191,19 @@ def open_uia() -> dict[str, Any]:
         time.sleep(0.25)
         if _HAVE_WIN32:
             try:
+
                 def find_inspector2(hwnd: int, _: Any) -> None:
                     nonlocal inspector_hwnd
-                    if win32gui.IsWindowVisible(hwnd) and "UIATreeInspector" in win32gui.GetWindowText(hwnd):
+                    if win32gui.IsWindowVisible(
+                        hwnd
+                    ) and "UIATreeInspector" in win32gui.GetWindowText(hwnd):
                         inspector_hwnd = hwnd
 
                 win32gui.EnumWindows(find_inspector2, None)
                 if inspector_hwnd:
-                    log_info(f"open_uia: launched and focused inspector (HWND={inspector_hwnd})")
+                    log_info(
+                        f"open_uia: launched and focused inspector (HWND={inspector_hwnd})"
+                    )
                     _focus_window(inspector_hwnd)
                     return {"ok": True, "hwnd": inspector_hwnd}
             except Exception:
@@ -178,7 +214,9 @@ def open_uia() -> dict[str, Any]:
 
 
 def build_and_send(store: Any, opening_id: str, window_name: str) -> dict[str, Any]:
-    log_info(f"build_and_send: started for opening='{opening_id}', target_window='{window_name}'")
+    log_info(
+        f"build_and_send: started for opening='{opening_id}', target_window='{window_name}'"
+    )
     opening = _opening(store, opening_id)
     window_name = (window_name or "").strip()
     if not window_name:
@@ -199,7 +237,9 @@ def build_and_send(store: Any, opening_id: str, window_name: str) -> dict[str, A
                 candidate = tree_path.read_text(encoding="utf-8-sig")
                 if looks_like_uia_tree(candidate):
                     tree = candidate
-                    log_info(f"build_and_send: live dump-tree succeeded ({len(tree)} chars)")
+                    log_info(
+                        f"build_and_send: live dump-tree succeeded ({len(tree)} chars)"
+                    )
         except Exception as e:
             log_error("build_and_send: dump-tree failed", e)
 
@@ -209,7 +249,9 @@ def build_and_send(store: Any, opening_id: str, window_name: str) -> dict[str, A
             cb = read_clipboard_text(timeout=0.5)
             if looks_like_uia_tree(cb):
                 tree = cb
-                log_info(f"build_and_send: using UIA tree from clipboard ({len(tree)} chars)")
+                log_info(
+                    f"build_and_send: using UIA tree from clipboard ({len(tree)} chars)"
+                )
         except Exception:
             pass
 
@@ -226,7 +268,9 @@ def build_and_send(store: Any, opening_id: str, window_name: str) -> dict[str, A
         raw_form = str(opening.get("application_form_raw") or "").strip()
         if raw_form and len(raw_form) > 30:
             tree = raw_form
-            log_info(f"build_and_send: using application_form_raw text ({len(tree)} chars)")
+            log_info(
+                f"build_and_send: using application_form_raw text ({len(tree)} chars)"
+            )
 
     # 5. If still no tree, report error clearly
     if not tree:
@@ -241,7 +285,9 @@ def build_and_send(store: Any, opening_id: str, window_name: str) -> dict[str, A
         tree,
         window_name,
     )
-    log_info(f"build_and_send: prompt built ({len(prompt)} chars). Sending to companion...")
+    log_info(
+        f"build_and_send: prompt built ({len(prompt)} chars). Sending to companion..."
+    )
     sent = send_prompt_text(prompt)
     log_info("build_and_send: finished successfully", sent)
     return {
@@ -407,16 +453,25 @@ def send_prompt_text(prompt: str) -> dict[str, Any]:
                 break
 
     if hwnd:
-        log_info(f"send_prompt_text: found companion window '{title}' (HWND={hwnd}). Focusing and submitting...")
+        log_info(
+            f"send_prompt_text: found companion window '{title}' (HWND={hwnd}). Focusing and submitting..."
+        )
         focused = _focus_window(hwnd)
         if focused:
             time.sleep(0.25)
             _send_paste_and_submit()
             log_info(f"send_prompt_text: paste and Enter sent to '{title}'")
-            return {"ok": True, "chars": len(prompt), "window": title, "method": "native"}
+            return {
+                "ok": True,
+                "chars": len(prompt),
+                "window": title,
+                "method": "native",
+            }
 
     # 3. Fallback to AHK send-prompt if native focus didn't find the window
-    log_info("send_prompt_text: native companion focus missed; attempting AHK send-prompt fallback")
+    log_info(
+        "send_prompt_text: native companion focus missed; attempting AHK send-prompt fallback"
+    )
     with tempfile.TemporaryDirectory(prefix="career-prompt-") as tmp:
         prompt_path = Path(tmp) / "prompt.txt"
         prompt_path.write_text(prompt, encoding="utf-8", newline="\n")
