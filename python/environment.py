@@ -147,53 +147,66 @@ LOG_FILE = LOG_DIR / "career_debug.log"
 logger = logging.getLogger("career_debug")
 logger.setLevel(logging.DEBUG)
 
-if not logger.handlers:
-    # File handler (append mode, UTF-8)
-    fh = logging.FileHandler(str(LOG_FILE), encoding="utf-8")
-    fh.setLevel(logging.DEBUG)
-    fmt = logging.Formatter("[%(asctime)s] [%(levelname)s] %(message)s", datefmt="%Y-%m-%d %H:%M:%S")
-    fh.setFormatter(fmt)
-    logger.addHandler(fh)
+# Reset and configure handlers (pure FileHandler to avoid Windows console Errno 22)
+for h in list(logger.handlers):
+    try:
+        logger.removeHandler(h)
+    except Exception:
+        pass
 
-    # Console handler (flushed)
-    ch = logging.StreamHandler(sys.stdout)
-    ch.setLevel(logging.INFO)
-    ch.setFormatter(fmt)
-    logger.addHandler(ch)
+fh = logging.FileHandler(str(LOG_FILE), encoding="utf-8")
+fh.setLevel(logging.DEBUG)
+fmt = logging.Formatter("[%(asctime)s] [%(levelname)s] %(message)s", datefmt="%Y-%m-%d %H:%M:%S")
+fh.setFormatter(fmt)
+logger.addHandler(fh)
+
+
+def _flush_handlers() -> None:
+    for h in list(logger.handlers):
+        try:
+            h.flush()
+        except Exception:
+            pass
 
 
 def log_debug(message: str, data: Any = None) -> None:
-    if data is not None:
-        try:
-            dumped = json.dumps(data, default=str, ensure_ascii=False)
-            message = f"{message} | data={dumped}"
-        except Exception:
-            message = f"{message} | data={str(data)}"
-    logger.debug(message)
-    for h in logger.handlers:
-        h.flush()
+    try:
+        if data is not None:
+            try:
+                dumped = json.dumps(data, default=str, ensure_ascii=False)
+                message = f"{message} | data={dumped}"
+            except Exception:
+                message = f"{message} | data={str(data)}"
+        logger.debug(message)
+        _flush_handlers()
+    except Exception:
+        pass
 
 
 def log_info(message: str, data: Any = None) -> None:
-    if data is not None:
-        try:
-            dumped = json.dumps(data, default=str, ensure_ascii=False)
-            message = f"{message} | data={dumped}"
-        except Exception:
-            message = f"{message} | data={str(data)}"
-    logger.info(message)
-    for h in logger.handlers:
-        h.flush()
+    try:
+        if data is not None:
+            try:
+                dumped = json.dumps(data, default=str, ensure_ascii=False)
+                message = f"{message} | data={dumped}"
+            except Exception:
+                message = f"{message} | data={str(data)}"
+        logger.info(message)
+        _flush_handlers()
+    except Exception:
+        pass
 
 
 def log_error(message: str, exc: BaseException | None = None) -> None:
-    if exc:
-        import traceback
-        tb = "".join(traceback.format_exception(type(exc), exc, exc.__traceback__))
-        message = f"{message}\n{tb}"
-    logger.error(message)
-    for h in logger.handlers:
-        h.flush()
+    try:
+        if exc:
+            import traceback
+            tb = "".join(traceback.format_exception(type(exc), exc, exc.__traceback__))
+            message = f"{message}\n{tb}"
+        logger.error(message)
+        _flush_handlers()
+    except Exception:
+        pass
 
 
 def get_debug_summary() -> dict[str, Any]:

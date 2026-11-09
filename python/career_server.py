@@ -1142,13 +1142,18 @@ class CareerHandler(BaseHTTPRequestHandler):
             result = open_url_new_window(url)
             self._json(200, result)
         except ValueError as exc:
-            import environment
-            environment.log_error(f"POST {path} ValueError: {exc}")
+            try:
+                import environment
+                environment.log_error(f"POST {path} ValueError: {exc}")
+            except Exception:
+                pass
             self._json(400, {"ok": False, "error": str(exc)})
         except Exception as exc:  # noqa: BLE001
-            import environment
-            environment.log_error(f"POST {path} Exception: {exc}", exc)
-            traceback.print_exc()
+            try:
+                import environment
+                environment.log_error(f"POST {path} Exception: {exc}", exc)
+            except Exception:
+                pass
             self._json(500, {"ok": False, "error": str(exc)})
 
     def _serve_download(self, path: str) -> None:
