@@ -2694,7 +2694,12 @@
         setDetailMode(!detailMode, true);
         return;
       }
-      if (event.key.toLowerCase() === "c") {
+      if (event.key.toLowerCase() === "p" || event.code === "KeyP") {
+        event.preventDefault();
+        scrollProfileToTop();
+        return;
+      }
+      if (event.key.toLowerCase() === "c" || event.code === "KeyC") {
         event.preventDefault();
         openCompaniesWindow();
         return;
@@ -2704,7 +2709,7 @@
         location.assign("/people.html");
         return;
       }
-      if (event.key.toLowerCase() === "j") {
+      if (event.key.toLowerCase() === "j" || event.code === "KeyJ") {
         event.preventDefault();
         openPortalsWindow();
         return;
@@ -2714,12 +2719,12 @@
         openJobsWindow();
         return;
       }
-      if (event.key.toLowerCase() === "h") {
+      if (event.key.toLowerCase() === "h" || event.code === "KeyH") {
         event.preventDefault();
         location.assign("/help.html");
         return;
       }
-      if (event.key.toLowerCase() === "a") {
+      if (event.key.toLowerCase() === "a" || event.code === "KeyA") {
         event.preventDefault();
         location.assign("/advice.html");
       }
@@ -3329,6 +3334,14 @@
     const openJobsBtn = document.getElementById("open-jobs-btn");
     if (openJobsBtn) {
       openJobsBtn.addEventListener("click", () => openJobsWindow());
+    }
+    const openOpeningsBtn = document.getElementById("open-openings-btn");
+    if (openOpeningsBtn) {
+      openOpeningsBtn.addEventListener("click", () => openJobsWindow());
+    }
+    const openProfileBtn = document.getElementById("open-profile-btn");
+    if (openProfileBtn) {
+      openProfileBtn.addEventListener("click", () => scrollProfileToTop());
     }
     document
       .getElementById("open-help-btn")

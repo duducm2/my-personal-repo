@@ -1220,7 +1220,7 @@
         return;
       }
       const k = event.key.toLowerCase();
-      if (k === "j") {
+      if (k === "j" || event.code === "KeyJ") {
         event.preventDefault();
         openPortalsHome();
         return;
@@ -1230,12 +1230,12 @@
         openOpeningsWindow();
         return;
       }
-      if (k === "c") {
+      if (k === "c" || event.code === "KeyC") {
         event.preventDefault();
         openCompaniesWindow();
         return;
       }
-      if (k === "p") {
+      if (k === "p" || event.code === "KeyP") {
         event.preventDefault();
         openProfileWindow();
         return;
@@ -1245,12 +1245,12 @@
         location.assign("/people.html");
         return;
       }
-      if (k === "h") {
+      if (k === "h" || event.code === "KeyH") {
         event.preventDefault();
         location.assign("/help.html");
         return;
       }
-      if (k === "a") {
+      if (k === "a" || event.code === "KeyA") {
         event.preventDefault();
         location.assign("/advice.html");
       }
@@ -1288,6 +1288,12 @@
     document
       .getElementById("open-openings-btn")
       ?.addEventListener("click", () => openOpeningsWindow());
+    document
+      .getElementById("open-jobs-btn")
+      ?.addEventListener("click", () => openOpeningsWindow());
+    document
+      .getElementById("open-portals-btn")
+      ?.addEventListener("click", () => openPortalsHome());
     document
       .getElementById("open-help-btn")
       ?.addEventListener("click", () => location.assign("/help.html"));

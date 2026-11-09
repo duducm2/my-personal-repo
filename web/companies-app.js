@@ -2036,12 +2036,10 @@
       }
 
       if (event.altKey && !mod && !event.shiftKey) {
-        // Same openings shortcuts as the job board: focused card or open dossier
+        // OPENINGS prompt shortcut: focused card or open dossier
         const isR =
           event.code === "KeyR" || (event.key || "").toLowerCase() === "r";
-        const isI =
-          event.code === "KeyI" || (event.key || "").toLowerCase() === "i";
-        if (isR || isI) {
+        if (isR) {
           const row = pinTargetCompany();
           if (!row) {
             event.preventDefault();
@@ -2055,7 +2053,7 @@
           event.preventDefault();
           event.stopPropagation();
           const params = new URLSearchParams({
-            action: isR ? "prompt" : "import",
+            action: "prompt",
             company: row.id,
           });
           location.assign(`/jobs.html?${params}`);
@@ -2196,7 +2194,7 @@
         setLangMode("both");
         return;
       }
-      if (event.key.toLowerCase() === "p") {
+      if (event.key.toLowerCase() === "p" || event.code === "KeyP") {
         event.preventDefault();
         openProfileWindow();
         return;
@@ -2206,7 +2204,7 @@
         location.assign("/people.html");
         return;
       }
-      if (event.key.toLowerCase() === "j") {
+      if (event.key.toLowerCase() === "j" || event.code === "KeyJ") {
         event.preventDefault();
         openPortalsWindow();
         return;
@@ -2216,12 +2214,17 @@
         openJobsWindow();
         return;
       }
-      if (event.key.toLowerCase() === "h") {
+      if (event.key.toLowerCase() === "c" || event.code === "KeyC") {
+        event.preventDefault();
+        openCompaniesHome();
+        return;
+      }
+      if (event.key.toLowerCase() === "h" || event.code === "KeyH") {
         event.preventDefault();
         location.assign("/help.html");
         return;
       }
-      if (event.key.toLowerCase() === "a") {
+      if (event.key.toLowerCase() === "a" || event.code === "KeyA") {
         event.preventDefault();
         location.assign("/advice.html");
       }
@@ -2278,6 +2281,14 @@
     const jobsBtn = document.getElementById("open-jobs-btn");
     if (jobsBtn) {
       jobsBtn.addEventListener("click", () => openJobsWindow());
+    }
+    const openingsBtn = document.getElementById("open-openings-btn");
+    if (openingsBtn) {
+      openingsBtn.addEventListener("click", () => openJobsWindow());
+    }
+    const companiesBtn = document.getElementById("open-companies-btn");
+    if (companiesBtn) {
+      companiesBtn.addEventListener("click", () => openCompaniesHome());
     }
     document
       .getElementById("open-help-btn")

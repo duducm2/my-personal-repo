@@ -5311,7 +5311,7 @@
         setLangMode("both");
         return;
       }
-      if (event.key.toLowerCase() === "p") {
+      if (event.key.toLowerCase() === "p" || event.code === "KeyP") {
         event.preventDefault();
         location.assign("/profile.html");
         return;
@@ -5330,7 +5330,7 @@
         location.assign("/companies.html");
         return;
       }
-      if (event.key.toLowerCase() === "j") {
+      if (event.key.toLowerCase() === "j" || event.code === "KeyJ") {
         event.preventDefault();
         location.assign("/portals.html");
         return;
@@ -5340,12 +5340,12 @@
         location.assign("/");
         return;
       }
-      if (event.key.toLowerCase() === "h") {
+      if (event.key.toLowerCase() === "h" || event.code === "KeyH") {
         event.preventDefault();
         location.assign("/help.html");
         return;
       }
-      if (event.key.toLowerCase() === "a") {
+      if (event.key.toLowerCase() === "a" || event.code === "KeyA") {
         event.preventDefault();
         location.assign("/advice.html");
       }
@@ -5508,6 +5508,12 @@
     document
       .getElementById("open-advice-btn")
       ?.addEventListener("click", () => location.assign("/advice.html"));
+    document
+      .getElementById("open-openings-btn")
+      ?.addEventListener("click", () => location.assign("/"));
+    document
+      .getElementById("open-jobs-btn")
+      ?.addEventListener("click", () => location.assign("/"));
 
     const search = document.getElementById("job-search-input");
     if (search) {

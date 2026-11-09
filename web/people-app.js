@@ -33,6 +33,8 @@
   let statusFilter = "";
   let kindFilter = "";
   let editingId = "";
+  const CARD_SEL = "#people-results .company-tile";
+  const FILTER_SEL = "#people-filters";
 
   function cell(v) {
     return v == null ? "" : String(v);
@@ -322,6 +324,8 @@
           const card = document.createElement("button");
           card.type = "button";
           card.className = "company-tile";
+          card.setAttribute("tabindex", "0");
+          card.dataset.id = row.id;
           const badge = document.createElement("span");
           badge.className = `person-kind is-${kind.id}`;
           badge.textContent = kind.label;
@@ -474,7 +478,8 @@
       render();
     }
     editingId = "";
-    document.getElementById("people-edit-modal")?.close();
+    const dialog = document.getElementById("people-edit-modal");
+    if (dialog && dialog.open) dialog.close();
   }
 
   function addPerson() {
@@ -741,9 +746,62 @@
     document
       .getElementById("people-import-run")
       ?.addEventListener("click", importPeople);
-    document
-      .getElementById("people-edit-close")
-      ?.addEventListener("click", closeEditor);
+    const editDialog = document.getElementById("people-edit-modal");
+    if (editDialog) {
+      editDialog.addEventListener("close", () => {
+        if (editingId) {
+          const row = people.find((p) => cell(p.id) === editingId);
+          if (row) {
+            readEditor(row);
+            setDirty(true);
+            render();
+          }
+          editingId = "";
+        }
+      });
+      editDialog.addEventListener("click", (e) => {
+        if (e.target === editDialog) closeEditor();
+      });
+    }
+
+    const editFields = [
+      "people-edit-kind",
+      "people-edit-name",
+      "people-edit-headline",
+      "people-edit-company-name",
+      "people-edit-linkedin",
+      "people-edit-need",
+      "people-edit-location",
+      "people-edit-status",
+      "people-edit-notes",
+    ];
+    for (const fid of editFields) {
+      const el = document.getElementById(fid);
+      if (!el) continue;
+      const evt = el.tagName === "SELECT" ? "change" : "input";
+      el.addEventListener(evt, () => {
+        if (!editingId) return;
+        const row = people.find((p) => cell(p.id) === editingId);
+        if (row) {
+          readEditor(row);
+          setDirty(true);
+        }
+      });
+    }
+
+    const promptDialog = document.getElementById("people-prompt-modal");
+    if (promptDialog) {
+      promptDialog.addEventListener("click", (e) => {
+        if (e.target === promptDialog) promptDialog.close();
+      });
+    }
+
+    const importDialog = document.getElementById("people-import-modal");
+    if (importDialog) {
+      importDialog.addEventListener("click", (e) => {
+        if (e.target === importDialog) importDialog.close();
+      });
+    }
     document
       .getElementById("people-edit-delete")
       ?.addEventListener("click", deleteEditing);
@@ -764,17 +822,60 @@
           ].map((o) => o.value),
         );
       });
+    document.addEventListener(
+      "keydown",
+      (event) => {
+        if (event.key !== "Escape") return;
+        const editDlg = document.getElementById("people-edit-modal");
+        const promptDlg = document.getElementById("people-prompt-modal");
+        const importDlg = document.getElementById("people-import-modal");
+        if (editDlg?.open) {
+          event.preventDefault();
+          event.stopPropagation();
+          closeEditor();
+          return;
+        }
+        if (promptDlg?.open) {
+          event.preventDefault();
+          event.stopPropagation();
+          promptDlg.close();
+          return;
+        }
+        if (importDlg?.open) {
+          event.preventDefault();
+          event.stopPropagation();
+          importDlg.close();
+          return;
+        }
+        if (companyFilter || statusFilter || kindFilter) {
+          event.preventDefault();
+          event.stopPropagation();
+          companyFilter = "";
+          statusFilter = "";
+          kindFilter = "";
+          render();
+          return;
+        }
+      },
+      true,
+    );
+
     document.addEventListener("keydown", (event) => {
       const modalOpen = [
         "people-prompt-modal",
         "people-import-modal",
         "people-edit-modal",
       ].some((id) => document.getElementById(id)?.open);
+      const typing = isTypingTarget(document.activeElement);
+
       if (
         (event.ctrlKey || event.metaKey || event.shiftKey) &&
         event.key === "Enter"
       ) {
-        if (document.getElementById("people-prompt-modal")?.open) {
+        if (document.getElementById("people-edit-modal")?.open) {
+          event.preventDefault();
+          closeEditor();
+        } else if (document.getElementById("people-prompt-modal")?.open) {
           event.preventDefault();
           void sendPrompt();
         } else if (document.getElementById("people-import-modal")?.open) {
@@ -783,6 +884,82 @@
         }
         return;
       }
+
+      if (event.key === "Home" && !typing && !modalOpen) {
+        if (window.CardNav?.goHome()) {
+          event.preventDefault();
+          return;
+        }
+      }
+
+      if (
+        (event.key === "ArrowDown" ||
+          event.key === "ArrowUp" ||
+          event.key === "ArrowLeft" ||
+          event.key === "ArrowRight") &&
+        !typing &&
+        !modalOpen
+      ) {
+        const delta =
+          event.key === "ArrowDown" || event.key === "ArrowRight" ? 1 : -1;
+        if (window.CardNav?.moveInContext(CARD_SEL, FILTER_SEL, delta)) {
+          event.preventDefault();
+          return;
+        }
+      }
+
+      if (
+        event.altKey &&
+        !event.ctrlKey &&
+        !event.metaKey &&
+        !event.shiftKey &&
+        (event.code === "KeyF" || (event.key || "").toLowerCase() === "f") &&
+        !modalOpen &&
+        !typing
+      ) {
+        event.preventDefault();
+        window.CardNav?.toggleCardsFilters(CARD_SEL, FILTER_SEL);
+        return;
+      }
+
+      if (
+        !typing &&
+        !modalOpen &&
+        window.CardNav?.isJumpKey(event) &&
+        window.CardNav.jumpInContext(CARD_SEL, FILTER_SEL, event.key)
+      ) {
+        event.preventDefault();
+        return;
+      }
+
+      if (
+        !event.altKey &&
+        !event.ctrlKey &&
+        !event.metaKey &&
+        event.shiftKey &&
+        (event.code === "KeyN" || (event.key || "").toLowerCase() === "n") &&
+        !modalOpen &&
+        !typing
+      ) {
+        event.preventDefault();
+        addPerson();
+        return;
+      }
+
+      if (
+        event.altKey &&
+        !event.ctrlKey &&
+        !event.metaKey &&
+        !event.shiftKey &&
+        (event.code === "KeyN" || (event.key || "").toLowerCase() === "n") &&
+        !modalOpen &&
+        !typing
+      ) {
+        event.preventDefault();
+        addPerson();
+        return;
+      }
+
       if (!event.altKey || event.ctrlKey || event.metaKey || event.shiftKey)
         return;
       if (event.code !== "KeyR") return;
@@ -790,6 +967,7 @@
       event.preventDefault();
       openPrompt();
     });
+    window.CardNav?.configureHome(CARD_SEL, FILTER_SEL);
     window.addEventListener("beforeunload", () => {
       if (!dirty) return;
       collections.hiringPeople = people;

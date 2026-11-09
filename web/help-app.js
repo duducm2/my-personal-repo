@@ -12,6 +12,9 @@
 
   function initKeyboard() {
     document.addEventListener("keydown", (event) => {
+      const dialogOpen = !!document.querySelector("dialog[open]");
+      if (dialogOpen) return;
+
       if (event.key === "Escape") {
         event.preventDefault();
         location.assign("/");
@@ -27,7 +30,7 @@
         return;
       }
       const k = (event.key || "").toLowerCase();
-      if (k === "j") {
+      if (k === "j" || event.code === "KeyJ") {
         event.preventDefault();
         location.assign("/portals.html");
         return;
@@ -37,12 +40,12 @@
         location.assign("/");
         return;
       }
-      if (k === "c") {
+      if (k === "c" || event.code === "KeyC") {
         event.preventDefault();
         location.assign("/companies.html");
         return;
       }
-      if (k === "p") {
+      if (k === "p" || event.code === "KeyP") {
         event.preventDefault();
         location.assign("/profile.html");
         return;
@@ -52,12 +55,12 @@
         location.assign("/people.html");
         return;
       }
-      if (k === "h") {
+      if (k === "h" || event.code === "KeyH") {
         event.preventDefault();
         location.assign("/help.html");
         return;
       }
-      if (k === "a") {
+      if (k === "a" || event.code === "KeyA") {
         event.preventDefault();
         location.assign("/advice.html");
       }
@@ -73,6 +76,9 @@
       .getElementById("open-openings-btn")
       ?.addEventListener("click", () => location.assign("/"));
     document
+      .getElementById("open-jobs-btn")
+      ?.addEventListener("click", () => location.assign("/"));
+    document
       .getElementById("open-companies-btn")
       ?.addEventListener("click", () => location.assign("/companies.html"));
     document
@@ -81,6 +87,9 @@
     document
       .getElementById("open-advice-btn")
       ?.addEventListener("click", () => location.assign("/advice.html"));
+    document
+      .getElementById("open-help-btn")
+      ?.addEventListener("click", () => location.assign("/help.html"));
   }
 
   init();
