@@ -356,3 +356,4 @@ Traceback (most recent call last):
     raise RuntimeError(f"AutoHotkey {action} failed: {detail[:800]}")
 RuntimeError: AutoHotkey fill-form failed: exit 0
 
+[2026-11-09 09:46:53] [INFO] Career Cockpit Environment initialized: WORK | data={"timestamp": "2026-11-09T09:46:53.040586", "environment": "work", "username": "FIE7CA", "repo_root": "C:\\Users\\fie7ca\\OneDrive - Bosch Group\\13 - General workspace\\my-personal-repo", "scripts_dir": "C:\\Users\\fie7ca\\Documents\\01 - Scripts", "scripts_dir_exists": true, "ahk_script": "C:\\Users\\fie7ca\\Documents\\01 - Scripts\\Utils\\career_form_fill.ahk", "ahk_script_exists": false, "ahk_exe": "C:\\Users\\fie7ca\\AppData\\Local\\Programs\\AutoHotkey\\v2\\AutoHotkey64.exe", "ahk_exe_exists": true, "uia_inspector": "C:\\Users\\fie7ca\\Documents\\01 - Scripts\\UIATreeInspector.ahk", "uia_inspector_exists": false}
