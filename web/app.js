@@ -674,7 +674,717 @@
     return v == null ? "" : String(v);
   }
 
-  let downloadsCache = { items: [], policy: null };
+  let deliverablesCache = null;
+  let currentEditorState = {
+    variant: "general",
+    tab: "resume",
+    dirty: false,
+    saving: false,
+  };
+
+  async function fetchDeliverables() {
+    const res = await fetch("/api/deliverables/content");
+    if (!res.ok) throw new Error(`GET /api/deliverables/content failed (${res.status})`);
+    deliverablesCache = await res.json();
+    return deliverablesCache;
+  }
+
+  function closeDeliverableEditor() {
+    const modal = document.getElementById("deliverable-edit-modal");
+    if (modal && modal.open) modal.close();
+  }
+
+  async function openDeliverableEditor(opts) {
+    const modal = document.getElementById("deliverable-edit-modal");
+    if (!modal) return;
+    const variant = opts?.variant || currentEditorState.variant || "general";
+    const tab = opts?.tab || currentEditorState.tab || "resume";
+    currentEditorState.variant = variant;
+    currentEditorState.tab = tab;
+    currentEditorState.dirty = false;
+
+    if (typeof modal.showModal === "function" && !modal.open) {
+      modal.showModal();
+    }
+
+    setDeliverableFooterStatus("Loading deliverable content…");
+    try {
+      await fetchDeliverables();
+      renderDeliverableEditor();
+      setDeliverableFooterStatus("Ready.");
+    } catch (err) {
+      setDeliverableFooterStatus("Error loading: " + (err.message || String(err)), "err");
+    }
+  }
+
+  function setDeliverableFooterStatus(text, kind) {
+    const el = document.getElementById("deliverable-footer-status");
+    if (!el) return;
+    el.textContent = text;
+    el.className = "deliverable-footer-status" + (kind ? ` is-${kind}` : "");
+  }
+
+  function renderDeliverableEditor() {
+    if (!deliverablesCache || !deliverablesCache.deliverables) return;
+    const { variant, tab } = currentEditorState;
+    const data = deliverablesCache.deliverables;
+    const settings = deliverablesCache.resumeSettings || {};
+    const maxPages = settings[variant] || 1;
+
+    // 1. Sync Variant Pills
+    document.querySelectorAll(".deliverable-variant-pills .variant-pill").forEach((btn) => {
+      const active = btn.dataset.variant === variant;
+      btn.classList.toggle("is-active", active);
+      btn.setAttribute("aria-checked", active ? "true" : "false");
+    });
+
+    // 2. Sync Tab Buttons
+    document.querySelectorAll(".deliverable-tabs-bar .deliverable-tab").forEach((btn) => {
+      const active = btn.dataset.tab === tab;
+      btn.classList.toggle("is-active", active);
+      btn.setAttribute("aria-selected", active ? "true" : "false");
+    });
+
+    // 3. Sync Page Constraint Buttons & Badge
+    const btn1p = document.getElementById("constraint-1p");
+    const btn2p = document.getElementById("constraint-2p");
+    const pageBadge = document.getElementById("deliverable-page-status");
+    const constraintContainer = document.getElementById("page-constraint-container");
+
+    if (constraintContainer) {
+      constraintContainer.style.display = tab === "portfolio" ? "none" : "inline-flex";
+    }
+    if (btn1p) btn1p.classList.toggle("is-active", maxPages === 1);
+    if (btn2p) btn2p.classList.toggle("is-active", maxPages === 2);
+
+    const variantEntry = deliverablesCache.priorityIndex?.variants?.[variant];
+    const actualPages = variantEntry?.pages ? `${variantEntry.pages.en || 1}p EN / ${variantEntry.pages.pt || 1}p PT` : `${maxPages}p`;
+    if (pageBadge) {
+      pageBadge.textContent = actualPages;
+      const ok = variantEntry?.page_limit_ok !== false;
+      pageBadge.className = `page-count-badge ${ok ? "is-ok" : "is-bad"}`;
+    }
+
+    // 4. Render Tab Content
+    const body = document.getElementById("deliverable-edit-body");
+    if (!body) return;
+    body.replaceChildren();
+
+    if (tab === "resume") {
+      renderResumeTab(body, variant, data);
+    } else if (tab === "portfolio") {
+      renderPortfolioTab(body, variant, data);
+    } else {
+      renderSharedTab(body, data);
+    }
+  }
+
+  function markDeliverableDirty() {
+    currentEditorState.dirty = true;
+    setDeliverableFooterStatus("Unsaved changes. Press Save & Regenerate (Ctrl+S).", "warn");
+  }
+
+  function createBilingualInputRow(labelEn, valueEn, valuePt, onChange, opts) {
+    const row = document.createElement("div");
+    row.className = "deliverable-edit-field-group" + (opts?.tall ? " is-tall" : "");
+
+    const header = document.createElement("div");
+    header.className = "deliverable-field-header";
+    const title = document.createElement("strong");
+    title.textContent = labelEn;
+    header.append(title);
+    if (opts?.badge) {
+      const b = document.createElement("span");
+      b.className = "field-badge";
+      b.textContent = opts.badge;
+      header.append(b);
+    }
+    row.append(header);
+
+    const inputsWrap = document.createElement("div");
+    inputsWrap.className = "deliverable-inputs-grid";
+
+    // EN input
+    const enCol = document.createElement("div");
+    enCol.className = "deliverable-input-col";
+    const enTag = document.createElement("span");
+    enTag.className = "lang-tag";
+    enTag.textContent = "EN";
+    const enArea = document.createElement("textarea");
+    enArea.className = "field-input" + (opts?.tall ? " tall" : "");
+    enArea.value = valueEn || "";
+    enArea.rows = opts?.tall ? 3 : 1;
+    enArea.placeholder = "English text…";
+    enCol.append(enTag, enArea);
+
+    // PT input
+    const ptCol = document.createElement("div");
+    ptCol.className = "deliverable-input-col";
+    const ptTag = document.createElement("span");
+    ptTag.className = "lang-tag";
+    ptTag.textContent = "PT";
+    const ptArea = document.createElement("textarea");
+    ptArea.className = "field-input" + (opts?.tall ? " tall" : "");
+    ptArea.value = valuePt || "";
+    ptArea.rows = opts?.tall ? 3 : 1;
+    ptArea.placeholder = "Texto em português…";
+    ptCol.append(ptTag, ptArea);
+
+    const handleInput = () => {
+      onChange(enArea.value, ptArea.value);
+      markDeliverableDirty();
+    };
+    enArea.addEventListener("input", handleInput);
+    ptArea.addEventListener("input", handleInput);
+
+    inputsWrap.append(enCol, ptCol);
+    row.append(inputsWrap);
+    return row;
+  }
+
+  function renderResumeTab(container, variant, data) {
+    const narratives = data.narratives || [];
+    const bullets = data.experienceBullets || [];
+    const skills = data.skills || [];
+    const experience = data.experience || [];
+
+    // Tagline and Profile
+    const taglineRow = narratives.find((r) => r.variant === variant && r.field === "tagline") || {};
+    const profileRow = narratives.find((r) => r.variant === variant && r.field === "profile") || {};
+
+    const secTop = document.createElement("div");
+    secTop.className = "deliverable-section-card";
+    const hTop = document.createElement("h3");
+    hTop.textContent = "Headline & Profile Summary";
+    secTop.append(hTop);
+
+    secTop.append(
+      createBilingualInputRow("Tagline / Headline", taglineRow.text_en, taglineRow.text_pt, (en, pt) => {
+        taglineRow.text_en = en;
+        taglineRow.text_pt = pt;
+      })
+    );
+    secTop.append(
+      createBilingualInputRow("Profile Summary", profileRow.text_en, profileRow.text_pt, (en, pt) => {
+        profileRow.text_en = en;
+        profileRow.text_pt = pt;
+      }, { tall: true })
+    );
+    container.append(secTop);
+
+    // Bullets per experience role
+    const secBullets = document.createElement("div");
+    secBullets.className = "deliverable-section-card";
+    const hBullets = document.createElement("h3");
+    hBullets.textContent = "Work Experience Bullets";
+    secBullets.append(hBullets);
+
+    for (const exp of experience) {
+      const expBlock = document.createElement("div");
+      expBlock.className = "deliverable-exp-role-block";
+      const expTitle = document.createElement("h4");
+      expTitle.textContent = `${exp.title_en || exp.title_pt} @ ${exp.company} (${exp.date_display_en || exp.date_display_pt})`;
+      expBlock.append(expTitle);
+
+      const expBullets = bullets
+        .filter((b) => b.experience_id === exp.id && b.variant === variant)
+        .sort((a, b) => parseInt(a.sort_order || 0, 10) - parseInt(b.sort_order || 0, 10));
+
+      const bulletsList = document.createElement("div");
+      bulletsList.className = "deliverable-bullets-list";
+
+      const renderBulletRows = () => {
+        bulletsList.replaceChildren();
+        expBullets.forEach((bullet, index) => {
+          bullet.sort_order = String(index + 1);
+          const bRow = document.createElement("div");
+          bRow.className = "deliverable-bullet-item";
+
+          const controlBar = document.createElement("div");
+          controlBar.className = "bullet-item-controls";
+          const num = document.createElement("span");
+          num.className = "bullet-num";
+          num.textContent = `#${index + 1}`;
+          controlBar.append(num);
+
+          if (index > 0) {
+            const upBtn = document.createElement("button");
+            upBtn.type = "button";
+            upBtn.className = "bullet-ctrl-btn";
+            upBtn.textContent = "↑";
+            upBtn.title = "Move bullet up";
+            upBtn.onclick = () => {
+              const temp = expBullets[index - 1];
+              expBullets[index - 1] = expBullets[index];
+              expBullets[index] = temp;
+              renderBulletRows();
+              markDeliverableDirty();
+            };
+            controlBar.append(upBtn);
+          }
+
+          if (index < expBullets.length - 1) {
+            const downBtn = document.createElement("button");
+            downBtn.type = "button";
+            downBtn.className = "bullet-ctrl-btn";
+            downBtn.textContent = "↓";
+            downBtn.title = "Move bullet down";
+            downBtn.onclick = () => {
+              const temp = expBullets[index + 1];
+              expBullets[index + 1] = expBullets[index];
+              expBullets[index] = temp;
+              renderBulletRows();
+              markDeliverableDirty();
+            };
+            controlBar.append(downBtn);
+          }
+
+          const delBtn = document.createElement("button");
+          delBtn.type = "button";
+          delBtn.className = "bullet-ctrl-btn is-delete";
+          delBtn.textContent = "✕";
+          delBtn.title = "Delete bullet";
+          delBtn.onclick = () => {
+            const globalIdx = bullets.indexOf(bullet);
+            if (globalIdx >= 0) bullets.splice(globalIdx, 1);
+            const localIdx = expBullets.indexOf(bullet);
+            if (localIdx >= 0) expBullets.splice(localIdx, 1);
+            renderBulletRows();
+            markDeliverableDirty();
+          };
+          controlBar.append(delBtn);
+
+          const inputs = createBilingualInputRow(
+            `Bullet #${index + 1}`,
+            bullet.text_en,
+            bullet.text_pt,
+            (en, pt) => {
+              bullet.text_en = en;
+              bullet.text_pt = pt;
+            },
+            { tall: true }
+          );
+
+          bRow.append(controlBar, inputs);
+          bulletsList.append(bRow);
+        });
+      };
+
+      renderBulletRows();
+      expBlock.append(bulletsList);
+
+      const addBulletBtn = document.createElement("button");
+      addBulletBtn.type = "button";
+      addBulletBtn.className = "add-btn secondary-add-btn";
+      addBulletBtn.textContent = "+ Add Bullet";
+      addBulletBtn.onclick = () => {
+        const newB = {
+          experience_id: exp.id,
+          variant,
+          sort_order: String(expBullets.length + 1),
+          text_en: "",
+          text_pt: "",
+        };
+        bullets.push(newB);
+        expBullets.push(newB);
+        renderBulletRows();
+        markDeliverableDirty();
+      };
+      expBlock.append(addBulletBtn);
+      secBullets.append(expBlock);
+    }
+    container.append(secBullets);
+
+    // Skills Section (Core & Tech)
+    const secSkills = document.createElement("div");
+    secSkills.className = "deliverable-section-card";
+    const hSkills = document.createElement("h3");
+    hSkills.textContent = "Skills (Core & Tech)";
+    secSkills.append(hSkills);
+
+    for (const cat of ["Core", "Tech"]) {
+      const catBlock = document.createElement("div");
+      catBlock.className = "deliverable-skill-cat-block";
+      const catH = document.createElement("h4");
+      catH.textContent = `${cat} Skills`;
+      catBlock.append(catH);
+
+      const catSkills = skills
+        .filter((s) => s.variant === variant && s.category === cat)
+        .sort((a, b) => parseInt(a.sort_order || 0, 10) - parseInt(b.sort_order || 0, 10));
+
+      const skillsList = document.createElement("div");
+      skillsList.className = "deliverable-skills-grid";
+
+      const renderSkillPills = () => {
+        skillsList.replaceChildren();
+        catSkills.forEach((skill, index) => {
+          skill.sort_order = String(index + 1);
+          const pill = document.createElement("div");
+          pill.className = "deliverable-skill-edit-item";
+
+          const enInput = document.createElement("input");
+          enInput.type = "text";
+          enInput.className = "field-input skill-inline-input";
+          enInput.value = skill.label_en || "";
+          enInput.placeholder = "EN skill";
+          enInput.oninput = () => {
+            skill.label_en = enInput.value;
+            markDeliverableDirty();
+          };
+
+          const ptInput = document.createElement("input");
+          ptInput.type = "text";
+          ptInput.className = "field-input skill-inline-input";
+          ptInput.value = skill.label_pt || "";
+          ptInput.placeholder = "PT skill";
+          ptInput.oninput = () => {
+            skill.label_pt = ptInput.value;
+            markDeliverableDirty();
+          };
+
+          const delSkillBtn = document.createElement("button");
+          delSkillBtn.type = "button";
+          delSkillBtn.className = "bullet-ctrl-btn is-delete";
+          delSkillBtn.textContent = "✕";
+          delSkillBtn.onclick = () => {
+            const gIdx = skills.indexOf(skill);
+            if (gIdx >= 0) skills.splice(gIdx, 1);
+            const lIdx = catSkills.indexOf(skill);
+            if (lIdx >= 0) catSkills.splice(lIdx, 1);
+            renderSkillPills();
+            markDeliverableDirty();
+          };
+
+          pill.append(enInput, ptInput, delSkillBtn);
+          skillsList.append(pill);
+        });
+      };
+
+      renderSkillPills();
+      catBlock.append(skillsList);
+
+      const addSkillBtn = document.createElement("button");
+      addSkillBtn.type = "button";
+      addSkillBtn.className = "add-btn secondary-add-btn";
+      addSkillBtn.textContent = `+ Add ${cat} Skill`;
+      addSkillBtn.onclick = () => {
+        const first = catSkills[0] || {};
+        const newS = {
+          variant,
+          category: cat,
+          category_label_en: first.category_label_en || cat,
+          category_label_pt: first.category_label_pt || (cat === "Core" ? "Núcleo" : "Tecnologias"),
+          sort_order: String(catSkills.length + 1),
+          label_en: "",
+          label_pt: "",
+        };
+        skills.push(newS);
+        catSkills.push(newS);
+        renderSkillPills();
+        markDeliverableDirty();
+      };
+      catBlock.append(addSkillBtn);
+      secSkills.append(catBlock);
+    }
+    container.append(secSkills);
+  }
+
+  function renderPortfolioTab(container, variant, data) {
+    const narratives = data.narratives || [];
+    const fieldsToEdit = [
+      { key: "deck_title", label: "Deck Title", tall: false },
+      { key: "why_h1", label: "Why Slide - Heading", tall: false },
+      { key: "why_h2", label: "Why Slide - Subheading", tall: false },
+      { key: "why_bullets", label: "Why Slide - Bullets", tall: true },
+      { key: "who_role", label: "Who Slide - Role", tall: false },
+      { key: "who_impact", label: "Who Slide - Impact Statement", tall: true },
+      { key: "present_h2", label: "Present Slide - Heading", tall: false },
+      { key: "present_table", label: "Present Slide - Achievements Table (Markdown)", tall: true },
+      { key: "future_h2", label: "Future Slide - Heading", tall: false },
+      { key: "future_intro", label: "Future Slide - Intro", tall: true },
+      { key: "future_career_body", label: "Future Slide - Career Body & Table", tall: true },
+      { key: "closing_summary", label: "Closing Slide - Summary", tall: true },
+    ];
+
+    const card = document.createElement("div");
+    card.className = "deliverable-section-card";
+    const h = document.createElement("h3");
+    h.textContent = `Portfolio Deck Slides — ${variant}`;
+    card.append(h);
+
+    for (const f of fieldsToEdit) {
+      let row = narratives.find((r) => r.variant === variant && r.field === f.key);
+      if (!row) {
+        row = { variant, field: f.key, label_en: f.label, label_pt: f.label, text_en: "", text_pt: "" };
+        narratives.push(row);
+      }
+      card.append(
+        createBilingualInputRow(f.label, row.text_en, row.text_pt, (en, pt) => {
+          row.text_en = en;
+          row.text_pt = pt;
+        }, { tall: f.tall })
+      );
+    }
+    container.append(card);
+  }
+
+  function renderSharedTab(container, data) {
+    // 1. Education
+    const secEdu = document.createElement("div");
+    secEdu.className = "deliverable-section-card";
+    const hEdu = document.createElement("h3");
+    hEdu.textContent = "Education (Shared across resumes)";
+    secEdu.append(hEdu);
+
+    const education = data.education || [];
+    education.forEach((edu, idx) => {
+      const block = document.createElement("div");
+      block.className = "deliverable-exp-role-block";
+      const h = document.createElement("h4");
+      h.textContent = `${edu.degree_en || edu.degree_pt} · ${edu.institution_en || edu.institution_pt}`;
+      block.append(h);
+      block.append(
+        createBilingualInputRow("Degree Title", edu.degree_en, edu.degree_pt, (en, pt) => {
+          edu.degree_en = en;
+          edu.degree_pt = pt;
+        })
+      );
+      block.append(
+        createBilingualInputRow("Institution & Dates", edu.institution_en, edu.institution_pt, (en, pt) => {
+          edu.institution_en = en;
+          edu.institution_pt = pt;
+        })
+      );
+      block.append(
+        createBilingualInputRow("Detail / Thesis", edu.detail_en, edu.detail_pt, (en, pt) => {
+          edu.detail_en = en;
+          edu.detail_pt = pt;
+        }, { tall: true })
+      );
+      secEdu.append(block);
+    });
+    container.append(secEdu);
+
+    // 2. Publications
+    const secPubs = document.createElement("div");
+    secPubs.className = "deliverable-section-card";
+    const hPubs = document.createElement("h3");
+    hPubs.textContent = "Publications (Shared across resumes)";
+    secPubs.append(hPubs);
+
+    const pubs = data.publications || [];
+    pubs.forEach((pub, idx) => {
+      const block = document.createElement("div");
+      block.className = "deliverable-exp-role-block";
+      block.append(
+        createBilingualInputRow(`Venue #${idx + 1}`, pub.venue_en, pub.venue_pt, (en, pt) => {
+          pub.venue_en = en;
+          pub.venue_pt = pt;
+        })
+      );
+      block.append(
+        createBilingualInputRow(`Citation / Paper Title`, pub.citation_en, pub.citation_pt, (en, pt) => {
+          pub.citation_en = en;
+          pub.citation_pt = pt;
+        })
+      );
+      secPubs.append(block);
+    });
+    container.append(secPubs);
+
+    // 3. Additional
+    const secAdd = document.createElement("div");
+    secAdd.className = "deliverable-section-card";
+    const hAdd = document.createElement("h3");
+    hAdd.textContent = "Additional / Awards (Shared across resumes)";
+    secAdd.append(hAdd);
+
+    const additional = data.additional || [];
+    additional.forEach((add, idx) => {
+      secAdd.append(
+        createBilingualInputRow(`Award / Line #${idx + 1}`, add.text_en, add.text_pt, (en, pt) => {
+          add.text_en = en;
+          add.text_pt = pt;
+        })
+      );
+    });
+    container.append(secAdd);
+  }
+
+  async function saveDeliverableContent() {
+    if (currentEditorState.saving) return;
+    currentEditorState.saving = true;
+    setDeliverableFooterStatus("Saving canonical CSVs and regenerating PDFs…");
+
+    const saveBtn = document.getElementById("deliverable-save-btn");
+    if (saveBtn) {
+      saveBtn.disabled = true;
+      saveBtn.textContent = "Compiling…";
+    }
+
+    try {
+      const { variant, tab } = currentEditorState;
+      const settings = deliverablesCache.resumeSettings || {};
+      const maxPages = settings[variant] || 1;
+      const kind = tab === "portfolio" ? "portfolio" : tab === "resume" ? "resume" : "both";
+
+      const res = await fetch("/api/deliverables/content", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          variant,
+          kind,
+          max_pages: maxPages,
+          deliverables: deliverablesCache.deliverables,
+        }),
+      });
+
+      const result = await res.json();
+      if (!res.ok || result.ok === false) {
+        throw new Error(result.error || `HTTP ${res.status}`);
+      }
+
+      deliverablesCache.deliverables = result.deliverables;
+      deliverablesCache.resumeSettings = result.resumeSettings;
+      deliverablesCache.priorityIndex = result.priority;
+      downloadsCache = { items: result.downloads, policy: downloadsCache.policy, priority: result.priority };
+
+      renderDownloads(downloadsCache.items, downloadsCache.policy);
+      renderDeliverableEditor();
+      currentEditorState.dirty = false;
+      setDeliverableFooterStatus("Saved and successfully recompiled! Ready.", "ok");
+
+      // Reload iframe if viewer open
+      const viewerFrame = document.getElementById("resume-viewer-frame");
+      if (viewerFrame && currentViewerItem && viewerFrame.src && !viewerFrame.src.includes("about:blank")) {
+        const baseSrc = viewerFrame.src.split("?")[0];
+        viewerFrame.src = `${baseSrc}?inline=1&t=${Date.now()}`;
+      }
+    } catch (err) {
+      setDeliverableFooterStatus("Save failed: " + (err.message || String(err)), "err");
+    } finally {
+      currentEditorState.saving = false;
+      if (saveBtn) {
+        saveBtn.disabled = false;
+        saveBtn.textContent = "Save & Regenerate (Ctrl+S)";
+      }
+    }
+  }
+
+  function wireDeliverableEditor() {
+    const modal = document.getElementById("deliverable-edit-modal");
+    const closeBtn = document.getElementById("deliverable-edit-close");
+    const saveBtn = document.getElementById("deliverable-save-btn");
+    const previewEnBtn = document.getElementById("deliverable-preview-en-btn");
+    const previewPtBtn = document.getElementById("deliverable-preview-pt-btn");
+    const rebuildAllBtn = document.getElementById("rebuild-all-deliverables-btn");
+
+    if (closeBtn) closeBtn.onclick = () => closeDeliverableEditor();
+    if (saveBtn) saveBtn.onclick = () => saveDeliverableContent();
+
+    if (rebuildAllBtn) {
+      rebuildAllBtn.onclick = async () => {
+        rebuildAllBtn.disabled = true;
+        rebuildAllBtn.textContent = "Compiling all…";
+        try {
+          const res = await fetch("/api/deliverables/regenerate", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ variant: "general", kind: "both" }),
+          });
+          await loadDownloads();
+          setSaveStatus("All PDFs rebuilt.", "ok");
+        } catch (err) {
+          setSaveStatus("Rebuild error: " + (err.message || String(err)), "err");
+        } finally {
+          rebuildAllBtn.disabled = false;
+          rebuildAllBtn.textContent = "Rebuild all PDFs";
+        }
+      };
+    }
+
+    // Variant pills
+    document.querySelectorAll(".deliverable-variant-pills .variant-pill").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        currentEditorState.variant = btn.dataset.variant;
+        renderDeliverableEditor();
+      });
+    });
+
+    // Tab buttons
+    document.querySelectorAll(".deliverable-tabs-bar .deliverable-tab").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        currentEditorState.tab = btn.dataset.tab;
+        renderDeliverableEditor();
+      });
+    });
+
+    // Constraint buttons
+    const btn1p = document.getElementById("constraint-1p");
+    const btn2p = document.getElementById("constraint-2p");
+    if (btn1p) {
+      btn1p.onclick = () => {
+        if (!deliverablesCache.resumeSettings) deliverablesCache.resumeSettings = {};
+        deliverablesCache.resumeSettings[currentEditorState.variant] = 1;
+        // Also sync resumeSettings row in data
+        let rows = deliverablesCache.deliverables.resumeSettings || [];
+        let r = rows.find((x) => x.variant === currentEditorState.variant);
+        if (!r) {
+          r = { variant: currentEditorState.variant, max_pages: "1" };
+          rows.push(r);
+        } else {
+          r.max_pages = "1";
+        }
+        deliverablesCache.deliverables.resumeSettings = rows;
+        renderDeliverableEditor();
+        markDeliverableDirty();
+      };
+    }
+    if (btn2p) {
+      btn2p.onclick = () => {
+        if (!deliverablesCache.resumeSettings) deliverablesCache.resumeSettings = {};
+        deliverablesCache.resumeSettings[currentEditorState.variant] = 2;
+        let rows = deliverablesCache.deliverables.resumeSettings || [];
+        let r = rows.find((x) => x.variant === currentEditorState.variant);
+        if (!r) {
+          r = { variant: currentEditorState.variant, max_pages: "2" };
+          rows.push(r);
+        } else {
+          r.max_pages = "2";
+        }
+        deliverablesCache.deliverables.resumeSettings = rows;
+        renderDeliverableEditor();
+        markDeliverableDirty();
+      };
+    }
+
+    // Preview EN / PT buttons
+    const handlePreview = (lang) => {
+      const { variant, tab } = currentEditorState;
+      const kind = tab === "portfolio" ? "portfolio" : "resume";
+      const item = (downloadsCache.items || []).find(
+        (it) => it.variant === variant && it.kind === kind && it.lang === lang
+      );
+      if (item && item.available) {
+        openResumeViewer(item);
+      } else {
+        alert(`${variant} ${kind} (${lang.toUpperCase()}) PDF is not yet compiled. Click 'Save & Regenerate' first.`);
+      }
+    };
+    if (previewEnBtn) previewEnBtn.onclick = () => handlePreview("en");
+    if (previewPtBtn) previewPtBtn.onclick = () => handlePreview("pt");
+
+    // Shortcut Ctrl+S inside modal
+    window.addEventListener("keydown", (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "s") {
+        if (modal && modal.open) {
+          e.preventDefault();
+          saveDeliverableContent();
+        }
+      }
+    });
+  }
 
   function getLangMode() {
     if (document.body.classList.contains("lang-pt")) return "pt";
@@ -2783,18 +3493,31 @@
     }
   }
 
+  let currentViewerItem = null;
+
   function openResumeViewer(item) {
+    currentViewerItem = item;
     const dialog = document.getElementById("resume-viewer-modal");
     const frame = document.getElementById("resume-viewer-frame");
     const title = document.getElementById("resume-viewer-title");
     const dl = document.getElementById("resume-viewer-download");
     const copyBtn = document.getElementById("resume-viewer-copy-path");
+    const editBtn = document.getElementById("resume-viewer-edit-btn");
     if (!dialog || !frame || !title || !dl) return;
     const pages = item.page_count != null ? ` · ${item.page_count} page` : "";
     title.textContent = `${item.label_en} · ${item.lang.toUpperCase()}${pages}`;
     frame.src = item.view_url || item.url + "?inline=1";
     dl.href = item.url;
     dl.setAttribute("download", item.filename);
+    if (editBtn) {
+      editBtn.onclick = () => {
+        closeResumeViewer();
+        openDeliverableEditor({
+          variant: item.variant,
+          tab: item.kind === "portfolio" ? "portfolio" : "resume",
+        });
+      };
+    }
     const absPath = String(item.abs_path || "").trim();
     if (copyBtn) {
       copyBtn.hidden = !absPath;
@@ -3191,6 +3914,9 @@
       const card = document.createElement("article");
       card.className = "download-card";
 
+      const head = document.createElement("div");
+      head.className = "download-card-header-row";
+
       const heading = document.createElement("h3");
       heading.className = "download-card-title";
       if (window.CareerPathIcons) {
@@ -3200,17 +3926,28 @@
       } else {
         heading.textContent = group[0].label_en;
       }
-      card.append(heading);
+
+      const editBtn = document.createElement("button");
+      editBtn.type = "button";
+      editBtn.className = "download-edit-btn";
+      editBtn.textContent = "Edit content";
+      editBtn.title = `Edit content for ${group[0].label_en} (Resume & Portfolio)`;
+      editBtn.addEventListener("click", () => {
+        openDeliverableEditor({ variant, tab: "resume" });
+      });
+
+      head.append(heading, editBtn);
+      card.append(head);
       card.append(buildLeftOffControl(variant, group[0].label_en));
 
       const resumes = group.filter((i) => i.kind === "resume");
       const portfolios = group.filter((i) => i.kind === "portfolio");
 
       card.append(
-        buildDownloadRow("Resume", resumes, { isResume: true, policy }),
+        buildDownloadRow("Resume", resumes, { isResume: true, policy, variant }),
       );
       card.append(
-        buildDownloadRow("Portfolio", portfolios, { isResume: false }),
+        buildDownloadRow("Portfolio", portfolios, { isResume: false, variant }),
       );
       root.append(card);
     }
@@ -3238,6 +3975,22 @@
 
     const actions = document.createElement("div");
     actions.className = "download-actions";
+
+    if (opts?.variant) {
+      const rowEditBtn = document.createElement("button");
+      rowEditBtn.type = "button";
+      rowEditBtn.className = "download-btn download-btn-edit";
+      rowEditBtn.textContent = "Edit";
+      rowEditBtn.title = `Edit ${opts.isResume ? "resume" : "portfolio"} content`;
+      rowEditBtn.addEventListener("click", () => {
+        openDeliverableEditor({
+          variant: opts.variant,
+          tab: opts.isResume ? "resume" : "portfolio",
+        });
+      });
+      actions.append(rowEditBtn);
+    }
+
     const mode = getLangMode();
     const filtered =
       mode === "both"
@@ -3306,6 +4059,7 @@
     initDetailMode();
     initPathFilter();
     wireResumeViewer();
+    wireDeliverableEditor();
     document
       .getElementById("detail-mode-summary")
       ?.addEventListener("click", () => {

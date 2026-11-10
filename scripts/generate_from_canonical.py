@@ -472,9 +472,11 @@ def merge_template(variant: str, slots: dict[str, str], warnings: list[str]) -> 
     return result
 
 
-def generate_lang(lang: str, warnings: list[str]) -> None:
+def generate_lang(
+    lang: str, warnings: list[str], variants: tuple[str, ...] = VARIANTS
+) -> None:
     nars = load_narratives(lang)
-    for variant in VARIANTS:
+    for variant in variants:
         resume_path = resume_out_path(variant, lang)
         resume_path.parent.mkdir(parents=True, exist_ok=True)
         content = render_resume(variant, nars, warnings, lang)
@@ -516,8 +518,14 @@ def main() -> int:
         default="all",
         help="Language to generate (default: all)",
     )
+    parser.add_argument(
+        "--variant",
+        choices=VARIANTS,
+        help="Single variant to generate (default: all)",
+    )
     args = parser.parse_args()
     langs = LANGS if args.lang == "all" else (args.lang,)
+    target_variants = (args.variant,) if args.variant else VARIANTS
 
     if not (CANON / "profile.csv").exists():
         print(
@@ -528,7 +536,7 @@ def main() -> int:
 
     warnings: list[str] = []
     for lang in langs:
-        generate_lang(lang, warnings)
+        generate_lang(lang, warnings, variants=target_variants)
 
     if warnings:
         print("\nConsistency report:")

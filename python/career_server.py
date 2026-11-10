@@ -304,8 +304,35 @@ def pdf_page_count(path: Path) -> int | None:
     return pages if pages > 0 else None
 
 
+
+RESUME_VARIANTS = {
+    "ux-researcher",
+    "general",
+    "product-owner",
+    "data-analyst",
+    "digital-solution-architect",
+}
+
+
+def load_resume_settings() -> dict[str, int]:
+    settings_file = ROOT_DIR / "my-data" / "canonical" / "resume_settings.csv"
+    out = {v: 1 for v in RESUME_VARIANTS}
+    if not settings_file.is_file():
+        return out
+    import csv
+
+    with settings_file.open(encoding="utf-8", newline="") as handle:
+        for row in csv.DictReader(handle):
+            v = (row.get("variant") or "").strip()
+            raw = (row.get("max_pages") or "").strip()
+            if v and raw and raw.isdigit():
+                out[v] = max(1, min(2, int(raw)))
+    return out
+
+
 def list_downloads() -> list[dict[str, Any]]:
     items: list[dict[str, Any]] = []
+    resume_settings = load_resume_settings()
     for entry in DOWNLOAD_CATALOG:
         path = OUTPUT_DIR / entry["variant"] / entry["filename"]
         available = path.is_file()
@@ -320,27 +347,100 @@ def list_downloads() -> list[dict[str, Any]]:
             "abs_path": str(path.resolve()) if available else "",
         }
         if entry["kind"] == "resume":
-            item["one_page_ok"] = page_count == RESUME_MAX_PAGES if page_count else None
-            item["max_pages"] = RESUME_MAX_PAGES
+            max_p = resume_settings.get(entry["variant"], RESUME_MAX_PAGES)
+            item["max_pages"] = max_p
+            item["one_page_ok"] = (page_count == 1) if page_count else None
+            item["page_limit_ok"] = (page_count <= max_p) if page_count else None
         items.append(item)
     return items
 
 
 def resume_policy() -> dict[str, Any]:
     return {
-        "max_pages": RESUME_MAX_PAGES,
+        "standard_pages": 1,
+        "max_pages_allowed": 2,
         "paper": RESUME_PAPER,
-        "note_en": "All resumes are limited to 1 page (A4).",
+        "note_en": "Standard resume limit is 1 page (A4), with support for 1–2 pages.",
     }
 
 
-RESUME_VARIANTS = {
-    "ux-researcher",
-    "general",
-    "product-owner",
-    "data-analyst",
-    "digital-solution-architect",
-}
+def regenerate_deliverable(
+    variant: str, kind: str = "both", max_pages: int | None = None
+) -> dict[str, Any]:
+    """Run single-variant generation, page fitting, and compile."""
+    if variant not in RESUME_VARIANTS:
+        raise ValueError(f"Unknown variant: {variant}")
+
+    results: dict[str, Any] = {"variant": variant, "kind": kind}
+
+    # 1. Generate text sources (.typ and .md)
+    gen_cmd = [
+        sys.executable,
+        str(ROOT_DIR / "scripts" / "generate_from_canonical.py"),
+        "--lang",
+        "all",
+        "--variant",
+        variant,
+    ]
+    gen_proc = subprocess.run(
+        gen_cmd,
+        cwd=str(ROOT_DIR),
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if gen_proc.returncode != 0:
+        err = (gen_proc.stderr or gen_proc.stdout or "Source generation failed").strip()
+        raise RuntimeError(err[-1200:])
+
+    # 2. Fit resume / compile Typst if requested
+    if kind in ("resume", "both"):
+        fit_cmd = [
+            sys.executable,
+            str(ROOT_DIR / "scripts" / "fit_resumes.py"),
+            "--variant",
+            variant,
+        ]
+        if max_pages:
+            fit_cmd.extend(["--max-pages", str(max_pages)])
+        fit_proc = subprocess.run(
+            fit_cmd,
+            cwd=str(ROOT_DIR),
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        if fit_proc.returncode != 0:
+            err = (fit_proc.stderr or fit_proc.stdout or "Resume fit failed").strip()
+            raise RuntimeError(err[-1200:])
+
+    # 3. Compile portfolio via marp if requested
+    if kind in ("portfolio", "both"):
+        build_cmd = [
+            sys.executable,
+            str(ROOT_DIR / "scripts" / "build_outputs.py"),
+            "--variant",
+            variant,
+            "--kind",
+            "portfolio",
+            "--skip-generate",
+            "--skip-audit",
+        ]
+        build_proc = subprocess.run(
+            build_cmd,
+            cwd=str(ROOT_DIR),
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        if build_proc.returncode != 0:
+            err = (build_proc.stderr or build_proc.stdout or "Portfolio compile failed").strip()
+            raise RuntimeError(err[-1200:])
+
+    results["downloads"] = list_downloads()
+    results["priority"] = resume_priority_index()
+    return results
+
 
 
 def resume_priority_index() -> dict[str, Any]:
@@ -834,6 +934,17 @@ class CareerHandler(BaseHTTPRequestHandler):
                     },
                 )
                 return
+            if path == "/api/deliverables/content":
+                self._json(
+                    200,
+                    {
+                        "ok": True,
+                        "deliverables": self.store.load_deliverables_data(),
+                        "resumeSettings": load_resume_settings(),
+                        "priorityIndex": resume_priority_index(),
+                    },
+                )
+                return
             if path == "/api/resume-priority":
                 self._json(200, resume_priority_index())
                 return
@@ -910,6 +1021,42 @@ class CareerHandler(BaseHTTPRequestHandler):
     def do_PUT(self) -> None:  # noqa: N802
         try:
             path = urlparse(self.path).path
+            if path == "/api/deliverables/content":
+                body = self._read_json()
+                if not isinstance(body, dict):
+                    raise ValueError("JSON object expected")
+                deliverables = body.get("deliverables") or {}
+                variant = str(body.get("variant") or "").strip()
+                kind = str(body.get("kind") or "both").strip()
+                max_pages = body.get("max_pages")
+                if max_pages is not None:
+                    try:
+                        max_pages = int(max_pages)
+                    except (ValueError, TypeError):
+                        max_pages = None
+
+                save_res = self.store.save_deliverables_data(deliverables)
+
+                regen_res = {}
+                if variant and variant in RESUME_VARIANTS:
+                    regen_res = regenerate_deliverable(
+                        variant=variant,
+                        kind=kind,
+                        max_pages=max_pages,
+                    )
+                self._json(
+                    200,
+                    {
+                        "ok": True,
+                        "saved": save_res,
+                        "regeneration": regen_res,
+                        "deliverables": self.store.load_deliverables_data(),
+                        "resumeSettings": load_resume_settings(),
+                        "downloads": list_downloads(),
+                        "priority": resume_priority_index(),
+                    },
+                )
+                return
             if path != "/api/state":
                 self._json(404, {"ok": False, "error": "not found"})
                 return
@@ -932,6 +1079,33 @@ class CareerHandler(BaseHTTPRequestHandler):
     def do_POST(self) -> None:  # noqa: N802
         try:
             path = urlparse(self.path).path
+            if path == "/api/deliverables/regenerate":
+                body = self._read_json()
+                if not isinstance(body, dict):
+                    raise ValueError("JSON object expected")
+                variant = str(body.get("variant") or "").strip()
+                kind = str(body.get("kind") or "both").strip()
+                max_pages = body.get("max_pages")
+                if max_pages is not None:
+                    try:
+                        max_pages = int(max_pages)
+                    except (ValueError, TypeError):
+                        max_pages = None
+                regen_res = regenerate_deliverable(
+                    variant=variant,
+                    kind=kind,
+                    max_pages=max_pages,
+                )
+                self._json(
+                    200,
+                    {
+                        "ok": True,
+                        "regeneration": regen_res,
+                        "downloads": list_downloads(),
+                        "priority": resume_priority_index(),
+                    },
+                )
+                return
             if path == "/api/cover-letter":
                 body = self._read_json()
                 result = build_cover_letter_pdf(body if isinstance(body, dict) else {})

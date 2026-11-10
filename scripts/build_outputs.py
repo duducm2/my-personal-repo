@@ -174,18 +174,40 @@ def pdf_page_count(path: Path) -> int:
     return len(re.findall(rb"/Type\s*/Page(?![s\w])", data))
 
 
-def assert_resume_one_page(path: Path, *, strict: bool) -> None:
+def load_resume_settings() -> dict[str, int]:
+    settings_file = ROOT / "my-data" / "canonical" / "resume_settings.csv"
+    out = {v: 1 for v in VARIANTS}
+    if not settings_file.is_file():
+        return out
+    import csv
+
+    with settings_file.open(encoding="utf-8", newline="") as handle:
+        for row in csv.DictReader(handle):
+            v = (row.get("variant") or "").strip()
+            raw = (row.get("max_pages") or "").strip()
+            if v and raw and raw.isdigit():
+                out[v] = max(1, min(2, int(raw)))
+    return out
+
+
+def assert_resume_page_limit(
+    path: Path, max_pages: int = 1, *, strict: bool = False
+) -> None:
     pages = pdf_page_count(path)
-    if pages == 1:
-        print(f"  ok 1-page: {path.relative_to(ROOT)}")
+    if pages <= max_pages:
+        print(f"  ok {pages}p (limit={max_pages}p): {path.relative_to(ROOT)}")
         return
     msg = (
         f"Resume page limit violated: {path.relative_to(ROOT)} "
-        f"has {pages} page(s); hard limit is 1 A4 page."
+        f"has {pages} page(s); configured limit is {max_pages} page(s)."
     )
     if strict:
         raise SystemExit(msg)
     print(f"  WARN {msg}")
+
+
+def assert_resume_one_page(path: Path, *, strict: bool) -> None:
+    assert_resume_page_limit(path, max_pages=1, strict=strict)
 
 
 def generate(lang_arg: str) -> None:
@@ -238,13 +260,24 @@ def compile_portfolio(variant: str, lang: str) -> None:
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="Build all PDF deliverables in output/"
+        description="Build PDF deliverables in output/"
     )
     parser.add_argument(
         "--lang",
         choices=("en", "pt", "all"),
         default="all",
         help="Languages to build (default: all)",
+    )
+    parser.add_argument(
+        "--variant",
+        choices=VARIANTS,
+        help="Single variant to build (default: all)",
+    )
+    parser.add_argument(
+        "--kind",
+        choices=("resume", "portfolio", "all"),
+        default="all",
+        help="Deliverable kind to compile (default: all)",
     )
     parser.add_argument(
         "--skip-generate",
@@ -259,25 +292,39 @@ def main() -> int:
     parser.add_argument(
         "--strict-pages",
         action="store_true",
-        help="Fail the build if any resume is not exactly 1 A4 page",
+        help="Fail the build if any resume violates its configured page limit",
     )
     args = parser.parse_args()
     langs = LANGS if args.lang == "all" else (args.lang,)
+    variants = (args.variant,) if args.variant else VARIANTS
+    kinds = ("resume", "portfolio") if args.kind == "all" else (args.kind,)
+    resume_limits = load_resume_settings()
 
     if not args.skip_generate:
-        generate("all" if args.lang == "all" else args.lang)
+        gen_cmd = [
+            sys.executable,
+            str(SCRIPTS / "generate_from_canonical.py"),
+            "--lang",
+            "all" if args.lang == "all" else args.lang,
+        ]
+        if args.variant:
+            gen_cmd.extend(["--variant", args.variant])
+        run(gen_cmd)
 
-    if not args.skip_audit and not args.skip_generate:
+    if not args.skip_audit and not args.skip_generate and not args.variant:
         run([sys.executable, str(SCRIPTS / "audit_canonical_data.py")])
 
     for lang in langs:
-        for variant in VARIANTS:
-            compile_resume(variant, lang)
-            assert_resume_one_page(
-                OUTPUTS[(variant, lang, "resume")],
-                strict=args.strict_pages,
-            )
-            compile_portfolio(variant, lang)
+        for variant in variants:
+            if "resume" in kinds:
+                compile_resume(variant, lang)
+                assert_resume_page_limit(
+                    OUTPUTS[(variant, lang, "resume")],
+                    max_pages=resume_limits.get(variant, 1),
+                    strict=args.strict_pages,
+                )
+            if "portfolio" in kinds:
+                compile_portfolio(variant, lang)
 
     for legacy in LEGACY_PDFS:
         if legacy.exists():
@@ -286,8 +333,8 @@ def main() -> int:
 
     print("\nBuilt PDFs:")
     for lang in langs:
-        for variant in VARIANTS:
-            for kind in ("resume", "portfolio"):
+        for variant in variants:
+            for kind in kinds:
                 path = OUTPUTS[(variant, lang, kind)]
                 print(f"  {path.relative_to(ROOT)}")
     return 0

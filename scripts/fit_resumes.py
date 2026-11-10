@@ -38,6 +38,7 @@ from generate_from_canonical import (  # noqa: E402
 )
 
 OVERRIDES = ROOT / "my-data" / "canonical" / "resume_priority.csv"
+SETTINGS_PATH = ROOT / "my-data" / "canonical" / "resume_settings.csv"
 ROLE_BASE = {
     "bosch-ar-2023": 100,
     "bosch-web-2020": 50,
@@ -45,6 +46,28 @@ ROLE_BASE = {
     "bosch-intern-2017": 20,
 }
 KIND_RANK = {"bullet": 0, "extra": 1, "skill": 2}
+
+
+def load_resume_settings() -> dict[str, int]:
+    out = {v: 1 for v in VARIANTS}
+    if not SETTINGS_PATH.is_file():
+        return out
+    with SETTINGS_PATH.open(encoding="utf-8", newline="") as handle:
+        for row in csv.DictReader(handle):
+            v = (row.get("variant") or "").strip()
+            raw = (row.get("max_pages") or "").strip()
+            if v and raw and raw.isdigit():
+                out[v] = max(1, min(2, int(raw)))
+    return out
+
+
+def save_resume_settings(settings: dict[str, int]) -> None:
+    SETTINGS_PATH.parent.mkdir(parents=True, exist_ok=True)
+    with SETTINGS_PATH.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=["variant", "max_pages"])
+        writer.writeheader()
+        for v in VARIANTS:
+            writer.writerow({"variant": v, "max_pages": settings.get(v, 1)})
 
 
 def load_overrides() -> dict[str, int]:
@@ -192,7 +215,14 @@ def public_topic(topic: dict, status: str) -> dict:
     }
 
 
-def fit_variant(variant: str, overrides: dict[str, int]) -> dict:
+def fit_variant(
+    variant: str, overrides: dict[str, int], max_pages: int | None = None
+) -> dict:
+    if max_pages is None:
+        settings = load_resume_settings()
+        max_pages = settings.get(variant, 1)
+    max_pages = max(1, min(2, int(max_pages)))
+
     topics = collect_topics(variant, overrides)
     by_id = {topic["id"]: topic for topic in topics}
     omit: set[str] = set()
@@ -202,13 +232,15 @@ def fit_variant(variant: str, overrides: dict[str, int]) -> dict:
         for lang in ("en", "pt"):
             pdf = compile_resume(variant, lang)
             pages[lang] = pdf_page_count(pdf)
-        if pages["en"] <= 1 and pages["pt"] <= 1:
+        if pages["en"] <= max_pages and pages["pt"] <= max_pages:
             break
         candidates = [
             topic for topic in topics if topic["id"] not in omit and not topic["pinned"]
         ]
         if not candidates:
-            print(f"  {variant}: still over one page with only pinned topics left")
+            print(
+                f"  {variant}: still over {max_pages} page(s) with only pinned topics left"
+            )
             break
         candidates.sort(
             key=lambda topic: (
@@ -235,7 +267,7 @@ def fit_variant(variant: str, overrides: dict[str, int]) -> dict:
         trial = {}
         for lang in ("en", "pt"):
             trial[lang] = pdf_page_count(compile_resume(variant, lang))
-        if trial["en"] <= 1 and trial["pt"] <= 1:
+        if trial["en"] <= max_pages and trial["pt"] <= max_pages:
             pages = trial
             print(f"  {variant}: restore {topic['id']}")
             continue
@@ -266,7 +298,9 @@ def fit_variant(variant: str, overrides: dict[str, int]) -> dict:
     payload = {
         "variant": variant,
         "pages": pages,
+        "max_pages": max_pages,
         "one_page": pages["en"] <= 1 and pages["pt"] <= 1,
+        "page_limit_ok": pages["en"] <= max_pages and pages["pt"] <= max_pages,
         "kept": kept,
         "deprioritized": deprioritized,
     }
@@ -276,7 +310,7 @@ def fit_variant(variant: str, overrides: dict[str, int]) -> dict:
         encoding="utf-8",
     )
     print(
-        f"  {variant}: en={pages['en']} pt={pages['pt']} "
+        f"  {variant}: en={pages['en']} pt={pages['pt']} (limit={max_pages}) "
         f"kept={len(kept)} left_off={len(deprioritized)}"
     )
     return payload
@@ -291,12 +325,12 @@ def write_index(payloads: dict[str, dict]) -> None:
     )
 
 
-def raise_topic(variant: str, topic_id: str) -> dict:
+def raise_topic(variant: str, topic_id: str, max_pages: int | None = None) -> dict:
     if variant not in VARIANTS:
         raise SystemExit(f"Unknown variant: {variant}")
     overrides = load_overrides()
     overrides[topic_id] = 97
-    payload = fit_variant(variant, overrides)
+    payload = fit_variant(variant, overrides, max_pages=max_pages)
     save_overrides(overrides)
     existing = {}
     index_path = PRIORITY_DIR / "index.json"
@@ -310,23 +344,34 @@ def raise_topic(variant: str, topic_id: str) -> dict:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Fit resumes to one page.")
+    parser = argparse.ArgumentParser(description="Fit resumes to one or two pages.")
     parser.add_argument("--variant", choices=VARIANTS)
+    parser.add_argument(
+        "--max-pages",
+        type=int,
+        choices=(1, 2),
+        help="Target page limit (1 or 2, default reads from resume_settings.csv or 1)",
+    )
     parser.add_argument(
         "--raise", dest="raise_topic", help="Topic id to prioritize, then refit."
     )
     args = parser.parse_args()
     overrides = load_overrides()
+    settings = load_resume_settings()
     variants = (args.variant,) if args.variant else VARIANTS
+    if args.max_pages and args.variant:
+        settings[args.variant] = args.max_pages
+        save_resume_settings(settings)
     if args.raise_topic:
         if not args.variant:
             raise SystemExit("--raise needs --variant")
-        raise_topic(args.variant, args.raise_topic)
+        raise_topic(args.variant, args.raise_topic, max_pages=args.max_pages)
         return
     payloads = {}
     for variant in variants:
-        print(f"Fitting {variant}")
-        payloads[variant] = fit_variant(variant, overrides)
+        target_pages = args.max_pages or settings.get(variant, 1)
+        print(f"Fitting {variant} (limit={target_pages} page(s))")
+        payloads[variant] = fit_variant(variant, overrides, max_pages=target_pages)
     if args.variant:
         index_path = PRIORITY_DIR / "index.json"
         existing = {}

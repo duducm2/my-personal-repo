@@ -4,7 +4,9 @@
     "en": 1,
     "pt": 1
   },
+  "max_pages": 1,
   "one_page": true,
+  "page_limit_ok": true,
   "kept": [
     {
       "id": "skill:general:Tech:18",

@@ -427,6 +427,96 @@ class CanonicalStore:
             out[key] = self._read_csv(filename, columns)
         return out
 
+    def load_deliverables_data(self) -> dict[str, Any]:
+        """Load structured content for resumes & portfolios editing."""
+        return {
+            "profile": self._read_csv_raw("profile.csv"),
+            "narratives": self._read_csv_raw("narratives.csv"),
+            "experience": self._read_csv_raw("experience.csv"),
+            "experienceBullets": self._read_csv_raw("experience_bullets.csv"),
+            "skills": self._read_csv_raw("skills.csv"),
+            "education": self._read_csv_raw("education.csv"),
+            "publications": self._read_csv_raw("publications.csv"),
+            "additional": self._read_csv_raw("additional.csv"),
+            "resumeSettings": self._read_csv_raw("resume_settings.csv"),
+        }
+
+    def save_deliverables_data(self, data: dict[str, Any]) -> dict[str, Any]:
+        """Save structured resume/portfolio data while preserving markdown formatting."""
+        if not isinstance(data, dict):
+            raise ValueError("data must be an object")
+
+        file_mapping = {
+            "profile": "profile.csv",
+            "narratives": "narratives.csv",
+            "experience": "experience.csv",
+            "experienceBullets": "experience_bullets.csv",
+            "skills": "skills.csv",
+            "education": "education.csv",
+            "publications": "publications.csv",
+            "additional": "additional.csv",
+            "resumeSettings": "resume_settings.csv",
+        }
+
+        saved_counts: dict[str, int] = {}
+        for key, filename in file_mapping.items():
+            if key in data and isinstance(data[key], list):
+                rows = data[key]
+                self._write_csv_raw(filename, rows)
+                saved_counts[key] = len(rows)
+
+        return {"ok": True, "counts": saved_counts}
+
+    def _read_csv_raw(self, filename: str) -> list[dict[str, str]]:
+        """Read CSV keeping formatting (e.g. markdown **bold**, newlines)."""
+        path = self.canonical_dir / filename
+        if not path.exists():
+            return []
+        with path.open(encoding="utf-8", newline="") as f:
+            reader = csv.DictReader(f)
+            fieldnames = list(reader.fieldnames or [])
+            rows: list[dict[str, str]] = []
+            for raw in reader:
+                rows.append({col: (raw.get(col) or "").strip() for col in fieldnames})
+            return rows
+
+    def _write_csv_raw(self, filename: str, rows: list[dict[str, Any]]) -> None:
+        """Write CSV preserving formatting without stripping markdown characters."""
+        path = self.canonical_dir / filename
+        path.parent.mkdir(parents=True, exist_ok=True)
+        if not rows and path.exists():
+            # If empty list passed, do not overwrite completely unless explicit
+            return
+        fieldnames: list[str] = []
+        if path.exists():
+            with path.open(encoding="utf-8", newline="") as f:
+                reader = csv.DictReader(f)
+                fieldnames = list(reader.fieldnames or [])
+        for row in rows:
+            for k in row.keys():
+                if k not in fieldnames:
+                    fieldnames.append(k)
+
+        with tempfile.NamedTemporaryFile(
+            mode="w",
+            encoding="utf-8",
+            newline="",
+            dir=path.parent,
+            delete=False,
+            suffix=".tmp",
+        ) as tmp:
+            writer = csv.DictWriter(
+                tmp,
+                fieldnames=fieldnames,
+                lineterminator="\n",
+                quoting=csv.QUOTE_MINIMAL,
+            )
+            writer.writeheader()
+            for r in rows:
+                writer.writerow({k: str(r.get(k, "")).strip() for k in fieldnames})
+            tmp_path = Path(tmp.name)
+        tmp_path.replace(path)
+
     def load_prompt_context(self) -> dict[str, list[dict[str, str]]]:
         """Read-only CSV bundles used by the job openings prompt generator.
 

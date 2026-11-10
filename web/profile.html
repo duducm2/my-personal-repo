@@ -180,16 +180,23 @@
             <h2 id="downloads-heading" class="section-title">
               <span class="section-title-en">Resumes &amp; portfolios</span>
             </h2>
+            <button
+              type="button"
+              id="rebuild-all-deliverables-btn"
+              class="add-btn"
+              title="Recompile all resumes and portfolios"
+            >
+              Rebuild all PDFs
+            </button>
           </div>
           <p class="section-lede downloads-policy">
             <span
               class="resume-page-badge"
-              title="Hard limit for every resume PDF"
-              >1 page · A4</span
+              title="Standard limit for resumes (1 page default, configurable up to 2 pages)"
+              >1 page (Standard) · A4</span
             >
             <span class="section-title-en"
-              >Resumes are limited to one page. Click <strong>View</strong> to
-              open the file, then download it from the preview.</span
+              >Standard constraint is 1 page (supports 1–2 pages). Click <strong>Edit</strong> on any variant to update text and automatically recompile PDFs, or <strong>View</strong> to preview.</span
             >
           </p>
           <div id="downloads-root" class="downloads-grid"></div>
@@ -408,6 +415,14 @@
           <div class="resume-viewer-head-actions">
             <button
               type="button"
+              id="resume-viewer-edit-btn"
+              class="download-btn download-btn-view"
+              title="Edit the content of this resume/portfolio"
+            >
+              Edit content
+            </button>
+            <button
+              type="button"
               id="resume-viewer-copy-path"
               class="download-btn download-btn-view"
               hidden
@@ -437,6 +452,66 @@
           class="resume-viewer-frame"
           title="Resume preview"
         ></iframe>
+      </div>
+    </dialog>
+
+    <dialog
+      id="deliverable-edit-modal"
+      class="company-modal deliverable-edit-modal"
+      aria-labelledby="deliverable-edit-title"
+    >
+      <div class="company-modal-inner deliverable-edit-inner">
+        <header class="company-modal-head deliverable-edit-head">
+          <div class="deliverable-edit-head-left">
+            <h2 id="deliverable-edit-title" class="company-modal-title">
+              Edit Resume &amp; Portfolio Content
+            </h2>
+            <div class="deliverable-variant-pills" role="radiogroup" aria-label="Variant selector">
+              <button type="button" class="variant-pill is-active" data-variant="ux-researcher">UX Researcher</button>
+              <button type="button" class="variant-pill" data-variant="digital-solution-architect">Digital Solution Architect</button>
+              <button type="button" class="variant-pill" data-variant="data-analyst">Data Analyst</button>
+              <button type="button" class="variant-pill" data-variant="product-owner">Product Owner</button>
+              <button type="button" class="variant-pill" data-variant="general">General</button>
+            </div>
+          </div>
+          <div class="deliverable-edit-head-actions">
+            <div class="page-constraint-wrap" id="page-constraint-container">
+              <span class="constraint-label">Resume page limit:</span>
+              <button type="button" class="constraint-btn is-active" id="constraint-1p" data-pages="1" title="Hard single-page constraint (default standard)">1 page (Standard)</button>
+              <button type="button" class="constraint-btn" id="constraint-2p" data-pages="2" title="Allow up to 2 pages">1–2 pages</button>
+              <span id="deliverable-page-status" class="page-count-badge is-ok">1p</span>
+            </div>
+            <button
+              type="button"
+              id="deliverable-edit-close"
+              class="company-modal-close"
+              aria-label="Close editor"
+            >
+              ✕
+            </button>
+          </div>
+        </header>
+
+        <nav class="deliverable-tabs-bar" role="tablist">
+          <button type="button" class="deliverable-tab is-active" data-tab="resume" role="tab" aria-selected="true">Resume Content</button>
+          <button type="button" class="deliverable-tab" data-tab="portfolio" role="tab" aria-selected="false">Portfolio Deck Slides</button>
+          <button type="button" class="deliverable-tab" data-tab="shared" role="tab" aria-selected="false">Shared Resume Sections (Education/Pubs/Awards)</button>
+        </nav>
+
+        <div id="deliverable-edit-body" class="company-modal-body deliverable-edit-body">
+          <!-- Dynamic form rendered by app.js -->
+        </div>
+
+        <footer class="deliverable-edit-footer">
+          <div class="deliverable-footer-status" id="deliverable-footer-status">
+            Ready.
+          </div>
+          <div class="deliverable-footer-actions">
+            <button type="button" class="download-btn download-btn-view" id="deliverable-preview-en-btn">Preview EN PDF</button>
+            <button type="button" class="download-btn download-btn-view" id="deliverable-preview-pt-btn">Preview PT PDF</button>
+            <button type="button" class="add-btn primary-save-btn" id="deliverable-save-btn">Save &amp; Regenerate (Ctrl+S)</button>
+          </div>
+        </footer>
       </div>
     </dialog>
 
