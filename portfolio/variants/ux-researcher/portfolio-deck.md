@@ -1229,22 +1229,62 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 <div class="tooling-pt-layout">
 <div class="tooling-pt-main">
 <div class="tooling-pt-prototypes">
-<p><img src="../../../pictures/work/tooling-project/tooling-1.png" alt="Tooling project for PT – wireframe or early concept" /></p>
-<p><img src="../../../pictures/work/tooling-project/tooling-2.png" alt="Tooling project for PT – low-fidelity prototype" /></p>
-<p><img src="../../../pictures/work/tooling-project/tooling-3.png" alt="Tooling project for PT – high-fidelity prototype" /></p>
+<p><img src="../../../pictures/work/tooling-project/tooling-1.png" alt="Tooling Wireframe & Information Architecture" /></p>
+<p><img src="../../../pictures/work/tooling-project/tooling-2.png" alt="Low-Fidelity Prototype & User Testing Flow" /></p>
+<p><img src="../../../pictures/work/tooling-project/tooling-3.png" alt="High-Fidelity Interactive Prototype" /></p>
 </div>
 <div class="tooling-pt-right">
 <p class="tooling-pt-diagram"><img src="../../../pictures/diagrams/tooling-pt-workflow.png" alt="Diagram tooling-pt-workflow: Tooling PT delivery workflow" /></p>
 <div class="tooling-pt-workshops">
-<p><img src="../../../pictures/work/tooling-project/tooling-4.jpg" alt="Tooling project for PT – customer workshop" /></p>
-<p><img src="../../../pictures/work/tooling-project/tooling-5.jpg" alt="Tooling project for PT – customer workshop" /></p>
-<p><img src="../../../pictures/work/tooling-project/tooling-6.jpg" alt="Tooling project for PT – customer workshop" /></p>
+<p><img src="../../../pictures/work/tooling-project/tooling-4.jpg" alt="Customer Workshop & Check-in Session" /></p>
+<p><img src="../../../pictures/work/tooling-project/tooling-5.jpg" alt="Stakeholder Co-Design & Journey Mapping" /></p>
+<p><img src="../../../pictures/work/tooling-project/tooling-6.jpg" alt="Delivery Validation & Prototype Review" /></p>
 </div>
 </div>
 </div>
 </div>
 
 <!-- Diagram: tooling-pt-workflow (mermaid/diagrams.md). Export to tooling-pt-workflow.png -->
+
+---
+
+<!-- Slide 16b – Present (Astra Project – AgriTech IoT & Cattle Telemetry) -->
+
+<!-- _class: dense-content -->
+
+<style scoped>
+.astra-pt-layout {
+  display: flex !important; flex-direction: column !important;
+  gap: 0.4rem !important; margin-top: 0.35rem !important;
+  max-width: 100% !important; position: relative !important;
+  padding: 0 !important; padding-bottom: 0.5rem !important;
+}
+.astra-pt-images {
+  display: flex !important; flex-direction: row !important; flex-wrap: wrap !important;
+  gap: 0.6rem !important; justify-content: flex-start !important; align-items: center !important;
+  margin-top: 0.5rem !important;
+}
+.astra-pt-images p { margin: 0 !important; padding: 0 !important; }
+.astra-pt-images img {
+  height: 200px !important; max-height: 200px !important; width: auto !important;
+  max-width: 320px !important;
+  object-fit: cover !important; display: block !important;
+  border-radius: 4px !important; border: 1px solid rgba(0,0,0,0.08) !important;
+}
+</style>
+
+## In-situ Ethnography & Experience Research – Astra Project
+
+- **Astra Project (AgriTech Cattle Telemetry):** In-situ ethnography at **Fazenda Sindi da Porangaba**, semi-structured interviews with breeders and cowboys, and lived-experience mapping to shape hardware-software IoT interaction.
+
+<div class="astra-pt-layout">
+<div class="astra-pt-images">
+<p><img src="../../../pictures/work/astra-project/IMG-20260414-WA0003.jpg" alt="On-site Ethnography at Fazenda Sindi da Porangaba (Apr 2026)" /></p>
+<p><img src="../../../pictures/work/astra-project/IMG_20260415_141239.jpg" alt="Cattle Ranch Operational Routines Observation" /></p>
+<p><img src="../../../pictures/work/astra-project/IMG_20260415_142514.jpg" alt="Livestock Management & User Journey Fieldwork" /></p>
+<p><img src="../../../pictures/work/astra-project/IMG_20260415_182229.jpg" alt="Bosch Astra IoT Telemetry Device & Hardware Evaluation" /></p>
+</div>
+</div>
 
 ---
 
@@ -1347,23 +1387,23 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 <!-- Slide 21 – Future (Career) -->
 
 <style scoped>
-.future-career-wrap {
-  display: flex !important; flex-direction: column !important;
-  justify-content: flex-start !important; align-items: stretch !important;
-  width: 100% !important; margin-top: 0.35rem !important;
-  gap: 0.4rem !important;
-}
-.future-career-wrap p { margin: 0 !important; text-align: left !important; }
-.future-po-bullets {
-  width: 100% !important; max-width: 100% !important; text-align: left !important; font-size: 0.85em !important;
-}
-.future-po-bullets table {
-  width: 100% !important; table-layout: fixed !important; margin-top: 0.35rem !important;
-}
-.future-po-bullets th:first-child,
-.future-po-bullets td:first-child { width: 22% !important; }
-.future-po-bullets td, .future-po-bullets th {
-  overflow-wrap: anywhere; padding: 0.28em 0.5em !important;
+.future-career-wrap {
+  display: flex !important; flex-direction: column !important;
+  justify-content: flex-start !important; align-items: stretch !important;
+  width: 100% !important; margin-top: 0.35rem !important;
+  gap: 0.4rem !important;
+}
+.future-career-wrap p { margin: 0 !important; text-align: left !important; }
+.future-po-bullets {
+  width: 100% !important; max-width: 100% !important; text-align: left !important; font-size: 0.85em !important;
+}
+.future-po-bullets table {
+  width: 100% !important; table-layout: fixed !important; margin-top: 0.35rem !important;
+}
+.future-po-bullets th:first-child,
+.future-po-bullets td:first-child { width: 22% !important; }
+.future-po-bullets td, .future-po-bullets th {
+  overflow-wrap: anywhere; padding: 0.28em 0.5em !important;
 }
 </style>
 
@@ -1418,12 +1458,12 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 <table>
 <thead><tr><th>Interest</th></tr></thead>
 <tbody>
-<tr><td>Piano</td></tr>
-<tr><td>Linguistics (phonology & phonetics)</td></tr>
-<tr><td>Physics (GR & Quantum)</td></tr>
-<tr><td>Acting</td></tr>
-<tr><td>Impressionist art</td></tr>
-<tr><td>Macro creation</td></tr>
+<tr><td>Piano</td></tr>
+<tr><td>Linguistics (phonology & phonetics)</td></tr>
+<tr><td>Physics (GR & Quantum)</td></tr>
+<tr><td>Acting</td></tr>
+<tr><td>Impressionist art</td></tr>
+<tr><td>Macro creation</td></tr>
 <tr><td>Specialized keyboards</td></tr>
 </tbody>
 </table>

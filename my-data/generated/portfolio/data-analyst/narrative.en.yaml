@@ -3,6 +3,13 @@ variant: data-analyst
 lang: en
 fields:
   asset_prefix: "../../../"
+  astra_bullet: "- Astra Project: IPA and Grounded Theory across 100+ field observations, synthesis into Power BI insights hub, and validation of cattle telemetry data streams."
+  astra_h2: "Qualitative Field Analytics & IoT Telemetry – Astra Project"
+  astra_images: |
+    <p><img src="../../../pictures/work/astra-project/IMG-20260414-WA0003.jpg" alt="On-site Ethnography at Fazenda Sindi da Porangaba (Apr 2026)" /></p>
+    <p><img src="../../../pictures/work/astra-project/IMG_20260415_141239.jpg" alt="Cattle Ranch Operational Routines Observation" /></p>
+    <p><img src="../../../pictures/work/astra-project/IMG_20260415_142514.jpg" alt="Livestock Management & User Journey Fieldwork" /></p>
+    <p><img src="../../../pictures/work/astra-project/IMG_20260415_182229.jpg" alt="Bosch Astra IoT Telemetry Device & Hardware Evaluation" /></p>
   cip_pipeline_h2: "Present – CIP and Applied Research: Data-Informed Methodology Pipeline"
   closing_summary: "I connect research to the right business action. A Master's in Information Systems and Communication and more than four years of applied research sit behind the numbers. I try to leave the people deciding with something they can act on, not only charts."
   csi_h2: "Present – Outcome Metrics: CSI & NPS (2024–2025)"
@@ -172,6 +179,14 @@ fields:
   relevance_h2: "Present – Relevance evaluation model (Low / Medium / High)"
   tooling_bullet: "- Tooling project for Power Tools: delivery from requirements through prototypes, with regular check-ins and progress tracked for decisions."
   tooling_h2: "Measurement in Delivery – Tooling Project for PT"
+  tooling_prototype_images: |
+    <p><img src="../../../pictures/work/tooling-project/tooling-1.png" alt="Tooling Wireframe & Information Architecture" /></p>
+    <p><img src="../../../pictures/work/tooling-project/tooling-2.png" alt="Low-Fidelity Prototype & User Testing Flow" /></p>
+    <p><img src="../../../pictures/work/tooling-project/tooling-3.png" alt="High-Fidelity Interactive Prototype" /></p>
+  tooling_workshop_images: |
+    <p><img src="../../../pictures/work/tooling-project/tooling-4.jpg" alt="Customer Workshop & Check-in Session" /></p>
+    <p><img src="../../../pictures/work/tooling-project/tooling-5.jpg" alt="Stakeholder Co-Design & Journey Mapping" /></p>
+    <p><img src="../../../pictures/work/tooling-project/tooling-6.jpg" alt="Delivery Validation & Prototype Review" /></p>
   who_contact: "Nova Odessa, SP – Brazil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583"
   who_impact: "I help teams make decisions with clearer numbers. I hold a Master's in Information Systems and Communication, and I have done applied research for more than four years: reasoning and evidence for the right business action. I am currently learning Databricks, PySpark, and Apache Spark."
   who_name: "Eduardo M. de A. Figueiredo"

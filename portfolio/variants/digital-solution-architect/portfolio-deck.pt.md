@@ -440,8 +440,8 @@ img[src*="story-flow"] {
 
 ## Digitalização e analytics que se sustentam quando chegam à produção
 
-- Acho que soluções digitais em organizações de serviço precisam sobreviver à operação real—não só ficar bem em uma revisão.
-- Meu trabalho conecta digitalização, caminhos de dados e quality gates de pesquisa aplicada: arquitetura que os times consigam operar.
+- Acho que soluções digitais em organizações de serviço precisam sobreviver à operação real—não só ficar bem em uma revisão.
+- Meu trabalho conecta digitalização, caminhos de dados e quality gates de pesquisa aplicada: arquitetura que os times consigam operar.
 - Este portfólio mostra esse caminho em sistemas, dashboards e entrega.
 
 <p><img src="../../../pictures/diagrams/story-flow.png" alt="Diagram story-flow: Why story flow" /></p>
@@ -661,13 +661,13 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 <p class="americas-img"><img src="../../../pictures/work/americas-team-2025.jpg" alt="Americas Team 2025 - UX Maturity Level 4" /></p>
 </div>
 
-| Área | Conquista |
-|------|-----------|
-| Digitalização (Bosch HU) | Sistemas web ponta a ponta para Business Excellence em SQL Server, IIS, Git; entrega Kanban |
-| Gates de arquitetura (GS) | Relevância em UX automatizada no ServiceNow; dashboards CIP estratégicos para liderança |
-| Analytics → insight | Data Insights: Teoria Fundamentada + Python/IA + Power BI em transcrições de call center |
-| Maturidade e governança | Nível 4 de Maturidade UX nas Américas; Power BI + Microsoft Lists para conformidade documental |
-| Resultados de entrega | Média CSI 4,86 / NPS 9,94 (2024–2025); tooling de requisitos a protótipos hi-fi |
+| Área | Conquista |
+|------|-----------|
+| Digitalização (Bosch HU) | Sistemas web ponta a ponta para Business Excellence em SQL Server, IIS, Git; entrega Kanban |
+| Gates de arquitetura (GS) | Relevância em UX automatizada no ServiceNow; dashboards CIP estratégicos para liderança |
+| Analytics → insight | Data Insights: Teoria Fundamentada + Python/IA + Power BI em transcrições de call center |
+| Maturidade e governança | Nível 4 de Maturidade UX nas Américas; Power BI + Microsoft Lists para conformidade documental |
+| Resultados de entrega | Média CSI 4,86 / NPS 9,94 (2024–2025); tooling de requisitos a protótipos hi-fi |
 | Capacitação | Treinamento de ferramentas de IA para 100+ pessoas (4,88/5); curso de IA de 8 sessões na Bosch em 2026 com Felipe Oshiro e Gabriel Reis; viagens à Alemanha 2024–2025 |
 
 ---
@@ -1011,9 +1011,9 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 
 <p class="dissertation-pbi-intro"><span class="thesis-emphasis">Minha dissertação de mestrado mensura confiança percebida em interfaces de e-commerce com o MQCI (ISO/IEC 25000) e a TrustMate, depois compara agentes ChatGPT o3 com 127 estudantes de TI em três sites. O ângulo de arquitetura: a triagem automatizada de qualidade de interface consegue apoiar decisões antes de escalar features de IA—sem fingir que agentes substituem avaliação humana? A resposta do estudo é sim à triagem, não à substituição.</span></p>
 
-- Tema: pontuação de confiança MQCI em interfaces de e-commerce com TrustMate; agentes de IA como triagem automatizada vs avaliação humana (127 estudantes de TI, três sites).
-- Achado: agentes de IA não substituem a avaliação humana; são triagem automatizada promissora da qualidade da interface (alinhamento direcional nos melhores/piores atributos; viés mais rigoroso na maior parte das pontuações folha).
-- Pipeline inferencial: Shapiro-Wilk → t de Welch/pareado, d de Cohen, FDR—depois reporting em Power BI com 50+ estruturas visuais.
+- Tema: pontuação de confiança MQCI em interfaces de e-commerce com TrustMate; agentes de IA como triagem automatizada vs avaliação humana (127 estudantes de TI, três sites).
+- Achado: agentes de IA não substituem a avaliação humana; são triagem automatizada promissora da qualidade da interface (alinhamento direcional nos melhores/piores atributos; viés mais rigoroso na maior parte das pontuações folha).
+- Pipeline inferencial: Shapiro-Wilk → t de Welch/pareado, d de Cohen, FDR—depois reporting em Power BI com 50+ estruturas visuais.
 - Por que importa para arquitetos: desenho de avaliação e métricas honestas antes de escalar features de IA em uma plataforma.
 
 <div class="dissertation-pbi-row">
@@ -1068,7 +1068,7 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 
 ## Visualização de dados – InfoVis (Mestrado): PNAD Contínua (Power BI)
 
-- Visualização da Informação (Mestrado Unicamp, nota A): estruturas visuais e mapeamento para dados operacionais multivariados—habilidades que transferem para arquitetar superfícies analíticas cloud legíveis.
+- Visualização da Informação (Mestrado Unicamp, nota A): estruturas visuais e mapeamento para dados operacionais multivariados—habilidades que transferem para arquitetar superfícies analíticas cloud legíveis.
 - PNAD Contínua no Power BI: de tabelas brutas a visões interativas exploráveis por stakeholders.
 
 <div class="infovis-split">
@@ -1229,22 +1229,62 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 <div class="tooling-pt-layout">
 <div class="tooling-pt-main">
 <div class="tooling-pt-prototypes">
-<p><img src="../../../pictures/work/tooling-project/tooling-1.png" alt="Tooling project for PT – wireframe or early concept" /></p>
-<p><img src="../../../pictures/work/tooling-project/tooling-2.png" alt="Tooling project for PT – low-fidelity prototype" /></p>
-<p><img src="../../../pictures/work/tooling-project/tooling-3.png" alt="Tooling project for PT – high-fidelity prototype" /></p>
+<p><img src="../../../pictures/work/tooling-project/tooling-1.png" alt="Wireframe e Arquitetura de Informação" /></p>
+<p><img src="../../../pictures/work/tooling-project/tooling-2.png" alt="Protótipo de Baixa Fidelidade e Teste de Usuários" /></p>
+<p><img src="../../../pictures/work/tooling-project/tooling-3.png" alt="Protótipo Interativo de Alta Fidelidade" /></p>
 </div>
 <div class="tooling-pt-right">
 <p class="tooling-pt-diagram"><img src="../../../pictures/diagrams/tooling-pt-workflow.png" alt="Diagram tooling-pt-workflow: Tooling PT delivery workflow" /></p>
 <div class="tooling-pt-workshops">
-<p><img src="../../../pictures/work/tooling-project/tooling-4.jpg" alt="Tooling project for PT – customer workshop" /></p>
-<p><img src="../../../pictures/work/tooling-project/tooling-5.jpg" alt="Tooling project for PT – customer workshop" /></p>
-<p><img src="../../../pictures/work/tooling-project/tooling-6.jpg" alt="Tooling project for PT – customer workshop" /></p>
+<p><img src="../../../pictures/work/tooling-project/tooling-4.jpg" alt="Workshop e Check-in com Clientes" /></p>
+<p><img src="../../../pictures/work/tooling-project/tooling-5.jpg" alt="Sessão de Co-design com Stakeholders" /></p>
+<p><img src="../../../pictures/work/tooling-project/tooling-6.jpg" alt="Validação de Entrega e Revisão de Protótipo" /></p>
 </div>
 </div>
 </div>
 </div>
 
 <!-- Diagram: tooling-pt-workflow (mermaid/diagrams.md). Export to tooling-pt-workflow.png -->
+
+---
+
+<!-- Slide 16b – Present (Astra Project – AgriTech IoT & Cattle Telemetry) -->
+
+<!-- _class: dense-content -->
+
+<style scoped>
+.astra-pt-layout {
+  display: flex !important; flex-direction: column !important;
+  gap: 0.4rem !important; margin-top: 0.35rem !important;
+  max-width: 100% !important; position: relative !important;
+  padding: 0 !important; padding-bottom: 0.5rem !important;
+}
+.astra-pt-images {
+  display: flex !important; flex-direction: row !important; flex-wrap: wrap !important;
+  gap: 0.6rem !important; justify-content: flex-start !important; align-items: center !important;
+  margin-top: 0.5rem !important;
+}
+.astra-pt-images p { margin: 0 !important; padding: 0 !important; }
+.astra-pt-images img {
+  height: 200px !important; max-height: 200px !important; width: auto !important;
+  max-width: 320px !important;
+  object-fit: cover !important; display: block !important;
+  border-radius: 4px !important; border: 1px solid rgba(0,0,0,0.08) !important;
+}
+</style>
+
+## Arquitetura de Telemetria IoT e Estratégia de Campo – Projeto Astra
+
+- Projeto Astra: avaliação de dispositivos de telemetria bovina IoT da Bosch sob restrições reais de campo, conectando hardware de telemetria, alcance de transmissão e arquitetura de software cloud.
+
+<div class="astra-pt-layout">
+<div class="astra-pt-images">
+<p><img src="../../../pictures/work/astra-project/IMG-20260414-WA0003.jpg" alt="Etnografia in loco na Fazenda Sindi da Porangaba (Abr 2026)" /></p>
+<p><img src="../../../pictures/work/astra-project/IMG_20260415_141239.jpg" alt="Observação de Rotinas Operacionais no Campo" /></p>
+<p><img src="../../../pictures/work/astra-project/IMG_20260415_142514.jpg" alt="Gestão Pecuária e Mapeamento de Jornada em Campo" /></p>
+<p><img src="../../../pictures/work/astra-project/IMG_20260415_182229.jpg" alt="Dispositivo e Avaliação de Hardware de Telemetria IoT Astra (Bosch)" /></p>
+</div>
+</div>
 
 ---
 
@@ -1305,7 +1345,7 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 
 ## InfoVis – Visualização de textos e grafos (PhraseNets)
 
-- Grafos, árvores e viz de texto: codificar relações e coocorrência—útil quando a arquitetura precisa expor estrutura de eventos e dependências.
+- Grafos, árvores e viz de texto: codificar relações e coocorrência—útil quando a arquitetura precisa expor estrutura de eventos e dependências.
 - Padrões de interação: filtragem e detalhe sob demanda como restrições de UX em plataformas de dados.
 
 <div class="phrase-net-row">
@@ -1347,68 +1387,68 @@ Quero me tornar Arquiteto de Soluções Digitais (Pleno) que desenha digitaliza�
 <!-- Slide 21 – Future (Career) -->
 
 <style scoped>
-.future-career-wrap {
-  display: flex !important; flex-direction: column !important;
-  justify-content: flex-start !important; align-items: stretch !important;
-  width: 100% !important; margin-top: 0.35rem !important;
-  gap: 0.4rem !important;
-}
-.future-career-wrap p { margin: 0 !important; text-align: left !important; }
-.future-po-bullets {
-  width: 100% !important; max-width: 100% !important; text-align: left !important; font-size: 0.85em !important;
-}
-.future-po-bullets table {
-  width: 100% !important; table-layout: fixed !important; margin-top: 0.35rem !important;
-}
-.future-po-bullets th:first-child,
-.future-po-bullets td:first-child { width: 22% !important; }
-.future-po-bullets td, .future-po-bullets th {
-  overflow-wrap: anywhere; padding: 0.28em 0.5em !important;
+.future-career-wrap {
+  display: flex !important; flex-direction: column !important;
+  justify-content: flex-start !important; align-items: stretch !important;
+  width: 100% !important; margin-top: 0.35rem !important;
+  gap: 0.4rem !important;
+}
+.future-career-wrap p { margin: 0 !important; text-align: left !important; }
+.future-po-bullets {
+  width: 100% !important; max-width: 100% !important; text-align: left !important; font-size: 0.85em !important;
+}
+.future-po-bullets table {
+  width: 100% !important; table-layout: fixed !important; margin-top: 0.35rem !important;
+}
+.future-po-bullets th:first-child,
+.future-po-bullets td:first-child { width: 22% !important; }
+.future-po-bullets td, .future-po-bullets th {
+  overflow-wrap: anywhere; padding: 0.28em 0.5em !important;
 }
 </style>
 
-## Futuro – Como chego lá
-
-<div class="future-career-wrap">
-<div class="future-po-bullets">
-
-| Passo | O que é |
-| ----- | ------- |
-| Agora | Sistemas de digitalização (Bosch HU), gates de arquitetura no CIP ServiceNow, analytics→insight (Data Insights), maturidade UX e resultados de entrega na Bosch |
-| Próximo | Arquiteto de Soluções Digitais (Pleno): cloud, digitalização e entrega baseada em evidência |
-| Método | Limites, gates de evidência e desenhos que sobrevivem à operação |
-| Decisões | Soluções julgadas por resultados em produção, não por slides |
-
-</div>
-</div>
-
----
-
-<style scoped>
-.career-path-slide {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: flex-start !important;
-  width: 100% !important;
-  margin-top: 0.35rem !important;
-}
-.career-path-slide p { margin: 0 !important; text-align: center !important; width: 100% !important; }
-.career-path-slide img {
-  width: 78% !important;
-  max-width: 78% !important;
-  height: auto !important;
-  max-height: 76vh !important;
-  display: block !important;
-  margin: 0 auto !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-</style>
-
-## Futuro – O caminho
-
-<div class="career-path-slide">
-<p><img src="../../../pictures/diagrams/future-career-path-digital-solution-architect-pt.png" alt="Diagrama: digitalização e gates de arquitetura hoje, depois Arquiteto de Soluções Digitais Pleno, depois soluções operáveis" /></p>
+## Futuro – Como chego lá
+
+<div class="future-career-wrap">
+<div class="future-po-bullets">
+
+| Passo | O que é |
+| ----- | ------- |
+| Agora | Sistemas de digitalização (Bosch HU), gates de arquitetura no CIP ServiceNow, analytics→insight (Data Insights), maturidade UX e resultados de entrega na Bosch |
+| Próximo | Arquiteto de Soluções Digitais (Pleno): cloud, digitalização e entrega baseada em evidência |
+| Método | Limites, gates de evidência e desenhos que sobrevivem à operação |
+| Decisões | Soluções julgadas por resultados em produção, não por slides |
+
+</div>
+</div>
+
+---
+
+<style scoped>
+.career-path-slide {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  width: 100% !important;
+  margin-top: 0.35rem !important;
+}
+.career-path-slide p { margin: 0 !important; text-align: center !important; width: 100% !important; }
+.career-path-slide img {
+  width: 78% !important;
+  max-width: 78% !important;
+  height: auto !important;
+  max-height: 76vh !important;
+  display: block !important;
+  margin: 0 auto !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+</style>
+
+## Futuro – O caminho
+
+<div class="career-path-slide">
+<p><img src="../../../pictures/diagrams/future-career-path-digital-solution-architect-pt.png" alt="Diagrama: digitalização e gates de arquitetura hoje, depois Arquiteto de Soluções Digitais Pleno, depois soluções operáveis" /></p>
 </div>
 
 <!-- Diagram: future-career-path (mermaid/diagrams.md). Export to future-career-path.png -->
@@ -1453,12 +1493,12 @@ Quero me tornar Arquiteto de Soluções Digitais (Pleno) que desenha digitaliza�
 <table>
 <thead><tr><th>Interesse</th></tr></thead>
 <tbody>
-<tr><td>Piano</td></tr>
-<tr><td>Linguística (fonologia e fonética)</td></tr>
-<tr><td>Física (relatividade e quântica)</td></tr>
-<tr><td>Atuação</td></tr>
-<tr><td>Arte impressionista</td></tr>
-<tr><td>Criação de macros</td></tr>
+<tr><td>Piano</td></tr>
+<tr><td>Linguística (fonologia e fonética)</td></tr>
+<tr><td>Física (relatividade e quântica)</td></tr>
+<tr><td>Atuação</td></tr>
+<tr><td>Arte impressionista</td></tr>
+<tr><td>Criação de macros</td></tr>
 <tr><td>Teclados especializados</td></tr>
 </tbody>
 </table>

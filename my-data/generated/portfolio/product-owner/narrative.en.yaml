@@ -3,6 +3,13 @@ variant: product-owner
 lang: en
 fields:
   asset_prefix: "../../../"
+  astra_bullet: "- Astra Project: owner of qualitative discovery at ranches (Fazenda Sindi da Porangaba), translating operational routines into journey maps, Power BI insights, and MVP product definition for cattle IoT telemetry."
+  astra_h2: "Product Discovery & Field Validation – Astra Project (AgriTech IoT)"
+  astra_images: |
+    <p><img src="../../../pictures/work/astra-project/IMG-20260414-WA0003.jpg" alt="On-site Ethnography at Fazenda Sindi da Porangaba (Apr 2026)" /></p>
+    <p><img src="../../../pictures/work/astra-project/IMG_20260415_141239.jpg" alt="Cattle Ranch Operational Routines Observation" /></p>
+    <p><img src="../../../pictures/work/astra-project/IMG_20260415_142514.jpg" alt="Livestock Management & User Journey Fieldwork" /></p>
+    <p><img src="../../../pictures/work/astra-project/IMG_20260415_182229.jpg" alt="Bosch Astra IoT Telemetry Device & Hardware Evaluation" /></p>
   cip_pipeline_h2: "Present – CIP Intake Gate: Methodology Pipeline"
   closing_summary: "I stay with work from discovery through delivery—clarifying needs, aligning people, prioritizing with evidence, and checking whether the outcome held up."
   csi_h2: "Present – Outcome Evidence: CSI & NPS (2024–2025)"
@@ -166,6 +173,14 @@ fields:
   relevance_h2: "Present – Prioritization Model (Low / Medium / High relevance)"
   tooling_bullet: "- Tooling project for Power Tools: I owned the path from requirements through high-fidelity prototypes, with regular customer check-ins baked into delivery."
   tooling_h2: "Discovery → Delivery – Tooling Project for PT"
+  tooling_prototype_images: |
+    <p><img src="../../../pictures/work/tooling-project/tooling-1.png" alt="Tooling Wireframe & Information Architecture" /></p>
+    <p><img src="../../../pictures/work/tooling-project/tooling-2.png" alt="Low-Fidelity Prototype & User Testing Flow" /></p>
+    <p><img src="../../../pictures/work/tooling-project/tooling-3.png" alt="High-Fidelity Interactive Prototype" /></p>
+  tooling_workshop_images: |
+    <p><img src="../../../pictures/work/tooling-project/tooling-4.jpg" alt="Customer Workshop & Check-in Session" /></p>
+    <p><img src="../../../pictures/work/tooling-project/tooling-5.jpg" alt="Stakeholder Co-Design & Journey Mapping" /></p>
+    <p><img src="../../../pictures/work/tooling-project/tooling-6.jpg" alt="Delivery Validation & Prototype Review" /></p>
   who_contact: "Nova Odessa, SP – Brazil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583"
   who_impact: "I help teams decide what to build next and get it shipped—research for the call, alignment for the commit, metrics afterward."
   who_name: "Eduardo M. de A. Figueiredo"

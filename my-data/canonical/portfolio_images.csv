@@ -1,0 +1,28 @@
+id,project_id,path,caption_en,caption_pt,category,selected,sort_order
+tooling-proto-1,tooling-pt,pictures/work/tooling-project/tooling-1.png,Tooling Wireframe & Information Architecture,Wireframe e Arquitetura de Informação,prototype,true,1
+tooling-proto-2,tooling-pt,pictures/work/tooling-project/tooling-2.png,Low-Fidelity Prototype & User Testing Flow,Protótipo de Baixa Fidelidade e Teste de Usuários,prototype,true,2
+tooling-proto-3,tooling-pt,pictures/work/tooling-project/tooling-3.png,High-Fidelity Interactive Prototype,Protótipo Interativo de Alta Fidelidade,prototype,true,3
+tooling-ws-4,tooling-pt,pictures/work/tooling-project/tooling-4.jpg,Customer Workshop & Check-in Session,Workshop e Check-in com Clientes,workshop,true,4
+tooling-ws-5,tooling-pt,pictures/work/tooling-project/tooling-5.jpg,Stakeholder Co-Design & Journey Mapping,Sessão de Co-design com Stakeholders,workshop,true,5
+tooling-ws-6,tooling-pt,pictures/work/tooling-project/tooling-6.jpg,Delivery Validation & Prototype Review,Validação de Entrega e Revisão de Protótipo,workshop,true,6
+tooling-ws-7,tooling-pt,pictures/work/tooling-project/1700672395098.jpg,Technical Architecture Alignment Workshop,Workshop de Alinhamento de Arquitetura Técnica,workshop,false,7
+tooling-ws-8,tooling-pt,pictures/work/tooling-project/1700672395111.jpg,Discovery Mapping & Backlog Discussion,Mapeamento de Descoberta e Discussão de Backlog,workshop,false,8
+tooling-ws-9,tooling-pt,pictures/work/tooling-project/1700672395122.jpg,Requirements Prioritization Session,Sessão de Priorização de Requisitos,workshop,false,9
+tooling-ws-10,tooling-pt,pictures/work/tooling-project/1700672395134.jpg,Customer Cadence & Hand-off Review,Cadência com Clientes e Revisão de Handoff,workshop,false,10
+tooling-ws-11,tooling-pt,pictures/work/tooling-project/1700672630418.jpg,Design Sprint Team Collaboration,Colaboração de Equipe em Design Sprint,workshop,false,11
+astra-img-1,agritech-iot-cattle,pictures/work/astra-project/IMG-20260414-WA0003.jpg,On-site Ethnography at Fazenda Sindi da Porangaba (Apr 2026),Etnografia in loco na Fazenda Sindi da Porangaba (Abr 2026),fieldwork,true,1
+astra-img-2,agritech-iot-cattle,pictures/work/astra-project/IMG_20260415_141239.jpg,Cattle Ranch Operational Routines Observation,Observação de Rotinas Operacionais no Campo,fieldwork,true,2
+astra-img-3,agritech-iot-cattle,pictures/work/astra-project/IMG_20260415_142514.jpg,Livestock Management & User Journey Fieldwork,Gestão Pecuária e Mapeamento de Jornada em Campo,fieldwork,true,3
+astra-img-4,agritech-iot-cattle,pictures/work/astra-project/IMG_20260415_162810.jpg,Cowboys & Breeders Semi-Structured Interviews,Entrevistas Semiestruturadas com Peões e Criadores,fieldwork,false,4
+astra-img-5,agritech-iot-cattle,pictures/work/astra-project/IMG_20260415_182229.jpg,Bosch Astra IoT Telemetry Device & Hardware Evaluation,Dispositivo e Avaliação de Hardware de Telemetria IoT Astra (Bosch),telemetry,true,5
+astra-img-6,agritech-iot-cattle,pictures/work/astra-project/IMG_20260416_091043.jpg,IoT Telemetry Field Validation & Data Transmission Test,Validação de Campo e Teste de Transmissão de Dados da Telemetria IoT,telemetry,false,6
+cip-ux-1,cip-research-gate,pictures/work/cip-ux/cip-ux-1.png,CIP-Applied Research Report Cover,Capa do Relatório CIP-Pesquisa Aplicada,artifact,true,1
+cip-ux-2,cip-research-gate,pictures/work/cip-ux/cip-ux-2.png,Summary & Executive Findings,Resumo e Descobertas Executivas,artifact,true,2
+cip-ux-3,cip-research-gate,pictures/work/cip-ux/cip-ux-3.png,Context & Methodology,Contexto e Metodologia,artifact,true,3
+cip-ux-4,cip-research-gate,pictures/work/cip-ux/cip-ux-4.png,Literature Review & Benchmark,Revisão de Literatura e Benchmark,artifact,true,4
+cip-ux-5,cip-research-gate,pictures/work/cip-ux/cip-ux-5.png,Findings & Criticality Index,Descobertas e Índice de Criticalidade,artifact,true,5
+cip-ux-6,cip-research-gate,pictures/work/cip-ux/cip-ux-6.png,Pipeline & Data Processing,Pipeline e Processamento de Dados,artifact,true,6
+cip-ux-7,cip-research-gate,pictures/work/cip-ux/cip-ux-7.png,Strategic Opportunities & Conclusions,Oportunidades Estratégicas e Conclusões,artifact,true,7
+cip-ux-8,cip-research-gate,pictures/work/cip-ux/cip-ux-8.png,Applied Research Visuals,Visuais de Pesquisa Aplicada,artifact,true,8
+ai-agents-1,ai-agents-sessions-2026,pictures/work/ai-agents-sessions-2026.jpg,Bosch AI Sessions (8 sessions with Felipe Oshiro & Gabriel Reis),Sessões de IA na Bosch (8 sessões com Felipe Oshiro e Gabriel Reis),training,true,1
+

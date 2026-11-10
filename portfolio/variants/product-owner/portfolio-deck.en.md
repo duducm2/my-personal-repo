@@ -440,8 +440,8 @@ img[src*="story-flow"] {
 
 ## Products people can rely on in complex service work
 
-- I think products in service organizations have to be reliable and usable—especially when they affect real people and businesses.
-- My work connects stakeholder needs, prioritization, and applied research: evidence shaping what we build, why, and in what order.
+- I think products in service organizations have to be reliable and usable—especially when they affect real people and businesses.
+- My work connects stakeholder needs, prioritization, and applied research: evidence shaping what we build, why, and in what order.
 - This portfolio walks that discovery-to-delivery path through real projects.
 
 <p><img src="../../../pictures/diagrams/story-flow.png" alt="Diagram story-flow: Why story flow" /></p>
@@ -661,29 +661,29 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 <p class="americas-img"><img src="../../../pictures/work/americas-team-2025.jpg" alt="Americas Team 2025 - UX Maturity Level 4" /></p>
 </div>
 
-| Area                               | Achievement                                                                                                                       |
-| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| Role (official)                    | Applied Research & Design Analyst – Bosch Brasil (January 2023 – present); Applied Research Expert & Project Champion at GS/BDU       |
-| International                      | Two trips to Germany (2024, 2025) for role-related work                                                                           |
-| CO2 Tracking (GS/Applied Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand — a discovery outcome that stopped low-value work            |
-| Tooling project (PT)               | Requirements → high-fidelity prototypes → regular customer check-ins; discovery-to-delivery ownership with technical partners |
-| UX Maturity          | Americas Level 4 – governance, templates, training that productized UX practice for stakeholders                        |
-
----
-
-<!-- _class: dense-content -->
-
-<style scoped>
-table { font-size: 0.78em !important; line-height: 1.25 !important; width: 100% !important; table-layout: fixed !important; }
-th:first-child, td:first-child { width: 28% !important; }
-td, th { overflow-wrap: anywhere; padding: 0.22em 0.45em !important; }
-</style>
-
-## Present – Product-Shaped Work at Bosch Brasil (continued)
-
-| Area                               | Achievement                                                                                                                       |
-| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| CIP CIM (Global Services)          | With UX team, improved strategic CIP dashboards so GS president could quickly identify main issues and efficiency/efficacy gains; automated UX relevance intake / quality gate in ServiceNow                           |
+| Area                               | Achievement                                                                                                                       |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| Role (official)                    | Applied Research & Design Analyst – Bosch Brasil (January 2023 – present); Applied Research Expert & Project Champion at GS/BDU       |
+| International                      | Two trips to Germany (2024, 2025) for role-related work                                                                           |
+| CO2 Tracking (GS/Applied Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand — a discovery outcome that stopped low-value work            |
+| Tooling project (PT)               | Requirements → high-fidelity prototypes → regular customer check-ins; discovery-to-delivery ownership with technical partners |
+| UX Maturity          | Americas Level 4 – governance, templates, training that productized UX practice for stakeholders                        |
+
+---
+
+<!-- _class: dense-content -->
+
+<style scoped>
+table { font-size: 0.78em !important; line-height: 1.25 !important; width: 100% !important; table-layout: fixed !important; }
+th:first-child, td:first-child { width: 28% !important; }
+td, th { overflow-wrap: anywhere; padding: 0.22em 0.45em !important; }
+</style>
+
+## Present – Product-Shaped Work at Bosch Brasil (continued)
+
+| Area                               | Achievement                                                                                                                       |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| CIP CIM (Global Services)          | With UX team, improved strategic CIP dashboards so GS president could quickly identify main issues and efficiency/efficacy gains; automated UX relevance intake / quality gate in ServiceNow                           |
 | Collaboration                      | Tutor of Digital Talent Academy Students; AI tools training for 100+ people (4.88/5 satisfaction); 8-session Bosch AI course in 2026 with Felipe Oshiro and Gabriel Reis                                                                                          |
 
 ---
@@ -1027,10 +1027,10 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 
 <p class="dissertation-pbi-intro"><span class="thesis-emphasis">My Master's dissertation looks at perceived trust on e-commerce interfaces: can AI agents score what humans feel? Using ITQM/MQCI (ISO/IEC 25000) and the TrustMate tool I built, I compared ChatGPT o3 agents with 127 IT students on the same three sites. The research stays close to discovery and validation—whether automated triage is good enough before human judgment. Short answer from the study: triage yes, full replacement no.</span></p>
 
-- Topic: can AI agents triage perceived-trust scores on e-commerce UIs the way humans do? ITQM/MQCI + TrustMate; agents vs 127 IT students on three sites.
-- Finding: AI agents don't replace human evaluation; they are a promising automated triage for interface quality (directional alignment on top/bottom attributes; stricter bias on most leaf scores).
-- Normality first: Shapiro-Wilk on attribute score distributions before choosing inferential tests.
-- Python → Power BI: Offline scripts compute Welch (Human–AI), paired t-tests (Human–Human), and independent t-tests (AI–AI) with Cohen's d and Benjamini-Hochberg FDR; results imported into Power BI for reporting.
+- Topic: can AI agents triage perceived-trust scores on e-commerce UIs the way humans do? ITQM/MQCI + TrustMate; agents vs 127 IT students on three sites.
+- Finding: AI agents don't replace human evaluation; they are a promising automated triage for interface quality (directional alignment on top/bottom attributes; stricter bias on most leaf scores).
+- Normality first: Shapiro-Wilk on attribute score distributions before choosing inferential tests.
+- Python → Power BI: Offline scripts compute Welch (Human–AI), paired t-tests (Human–Human), and independent t-tests (AI–AI) with Cohen's d and Benjamini-Hochberg FDR; results imported into Power BI for reporting.
 - Descriptive + visual: DAX measures for mean, SD, variance, standard error, and CI bounds; 50+ chart structures (boxplots, forest plots, small multiples) aligned with InfoVis coursework.
 
 <div class="dissertation-pbi-row">
@@ -1085,7 +1085,7 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 
 ## Data Visualization – MSc InfoVis: PNAD Contínua (Power BI)
 
-- MSc Information Visualization (Unicamp, Grade A): Card et al. pipeline—raw data → tables → visual structures; visual mapping (expressiveness & effectiveness); multivariate techniques (composition, small multiples, dimension handling).
+- MSc Information Visualization (Unicamp, Grade A): Card et al. pipeline—raw data → tables → visual structures; visual mapping (expressiveness & effectiveness); multivariate techniques (composition, small multiples, dimension handling).
 - PNAD Contínua (Power BI): Sankey, choropleth, and faceted encodings for education–employment trajectories and socioeconomic patterns—the same structural choices behind executive dashboards.
 
 <div class="infovis-split">
@@ -1246,22 +1246,62 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 <div class="tooling-pt-layout">
 <div class="tooling-pt-main">
 <div class="tooling-pt-prototypes">
-<p><img src="../../../pictures/work/tooling-project/tooling-1.png" alt="Tooling project for PT – wireframe or early concept" /></p>
-<p><img src="../../../pictures/work/tooling-project/tooling-2.png" alt="Tooling project for PT – low-fidelity prototype" /></p>
-<p><img src="../../../pictures/work/tooling-project/tooling-3.png" alt="Tooling project for PT – high-fidelity prototype" /></p>
+<p><img src="../../../pictures/work/tooling-project/tooling-1.png" alt="Tooling Wireframe & Information Architecture" /></p>
+<p><img src="../../../pictures/work/tooling-project/tooling-2.png" alt="Low-Fidelity Prototype & User Testing Flow" /></p>
+<p><img src="../../../pictures/work/tooling-project/tooling-3.png" alt="High-Fidelity Interactive Prototype" /></p>
 </div>
 <div class="tooling-pt-right">
 <p class="tooling-pt-diagram"><img src="../../../pictures/diagrams/tooling-pt-workflow.png" alt="Diagram tooling-pt-workflow: Tooling PT delivery workflow" /></p>
 <div class="tooling-pt-workshops">
-<p><img src="../../../pictures/work/tooling-project/tooling-4.jpg" alt="Tooling project for PT – customer workshop" /></p>
-<p><img src="../../../pictures/work/tooling-project/tooling-5.jpg" alt="Tooling project for PT – customer workshop" /></p>
-<p><img src="../../../pictures/work/tooling-project/tooling-6.jpg" alt="Tooling project for PT – customer workshop" /></p>
+<p><img src="../../../pictures/work/tooling-project/tooling-4.jpg" alt="Customer Workshop & Check-in Session" /></p>
+<p><img src="../../../pictures/work/tooling-project/tooling-5.jpg" alt="Stakeholder Co-Design & Journey Mapping" /></p>
+<p><img src="../../../pictures/work/tooling-project/tooling-6.jpg" alt="Delivery Validation & Prototype Review" /></p>
 </div>
 </div>
 </div>
 </div>
 
 <!-- Diagram: tooling-pt-workflow (mermaid/diagrams.md). Export to tooling-pt-workflow.png -->
+
+---
+
+<!-- Slide 16b – Present (Astra Project – AgriTech IoT & Cattle Telemetry) -->
+
+<!-- _class: dense-content -->
+
+<style scoped>
+.astra-pt-layout {
+  display: flex !important; flex-direction: column !important;
+  gap: 0.4rem !important; margin-top: 0.35rem !important;
+  max-width: 100% !important; position: relative !important;
+  padding: 0 !important; padding-bottom: 0.5rem !important;
+}
+.astra-pt-images {
+  display: flex !important; flex-direction: row !important; flex-wrap: wrap !important;
+  gap: 0.6rem !important; justify-content: flex-start !important; align-items: center !important;
+  margin-top: 0.5rem !important;
+}
+.astra-pt-images p { margin: 0 !important; padding: 0 !important; }
+.astra-pt-images img {
+  height: 200px !important; max-height: 200px !important; width: auto !important;
+  max-width: 320px !important;
+  object-fit: cover !important; display: block !important;
+  border-radius: 4px !important; border: 1px solid rgba(0,0,0,0.08) !important;
+}
+</style>
+
+## Product Discovery & Field Validation – Astra Project (AgriTech IoT)
+
+- Astra Project: owner of qualitative discovery at ranches (Fazenda Sindi da Porangaba), translating operational routines into journey maps, Power BI insights, and MVP product definition for cattle IoT telemetry.
+
+<div class="astra-pt-layout">
+<div class="astra-pt-images">
+<p><img src="../../../pictures/work/astra-project/IMG-20260414-WA0003.jpg" alt="On-site Ethnography at Fazenda Sindi da Porangaba (Apr 2026)" /></p>
+<p><img src="../../../pictures/work/astra-project/IMG_20260415_141239.jpg" alt="Cattle Ranch Operational Routines Observation" /></p>
+<p><img src="../../../pictures/work/astra-project/IMG_20260415_142514.jpg" alt="Livestock Management & User Journey Fieldwork" /></p>
+<p><img src="../../../pictures/work/astra-project/IMG_20260415_182229.jpg" alt="Bosch Astra IoT Telemetry Device & Hardware Evaluation" /></p>
+</div>
+</div>
 
 ---
 
@@ -1322,8 +1362,8 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 
 ## InfoVis – Text & Graph Visualization (PhraseNets)
 
-- Course topics → analyst skills: Views & interaction (filtering, detail-on-demand); graphs & trees (network layout); text visualization (co-occurrence, patterns/outliers)—how to encode data and enable exploration.
-- PhraseNets project: Web network viz for word relationships—structure that bar/line charts cannot show.
+- Course topics → analyst skills: Views & interaction (filtering, detail-on-demand); graphs & trees (network layout); text visualization (co-occurrence, patterns/outliers)—how to encode data and enable exploration.
+- PhraseNets project: Web network viz for word relationships—structure that bar/line charts cannot show.
 - Payoff for data work: Mapping variables to marks, choosing the right structure for the question—not just charts, but effective visual communication.
 
 <div class="phrase-net-row">
@@ -1365,69 +1405,69 @@ I want to become a Senior Product Owner who stays with work from discovery throu
 <!-- Slide 21 – Future (Career) -->
 
 <style scoped>
-.future-career-wrap {
-  display: flex !important; flex-direction: column !important;
-  justify-content: flex-start !important; align-items: stretch !important;
-  width: 100% !important; margin-top: 0.35rem !important;
-  gap: 0.4rem !important;
-}
-.future-career-wrap p { margin: 0 !important; text-align: left !important; }
-.future-po-bullets {
-  width: 100% !important; max-width: 100% !important; text-align: left !important; font-size: 0.85em !important;
-}
-.future-po-bullets table {
-  width: 100% !important; table-layout: fixed !important; margin-top: 0.35rem !important;
-}
-.future-po-bullets th:first-child,
-.future-po-bullets td:first-child { width: 22% !important; }
-.future-po-bullets td, .future-po-bullets th {
-  overflow-wrap: anywhere; padding: 0.28em 0.5em !important;
+.future-career-wrap {
+  display: flex !important; flex-direction: column !important;
+  justify-content: flex-start !important; align-items: stretch !important;
+  width: 100% !important; margin-top: 0.35rem !important;
+  gap: 0.4rem !important;
+}
+.future-career-wrap p { margin: 0 !important; text-align: left !important; }
+.future-po-bullets {
+  width: 100% !important; max-width: 100% !important; text-align: left !important; font-size: 0.85em !important;
+}
+.future-po-bullets table {
+  width: 100% !important; table-layout: fixed !important; margin-top: 0.35rem !important;
+}
+.future-po-bullets th:first-child,
+.future-po-bullets td:first-child { width: 22% !important; }
+.future-po-bullets td, .future-po-bullets th {
+  overflow-wrap: anywhere; padding: 0.28em 0.5em !important;
 }
 </style>
 
-## Future – How I Work
-
-<div class="future-career-wrap">
-<div class="future-po-bullets">
-
-| Competency | Evidence from my work |
-| ---------- | --------------------- |
-| Discovery & validation | Tooling PT requirements → prototypes → customer check-ins |
-| Prioritization / intake | ServiceNow Applied Research gate in CIP |
-| Stakeholder enablement | Americas UX Maturity Level 4 (templates, training) |
-| Outcome ownership | CSI 4.86 / NPS 9.94 avg. (2024–2025) |
-| Next | Senior Product Owner: discovery → prioritize → validate |
-
-</div>
-</div>
-
----
-
-<style scoped>
-.career-path-slide {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: flex-start !important;
-  width: 100% !important;
-  margin-top: 0.35rem !important;
-}
-.career-path-slide p { margin: 0 !important; text-align: center !important; width: 100% !important; }
-.career-path-slide img {
-  width: 78% !important;
-  max-width: 78% !important;
-  height: auto !important;
-  max-height: 76vh !important;
-  display: block !important;
-  margin: 0 auto !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-</style>
-
-## Future – The path
-
-<div class="career-path-slide">
-<p><img src="../../../pictures/diagrams/future-career-path-product-owner-en.png" alt="Diagram: discovery and delivery today, then Senior Product Owner, then trusted product outcomes" /></p>
+## Future – How I Work
+
+<div class="future-career-wrap">
+<div class="future-po-bullets">
+
+| Competency | Evidence from my work |
+| ---------- | --------------------- |
+| Discovery & validation | Tooling PT requirements → prototypes → customer check-ins |
+| Prioritization / intake | ServiceNow Applied Research gate in CIP |
+| Stakeholder enablement | Americas UX Maturity Level 4 (templates, training) |
+| Outcome ownership | CSI 4.86 / NPS 9.94 avg. (2024–2025) |
+| Next | Senior Product Owner: discovery → prioritize → validate |
+
+</div>
+</div>
+
+---
+
+<style scoped>
+.career-path-slide {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  width: 100% !important;
+  margin-top: 0.35rem !important;
+}
+.career-path-slide p { margin: 0 !important; text-align: center !important; width: 100% !important; }
+.career-path-slide img {
+  width: 78% !important;
+  max-width: 78% !important;
+  height: auto !important;
+  max-height: 76vh !important;
+  display: block !important;
+  margin: 0 auto !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+</style>
+
+## Future – The path
+
+<div class="career-path-slide">
+<p><img src="../../../pictures/diagrams/future-career-path-product-owner-en.png" alt="Diagram: discovery and delivery today, then Senior Product Owner, then trusted product outcomes" /></p>
 </div>
 
 <!-- Diagram: future-career-path (mermaid/diagrams.md). Export to future-career-path.png -->
@@ -1472,12 +1512,12 @@ I want to become a Senior Product Owner who stays with work from discovery throu
 <table>
 <thead><tr><th>Interest</th></tr></thead>
 <tbody>
-<tr><td>Piano</td></tr>
-<tr><td>Linguistics (phonology & phonetics)</td></tr>
-<tr><td>Physics (GR & Quantum)</td></tr>
-<tr><td>Acting</td></tr>
-<tr><td>Impressionist art</td></tr>
-<tr><td>Macro creation</td></tr>
+<tr><td>Piano</td></tr>
+<tr><td>Linguistics (phonology & phonetics)</td></tr>
+<tr><td>Physics (GR & Quantum)</td></tr>
+<tr><td>Acting</td></tr>
+<tr><td>Impressionist art</td></tr>
+<tr><td>Macro creation</td></tr>
 <tr><td>Specialized keyboards</td></tr>
 </tbody>
 </table>

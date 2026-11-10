@@ -3,6 +3,13 @@ variant: ux-researcher
 lang: pt
 fields:
   asset_prefix: "../../../"
+  astra_bullet: "- **Projeto Astra (Telemetria Bovina AgriTech):** Etnografia in situ na **Fazenda Sindi da Porangaba**, entrevistas semiestruturadas com criadores e peões, e mapeamento de experiência para orientar a interação hardware-software em IoT."
+  astra_h2: "Etnografia in situ e Pesquisa de Experiência – Projeto Astra"
+  astra_images: |
+    <p><img src="../../../pictures/work/astra-project/IMG-20260414-WA0003.jpg" alt="Etnografia in loco na Fazenda Sindi da Porangaba (Abr 2026)" /></p>
+    <p><img src="../../../pictures/work/astra-project/IMG_20260415_141239.jpg" alt="Observação de Rotinas Operacionais no Campo" /></p>
+    <p><img src="../../../pictures/work/astra-project/IMG_20260415_142514.jpg" alt="Gestão Pecuária e Mapeamento de Jornada em Campo" /></p>
+    <p><img src="../../../pictures/work/astra-project/IMG_20260415_182229.jpg" alt="Dispositivo e Avaliação de Hardware de Telemetria IoT Astra (Bosch)" /></p>
   cip_pipeline_h2: "Presente – Da Pesquisa do Usuário à Implementação: Intake → Avaliação → Governança"
   closing_summary: "Combino pesquisa rigorosa com métodos mistos, prototipagem em código como design technologist e medição empírica de confiança para construir produtos de alta tecnologia e IA que os usuários confiam e adotam—validados por resultados mensuráveis."
   csi_h2: "Presente – Resultados de Satisfação do Usuário: CSI e NPS (2024–2025)"
@@ -109,6 +116,14 @@ fields:
   relevance_h2: "Presente – Modelo de Pontuação de Relevância em UX no ServiceNow"
   tooling_bullet: "- **Projeto tooling para PT:** Traduzi fluxos complexos de domínio em protótipos interativos com **check-ins regulares de usuários e stakeholders**—unindo modelos mentais do usuário à arquitetura técnica de produção."
   tooling_h2: "Design Technologist na Entrega – Projeto Tooling para Power Tools"
+  tooling_prototype_images: |
+    <p><img src="../../../pictures/work/tooling-project/tooling-1.png" alt="Wireframe e Arquitetura de Informação" /></p>
+    <p><img src="../../../pictures/work/tooling-project/tooling-2.png" alt="Protótipo de Baixa Fidelidade e Teste de Usuários" /></p>
+    <p><img src="../../../pictures/work/tooling-project/tooling-3.png" alt="Protótipo Interativo de Alta Fidelidade" /></p>
+  tooling_workshop_images: |
+    <p><img src="../../../pictures/work/tooling-project/tooling-4.jpg" alt="Workshop e Check-in com Clientes" /></p>
+    <p><img src="../../../pictures/work/tooling-project/tooling-5.jpg" alt="Sessão de Co-design com Stakeholders" /></p>
+    <p><img src="../../../pictures/work/tooling-project/tooling-6.jpg" alt="Validação de Entrega e Revisão de Protótipo" /></p>
   who_contact: "Nova Odessa, SP – Brasil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583"
   who_impact: "Ajudo times de tecnologia e IA a descobrir necessidades reais de usuários, desenhar sistemas usáveis e validar paradigmas de interação por meio de métodos mistos, métricas (CSI/NPS, SUS) e protótipos de alta fidelidade em código."
   who_name: "Eduardo M. de A. Figueiredo"

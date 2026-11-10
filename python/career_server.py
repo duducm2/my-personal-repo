@@ -1383,6 +1383,11 @@ class CareerHandler(BaseHTTPRequestHandler):
         if ".." in rel.replace("\\", "/").split("/"):
             self._json(400, {"ok": False, "error": "invalid path"})
             return
+        if rel.startswith("pictures/"):
+            pic_path = (ROOT_DIR / rel).resolve()
+            if str(pic_path).startswith(str((ROOT_DIR / "pictures").resolve())) and pic_path.is_file():
+                self._send_file(pic_path)
+                return
         portfolio = self._portfolio_file(rel)
         if portfolio is not None:
             self._send_file(portfolio)

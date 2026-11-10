@@ -440,8 +440,8 @@ img[src*="story-flow"] {
 
 ## Software confiável que as pessoas consigam usar de verdade em serviços complexos
 
-- Acho que software em organizações de serviço precisa ser confiável e utilizável—principalmente quando afeta pessoas e negócios de verdade.
-- Meu dia a dia fica entre tecnologia, gestão de projetos e pesquisa aplicada: evidência e necessidades dos usuários moldando como construímos e entregamos.
+- Acho que software em organizações de serviço precisa ser confiável e utilizável—principalmente quando afeta pessoas e negócios de verdade.
+- Meu dia a dia fica entre tecnologia, gestão de projetos e pesquisa aplicada: evidência e necessidades dos usuários moldando como construímos e entregamos.
 - Este portfólio é essa história em sequência.
 
 <p><img src="../pictures/diagrams/story-flow.png" alt="Diagram story-flow: Why story flow" /></p>
@@ -661,29 +661,29 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 <p class="americas-img"><img src="../pictures/work/americas-team-2025.jpg" alt="Americas Team 2025 - UX Maturity Level 4" /></p>
 </div>
 
-| Área                               | Conquista                                                                                                                        |
-| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| Cargo                               | Pesquisa Aplicada e Tecnologia – Bosch Brasil (jan 2023 – atual); Especialista em Pesquisa Aplicada e Project Champion na GS/BDU            |
-| Internacional                      | Realizei duas viagens à Alemanha (2024, 2025) por trabalho relacionado ao cargo                                                                            |
-| Rastreamento CO2 (GS/Pesquisa Aplicada) | Conduzi prospecção de mercado para telemetria CO2; achado: falta de demanda de mercado                                                               |
-| Projeto tooling (PT)               | Liderei a entrega técnica e gestão do projeto de requisitos a protótipos de alta fidelidade, com check-ins regulares com clientes. |
-| Maturidade em UX          | Liderei as Américas ao Nível 4 – governança, templates, treinamento                                                                          |
-
----
-
-<!-- _class: dense-content -->
-
-<style scoped>
-table { font-size: 0.78em !important; line-height: 1.25 !important; width: 100% !important; table-layout: fixed !important; }
-th:first-child, td:first-child { width: 28% !important; }
-td, th { overflow-wrap: anywhere; padding: 0.22em 0.45em !important; }
-</style>
-
-## Presente – Pesquisa Aplicada e Tecnologia (Bosch Brasil) (continuação)
-
-| Área                               | Conquista                                                                                                                        |
-| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| CIP CIM (Global Services)          | Com equipe de UX, avaliei dashboards estratégicos de CIP de todas as iniciativas na GS—UX mais clara para a liderança identificar problemas e ganhos de eficiência/eficácia; relevância em UX automatizada no ServiceNow (pesos por propriedades) |
+| Área                               | Conquista                                                                                                                        |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Cargo                               | Pesquisa Aplicada e Tecnologia – Bosch Brasil (jan 2023 – atual); Especialista em Pesquisa Aplicada e Project Champion na GS/BDU            |
+| Internacional                      | Realizei duas viagens à Alemanha (2024, 2025) por trabalho relacionado ao cargo                                                                            |
+| Rastreamento CO2 (GS/Pesquisa Aplicada) | Conduzi prospecção de mercado para telemetria CO2; achado: falta de demanda de mercado                                                               |
+| Projeto tooling (PT)               | Liderei a entrega técnica e gestão do projeto de requisitos a protótipos de alta fidelidade, com check-ins regulares com clientes. |
+| Maturidade em UX          | Liderei as Américas ao Nível 4 – governança, templates, treinamento                                                                          |
+
+---
+
+<!-- _class: dense-content -->
+
+<style scoped>
+table { font-size: 0.78em !important; line-height: 1.25 !important; width: 100% !important; table-layout: fixed !important; }
+th:first-child, td:first-child { width: 28% !important; }
+td, th { overflow-wrap: anywhere; padding: 0.22em 0.45em !important; }
+</style>
+
+## Presente – Pesquisa Aplicada e Tecnologia (Bosch Brasil) (continuação)
+
+| Área                               | Conquista                                                                                                                        |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| CIP CIM (Global Services)          | Com equipe de UX, avaliei dashboards estratégicos de CIP de todas as iniciativas na GS—UX mais clara para a liderança identificar problemas e ganhos de eficiência/eficácia; relevância em UX automatizada no ServiceNow (pesos por propriedades) |
 | Colaboração                      | Sou tutor de estudantes da Digital Talent Academy; treinamento de ferramentas de IA para 100+ pessoas (satisfação 4,88/5); curso de IA de 8 sessões na Bosch em 2026 com Felipe Oshiro e Gabriel Reis                                                                                           |
 
 ---
@@ -1027,10 +1027,10 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 
 <p class="dissertation-pbi-intro"><span class="thesis-emphasis">Minha dissertação de mestrado pergunta se agentes de IA conseguem representar a percepção de confiança de humanos em interfaces de e-commerce—a confiança que um site idôneo precisa transmitir por Usabilidade, Acessibilidade e UX. Usei o Modelo de Qualidade da Confiança da Interface (MQCI, baseado na ISO/IEC 25000), construí a ferramenta web TrustMate para aplicar o questionário e calcular as pontuações, e comparei agentes ChatGPT o3 com 127 estudantes de TI em três sites. Em resumo: agentes não substituem a avaliação humana, mas servem para triagem automatizada.</span></p>
 
-- Tema: confiança percebida em interfaces de e-commerce (MQCI, ISO/IEC 25000); TrustMate coleta respostas e pontua Usabilidade, Acessibilidade e UX; agentes ChatGPT o3 vs 127 estudantes de TI em três sites.
-- Achado: agentes de IA não substituem a avaliação humana; são triagem automatizada promissora da qualidade da interface (alinhamento direcional nos melhores/piores atributos; viés mais rigoroso na maior parte das pontuações folha).
-- Normalidade primeiro: Shapiro-Wilk nas distribuições de scores por atributo antes de escolher testes inferenciais.
-- Python → Power BI: Scripts offline calculam Welch (Humano–IA), t pareado (Humano–Humano) e t independente (IA–IA) com d de Cohen e FDR Benjamini-Hochberg; resultados importados ao Power BI para reporting.
+- Tema: confiança percebida em interfaces de e-commerce (MQCI, ISO/IEC 25000); TrustMate coleta respostas e pontua Usabilidade, Acessibilidade e UX; agentes ChatGPT o3 vs 127 estudantes de TI em três sites.
+- Achado: agentes de IA não substituem a avaliação humana; são triagem automatizada promissora da qualidade da interface (alinhamento direcional nos melhores/piores atributos; viés mais rigoroso na maior parte das pontuações folha).
+- Normalidade primeiro: Shapiro-Wilk nas distribuições de scores por atributo antes de escolher testes inferenciais.
+- Python → Power BI: Scripts offline calculam Welch (Humano–IA), t pareado (Humano–Humano) e t independente (IA–IA) com d de Cohen e FDR Benjamini-Hochberg; resultados importados ao Power BI para reporting.
 - Descritivo + visual: Medidas DAX para média, DP, variância, erro padrão e limites de IC; 50+ estruturas de gráficos (boxplots, forest plots, small multiples) alinhadas ao curso de InfoVis.
 
 <div class="dissertation-pbi-row">
@@ -1085,7 +1085,7 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 
 ## Visualização de dados – InfoVis (Mestrado): PNAD Contínua (Power BI)
 
-- Visualização da Informação (Unicamp, nota A): Pipeline de Card et al.—dados brutos → tabelas → estruturas visuais; mapeamento visual (expressividade e efetividade); técnicas multivariadas (composição, small multiples, redução de dimensões).
+- Visualização da Informação (Unicamp, nota A): Pipeline de Card et al.—dados brutos → tabelas → estruturas visuais; mapeamento visual (expressividade e efetividade); técnicas multivariadas (composição, small multiples, redução de dimensões).
 - PNAD Contínua (Power BI): Codificações Sankey, coropleta e facetadas para trajetórias educação–emprego e padrões socioeconômicos—as mesmas decisões estruturais em dashboards executivos.
 
 <div class="infovis-split">
@@ -1246,22 +1246,62 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 <div class="tooling-pt-layout">
 <div class="tooling-pt-main">
 <div class="tooling-pt-prototypes">
-<p><img src="../pictures/work/tooling-project/tooling-1.png" alt="Tooling project for PT – wireframe or early concept" /></p>
-<p><img src="../pictures/work/tooling-project/tooling-2.png" alt="Tooling project for PT – low-fidelity prototype" /></p>
-<p><img src="../pictures/work/tooling-project/tooling-3.png" alt="Tooling project for PT – high-fidelity prototype" /></p>
+<p><img src="../pictures/work/tooling-project/tooling-1.png" alt="Wireframe e Arquitetura de Informação" /></p>
+<p><img src="../pictures/work/tooling-project/tooling-2.png" alt="Protótipo de Baixa Fidelidade e Teste de Usuários" /></p>
+<p><img src="../pictures/work/tooling-project/tooling-3.png" alt="Protótipo Interativo de Alta Fidelidade" /></p>
 </div>
 <div class="tooling-pt-right">
 <p class="tooling-pt-diagram"><img src="../pictures/diagrams/tooling-pt-workflow.png" alt="Diagram tooling-pt-workflow: Tooling PT delivery workflow" /></p>
 <div class="tooling-pt-workshops">
-<p><img src="../pictures/work/tooling-project/tooling-4.jpg" alt="Tooling project for PT – customer workshop" /></p>
-<p><img src="../pictures/work/tooling-project/tooling-5.jpg" alt="Tooling project for PT – customer workshop" /></p>
-<p><img src="../pictures/work/tooling-project/tooling-6.jpg" alt="Tooling project for PT – customer workshop" /></p>
+<p><img src="../pictures/work/tooling-project/tooling-4.jpg" alt="Workshop e Check-in com Clientes" /></p>
+<p><img src="../pictures/work/tooling-project/tooling-5.jpg" alt="Sessão de Co-design com Stakeholders" /></p>
+<p><img src="../pictures/work/tooling-project/tooling-6.jpg" alt="Validação de Entrega e Revisão de Protótipo" /></p>
 </div>
 </div>
 </div>
 </div>
 
 <!-- Diagram: tooling-pt-workflow (mermaid/diagrams.md). Export to tooling-pt-workflow.png -->
+
+---
+
+<!-- Slide 16b – Present (Astra Project – AgriTech IoT & Cattle Telemetry) -->
+
+<!-- _class: dense-content -->
+
+<style scoped>
+.astra-pt-layout {
+  display: flex !important; flex-direction: column !important;
+  gap: 0.4rem !important; margin-top: 0.35rem !important;
+  max-width: 100% !important; position: relative !important;
+  padding: 0 !important; padding-bottom: 0.5rem !important;
+}
+.astra-pt-images {
+  display: flex !important; flex-direction: row !important; flex-wrap: wrap !important;
+  gap: 0.6rem !important; justify-content: flex-start !important; align-items: center !important;
+  margin-top: 0.5rem !important;
+}
+.astra-pt-images p { margin: 0 !important; padding: 0 !important; }
+.astra-pt-images img {
+  height: 200px !important; max-height: 200px !important; width: auto !important;
+  max-width: 320px !important;
+  object-fit: cover !important; display: block !important;
+  border-radius: 4px !important; border: 1px solid rgba(0,0,0,0.08) !important;
+}
+</style>
+
+## Pesquisa de Campo e Estratégia IoT – Projeto Astra (AgriTech)
+
+- Projeto Astra (Telemetria Bovina AgriTech): etnografia in loco na Fazenda Sindi da Porangaba, entrevistas com peões e criadores, e avaliação de dispositivo de telemetria IoT transformando evidência qualitativa em estratégia de produto MVP.
+
+<div class="astra-pt-layout">
+<div class="astra-pt-images">
+<p><img src="../pictures/work/astra-project/IMG-20260414-WA0003.jpg" alt="Etnografia in loco na Fazenda Sindi da Porangaba (Abr 2026)" /></p>
+<p><img src="../pictures/work/astra-project/IMG_20260415_141239.jpg" alt="Observação de Rotinas Operacionais no Campo" /></p>
+<p><img src="../pictures/work/astra-project/IMG_20260415_142514.jpg" alt="Gestão Pecuária e Mapeamento de Jornada em Campo" /></p>
+<p><img src="../pictures/work/astra-project/IMG_20260415_182229.jpg" alt="Dispositivo e Avaliação de Hardware de Telemetria IoT Astra (Bosch)" /></p>
+</div>
+</div>
 
 ---
 
@@ -1322,8 +1362,8 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 
 ## InfoVis – Visualização de textos e grafos (PhraseNets)
 
-- Tópicos do curso → skills de analista: Visões e interação (filtros, detalhes sob demanda); grafos e árvores (layout de redes); visualização de textos (coocorrência, padrões/outliers)—como codificar dados e permitir exploração.
-- Projeto PhraseNets: Viz web em rede para relações entre palavras—estrutura que gráficos de barras/linhas não mostram.
+- Tópicos do curso → skills de analista: Visões e interação (filtros, detalhes sob demanda); grafos e árvores (layout de redes); visualização de textos (coocorrência, padrões/outliers)—como codificar dados e permitir exploração.
+- Projeto PhraseNets: Viz web em rede para relações entre palavras—estrutura que gráficos de barras/linhas não mostram.
 - Ganho para trabalho com dados: Mapear variáveis a marcas e escolher a estrutura certa para a pergunta—não só gráficos, mas comunicação visual eficaz.
 
 <div class="phrase-net-row">
@@ -1365,68 +1405,68 @@ Quero me tornar analista de dados sênior que transforma insight em decisões r�
 <!-- Slide 21 – Future (Career) -->
 
 <style scoped>
-.future-career-wrap {
-  display: flex !important; flex-direction: column !important;
-  justify-content: flex-start !important; align-items: stretch !important;
-  width: 100% !important; margin-top: 0.35rem !important;
-  gap: 0.4rem !important;
-}
-.future-career-wrap p { margin: 0 !important; text-align: left !important; }
-.future-po-bullets {
-  width: 100% !important; max-width: 100% !important; text-align: left !important; font-size: 0.85em !important;
-}
-.future-po-bullets table {
-  width: 100% !important; table-layout: fixed !important; margin-top: 0.35rem !important;
-}
-.future-po-bullets th:first-child,
-.future-po-bullets td:first-child { width: 22% !important; }
-.future-po-bullets td, .future-po-bullets th {
-  overflow-wrap: anywhere; padding: 0.28em 0.5em !important;
+.future-career-wrap {
+  display: flex !important; flex-direction: column !important;
+  justify-content: flex-start !important; align-items: stretch !important;
+  width: 100% !important; margin-top: 0.35rem !important;
+  gap: 0.4rem !important;
+}
+.future-career-wrap p { margin: 0 !important; text-align: left !important; }
+.future-po-bullets {
+  width: 100% !important; max-width: 100% !important; text-align: left !important; font-size: 0.85em !important;
+}
+.future-po-bullets table {
+  width: 100% !important; table-layout: fixed !important; margin-top: 0.35rem !important;
+}
+.future-po-bullets th:first-child,
+.future-po-bullets td:first-child { width: 22% !important; }
+.future-po-bullets td, .future-po-bullets th {
+  overflow-wrap: anywhere; padding: 0.28em 0.5em !important;
 }
 </style>
 
-## Futuro – Como chego lá
-
-<div class="future-career-wrap">
-<div class="future-po-bullets">
-
-| Passo | O que é |
-| ----- | ------- |
-| Agora | Desenho experimental e estatística inferencial (TrustMate: Welch, d de Cohen, FDR; avaliação com LLM versus humanos); texto confuso virando BI validado (Data Insights); CSI/NPS, Power BI, Python/SQL na Bosch |
-| Próximo | Analista de dados sênior: insight pelo método científico |
-| Método | Análise descritiva, inferencial e visual |
-| Decisões | Decisões rápidas a partir dessa evidência |
-
-</div>
-</div>
-
----
-
-<style scoped>
-.career-path-slide {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: flex-start !important;
-  width: 100% !important;
-  margin-top: 0.35rem !important;
-}
-.career-path-slide p { margin: 0 !important; text-align: center !important; width: 100% !important; }
-.career-path-slide img {
-  width: 78% !important;
-  max-width: 78% !important;
-  height: auto !important;
-  max-height: 76vh !important;
-  display: block !important;
-  margin: 0 auto !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-</style>
-
-## Futuro – O caminho
-
-<div class="career-path-slide">
-<p><img src="../pictures/diagrams/future-career-path-pt.png" alt="Diagrama: análise descritiva, inferencial e visual, depois analista de dados sênior, depois decisões rápidas a partir do insight" /></p>
+## Futuro – Como chego lá
+
+<div class="future-career-wrap">
+<div class="future-po-bullets">
+
+| Passo | O que é |
+| ----- | ------- |
+| Agora | Desenho experimental e estatística inferencial (TrustMate: Welch, d de Cohen, FDR; avaliação com LLM versus humanos); texto confuso virando BI validado (Data Insights); CSI/NPS, Power BI, Python/SQL na Bosch |
+| Próximo | Analista de dados sênior: insight pelo método científico |
+| Método | Análise descritiva, inferencial e visual |
+| Decisões | Decisões rápidas a partir dessa evidência |
+
+</div>
+</div>
+
+---
+
+<style scoped>
+.career-path-slide {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  width: 100% !important;
+  margin-top: 0.35rem !important;
+}
+.career-path-slide p { margin: 0 !important; text-align: center !important; width: 100% !important; }
+.career-path-slide img {
+  width: 78% !important;
+  max-width: 78% !important;
+  height: auto !important;
+  max-height: 76vh !important;
+  display: block !important;
+  margin: 0 auto !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+</style>
+
+## Futuro – O caminho
+
+<div class="career-path-slide">
+<p><img src="../pictures/diagrams/future-career-path-pt.png" alt="Diagrama: análise descritiva, inferencial e visual, depois analista de dados sênior, depois decisões rápidas a partir do insight" /></p>
 </div>
 
 <!-- Diagram: future-career-path (mermaid/diagrams.md). Export to future-career-path.png -->
@@ -1471,12 +1511,12 @@ Quero me tornar analista de dados sênior que transforma insight em decisões r�
 <table>
 <thead><tr><th>Interesse</th></tr></thead>
 <tbody>
-<tr><td>Piano</td></tr>
-<tr><td>Linguística (fonologia e fonética)</td></tr>
-<tr><td>Física (relatividade e quântica)</td></tr>
-<tr><td>Atuação</td></tr>
-<tr><td>Arte impressionista</td></tr>
-<tr><td>Criação de macros</td></tr>
+<tr><td>Piano</td></tr>
+<tr><td>Linguística (fonologia e fonética)</td></tr>
+<tr><td>Física (relatividade e quântica)</td></tr>
+<tr><td>Atuação</td></tr>
+<tr><td>Arte impressionista</td></tr>
+<tr><td>Criação de macros</td></tr>
 <tr><td>Teclados especializados</td></tr>
 </tbody>
 </table>

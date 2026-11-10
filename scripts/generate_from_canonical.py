@@ -341,12 +341,69 @@ def render_resume(
 """
 
 
+def load_portfolio_images() -> list[dict[str, str]]:
+    path = CANON / "portfolio_images.csv"
+    if not path.is_file():
+        return []
+    with path.open(encoding="utf-8") as f:
+        return list(csv.DictReader(f))
+
+
+def build_portfolio_image_tags(
+    images: list[dict[str, str]],
+    project_id: str,
+    category: str | None,
+    prefix: str,
+    lang: str,
+) -> list[str]:
+    selected = [
+        img
+        for img in images
+        if (img.get("project_id") or "").strip() == project_id
+        and (category is None or (img.get("category") or "").strip() == category)
+        and (img.get("selected") or "").strip().lower() in ("true", "1", "yes")
+    ]
+    selected.sort(key=lambda x: int(x.get("sort_order") or 999))
+    tags = []
+    caption_key = f"caption_{lang}"
+    for img in selected:
+        caption = img.get(caption_key) or img.get("caption_en") or ""
+        p = f"{prefix}{img.get('path')}"
+        tags.append(f'<p><img src="{p}" alt="{caption}" /></p>')
+    return tags
+
+
 def build_slot_map(
     variant: str, nars: dict[str, dict[str, str]], lang: str = DEFAULT_LANG
 ) -> dict[str, str]:
     profile = load_csv("profile.csv")[0]
     prefix = ASSET_PREFIX[variant]
     location = lang_col(profile, "location", lang)
+    images = load_portfolio_images()
+
+    tooling_proto_tags = build_portfolio_image_tags(images, "tooling-pt", "prototype", prefix, lang)
+    if not tooling_proto_tags:
+        tooling_proto_tags = [
+            f'<p><img src="{prefix}pictures/work/tooling-project/tooling-1.png" alt="Tooling project for PT – wireframe or early concept" /></p>',
+            f'<p><img src="{prefix}pictures/work/tooling-project/tooling-2.png" alt="Tooling project for PT – low-fidelity prototype" /></p>',
+            f'<p><img src="{prefix}pictures/work/tooling-project/tooling-3.png" alt="Tooling project for PT – high-fidelity prototype" /></p>',
+        ]
+
+    tooling_ws_tags = build_portfolio_image_tags(images, "tooling-pt", "workshop", prefix, lang)
+    if not tooling_ws_tags:
+        tooling_ws_tags = [
+            f'<p><img src="{prefix}pictures/work/tooling-project/tooling-4.jpg" alt="Tooling customer check-in" /></p>',
+            f'<p><img src="{prefix}pictures/work/tooling-project/tooling-5.jpg" alt="Tooling co-design" /></p>',
+            f'<p><img src="{prefix}pictures/work/tooling-project/tooling-6.jpg" alt="Tooling prototype review" /></p>',
+        ]
+
+    astra_tags = build_portfolio_image_tags(images, "agritech-iot-cattle", None, prefix, lang)
+    if not astra_tags:
+        astra_tags = [
+            f'<p><img src="{prefix}pictures/work/astra-project/IMG-20260414-WA0003.jpg" alt="Fazenda Sindi da Porangaba" /></p>',
+            f'<p><img src="{prefix}pictures/work/astra-project/IMG_20260415_182229.jpg" alt="Bosch Astra IoT Telemetry" /></p>',
+        ]
+
     slots = {
         "asset_prefix": prefix,
         "lang": lang,
@@ -364,6 +421,11 @@ def build_slot_map(
         "csi_h2": narrative(nars, variant, "csi_h2"),
         "tooling_h2": narrative(nars, variant, "tooling_h2"),
         "tooling_bullet": narrative(nars, variant, "tooling_bullet"),
+        "tooling_prototype_images": "\n".join(tooling_proto_tags),
+        "tooling_workshop_images": "\n".join(tooling_ws_tags),
+        "astra_h2": narrative(nars, variant, "astra_h2"),
+        "astra_bullet": narrative(nars, variant, "astra_bullet"),
+        "astra_images": "\n".join(astra_tags),
         "infovis_pnad_h2": narrative(nars, variant, "infovis_pnad_h2"),
         "infovis_pnad_bullets": narrative(nars, variant, "infovis_pnad_bullets"),
         "infovis_phrasenet_h2": narrative(nars, variant, "infovis_phrasenet_h2"),

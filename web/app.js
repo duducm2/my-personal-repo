@@ -676,6 +676,7 @@
 
   let downloadsCache = { items: [], policy: null, priority: null };
   let deliverablesCache = null;
+  let portfolioImagesCache = [];
   let currentEditorState = {
     variant: "general",
     tab: "resume",
@@ -687,7 +688,18 @@
     const res = await fetch("/api/deliverables/content");
     if (!res.ok) throw new Error(`GET /api/deliverables/content failed (${res.status})`);
     deliverablesCache = await res.json();
+    if (deliverablesCache?.deliverables?.portfolioImages) {
+      portfolioImagesCache = deliverablesCache.deliverables.portfolioImages;
+    }
     return deliverablesCache;
+  }
+
+  async function loadPortfolioImages() {
+    try {
+      await fetchDeliverables();
+    } catch {
+      /* ignore */
+    }
   }
 
   function closeDeliverableEditor() {
@@ -1092,6 +1104,10 @@
   }
 
   function renderPortfolioTab(container, variant, data) {
+    // 1. Portfolio project images manager (Choose which images to include)
+    renderPortfolioImagesSection(container, data);
+
+    // 2. Slide narratives
     const narratives = data.narratives || [];
     const fieldsToEdit = [
       { key: "deck_title", label: "Deck Title", tall: false },
@@ -1128,6 +1144,178 @@
       );
     }
     container.append(card);
+  }
+
+  function renderPortfolioImagesSection(container, data) {
+    const images = data.portfolioImages || [];
+    if (images.length === 0) return;
+
+    const section = document.createElement("div");
+    section.className = "deliverable-section-card portfolio-images-manager-card";
+
+    const head = document.createElement("div");
+    head.className = "portfolio-images-manager-head";
+
+    const title = document.createElement("h3");
+    title.textContent = "Portfolio Project Images & Evidence";
+
+    const lede = document.createElement("p");
+    lede.className = "deliverable-section-subhead";
+    lede.textContent =
+      "Choose which images and artifacts to include in your portfolio deck. Checked images appear in the compiled presentation; unchecked ones stay safely in-house.";
+
+    head.append(title, lede);
+    section.append(head);
+
+    // Group images by project
+    const projectGroups = [
+      { id: "tooling-pt", name: "EXT_M-PUR36 Tooling (Power Tools) — Slide 16" },
+      { id: "agritech-iot-cattle", name: "Astra Project (AgriTech IoT & Cattle Telemetry) — Slide 16b" },
+      { id: "cip-research-gate", name: "CIP CIM (Global Services) — Slide 6b" },
+      { id: "ai-agents-sessions-2026", name: "Bosch AI Sessions (2026)" },
+    ];
+
+    for (const group of projectGroups) {
+      const groupImages = images.filter((img) => img.project_id === group.id);
+      if (groupImages.length === 0) continue;
+
+      const groupBlock = document.createElement("div");
+      groupBlock.className = "portfolio-project-group";
+
+      const groupHead = document.createElement("div");
+      groupHead.className = "portfolio-project-head";
+
+      const groupTitle = document.createElement("h4");
+      groupTitle.textContent = group.name;
+
+      const groupMeta = document.createElement("div");
+      groupMeta.className = "portfolio-project-actions";
+
+      const countBadge = document.createElement("span");
+      countBadge.className = "portfolio-img-count-badge";
+
+      const updateCount = () => {
+        const selCount = groupImages.filter(
+          (i) => (i.selected || "").toLowerCase() === "true" || i.selected === "1"
+        ).length;
+        countBadge.textContent = `${selCount} of ${groupImages.length} selected for deck`;
+        countBadge.className = `portfolio-img-count-badge ${selCount > 0 ? "has-selected" : "none-selected"}`;
+      };
+      updateCount();
+
+      const selectAllBtn = document.createElement("button");
+      selectAllBtn.type = "button";
+      selectAllBtn.className = "mini-action-btn";
+      selectAllBtn.textContent = "Select All";
+      selectAllBtn.onclick = () => {
+        groupImages.forEach((i) => (i.selected = "true"));
+        renderPortfolioEditorImagesGrid(grid, groupImages, updateCount);
+        updateCount();
+        markDeliverableDirty();
+      };
+
+      const deselectAllBtn = document.createElement("button");
+      deselectAllBtn.type = "button";
+      deselectAllBtn.className = "mini-action-btn";
+      deselectAllBtn.textContent = "Deselect All";
+      deselectAllBtn.onclick = () => {
+        groupImages.forEach((i) => (i.selected = "false"));
+        renderPortfolioEditorImagesGrid(grid, groupImages, updateCount);
+        updateCount();
+        markDeliverableDirty();
+      };
+
+      groupMeta.append(countBadge, selectAllBtn, deselectAllBtn);
+      groupHead.append(groupTitle, groupMeta);
+      groupBlock.append(groupHead);
+
+      const grid = document.createElement("div");
+      grid.className = "portfolio-images-grid";
+      renderPortfolioEditorImagesGrid(grid, groupImages, updateCount);
+      groupBlock.append(grid);
+
+      section.append(groupBlock);
+    }
+
+    container.append(section);
+  }
+
+  function renderPortfolioEditorImagesGrid(grid, groupImages, onToggle) {
+    grid.replaceChildren();
+    for (const img of groupImages) {
+      const isSelected =
+        (img.selected || "").toLowerCase() === "true" || img.selected === "1";
+
+      const card = document.createElement("div");
+      card.className = "portfolio-image-card" + (isSelected ? " is-selected" : " is-excluded");
+
+      const thumbWrap = document.createElement("div");
+      thumbWrap.className = "portfolio-image-thumb-wrap";
+
+      const thumb = document.createElement("img");
+      thumb.className = "portfolio-image-thumb";
+      thumb.src = `/${img.path}`;
+      thumb.alt = img.caption_en || "";
+      thumb.loading = "lazy";
+      thumbWrap.append(thumb);
+
+      const statusTag = document.createElement("span");
+      statusTag.className = "portfolio-image-status-pill";
+      statusTag.textContent = isSelected ? "✓ In Deck" : "✕ Excluded";
+      thumbWrap.append(statusTag);
+
+      const info = document.createElement("div");
+      info.className = "portfolio-image-info";
+
+      const labelRow = document.createElement("label");
+      labelRow.className = "portfolio-image-checkbox-label";
+
+      const chk = document.createElement("input");
+      chk.type = "checkbox";
+      chk.checked = isSelected;
+      chk.className = "portfolio-image-checkbox";
+
+      const captionSpan = document.createElement("span");
+      captionSpan.className = "portfolio-image-caption";
+      captionSpan.textContent = img.caption_en || img.path.split("/").pop();
+
+      labelRow.append(chk, captionSpan);
+      info.append(labelRow);
+
+      if (img.category) {
+        const catPill = document.createElement("span");
+        catPill.className = "portfolio-image-category-pill";
+        catPill.textContent = img.category;
+        info.append(catPill);
+      }
+
+      card.append(thumbWrap, info);
+
+      const toggleCard = () => {
+        chk.checked = !chk.checked;
+        img.selected = chk.checked ? "true" : "false";
+        card.classList.toggle("is-selected", chk.checked);
+        card.classList.toggle("is-excluded", !chk.checked);
+        statusTag.textContent = chk.checked ? "✓ In Deck" : "✕ Excluded";
+        if (onToggle) onToggle();
+        markDeliverableDirty();
+      };
+
+      card.onclick = (e) => {
+        if (e.target !== chk) toggleCard();
+      };
+      chk.onchange = (e) => {
+        e.stopPropagation();
+        img.selected = chk.checked ? "true" : "false";
+        card.classList.toggle("is-selected", chk.checked);
+        card.classList.toggle("is-excluded", !chk.checked);
+        statusTag.textContent = chk.checked ? "✓ In Deck" : "✕ Excluded";
+        if (onToggle) onToggle();
+        markDeliverableDirty();
+      };
+
+      grid.append(card);
+    }
   }
 
   function renderSharedTab(container, data) {
@@ -1980,6 +2168,91 @@
     }
 
     article.append(head);
+
+    if (collection === "projects") {
+      const pImages = (portfolioImagesCache || []).filter((i) => i.project_id === row.id);
+      if (pImages.length > 0) {
+        const selCount = pImages.filter(
+          (i) => (i.selected || "").toLowerCase() === "true" || i.selected === "1"
+        ).length;
+        const strip = document.createElement("div");
+        strip.className = "project-portfolio-images-strip";
+
+        const stripHead = document.createElement("div");
+        stripHead.className = "project-images-strip-head";
+
+        const stripLabel = document.createElement("span");
+        stripLabel.className = "project-images-strip-label";
+        stripLabel.textContent = `📷 Portfolio Images (${selCount}/${pImages.length} selected for deck)`;
+
+        const manageBtn = document.createElement("button");
+        manageBtn.type = "button";
+        manageBtn.className = "project-images-manage-btn";
+        manageBtn.textContent = "Manage in Portfolio";
+        manageBtn.title = "Open Portfolio Editor to choose images";
+        manageBtn.onclick = (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          openDeliverableEditor({ variant: "general", tab: "portfolio" });
+        };
+
+        stripHead.append(stripLabel, manageBtn);
+        strip.append(stripHead);
+
+        const thumbs = document.createElement("div");
+        thumbs.className = "project-images-thumbs-row";
+
+        for (const img of pImages) {
+          const isSel = (img.selected || "").toLowerCase() === "true" || img.selected === "1";
+          const thumbCard = document.createElement("div");
+          thumbCard.className = "project-thumb-item" + (isSel ? " is-selected" : " is-excluded");
+          thumbCard.title = `${img.caption_en || img.path} — Click to toggle for portfolio deck`;
+
+          const imgEl = document.createElement("img");
+          imgEl.src = `/${img.path}`;
+          imgEl.loading = "lazy";
+          imgEl.alt = img.caption_en || "";
+
+          const badge = document.createElement("span");
+          badge.className = "thumb-mini-badge";
+          badge.textContent = isSel ? "✓ In Deck" : "✕";
+
+          thumbCard.append(imgEl, badge);
+
+          thumbCard.onclick = async (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const nextSel = !((img.selected || "").toLowerCase() === "true" || img.selected === "1");
+            img.selected = nextSel ? "true" : "false";
+            thumbCard.classList.toggle("is-selected", nextSel);
+            thumbCard.classList.toggle("is-excluded", !nextSel);
+            badge.textContent = nextSel ? "✓ In Deck" : "✕";
+            const newSelCount = pImages.filter(
+              (i) => (i.selected || "").toLowerCase() === "true" || i.selected === "1"
+            ).length;
+            stripLabel.textContent = `📷 Portfolio Images (${newSelCount}/${pImages.length} selected for deck)`;
+            // Save to server
+            if (deliverablesCache?.deliverables) {
+              deliverablesCache.deliverables.portfolioImages = portfolioImagesCache;
+              await fetch("/api/deliverables/content", {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                  variant: "general",
+                  kind: "portfolio",
+                  deliverables: deliverablesCache.deliverables,
+                }),
+              });
+            }
+          };
+
+          thumbs.append(thumbCard);
+        }
+
+        strip.append(thumbs);
+        article.append(strip);
+      }
+    }
 
     if (collection === "companies") {
       const research = document.createElement("div");
@@ -4134,6 +4407,7 @@
     try {
       await loadState();
       await loadContact();
+      await loadPortfolioImages();
       renderAll();
       setDirty(false);
       setSaveStatus("");

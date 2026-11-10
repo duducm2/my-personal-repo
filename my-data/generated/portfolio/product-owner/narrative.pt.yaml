@@ -3,6 +3,13 @@ variant: product-owner
 lang: pt
 fields:
   asset_prefix: "../../../"
+  astra_bullet: "- Projeto Astra: liderança da descoberta qualitativa em fazendas (Fazenda Sindi da Porangaba), traduzindo rotinas operacionais em mapas de jornada, insights em Power BI e definição de produto MVP para telemetria bovina IoT."
+  astra_h2: "Descoberta de Produto e Validação de Campo – Projeto Astra (IoT AgriTech)"
+  astra_images: |
+    <p><img src="../../../pictures/work/astra-project/IMG-20260414-WA0003.jpg" alt="Etnografia in loco na Fazenda Sindi da Porangaba (Abr 2026)" /></p>
+    <p><img src="../../../pictures/work/astra-project/IMG_20260415_141239.jpg" alt="Observação de Rotinas Operacionais no Campo" /></p>
+    <p><img src="../../../pictures/work/astra-project/IMG_20260415_142514.jpg" alt="Gestão Pecuária e Mapeamento de Jornada em Campo" /></p>
+    <p><img src="../../../pictures/work/astra-project/IMG_20260415_182229.jpg" alt="Dispositivo e Avaliação de Hardware de Telemetria IoT Astra (Bosch)" /></p>
   cip_pipeline_h2: "Presente – Gate de entrada CIP: Pipeline metodológico"
   closing_summary: "Acompanho o trabalho da descoberta à entrega—esclareço necessidades, alinho pessoas, priorizo com evidência e verifico se o resultado se sustentou."
   csi_h2: "Presente – Evidência de resultados: CSI e NPS (2024–2025)"
@@ -166,6 +173,14 @@ fields:
   relevance_h2: "Presente – Modelo de priorização (relevância Baixa / Média / Alta)"
   tooling_bullet: "- Projeto tooling para Power Tools: conduzi o caminho de requisitos a protótipos de alta fidelidade, com check-ins regulares com clientes integrados à entrega."
   tooling_h2: "Descoberta → Entrega – Projeto Tooling para PT"
+  tooling_prototype_images: |
+    <p><img src="../../../pictures/work/tooling-project/tooling-1.png" alt="Wireframe e Arquitetura de Informação" /></p>
+    <p><img src="../../../pictures/work/tooling-project/tooling-2.png" alt="Protótipo de Baixa Fidelidade e Teste de Usuários" /></p>
+    <p><img src="../../../pictures/work/tooling-project/tooling-3.png" alt="Protótipo Interativo de Alta Fidelidade" /></p>
+  tooling_workshop_images: |
+    <p><img src="../../../pictures/work/tooling-project/tooling-4.jpg" alt="Workshop e Check-in com Clientes" /></p>
+    <p><img src="../../../pictures/work/tooling-project/tooling-5.jpg" alt="Sessão de Co-design com Stakeholders" /></p>
+    <p><img src="../../../pictures/work/tooling-project/tooling-6.jpg" alt="Validação de Entrega e Revisão de Protótipo" /></p>
   who_contact: "Nova Odessa, SP – Brasil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583"
   who_impact: "Ajudo times a decidir o que construir em seguida e colocar no ar—pesquisa para a decisão, alinhamento para o compromisso, métricas depois."
   who_name: "Eduardo M. de A. Figueiredo"

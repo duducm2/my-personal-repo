@@ -439,6 +439,8 @@ class CanonicalStore:
             "publications": self._read_csv_raw("publications.csv"),
             "additional": self._read_csv_raw("additional.csv"),
             "resumeSettings": self._read_csv_raw("resume_settings.csv"),
+            "portfolioImages": self._read_csv_raw("portfolio_images.csv"),
+            "projects": self._read_csv_raw("projects.csv"),
         }
 
     def save_deliverables_data(self, data: dict[str, Any]) -> dict[str, Any]:
@@ -456,6 +458,8 @@ class CanonicalStore:
             "publications": "publications.csv",
             "additional": "additional.csv",
             "resumeSettings": "resume_settings.csv",
+            "portfolioImages": "portfolio_images.csv",
+            "projects": "projects.csv",
         }
 
         saved_counts: dict[str, int] = {}
