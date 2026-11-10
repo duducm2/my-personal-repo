@@ -674,6 +674,7 @@
     return v == null ? "" : String(v);
   }
 
+  let downloadsCache = { items: [], policy: null, priority: null };
   let deliverablesCache = null;
   let currentEditorState = {
     variant: "general",
