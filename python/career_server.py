@@ -304,7 +304,6 @@ def pdf_page_count(path: Path) -> int | None:
     return pages if pages > 0 else None
 
 
-
 RESUME_VARIANTS = {
     "ux-researcher",
     "general",
@@ -434,13 +433,14 @@ def regenerate_deliverable(
             check=False,
         )
         if build_proc.returncode != 0:
-            err = (build_proc.stderr or build_proc.stdout or "Portfolio compile failed").strip()
+            err = (
+                build_proc.stderr or build_proc.stdout or "Portfolio compile failed"
+            ).strip()
             raise RuntimeError(err[-1200:])
 
     results["downloads"] = list_downloads()
     results["priority"] = resume_priority_index()
     return results
-
 
 
 def resume_priority_index() -> dict[str, Any]:
@@ -1318,6 +1318,7 @@ class CareerHandler(BaseHTTPRequestHandler):
         except ValueError as exc:
             try:
                 import environment
+
                 environment.log_error(f"POST {path} ValueError: {exc}")
             except Exception:
                 pass
@@ -1325,6 +1326,7 @@ class CareerHandler(BaseHTTPRequestHandler):
         except Exception as exc:  # noqa: BLE001
             try:
                 import environment
+
                 environment.log_error(f"POST {path} Exception: {exc}", exc)
             except Exception:
                 pass
@@ -1385,7 +1387,10 @@ class CareerHandler(BaseHTTPRequestHandler):
             return
         if rel.startswith("pictures/"):
             pic_path = (ROOT_DIR / rel).resolve()
-            if str(pic_path).startswith(str((ROOT_DIR / "pictures").resolve())) and pic_path.is_file():
+            if (
+                str(pic_path).startswith(str((ROOT_DIR / "pictures").resolve()))
+                and pic_path.is_file()
+            ):
                 self._send_file(pic_path)
                 return
         portfolio = self._portfolio_file(rel)

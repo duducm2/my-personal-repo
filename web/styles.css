@@ -968,15 +968,17 @@ body.is-dirty .brand::after {
 }
 
 .resume-viewer-modal {
-  width: min(920px, calc(100% - 24px));
+  width: min(88vw, 1560px);
+  max-width: 96vw;
+  height: 88vh;
   max-height: 94vh;
 }
 
 .resume-viewer-inner {
   display: flex;
   flex-direction: column;
-  min-height: 70vh;
-  max-height: 90vh;
+  height: 100%;
+  min-height: 80vh;
 }
 
 .resume-viewer-head-actions {
@@ -1031,8 +1033,10 @@ body.is-dirty .brand::after {
   background: var(--panel);
   color: var(--text);
   padding: 0;
-  width: min(1080px, calc(100% - 24px));
-  max-height: min(92vh, 960px);
+  width: min(88vw, 1560px);
+  max-width: 96vw;
+  height: 88vh;
+  max-height: 94vh;
   overflow: hidden;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
 }
@@ -1044,7 +1048,7 @@ body.is-dirty .brand::after {
 .deliverable-edit-inner {
   display: flex;
   flex-direction: column;
-  height: min(92vh, 960px);
+  height: 100%;
 }
 
 .deliverable-edit-head {
@@ -1242,6 +1246,228 @@ body.is-dirty .brand::after {
 
 .deliverable-input-col input:focus,
 .deliverable-input-col textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+/* Structured content editors (tables & bullets) without raw markdown */
+.structured-editor-block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: color-mix(in srgb, var(--panel) 50%, #151518);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+}
+
+.structured-editor-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.structured-editor-head h4 {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.structured-editor-tip {
+  font-size: 11px;
+  color: var(--muted);
+  margin: 0;
+}
+
+.structured-table-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.structured-table-row-card {
+  background: #19191c;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: border-color 0.15s ease;
+}
+
+.structured-table-row-card:hover {
+  border-color: #444;
+}
+
+.structured-table-row-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.structured-row-num {
+  font-weight: 700;
+  color: var(--gold);
+  font-size: 10px;
+}
+
+.structured-row-delete-btn {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.structured-row-delete-btn:hover {
+  color: #e74c3c;
+  background: rgba(231, 76, 60, 0.1);
+}
+
+.structured-row-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+@media (max-width: 900px) {
+  .structured-row-inputs {
+    grid-template-columns: 1fr;
+  }
+}
+
+.structured-field-pair {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.structured-field-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.structured-field-row input,
+.structured-field-row textarea {
+  background: var(--input);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  color: var(--text);
+  padding: 5px 8px;
+  font-size: 12px;
+  font-family: inherit;
+  flex: 1 1 auto;
+  line-height: 1.35;
+}
+
+.structured-field-row input:focus,
+.structured-field-row textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+.structured-add-row-btn {
+  align-self: flex-start;
+  background: #252528;
+  border: 1px dashed var(--line);
+  color: var(--muted);
+  font-size: 11px;
+  padding: 5px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.structured-add-row-btn:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+  background: color-mix(in srgb, var(--gold) 8%, #252528);
+}
+
+/* Bullet list structured items */
+.structured-bullet-item {
+  background: #19191c;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.structured-bullet-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.format-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.format-btn {
+  background: #252528;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.format-btn:hover {
+  color: var(--text);
+  border-color: var(--gold);
+}
+
+.format-preview-pill {
+  font-size: 11px;
+  color: var(--muted);
+  background: rgba(0, 0, 0, 0.25);
+  padding: 3px 8px;
+  border-radius: 3px;
+  border-left: 2px solid var(--gold);
+  margin-top: 3px;
+  line-height: 1.35;
+}
+
+.format-preview-pill strong {
+  color: var(--gold);
+}
+
+/* Photo caption editor on cards */
+.portfolio-card-caption-edit {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.portfolio-card-caption-edit input {
+  background: #141417;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  color: var(--text);
+  padding: 3px 6px;
+  font-size: 10px;
+}
+
+.portfolio-card-caption-edit input:focus {
   outline: none;
   border-color: var(--gold);
 }

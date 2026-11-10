@@ -797,6 +797,86 @@
     setDeliverableFooterStatus("Unsaved changes. Press Save & Regenerate (Ctrl+S).", "warn");
   }
 
+  function renderInlineFormattedPreview(text) {
+    return String(text || "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+  }
+
+  function parseMarkdownTable(text) {
+    if (!text || typeof text !== "string") return { headers: ["Focus Area", "Impact & Evidence"], rows: [] };
+    const lines = text.trim().split("\n").map((l) => l.trim()).filter(Boolean);
+    const rows = [];
+    let headers = ["Focus Area", "Impact & Evidence"];
+    for (const line of lines) {
+      if (!line.startsWith("|")) continue;
+      const parts = line.split("|").slice(1, -1).map((p) => p.trim());
+      if (parts.length < 2) continue;
+      if (parts.every((p) => /^[-: ]+$/.test(p))) continue;
+      const isHeaderRow =
+        rows.length === 0 &&
+        ["area", "área", "step", "passo", "competenc", "role"].some((w) =>
+          parts[0].toLowerCase().includes(w)
+        );
+      if (isHeaderRow) {
+        headers = parts;
+        continue;
+      }
+      rows.push({ col1: parts[0], col2: parts.slice(1).join(" | ") });
+    }
+    return { headers, rows };
+  }
+
+  function formatMarkdownTable(headers, rows) {
+    const h1 = headers?.[0] || "Focus Area";
+    const h2 = headers?.[1] || "Impact & Evidence";
+    let md = `| ${h1} | ${h2} |\n|---|---|\n`;
+    for (const r of rows) {
+      const c1 = (r.col1 || "").replace(/\n/g, " ").trim();
+      const c2 = (r.col2 || "").replace(/\n/g, " ").trim();
+      if (c1 || c2) {
+        md += `| ${c1} | ${c2} |\n`;
+      }
+    }
+    return md.trim();
+  }
+
+  function parseMarkdownBullets(text) {
+    if (!text || typeof text !== "string") return [];
+    return text
+      .split("\n")
+      .map((l) => l.trim())
+      .filter((l) => l.startsWith("- ") || l.startsWith("* "))
+      .map((l) => l.replace(/^[-*]\s+/, ""));
+  }
+
+  function formatMarkdownBullets(bullets) {
+    return (bullets || [])
+      .map((b) => b.trim())
+      .filter(Boolean)
+      .map((b) => `- ${b}`)
+      .join("\n");
+  }
+
+  function extractFutureCareerTable(text) {
+    const match = text.match(/<div class="future-po-bullets">([\s\S]*?)<\/div>/);
+    if (match) {
+      return parseMarkdownTable(match[1]);
+    }
+    return parseMarkdownTable(text);
+  }
+
+  function wrapFutureCareerTable(originalText, headers, rows) {
+    const tableMd = formatMarkdownTable(headers, rows);
+    const match = originalText.match(/([\s\S]*?<div class="future-po-bullets">)[\s\S]*?(<\/div>[\s\S]*)/);
+    if (match) {
+      return `${match[1]}\n\n${tableMd}\n\n${match[2]}`;
+    }
+    return tableMd;
+  }
+
   function createBilingualInputRow(labelEn, valueEn, valuePt, onChange, opts) {
     const row = document.createElement("div");
     row.className = "deliverable-edit-field-group" + (opts?.tall ? " is-tall" : "");
@@ -812,6 +892,32 @@
       b.textContent = opts.badge;
       header.append(b);
     }
+
+    if (opts?.formatToolbar) {
+      const bar = document.createElement("div");
+      bar.className = "format-toolbar";
+      const bBtn = document.createElement("button");
+      bBtn.type = "button";
+      bBtn.className = "format-btn";
+      bBtn.textContent = "**B** Bold";
+      bBtn.title = "Format selected text in bold";
+      bBtn.onclick = (e) => {
+        e.preventDefault();
+        const active = document.activeElement;
+        if (active && (active.tagName === "TEXTAREA" || active.tagName === "INPUT")) {
+          const start = active.selectionStart;
+          const end = active.selectionEnd;
+          if (start != null && end != null && start !== end) {
+            const val = active.value;
+            active.value = val.substring(0, start) + "**" + val.substring(start, end) + "**" + val.substring(end);
+            active.dispatchEvent(new Event("input"));
+          }
+        }
+      };
+      bar.append(bBtn);
+      header.append(bar);
+    }
+
     row.append(header);
 
     const inputsWrap = document.createElement("div");
@@ -830,6 +936,17 @@
     enArea.placeholder = "English text…";
     enCol.append(enTag, enArea);
 
+    if (opts?.withPreview) {
+      const enPreview = document.createElement("div");
+      enPreview.className = "format-preview-pill";
+      const updateEnPrev = () => {
+        enPreview.innerHTML = `<strong>Live Preview:</strong> ${renderInlineFormattedPreview(enArea.value)}`;
+      };
+      updateEnPrev();
+      enCol.append(enPreview);
+      enArea.addEventListener("input", updateEnPrev);
+    }
+
     // PT input
     const ptCol = document.createElement("div");
     ptCol.className = "deliverable-input-col";
@@ -843,6 +960,17 @@
     ptArea.placeholder = "Texto em português…";
     ptCol.append(ptTag, ptArea);
 
+    if (opts?.withPreview) {
+      const ptPreview = document.createElement("div");
+      ptPreview.className = "format-preview-pill";
+      const updatePtPrev = () => {
+        ptPreview.innerHTML = `<strong>Pré-visualização:</strong> ${renderInlineFormattedPreview(ptArea.value)}`;
+      };
+      updatePtPrev();
+      ptCol.append(ptPreview);
+      ptArea.addEventListener("input", updatePtPrev);
+    }
+
     const handleInput = () => {
       onChange(enArea.value, ptArea.value);
       markDeliverableDirty();
@@ -853,6 +981,498 @@
     inputsWrap.append(enCol, ptCol);
     row.append(inputsWrap);
     return row;
+  }
+
+  function createStructuredTableEditor(label, valueEn, valuePt, onChange) {
+    const block = document.createElement("div");
+    block.className = "structured-editor-block";
+
+    const head = document.createElement("div");
+    head.className = "structured-editor-head";
+
+    const title = document.createElement("h4");
+    title.textContent = label;
+
+    const tip = document.createElement("p");
+    tip.className = "structured-editor-tip";
+    tip.textContent = "Structured achievements: edit Domain and Impact separately without markdown pipe syntax.";
+
+    head.append(title, tip);
+    block.append(head);
+
+    const parsedEn = parseMarkdownTable(valueEn);
+    const parsedPt = parseMarkdownTable(valuePt);
+
+    const maxRows = Math.max(parsedEn.rows.length, parsedPt.rows.length, 1);
+    const rowsEn = [...parsedEn.rows];
+    const rowsPt = [...parsedPt.rows];
+    while (rowsEn.length < maxRows) rowsEn.push({ col1: "", col2: "" });
+    while (rowsPt.length < maxRows) rowsPt.push({ col1: "", col2: "" });
+
+    const rowsContainer = document.createElement("div");
+    rowsContainer.className = "structured-table-rows";
+
+    const syncAndNotify = () => {
+      const outEn = formatMarkdownTable(parsedEn.headers, rowsEn);
+      const outPt = formatMarkdownTable(parsedPt.headers, rowsPt);
+      onChange(outEn, outPt);
+      markDeliverableDirty();
+    };
+
+    const renderRowCards = () => {
+      rowsContainer.replaceChildren();
+      rowsEn.forEach((rowEn, index) => {
+        const rowPt = rowsPt[index] || { col1: "", col2: "" };
+        const card = document.createElement("div");
+        card.className = "structured-table-row-card";
+
+        const cardHead = document.createElement("div");
+        cardHead.className = "structured-table-row-head";
+
+        const num = document.createElement("span");
+        num.className = "structured-row-num";
+        num.textContent = `Achievement #${index + 1}: ${rowEn.col1 || "Area"}`;
+
+        const delBtn = document.createElement("button");
+        delBtn.type = "button";
+        delBtn.className = "structured-row-delete-btn";
+        delBtn.textContent = "✕ Remove";
+        delBtn.title = "Delete this achievement row";
+        delBtn.onclick = () => {
+          rowsEn.splice(index, 1);
+          rowsPt.splice(index, 1);
+          renderRowCards();
+          syncAndNotify();
+        };
+
+        cardHead.append(num, delBtn);
+        card.append(cardHead);
+
+        const inputsGrid = document.createElement("div");
+        inputsGrid.className = "structured-row-inputs";
+
+        // EN inputs (Area + Impact)
+        const enPair = document.createElement("div");
+        enPair.className = "structured-field-pair";
+
+        const enAreaRow = document.createElement("div");
+        enAreaRow.className = "structured-field-row";
+        const enTag1 = document.createElement("span");
+        enTag1.className = "lang-tag";
+        enTag1.textContent = "EN";
+        const enAreaInput = document.createElement("input");
+        enAreaInput.type = "text";
+        enAreaInput.placeholder = "Focus Area / Domain…";
+        enAreaInput.value = rowEn.col1 || "";
+        enAreaInput.oninput = () => {
+          rowEn.col1 = enAreaInput.value;
+          num.textContent = `Achievement #${index + 1}: ${rowEn.col1 || "Area"}`;
+          syncAndNotify();
+        };
+        enAreaRow.append(enTag1, enAreaInput);
+
+        const enImpactRow = document.createElement("div");
+        enImpactRow.className = "structured-field-row";
+        const enTag2 = document.createElement("span");
+        enTag2.className = "lang-tag";
+        enTag2.textContent = "EN";
+        const enImpactArea = document.createElement("textarea");
+        enImpactArea.rows = 2;
+        enImpactArea.placeholder = "Impact, metrics, and evidence…";
+        enImpactArea.value = rowEn.col2 || "";
+        enImpactArea.oninput = () => {
+          rowEn.col2 = enImpactArea.value;
+          syncAndNotify();
+        };
+        enImpactRow.append(enTag2, enImpactArea);
+        enPair.append(enAreaRow, enImpactRow);
+
+        // PT inputs (Area + Impact)
+        const ptPair = document.createElement("div");
+        ptPair.className = "structured-field-pair";
+
+        const ptAreaRow = document.createElement("div");
+        ptAreaRow.className = "structured-field-row";
+        const ptTag1 = document.createElement("span");
+        ptTag1.className = "lang-tag";
+        ptTag1.textContent = "PT";
+        const ptAreaInput = document.createElement("input");
+        ptAreaInput.type = "text";
+        ptAreaInput.placeholder = "Área / Domínio…";
+        ptAreaInput.value = rowPt.col1 || "";
+        ptAreaInput.oninput = () => {
+          rowPt.col1 = ptAreaInput.value;
+          syncAndNotify();
+        };
+        ptAreaRow.append(ptTag1, ptAreaInput);
+
+        const ptImpactRow = document.createElement("div");
+        ptImpactRow.className = "structured-field-row";
+        const ptTag2 = document.createElement("span");
+        ptTag2.className = "lang-tag";
+        ptTag2.textContent = "PT";
+        const ptImpactArea = document.createElement("textarea");
+        ptImpactArea.rows = 2;
+        ptImpactArea.placeholder = "Impacto, métricas e evidências…";
+        ptImpactArea.value = rowPt.col2 || "";
+        ptImpactArea.oninput = () => {
+          rowPt.col2 = ptImpactArea.value;
+          syncAndNotify();
+        };
+        ptImpactRow.append(ptTag2, ptImpactArea);
+        ptPair.append(ptAreaRow, ptImpactRow);
+
+        inputsGrid.append(enPair, ptPair);
+        card.append(inputsGrid);
+        rowsContainer.append(card);
+      });
+    };
+
+    renderRowCards();
+    block.append(rowsContainer);
+
+    const addBtn = document.createElement("button");
+    addBtn.type = "button";
+    addBtn.className = "structured-add-row-btn";
+    addBtn.textContent = "+ Add Achievement Row";
+    addBtn.onclick = () => {
+      rowsEn.push({ col1: "", col2: "" });
+      rowsPt.push({ col1: "", col2: "" });
+      renderRowCards();
+      syncAndNotify();
+    };
+    block.append(addBtn);
+
+    return block;
+  }
+
+  function createStructuredBulletsEditor(label, valueEn, valuePt, onChange) {
+    const block = document.createElement("div");
+    block.className = "structured-editor-block";
+
+    const head = document.createElement("div");
+    head.className = "structured-editor-head";
+
+    const title = document.createElement("h4");
+    title.textContent = label;
+
+    const tip = document.createElement("p");
+    tip.className = "structured-editor-tip";
+    tip.textContent = "Bullet points: add key highlights without typing markdown dashes (-).";
+
+    head.append(title, tip);
+    block.append(head);
+
+    let bulletsEn = parseMarkdownBullets(valueEn);
+    let bulletsPt = parseMarkdownBullets(valuePt);
+
+    const maxItems = Math.max(bulletsEn.length, bulletsPt.length, 1);
+    while (bulletsEn.length < maxItems) bulletsEn.push("");
+    while (bulletsPt.length < maxItems) bulletsPt.push("");
+
+    const listContainer = document.createElement("div");
+    listContainer.className = "structured-table-rows";
+
+    const syncAndNotify = () => {
+      onChange(formatMarkdownBullets(bulletsEn), formatMarkdownBullets(bulletsPt));
+      markDeliverableDirty();
+    };
+
+    const renderItems = () => {
+      listContainer.replaceChildren();
+      bulletsEn.forEach((itemEn, index) => {
+        const itemPt = bulletsPt[index] || "";
+        const card = document.createElement("div");
+        card.className = "structured-bullet-item";
+
+        const controls = document.createElement("div");
+        controls.className = "structured-bullet-controls";
+
+        const num = document.createElement("span");
+        num.className = "structured-row-num";
+        num.textContent = `Highlight #${index + 1}`;
+        controls.append(num);
+
+        const actions = document.createElement("div");
+        actions.className = "bullet-item-controls";
+
+        if (index > 0) {
+          const upBtn = document.createElement("button");
+          upBtn.type = "button";
+          upBtn.className = "bullet-ctrl-btn";
+          upBtn.textContent = "↑";
+          upBtn.title = "Move up";
+          upBtn.onclick = () => {
+            const tmpEn = bulletsEn[index - 1];
+            bulletsEn[index - 1] = bulletsEn[index];
+            bulletsEn[index] = tmpEn;
+            const tmpPt = bulletsPt[index - 1];
+            bulletsPt[index - 1] = bulletsPt[index];
+            bulletsPt[index] = tmpPt;
+            renderItems();
+            syncAndNotify();
+          };
+          actions.append(upBtn);
+        }
+
+        if (index < bulletsEn.length - 1) {
+          const downBtn = document.createElement("button");
+          downBtn.type = "button";
+          downBtn.className = "bullet-ctrl-btn";
+          downBtn.textContent = "↓";
+          downBtn.title = "Move down";
+          downBtn.onclick = () => {
+            const tmpEn = bulletsEn[index + 1];
+            bulletsEn[index + 1] = bulletsEn[index];
+            bulletsEn[index] = tmpEn;
+            const tmpPt = bulletsPt[index + 1];
+            bulletsPt[index + 1] = bulletsPt[index];
+            bulletsPt[index] = tmpPt;
+            renderItems();
+            syncAndNotify();
+          };
+          actions.append(downBtn);
+        }
+
+        const delBtn = document.createElement("button");
+        delBtn.type = "button";
+        delBtn.className = "bullet-ctrl-btn is-delete";
+        delBtn.textContent = "✕";
+        delBtn.title = "Delete highlight";
+        delBtn.onclick = () => {
+          bulletsEn.splice(index, 1);
+          bulletsPt.splice(index, 1);
+          renderItems();
+          syncAndNotify();
+        };
+        actions.append(delBtn);
+
+        controls.append(actions);
+        card.append(controls);
+
+        const inputsGrid = document.createElement("div");
+        inputsGrid.className = "structured-row-inputs";
+
+        // EN
+        const enRow = document.createElement("div");
+        enRow.className = "structured-field-row";
+        const enTag = document.createElement("span");
+        enTag.className = "lang-tag";
+        enTag.textContent = "EN";
+        const enInput = document.createElement("textarea");
+        enInput.rows = 2;
+        enInput.placeholder = "Highlight in English…";
+        enInput.value = itemEn || "";
+        enInput.oninput = () => {
+          bulletsEn[index] = enInput.value;
+          syncAndNotify();
+        };
+        enRow.append(enTag, enInput);
+
+        // PT
+        const ptRow = document.createElement("div");
+        ptRow.className = "structured-field-row";
+        const ptTag = document.createElement("span");
+        ptTag.className = "lang-tag";
+        ptTag.textContent = "PT";
+        const ptInput = document.createElement("textarea");
+        ptInput.rows = 2;
+        ptInput.placeholder = "Destaque em português…";
+        ptInput.value = itemPt || "";
+        ptInput.oninput = () => {
+          bulletsPt[index] = ptInput.value;
+          syncAndNotify();
+        };
+        ptRow.append(ptTag, ptInput);
+
+        inputsGrid.append(enRow, ptRow);
+        card.append(inputsGrid);
+        listContainer.append(card);
+      });
+    };
+
+    renderItems();
+    block.append(listContainer);
+
+    const addBtn = document.createElement("button");
+    addBtn.type = "button";
+    addBtn.className = "structured-add-row-btn";
+    addBtn.textContent = "+ Add Highlight Bullet";
+    addBtn.onclick = () => {
+      bulletsEn.push("");
+      bulletsPt.push("");
+      renderItems();
+      syncAndNotify();
+    };
+    block.append(addBtn);
+
+    return block;
+  }
+
+  function createStructuredFutureCareerEditor(label, valueEn, valuePt, onChange) {
+    const hasTable = (valueEn || "").includes("|");
+
+    if (hasTable) {
+      const parsedEn = extractFutureCareerTable(valueEn || "");
+      const parsedPt = extractFutureCareerTable(valuePt || "");
+
+      const block = document.createElement("div");
+      block.className = "structured-editor-block";
+
+      const head = document.createElement("div");
+      head.className = "structured-editor-head";
+
+      const title = document.createElement("h4");
+      title.textContent = "Future Career Progression Steps";
+
+      const tip = document.createElement("p");
+      tip.className = "structured-editor-tip";
+      tip.textContent = "Step-by-step career path progression. No markdown tables or HTML tags needed.";
+
+      head.append(title, tip);
+      block.append(head);
+
+      const maxRows = Math.max(parsedEn.rows.length, parsedPt.rows.length, 1);
+      const rowsEn = [...parsedEn.rows];
+      const rowsPt = [...parsedPt.rows];
+      while (rowsEn.length < maxRows) rowsEn.push({ col1: "", col2: "" });
+      while (rowsPt.length < maxRows) rowsPt.push({ col1: "", col2: "" });
+
+      const rowsContainer = document.createElement("div");
+      rowsContainer.className = "structured-table-rows";
+
+      const syncAndNotify = () => {
+        const outEn = wrapFutureCareerTable(valueEn || "", parsedEn.headers, rowsEn);
+        const outPt = wrapFutureCareerTable(valuePt || "", parsedPt.headers, rowsPt);
+        onChange(outEn, outPt);
+        markDeliverableDirty();
+      };
+
+      const renderRowCards = () => {
+        rowsContainer.replaceChildren();
+        rowsEn.forEach((rowEn, index) => {
+          const rowPt = rowsPt[index] || { col1: "", col2: "" };
+          const card = document.createElement("div");
+          card.className = "structured-table-row-card";
+
+          const cardHead = document.createElement("div");
+          cardHead.className = "structured-table-row-head";
+
+          const num = document.createElement("span");
+          num.className = "structured-row-num";
+          num.textContent = `Step #${index + 1}: ${rowEn.col1 || "Stage"}`;
+
+          const delBtn = document.createElement("button");
+          delBtn.type = "button";
+          delBtn.className = "structured-row-delete-btn";
+          delBtn.textContent = "✕ Remove";
+          delBtn.onclick = () => {
+            rowsEn.splice(index, 1);
+            rowsPt.splice(index, 1);
+            renderRowCards();
+            syncAndNotify();
+          };
+
+          cardHead.append(num, delBtn);
+          card.append(cardHead);
+
+          const inputsGrid = document.createElement("div");
+          inputsGrid.className = "structured-row-inputs";
+
+          // EN
+          const enPair = document.createElement("div");
+          enPair.className = "structured-field-pair";
+          const enRow1 = document.createElement("div");
+          enRow1.className = "structured-field-row";
+          const enTag1 = document.createElement("span");
+          enTag1.className = "lang-tag";
+          enTag1.textContent = "EN";
+          const enStepInput = document.createElement("input");
+          enStepInput.type = "text";
+          enStepInput.placeholder = "Step name (e.g. Now, Next, Method)…";
+          enStepInput.value = rowEn.col1 || "";
+          enStepInput.oninput = () => {
+            rowEn.col1 = enStepInput.value;
+            num.textContent = `Step #${index + 1}: ${rowEn.col1 || "Stage"}`;
+            syncAndNotify();
+          };
+          enRow1.append(enTag1, enStepInput);
+
+          const enRow2 = document.createElement("div");
+          enRow2.className = "structured-field-row";
+          const enTag2 = document.createElement("span");
+          enTag2.className = "lang-tag";
+          enTag2.textContent = "EN";
+          const enDescArea = document.createElement("textarea");
+          enDescArea.rows = 2;
+          enDescArea.placeholder = "What it is / Evidence…";
+          enDescArea.value = rowEn.col2 || "";
+          enDescArea.oninput = () => {
+            rowEn.col2 = enDescArea.value;
+            syncAndNotify();
+          };
+          enRow2.append(enTag2, enDescArea);
+          enPair.append(enRow1, enRow2);
+
+          // PT
+          const ptPair = document.createElement("div");
+          ptPair.className = "structured-field-pair";
+          const ptRow1 = document.createElement("div");
+          ptRow1.className = "structured-field-row";
+          const ptTag1 = document.createElement("span");
+          ptTag1.className = "lang-tag";
+          ptTag1.textContent = "PT";
+          const ptStepInput = document.createElement("input");
+          ptStepInput.type = "text";
+          ptStepInput.placeholder = "Nome do passo (ex: Agora, Próximo, Método)…";
+          ptStepInput.value = rowPt.col1 || "";
+          ptStepInput.oninput = () => {
+            rowPt.col1 = ptStepInput.value;
+            syncAndNotify();
+          };
+          ptRow1.append(ptTag1, ptStepInput);
+
+          const ptRow2 = document.createElement("div");
+          ptRow2.className = "structured-field-row";
+          const ptTag2 = document.createElement("span");
+          ptTag2.className = "lang-tag";
+          ptTag2.textContent = "PT";
+          const ptDescArea = document.createElement("textarea");
+          ptDescArea.rows = 2;
+          ptDescArea.placeholder = "O que é / Evidência…";
+          ptDescArea.value = rowPt.col2 || "";
+          ptDescArea.oninput = () => {
+            rowPt.col2 = ptDescArea.value;
+            syncAndNotify();
+          };
+          ptRow2.append(ptTag2, ptDescArea);
+          ptPair.append(ptRow1, ptRow2);
+
+          inputsGrid.append(enPair, ptPair);
+          card.append(inputsGrid);
+          rowsContainer.append(card);
+        });
+      };
+
+      renderRowCards();
+      block.append(rowsContainer);
+
+      const addBtn = document.createElement("button");
+      addBtn.type = "button";
+      addBtn.className = "structured-add-row-btn";
+      addBtn.textContent = "+ Add Career Step";
+      addBtn.onclick = () => {
+        rowsEn.push({ col1: "", col2: "" });
+        rowsPt.push({ col1: "", col2: "" });
+        renderRowCards();
+        syncAndNotify();
+      };
+      block.append(addBtn);
+
+      return block;
+    } else {
+      return createStructuredBulletsEditor("Future – Method Principles & Focus", valueEn, valuePt, onChange);
+    }
   }
 
   function renderResumeTab(container, variant, data) {

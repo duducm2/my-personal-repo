@@ -381,7 +381,9 @@ def build_slot_map(
     location = lang_col(profile, "location", lang)
     images = load_portfolio_images()
 
-    tooling_proto_tags = build_portfolio_image_tags(images, "tooling-pt", "prototype", prefix, lang)
+    tooling_proto_tags = build_portfolio_image_tags(
+        images, "tooling-pt", "prototype", prefix, lang
+    )
     if not tooling_proto_tags:
         tooling_proto_tags = [
             f'<p><img src="{prefix}pictures/work/tooling-project/tooling-1.png" alt="Tooling project for PT – wireframe or early concept" /></p>',
@@ -389,7 +391,9 @@ def build_slot_map(
             f'<p><img src="{prefix}pictures/work/tooling-project/tooling-3.png" alt="Tooling project for PT – high-fidelity prototype" /></p>',
         ]
 
-    tooling_ws_tags = build_portfolio_image_tags(images, "tooling-pt", "workshop", prefix, lang)
+    tooling_ws_tags = build_portfolio_image_tags(
+        images, "tooling-pt", "workshop", prefix, lang
+    )
     if not tooling_ws_tags:
         tooling_ws_tags = [
             f'<p><img src="{prefix}pictures/work/tooling-project/tooling-4.jpg" alt="Tooling customer check-in" /></p>',
@@ -397,7 +401,9 @@ def build_slot_map(
             f'<p><img src="{prefix}pictures/work/tooling-project/tooling-6.jpg" alt="Tooling prototype review" /></p>',
         ]
 
-    astra_tags = build_portfolio_image_tags(images, "agritech-iot-cattle", None, prefix, lang)
+    astra_tags = build_portfolio_image_tags(
+        images, "agritech-iot-cattle", None, prefix, lang
+    )
     if not astra_tags:
         astra_tags = [
             f'<p><img src="{prefix}pictures/work/astra-project/IMG-20260414-WA0003.jpg" alt="Fazenda Sindi da Porangaba" /></p>',
