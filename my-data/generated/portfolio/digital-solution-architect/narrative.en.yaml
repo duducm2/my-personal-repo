@@ -11,6 +11,15 @@ fields:
     <p><img src="../../../pictures/work/astra-project/IMG_20260415_142514.jpg" alt="Livestock Management & User Journey Fieldwork" /></p>
     <p><img src="../../../pictures/work/astra-project/IMG_20260415_182229.jpg" alt="Bosch Astra IoT Telemetry Device & Hardware Evaluation" /></p>
   cip_pipeline_h2: "Present – Method Pipeline: Evidence → Gate → Dashboard"
+  cip_ux_images: |
+    <p><img src="../../../pictures/work/cip-ux/cip-ux-1.png" alt="CIP-Applied Research Report Cover" /></p>
+    <p><img src="../../../pictures/work/cip-ux/cip-ux-2.png" alt="Summary & Executive Findings" /></p>
+    <p><img src="../../../pictures/work/cip-ux/cip-ux-3.png" alt="Context & Methodology" /></p>
+    <p><img src="../../../pictures/work/cip-ux/cip-ux-4.png" alt="Literature Review & Benchmark" /></p>
+    <p><img src="../../../pictures/work/cip-ux/cip-ux-5.png" alt="Findings & Criticality Index" /></p>
+    <p><img src="../../../pictures/work/cip-ux/cip-ux-6.png" alt="Pipeline & Data Processing" /></p>
+    <p><img src="../../../pictures/work/cip-ux/cip-ux-7.png" alt="Strategic Opportunities & Conclusions" /></p>
+    <p><img src="../../../pictures/work/cip-ux/cip-ux-8.png" alt="Applied Research Visuals" /></p>
   closing_summary: "I bring digitization experience, analytics pipelines, and research quality gates into solution architecture that global teams can run—judged by outcomes, not decks."
   csi_h2: "Present – Outcome Metrics: CSI & NPS (2024–2025)"
   deck_title: "Eduardo Figueiredo – Portfolio"
@@ -165,7 +174,7 @@ fields:
   who_contact: "Nova Odessa, SP – Brazil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583"
   who_impact: "I help teams design digitization and analytics solutions that hold up in production—clear boundaries, measurable outcomes, reviews grounded in evidence."
   who_name: "Eduardo M. de A. Figueiredo"
-  who_role: "Digital Solution Architect | Cloud, Digitization & Evidence-Based Delivery"
+  who_role: "Digital Solution Architect \\| Cloud, Digitization & Evidence-Based Delivery"
   why_bullets: |
     - I think digital solutions in service organizations have to survive real operations—not just look good in a review.
     - My work connects digitization, data paths, and applied research quality gates: architecture that teams can actually run.

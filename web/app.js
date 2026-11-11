@@ -805,42 +805,182 @@
       .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
   }
 
-  function parseMarkdownTable(text) {
-    if (!text || typeof text !== "string") return { headers: ["Focus Area", "Impact & Evidence"], rows: [] };
-    const lines = text.trim().split("\n").map((l) => l.trim()).filter(Boolean);
+  // --- Zero-Markdown WYSIWYG Rich Text Component ---
+  function mdToHtml(mdText) {
+    if (!mdText) return "";
+    let s = String(mdText)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+    s = s.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+    s = s.replace(/\n/g, "<br>");
+    return s;
+  }
+
+  function htmlToMd(html) {
+    if (!html) return "";
+    const container = document.createElement("div");
+    container.innerHTML = html;
+
+    function walk(node) {
+      if (node.nodeType === Node.TEXT_NODE) {
+        return node.textContent || "";
+      }
+      if (node.nodeType !== Node.ELEMENT_NODE) {
+        return "";
+      }
+      const tag = node.tagName.toLowerCase();
+      if (tag === "br") return "\n";
+      if (tag === "strong" || tag === "b") {
+        const inner = Array.from(node.childNodes).map(walk).join("").trim();
+        return inner ? `**${inner}**` : "";
+      }
+      if (tag === "div" || tag === "p") {
+        const inner = Array.from(node.childNodes).map(walk).join("");
+        return (inner ? "\n" + inner : "");
+      }
+      return Array.from(node.childNodes).map(walk).join("");
+    }
+
+    let out = Array.from(container.childNodes).map(walk).join("");
+    out = out.replace(/\n\n+/g, "\n").replace(/^\n+/, "").replace(/\n+$/, "");
+    return out;
+  }
+
+  function createWysiwygInput(initialMd, onChange, opts) {
+    const wrap = document.createElement("div");
+    wrap.className = "wysiwyg-field-container";
+
+    const toolbar = document.createElement("div");
+    toolbar.className = "wysiwyg-toolbar";
+
+    const bBtn = document.createElement("button");
+    bBtn.type = "button";
+    bBtn.className = "wysiwyg-btn";
+    bBtn.innerHTML = "<strong>B</strong>";
+    bBtn.title = "Bold (Ctrl+B)";
+
+    const hint = document.createElement("span");
+    hint.className = "wysiwyg-hint";
+    hint.textContent = "Select text and click B (or press Ctrl+B) to bold";
+
+    toolbar.append(bBtn, hint);
+    wrap.append(toolbar);
+
+    const editor = document.createElement("div");
+    editor.className = "wysiwyg-editor" + (opts?.tall ? " is-tall" : "");
+    editor.contentEditable = "true";
+    editor.spellcheck = true;
+    editor.dataset.placeholder = opts?.placeholder || "Type text here…";
+    if (opts?.singleLine) {
+      editor.dataset.singleLine = "true";
+    }
+
+    editor.innerHTML = mdToHtml(initialMd || "");
+
+    const notify = () => {
+      const md = htmlToMd(editor.innerHTML);
+      onChange(md);
+      markDeliverableDirty();
+    };
+
+    bBtn.onmousedown = (e) => {
+      e.preventDefault();
+      document.execCommand("bold", false, null);
+      notify();
+    };
+
+    editor.addEventListener("keydown", (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "b") {
+        e.preventDefault();
+        document.execCommand("bold", false, null);
+        notify();
+      } else if (opts?.singleLine && e.key === "Enter") {
+        e.preventDefault();
+      }
+    });
+
+    editor.addEventListener("input", notify);
+
+    editor.addEventListener("paste", (e) => {
+      e.preventDefault();
+      const text = (e.clipboardData || window.clipboardData).getData("text/plain");
+      document.execCommand("insertText", false, text);
+      notify();
+    });
+
+    wrap.append(editor);
+
+    return {
+      element: wrap,
+      getValue: () => htmlToMd(editor.innerHTML),
+      setValue: (val) => {
+        editor.innerHTML = mdToHtml(val || "");
+      },
+    };
+  }
+
+  // Slide-Aware Table Parser & Formatter for present_table
+  function parsePresentTables(text) {
+    if (!text || typeof text !== "string") {
+      return { headers: ["Area", "Achievement"], rows: [] };
+    }
+    const lines = text.split("\n");
     const rows = [];
-    let headers = ["Focus Area", "Impact & Evidence"];
-    for (const line of lines) {
+    let headers = ["Area", "Achievement"];
+
+    for (const rawLine of lines) {
+      const line = rawLine.trim();
       if (!line.startsWith("|")) continue;
       const parts = line.split("|").slice(1, -1).map((p) => p.trim());
       if (parts.length < 2) continue;
+      // Skip separator dashes
       if (parts.every((p) => /^[-: ]+$/.test(p))) continue;
-      const isHeaderRow =
-        rows.length === 0 &&
-        ["area", "área", "step", "passo", "competenc", "role"].some((w) =>
-          parts[0].toLowerCase().includes(w)
-        );
-      if (isHeaderRow) {
+      // Skip header rows
+      const lower0 = parts[0].toLowerCase();
+      if (lower0 === "area" || lower0 === "área" || lower0.includes("competenc") || lower0.includes("role")) {
         headers = parts;
         continue;
       }
-      rows.push({ col1: parts[0], col2: parts.slice(1).join(" | ") });
+      rows.push({
+        col1: parts[0].replace(/\\\|/g, "|"),
+        col2: parts.slice(1).join(" | ").replace(/\\\|/g, "|"),
+      });
     }
     return { headers, rows };
   }
 
-  function formatMarkdownTable(headers, rows) {
-    const h1 = headers?.[0] || "Focus Area";
-    const h2 = headers?.[1] || "Impact & Evidence";
-    let md = `| ${h1} | ${h2} |\n|---|---|\n`;
-    for (const r of rows) {
-      const c1 = (r.col1 || "").replace(/\n/g, " ").trim();
-      const c2 = (r.col2 || "").replace(/\n/g, " ").trim();
-      if (c1 || c2) {
-        md += `| ${c1} | ${c2} |\n`;
-      }
+  function formatPresentTables(headers, rows, lang) {
+    const h1 = lang === "pt" ? "Área" : "Area";
+    const h2 = lang === "pt" ? "Conquista" : "Achievement";
+    if (!rows || rows.length === 0) {
+      return `| ${h1} | ${h2} |\n|---|---|`;
     }
-    return md.trim();
+
+    const formatRow = (r) => {
+      const c1 = (r.col1 || "").replace(/\n/g, " ").replace(/\|/g, "\\|").trim();
+      const c2 = (r.col2 || "").replace(/\n/g, " ").replace(/\|/g, "\\|").trim();
+      return `| ${c1} | ${c2} |`;
+    };
+
+    if (rows.length <= 5) {
+      let md = `| ${h1} | ${h2} |\n|---|---|\n`;
+      md += rows.map(formatRow).join("\n");
+      return md.trim();
+    }
+
+    // Split across 2 slides with clean Marp slide separator and continuation header
+    const first5 = rows.slice(0, 5);
+    const rest = rows.slice(5);
+
+    let md1 = `| ${h1} | ${h2} |\n|---|---|\n` + first5.map(formatRow).join("\n");
+    const contTitle = lang === "pt"
+      ? "## Presente – Liderança de Produto & Engenharia (continuação)"
+      : "## Present – Product & Engineering Leadership (continued)";
+
+    let md2 = `\n\n---\n\n<!-- _class: dense-content -->\n\n<style scoped>\ntable {\n  font-size: 0.88rem;\n}\n</style>\n\n${contTitle}\n\n| ${h1} | ${h2} |\n|---|---|\n` + rest.map(formatRow).join("\n");
+
+    return (md1 + md2).trim();
   }
 
   function parseMarkdownBullets(text) {
@@ -860,23 +1000,6 @@
       .join("\n");
   }
 
-  function extractFutureCareerTable(text) {
-    const match = text.match(/<div class="future-po-bullets">([\s\S]*?)<\/div>/);
-    if (match) {
-      return parseMarkdownTable(match[1]);
-    }
-    return parseMarkdownTable(text);
-  }
-
-  function wrapFutureCareerTable(originalText, headers, rows) {
-    const tableMd = formatMarkdownTable(headers, rows);
-    const match = originalText.match(/([\s\S]*?<div class="future-po-bullets">)[\s\S]*?(<\/div>[\s\S]*)/);
-    if (match) {
-      return `${match[1]}\n\n${tableMd}\n\n${match[2]}`;
-    }
-    return tableMd;
-  }
-
   function createBilingualInputRow(labelEn, valueEn, valuePt, onChange, opts) {
     const row = document.createElement("div");
     row.className = "deliverable-edit-field-group" + (opts?.tall ? " is-tall" : "");
@@ -892,36 +1015,18 @@
       b.textContent = opts.badge;
       header.append(b);
     }
-
-    if (opts?.formatToolbar) {
-      const bar = document.createElement("div");
-      bar.className = "format-toolbar";
-      const bBtn = document.createElement("button");
-      bBtn.type = "button";
-      bBtn.className = "format-btn";
-      bBtn.textContent = "**B** Bold";
-      bBtn.title = "Format selected text in bold";
-      bBtn.onclick = (e) => {
-        e.preventDefault();
-        const active = document.activeElement;
-        if (active && (active.tagName === "TEXTAREA" || active.tagName === "INPUT")) {
-          const start = active.selectionStart;
-          const end = active.selectionEnd;
-          if (start != null && end != null && start !== end) {
-            const val = active.value;
-            active.value = val.substring(0, start) + "**" + val.substring(start, end) + "**" + val.substring(end);
-            active.dispatchEvent(new Event("input"));
-          }
-        }
-      };
-      bar.append(bBtn);
-      header.append(bar);
-    }
-
     row.append(header);
 
     const inputsWrap = document.createElement("div");
     inputsWrap.className = "deliverable-inputs-grid";
+
+    let valEn = (valueEn || "").replace(/\\\|/g, "|");
+    let valPt = (valuePt || "").replace(/\\\|/g, "|");
+
+    const notify = () => {
+      onChange(valEn, valPt);
+      markDeliverableDirty();
+    };
 
     // EN input
     const enCol = document.createElement("div");
@@ -929,23 +1034,17 @@
     const enTag = document.createElement("span");
     enTag.className = "lang-tag";
     enTag.textContent = "EN";
-    const enArea = document.createElement("textarea");
-    enArea.className = "field-input" + (opts?.tall ? " tall" : "");
-    enArea.value = valueEn || "";
-    enArea.rows = opts?.tall ? 3 : 1;
-    enArea.placeholder = "English text…";
-    enCol.append(enTag, enArea);
+    enCol.append(enTag);
 
-    if (opts?.withPreview) {
-      const enPreview = document.createElement("div");
-      enPreview.className = "format-preview-pill";
-      const updateEnPrev = () => {
-        enPreview.innerHTML = `<strong>Live Preview:</strong> ${renderInlineFormattedPreview(enArea.value)}`;
-      };
-      updateEnPrev();
-      enCol.append(enPreview);
-      enArea.addEventListener("input", updateEnPrev);
-    }
+    const enEditor = createWysiwygInput(
+      valEn,
+      (newEn) => {
+        valEn = newEn;
+        notify();
+      },
+      { tall: opts?.tall, singleLine: !opts?.tall, placeholder: "English text…" }
+    );
+    enCol.append(enEditor.element);
 
     // PT input
     const ptCol = document.createElement("div");
@@ -953,30 +1052,17 @@
     const ptTag = document.createElement("span");
     ptTag.className = "lang-tag";
     ptTag.textContent = "PT";
-    const ptArea = document.createElement("textarea");
-    ptArea.className = "field-input" + (opts?.tall ? " tall" : "");
-    ptArea.value = valuePt || "";
-    ptArea.rows = opts?.tall ? 3 : 1;
-    ptArea.placeholder = "Texto em português…";
-    ptCol.append(ptTag, ptArea);
+    ptCol.append(ptTag);
 
-    if (opts?.withPreview) {
-      const ptPreview = document.createElement("div");
-      ptPreview.className = "format-preview-pill";
-      const updatePtPrev = () => {
-        ptPreview.innerHTML = `<strong>Pré-visualização:</strong> ${renderInlineFormattedPreview(ptArea.value)}`;
-      };
-      updatePtPrev();
-      ptCol.append(ptPreview);
-      ptArea.addEventListener("input", updatePtPrev);
-    }
-
-    const handleInput = () => {
-      onChange(enArea.value, ptArea.value);
-      markDeliverableDirty();
-    };
-    enArea.addEventListener("input", handleInput);
-    ptArea.addEventListener("input", handleInput);
+    const ptEditor = createWysiwygInput(
+      valPt,
+      (newPt) => {
+        valPt = newPt;
+        notify();
+      },
+      { tall: opts?.tall, singleLine: !opts?.tall, placeholder: "Texto em português…" }
+    );
+    ptCol.append(ptEditor.element);
 
     inputsWrap.append(enCol, ptCol);
     row.append(inputsWrap);
@@ -995,13 +1081,13 @@
 
     const tip = document.createElement("p");
     tip.className = "structured-editor-tip";
-    tip.textContent = "Structured achievements: edit Domain and Impact separately without markdown pipe syntax.";
+    tip.textContent = "Structured achievements: edit Domain and Impact separately with rich-text bolding (no markdown | pipes or --- slide breaks).";
 
     head.append(title, tip);
     block.append(head);
 
-    const parsedEn = parseMarkdownTable(valueEn);
-    const parsedPt = parseMarkdownTable(valuePt);
+    const parsedEn = parsePresentTables(valueEn);
+    const parsedPt = parsePresentTables(valuePt);
 
     const maxRows = Math.max(parsedEn.rows.length, parsedPt.rows.length, 1);
     const rowsEn = [...parsedEn.rows];
@@ -1013,8 +1099,8 @@
     rowsContainer.className = "structured-table-rows";
 
     const syncAndNotify = () => {
-      const outEn = formatMarkdownTable(parsedEn.headers, rowsEn);
-      const outPt = formatMarkdownTable(parsedPt.headers, rowsPt);
+      const outEn = formatPresentTables(parsedEn.headers, rowsEn, "en");
+      const outPt = formatPresentTables(parsedPt.headers, rowsPt, "pt");
       onChange(outEn, outPt);
       markDeliverableDirty();
     };
@@ -1023,6 +1109,15 @@
       rowsContainer.replaceChildren();
       rowsEn.forEach((rowEn, index) => {
         const rowPt = rowsPt[index] || { col1: "", col2: "" };
+
+        // Visual divider when rows split into Slide 6 continuation
+        if (index === 5) {
+          const divider = document.createElement("div");
+          divider.style.cssText = "grid-column: 1 / -1; padding: 6px 12px; margin: 8px 0; background: color-mix(in srgb, var(--gold) 15%, transparent); border: 1px dashed var(--gold); border-radius: 4px; font-size: 11px; font-weight: 600; color: var(--gold); text-align: center;";
+          divider.textContent = "▼ Slides Break: Rows below automatically continue on Slide 6 ▼";
+          rowsContainer.append(divider);
+        }
+
         const card = document.createElement("div");
         card.className = "structured-table-row-card";
 
@@ -1071,21 +1166,18 @@
         };
         enAreaRow.append(enTag1, enAreaInput);
 
-        const enImpactRow = document.createElement("div");
-        enImpactRow.className = "structured-field-row";
-        const enTag2 = document.createElement("span");
-        enTag2.className = "lang-tag";
-        enTag2.textContent = "EN";
-        const enImpactArea = document.createElement("textarea");
-        enImpactArea.rows = 2;
-        enImpactArea.placeholder = "Impact, metrics, and evidence…";
-        enImpactArea.value = rowEn.col2 || "";
-        enImpactArea.oninput = () => {
-          rowEn.col2 = enImpactArea.value;
-          syncAndNotify();
-        };
-        enImpactRow.append(enTag2, enImpactArea);
-        enPair.append(enAreaRow, enImpactRow);
+        const enImpactWrap = document.createElement("div");
+        const enImpactWysiwyg = createWysiwygInput(
+          rowEn.col2 || "",
+          (val) => {
+            rowEn.col2 = val;
+            syncAndNotify();
+          },
+          { tall: true, placeholder: "Impact, metrics, and evidence…" }
+        );
+        enImpactWrap.append(enImpactWysiwyg.element);
+
+        enPair.append(enAreaRow, enImpactWrap);
 
         // PT inputs (Area + Impact)
         const ptPair = document.createElement("div");
@@ -1098,7 +1190,7 @@
         ptTag1.textContent = "PT";
         const ptAreaInput = document.createElement("input");
         ptAreaInput.type = "text";
-        ptAreaInput.placeholder = "Área / Domínio…";
+        ptAreaInput.placeholder = "Área de Foco / Domínio…";
         ptAreaInput.value = rowPt.col1 || "";
         ptAreaInput.oninput = () => {
           rowPt.col1 = ptAreaInput.value;
@@ -1106,21 +1198,18 @@
         };
         ptAreaRow.append(ptTag1, ptAreaInput);
 
-        const ptImpactRow = document.createElement("div");
-        ptImpactRow.className = "structured-field-row";
-        const ptTag2 = document.createElement("span");
-        ptTag2.className = "lang-tag";
-        ptTag2.textContent = "PT";
-        const ptImpactArea = document.createElement("textarea");
-        ptImpactArea.rows = 2;
-        ptImpactArea.placeholder = "Impacto, métricas e evidências…";
-        ptImpactArea.value = rowPt.col2 || "";
-        ptImpactArea.oninput = () => {
-          rowPt.col2 = ptImpactArea.value;
-          syncAndNotify();
-        };
-        ptImpactRow.append(ptTag2, ptImpactArea);
-        ptPair.append(ptAreaRow, ptImpactRow);
+        const ptImpactWrap = document.createElement("div");
+        const ptImpactWysiwyg = createWysiwygInput(
+          rowPt.col2 || "",
+          (val) => {
+            rowPt.col2 = val;
+            syncAndNotify();
+          },
+          { tall: true, placeholder: "Impacto, métricas e evidências…" }
+        );
+        ptImpactWrap.append(ptImpactWysiwyg.element);
+
+        ptPair.append(ptAreaRow, ptImpactWrap);
 
         inputsGrid.append(enPair, ptPair);
         card.append(inputsGrid);
@@ -1158,7 +1247,7 @@
 
     const tip = document.createElement("p");
     tip.className = "structured-editor-tip";
-    tip.textContent = "Bullet points: add key highlights without typing markdown dashes (-).";
+    tip.textContent = "Bullet points: add key highlights with bold text formatting without typing markdown dashes (-).";
 
     head.append(title, tip);
     block.append(head);
@@ -1254,38 +1343,40 @@
         inputsGrid.className = "structured-row-inputs";
 
         // EN
-        const enRow = document.createElement("div");
-        enRow.className = "structured-field-row";
+        const enCol = document.createElement("div");
+        enCol.className = "structured-field-row";
         const enTag = document.createElement("span");
         enTag.className = "lang-tag";
         enTag.textContent = "EN";
-        const enInput = document.createElement("textarea");
-        enInput.rows = 2;
-        enInput.placeholder = "Highlight in English…";
-        enInput.value = itemEn || "";
-        enInput.oninput = () => {
-          bulletsEn[index] = enInput.value;
-          syncAndNotify();
-        };
-        enRow.append(enTag, enInput);
+        enCol.append(enTag);
+        const enWysiwyg = createWysiwygInput(
+          itemEn || "",
+          (val) => {
+            bulletsEn[index] = val;
+            syncAndNotify();
+          },
+          { tall: true, placeholder: "Highlight in English…" }
+        );
+        enCol.append(enWysiwyg.element);
 
         // PT
-        const ptRow = document.createElement("div");
-        ptRow.className = "structured-field-row";
+        const ptCol = document.createElement("div");
+        ptCol.className = "structured-field-row";
         const ptTag = document.createElement("span");
         ptTag.className = "lang-tag";
         ptTag.textContent = "PT";
-        const ptInput = document.createElement("textarea");
-        ptInput.rows = 2;
-        ptInput.placeholder = "Destaque em português…";
-        ptInput.value = itemPt || "";
-        ptInput.oninput = () => {
-          bulletsPt[index] = ptInput.value;
-          syncAndNotify();
-        };
-        ptRow.append(ptTag, ptInput);
+        ptCol.append(ptTag);
+        const ptWysiwyg = createWysiwygInput(
+          itemPt || "",
+          (val) => {
+            bulletsPt[index] = val;
+            syncAndNotify();
+          },
+          { tall: true, placeholder: "Destaque em português…" }
+        );
+        ptCol.append(ptWysiwyg.element);
 
-        inputsGrid.append(enRow, ptRow);
+        inputsGrid.append(enCol, ptCol);
         card.append(inputsGrid);
         listContainer.append(card);
       });
@@ -1310,171 +1401,230 @@
   }
 
   function createStructuredFutureCareerEditor(label, valueEn, valuePt, onChange) {
-    const hasTable = (valueEn || "").includes("|");
+    const isBulletStyle = (valueEn || "").includes("Conduct UX Research") || !(valueEn || "").includes("|");
 
-    if (hasTable) {
-      const parsedEn = extractFutureCareerTable(valueEn || "");
-      const parsedPt = extractFutureCareerTable(valuePt || "");
-
+    if (isBulletStyle) {
+      // UX Researcher format: leading heading + bullets
       const block = document.createElement("div");
       block.className = "structured-editor-block";
 
       const head = document.createElement("div");
       head.className = "structured-editor-head";
-
       const title = document.createElement("h4");
-      title.textContent = "Future Career Progression Steps";
-
-      const tip = document.createElement("p");
-      tip.className = "structured-editor-tip";
-      tip.textContent = "Step-by-step career path progression. No markdown tables or HTML tags needed.";
-
-      head.append(title, tip);
+      title.textContent = "Future – UX Research & Design Rigor (Principles & Methodologies)";
+      head.append(title);
       block.append(head);
 
-      const maxRows = Math.max(parsedEn.rows.length, parsedPt.rows.length, 1);
-      const rowsEn = [...parsedEn.rows];
-      const rowsPt = [...parsedPt.rows];
-      while (rowsEn.length < maxRows) rowsEn.push({ col1: "", col2: "" });
-      while (rowsPt.length < maxRows) rowsPt.push({ col1: "", col2: "" });
+      // Extract optional heading and bullets
+      const extractHAndB = (txt) => {
+        const lines = (txt || "").split("\n");
+        let h = "";
+        const b = [];
+        for (const l of lines) {
+          const trimmed = l.trim();
+          if (trimmed.startsWith("## ")) {
+            h = trimmed.replace(/^##\s+/, "");
+          } else if (trimmed.startsWith("- ") || trimmed.startsWith("* ")) {
+            b.push(trimmed.replace(/^[-*]\s+/, ""));
+          }
+        }
+        return { h, b };
+      };
 
-      const rowsContainer = document.createElement("div");
-      rowsContainer.className = "structured-table-rows";
+      const parsedEn = extractHAndB(valueEn);
+      const parsedPt = extractHAndB(valuePt);
+
+      let hEn = parsedEn.h || "Future – How I Conduct UX Research & Design in High-Tech";
+      let hPt = parsedPt.h || "Futuro – Como Conduzo Pesquisa e Design de UX em Alta Tecnologia";
+      let bulletsEn = parsedEn.b;
+      let bulletsPt = parsedPt.b;
 
       const syncAndNotify = () => {
-        const outEn = wrapFutureCareerTable(valueEn || "", parsedEn.headers, rowsEn);
-        const outPt = wrapFutureCareerTable(valuePt || "", parsedPt.headers, rowsPt);
+        const outEn = `## ${hEn}\n\n` + formatMarkdownBullets(bulletsEn);
+        const outPt = `## ${hPt}\n\n` + formatMarkdownBullets(bulletsPt);
         onChange(outEn, outPt);
         markDeliverableDirty();
       };
 
-      const renderRowCards = () => {
-        rowsContainer.replaceChildren();
-        rowsEn.forEach((rowEn, index) => {
-          const rowPt = rowsPt[index] || { col1: "", col2: "" };
-          const card = document.createElement("div");
-          card.className = "structured-table-row-card";
-
-          const cardHead = document.createElement("div");
-          cardHead.className = "structured-table-row-head";
-
-          const num = document.createElement("span");
-          num.className = "structured-row-num";
-          num.textContent = `Step #${index + 1}: ${rowEn.col1 || "Stage"}`;
-
-          const delBtn = document.createElement("button");
-          delBtn.type = "button";
-          delBtn.className = "structured-row-delete-btn";
-          delBtn.textContent = "✕ Remove";
-          delBtn.onclick = () => {
-            rowsEn.splice(index, 1);
-            rowsPt.splice(index, 1);
-            renderRowCards();
-            syncAndNotify();
-          };
-
-          cardHead.append(num, delBtn);
-          card.append(cardHead);
-
-          const inputsGrid = document.createElement("div");
-          inputsGrid.className = "structured-row-inputs";
-
-          // EN
-          const enPair = document.createElement("div");
-          enPair.className = "structured-field-pair";
-          const enRow1 = document.createElement("div");
-          enRow1.className = "structured-field-row";
-          const enTag1 = document.createElement("span");
-          enTag1.className = "lang-tag";
-          enTag1.textContent = "EN";
-          const enStepInput = document.createElement("input");
-          enStepInput.type = "text";
-          enStepInput.placeholder = "Step name (e.g. Now, Next, Method)…";
-          enStepInput.value = rowEn.col1 || "";
-          enStepInput.oninput = () => {
-            rowEn.col1 = enStepInput.value;
-            num.textContent = `Step #${index + 1}: ${rowEn.col1 || "Stage"}`;
-            syncAndNotify();
-          };
-          enRow1.append(enTag1, enStepInput);
-
-          const enRow2 = document.createElement("div");
-          enRow2.className = "structured-field-row";
-          const enTag2 = document.createElement("span");
-          enTag2.className = "lang-tag";
-          enTag2.textContent = "EN";
-          const enDescArea = document.createElement("textarea");
-          enDescArea.rows = 2;
-          enDescArea.placeholder = "What it is / Evidence…";
-          enDescArea.value = rowEn.col2 || "";
-          enDescArea.oninput = () => {
-            rowEn.col2 = enDescArea.value;
-            syncAndNotify();
-          };
-          enRow2.append(enTag2, enDescArea);
-          enPair.append(enRow1, enRow2);
-
-          // PT
-          const ptPair = document.createElement("div");
-          ptPair.className = "structured-field-pair";
-          const ptRow1 = document.createElement("div");
-          ptRow1.className = "structured-field-row";
-          const ptTag1 = document.createElement("span");
-          ptTag1.className = "lang-tag";
-          ptTag1.textContent = "PT";
-          const ptStepInput = document.createElement("input");
-          ptStepInput.type = "text";
-          ptStepInput.placeholder = "Nome do passo (ex: Agora, Próximo, Método)…";
-          ptStepInput.value = rowPt.col1 || "";
-          ptStepInput.oninput = () => {
-            rowPt.col1 = ptStepInput.value;
-            syncAndNotify();
-          };
-          ptRow1.append(ptTag1, ptStepInput);
-
-          const ptRow2 = document.createElement("div");
-          ptRow2.className = "structured-field-row";
-          const ptTag2 = document.createElement("span");
-          ptTag2.className = "lang-tag";
-          ptTag2.textContent = "PT";
-          const ptDescArea = document.createElement("textarea");
-          ptDescArea.rows = 2;
-          ptDescArea.placeholder = "O que é / Evidência…";
-          ptDescArea.value = rowPt.col2 || "";
-          ptDescArea.oninput = () => {
-            rowPt.col2 = ptDescArea.value;
-            syncAndNotify();
-          };
-          ptRow2.append(ptTag2, ptDescArea);
-          ptPair.append(ptRow1, ptRow2);
-
-          inputsGrid.append(enPair, ptPair);
-          card.append(inputsGrid);
-          rowsContainer.append(card);
-        });
-      };
-
-      renderRowCards();
-      block.append(rowsContainer);
-
-      const addBtn = document.createElement("button");
-      addBtn.type = "button";
-      addBtn.className = "structured-add-row-btn";
-      addBtn.textContent = "+ Add Career Step";
-      addBtn.onclick = () => {
-        rowsEn.push({ col1: "", col2: "" });
-        rowsPt.push({ col1: "", col2: "" });
-        renderRowCards();
+      const hRow = createBilingualInputRow("Slide Section Heading", hEn, hPt, (newEn, newPt) => {
+        hEn = newEn;
+        hPt = newPt;
         syncAndNotify();
-      };
-      block.append(addBtn);
+      });
+      block.append(hRow);
+
+      const bulletsEditor = createStructuredBulletsEditor("Method Principles & Rigor Bullets", formatMarkdownBullets(bulletsEn), formatMarkdownBullets(bulletsPt), (newBEn, newBPt) => {
+        bulletsEn = parseMarkdownBullets(newBEn);
+        bulletsPt = parseMarkdownBullets(newBPt);
+        syncAndNotify();
+      });
+      block.append(bulletsEditor);
 
       return block;
-    } else {
-      return createStructuredBulletsEditor("Future – Method Principles & Focus", valueEn, valuePt, onChange);
     }
-  }
 
+    // Table progression variant (general, product-owner, data-analyst, digital-solution-architect)
+    const block = document.createElement("div");
+    block.className = "structured-editor-block";
+
+    const head = document.createElement("div");
+    head.className = "structured-editor-head";
+
+    const title = document.createElement("h4");
+    title.textContent = "Future Career Progression Steps";
+
+    const tip = document.createElement("p");
+    tip.className = "structured-editor-tip";
+    tip.textContent = "Step-by-step career path progression. No markdown tables or HTML tags needed.";
+
+    head.append(title, tip);
+    block.append(head);
+
+    const parsedEn = parsePresentTables(valueEn);
+    const parsedPt = parsePresentTables(valuePt);
+
+    const maxRows = Math.max(parsedEn.rows.length, parsedPt.rows.length, 1);
+    const rowsEn = [...parsedEn.rows];
+    const rowsPt = [...parsedPt.rows];
+    while (rowsEn.length < maxRows) rowsEn.push({ col1: "", col2: "" });
+    while (rowsPt.length < maxRows) rowsPt.push({ col1: "", col2: "" });
+
+    const rowsContainer = document.createElement("div");
+    rowsContainer.className = "structured-table-rows";
+
+    const syncAndNotify = () => {
+      // Re-wrap in the proper HTML/table structure expected by portfolio template
+      const buildWrapped = (headers, rows, originalText, lang) => {
+        const tMd = formatPresentTables(headers, rows, lang);
+        // Preserve surrounding markup if present
+        const match = (originalText || "").match(/([\s\S]*?<div class="future-[a-z0-9-]+-bullets">)[\s\S]*?(<\/div>[\s\S]*)/i);
+        if (match) {
+          return `${match[1]}\n\n${tMd}\n\n${match[2]}`;
+        }
+        return tMd;
+      };
+
+      const outEn = buildWrapped(parsedEn.headers, rowsEn, valueEn, "en");
+      const outPt = buildWrapped(parsedPt.headers, rowsPt, valuePt, "pt");
+      onChange(outEn, outPt);
+      markDeliverableDirty();
+    };
+
+    const renderRowCards = () => {
+      rowsContainer.replaceChildren();
+      rowsEn.forEach((rowEn, index) => {
+        const rowPt = rowsPt[index] || { col1: "", col2: "" };
+        const card = document.createElement("div");
+        card.className = "structured-table-row-card";
+
+        const cardHead = document.createElement("div");
+        cardHead.className = "structured-table-row-head";
+
+        const num = document.createElement("span");
+        num.className = "structured-row-num";
+        num.textContent = `Career Stage #${index + 1}: ${rowEn.col1 || "Stage"}`;
+
+        const delBtn = document.createElement("button");
+        delBtn.type = "button";
+        delBtn.className = "structured-row-delete-btn";
+        delBtn.textContent = "✕ Remove";
+        delBtn.onclick = () => {
+          rowsEn.splice(index, 1);
+          rowsPt.splice(index, 1);
+          renderRowCards();
+          syncAndNotify();
+        };
+
+        cardHead.append(num, delBtn);
+        card.append(cardHead);
+
+        const inputsGrid = document.createElement("div");
+        inputsGrid.className = "structured-row-inputs";
+
+        // EN
+        const enPair = document.createElement("div");
+        enPair.className = "structured-field-pair";
+        const enRow1 = document.createElement("div");
+        enRow1.className = "structured-field-row";
+        const enTag1 = document.createElement("span");
+        enTag1.className = "lang-tag";
+        enTag1.textContent = "EN";
+        const enStepInput = document.createElement("input");
+        enStepInput.type = "text";
+        enStepInput.placeholder = "Stage name (e.g. Now, Next, Method)…";
+        enStepInput.value = rowEn.col1 || "";
+        enStepInput.oninput = () => {
+          rowEn.col1 = enStepInput.value;
+          num.textContent = `Career Stage #${index + 1}: ${rowEn.col1 || "Stage"}`;
+          syncAndNotify();
+        };
+        enRow1.append(enTag1, enStepInput);
+
+        const enRow2 = document.createElement("div");
+        const enDescWysiwyg = createWysiwygInput(
+          rowEn.col2 || "",
+          (val) => {
+            rowEn.col2 = val;
+            syncAndNotify();
+          },
+          { tall: true, placeholder: "What it is / Evidence…" }
+        );
+        enRow2.append(enDescWysiwyg.element);
+        enPair.append(enRow1, enRow2);
+
+        // PT
+        const ptPair = document.createElement("div");
+        ptPair.className = "structured-field-pair";
+        const ptRow1 = document.createElement("div");
+        ptRow1.className = "structured-field-row";
+        const ptTag1 = document.createElement("span");
+        ptTag1.className = "lang-tag";
+        ptTag1.textContent = "PT";
+        const ptStepInput = document.createElement("input");
+        ptStepInput.type = "text";
+        ptStepInput.placeholder = "Nome da etapa (ex: Agora, Próximo, Método)…";
+        ptStepInput.value = rowPt.col1 || "";
+        ptStepInput.oninput = () => {
+          rowPt.col1 = ptStepInput.value;
+          syncAndNotify();
+        };
+        ptRow1.append(ptTag1, ptStepInput);
+
+        const ptRow2 = document.createElement("div");
+        const ptDescWysiwyg = createWysiwygInput(
+          rowPt.col2 || "",
+          (val) => {
+            rowPt.col2 = val;
+            syncAndNotify();
+          },
+          { tall: true, placeholder: "O que é / Evidência…" }
+        );
+        ptRow2.append(ptDescWysiwyg.element);
+        ptPair.append(ptRow1, ptRow2);
+
+        inputsGrid.append(enPair, ptPair);
+        card.append(inputsGrid);
+        rowsContainer.append(card);
+      });
+    };
+
+    renderRowCards();
+    block.append(rowsContainer);
+
+    const addBtn = document.createElement("button");
+    addBtn.type = "button";
+    addBtn.className = "structured-add-row-btn";
+    addBtn.textContent = "+ Add Career Step";
+    addBtn.onclick = () => {
+      rowsEn.push({ col1: "", col2: "" });
+      rowsPt.push({ col1: "", col2: "" });
+      renderRowCards();
+      syncAndNotify();
+    };
+    block.append(addBtn);
+
+    return block;
+  }
   function renderResumeTab(container, variant, data) {
     const narratives = data.narratives || [];
     const bullets = data.experienceBullets || [];
@@ -1595,7 +1745,7 @@
               bullet.text_en = en;
               bullet.text_pt = pt;
             },
-            { tall: true, withPreview: true, formatToolbar: true }
+            { tall: true }
           );
 
           bRow.append(controlBar, inputs);
@@ -1723,18 +1873,413 @@
     container.append(secSkills);
   }
 
+  // --- Contextual Media Manager (Images & Artifacts) ---
+  function createProjectMediaEditor(projectId, projectTitle, imagesList, allowedCategories, defaultCategory) {
+    const section = document.createElement("div");
+    section.className = "contextual-media-section";
+
+    const head = document.createElement("div");
+    head.className = "contextual-media-header";
+
+    const titleEl = document.createElement("div");
+    titleEl.className = "contextual-media-title";
+    titleEl.innerHTML = `<span>📷</span> <span>${projectTitle}</span>`;
+
+    const actions = document.createElement("div");
+    actions.className = "portfolio-project-actions";
+
+    const countBadge = document.createElement("span");
+    countBadge.className = "portfolio-img-count-badge";
+
+    const updateBadge = () => {
+      const projImgs = imagesList.filter((i) => i.project_id === projectId);
+      const sel = projImgs.filter((i) => (i.selected || "").toLowerCase() === "true" || i.selected === "1").length;
+      countBadge.textContent = `${sel} of ${projImgs.length} active in deck`;
+      countBadge.className = `portfolio-img-count-badge ${sel > 0 ? "has-selected" : "none-selected"}`;
+    };
+
+    const addImgBtn = document.createElement("button");
+    addImgBtn.type = "button";
+    addImgBtn.className = "mini-action-btn";
+    addImgBtn.textContent = "+ Add / Upload Image";
+    addImgBtn.title = "Upload an image or pick from workspace";
+    addImgBtn.onclick = () => openMediaUploadOrPickModal(projectId, allowedCategories, defaultCategory, imagesList, () => {
+      renderCards();
+      updateBadge();
+      markDeliverableDirty();
+    });
+
+    const selectAllBtn = document.createElement("button");
+    selectAllBtn.type = "button";
+    selectAllBtn.className = "mini-action-btn";
+    selectAllBtn.textContent = "Select All";
+    selectAllBtn.onclick = () => {
+      imagesList.filter((i) => i.project_id === projectId).forEach((i) => (i.selected = "true"));
+      renderCards();
+      updateBadge();
+      markDeliverableDirty();
+    };
+
+    const deselectAllBtn = document.createElement("button");
+    deselectAllBtn.type = "button";
+    deselectAllBtn.className = "mini-action-btn";
+    deselectAllBtn.textContent = "Deselect All";
+    deselectAllBtn.onclick = () => {
+      imagesList.filter((i) => i.project_id === projectId).forEach((i) => (i.selected = "false"));
+      renderCards();
+      updateBadge();
+      markDeliverableDirty();
+    };
+
+    actions.append(countBadge, addImgBtn, selectAllBtn, deselectAllBtn);
+    head.append(titleEl, actions);
+    section.append(head);
+
+    const grid = document.createElement("div");
+    grid.className = "contextual-media-grid";
+
+    const renderCards = () => {
+      grid.replaceChildren();
+      const projImgs = imagesList
+        .filter((i) => i.project_id === projectId)
+        .sort((a, b) => parseInt(a.sort_order || 999, 10) - parseInt(b.sort_order || 999, 10));
+
+      projImgs.forEach((img, idx) => {
+        img.sort_order = String(idx + 1);
+        const isSel = (img.selected || "").toLowerCase() === "true" || img.selected === "1";
+
+        const card = document.createElement("div");
+        card.className = "media-item-card" + (isSel ? "" : " is-disabled");
+
+        const previewWrap = document.createElement("div");
+        previewWrap.className = "media-item-preview-wrap";
+        previewWrap.title = "Click to preview large image";
+
+        const thumb = document.createElement("img");
+        thumb.src = `/${img.path}`;
+        thumb.alt = img.caption_en || "";
+        thumb.loading = "lazy";
+        previewWrap.append(thumb);
+
+        const statusPill = document.createElement("span");
+        statusPill.className = "portfolio-image-status-pill";
+        statusPill.textContent = isSel ? "✓ In Deck" : "✕ Excluded";
+        previewWrap.append(statusPill);
+
+        previewWrap.onclick = (e) => {
+          e.stopPropagation();
+          openImageLightbox(`/${img.path}`, img.caption_en || img.caption_pt || img.path);
+        };
+
+        const info = document.createElement("div");
+        info.className = "portfolio-image-info";
+
+        // Top bar: toggle & order buttons
+        const topBar = document.createElement("div");
+        topBar.style.cssText = "display: flex; align-items: center; justify-content: space-between; gap: 6px;";
+
+        const chkLabel = document.createElement("label");
+        chkLabel.style.cssText = "display: inline-flex; align-items: center; gap: 4px; font-size: 11px; cursor: pointer;";
+        const chk = document.createElement("input");
+        chk.type = "checkbox";
+        chk.checked = isSel;
+        chk.onchange = () => {
+          img.selected = chk.checked ? "true" : "false";
+          card.classList.toggle("is-disabled", !chk.checked);
+          statusPill.textContent = chk.checked ? "✓ In Deck" : "✕ Excluded";
+          updateBadge();
+          markDeliverableDirty();
+        };
+        chkLabel.append(chk, document.createTextNode("Include"));
+
+        const orderWrap = document.createElement("div");
+        orderWrap.className = "media-item-order-actions";
+
+        const leftBtn = document.createElement("button");
+        leftBtn.type = "button";
+        leftBtn.className = "media-btn-small";
+        leftBtn.textContent = "←";
+        leftBtn.title = "Move earlier in sequence";
+        leftBtn.disabled = idx === 0;
+        leftBtn.onclick = () => {
+          const prev = projImgs[idx - 1];
+          const tmp = prev.sort_order;
+          prev.sort_order = img.sort_order;
+          img.sort_order = tmp;
+          renderCards();
+          markDeliverableDirty();
+        };
+
+        const rightBtn = document.createElement("button");
+        rightBtn.type = "button";
+        rightBtn.className = "media-btn-small";
+        rightBtn.textContent = "→";
+        rightBtn.title = "Move later in sequence";
+        rightBtn.disabled = idx === projImgs.length - 1;
+        rightBtn.onclick = () => {
+          const next = projImgs[idx + 1];
+          const tmp = next.sort_order;
+          next.sort_order = img.sort_order;
+          img.sort_order = tmp;
+          renderCards();
+          markDeliverableDirty();
+        };
+
+        const delBtn = document.createElement("button");
+        delBtn.type = "button";
+        delBtn.className = "media-btn-small";
+        delBtn.textContent = "✕";
+        delBtn.title = "Remove image from project";
+        delBtn.onclick = () => {
+          const globalIdx = imagesList.indexOf(img);
+          if (globalIdx >= 0) imagesList.splice(globalIdx, 1);
+          renderCards();
+          updateBadge();
+          markDeliverableDirty();
+        };
+
+        orderWrap.append(leftBtn, rightBtn, delBtn);
+        topBar.append(chkLabel, orderWrap);
+        info.append(topBar);
+
+        // Category dropdown
+        if (allowedCategories && allowedCategories.length > 0) {
+          const catRow = document.createElement("div");
+          catRow.style.cssText = "display: flex; align-items: center; gap: 4px; font-size: 11px;";
+          const catLabel = document.createElement("span");
+          catLabel.textContent = "Slot:";
+          catLabel.style.color = "var(--muted)";
+          const select = document.createElement("select");
+          select.className = "media-category-select";
+          allowedCategories.forEach((cat) => {
+            const opt = document.createElement("option");
+            opt.value = cat.value;
+            opt.textContent = cat.label;
+            opt.selected = img.category === cat.value;
+            select.append(opt);
+          });
+          select.onchange = () => {
+            img.category = select.value;
+            markDeliverableDirty();
+          };
+          catRow.append(catLabel, select);
+          info.append(catRow);
+        }
+
+        // Bilingual captions
+        const captionsBox = document.createElement("div");
+        captionsBox.className = "portfolio-card-caption-edit";
+
+        const enInput = document.createElement("input");
+        enInput.type = "text";
+        enInput.placeholder = "Caption (EN)…";
+        enInput.value = img.caption_en || "";
+        enInput.oninput = () => {
+          img.caption_en = enInput.value;
+          markDeliverableDirty();
+        };
+
+        const ptInput = document.createElement("input");
+        ptInput.type = "text";
+        ptInput.placeholder = "Legenda (PT)…";
+        ptInput.value = img.caption_pt || "";
+        ptInput.oninput = () => {
+          img.caption_pt = ptInput.value;
+          markDeliverableDirty();
+        };
+
+        captionsBox.append(enInput, ptInput);
+        info.append(captionsBox);
+
+        card.append(previewWrap, info);
+        grid.append(card);
+      });
+    };
+
+    renderCards();
+    updateBadge();
+    section.append(grid);
+    return section;
+  }
+
+  // Upload or Pick Modal for Media
+  async function openMediaUploadOrPickModal(projectId, allowedCategories, defaultCategory, imagesList, onAdded) {
+    const modal = document.createElement("div");
+    modal.className = "image-lightbox-modal";
+
+    const content = document.createElement("div");
+    content.className = "image-lightbox-content";
+    content.style.maxWidth = "760px";
+    content.style.maxHeight = "80vh";
+    content.style.padding = "20px";
+    content.style.overflowY = "auto";
+    content.style.background = "var(--panel)";
+    content.style.borderRadius = "8px";
+    content.style.border = "1px solid var(--line)";
+
+    const title = document.createElement("h3");
+    title.style.margin = "0 0 12px";
+    title.textContent = `Add Image to ${projectId}`;
+    content.append(title);
+
+    // Option A: Upload from local machine
+    const uploadSec = document.createElement("div");
+    uploadSec.style.cssText = "padding: 12px; background: #18181b; border: 1px dashed var(--line); border-radius: 6px; margin-bottom: 16px;";
+    const upTitle = document.createElement("strong");
+    upTitle.textContent = "Upload New Image from Disk:";
+    const upInput = document.createElement("input");
+    upInput.type = "file";
+    upInput.accept = "image/*";
+    upInput.style.marginTop = "8px";
+
+    const upStatus = document.createElement("div");
+    upStatus.style.cssText = "font-size: 11px; margin-top: 6px; color: var(--muted);";
+
+    upInput.onchange = async () => {
+      const file = upInput.files?.[0];
+      if (!file) return;
+      upStatus.textContent = `Reading ${file.name}…`;
+      const reader = new FileReader();
+      reader.onload = async () => {
+        try {
+          upStatus.textContent = `Uploading ${file.name} to pictures/work/${projectId}…`;
+          const res = await fetch("/api/deliverables/upload-image", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              filename: file.name,
+              project_id: projectId,
+              data_base64: reader.result,
+            }),
+          });
+          const resData = await res.json();
+          if (!resData.ok) throw new Error(resData.error || "Upload failed");
+          // Add to imagesList
+          const newRow = {
+            project_id: projectId,
+            path: resData.url.replace(/^\//, ""),
+            category: defaultCategory || (allowedCategories?.[0]?.value || ""),
+            selected: "true",
+            sort_order: String(imagesList.filter((i) => i.project_id === projectId).length + 1),
+            caption_en: file.name.replace(/\.[^/.]+$/, ""),
+            caption_pt: file.name.replace(/\.[^/.]+$/, ""),
+          };
+          imagesList.push(newRow);
+          modal.remove();
+          if (onAdded) onAdded();
+        } catch (err) {
+          upStatus.textContent = "Error: " + err.message;
+          upStatus.style.color = "#e74c3c";
+        }
+      };
+      reader.readAsDataURL(file);
+    };
+
+    uploadSec.append(upTitle, document.createElement("br"), upInput, upStatus);
+    content.append(uploadSec);
+
+    // Option B: Pick existing image from workspace catalog
+    const pickSec = document.createElement("div");
+    const pickTitle = document.createElement("strong");
+    pickTitle.textContent = "Or Pick Existing Image from Workspace Catalog:";
+    pickSec.append(pickTitle);
+
+    const catalogGrid = document.createElement("div");
+    catalogGrid.style.cssText = "display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 8px; margin-top: 10px; max-height: 280px; overflow-y: auto; padding: 6px; background: #121214; border-radius: 6px;";
+
+    try {
+      const res = await fetch("/api/deliverables/media-catalog");
+      const catData = await res.json();
+      if (catData.ok && catData.files) {
+        catData.files.forEach((f) => {
+          const item = document.createElement("div");
+          item.style.cssText = "cursor: pointer; padding: 4px; border: 1px solid var(--line); border-radius: 4px; text-align: center; background: #1c1c1f;";
+          const img = document.createElement("img");
+          img.src = f.url;
+          img.style.cssText = "width: 100%; height: 70px; object-fit: contain; background: #0a0a0c; border-radius: 2px;";
+          const fn = document.createElement("div");
+          fn.style.cssText = "font-size: 10px; color: var(--muted); margin-top: 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;";
+          fn.textContent = f.filename;
+          item.append(img, fn);
+
+          item.onclick = () => {
+            const newRow = {
+              project_id: projectId,
+              path: f.rel_path,
+              category: defaultCategory || (allowedCategories?.[0]?.value || ""),
+              selected: "true",
+              sort_order: String(imagesList.filter((i) => i.project_id === projectId).length + 1),
+              caption_en: f.filename.replace(/\.[^/.]+$/, ""),
+              caption_pt: f.filename.replace(/\.[^/.]+$/, ""),
+            };
+            imagesList.push(newRow);
+            modal.remove();
+            if (onAdded) onAdded();
+          };
+          catalogGrid.append(item);
+        });
+      }
+    } catch {
+      catalogGrid.textContent = "Could not load workspace catalog.";
+    }
+
+    pickSec.append(catalogGrid);
+    content.append(pickSec);
+
+    const closeBtn = document.createElement("button");
+    closeBtn.type = "button";
+    closeBtn.className = "mini-action-btn";
+    closeBtn.style.marginTop = "14px";
+    closeBtn.textContent = "Cancel";
+    closeBtn.onclick = () => modal.remove();
+    content.append(closeBtn);
+
+    modal.append(content);
+    modal.onclick = (e) => {
+      if (e.target === modal) modal.remove();
+    };
+    document.body.append(modal);
+  }
+
   function renderPortfolioTab(container, variant, data) {
-    // 1. Portfolio project images manager (Choose which images to include)
-    renderPortfolioImagesSection(container, data);
-
-    // 2. Slide narratives
     const narratives = data.narratives || [];
+    const images = data.portfolioImages || [];
 
-    const card = document.createElement("div");
-    card.className = "deliverable-section-card";
-    const h = document.createElement("h3");
-    h.textContent = `Portfolio Deck Slides — ${variant}`;
-    card.append(h);
+    // Quick-jump navigation bar
+    const quickNav = document.createElement("nav");
+    quickNav.className = "deliverable-quicknav-bar";
+    const navLabel = document.createElement("span");
+    navLabel.className = "deliverable-quicknav-label";
+    navLabel.textContent = "Jump to Slide:";
+    quickNav.append(navLabel);
+
+    const slidesList = [
+      { id: "slide-1", name: "Slide 1 · Cover" },
+      { id: "slide-2", name: "Slide 2 · Who I Am" },
+      { id: "slide-3", name: "Slide 3 · Why This Role" },
+      { id: "slide-4", name: "Slide 4–6b · CIP & UX" },
+      { id: "slide-5", name: "Slide 5–6 · Present" },
+      { id: "slide-15", name: "Slide 15 · Future" },
+      { id: "slide-16", name: "Slide 16 · Tooling PT" },
+      { id: "slide-16b", name: "Slide 16b · Astra IoT" },
+      { id: "slide-18", name: "Slide 18–20 · Research & Vis" },
+      { id: "slide-closing", name: "Slide 27 · Closing" },
+    ];
+
+    slidesList.forEach((s) => {
+      const pill = document.createElement("a");
+      pill.className = "quicknav-pill";
+      pill.textContent = s.name;
+      pill.href = `#${s.id}`;
+      pill.onclick = (e) => {
+        e.preventDefault();
+        const target = document.getElementById(s.id);
+        if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+      };
+      quickNav.append(pill);
+    });
+
+    container.append(quickNav);
 
     const getNarrative = (key, defaultLabel) => {
       let row = narratives.find((r) => r.variant === variant && r.field === key);
@@ -1745,53 +2290,73 @@
       return row;
     };
 
-    // 1) Deck Title & Role (Cover)
+    // Helper to create slide cards
+    const createSlideCard = (id, badgeText, titleText) => {
+      const card = document.createElement("div");
+      card.id = id;
+      card.className = "portfolio-slide-card";
+      const header = document.createElement("div");
+      header.className = "portfolio-slide-card-header";
+      const badge = document.createElement("span");
+      badge.className = "portfolio-slide-badge";
+      badge.textContent = badgeText;
+      const title = document.createElement("h3");
+      title.style.margin = "0";
+      title.textContent = titleText;
+      header.append(badge, title);
+      card.append(header);
+      return card;
+    };
+
+    // --- Slide 1: Cover ---
+    const card1 = createSlideCard("slide-1", "Slide 1", "Cover Slide");
     const deckTitle = getNarrative("deck_title", "Deck Title");
-    card.append(
-      createBilingualInputRow("Cover Slide — Deck Title", deckTitle.text_en, deckTitle.text_pt, (en, pt) => {
+    card1.append(
+      createBilingualInputRow("Deck Title", deckTitle.text_en, deckTitle.text_pt, (en, pt) => {
         deckTitle.text_en = en;
         deckTitle.text_pt = pt;
       })
     );
+    container.append(card1);
 
-    // 2) Who Slide
+    // --- Slide 2: Who I Am ---
+    const card2 = createSlideCard("slide-2", "Slide 2", "Who I Am & Positioning");
     const whoRole = getNarrative("who_role", "Who Slide - Role");
-    card.append(
-      createBilingualInputRow("Who Slide — Primary Role & Specialty", whoRole.text_en, whoRole.text_pt, (en, pt) => {
+    card2.append(
+      createBilingualInputRow("Primary Role & Title", whoRole.text_en, whoRole.text_pt, (en, pt) => {
         whoRole.text_en = en;
         whoRole.text_pt = pt;
       })
     );
-
     const whoImpact = getNarrative("who_impact", "Who Slide - Impact Statement");
-    card.append(
-      createBilingualInputRow("Who Slide — Strategic Impact Statement", whoImpact.text_en, whoImpact.text_pt, (en, pt) => {
+    card2.append(
+      createBilingualInputRow("Strategic Impact Statement", whoImpact.text_en, whoImpact.text_pt, (en, pt) => {
         whoImpact.text_en = en;
         whoImpact.text_pt = pt;
-      }, { tall: true, withPreview: true, formatToolbar: true })
+      }, { tall: true })
     );
+    container.append(card2);
 
-    // 3) Why Slide: Heading, Subheading, Structured Bullets
+    // --- Slide 3: Why This Role ---
+    const card3 = createSlideCard("slide-3", "Slide 3", "Why This Role & Strategic Value");
     const whyH1 = getNarrative("why_h1", "Why Slide - Heading");
-    card.append(
-      createBilingualInputRow("Why Slide — Heading", whyH1.text_en, whyH1.text_pt, (en, pt) => {
+    card3.append(
+      createBilingualInputRow("Slide Title (H1)", whyH1.text_en, whyH1.text_pt, (en, pt) => {
         whyH1.text_en = en;
         whyH1.text_pt = pt;
       })
     );
-
     const whyH2 = getNarrative("why_h2", "Why Slide - Subheading");
-    card.append(
-      createBilingualInputRow("Why Slide — Subheading", whyH2.text_en, whyH2.text_pt, (en, pt) => {
+    card3.append(
+      createBilingualInputRow("Subheading (H2)", whyH2.text_en, whyH2.text_pt, (en, pt) => {
         whyH2.text_en = en;
         whyH2.text_pt = pt;
       })
     );
-
     const whyBullets = getNarrative("why_bullets", "Why Slide - Bullets");
-    card.append(
+    card3.append(
       createStructuredBulletsEditor(
-        "Why Slide — Value Proposition & Strategic Drivers (Structured Bullets)",
+        "Value Proposition Bullets",
         whyBullets.text_en,
         whyBullets.text_pt,
         (en, pt) => {
@@ -1800,20 +2365,57 @@
         }
       )
     );
+    container.append(card3);
 
-    // 4) Present Slide: Heading & Structured Achievements Table
+    // --- Slide 4–6b: CIP Pipeline, Relevance, CSI & UX Artifacts ---
+    const card4 = createSlideCard("slide-4", "Slides 4–6b", "CIP Cases, Research Gate & UX Artifacts");
+    const cipPipeH2 = getNarrative("cip_pipeline_h2", "CIP Pipeline Heading");
+    card4.append(
+      createBilingualInputRow("CIP Pipeline Heading", cipPipeH2.text_en, cipPipeH2.text_pt, (en, pt) => {
+        cipPipeH2.text_en = en;
+        cipPipeH2.text_pt = pt;
+      })
+    );
+    const relH2 = getNarrative("relevance_h2", "Relevance Heading");
+    card4.append(
+      createBilingualInputRow("Relevance Heading", relH2.text_en, relH2.text_pt, (en, pt) => {
+        relH2.text_en = en;
+        relH2.text_pt = pt;
+      })
+    );
+    const csiH2 = getNarrative("csi_h2", "CSI Heading");
+    card4.append(
+      createBilingualInputRow("CSI & Quantitative Rigor Heading", csiH2.text_en, csiH2.text_pt, (en, pt) => {
+        csiH2.text_en = en;
+        csiH2.text_pt = pt;
+      })
+    );
+
+    // Embedded CIP Media Editor
+    card4.append(
+      createProjectMediaEditor(
+        "cip-research-gate",
+        "Slide 6b: CIP UX Artifacts & Report Visuals",
+        images,
+        [{ value: "artifact", label: "UX Artifact Report" }],
+        "artifact"
+      )
+    );
+    container.append(card4);
+
+    // --- Slide 5–6: Present Achievements ---
+    const card5 = createSlideCard("slide-5", "Slides 5–6", "Present Key Achievements (Split Across Slides 5 & 6)");
     const presentH2 = getNarrative("present_h2", "Present Slide - Heading");
-    card.append(
+    card5.append(
       createBilingualInputRow("Present Slide — Heading", presentH2.text_en, presentH2.text_pt, (en, pt) => {
         presentH2.text_en = en;
         presentH2.text_pt = pt;
       })
     );
-
     const presentTable = getNarrative("present_table", "Present Slide - Achievements Table");
-    card.append(
+    card5.append(
       createStructuredTableEditor(
-        "Present Slide — Key Achievements & Evidence (Structured Table)",
+        "Present Key Achievements & Evidence",
         presentTable.text_en,
         presentTable.text_pt,
         (en, pt) => {
@@ -1822,28 +2424,28 @@
         }
       )
     );
+    container.append(card5);
 
-    // 5) Future Slide: Heading, Intro, and Structured Future Career Table/Principles
+    // --- Slide 15: Future Vision & Career Path ---
+    const card15 = createSlideCard("slide-15", "Slide 15", "Future Vision, Career Path & Methodologies");
     const futureH2 = getNarrative("future_h2", "Future Slide - Heading");
-    card.append(
+    card15.append(
       createBilingualInputRow("Future Slide — Heading", futureH2.text_en, futureH2.text_pt, (en, pt) => {
         futureH2.text_en = en;
         futureH2.text_pt = pt;
       })
     );
-
     const futureIntro = getNarrative("future_intro", "Future Slide - Intro");
-    card.append(
+    card15.append(
       createBilingualInputRow("Future Slide — Strategic Vision / Intro", futureIntro.text_en, futureIntro.text_pt, (en, pt) => {
         futureIntro.text_en = en;
         futureIntro.text_pt = pt;
-      }, { tall: true, withPreview: true, formatToolbar: true })
+      }, { tall: true })
     );
-
-    const futureCareerBody = getNarrative("future_career_body", "Future Slide - Career Body & Table");
-    card.append(
+    const futureCareerBody = getNarrative("future_career_body", "Future Slide - Career Body");
+    card15.append(
       createStructuredFutureCareerEditor(
-        "Future Slide — Progression Steps & Methodologies (Structured)",
+        "Future Progression Steps & Methodologies",
         futureCareerBody.text_en,
         futureCareerBody.text_pt,
         (en, pt) => {
@@ -1853,110 +2455,134 @@
       )
     );
 
-    // 6) Closing Slide
+    // Visual preview for the career path diagram
+    const diagCard = document.createElement("div");
+    diagCard.className = "diagram-preview-card";
+    diagCard.innerHTML = `
+      <strong style="font-size: 11px; color: var(--gold);">Career Path Method Diagram (Interpolated on Slide 15):</strong>
+      <img class="diagram-preview-img" src="/pictures/diagrams/ai-agile-research.en.svg" alt="Career Path Diagram Preview" onerror="this.style.display='none'" />
+    `;
+    card15.append(diagCard);
+    container.append(card15);
+
+    // --- Slide 16: Past – Tooling PT ---
+    const card16 = createSlideCard("slide-16", "Slide 16", "Past – Tooling PT (Power Tools)");
+    const toolingH2 = getNarrative("tooling_h2", "Tooling PT Heading");
+    card16.append(
+      createBilingualInputRow("Tooling PT Heading", toolingH2.text_en, toolingH2.text_pt, (en, pt) => {
+        toolingH2.text_en = en;
+        toolingH2.text_pt = pt;
+      })
+    );
+    const toolingBullet = getNarrative("tooling_bullet", "Tooling PT Bullet");
+    card16.append(
+      createBilingualInputRow("Tooling Project Narrative", toolingBullet.text_en, toolingBullet.text_pt, (en, pt) => {
+        toolingBullet.text_en = en;
+        toolingBullet.text_pt = pt;
+      }, { tall: true })
+    );
+    // Embedded Tooling PT Media
+    card16.append(
+      createProjectMediaEditor(
+        "tooling-pt",
+        "Slide 16: Tooling PT Prototypes & Workshop Photos",
+        images,
+        [
+          { value: "prototype", label: "Prototype Row (Wireframes/Figma)" },
+          { value: "workshop", label: "Workshop Row (Co-design/Reviews)" },
+        ],
+        "prototype"
+      )
+    );
+    container.append(card16);
+
+    // --- Slide 16b: Past – AgriTech IoT (Astra) ---
+    const card16b = createSlideCard("slide-16b", "Slide 16b", "Past – Astra AgriTech IoT & Cattle Telemetry");
+    const astraH2 = getNarrative("astra_h2", "Astra Heading");
+    card16b.append(
+      createBilingualInputRow("Astra Project Heading", astraH2.text_en, astraH2.text_pt, (en, pt) => {
+        astraH2.text_en = en;
+        astraH2.text_pt = pt;
+      })
+    );
+    const astraBullet = getNarrative("astra_bullet", "Astra Bullet");
+    card16b.append(
+      createBilingualInputRow("Astra Fieldwork & Telemetry Narrative", astraBullet.text_en, astraBullet.text_pt, (en, pt) => {
+        astraBullet.text_en = en;
+        astraBullet.text_pt = pt;
+      }, { tall: true })
+    );
+    // Embedded Astra Media
+    card16b.append(
+      createProjectMediaEditor(
+        "agritech-iot-cattle",
+        "Slide 16b: Astra Fieldwork & Telemetry Photos",
+        images,
+        [
+          { value: "fieldwork", label: "Fazenda Sindi Fieldwork" },
+          { value: "telemetry", label: "IoT Telemetry Hardware" },
+        ],
+        "fieldwork"
+      )
+    );
+    container.append(card16b);
+
+    // --- Slide 18–20: Master's Dissertation & InfoVis ---
+    const card18 = createSlideCard("slide-18", "Slides 18–20", "Past – Master's Dissertation & Information Visualization");
+    const dissIntro = getNarrative("dissertation_pbi_intro", "Dissertation Intro");
+    card18.append(
+      createBilingualInputRow("Dissertation Intro", dissIntro.text_en, dissIntro.text_pt, (en, pt) => {
+        dissIntro.text_en = en;
+        dissIntro.text_pt = pt;
+      }, { tall: true })
+    );
+    const dissBullets = getNarrative("dissertation_pbi_bullets", "Dissertation Bullets");
+    card18.append(
+      createStructuredBulletsEditor("Dissertation Highlights", dissBullets.text_en, dissBullets.text_pt, (en, pt) => {
+        dissBullets.text_en = en;
+        dissBullets.text_pt = pt;
+      })
+    );
+    const pnadH2 = getNarrative("infovis_pnad_h2", "InfoVis PNAD Heading");
+    card18.append(
+      createBilingualInputRow("InfoVis PNAD Heading", pnadH2.text_en, pnadH2.text_pt, (en, pt) => {
+        pnadH2.text_en = en;
+        pnadH2.text_pt = pt;
+      })
+    );
+    const pnadBullets = getNarrative("infovis_pnad_bullets", "InfoVis PNAD Bullets");
+    card18.append(
+      createStructuredBulletsEditor("InfoVis PNAD Highlights", pnadBullets.text_en, pnadBullets.text_pt, (en, pt) => {
+        pnadBullets.text_en = en;
+        pnadBullets.text_pt = pt;
+      })
+    );
+    const phraseH2 = getNarrative("infovis_phrasenet_h2", "PhraseNet Heading");
+    card18.append(
+      createBilingualInputRow("InfoVis PhraseNet Heading", phraseH2.text_en, phraseH2.text_pt, (en, pt) => {
+        phraseH2.text_en = en;
+        phraseH2.text_pt = pt;
+      })
+    );
+    const phraseBullets = getNarrative("infovis_phrasenet_bullets", "PhraseNet Bullets");
+    card18.append(
+      createStructuredBulletsEditor("InfoVis PhraseNet Highlights", phraseBullets.text_en, phraseBullets.text_pt, (en, pt) => {
+        phraseBullets.text_en = en;
+        phraseBullets.text_pt = pt;
+      })
+    );
+    container.append(card18);
+
+    // --- Slide 27: Closing ---
+    const cardClose = createSlideCard("slide-closing", "Slide 27", "Closing & Contact Summary");
     const closingSummary = getNarrative("closing_summary", "Closing Slide - Summary");
-    card.append(
-      createBilingualInputRow("Closing Slide — Summary & Forward Outlook", closingSummary.text_en, closingSummary.text_pt, (en, pt) => {
+    cardClose.append(
+      createBilingualInputRow("Closing Summary & Forward Outlook", closingSummary.text_en, closingSummary.text_pt, (en, pt) => {
         closingSummary.text_en = en;
         closingSummary.text_pt = pt;
-      }, { tall: true, withPreview: true, formatToolbar: true })
+      }, { tall: true })
     );
-
-    container.append(card);
-  }
-
-  function renderPortfolioImagesSection(container, data) {
-    const images = data.portfolioImages || [];
-    if (images.length === 0) return;
-
-    const section = document.createElement("div");
-    section.className = "deliverable-section-card portfolio-images-manager-card";
-
-    const head = document.createElement("div");
-    head.className = "portfolio-images-manager-head";
-
-    const title = document.createElement("h3");
-    title.textContent = "Portfolio Project Images & Evidence";
-
-    const lede = document.createElement("p");
-    lede.className = "deliverable-section-subhead";
-    lede.textContent =
-      "Choose which images and artifacts to include in your portfolio deck. Checked images appear in the compiled presentation; unchecked ones stay safely in-house.";
-
-    head.append(title, lede);
-    section.append(head);
-
-    // Group images by project
-    const projectGroups = [
-      { id: "tooling-pt", name: "EXT_M-PUR36 Tooling (Power Tools) — Slide 16" },
-      { id: "agritech-iot-cattle", name: "Astra Project (AgriTech IoT & Cattle Telemetry) — Slide 16b" },
-      { id: "cip-research-gate", name: "CIP CIM (Global Services) — Slide 6b" },
-      { id: "ai-agents-sessions-2026", name: "Bosch AI Sessions (2026)" },
-    ];
-
-    for (const group of projectGroups) {
-      const groupImages = images.filter((img) => img.project_id === group.id);
-      if (groupImages.length === 0) continue;
-
-      const groupBlock = document.createElement("div");
-      groupBlock.className = "portfolio-project-group";
-
-      const groupHead = document.createElement("div");
-      groupHead.className = "portfolio-project-head";
-
-      const groupTitle = document.createElement("h4");
-      groupTitle.textContent = group.name;
-
-      const groupMeta = document.createElement("div");
-      groupMeta.className = "portfolio-project-actions";
-
-      const countBadge = document.createElement("span");
-      countBadge.className = "portfolio-img-count-badge";
-
-      const updateCount = () => {
-        const selCount = groupImages.filter(
-          (i) => (i.selected || "").toLowerCase() === "true" || i.selected === "1"
-        ).length;
-        countBadge.textContent = `${selCount} of ${groupImages.length} selected for deck`;
-        countBadge.className = `portfolio-img-count-badge ${selCount > 0 ? "has-selected" : "none-selected"}`;
-      };
-      updateCount();
-
-      const selectAllBtn = document.createElement("button");
-      selectAllBtn.type = "button";
-      selectAllBtn.className = "mini-action-btn";
-      selectAllBtn.textContent = "Select All";
-      selectAllBtn.onclick = () => {
-        groupImages.forEach((i) => (i.selected = "true"));
-        renderPortfolioEditorImagesGrid(grid, groupImages, updateCount);
-        updateCount();
-        markDeliverableDirty();
-      };
-
-      const deselectAllBtn = document.createElement("button");
-      deselectAllBtn.type = "button";
-      deselectAllBtn.className = "mini-action-btn";
-      deselectAllBtn.textContent = "Deselect All";
-      deselectAllBtn.onclick = () => {
-        groupImages.forEach((i) => (i.selected = "false"));
-        renderPortfolioEditorImagesGrid(grid, groupImages, updateCount);
-        updateCount();
-        markDeliverableDirty();
-      };
-
-      groupMeta.append(countBadge, selectAllBtn, deselectAllBtn);
-      groupHead.append(groupTitle, groupMeta);
-      groupBlock.append(groupHead);
-
-      const grid = document.createElement("div");
-      grid.className = "portfolio-images-grid";
-      renderPortfolioEditorImagesGrid(grid, groupImages, updateCount);
-      groupBlock.append(grid);
-
-      section.append(groupBlock);
-    }
-
-    container.append(section);
+    container.append(cardClose);
   }
 
   function openImageLightbox(src, caption) {
@@ -2004,119 +2630,6 @@
     document.addEventListener("keydown", onKey);
 
     document.body.append(overlay);
-  }
-
-  function renderPortfolioEditorImagesGrid(grid, groupImages, onToggle) {
-    grid.replaceChildren();
-    for (const img of groupImages) {
-      const isSelected =
-        (img.selected || "").toLowerCase() === "true" || img.selected === "1";
-
-      const card = document.createElement("div");
-      card.className = "portfolio-image-card" + (isSelected ? " is-selected" : " is-excluded");
-
-      const thumbWrap = document.createElement("div");
-      thumbWrap.className = "portfolio-image-thumb-wrap";
-      thumbWrap.title = "Click to preview large image";
-
-      const thumb = document.createElement("img");
-      thumb.className = "portfolio-image-thumb";
-      thumb.src = `/${img.path}`;
-      thumb.alt = img.caption_en || "";
-      thumb.loading = "lazy";
-      thumbWrap.append(thumb);
-
-      thumbWrap.onclick = (e) => {
-        e.stopPropagation();
-        openImageLightbox(`/${img.path}`, img.caption_en || img.caption_pt || img.path);
-      };
-
-      const statusTag = document.createElement("span");
-      statusTag.className = "portfolio-image-status-pill";
-      statusTag.textContent = isSelected ? "✓ In Deck" : "✕ Excluded";
-      thumbWrap.append(statusTag);
-
-      const info = document.createElement("div");
-      info.className = "portfolio-image-info";
-
-      const labelRow = document.createElement("label");
-      labelRow.className = "portfolio-image-checkbox-label";
-
-      const chk = document.createElement("input");
-      chk.type = "checkbox";
-      chk.checked = isSelected;
-      chk.className = "portfolio-image-checkbox";
-
-      const fileLabel = document.createElement("span");
-      fileLabel.className = "portfolio-image-caption";
-      fileLabel.textContent = img.path.split("/").pop();
-
-      labelRow.append(chk, fileLabel);
-      info.append(labelRow);
-
-      if (img.category) {
-        const catPill = document.createElement("span");
-        catPill.className = "portfolio-image-category-pill";
-        catPill.textContent = img.category;
-        info.append(catPill);
-      }
-
-      // Bilingual captions editing
-      const captionBox = document.createElement("div");
-      captionBox.className = "portfolio-card-caption-edit";
-
-      const enInput = document.createElement("input");
-      enInput.type = "text";
-      enInput.placeholder = "Caption (EN)...";
-      enInput.value = img.caption_en || "";
-      enInput.onclick = (e) => e.stopPropagation();
-      enInput.oninput = () => {
-        img.caption_en = enInput.value;
-        markDeliverableDirty();
-      };
-
-      const ptInput = document.createElement("input");
-      ptInput.type = "text";
-      ptInput.placeholder = "Legenda (PT)...";
-      ptInput.value = img.caption_pt || "";
-      ptInput.onclick = (e) => e.stopPropagation();
-      ptInput.oninput = () => {
-        img.caption_pt = ptInput.value;
-        markDeliverableDirty();
-      };
-
-      captionBox.append(enInput, ptInput);
-      info.append(captionBox);
-
-      card.append(thumbWrap, info);
-
-      const toggleCard = () => {
-        chk.checked = !chk.checked;
-        img.selected = chk.checked ? "true" : "false";
-        card.classList.toggle("is-selected", chk.checked);
-        card.classList.toggle("is-excluded", !chk.checked);
-        statusTag.textContent = chk.checked ? "✓ In Deck" : "✕ Excluded";
-        if (onToggle) onToggle();
-        markDeliverableDirty();
-      };
-
-      card.onclick = (e) => {
-        if (e.target !== chk && e.target !== enInput && e.target !== ptInput) {
-          toggleCard();
-        }
-      };
-      chk.onchange = (e) => {
-        e.stopPropagation();
-        img.selected = chk.checked ? "true" : "false";
-        card.classList.toggle("is-selected", chk.checked);
-        card.classList.toggle("is-excluded", !chk.checked);
-        statusTag.textContent = chk.checked ? "✓ In Deck" : "✕ Excluded";
-        if (onToggle) onToggle();
-        markDeliverableDirty();
-      };
-
-      grid.append(card);
-    }
   }
 
   function renderSharedTab(container, data) {

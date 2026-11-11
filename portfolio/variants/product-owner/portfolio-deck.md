@@ -806,14 +806,14 @@ section.diagram-slide-top-title .diagram-wrapper img {
 ## Present – CIP and Applied Research Integration: Applied Research Artifacts
 
 <div class="cip-artifacts-grid">
-<p><img src="../../../pictures/work/cip-ux/cip-ux-1.png" alt="CIP-Applied Research 1 – Report cover" /></p>
-<p><img src="../../../pictures/work/cip-ux/cip-ux-2.png" alt="CIP-Applied Research 2 – Summary and executive findings" /></p>
-<p><img src="../../../pictures/work/cip-ux/cip-ux-3.png" alt="CIP-Applied Research 3 – Context and methodology" /></p>
-<p><img src="../../../pictures/work/cip-ux/cip-ux-4.png" alt="CIP-Applied Research 4 – Literature review and benchmark" /></p>
-<p class="cip-artifacts-large"><img src="../../../pictures/work/cip-ux/cip-ux-5.png" alt="CIP-Applied Research 5 – Findings and Criticality Index" /></p>
-<p class="cip-artifacts-large"><img src="../../../pictures/work/cip-ux/cip-ux-6.png" alt="CIP-Applied Research 6 – Pipeline and data processing" /></p>
-<p class="cip-artifacts-large"><img src="../../../pictures/work/cip-ux/cip-ux-7.png" alt="CIP-Applied Research 7 – Conclusions and strategic opportunities" /></p>
-<p><img src="../../../pictures/work/cip-ux/cip-ux-8.png" alt="CIP-Applied Research 8 – Additional Applied Research visuals" /></p>
+<p><img src="../../../pictures/work/cip-ux/cip-ux-1.png" alt="CIP-Applied Research Report Cover" /></p>
+<p><img src="../../../pictures/work/cip-ux/cip-ux-2.png" alt="Summary & Executive Findings" /></p>
+<p><img src="../../../pictures/work/cip-ux/cip-ux-3.png" alt="Context & Methodology" /></p>
+<p><img src="../../../pictures/work/cip-ux/cip-ux-4.png" alt="Literature Review & Benchmark" /></p>
+<p><img src="../../../pictures/work/cip-ux/cip-ux-5.png" alt="Findings & Criticality Index" /></p>
+<p><img src="../../../pictures/work/cip-ux/cip-ux-6.png" alt="Pipeline & Data Processing" /></p>
+<p><img src="../../../pictures/work/cip-ux/cip-ux-7.png" alt="Strategic Opportunities & Conclusions" /></p>
+<p><img src="../../../pictures/work/cip-ux/cip-ux-8.png" alt="Applied Research Visuals" /></p>
 </div>
 
 ---

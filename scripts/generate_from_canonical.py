@@ -410,6 +410,29 @@ def build_slot_map(
             f'<p><img src="{prefix}pictures/work/astra-project/IMG_20260415_182229.jpg" alt="Bosch Astra IoT Telemetry" /></p>',
         ]
 
+    cip_tags = build_portfolio_image_tags(
+        images, "cip-research-gate", "artifact", prefix, lang
+    )
+    if not cip_tags:
+        # Default fallback if unconfigured
+        cip_tags = [
+            f'<p><img src="{prefix}pictures/work/cip-ux/cip-ux-1.png" alt="CIP-Applied Research 1 – Report cover" /></p>',
+            f'<p><img src="{prefix}pictures/work/cip-ux/cip-ux-2.png" alt="CIP-Applied Research 2 – Summary and executive findings" /></p>',
+            f'<p><img src="{prefix}pictures/work/cip-ux/cip-ux-3.png" alt="CIP-Applied Research 3 – Context and methodology" /></p>',
+            f'<p><img src="{prefix}pictures/work/cip-ux/cip-ux-4.png" alt="CIP-Applied Research 4 – Literature review and benchmark" /></p>',
+            f'<p class="cip-artifacts-large"><img src="{prefix}pictures/work/cip-ux/cip-ux-5.png" alt="CIP-Applied Research 5 – Findings and Criticality Index" /></p>',
+            f'<p class="cip-artifacts-large"><img src="{prefix}pictures/work/cip-ux/cip-ux-6.png" alt="CIP-Applied Research 6 – Pipeline and data processing" /></p>',
+            f'<p class="cip-artifacts-large"><img src="{prefix}pictures/work/cip-ux/cip-ux-7.png" alt="CIP-Applied Research 7 – Conclusions and strategic opportunities" /></p>',
+            f'<p><img src="{prefix}pictures/work/cip-ux/cip-ux-8.png" alt="CIP-Applied Research 8 – Additional Applied Research visuals" /></p>',
+        ]
+
+    def escape_table_pipes(val: str) -> str:
+        """Escape unescaped pipes so Markdown table cells don't fracture."""
+        return re.sub(r"(?<!\\)\|", r"\|", val)
+
+    who_role_val = escape_table_pipes(narrative(nars, variant, "who_role"))
+    who_impact_val = escape_table_pipes(narrative(nars, variant, "who_impact"))
+
     slots = {
         "asset_prefix": prefix,
         "lang": lang,
@@ -418,13 +441,14 @@ def build_slot_map(
         "why_h2": narrative(nars, variant, "why_h2"),
         "why_bullets": narrative(nars, variant, "why_bullets"),
         "who_name": profile["display_name"],
-        "who_role": narrative(nars, variant, "who_role"),
-        "who_impact": narrative(nars, variant, "who_impact"),
+        "who_role": who_role_val,
+        "who_impact": who_impact_val,
         "present_h2": narrative(nars, variant, "present_h2"),
         "present_table": narrative(nars, variant, "present_table"),
         "cip_pipeline_h2": narrative(nars, variant, "cip_pipeline_h2"),
         "relevance_h2": narrative(nars, variant, "relevance_h2"),
         "csi_h2": narrative(nars, variant, "csi_h2"),
+        "cip_ux_images": "\n".join(cip_tags),
         "tooling_h2": narrative(nars, variant, "tooling_h2"),
         "tooling_bullet": narrative(nars, variant, "tooling_bullet"),
         "tooling_prototype_images": "\n".join(tooling_proto_tags),

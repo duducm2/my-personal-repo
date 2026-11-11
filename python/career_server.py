@@ -42,6 +42,7 @@ ROOT_DIR = Path(__file__).resolve().parent.parent
 WEB_DIR = ROOT_DIR / "web"
 PORTFOLIO_DIR = ROOT_DIR / "docs"
 CANONICAL_DIR = ROOT_DIR / "my-data" / "canonical"
+PICTURES_DIR = ROOT_DIR / "pictures"
 OUTPUT_DIR = ROOT_DIR / "output"
 AUTOFILL_MAPPINGS_PATH = default_mappings_path(ROOT_DIR)
 AUTOFILL_PENDING_PATH = ROOT_DIR / "my-data" / "autofill" / "pending.json"
@@ -945,6 +946,25 @@ class CareerHandler(BaseHTTPRequestHandler):
                     },
                 )
                 return
+            if path == "/api/deliverables/media-catalog":
+                # Scan pictures/ and return list of images for visual selection
+                media_files = []
+                allowed_exts = {".png", ".jpg", ".jpeg", ".svg", ".webp", ".gif"}
+                if PICTURES_DIR.is_dir():
+                    for f in PICTURES_DIR.rglob("*"):
+                        if f.is_file() and f.suffix.lower() in allowed_exts:
+                            rel_to_pics = f.relative_to(PICTURES_DIR).as_posix()
+                            media_files.append(
+                                {
+                                    "rel_path": f"pictures/{rel_to_pics}",
+                                    "canonical_path": f"../../../pictures/{rel_to_pics}",
+                                    "filename": f.name,
+                                    "url": f"/pictures/{rel_to_pics}",
+                                }
+                            )
+                media_files.sort(key=lambda x: x["rel_path"])
+                self._json(200, {"ok": True, "files": media_files})
+                return
             if path == "/api/resume-priority":
                 self._json(200, resume_priority_index())
                 return
@@ -1079,6 +1099,48 @@ class CareerHandler(BaseHTTPRequestHandler):
     def do_POST(self) -> None:  # noqa: N802
         try:
             path = urlparse(self.path).path
+            if path == "/api/deliverables/upload-image":
+                import base64
+
+                body = self._read_json()
+                if not isinstance(body, dict):
+                    raise ValueError("JSON object expected")
+                project_id = (
+                    str(body.get("project_id") or "uploads")
+                    .strip()
+                    .replace("..", "")
+                    .replace("/", "")
+                )
+                filename = (
+                    str(body.get("filename") or "")
+                    .strip()
+                    .replace("..", "")
+                    .replace("/", "")
+                )
+                data_b64 = str(body.get("data_base64") or "").strip()
+                if not filename or not data_b64:
+                    raise ValueError("filename and data_base64 are required")
+                # Strip data url prefix if present e.g. "data:image/png;base64,"
+                if "," in data_b64:
+                    data_b64 = data_b64.split(",", 1)[1]
+                raw_bytes = base64.b64decode(data_b64)
+                target_folder = PICTURES_DIR / "work" / project_id
+                target_folder.mkdir(parents=True, exist_ok=True)
+                dest = target_folder / filename
+                dest.write_bytes(raw_bytes)
+                rel_url = f"/pictures/work/{project_id}/{filename}"
+                canon_path = f"../../../pictures/work/{project_id}/{filename}"
+                self._json(
+                    200,
+                    {
+                        "ok": True,
+                        "url": rel_url,
+                        "canonical_path": canon_path,
+                        "filename": filename,
+                        "project_id": project_id,
+                    },
+                )
+                return
             if path == "/api/deliverables/regenerate":
                 body = self._read_json()
                 if not isinstance(body, dict):

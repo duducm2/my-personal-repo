@@ -472,7 +472,7 @@ table thead { display: none !important; }
 | Atributo    | Valor |
 | --------------------------- | ------------------------- |
 | Nome    | Eduardo M. de A. Figueiredo    |
-| Papel    | Arquiteto de Soluções Digitais | Cloud, Digitalização e Entrega Baseada em Evidência    |
+| Papel    | Arquiteto de Soluções Digitais \| Cloud, Digitalização e Entrega Baseada em Evidência    |
 | Impacto  | Ajudo times a desenhar soluções de digitalização e analytics que se sustentam em produção—limites claros, resultados mensuráveis, revisões baseadas em evidência.  |
 | Contato | Nova Odessa, SP – Brasil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583 |
 
@@ -790,14 +790,14 @@ section.diagram-slide-top-title .diagram-wrapper img {
 ## Presente – Integração CIP e Pesquisa Aplicada: Artefatos
 
 <div class="cip-artifacts-grid">
-<p><img src="../../../pictures/work/cip-ux/cip-ux-1.png" alt="CIP-Applied Research 1 – Report cover" /></p>
-<p><img src="../../../pictures/work/cip-ux/cip-ux-2.png" alt="CIP-Applied Research 2 – Summary and executive findings" /></p>
-<p><img src="../../../pictures/work/cip-ux/cip-ux-3.png" alt="CIP-Applied Research 3 – Context and methodology" /></p>
-<p><img src="../../../pictures/work/cip-ux/cip-ux-4.png" alt="CIP-Applied Research 4 – Literature review and benchmark" /></p>
-<p class="cip-artifacts-large"><img src="../../../pictures/work/cip-ux/cip-ux-5.png" alt="CIP-Applied Research 5 – Findings and Criticality Index" /></p>
-<p class="cip-artifacts-large"><img src="../../../pictures/work/cip-ux/cip-ux-6.png" alt="CIP-Applied Research 6 – Pipeline and data processing" /></p>
-<p class="cip-artifacts-large"><img src="../../../pictures/work/cip-ux/cip-ux-7.png" alt="CIP-Applied Research 7 – Conclusions and strategic opportunities" /></p>
-<p><img src="../../../pictures/work/cip-ux/cip-ux-8.png" alt="CIP-Applied Research 8 – Additional Applied Research visuals" /></p>
+<p><img src="../../../pictures/work/cip-ux/cip-ux-1.png" alt="Capa do Relatório CIP-Pesquisa Aplicada" /></p>
+<p><img src="../../../pictures/work/cip-ux/cip-ux-2.png" alt="Resumo e Descobertas Executivas" /></p>
+<p><img src="../../../pictures/work/cip-ux/cip-ux-3.png" alt="Contexto e Metodologia" /></p>
+<p><img src="../../../pictures/work/cip-ux/cip-ux-4.png" alt="Revisão de Literatura e Benchmark" /></p>
+<p><img src="../../../pictures/work/cip-ux/cip-ux-5.png" alt="Descobertas e Índice de Criticalidade" /></p>
+<p><img src="../../../pictures/work/cip-ux/cip-ux-6.png" alt="Pipeline e Processamento de Dados" /></p>
+<p><img src="../../../pictures/work/cip-ux/cip-ux-7.png" alt="Oportunidades Estratégicas e Conclusões" /></p>
+<p><img src="../../../pictures/work/cip-ux/cip-ux-8.png" alt="Visuais de Pesquisa Aplicada" /></p>
 </div>
 
 ---

@@ -11,6 +11,15 @@ fields:
     <p><img src="../../../pictures/work/astra-project/IMG_20260415_142514.jpg" alt="Gestão Pecuária e Mapeamento de Jornada em Campo" /></p>
     <p><img src="../../../pictures/work/astra-project/IMG_20260415_182229.jpg" alt="Dispositivo e Avaliação de Hardware de Telemetria IoT Astra (Bosch)" /></p>
   cip_pipeline_h2: "Presente – Da Pesquisa do Usuário à Implementação: Intake → Avaliação → Governança"
+  cip_ux_images: |
+    <p><img src="../../../pictures/work/cip-ux/cip-ux-1.png" alt="Capa do Relatório CIP-Pesquisa Aplicada" /></p>
+    <p><img src="../../../pictures/work/cip-ux/cip-ux-2.png" alt="Resumo e Descobertas Executivas" /></p>
+    <p><img src="../../../pictures/work/cip-ux/cip-ux-3.png" alt="Contexto e Metodologia" /></p>
+    <p><img src="../../../pictures/work/cip-ux/cip-ux-4.png" alt="Revisão de Literatura e Benchmark" /></p>
+    <p><img src="../../../pictures/work/cip-ux/cip-ux-5.png" alt="Descobertas e Índice de Criticalidade" /></p>
+    <p><img src="../../../pictures/work/cip-ux/cip-ux-6.png" alt="Pipeline e Processamento de Dados" /></p>
+    <p><img src="../../../pictures/work/cip-ux/cip-ux-7.png" alt="Oportunidades Estratégicas e Conclusões" /></p>
+    <p><img src="../../../pictures/work/cip-ux/cip-ux-8.png" alt="Visuais de Pesquisa Aplicada" /></p>
   closing_summary: "Combino pesquisa rigorosa com métodos mistos, prototipagem em código como design technologist e medição empírica de confiança para construir produtos de alta tecnologia e IA que os usuários confiam e adotam—validados por resultados mensuráveis."
   csi_h2: "Presente – Resultados de Satisfação do Usuário: CSI e NPS (2024–2025)"
   deck_title: "Eduardo Figueiredo – Portfólio de UX Research e Design"
@@ -127,7 +136,7 @@ fields:
   who_contact: "Nova Odessa, SP – Brasil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583"
   who_impact: "Ajudo times de tecnologia e IA a descobrir necessidades reais de usuários, desenhar sistemas usáveis e validar paradigmas de interação por meio de métodos mistos, métricas (CSI/NPS, SUS) e protótipos de alta fidelidade em código."
   who_name: "Eduardo M. de A. Figueiredo"
-  who_role: "Pesquisador de UX e Design Technologist | Pesquisa com Métodos Mistos, Prototipagem e IA Confiável"
+  who_role: "Pesquisador de UX e Design Technologist \\| Pesquisa com Métodos Mistos, Prototipagem e IA Confiável"
   why_bullets: |
     - Acredito que produtos tecnológicos vencem quando **pesquisa rigorosa com usuários e prototipagem rápida em engenharia** avançam juntas.
     - A Pesquisa Aplicada na Bosch me ensinou a estruturar **governança de UX escalável**: gates de intake, templates padronizados e maturidade mensurável (Nível 4).

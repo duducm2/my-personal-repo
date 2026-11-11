@@ -781,14 +781,7 @@ section.diagram-slide-top-title .diagram-wrapper img {
 ## {{canonical:h_cip_artifacts}}
 
 <div class="cip-artifacts-grid">
-<p><img src="{{canonical:asset_prefix}}pictures/work/cip-ux/cip-ux-1.png" alt="CIP-Applied Research 1 – Report cover" /></p>
-<p><img src="{{canonical:asset_prefix}}pictures/work/cip-ux/cip-ux-2.png" alt="CIP-Applied Research 2 – Summary and executive findings" /></p>
-<p><img src="{{canonical:asset_prefix}}pictures/work/cip-ux/cip-ux-3.png" alt="CIP-Applied Research 3 – Context and methodology" /></p>
-<p><img src="{{canonical:asset_prefix}}pictures/work/cip-ux/cip-ux-4.png" alt="CIP-Applied Research 4 – Literature review and benchmark" /></p>
-<p class="cip-artifacts-large"><img src="{{canonical:asset_prefix}}pictures/work/cip-ux/cip-ux-5.png" alt="CIP-Applied Research 5 – Findings and Criticality Index" /></p>
-<p class="cip-artifacts-large"><img src="{{canonical:asset_prefix}}pictures/work/cip-ux/cip-ux-6.png" alt="CIP-Applied Research 6 – Pipeline and data processing" /></p>
-<p class="cip-artifacts-large"><img src="{{canonical:asset_prefix}}pictures/work/cip-ux/cip-ux-7.png" alt="CIP-Applied Research 7 – Conclusions and strategic opportunities" /></p>
-<p><img src="{{canonical:asset_prefix}}pictures/work/cip-ux/cip-ux-8.png" alt="CIP-Applied Research 8 – Additional Applied Research visuals" /></p>
+{{canonical:cip_ux_images}}
 </div>
 
 ---

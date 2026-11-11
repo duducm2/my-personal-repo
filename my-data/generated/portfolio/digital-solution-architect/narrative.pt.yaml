@@ -11,6 +11,15 @@ fields:
     <p><img src="../../../pictures/work/astra-project/IMG_20260415_142514.jpg" alt="Gestão Pecuária e Mapeamento de Jornada em Campo" /></p>
     <p><img src="../../../pictures/work/astra-project/IMG_20260415_182229.jpg" alt="Dispositivo e Avaliação de Hardware de Telemetria IoT Astra (Bosch)" /></p>
   cip_pipeline_h2: "Presente – Pipeline de método: Evidência → Gate → Dashboard"
+  cip_ux_images: |
+    <p><img src="../../../pictures/work/cip-ux/cip-ux-1.png" alt="Capa do Relatório CIP-Pesquisa Aplicada" /></p>
+    <p><img src="../../../pictures/work/cip-ux/cip-ux-2.png" alt="Resumo e Descobertas Executivas" /></p>
+    <p><img src="../../../pictures/work/cip-ux/cip-ux-3.png" alt="Contexto e Metodologia" /></p>
+    <p><img src="../../../pictures/work/cip-ux/cip-ux-4.png" alt="Revisão de Literatura e Benchmark" /></p>
+    <p><img src="../../../pictures/work/cip-ux/cip-ux-5.png" alt="Descobertas e Índice de Criticalidade" /></p>
+    <p><img src="../../../pictures/work/cip-ux/cip-ux-6.png" alt="Pipeline e Processamento de Dados" /></p>
+    <p><img src="../../../pictures/work/cip-ux/cip-ux-7.png" alt="Oportunidades Estratégicas e Conclusões" /></p>
+    <p><img src="../../../pictures/work/cip-ux/cip-ux-8.png" alt="Visuais de Pesquisa Aplicada" /></p>
   closing_summary: "Levo experiência em digitalização, pipelines analíticos e quality gates de pesquisa para arquitetura de soluções que times globais consigam operar—avaliada por resultados, não por slides."
   csi_h2: "Presente – Métricas de resultado: CSI e NPS (2024–2025)"
   deck_title: "Eduardo Figueiredo – Portfólio"
@@ -165,7 +174,7 @@ fields:
   who_contact: "Nova Odessa, SP – Brasil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583"
   who_impact: "Ajudo times a desenhar soluções de digitalização e analytics que se sustentam em produção—limites claros, resultados mensuráveis, revisões baseadas em evidência."
   who_name: "Eduardo M. de A. Figueiredo"
-  who_role: "Arquiteto de Soluções Digitais | Cloud, Digitalização e Entrega Baseada em Evidência"
+  who_role: "Arquiteto de Soluções Digitais \\| Cloud, Digitalização e Entrega Baseada em Evidência"
   why_bullets: |
     - Acho que soluções digitais em organizações de serviço precisam sobreviver à operação real—não só ficar bem em uma revisão.
     - Meu trabalho conecta digitalização, caminhos de dados e quality gates de pesquisa aplicada: arquitetura que os times consigam operar.
