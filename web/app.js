@@ -1595,7 +1595,7 @@
               bullet.text_en = en;
               bullet.text_pt = pt;
             },
-            { tall: true }
+            { tall: true, withPreview: true, formatToolbar: true }
           );
 
           bRow.append(controlBar, inputs);
@@ -1729,20 +1729,6 @@
 
     // 2. Slide narratives
     const narratives = data.narratives || [];
-    const fieldsToEdit = [
-      { key: "deck_title", label: "Deck Title", tall: false },
-      { key: "why_h1", label: "Why Slide - Heading", tall: false },
-      { key: "why_h2", label: "Why Slide - Subheading", tall: false },
-      { key: "why_bullets", label: "Why Slide - Bullets", tall: true },
-      { key: "who_role", label: "Who Slide - Role", tall: false },
-      { key: "who_impact", label: "Who Slide - Impact Statement", tall: true },
-      { key: "present_h2", label: "Present Slide - Heading", tall: false },
-      { key: "present_table", label: "Present Slide - Achievements Table (Markdown)", tall: true },
-      { key: "future_h2", label: "Future Slide - Heading", tall: false },
-      { key: "future_intro", label: "Future Slide - Intro", tall: true },
-      { key: "future_career_body", label: "Future Slide - Career Body & Table", tall: true },
-      { key: "closing_summary", label: "Closing Slide - Summary", tall: true },
-    ];
 
     const card = document.createElement("div");
     card.className = "deliverable-section-card";
@@ -1750,19 +1736,132 @@
     h.textContent = `Portfolio Deck Slides — ${variant}`;
     card.append(h);
 
-    for (const f of fieldsToEdit) {
-      let row = narratives.find((r) => r.variant === variant && r.field === f.key);
+    const getNarrative = (key, defaultLabel) => {
+      let row = narratives.find((r) => r.variant === variant && r.field === key);
       if (!row) {
-        row = { variant, field: f.key, label_en: f.label, label_pt: f.label, text_en: "", text_pt: "" };
+        row = { variant, field: key, label_en: defaultLabel, label_pt: defaultLabel, text_en: "", text_pt: "" };
         narratives.push(row);
       }
-      card.append(
-        createBilingualInputRow(f.label, row.text_en, row.text_pt, (en, pt) => {
-          row.text_en = en;
-          row.text_pt = pt;
-        }, { tall: f.tall })
-      );
-    }
+      return row;
+    };
+
+    // 1) Deck Title & Role (Cover)
+    const deckTitle = getNarrative("deck_title", "Deck Title");
+    card.append(
+      createBilingualInputRow("Cover Slide — Deck Title", deckTitle.text_en, deckTitle.text_pt, (en, pt) => {
+        deckTitle.text_en = en;
+        deckTitle.text_pt = pt;
+      })
+    );
+
+    // 2) Who Slide
+    const whoRole = getNarrative("who_role", "Who Slide - Role");
+    card.append(
+      createBilingualInputRow("Who Slide — Primary Role & Specialty", whoRole.text_en, whoRole.text_pt, (en, pt) => {
+        whoRole.text_en = en;
+        whoRole.text_pt = pt;
+      })
+    );
+
+    const whoImpact = getNarrative("who_impact", "Who Slide - Impact Statement");
+    card.append(
+      createBilingualInputRow("Who Slide — Strategic Impact Statement", whoImpact.text_en, whoImpact.text_pt, (en, pt) => {
+        whoImpact.text_en = en;
+        whoImpact.text_pt = pt;
+      }, { tall: true, withPreview: true, formatToolbar: true })
+    );
+
+    // 3) Why Slide: Heading, Subheading, Structured Bullets
+    const whyH1 = getNarrative("why_h1", "Why Slide - Heading");
+    card.append(
+      createBilingualInputRow("Why Slide — Heading", whyH1.text_en, whyH1.text_pt, (en, pt) => {
+        whyH1.text_en = en;
+        whyH1.text_pt = pt;
+      })
+    );
+
+    const whyH2 = getNarrative("why_h2", "Why Slide - Subheading");
+    card.append(
+      createBilingualInputRow("Why Slide — Subheading", whyH2.text_en, whyH2.text_pt, (en, pt) => {
+        whyH2.text_en = en;
+        whyH2.text_pt = pt;
+      })
+    );
+
+    const whyBullets = getNarrative("why_bullets", "Why Slide - Bullets");
+    card.append(
+      createStructuredBulletsEditor(
+        "Why Slide — Value Proposition & Strategic Drivers (Structured Bullets)",
+        whyBullets.text_en,
+        whyBullets.text_pt,
+        (en, pt) => {
+          whyBullets.text_en = en;
+          whyBullets.text_pt = pt;
+        }
+      )
+    );
+
+    // 4) Present Slide: Heading & Structured Achievements Table
+    const presentH2 = getNarrative("present_h2", "Present Slide - Heading");
+    card.append(
+      createBilingualInputRow("Present Slide — Heading", presentH2.text_en, presentH2.text_pt, (en, pt) => {
+        presentH2.text_en = en;
+        presentH2.text_pt = pt;
+      })
+    );
+
+    const presentTable = getNarrative("present_table", "Present Slide - Achievements Table");
+    card.append(
+      createStructuredTableEditor(
+        "Present Slide — Key Achievements & Evidence (Structured Table)",
+        presentTable.text_en,
+        presentTable.text_pt,
+        (en, pt) => {
+          presentTable.text_en = en;
+          presentTable.text_pt = pt;
+        }
+      )
+    );
+
+    // 5) Future Slide: Heading, Intro, and Structured Future Career Table/Principles
+    const futureH2 = getNarrative("future_h2", "Future Slide - Heading");
+    card.append(
+      createBilingualInputRow("Future Slide — Heading", futureH2.text_en, futureH2.text_pt, (en, pt) => {
+        futureH2.text_en = en;
+        futureH2.text_pt = pt;
+      })
+    );
+
+    const futureIntro = getNarrative("future_intro", "Future Slide - Intro");
+    card.append(
+      createBilingualInputRow("Future Slide — Strategic Vision / Intro", futureIntro.text_en, futureIntro.text_pt, (en, pt) => {
+        futureIntro.text_en = en;
+        futureIntro.text_pt = pt;
+      }, { tall: true, withPreview: true, formatToolbar: true })
+    );
+
+    const futureCareerBody = getNarrative("future_career_body", "Future Slide - Career Body & Table");
+    card.append(
+      createStructuredFutureCareerEditor(
+        "Future Slide — Progression Steps & Methodologies (Structured)",
+        futureCareerBody.text_en,
+        futureCareerBody.text_pt,
+        (en, pt) => {
+          futureCareerBody.text_en = en;
+          futureCareerBody.text_pt = pt;
+        }
+      )
+    );
+
+    // 6) Closing Slide
+    const closingSummary = getNarrative("closing_summary", "Closing Slide - Summary");
+    card.append(
+      createBilingualInputRow("Closing Slide — Summary & Forward Outlook", closingSummary.text_en, closingSummary.text_pt, (en, pt) => {
+        closingSummary.text_en = en;
+        closingSummary.text_pt = pt;
+      }, { tall: true, withPreview: true, formatToolbar: true })
+    );
+
     container.append(card);
   }
 
@@ -1860,6 +1959,53 @@
     container.append(section);
   }
 
+  function openImageLightbox(src, caption) {
+    const existing = document.querySelector(".image-lightbox-modal");
+    if (existing) existing.remove();
+
+    const overlay = document.createElement("div");
+    overlay.className = "image-lightbox-modal";
+
+    const content = document.createElement("div");
+    content.className = "image-lightbox-content";
+
+    const img = document.createElement("img");
+    img.className = "image-lightbox-img";
+    img.src = src;
+    img.alt = caption || "";
+
+    const footer = document.createElement("div");
+    footer.className = "image-lightbox-footer";
+
+    const capSpan = document.createElement("span");
+    capSpan.className = "image-lightbox-caption";
+    capSpan.textContent = caption || "";
+
+    const closeBtn = document.createElement("button");
+    closeBtn.type = "button";
+    closeBtn.className = "image-lightbox-close";
+    closeBtn.textContent = "✕ Close";
+    closeBtn.onclick = () => overlay.remove();
+
+    footer.append(capSpan, closeBtn);
+    content.append(img, footer);
+    overlay.append(content);
+
+    overlay.onclick = (e) => {
+      if (e.target === overlay) overlay.remove();
+    };
+
+    const onKey = (e) => {
+      if (e.key === "Escape") {
+        overlay.remove();
+        document.removeEventListener("keydown", onKey);
+      }
+    };
+    document.addEventListener("keydown", onKey);
+
+    document.body.append(overlay);
+  }
+
   function renderPortfolioEditorImagesGrid(grid, groupImages, onToggle) {
     grid.replaceChildren();
     for (const img of groupImages) {
@@ -1871,6 +2017,7 @@
 
       const thumbWrap = document.createElement("div");
       thumbWrap.className = "portfolio-image-thumb-wrap";
+      thumbWrap.title = "Click to preview large image";
 
       const thumb = document.createElement("img");
       thumb.className = "portfolio-image-thumb";
@@ -1878,6 +2025,11 @@
       thumb.alt = img.caption_en || "";
       thumb.loading = "lazy";
       thumbWrap.append(thumb);
+
+      thumbWrap.onclick = (e) => {
+        e.stopPropagation();
+        openImageLightbox(`/${img.path}`, img.caption_en || img.caption_pt || img.path);
+      };
 
       const statusTag = document.createElement("span");
       statusTag.className = "portfolio-image-status-pill";
@@ -1895,11 +2047,11 @@
       chk.checked = isSelected;
       chk.className = "portfolio-image-checkbox";
 
-      const captionSpan = document.createElement("span");
-      captionSpan.className = "portfolio-image-caption";
-      captionSpan.textContent = img.caption_en || img.path.split("/").pop();
+      const fileLabel = document.createElement("span");
+      fileLabel.className = "portfolio-image-caption";
+      fileLabel.textContent = img.path.split("/").pop();
 
-      labelRow.append(chk, captionSpan);
+      labelRow.append(chk, fileLabel);
       info.append(labelRow);
 
       if (img.category) {
@@ -1908,6 +2060,33 @@
         catPill.textContent = img.category;
         info.append(catPill);
       }
+
+      // Bilingual captions editing
+      const captionBox = document.createElement("div");
+      captionBox.className = "portfolio-card-caption-edit";
+
+      const enInput = document.createElement("input");
+      enInput.type = "text";
+      enInput.placeholder = "Caption (EN)...";
+      enInput.value = img.caption_en || "";
+      enInput.onclick = (e) => e.stopPropagation();
+      enInput.oninput = () => {
+        img.caption_en = enInput.value;
+        markDeliverableDirty();
+      };
+
+      const ptInput = document.createElement("input");
+      ptInput.type = "text";
+      ptInput.placeholder = "Legenda (PT)...";
+      ptInput.value = img.caption_pt || "";
+      ptInput.onclick = (e) => e.stopPropagation();
+      ptInput.oninput = () => {
+        img.caption_pt = ptInput.value;
+        markDeliverableDirty();
+      };
+
+      captionBox.append(enInput, ptInput);
+      info.append(captionBox);
 
       card.append(thumbWrap, info);
 
@@ -1922,7 +2101,9 @@
       };
 
       card.onclick = (e) => {
-        if (e.target !== chk) toggleCard();
+        if (e.target !== chk && e.target !== enInput && e.target !== ptInput) {
+          toggleCard();
+        }
       };
       chk.onchange = (e) => {
         e.stopPropagation();
