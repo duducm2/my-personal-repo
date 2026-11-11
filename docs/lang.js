@@ -116,7 +116,14 @@ const UI = {
     contactLead:
       "I bring applied research, technology, and project delivery. What I care about is work people can trust and use, with clear data and results you can measure.",
     pdfButton: "Download PDF",
-    contactFine: "The PDF button at the top saves this page.",
+    contactFine: "The PDF button saves this customized portfolio.",
+    customizePortfolio: "Customize",
+    customizeModalTitle: "Customize Portfolio",
+    customizeSubtitle: "Select which chapters to include in your portfolio and exported PDF:",
+    selectAll: "Select All",
+    resetSelection: "Reset",
+    downloadCustomPdf: "Download PDF",
+    closeCustomizer: "Done",
     viewerClose: "Close",
     langLabel: "Language",
     facts: [
@@ -341,7 +348,14 @@ const UI = {
     contactLead:
       "Trago pesquisa aplicada, tecnologia e entrega de projetos. O que me importa é trabalho em que as pessoas possam confiar e usar, com dados claros e resultados que dá para medir.",
     pdfButton: "Baixar PDF",
-    contactFine: "O botão de PDF no topo salva esta página.",
+    contactFine: "O botão de PDF salva este portfólio personalizado.",
+    customizePortfolio: "Personalizar",
+    customizeModalTitle: "Personalizar Portfólio",
+    customizeSubtitle: "Escolha quais capítulos incluir no seu portfólio e no PDF exportado:",
+    selectAll: "Selecionar Todas",
+    resetSelection: "Restaurar",
+    downloadCustomPdf: "Baixar PDF",
+    closeCustomizer: "Concluído",
     viewerClose: "Fechar",
     langLabel: "Idioma",
     facts: [

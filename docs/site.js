@@ -69,17 +69,83 @@ if (railMark) {
 
 const chapters = [...document.querySelectorAll("main section")];
 const nav = document.getElementById("chapter-nav");
+const links = [];
 
-chapters.forEach((section) => {
-  const item = document.createElement("li");
-  const link = document.createElement("a");
-  link.href = `#${section.id}`;
-  link.textContent = section.dataset.chapter;
-  item.append(link);
-  nav.append(item);
-});
+const pathSegments = window.location.pathname.split("/").filter(Boolean);
+const currentVariant = pathSegments[pathSegments.length - 1] || "general";
 
-const links = [...nav.querySelectorAll("a")];
+function loadSectionState() {
+  try {
+    const saved = localStorage.getItem(`portfolio-sections-${currentVariant}`);
+    if (saved) return JSON.parse(saved);
+  } catch (error) {}
+  const defaults = {};
+  chapters.forEach((s) => (defaults[s.id] = true));
+  return defaults;
+}
+
+let sectionState = loadSectionState();
+
+function updateKickers() {
+  let visibleIndex = 1;
+  chapters.forEach((sec) => {
+    if (!sec.hidden) {
+      const kicker = sec.querySelector(":scope > .kicker");
+      if (kicker) {
+        kicker.textContent = String(visibleIndex++).padStart(2, "0");
+      }
+    }
+  });
+}
+
+function renderNav() {
+  if (!nav) return;
+  nav.replaceChildren();
+  links.length = 0;
+  const copy = UI[lang] || {};
+  chapters.forEach((section) => {
+    if (section.hidden) return;
+    const item = document.createElement("li");
+    const link = document.createElement("a");
+    link.href = `#${section.id}`;
+    link.textContent =
+      (copy.chapters && copy.chapters[section.id]) || section.dataset.chapter;
+    item.append(link);
+    nav.append(item);
+    links.push(link);
+  });
+}
+
+function applySectionState(state) {
+  sectionState = state;
+  try {
+    localStorage.setItem(
+      `portfolio-sections-${currentVariant}`,
+      JSON.stringify(state),
+    );
+  } catch (error) {}
+
+  chapters.forEach((sec) => {
+    const isVisible = state[sec.id] !== false;
+    sec.hidden = !isVisible;
+    sec.classList.toggle("section-excluded", !isVisible);
+  });
+
+  updateKickers();
+  renderNav();
+  updateCustomizerCheckboxes();
+}
+
+function updateCustomizerCheckboxes() {
+  document
+    .querySelectorAll("#customizer-list input[type='checkbox']")
+    .forEach((cb) => {
+      cb.checked = sectionState[cb.dataset.chapterId] !== false;
+    });
+}
+
+applySectionState(sectionState);
+
 const spy = new IntersectionObserver(
   (entries) => {
     const visible = entries
@@ -285,27 +351,201 @@ function applyLanguage() {
       button.dataset.lang === lang ? "true" : "false",
     );
   });
-  links.forEach((link) => {
-    const id = link.getAttribute("href").slice(1);
-    if (copy.chapters[id]) link.textContent = copy.chapters[id];
-  });
+  renderNav();
   applyPath();
   applyPdfLink();
+  ensureCustomizerUI();
   showStep(stepIndex);
   renderScores();
-  expandForPrint();
+  if (new URLSearchParams(location.search).has("print")) {
+    prepareForPrint();
+  }
 }
 
 function applyPdfLink() {
   const link = document.getElementById("pdf-export");
-  const pathCopy = activePath();
-  if (!link || !pathCopy || !pathCopy.pdf) return;
-  link.href = pathCopy.pdf;
-  link.textContent = UI[lang].pdfButton || link.textContent;
+  if (!link) return;
+  link.removeAttribute("href");
+  link.setAttribute("role", "button");
+  link.textContent = UI[lang]?.pdfButton || "Download PDF";
+  link.onclick = (e) => {
+    e.preventDefault();
+    downloadDynamicPdf();
+  };
 }
 
-function expandForPrint() {
-  if (!new URLSearchParams(location.search).has("print")) return;
+let customizerModal = null;
+
+function ensureCustomizerUI() {
+  const copy = UI[lang] || {};
+
+  // 1. Add Customize button to hero export if missing
+  const heroExport = document.querySelector(".hero-export");
+  if (heroExport && !document.getElementById("hero-customize-btn")) {
+    const custBtn = document.createElement("button");
+    custBtn.type = "button";
+    custBtn.id = "hero-customize-btn";
+    custBtn.className = "btn-customize";
+    custBtn.setAttribute("data-i18n", "customizePortfolio");
+    custBtn.textContent = copy.customizePortfolio || "Customize";
+    custBtn.addEventListener("click", () => openCustomizer());
+    heroExport.append(custBtn);
+  } else if (document.getElementById("hero-customize-btn")) {
+    document.getElementById("hero-customize-btn").textContent =
+      copy.customizePortfolio || "Customize";
+  }
+
+  // 2. Add tools into rail if missing
+  const rail = document.querySelector(".rail");
+  if (rail && !document.querySelector(".rail-tools")) {
+    const tools = document.createElement("div");
+    tools.className = "rail-tools";
+
+    const railCustBtn = document.createElement("button");
+    railCustBtn.type = "button";
+    railCustBtn.className = "rail-customize-btn";
+    railCustBtn.setAttribute("data-i18n", "customizePortfolio");
+    railCustBtn.textContent = copy.customizePortfolio || "Customize";
+    railCustBtn.addEventListener("click", () => openCustomizer());
+
+    const railPdfBtn = document.createElement("button");
+    railPdfBtn.type = "button";
+    railPdfBtn.className = "rail-pdf-btn";
+    railPdfBtn.setAttribute("data-i18n", "pdfButton");
+    railPdfBtn.textContent = copy.pdfButton || "Download PDF";
+    railPdfBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      downloadDynamicPdf();
+    });
+
+    tools.append(railCustBtn, railPdfBtn);
+    rail.append(tools);
+  } else if (document.querySelector(".rail-tools")) {
+    const cust = document.querySelector(".rail-customize-btn");
+    const pdf = document.querySelector(".rail-pdf-btn");
+    if (cust) cust.textContent = copy.customizePortfolio || "Customize";
+    if (pdf) pdf.textContent = copy.pdfButton || "Download PDF";
+  }
+
+  // 3. Inject modal if missing
+  if (!document.getElementById("customizer-modal")) {
+    customizerModal = document.createElement("dialog");
+    customizerModal.id = "customizer-modal";
+    customizerModal.className = "customizer-modal";
+
+    customizerModal.innerHTML = `
+      <div class="customizer-content">
+        <div class="customizer-header">
+          <h2 id="customizer-title" data-i18n="customizeModalTitle">${copy.customizeModalTitle || "Customize Portfolio"}</h2>
+          <button type="button" class="customizer-close" id="customizer-close" aria-label="Close">&times;</button>
+        </div>
+        <p class="customizer-sub" id="customizer-sub" data-i18n="customizeSubtitle">${copy.customizeSubtitle || "Select which chapters to include in your portfolio and exported PDF:"}</p>
+        <div class="customizer-actions">
+          <button type="button" id="select-all-btn" class="btn-subtle" data-i18n="selectAll">${copy.selectAll || "Select All"}</button>
+          <button type="button" id="reset-btn" class="btn-subtle" data-i18n="resetSelection">${copy.resetSelection || "Reset"}</button>
+        </div>
+        <div class="customizer-list" id="customizer-list"></div>
+        <div class="customizer-footer">
+          <button type="button" id="customizer-pdf-btn" class="pdf-export" data-i18n="downloadCustomPdf">${copy.downloadCustomPdf || "Download PDF"}</button>
+          <button type="button" id="customizer-done-btn" class="btn-done" data-i18n="closeCustomizer">${copy.closeCustomizer || "Done"}</button>
+        </div>
+      </div>
+    `;
+    document.body.append(customizerModal);
+
+    customizerModal
+      .querySelector("#customizer-close")
+      .addEventListener("click", () => customizerModal.close());
+    customizerModal
+      .querySelector("#customizer-done-btn")
+      .addEventListener("click", () => customizerModal.close());
+    customizerModal
+      .querySelector("#customizer-pdf-btn")
+      .addEventListener("click", () => downloadDynamicPdf());
+
+    customizerModal
+      .querySelector("#select-all-btn")
+      .addEventListener("click", () => {
+        const all = {};
+        chapters.forEach((s) => (all[s.id] = true));
+        applySectionState(all);
+      });
+
+    customizerModal.querySelector("#reset-btn").addEventListener("click", () => {
+      const all = {};
+      chapters.forEach((s) => (all[s.id] = true));
+      applySectionState(all);
+    });
+
+    customizerModal.addEventListener("click", (e) => {
+      const rect = customizerModal.getBoundingClientRect();
+      const inside =
+        rect.top <= e.clientY &&
+        e.clientY <= rect.top + rect.height &&
+        rect.left <= e.clientX &&
+        e.clientX <= rect.left + rect.width;
+      if (!inside) {
+        customizerModal.close();
+      }
+    });
+  } else {
+    customizerModal = document.getElementById("customizer-modal");
+    const t = document.getElementById("customizer-title");
+    const s = document.getElementById("customizer-sub");
+    const sa = document.getElementById("select-all-btn");
+    const rb = document.getElementById("reset-btn");
+    const pb = document.getElementById("customizer-pdf-btn");
+    const db = document.getElementById("customizer-done-btn");
+    if (t) t.textContent = copy.customizeModalTitle || "Customize Portfolio";
+    if (s)
+      s.textContent =
+        copy.customizeSubtitle || "Select which chapters to include:";
+    if (sa) sa.textContent = copy.selectAll || "Select All";
+    if (rb) rb.textContent = copy.resetSelection || "Reset";
+    if (pb) pb.textContent = copy.downloadCustomPdf || "Download PDF";
+    if (db) db.textContent = copy.closeCustomizer || "Done";
+  }
+
+  // Populate checklist
+  const list = document.getElementById("customizer-list");
+  if (list) {
+    list.replaceChildren();
+    chapters.forEach((sec, idx) => {
+      const item = document.createElement("label");
+      item.className = "customizer-item";
+
+      const cb = document.createElement("input");
+      cb.type = "checkbox";
+      cb.checked = sectionState[sec.id] !== false;
+      cb.dataset.chapterId = sec.id;
+      cb.addEventListener("change", () => {
+        sectionState[sec.id] = cb.checked;
+        applySectionState(sectionState);
+      });
+
+      const num = document.createElement("span");
+      num.className = "customizer-num";
+      num.textContent = String(idx + 1).padStart(2, "0");
+
+      const label = document.createElement("span");
+      label.className = "customizer-label";
+      label.textContent =
+        (copy.chapters && copy.chapters[sec.id]) || sec.dataset.chapter;
+
+      item.append(cb, num, label);
+      list.append(item);
+    });
+  }
+}
+
+function openCustomizer() {
+  ensureCustomizerUI();
+  if (customizerModal) {
+    customizerModal.showModal();
+  }
+}
+
+function prepareForPrint() {
   document.body.classList.add("for-print");
   if (!document.querySelector(".print-mark")) {
     const mark = document.createElement("p");
@@ -367,6 +607,33 @@ function expandForPrint() {
     grid.dataset.paired = "1";
   });
 }
+
+function downloadDynamicPdf() {
+  if (customizerModal && customizerModal.open) {
+    customizerModal.close();
+  }
+
+  prepareForPrint();
+
+  const originalTitle = document.title;
+  const pathCopy = activePath();
+  const roleLabel = pathCopy?.role
+    ? pathCopy.role.split(" | ")[0].trim()
+    : "Portfolio";
+  document.title = `Eduardo Figueiredo — ${roleLabel} (${lang.toUpperCase()})`;
+
+  window.print();
+
+  window.addEventListener(
+    "afterprint",
+    () => {
+      document.title = originalTitle;
+    },
+    { once: true },
+  );
+}
+
+window.addEventListener("beforeprint", prepareForPrint);
 
 document.querySelectorAll(".lang-switch button").forEach((button) => {
   button.addEventListener("click", () => {

@@ -759,6 +759,248 @@ figcaption {
   }
 }
 
+/* Customizer & Action Controls */
+.hero-export {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.pdf-export,
+.btn-customize {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pdf-export {
+  background: var(--signal);
+  color: #fff;
+  border: 1px solid var(--signal);
+}
+
+.pdf-export:hover {
+  filter: brightness(0.92);
+}
+
+.btn-customize {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+
+.btn-customize:hover {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+
+.rail-tools {
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rail-tools button {
+  width: 100%;
+  padding: 7px 12px;
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 500;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.18s ease;
+}
+
+.rail-tools button:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.rail-tools button.rail-pdf-btn {
+  background: var(--signal);
+  color: #fff;
+  border-color: var(--signal);
+}
+
+.rail-tools button.rail-pdf-btn:hover {
+  filter: brightness(0.92);
+}
+
+/* Customizer Dialog */
+dialog.customizer-modal {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--paper);
+  color: var(--ink);
+  padding: 0;
+  max-width: 520px;
+  width: calc(100% - 32px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+}
+
+dialog.customizer-modal::backdrop {
+  background: rgba(20, 17, 14, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+.customizer-content {
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.customizer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 12px;
+}
+
+.customizer-header h2 {
+  font-family: Fraunces, Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.customizer-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 4px;
+}
+
+.customizer-close:hover {
+  color: var(--ink);
+}
+
+.customizer-sub {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.customizer-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-subtle {
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 0.78rem;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-subtle:hover {
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+.customizer-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 48vh;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+.customizer-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.02);
+  transition: background 0.15s ease;
+  user-select: none;
+}
+
+.customizer-item:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.customizer-item input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+  accent-color: var(--signal);
+  cursor: pointer;
+}
+
+.customizer-num {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  min-width: 20px;
+}
+
+.customizer-label {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.customizer-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+  margin-top: 4px;
+}
+
+.btn-done {
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--ink);
+  transition: all 0.15s ease;
+}
+
+.btn-done:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+section[hidden],
+section.section-excluded {
+  display: none !important;
+}
+
 @page {
   size: A4;
   margin: 0;
@@ -781,7 +1023,12 @@ figcaption {
 @media print {
   .skip,
   .rail,
+  .rail-tools,
   .hero-export,
+  .btn-customize,
+  .customizer-modal,
+  .section-excluded,
+  section[hidden],
   .stops,
   #steps,
   #step-copy,
