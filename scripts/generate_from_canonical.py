@@ -600,6 +600,249 @@ def generate_lang(
             warnings.append(f"Skip deck merge — template missing: {TEMPLATE}")
 
 
+def _clean_web_prose(text: str) -> str:
+    t = re.sub(r"\*\*(.+?)\*\*", r"\1", text)
+    t = re.sub(r"\[(.+?)\]\([^)]+\)", r"\1", t)
+    return " ".join(t.split())
+
+
+def _extract_why_parts(bullets_text: str) -> tuple[str, str]:
+    lines = [
+        _clean_web_prose(l.strip().lstrip("-*"))
+        for l in bullets_text.splitlines()
+        if l.strip()
+    ]
+    a = lines[0] if len(lines) > 0 else ""
+    b = lines[1] if len(lines) > 1 else ""
+    return a, b
+
+
+def generate_web_portfolio(
+    warnings: list[str], variants: tuple[str, ...] = VARIANTS
+) -> None:
+    docs_dir = ROOT / "docs"
+    if not docs_dir.exists():
+        return
+
+    nars_en = load_narratives("en")
+    nars_pt = load_narratives("pt")
+    profiles = load_csv("profile.csv")
+    profile = profiles[0] if profiles else {}
+    projects = load_csv("projects.csv")
+
+    # 1. Update docs/scores.js from projects.csv
+    scores = []
+    for p in projects:
+        csi_val = p.get("csi", "").strip()
+        nps_val = p.get("nps", "").strip()
+        if csi_val or nps_val:
+            name = p.get("name_en") or p.get("name") or p.get("id")
+            if "averages" in name.lower() or "médias" in name.lower():
+                continue
+            scores.append(
+                {
+                    "name": name,
+                    "csi": float(csi_val) if csi_val else None,
+                    "nps": float(nps_val) if nps_val else None,
+                }
+            )
+    default_names = {s["name"] for s in scores}
+    baseline_scores = [
+        {"name": "GS_R2S Financial Portal", "csi": 5, "nps": None},
+        {"name": "EXT_PS_CCC Telemetry", "csi": 5, "nps": 10},
+        {"name": "EXT_M-PUR36 Tooling", "csi": 5, "nps": 10},
+        {"name": "EXT_M-PMQ PPAP", "csi": 5, "nps": 10},
+        {"name": "GS_P2P_MovDiv", "csi": 5, "nps": 10},
+        {"name": "GS_P2P_Financial_Portal", "csi": 5, "nps": 10},
+        {"name": "GS Applied Research Bootcamp 2024", "csi": 4.9, "nps": 9.6},
+        {"name": "GS_B2R_AA CF Automation", "csi": 4, "nps": 10},
+    ]
+    for b in baseline_scores:
+        if b["name"] not in default_names:
+            scores.append(b)
+
+    scores_js = "// GENERATED from my-data/canonical/projects.csv\n"
+    scores_js += f"const SCORES_DATA = {json.dumps(scores, indent=2)};\n"
+    scores_js += (
+        "if (typeof window !== 'undefined') { window.SCORES_DATA = SCORES_DATA; }\n"
+    )
+    (docs_dir / "scores.js").write_text(scores_js, encoding="utf-8")
+    print(f"wrote {docs_dir.relative_to(ROOT)}/scores.js")
+
+    # 2. Update docs/<variant>/path.js
+    step_meta = {
+        "ux-researcher": {
+            "en": {
+                "steps": ["Now", "Next", "Method", "Decisions"],
+                "stepCopy": [
+                    "Mixed-methods research at Bosch, UX Maturity Level 4 governance, Grounded Theory on CX transcripts, and empirical HCI publications on trust in AI.",
+                    "Senior UX Researcher & Design Technologist: user research, high-fidelity prototyping, and trustworthy AI systems.",
+                    "Dual discovery-engineering loop: user inquiry, rapid code spikes, usability validation, and metric tracking.",
+                    "Design decisions judged by user task success, adoption, and sustained satisfaction.",
+                ],
+                "diagram": "../media/path-uxr.png",
+            },
+            "pt": {
+                "steps": ["Agora", "Próximo", "Método", "Decisões"],
+                "stepCopy": [
+                    "Pesquisa de métodos mistos na Bosch, governança de Maturidade UX Nível 4, Teoria Fundamentada em CX e publicações de IHC em confiança na IA.",
+                    "UX Researcher Sênior e Design Technologist: pesquisa com usuários, prototipagem em código e sistemas de IA confiáveis.",
+                    "Ciclo duplo descoberta-engenharia: investigação com usuário, spikes de código, validação de usabilidade e acompanhamento de métricas.",
+                    "Decisões de design julgadas por sucesso de tarefas do usuário, adoção e satisfação sustentada.",
+                ],
+                "diagram": "../media/path-uxr-pt.png",
+            },
+        },
+        "data-analyst": {
+            "en": {
+                "steps": ["Now", "Next", "Method", "Decisions"],
+                "stepCopy": [
+                    "Experimental design and inferential statistics on TrustMate (Welch, Cohen's d, FDR, LLM evaluation versus humans). Messy text turned into validated BI. CSI, NPS, Power BI, Python, and SQL at Bosch.",
+                    "Senior data analyst: insight through the scientific method.",
+                    "Descriptive, inferential, and visual analysis.",
+                    "Fast decisions from that evidence.",
+                ],
+                "diagram": "../media/path.png",
+            },
+            "pt": {
+                "steps": ["Agora", "Próximo", "Método", "Decisões"],
+                "stepCopy": [
+                    "Desenho experimental e estatística inferencial no TrustMate (Welch, d de Cohen, FDR, avaliação com LLM versus humanos). Texto confuso virando BI validado. CSI, NPS, Power BI, Python e SQL na Bosch.",
+                    "Analista de dados sênior: insight pelo método científico.",
+                    "Análise descritiva, inferencial e visual.",
+                    "Decisões rápidas a partir dessa evidência.",
+                ],
+                "diagram": "../media/path-pt.png",
+            },
+        },
+        "product-owner": {
+            "en": {
+                "steps": ["Discovery", "Priority", "Stakeholders", "Next"],
+                "stepCopy": [
+                    "Tooling for PT: requirements, high-fidelity prototypes, and regular customer check-ins.",
+                    "ServiceNow applied-research intake in CIP. Low, Medium, or High, so the team knows when deeper work is needed.",
+                    "Americas UX maturity Level 4: governance, templates, and training that stakeholders can reuse.",
+                    "Senior Product Owner. Discovery, then priority, then validation with the people who use the result. CSI 4.86 and NPS 9.94 across 2024–2025.",
+                ],
+                "diagram": "../media/path-po.png",
+            },
+            "pt": {
+                "steps": ["Descoberta", "Prioridade", "Stakeholders", "Próximo"],
+                "stepCopy": [
+                    "Tooling para PT: requisitos, protótipos de alta fidelidade e check-ins regulares com clientes.",
+                    "Entrada de pesquisa aplicada no CIP ServiceNow. Baixa, Média ou Alta, para o time saber quando o trabalho precisa ir mais fundo.",
+                    "Maturidade de UX Nível 4 nas Américas: governança, templates e treinamento que os stakeholders reutilizam.",
+                    "Product Owner Sênior. Descoberta, depois prioridade, depois validação com quem usa o resultado. CSI 4,86 e NPS 9,94 em 2024–2025.",
+                ],
+                "diagram": "../media/path-po-pt.png",
+            },
+        },
+        "digital-solution-architect": {
+            "en": {
+                "steps": ["Now", "Next", "Method", "Decisions"],
+                "stepCopy": [
+                    "Digitization systems at Bosch Hungary, architecture gates in ServiceNow CIP, analytics turned into insight, and delivery outcomes at Bosch.",
+                    "Mid-level digital solution architect: cloud, digitization, and evidence-based delivery.",
+                    "Boundaries, evidence gates, and designs that survive operations.",
+                    "Solutions judged by what happens in production.",
+                ],
+                "diagram": "../media/path-dsa.png",
+            },
+            "pt": {
+                "steps": ["Agora", "Próximo", "Método", "Decisões"],
+                "stepCopy": [
+                    "Sistemas de digitalização na Bosch Hungria, gates de arquitetura no CIP ServiceNow, analytics virando insight e resultados de entrega na Bosch.",
+                    "Arquiteto de Soluções Digitais (Pleno): cloud, digitalização e entrega baseada em evidência.",
+                    "Limites, gates de evidência e desenhos que sobrevivem à operação.",
+                    "Soluções julgadas pelo que acontece em produção.",
+                ],
+                "diagram": "../media/path-dsa-pt.png",
+            },
+        },
+    }
+
+    web_variants = [v for v in variants if (docs_dir / v / "path.js").is_file()]
+    for variant in web_variants:
+        path_js_file = docs_dir / variant / "path.js"
+        meta = step_meta.get(variant, {})
+        meta_en = meta.get(
+            "en",
+            {
+                "steps": ["Now", "Next", "Method", "Decisions"],
+                "stepCopy": [],
+                "diagram": "../media/path.png",
+            },
+        )
+        meta_pt = meta.get(
+            "pt",
+            {
+                "steps": ["Agora", "Próximo", "Método", "Decisões"],
+                "stepCopy": [],
+                "diagram": "../media/path-pt.png",
+            },
+        )
+
+        whyA_en, whyB_en = _extract_why_parts(nars_en[variant].get("why_bullets", ""))
+        whyA_pt, whyB_pt = _extract_why_parts(nars_pt[variant].get("why_bullets", ""))
+
+        copy_en = {
+            "label": nars_en[variant].get("who_role")
+            or nars_en[variant].get("deck_title", ""),
+            "eyebrow": f"{profile.get('name', 'Eduardo Figueiredo')} · {profile.get('location', 'Nova Odessa, SP, Brazil')}",
+            "role": nars_en[variant].get("who_role")
+            or nars_en[variant].get("tagline", ""),
+            "lede": _clean_web_prose(nars_en[variant].get("profile", "")),
+            "whyTitle": nars_en[variant].get("why_h1", ""),
+            "whyA": whyA_en,
+            "whyB": whyB_en,
+            "presentTitle": nars_en[variant].get("present_h2", ""),
+            "presentLead": _clean_web_prose(nars_en[variant].get("who_impact", "")),
+            "nextTitle": nars_en[variant].get("future_h2", ""),
+            "steps": meta_en["steps"],
+            "stepCopy": meta_en["stepCopy"],
+            "diagram": meta_en["diagram"],
+            "diagramAlt": nars_en[variant].get("future_diagram_alt", ""),
+            "pdf": f"/download/{variant}/portfolio-deck-{variant}-EN.pdf",
+            "contactLead": _clean_web_prose(
+                nars_en[variant].get("closing_summary", "")
+            ),
+        }
+
+        copy_pt = {
+            "label": nars_pt[variant].get("who_role")
+            or nars_pt[variant].get("deck_title", ""),
+            "eyebrow": f"{profile.get('name', 'Eduardo Figueiredo')} · Nova Odessa, SP, Brasil",
+            "role": nars_pt[variant].get("who_role")
+            or nars_pt[variant].get("tagline", ""),
+            "lede": _clean_web_prose(nars_pt[variant].get("profile", "")),
+            "whyTitle": nars_pt[variant].get("why_h1", ""),
+            "whyA": whyA_pt,
+            "whyB": whyB_pt,
+            "presentTitle": nars_pt[variant].get("present_h2", ""),
+            "presentLead": _clean_web_prose(nars_pt[variant].get("who_impact", "")),
+            "nextTitle": nars_pt[variant].get("future_h2", ""),
+            "steps": meta_pt["steps"],
+            "stepCopy": meta_pt["stepCopy"],
+            "diagram": meta_pt["diagram"],
+            "diagramAlt": nars_pt[variant].get("future_diagram_alt", ""),
+            "pdf": f"/download/{variant}/portfolio-deck-{variant}-PT.pdf",
+            "contactLead": _clean_web_prose(
+                nars_pt[variant].get("closing_summary", "")
+            ),
+        }
+
+        out_content = (
+            "// GENERATED from canonical CSVs (narratives, profile, projects)\n"
+        )
+        out_content += "const PATH_COPY = {\n"
+        out_content += f"  en: {json.dumps(copy_en, indent=2, ensure_ascii=False)},\n"
+        out_content += f"  pt: {json.dumps(copy_pt, indent=2, ensure_ascii=False)},\n"
+        out_content += "};\n"
+
+        path_js_file.write_text(out_content, encoding="utf-8")
+        print(f"wrote {path_js_file.relative_to(ROOT)}")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(
         description="Generate resume and portfolio from canonical CSV"
@@ -629,6 +872,9 @@ def main() -> int:
     warnings: list[str] = []
     for lang in langs:
         generate_lang(lang, warnings, variants=target_variants)
+
+    # Synchronize Web Portfolio (docs/<variant>/path.js and docs/scores.js)
+    generate_web_portfolio(warnings, variants=target_variants)
 
     if warnings:
         print("\nConsistency report:")

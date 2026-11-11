@@ -367,21 +367,21 @@ def resume_policy() -> dict[str, Any]:
 def regenerate_deliverable(
     variant: str, kind: str = "both", max_pages: int | None = None
 ) -> dict[str, Any]:
-    """Run single-variant generation, page fitting, and compile."""
-    if variant not in RESUME_VARIANTS:
+    """Run generation, page fitting, and compile for single variant or 'all'."""
+    if variant != "all" and variant not in RESUME_VARIANTS:
         raise ValueError(f"Unknown variant: {variant}")
 
     results: dict[str, Any] = {"variant": variant, "kind": kind}
 
-    # 1. Generate text sources (.typ and .md)
+    # 1. Generate text sources (.typ, .md, and web docs)
     gen_cmd = [
         sys.executable,
         str(ROOT_DIR / "scripts" / "generate_from_canonical.py"),
         "--lang",
         "all",
-        "--variant",
-        variant,
     ]
+    if variant != "all":
+        gen_cmd.extend(["--variant", variant])
     gen_proc = subprocess.run(
         gen_cmd,
         cwd=str(ROOT_DIR),
@@ -398,10 +398,10 @@ def regenerate_deliverable(
         fit_cmd = [
             sys.executable,
             str(ROOT_DIR / "scripts" / "fit_resumes.py"),
-            "--variant",
-            variant,
         ]
-        if max_pages:
+        if variant != "all":
+            fit_cmd.extend(["--variant", variant])
+        if max_pages and variant != "all":
             fit_cmd.extend(["--max-pages", str(max_pages)])
         fit_proc = subprocess.run(
             fit_cmd,
@@ -419,13 +419,13 @@ def regenerate_deliverable(
         build_cmd = [
             sys.executable,
             str(ROOT_DIR / "scripts" / "build_outputs.py"),
-            "--variant",
-            variant,
             "--kind",
             "portfolio",
             "--skip-generate",
             "--skip-audit",
         ]
+        if variant != "all":
+            build_cmd.extend(["--variant", variant])
         build_proc = subprocess.run(
             build_cmd,
             cwd=str(ROOT_DIR),
@@ -1058,7 +1058,7 @@ class CareerHandler(BaseHTTPRequestHandler):
                 save_res = self.store.save_deliverables_data(deliverables)
 
                 regen_res = {}
-                if variant and variant in RESUME_VARIANTS:
+                if variant and (variant in RESUME_VARIANTS or variant == "all"):
                     regen_res = regenerate_deliverable(
                         variant=variant,
                         kind=kind,

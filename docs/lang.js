@@ -107,7 +107,11 @@ const UI = {
       "Impressionist art",
       "Macros and keyboards",
     ],
-    interestCaps: ["Piano practice at home", "Split keyboard and macros"],
+    interestCaps: [
+      "Piano practice at home",
+      "Split keyboard and macros",
+      "Workspace setup for efficiency",
+    ],
     contactTitle: "Let's connect",
     contactLead:
       "I bring applied research, technology, and project delivery. What I care about is work people can trust and use, with clear data and results you can measure.",
@@ -328,7 +332,11 @@ const UI = {
       "Arte impressionista",
       "Criação de macros e teclados",
     ],
-    interestCaps: ["Prática de piano em casa", "Teclado dividido e macros"],
+    interestCaps: [
+      "Prática de piano em casa",
+      "Teclado dividido e macros",
+      "Setup de trabalho e eficiência",
+    ],
     contactTitle: "Vamos conversar",
     contactLead:
       "Trago pesquisa aplicada, tecnologia e entrega de projetos. O que me importa é trabalho em que as pessoas possam confiar e usar, com dados claros e resultados que dá para medir.",

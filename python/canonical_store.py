@@ -568,10 +568,11 @@ class CanonicalStore:
                 rid = str(row.get("id", "")).strip()
                 if not rid:
                     raise ValueError(f"{key}[{i}] missing id")
-                item = {col: _cell(row.get(col)) for col in columns}
+                preserve_md = key in ("projects", "publications", "additional")
+                item = {col: _cell(row.get(col), preserve_markdown=preserve_md) for col in columns}
                 for field, value in row.items():
                     if field not in item:
-                        item[field] = _cell(value)
+                        item[field] = _cell(value, preserve_markdown=preserve_md)
                 item["id"] = rid
                 if "sort_order" in columns and not item["sort_order"]:
                     item["sort_order"] = str(i + 1)
@@ -668,12 +669,13 @@ class CanonicalStore:
         tmp_path.replace(path)
 
 
-def _cell(value: Any) -> str:
+def _cell(value: Any, preserve_markdown: bool = False) -> str:
     if value is None:
         return ""
     if isinstance(value, bool):
         return "true" if value else ""
-    return _plain(str(value).strip())
+    val_str = str(value).strip()
+    return val_str if preserve_markdown else _plain(val_str)
 
 
 def _plain(text: str) -> str:

@@ -111,7 +111,7 @@ const barObserver = new IntersectionObserver(
 );
 barObserver.observe(bars);
 
-const scores = [
+const defaultScores = [
   { name: "GS_R2S Financial Portal", csi: 5, nps: null },
   { name: "EXT_PS_CCC Telemetry", csi: 5, nps: 10 },
   { name: "EXT_M-PUR36 Tooling", csi: 5, nps: 10 },
@@ -121,6 +121,13 @@ const scores = [
   { name: "GS Applied Research Bootcamp 2024", csi: 4.9, nps: 9.6 },
   { name: "GS_B2R_AA CF Automation", csi: 4, nps: 10 },
 ];
+
+const scores =
+  typeof window !== "undefined" &&
+  Array.isArray(window.SCORES_DATA) &&
+  window.SCORES_DATA.length > 0
+    ? window.SCORES_DATA
+    : defaultScores;
 
 const tbody = document.querySelector("#score-table tbody");
 let sortKey = "csi";

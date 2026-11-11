@@ -6,7 +6,9 @@
         "en": 1,
         "pt": 1
       },
+      "max_pages": 1,
       "one_page": true,
+      "page_limit_ok": true,
       "kept": [
         {
           "id": "skill:ux-researcher:Tech:18",
@@ -921,7 +923,9 @@
         "en": 1,
         "pt": 1
       },
+      "max_pages": 1,
       "one_page": true,
+      "page_limit_ok": true,
       "kept": [
         {
           "id": "skill:product-owner:Tech:19",
@@ -1394,7 +1398,9 @@
         "en": 1,
         "pt": 1
       },
+      "max_pages": 1,
       "one_page": true,
+      "page_limit_ok": true,
       "kept": [
         {
           "id": "skill:data-analyst:Tech:20",
@@ -1900,7 +1906,9 @@
         "en": 1,
         "pt": 1
       },
+      "max_pages": 1,
       "one_page": true,
+      "page_limit_ok": true,
       "kept": [
         {
           "id": "skill:digital-solution-architect:Tech:18",

@@ -703,8 +703,14 @@
   }
 
   function closeDeliverableEditor() {
+    if (currentEditorState.dirty) {
+      if (!confirm("You have unsaved changes in the Deliverable Editor. Are you sure you want to discard them?")) {
+        return;
+      }
+    }
     const modal = document.getElementById("deliverable-edit-modal");
     if (modal && modal.open) modal.close();
+    currentEditorState.dirty = false;
   }
 
   async function openDeliverableEditor(opts) {
@@ -2458,9 +2464,16 @@
     // Visual preview for the career path diagram
     const diagCard = document.createElement("div");
     diagCard.className = "diagram-preview-card";
+    const diagStem = {
+      "ux-researcher": "ai-agile-research-ux-researcher",
+      "general": "ai-agile-research",
+      "data-analyst": "ai-agile-research",
+      "product-owner": "ai-agile-research-product-owner",
+      "digital-solution-architect": "ai-agile-research-digital-solution-architect",
+    }[variant] || "ai-agile-research";
     diagCard.innerHTML = `
-      <strong style="font-size: 11px; color: var(--gold);">Career Path Method Diagram (Interpolated on Slide 15):</strong>
-      <img class="diagram-preview-img" src="/pictures/diagrams/ai-agile-research.en.svg" alt="Career Path Diagram Preview" onerror="this.style.display='none'" />
+      <strong style="font-size: 11px; color: var(--gold);">Career Path Method Diagram (Slide 15 / Future):</strong>
+      <img class="diagram-preview-img" src="/pictures/diagrams/${diagStem}-en.png" alt="Career Path Diagram Preview" onerror="this.style.display='none'" />
     `;
     card15.append(diagCard);
     container.append(card15);
@@ -2633,85 +2646,336 @@
   }
 
   function renderSharedTab(container, data) {
-    // 1. Education
-    const secEdu = document.createElement("div");
-    secEdu.className = "deliverable-section-card";
-    const hEdu = document.createElement("h3");
-    hEdu.textContent = "Education (Shared across resumes)";
-    secEdu.append(hEdu);
+    // 0. Experience Roles & Headers
+    const secRoles = document.createElement("div");
+    secRoles.className = "deliverable-section-card";
+    const hRoles = document.createElement("h3");
+    hRoles.textContent = "Experience Roles & Dates (Shared across resumes)";
+    secRoles.append(hRoles);
 
-    const education = data.education || [];
-    education.forEach((edu, idx) => {
+    const experiences = data.experience || [];
+    experiences.forEach((exp) => {
       const block = document.createElement("div");
       block.className = "deliverable-exp-role-block";
       const h = document.createElement("h4");
-      h.textContent = `${edu.degree_en || edu.degree_pt} · ${edu.institution_en || edu.institution_pt}`;
+      h.textContent = `${exp.company || exp.id} · ${exp.title_en || exp.title_pt}`;
       block.append(h);
       block.append(
-        createBilingualInputRow("Degree Title", edu.degree_en, edu.degree_pt, (en, pt) => {
-          edu.degree_en = en;
-          edu.degree_pt = pt;
+        createBilingualInputRow("Role Title", exp.title_en, exp.title_pt, (en, pt) => {
+          exp.title_en = en;
+          exp.title_pt = pt;
+          markDeliverableDirty();
         })
       );
       block.append(
-        createBilingualInputRow("Institution & Dates", edu.institution_en, edu.institution_pt, (en, pt) => {
-          edu.institution_en = en;
-          edu.institution_pt = pt;
+        createBilingualInputRow("Date Display", exp.date_display_en, exp.date_display_pt, (en, pt) => {
+          exp.date_display_en = en;
+          exp.date_display_pt = pt;
+          markDeliverableDirty();
         })
       );
-      block.append(
-        createBilingualInputRow("Detail / Thesis", edu.detail_en, edu.detail_pt, (en, pt) => {
-          edu.detail_en = en;
-          edu.detail_pt = pt;
-        }, { tall: true })
-      );
-      secEdu.append(block);
+      secRoles.append(block);
     });
+    container.append(secRoles);
+
+    // 1. Education
+    const secEdu = document.createElement("div");
+    secEdu.className = "deliverable-section-card";
+    const headEdu = document.createElement("div");
+    headEdu.style.cssText = "display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;";
+    const hEdu = document.createElement("h3");
+    hEdu.style.margin = "0";
+    hEdu.textContent = "Education (Shared across resumes)";
+    const addEduBtn = document.createElement("button");
+    addEduBtn.type = "button";
+    addEduBtn.className = "mini-action-btn";
+    addEduBtn.textContent = "+ Add Education";
+    headEdu.append(hEdu, addEduBtn);
+    secEdu.append(headEdu);
+
+    const eduList = data.education || [];
+    const renderEduRows = () => {
+      secEdu.querySelectorAll(".deliverable-exp-role-block").forEach((el) => el.remove());
+      eduList.forEach((edu, idx) => {
+        const block = document.createElement("div");
+        block.className = "deliverable-exp-role-block";
+        const topBar = document.createElement("div");
+        topBar.style.cssText = "display: flex; justify-content: space-between; align-items: center;";
+        const h = document.createElement("h4");
+        h.style.margin = "0";
+        h.textContent = `${edu.degree_en || edu.degree_pt || "Degree"} · ${edu.institution_en || edu.institution_pt || "Institution"}`;
+        
+        const actWrap = document.createElement("div");
+        actWrap.style.cssText = "display: flex; gap: 4px;";
+        const upBtn = document.createElement("button");
+        upBtn.type = "button";
+        upBtn.className = "media-btn-small";
+        upBtn.textContent = "↑";
+        upBtn.disabled = idx === 0;
+        upBtn.onclick = () => {
+          const tmp = eduList[idx - 1];
+          eduList[idx - 1] = edu;
+          eduList[idx] = tmp;
+          eduList.forEach((r, i) => (r.sort_order = String(i + 1)));
+          renderEduRows();
+          markDeliverableDirty();
+        };
+        const downBtn = document.createElement("button");
+        downBtn.type = "button";
+        downBtn.className = "media-btn-small";
+        downBtn.textContent = "↓";
+        downBtn.disabled = idx === eduList.length - 1;
+        downBtn.onclick = () => {
+          const tmp = eduList[idx + 1];
+          eduList[idx + 1] = edu;
+          eduList[idx] = tmp;
+          eduList.forEach((r, i) => (r.sort_order = String(i + 1)));
+          renderEduRows();
+          markDeliverableDirty();
+        };
+        const delBtn = document.createElement("button");
+        delBtn.type = "button";
+        delBtn.className = "media-btn-small";
+        delBtn.textContent = "✕";
+        delBtn.onclick = () => {
+          eduList.splice(idx, 1);
+          eduList.forEach((r, i) => (r.sort_order = String(i + 1)));
+          renderEduRows();
+          markDeliverableDirty();
+        };
+        actWrap.append(upBtn, downBtn, delBtn);
+        topBar.append(h, actWrap);
+        block.append(topBar);
+
+        block.append(
+          createBilingualInputRow("Degree Title", edu.degree_en, edu.degree_pt, (en, pt) => {
+            edu.degree_en = en;
+            edu.degree_pt = pt;
+            markDeliverableDirty();
+          })
+        );
+        block.append(
+          createBilingualInputRow("Institution & Dates", edu.institution_en, edu.institution_pt, (en, pt) => {
+            edu.institution_en = en;
+            edu.institution_pt = pt;
+            markDeliverableDirty();
+          })
+        );
+        block.append(
+          createBilingualInputRow("Detail / Thesis", edu.detail_en, edu.detail_pt, (en, pt) => {
+            edu.detail_en = en;
+            edu.detail_pt = pt;
+            markDeliverableDirty();
+          }, { tall: true })
+        );
+        secEdu.append(block);
+      });
+    };
+    addEduBtn.onclick = () => {
+      eduList.push({
+        sort_order: String(eduList.length + 1),
+        degree_en: "New Degree",
+        degree_pt: "Novo Grau",
+        institution_en: "Institution (Year)",
+        institution_pt: "Instituição (Ano)",
+        detail_en: "",
+        detail_pt: "",
+      });
+      renderEduRows();
+      markDeliverableDirty();
+    };
+    renderEduRows();
     container.append(secEdu);
 
     // 2. Publications
     const secPubs = document.createElement("div");
     secPubs.className = "deliverable-section-card";
+    const headPubs = document.createElement("div");
+    headPubs.style.cssText = "display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;";
     const hPubs = document.createElement("h3");
+    hPubs.style.margin = "0";
     hPubs.textContent = "Publications (Shared across resumes)";
-    secPubs.append(hPubs);
+    const addPubBtn = document.createElement("button");
+    addPubBtn.type = "button";
+    addPubBtn.className = "mini-action-btn";
+    addPubBtn.textContent = "+ Add Publication";
+    headPubs.append(hPubs, addPubBtn);
+    secPubs.append(headPubs);
 
-    const pubs = data.publications || [];
-    pubs.forEach((pub, idx) => {
-      const block = document.createElement("div");
-      block.className = "deliverable-exp-role-block";
-      block.append(
-        createBilingualInputRow(`Venue #${idx + 1}`, pub.venue_en, pub.venue_pt, (en, pt) => {
-          pub.venue_en = en;
-          pub.venue_pt = pt;
-        })
-      );
-      block.append(
-        createBilingualInputRow(`Citation / Paper Title`, pub.citation_en, pub.citation_pt, (en, pt) => {
-          pub.citation_en = en;
-          pub.citation_pt = pt;
-        })
-      );
-      secPubs.append(block);
-    });
+    const pubsList = data.publications || [];
+    const renderPubRows = () => {
+      secPubs.querySelectorAll(".deliverable-exp-role-block").forEach((el) => el.remove());
+      pubsList.forEach((pub, idx) => {
+        const block = document.createElement("div");
+        block.className = "deliverable-exp-role-block";
+        const topBar = document.createElement("div");
+        topBar.style.cssText = "display: flex; justify-content: space-between; align-items: center;";
+        const h = document.createElement("h4");
+        h.style.margin = "0";
+        h.textContent = pub.venue_en || `Publication #${idx + 1}`;
+
+        const actWrap = document.createElement("div");
+        actWrap.style.cssText = "display: flex; gap: 4px;";
+        const upBtn = document.createElement("button");
+        upBtn.type = "button";
+        upBtn.className = "media-btn-small";
+        upBtn.textContent = "↑";
+        upBtn.disabled = idx === 0;
+        upBtn.onclick = () => {
+          const tmp = pubsList[idx - 1];
+          pubsList[idx - 1] = pub;
+          pubsList[idx] = tmp;
+          pubsList.forEach((r, i) => (r.sort_order = String(i + 1)));
+          renderPubRows();
+          markDeliverableDirty();
+        };
+        const downBtn = document.createElement("button");
+        downBtn.type = "button";
+        downBtn.className = "media-btn-small";
+        downBtn.textContent = "↓";
+        downBtn.disabled = idx === pubsList.length - 1;
+        downBtn.onclick = () => {
+          const tmp = pubsList[idx + 1];
+          pubsList[idx + 1] = pub;
+          pubsList[idx] = tmp;
+          pubsList.forEach((r, i) => (r.sort_order = String(i + 1)));
+          renderPubRows();
+          markDeliverableDirty();
+        };
+        const delBtn = document.createElement("button");
+        delBtn.type = "button";
+        delBtn.className = "media-btn-small";
+        delBtn.textContent = "✕";
+        delBtn.onclick = () => {
+          pubsList.splice(idx, 1);
+          pubsList.forEach((r, i) => (r.sort_order = String(i + 1)));
+          renderPubRows();
+          markDeliverableDirty();
+        };
+        actWrap.append(upBtn, downBtn, delBtn);
+        topBar.append(h, actWrap);
+        block.append(topBar);
+
+        block.append(
+          createBilingualInputRow("Venue", pub.venue_en, pub.venue_pt, (en, pt) => {
+            pub.venue_en = en;
+            pub.venue_pt = pt;
+            markDeliverableDirty();
+          })
+        );
+        block.append(
+          createBilingualInputRow("Citation / Paper Title", pub.citation_en, pub.citation_pt, (en, pt) => {
+            pub.citation_en = en;
+            pub.citation_pt = pt;
+            markDeliverableDirty();
+          })
+        );
+        secPubs.append(block);
+      });
+    };
+    addPubBtn.onclick = () => {
+      pubsList.push({
+        sort_order: String(pubsList.length + 1),
+        venue_en: "Conference / Journal (Year)",
+        venue_pt: "Conferência / Periódico (Ano)",
+        citation_en: "Paper title and author citation",
+        citation_pt: "Título do artigo e citação dos autores",
+      });
+      renderPubRows();
+      markDeliverableDirty();
+    };
+    renderPubRows();
     container.append(secPubs);
 
-    // 3. Additional
+    // 3. Additional / Awards
     const secAdd = document.createElement("div");
     secAdd.className = "deliverable-section-card";
+    const headAdd = document.createElement("div");
+    headAdd.style.cssText = "display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;";
     const hAdd = document.createElement("h3");
+    hAdd.style.margin = "0";
     hAdd.textContent = "Additional / Awards (Shared across resumes)";
-    secAdd.append(hAdd);
+    const addLineBtn = document.createElement("button");
+    addLineBtn.type = "button";
+    addLineBtn.className = "mini-action-btn";
+    addLineBtn.textContent = "+ Add Award / Line";
+    headAdd.append(hAdd, addLineBtn);
+    secAdd.append(headAdd);
 
-    const additional = data.additional || [];
-    additional.forEach((add, idx) => {
-      secAdd.append(
-        createBilingualInputRow(`Award / Line #${idx + 1}`, add.text_en, add.text_pt, (en, pt) => {
-          add.text_en = en;
-          add.text_pt = pt;
-        })
-      );
-    });
+    const addList = data.additional || [];
+    const renderAddRows = () => {
+      secAdd.querySelectorAll(".deliverable-exp-role-block").forEach((el) => el.remove());
+      addList.forEach((add, idx) => {
+        const block = document.createElement("div");
+        block.className = "deliverable-exp-role-block";
+        const topBar = document.createElement("div");
+        topBar.style.cssText = "display: flex; justify-content: space-between; align-items: center;";
+        const h = document.createElement("h4");
+        h.style.margin = "0";
+        h.textContent = `Award / Line #${idx + 1}`;
+
+        const actWrap = document.createElement("div");
+        actWrap.style.cssText = "display: flex; gap: 4px;";
+        const upBtn = document.createElement("button");
+        upBtn.type = "button";
+        upBtn.className = "media-btn-small";
+        upBtn.textContent = "↑";
+        upBtn.disabled = idx === 0;
+        upBtn.onclick = () => {
+          const tmp = addList[idx - 1];
+          addList[idx - 1] = add;
+          addList[idx] = tmp;
+          addList.forEach((r, i) => (r.sort_order = String(i + 1)));
+          renderAddRows();
+          markDeliverableDirty();
+        };
+        const downBtn = document.createElement("button");
+        downBtn.type = "button";
+        downBtn.className = "media-btn-small";
+        downBtn.textContent = "↓";
+        downBtn.disabled = idx === addList.length - 1;
+        downBtn.onclick = () => {
+          const tmp = addList[idx + 1];
+          addList[idx + 1] = add;
+          addList[idx] = tmp;
+          addList.forEach((r, i) => (r.sort_order = String(i + 1)));
+          renderAddRows();
+          markDeliverableDirty();
+        };
+        const delBtn = document.createElement("button");
+        delBtn.type = "button";
+        delBtn.className = "media-btn-small";
+        delBtn.textContent = "✕";
+        delBtn.onclick = () => {
+          addList.splice(idx, 1);
+          addList.forEach((r, i) => (r.sort_order = String(i + 1)));
+          renderAddRows();
+          markDeliverableDirty();
+        };
+        actWrap.append(upBtn, downBtn, delBtn);
+        topBar.append(h, actWrap);
+        block.append(topBar);
+
+        block.append(
+          createBilingualInputRow(`Award / Line #${idx + 1}`, add.text_en, add.text_pt, (en, pt) => {
+            add.text_en = en;
+            add.text_pt = pt;
+            markDeliverableDirty();
+          })
+        );
+        secAdd.append(block);
+      });
+    };
+    addLineBtn.onclick = () => {
+      addList.push({
+        sort_order: String(addList.length + 1),
+        text_en: "New award or recognition line",
+        text_pt: "Nova linha de premiação ou reconhecimento",
+      });
+      renderAddRows();
+      markDeliverableDirty();
+    };
+    renderAddRows();
     container.append(secAdd);
   }
 
@@ -2731,12 +2995,13 @@
       const settings = deliverablesCache.resumeSettings || {};
       const maxPages = settings[variant] || 1;
       const kind = tab === "portfolio" ? "portfolio" : tab === "resume" ? "resume" : "both";
+      const variantToSend = (tab === "shared") ? "all" : variant;
 
       const res = await fetch("/api/deliverables/content", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          variant,
+          variant: variantToSend,
           kind,
           max_pages: maxPages,
           deliverables: deliverablesCache.deliverables,
@@ -2794,7 +3059,7 @@
           const res = await fetch("/api/deliverables/regenerate", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ variant: "general", kind: "both" }),
+            body: JSON.stringify({ variant: "all", kind: "both" }),
           });
           await loadDownloads();
           setSaveStatus("All PDFs rebuilt.", "ok");
@@ -3547,16 +3812,22 @@
             stripLabel.textContent = `📷 Portfolio Images (${newSelCount}/${pImages.length} selected for deck)`;
             // Save to server
             if (deliverablesCache?.deliverables) {
+              stripLabel.textContent = `📷 Portfolio Images (${newSelCount}/${pImages.length}) — Saving & updating decks…`;
               deliverablesCache.deliverables.portfolioImages = portfolioImagesCache;
-              await fetch("/api/deliverables/content", {
-                method: "PUT",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                  variant: "general",
-                  kind: "portfolio",
-                  deliverables: deliverablesCache.deliverables,
-                }),
-              });
+              try {
+                await fetch("/api/deliverables/content", {
+                  method: "PUT",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({
+                    variant: "all",
+                    kind: "portfolio",
+                    deliverables: deliverablesCache.deliverables,
+                  }),
+                });
+                stripLabel.textContent = `📷 Portfolio Images (${newSelCount}/${pImages.length} selected for deck) ✓`;
+              } catch (err) {
+                stripLabel.textContent = `📷 Portfolio Images (${newSelCount}/${pImages.length} selected) ✕ Save error`;
+              }
             }
           };
 

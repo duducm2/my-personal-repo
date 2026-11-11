@@ -656,6 +656,16 @@ figcaption {
   grid-template-columns: 1fr 1fr;
 }
 
+.shots-three {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 760px) {
+  .shots-three {
+    grid-template-columns: 1fr;
+  }
+}
+
 .shots.shots-apps {
   grid-template-columns: 1fr;
 }
