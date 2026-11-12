@@ -35,7 +35,7 @@
 )
 
 #let profile = [
-  Pesquisador de UX e design technologist com ~8 anos de experiência em tecnologia na Bosch (estágio → desenvolvedor web → analista de pesquisa aplicada e design). Combino #strong[pesquisa com métodos mistos] (Teoria Fundamentada de Strauss, codificação qualitativa, surveys, testes de usabilidade) com #strong[execução de design technologist] (React, protótipos de alta fidelidade em código, Figma, Power BI). Mestrado em Tecnologia aprovado em set/2026 (Unicamp, nota A em todas as disciplinas); pesquisa publicada com peer-review sobre confiança do usuário na interação humano-IA (IHC 2025, ISSRE 2025). Conduzi a maturidade de UX das Américas ao Nível 4; média sustentada de CSI 4,86 / NPS 9,94.
+  Pesquisador de UX e design technologist com ~10 anos de experiência em tecnologia na Bosch (estágio → desenvolvedor web → analista de pesquisa aplicada e design). Combino #strong[pesquisa com métodos mistos] (Teoria Fundamentada de Strauss, codificação qualitativa, surveys, testes de usabilidade) com #strong[execução de design technologist] (React, protótipos de alta fidelidade em código, Figma, Power BI). Mestrado em Tecnologia aprovado em set/2026 (Unicamp, nota A em todas as disciplinas); pesquisa publicada com peer-review sobre confiança do usuário na interação humano-IA (IHC 2025, ISSRE 2025). Conduzi a maturidade de UX das Américas ao Nível 4; média sustentada de CSI 4,86 / NPS 9,94.
 ]
 
 #let languages = "Português (Nativo)   Inglês (Fluente)"

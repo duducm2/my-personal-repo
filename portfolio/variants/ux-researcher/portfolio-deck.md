@@ -440,10 +440,10 @@ img[src*="story-flow"] {
 
 ## Evidence-based design that bridges user mental models and complex technical systems
 
-- I believe technological products succeed when **rigorous user research and rapid engineering prototyping** move together.
-- Applied Research at Bosch taught me to build **scalable UX governance**: intake gates, standardized templates, and measurable UX maturity (Level 4).
-- Grounded Theory on call-center transcripts showed how qualitative user voice turns into **quantified, prioritized backlog decisions**.
-- My master's research at Unicamp (IHC 2025, ISSRE 2025) grounded my practice in **user trust calibration for AI and complex interfaces**.
+- I believe technological products succeed when **rigorous user research and rapid engineering prototyping** move together.
+- Applied Research at Bosch taught me to build **scalable UX governance**: intake gates, standardized templates, and measurable UX maturity (Level 4).
+- Grounded Theory on call-center transcripts showed how qualitative user voice turns into **quantified, prioritized backlog decisions**.
+- My master's research at Unicamp (IHC 2025, ISSRE 2025) grounded my practice in **user trust calibration for AI and complex interfaces**.
 - Design technologist capability in **React, Figma, Python, and Power BI** allows me to prototype solutions in real code to validate feasibility early.
 
 <p><img src="../../../pictures/diagrams/story-flow.png" alt="Diagram story-flow: Why story flow" /></p>
@@ -663,13 +663,13 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 <p class="americas-img"><img src="../../../pictures/work/americas-team-2025.jpg" alt="Americas Team 2025 - UX Maturity Level 4" /></p>
 </div>
 
-| Area | Achievement |
-|------|-------------|
-| UX Maturity & Governance | Guided Americas to **UX Maturity Level 4** (Global Services); standardized templates & compliance tracking |
-| Qualitative Synthesis | **Data Insights**: Grounded Theory (open/axial coding) + **Python/AI** on call-center transcripts → Power BI |
-| Automated UX Gates | **ServiceNow** automated UX relevance scoring and strategic **CIP dashboards** for leadership visibility |
-| Design Technologist | End-to-end tooling from requirements to **interactive prototypes** with regular user check-ins |
-| Delivery Outcomes | Sustained average **CSI 4.86 / NPS 9.94** (2024–2025); delivered AI tools training to **100+** people (**4.88**/5) |
+| Area | Achievement |
+|------|-------------|
+| UX Maturity & Governance | Guided Americas to **UX Maturity Level 4** (Global Services); standardized templates & compliance tracking |
+| Qualitative Synthesis | **Data Insights**: Grounded Theory (open/axial coding) + **Python/AI** on call-center transcripts → Power BI |
+| Automated UX Gates | **ServiceNow** automated UX relevance scoring and strategic **CIP dashboards** for leadership visibility |
+| Design Technologist | End-to-end tooling from requirements to **interactive prototypes** with regular user check-ins |
+| Delivery Outcomes | Sustained average **CSI 4.86 / NPS 9.94** (2024–2025); delivered AI tools training to **100+** people (**4.88**/5) |
 | HCI & Trust Research | Unicamp MSc (Grade A); peer-reviewed publications on **user trust in AI** (**IHC 2025, ISSRE 2025**) |
 
 ---
@@ -1013,7 +1013,7 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 
 <p class="dissertation-pbi-intro"><span class="thesis-emphasis">My master's dissertation investigates **user trust** in digital experiences and evaluates how users interact with and adopt **Agentic AI systems** compared to traditional workflows.</span></p>
 
-- **Empirical UX evaluation:** quantitative trust scales, behavioral task metrics, and user perception modeling across human-AI touchpoints.
+- **Empirical UX evaluation:** quantitative trust scales, behavioral task metrics, and user perception modeling across human-AI touchpoints.
 - **Published HCI research:** peer-reviewed contributions at IHC 2025 and ISSRE 2025 on trust measurement and user decision dynamics in AI interaction.
 
 <div class="dissertation-pbi-row">
@@ -1068,7 +1068,7 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 
 ## Visual Ergonomics & Evaluation – MSc InfoVis: PNAD Contínua (Power BI)
 
-- **MSc Information Visualization (Unicamp, Grade A):** user visual perception, cognitive load, and visual mapping—principles applied to design readable, task-efficient user interfaces.
+- **MSc Information Visualization (Unicamp, Grade A):** user visual perception, cognitive load, and visual mapping—principles applied to design readable, task-efficient user interfaces.
 - **PNAD Contínua in Power BI:** designed exploratory data interfaces prioritizing user legibility, workflow speed, and intuitive filtering.
 
 <div class="infovis-split">
@@ -1345,7 +1345,7 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 
 ## Qualitative & Text Analysis – Text & Network Structures (PhraseNets)
 
-- **Qualitative user expression mapping:** visualized unstructured user expressions, semantic patterns, and terminology through network graphs.
+- **Qualitative user expression mapping:** visualized unstructured user expressions, semantic patterns, and terminology through network graphs.
 - **Interaction design principles:** Shneiderman's visual information seeking mantra applied to complex information hierarchies.
 
 <div class="phrase-net-row">
@@ -1387,32 +1387,32 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 <!-- Slide 21 – Future (Career) -->
 
 <style scoped>
-.future-career-wrap {
-  display: flex !important; flex-direction: column !important;
-  justify-content: flex-start !important; align-items: stretch !important;
-  width: 100% !important; margin-top: 0.35rem !important;
-  gap: 0.4rem !important;
-}
-.future-career-wrap p { margin: 0 !important; text-align: left !important; }
-.future-po-bullets {
-  width: 100% !important; max-width: 100% !important; text-align: left !important; font-size: 0.85em !important;
-}
-.future-po-bullets table {
-  width: 100% !important; table-layout: fixed !important; margin-top: 0.35rem !important;
-}
-.future-po-bullets th:first-child,
-.future-po-bullets td:first-child { width: 22% !important; }
-.future-po-bullets td, .future-po-bullets th {
-  overflow-wrap: anywhere; padding: 0.28em 0.5em !important;
+.future-career-wrap {
+  display: flex !important; flex-direction: column !important;
+  justify-content: flex-start !important; align-items: stretch !important;
+  width: 100% !important; margin-top: 0.35rem !important;
+  gap: 0.4rem !important;
+}
+.future-career-wrap p { margin: 0 !important; text-align: left !important; }
+.future-po-bullets {
+  width: 100% !important; max-width: 100% !important; text-align: left !important; font-size: 0.85em !important;
+}
+.future-po-bullets table {
+  width: 100% !important; table-layout: fixed !important; margin-top: 0.35rem !important;
+}
+.future-po-bullets th:first-child,
+.future-po-bullets td:first-child { width: 22% !important; }
+.future-po-bullets td, .future-po-bullets th {
+  overflow-wrap: anywhere; padding: 0.28em 0.5em !important;
 }
 </style>
 
-## Future – How I Conduct UX Research & Design in High-Tech
-
-- **Mixed-methods rigor:** generative discovery (interviews, contextual inquiry) combined with evaluative testing (SUS, usability benchmarks, quantitative trust scales).
-- **Design technologist bridge:** translating UX concepts into interactive **React** prototypes and component specs that speed up engineering handoff.
-- **Trustworthy AI interaction:** applying Microsoft HAX, Google PAIR, and empirical trust measurement to AI-augmented workflows.
-- **ResearchOps & scalable insights:** repository-driven research findings, atomic UX nuggets, and self-service toolkits for cross-functional squads.
+## Future – How I Conduct UX Research & Design in High-Tech
+
+- **Mixed-methods rigor:** generative discovery (interviews, contextual inquiry) combined with evaluative testing (SUS, usability benchmarks, quantitative trust scales).
+- **Design technologist bridge:** translating UX concepts into interactive **React** prototypes and component specs that speed up engineering handoff.
+- **Trustworthy AI interaction:** applying Microsoft HAX, Google PAIR, and empirical trust measurement to AI-augmented workflows.
+- **ResearchOps & scalable insights:** repository-driven research findings, atomic UX nuggets, and self-service toolkits for cross-functional squads.
 - **Outcome accountability:** tying design interventions directly to user task efficiency, adoption, error reduction, and sustained **CSI/NPS**.
 
 <!-- Diagram: future-career-path (mermaid/diagrams.md). Export to future-career-path.png -->
@@ -1457,12 +1457,12 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 <table>
 <thead><tr><th>Interest</th></tr></thead>
 <tbody>
-<tr><td>Piano</td></tr>
-<tr><td>Linguistics (phonology & phonetics)</td></tr>
-<tr><td>Physics (GR & Quantum)</td></tr>
-<tr><td>Acting</td></tr>
-<tr><td>Impressionist art</td></tr>
-<tr><td>Macro creation</td></tr>
+<tr><td>Piano</td></tr>
+<tr><td>Linguistics (phonology & phonetics)</td></tr>
+<tr><td>Physics (GR & Quantum)</td></tr>
+<tr><td>Acting</td></tr>
+<tr><td>Impressionist art</td></tr>
+<tr><td>Macro creation</td></tr>
 <tr><td>Specialized keyboards</td></tr>
 </tbody>
 </table>
