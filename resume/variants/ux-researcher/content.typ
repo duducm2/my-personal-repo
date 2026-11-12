@@ -35,7 +35,7 @@
 )
 
 #let profile = [
-  UX researcher and design technologist with ~10 years of technology experience at Bosch (intern → web developer → applied research & design analyst). Combines #strong[mixed-methods research] (Straussian Grounded Theory, qualitative coding, surveys, usability testing) with #strong[design technologist execution] (React, high-fidelity code prototypes, Figma, Power BI). Master's in Technology approved Sep 2026 (Unicamp, Grade A across coursework); published peer-reviewed research on user trust in human-AI interaction (IHC 2025, ISSRE 2025). Guided Americas UX Maturity to Level 4; sustained average CSI 4.86 / NPS 9.94 across projects.
+  UX researcher and design technologist with ~10 years of technology experience at Bosch (intern → web developer → applied research & design analyst). Combines #strong[mixed-methods research] (Straussian Grounded Theory, qualitative coding, surveys, usability testing) with #strong[design technologist execution] (websites trough vibe coding, high-fidelity code prototypes, Figma, Power BI). Master's in Technology approved Sep 2026 (Unicamp, Grade A across coursework); published peer-reviewed research on user trust in human-AI interaction (IHC 2025, ISSRE 2025). Guided Americas UX Maturity to Level 4; sustained average CSI 4.86 / NPS 9.94 across projects.
 ]
 
 #let languages = "Portuguese (Native)   English (Fluent)"
@@ -47,10 +47,11 @@
 
 #let experience = (
   ("Jan 2023 – Present", "Bosch Brasil", "Applied Research & Design Analyst", (
-    [#strong[UX Maturity Level 4 (Americas):] helped the Americas reach Level 4 in Global Services through governance, standardized templates, and training—enabling distributed teams to self-serve UX research and design.],
-    [#strong[Automated UX relevance & CIP gates (ServiceNow):] designed property-based relevance scoring for UX intake and evaluated strategic CIP dashboards—connecting leadership visibility to user-friction evidence.],
-    [#strong[Qualitative synthesis at scale (Power Tools CX):] applied Straussian Grounded Theory (open, axial, selective coding) to call-center transcripts using Python, AI-assisted coding, and Power BI—transforming raw customer voice into prioritized UX recommendations.],
-    [#strong[End-to-end UX & rapid prototyping (Power Tools):] translated domain requirements into user journey flows and interactive prototypes with continuous stakeholder and user check-ins—aligning user needs and engineering feasibility.],
+    [#strong[UX Maturity Level 4 (Americas):] guided the Americas to Level 4 in Global Services via governance, templates, and training—empowering distributed teams to self-serve UX research and design.],
+    [#strong[Automated UX relevance & CIP gates (ServiceNow):] built property-based scoring for UX intake and evaluated strategic CIP dashboards—linking leadership visibility to user-friction evidence.],
+    [#strong[Qualitative synthesis at scale (Power Tools CX):] applied Straussian Grounded Theory to call-center transcripts with Python, AI coding, and Power BI—turning customer voice into prioritized UX recommendations.],
+    [#strong[End-to-end UX & rapid prototyping (Power Tools):] translated domain requirements into journey flows and interactive prototypes with continuous check-ins—aligning user needs and technical feasibility.],
+    [#strong[AgriTech field research & IoT telemetry (Astra):] conducted in-situ ethnography across 3 cattle ranches, AgriShow competitor benchmark, and pharma discovery; delivered dual personas, journeys, PMF validation, and MVP requirements.],
     [#strong[Measured user outcomes:] maintained average #strong[CSI 4.86 / NPS 9.94] across delivery projects (2024–2025); delivered AI-assisted tools training to 100+ participants (rating 4.88/5); international collaboration with Germany (2024, 2025).],
   )),
   ("Jan 2020 – Nov 2022", "Bosch Brasil", "Web Developer", (

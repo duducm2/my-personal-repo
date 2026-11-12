@@ -1299,14 +1299,14 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 
 ## Qualitative Field Analytics & IoT Telemetry – Astra Project
 
-- Astra Project: IPA and Grounded Theory across 100+ field observations, synthesis into Power BI insights hub, and validation of cattle telemetry data streams.
+- Astra Project: field analytics across 3 cattle ranches, AgriShow competitor technology benchmark, and pharma partnership discovery; synthesized 100+ field evidences into personas, journey maps, 6-dimension PMF validation, and IoT telemetry data stream requirements.
 
 <div class="astra-pt-layout">
 <div class="astra-pt-images">
 <p><img src="../../../pictures/work/astra-project/IMG-20260414-WA0003.jpg" alt="On-site Ethnography at Fazenda Sindi da Porangaba (Apr 2026)" /></p>
-<p><img src="../../../pictures/work/astra-project/IMG_20260415_141239.jpg" alt="Cattle Ranch Operational Routines Observation" /></p>
-<p><img src="../../../pictures/work/astra-project/IMG_20260415_142514.jpg" alt="Livestock Management & User Journey Fieldwork" /></p>
 <p><img src="../../../pictures/work/astra-project/IMG_20260415_182229.jpg" alt="Bosch Astra IoT Telemetry Device & Hardware Evaluation" /></p>
+<p><img src="../../../pictures/work/astra-project/astra-report-page-4-current-journey.png" alt="Astra Research Deliverable: As-Is Journey & 10 Operational Pain Points Map" /></p>
+<p><img src="../../../pictures/work/astra-project/astra-report-page-7-mvp-requirements.png" alt="Astra Research Deliverable: Scoped MVP Requirements & Pilot Success Metrics" /></p>
 </div>
 </div>
 

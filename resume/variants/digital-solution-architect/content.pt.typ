@@ -81,6 +81,6 @@
   [TAR 2026 – Talent Associate Review (Bosch; indicação do gestor e da liderança, sem autoindicação).],
   [3º Lugar – Fórum de Talentos da Bosch 2018 (projeto de estágio Project Model Canvas).],
   [1º Lugar – X-Games Brazil 2018 (projeto mais criativo; nova consultoria de negócio).],
-  [Prêmio Compartilhando Sucessos – RH Bosch América Latina (2017; novo negócio Bosch LatAm).],
+  [Prêmio Compartilhando Sucessos – RH Bosch LatAm (2017; novo negócio).],
   [Voluntário – Assistente de TI na ONG Hospitalhaços (dez/2016 – atual).],
 )

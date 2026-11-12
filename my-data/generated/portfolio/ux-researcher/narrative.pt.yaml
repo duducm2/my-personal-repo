@@ -3,13 +3,13 @@ variant: ux-researcher
 lang: pt
 fields:
   asset_prefix: "../../../"
-  astra_bullet: "- **Projeto Astra (Telemetria Bovina AgriTech):** Etnografia in situ na **Fazenda Sindi da Porangaba**, entrevistas semiestruturadas com criadores e peões, e mapeamento de experiência para orientar a interação hardware-software em IoT."
+  astra_bullet: "- **Projeto Astra (Telemetria Bovina AgriTech):** Etnografia in situ em 3 fazendas de gado de elite (Fazenda Sindi da Porangaba), benchmark na Agrishow Brasil e prospecção de parcerias com indústria de medicamentos veterinários; entreguei relatório de pesquisa com personas duplas (pecuarista vs. peão), jornadas atual/futura (10 dores de campo), validação de PMF em 6 dimensões ('GO para piloto direcionado') e requisitos de MVP para telemetria IoT bovina."
   astra_h2: "Etnografia in situ e Pesquisa de Experiência – Projeto Astra"
   astra_images: |
     <p><img src="../../../pictures/work/astra-project/IMG-20260414-WA0003.jpg" alt="Etnografia in loco na Fazenda Sindi da Porangaba (Abr 2026)" /></p>
-    <p><img src="../../../pictures/work/astra-project/IMG_20260415_141239.jpg" alt="Observação de Rotinas Operacionais no Campo" /></p>
-    <p><img src="../../../pictures/work/astra-project/IMG_20260415_142514.jpg" alt="Gestão Pecuária e Mapeamento de Jornada em Campo" /></p>
     <p><img src="../../../pictures/work/astra-project/IMG_20260415_182229.jpg" alt="Dispositivo e Avaliação de Hardware de Telemetria IoT Astra (Bosch)" /></p>
+    <p><img src="../../../pictures/work/astra-project/astra-report-page-4-current-journey.png" alt="Entrega de Pesquisa Astra: Jornada Atual e Mapa de 10 Dores Operacionais" /></p>
+    <p><img src="../../../pictures/work/astra-project/astra-report-page-7-mvp-requirements.png" alt="Entrega de Pesquisa Astra: Requisitos de MVP e Métricas de Sucesso do Piloto" /></p>
   cip_pipeline_h2: "Presente – Da Pesquisa do Usuário à Implementação: Intake → Avaliação → Governança"
   cip_ux_images: |
     <p><img src="../../../pictures/work/cip-ux/cip-ux-1.png" alt="Capa do Relatório CIP-Pesquisa Aplicada" /></p>

@@ -35,7 +35,7 @@
 )
 
 #let profile = [
-  Pesquisador de UX e design technologist com ~10 anos de experiência em tecnologia na Bosch (estágio → desenvolvedor web → analista de pesquisa aplicada e design). Combino #strong[pesquisa com métodos mistos] (Teoria Fundamentada de Strauss, codificação qualitativa, surveys, testes de usabilidade) com #strong[execução de design technologist] (React, protótipos de alta fidelidade em código, Figma, Power BI). Mestrado em Tecnologia aprovado em set/2026 (Unicamp, nota A em todas as disciplinas); pesquisa publicada com peer-review sobre confiança do usuário na interação humano-IA (IHC 2025, ISSRE 2025). Conduzi a maturidade de UX das Américas ao Nível 4; média sustentada de CSI 4,86 / NPS 9,94.
+  Pesquisador de UX e design technologist com ~10 anos de experiência em tecnologia na Bosch (estágio → desenvolvedor web → analista de pesquisa aplicada e design). Combino #strong[pesquisa com métodos mistos] (Teoria Fundamentada de Strauss, codificação qualitativa, surveys, testes de usabilidade) com #strong[execução de design technologist] (websites por vibe coding, protótipos de alta fidelidade em código, Figma, Power BI). Mestrado em Tecnologia aprovado em set/2026 (Unicamp, nota A em todas as disciplinas); pesquisa publicada com peer-review sobre confiança do usuário na interação humano-IA (IHC 2025, ISSRE 2025). Conduzi a maturidade de UX das Américas ao Nível 4; média sustentada de CSI 4,86 / NPS 9,94.
 ]
 
 #let languages = "Português (Nativo)   Inglês (Fluente)"
@@ -47,10 +47,11 @@
 
 #let experience = (
   ("Jan 2023 – Atual", "Bosch Brasil", "Analista de Pesquisa Aplicada e Design", (
-    [#strong[Nível 4 de Maturidade em UX (Américas):] apoiei as Américas a atingir o Nível 4 em Global Services via governança, templates padronizados e treinamentos—capacitando times distribuídos a aplicar UX research e design com autonomia.],
-    [#strong[Relevância em UX automatizada e gates CIP (ServiceNow):] desenhei pontuação de relevância baseada em propriedades para intake de UX e avaliei dashboards estratégicos de CIP—conectando visibilidade da liderança a evidências de atrito do usuário.],
-    [#strong[Síntese qualitativa em escala (CX Power Tools):] apliquei Teoria Fundamentada (codificação aberta, axial e seletiva) a transcrições de call center com Python, IA e Power BI—transformando a voz do cliente em recomendações de UX priorizadas.],
-    [#strong[UX ponta a ponta e prototipagem rápida (Power Tools):] traduzi requisitos de domínio em jornadas do usuário e protótipos interativos com check-ins contínuos de stakeholders e usuários—alinhando necessidades do usuário e viabilidade técnica.],
+    [#strong[Maturidade em UX Nível 4 (Américas):] conduzi as Américas ao Nível 4 em Global Services via governança, templates e treinamentos—capacitando times distribuídos a aplicar UX com autonomia.],
+    [#strong[Relevância em UX e gates CIP (ServiceNow):] criei pontuação para intake de UX e avaliei dashboards estratégicos de CIP—conectando visibilidade executiva a evidências de atrito.],
+    [#strong[Síntese qualitativa em escala (CX Power Tools):] apliquei Teoria Fundamentada a transcrições com Python, IA e Power BI—transformando a voz do cliente em recomendações priorizadas de UX.],
+    [#strong[UX ponta a ponta e prototipagem rápida (Power Tools):] traduzi requisitos em jornadas e protótipos interativos com check-ins contínuos—alinhando necessidades do usuário e viabilidade técnica.],
+    [#strong[Pesquisa de campo AgriTech e IoT (Astra):] conduzi etnografia in situ em 3 fazendas de gado de elite, benchmark na Agrishow e prospecção farmacêutica; entreguei personas duplas, jornadas, validação de PMF e requisitos de MVP.],
     [#strong[Resultados de usuário mensurados:] mantive média #strong[CSI 4,86 / NPS 9,94] nos projetos entregues (2024–2025); ministrei treinamento de ferramentas com IA para 100+ pessoas (avaliação 4,88/5); colaboração internacional com a Alemanha (2024, 2025).],
   )),
   ("Jan 2020 – Nov 2022", "Bosch Brasil", "Desenvolvedor Web", (
@@ -81,6 +82,6 @@
   [TAR 2026 – Talent Associate Review (Bosch; indicação do gestor e da liderança, sem autoindicação).],
   [3º Lugar – Fórum de Talentos da Bosch 2018 (projeto de estágio Project Model Canvas).],
   [1º Lugar – X-Games Brazil 2018 (projeto mais criativo; nova consultoria de negócio).],
-  [Prêmio Compartilhando Sucessos – RH Bosch América Latina (2017; novo negócio Bosch LatAm).],
+  [Prêmio Compartilhando Sucessos – RH Bosch LatAm (2017; novo negócio).],
   [Voluntário – Assistente de TI na ONG Hospitalhaços (dez/2016 – atual).],
 )

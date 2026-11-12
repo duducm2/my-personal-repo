@@ -1299,14 +1299,14 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 
 ## Análise Qualitativa de Campo e Telemetria IoT – Projeto Astra
 
-- Projeto Astra: IPA e Teoria Fundamentada em 100+ observações de campo, síntese em hub de insights no Power BI e validação dos fluxos de dados da telemetria bovina.
+- Projeto Astra: análise de campo em 3 fazendas de gado de elite, benchmark de tecnologias na Agrishow e prospecção farmacêutica; sintetizei 100+ evidências em personas, jornadas, validação de PMF em 6 dimensões e requisitos de fluxo de dados de telemetria IoT.
 
 <div class="astra-pt-layout">
 <div class="astra-pt-images">
 <p><img src="../../../pictures/work/astra-project/IMG-20260414-WA0003.jpg" alt="Etnografia in loco na Fazenda Sindi da Porangaba (Abr 2026)" /></p>
-<p><img src="../../../pictures/work/astra-project/IMG_20260415_141239.jpg" alt="Observação de Rotinas Operacionais no Campo" /></p>
-<p><img src="../../../pictures/work/astra-project/IMG_20260415_142514.jpg" alt="Gestão Pecuária e Mapeamento de Jornada em Campo" /></p>
 <p><img src="../../../pictures/work/astra-project/IMG_20260415_182229.jpg" alt="Dispositivo e Avaliação de Hardware de Telemetria IoT Astra (Bosch)" /></p>
+<p><img src="../../../pictures/work/astra-project/astra-report-page-4-current-journey.png" alt="Entrega de Pesquisa Astra: Jornada Atual e Mapa de 10 Dores Operacionais" /></p>
+<p><img src="../../../pictures/work/astra-project/astra-report-page-7-mvp-requirements.png" alt="Entrega de Pesquisa Astra: Requisitos de MVP e Métricas de Sucesso do Piloto" /></p>
 </div>
 </div>
 
