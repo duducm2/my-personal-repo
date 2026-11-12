@@ -4237,7 +4237,7 @@
       return;
     }
     const { scopeWords } = splitProfileQuery(parts);
-    const titles = ["Resumes", "Portfolios"];
+    const titles = ["Resumes", "Resume"];
     section.hidden = scopeWords.length
       ? !scopeWords.some((part) => partMatchesTitles(part, titles))
       : !parts.some((part) => partMatchesTitles(part, titles));
@@ -5790,7 +5790,7 @@
       editBtn.type = "button";
       editBtn.className = "download-edit-btn";
       editBtn.textContent = "Edit content";
-      editBtn.title = `Edit content for ${group[0].label_en} (Resume & Portfolio)`;
+      editBtn.title = `Edit content for ${group[0].label_en} (Resume)`;
       editBtn.addEventListener("click", () => {
         openDeliverableEditor({ variant, tab: "resume" });
       });
@@ -5800,13 +5800,9 @@
       card.append(buildLeftOffControl(variant, group[0].label_en));
 
       const resumes = group.filter((i) => i.kind === "resume");
-      const portfolios = group.filter((i) => i.kind === "portfolio");
 
       card.append(
         buildDownloadRow("Resume", resumes, { isResume: true, policy, variant }),
-      );
-      card.append(
-        buildDownloadRow("Portfolio", portfolios, { isResume: false, variant }),
       );
       root.append(card);
     }
@@ -5815,8 +5811,8 @@
       const empty = document.createElement("p");
       empty.className = "empty-state";
       empty.textContent = pathFilter
-        ? "No resumes or portfolios for this career path."
-        : "No resume or portfolio files found.";
+        ? "No resumes for this career path."
+        : "No resume files found.";
       root.append(empty);
     }
   }
