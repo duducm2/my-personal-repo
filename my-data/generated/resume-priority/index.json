@@ -88,17 +88,6 @@
           "status": "kept"
         },
         {
-          "id": "bullet:bosch-intern-2017:ux-researcher:1",
-          "kind": "bullet",
-          "section_en": "Intern",
-          "section_pt": "Estagiário",
-          "priority": 19,
-          "pinned": false,
-          "text_en": "**Interface tooling & usability:** built user-friendly Excel/VBA continuous improvement systems; awarded **3rd place in Bosch Talent Forum 2018** for a Project Model Canvas visual management tool.",
-          "text_pt": "**Tooling de interface e usabilidade:** construí sistemas de melhoria contínua amigáveis em Excel/VBA; premiado com **3º lugar no Fórum de Talentos Bosch 2018** por ferramenta de gestão visual do Project Model Canvas.",
-          "status": "kept"
-        },
-        {
           "id": "skill:ux-researcher:Tech:11",
           "kind": "skill",
           "section_en": "Tech",
@@ -282,7 +271,7 @@
           "priority": 51,
           "pinned": false,
           "text_en": "Sharing Successes award – HR Bosch Latin America (2017; new business for Bosch LatAm).",
-          "text_pt": "Prêmio Compartilhando Sucessos – RH Bosch América Latina (2017; novo negócio Bosch LatAm).",
+          "text_pt": "Prêmio Compartilhando Sucessos – RH Bosch LatAm (2017; novo negócio).",
           "status": "kept"
         },
         {
@@ -316,6 +305,17 @@
           "pinned": false,
           "text_en": "TAR 2026 – Talent Associate Review (Bosch; nominated by manager and leadership, not self-nominated).",
           "text_pt": "TAR 2026 – Talent Associate Review (Bosch; indicação do gestor e da liderança, sem autoindicação).",
+          "status": "kept"
+        },
+        {
+          "id": "bullet:bosch-intern-2017:ux-researcher:1",
+          "kind": "bullet",
+          "section_en": "Intern",
+          "section_pt": "Estagiário",
+          "priority": 60,
+          "pinned": false,
+          "text_en": "**Interface tooling & usability:** built user-friendly Excel/VBA continuous improvement systems; awarded **3rd place in Bosch Talent Forum 2018** for a Project Model Canvas visual management tool.",
+          "text_pt": "**Tooling de interface e usabilidade:** construí sistemas de melhoria contínua amigáveis em Excel/VBA; premiado com **3º lugar no Fórum de Talentos Bosch 2018** por ferramenta de gestão visual do Project Model Canvas.",
           "status": "kept"
         },
         {
@@ -396,14 +396,25 @@
           "status": "kept"
         },
         {
+          "id": "bullet:bosch-ar-2023:ux-researcher:6",
+          "kind": "bullet",
+          "section_en": "Applied Research & Design Analyst",
+          "section_pt": "Analista de Pesquisa Aplicada e Design",
+          "priority": 94,
+          "pinned": false,
+          "text_en": "**Measured user outcomes:** maintained average **CSI 4.86 / NPS 9.94** across delivery projects (2024–2025); delivered AI-assisted tools training to 100+ participants (rating 4.88/5); international collaboration with Germany (2024, 2025).",
+          "text_pt": "**Resultados de usuário mensurados:** mantive média **CSI 4,86 / NPS 9,94** nos projetos entregues (2024–2025); ministrei treinamento de ferramentas com IA para 100+ pessoas (avaliação 4,88/5); colaboração internacional com a Alemanha (2024, 2025).",
+          "status": "kept"
+        },
+        {
           "id": "bullet:bosch-ar-2023:ux-researcher:5",
           "kind": "bullet",
           "section_en": "Applied Research & Design Analyst",
           "section_pt": "Analista de Pesquisa Aplicada e Design",
           "priority": 95,
           "pinned": false,
-          "text_en": "**Measured user outcomes:** maintained average **CSI 4.86 / NPS 9.94** across delivery projects (2024–2025); delivered AI-assisted tools training to 100+ participants (rating 4.88/5); international collaboration with Germany (2024, 2025).",
-          "text_pt": "**Resultados de usuário mensurados:** mantive média **CSI 4,86 / NPS 9,94** nos projetos entregues (2024–2025); ministrei treinamento de ferramentas com IA para 100+ pessoas (avaliação 4,88/5); colaboração internacional com a Alemanha (2024, 2025).",
+          "text_en": "**AgriTech field research & IoT telemetry (Astra):** conducted in-situ ethnography across 3 cattle ranches, AgriShow competitor benchmark, and pharma discovery; delivered dual personas, journeys, PMF validation, and MVP requirements.",
+          "text_pt": "**Pesquisa de campo AgriTech e IoT (Astra):** conduzi etnografia in situ em 3 fazendas de gado de elite, benchmark na Agrishow e prospecção farmacêutica; entreguei personas duplas, jornadas, validação de PMF e requisitos de MVP.",
           "status": "kept"
         },
         {
@@ -413,8 +424,8 @@
           "section_pt": "Analista de Pesquisa Aplicada e Design",
           "priority": 96,
           "pinned": false,
-          "text_en": "**End-to-end UX & rapid prototyping (Power Tools):** translated domain requirements into user journey flows and interactive prototypes with continuous stakeholder and user check-ins—aligning user needs and engineering feasibility.",
-          "text_pt": "**UX ponta a ponta e prototipagem rápida (Power Tools):** traduzi requisitos de domínio em jornadas do usuário e protótipos interativos com check-ins contínuos de stakeholders e usuários—alinhando necessidades do usuário e viabilidade técnica.",
+          "text_en": "**End-to-end UX & rapid prototyping (Power Tools):** translated domain requirements into journey flows and interactive prototypes with continuous check-ins—aligning user needs and technical feasibility.",
+          "text_pt": "**UX ponta a ponta e prototipagem rápida (Power Tools):** traduzi requisitos em jornadas e protótipos interativos com check-ins contínuos—alinhando necessidades do usuário e viabilidade técnica.",
           "status": "kept"
         },
         {
@@ -424,8 +435,8 @@
           "section_pt": "Analista de Pesquisa Aplicada e Design",
           "priority": 97,
           "pinned": false,
-          "text_en": "**Qualitative synthesis at scale (Power Tools CX):** applied Straussian Grounded Theory (open, axial, selective coding) to call-center transcripts using Python, AI-assisted coding, and Power BI—transforming raw customer voice into prioritized UX recommendations.",
-          "text_pt": "**Síntese qualitativa em escala (CX Power Tools):** apliquei Teoria Fundamentada (codificação aberta, axial e seletiva) a transcrições de call center com Python, IA e Power BI—transformando a voz do cliente em recomendações de UX priorizadas.",
+          "text_en": "**Qualitative synthesis at scale (Power Tools CX):** applied Straussian Grounded Theory to call-center transcripts with Python, AI coding, and Power BI—turning customer voice into prioritized UX recommendations.",
+          "text_pt": "**Síntese qualitativa em escala (CX Power Tools):** apliquei Teoria Fundamentada a transcrições com Python, IA e Power BI—transformando a voz do cliente em recomendações priorizadas de UX.",
           "status": "kept"
         },
         {
@@ -435,8 +446,8 @@
           "section_pt": "Analista de Pesquisa Aplicada e Design",
           "priority": 98,
           "pinned": false,
-          "text_en": "**Automated UX relevance & CIP gates (ServiceNow):** designed property-based relevance scoring for UX intake and evaluated strategic CIP dashboards—connecting leadership visibility to user-friction evidence.",
-          "text_pt": "**Relevância em UX automatizada e gates CIP (ServiceNow):** desenhei pontuação de relevância baseada em propriedades para intake de UX e avaliei dashboards estratégicos de CIP—conectando visibilidade da liderança a evidências de atrito do usuário.",
+          "text_en": "**Automated UX relevance & CIP gates (ServiceNow):** built property-based scoring for UX intake and evaluated strategic CIP dashboards—linking leadership visibility to user-friction evidence.",
+          "text_pt": "**Relevância em UX e gates CIP (ServiceNow):** criei pontuação para intake de UX e avaliei dashboards estratégicos de CIP—conectando visibilidade executiva a evidências de atrito.",
           "status": "kept"
         },
         {
@@ -446,8 +457,8 @@
           "section_pt": "Analista de Pesquisa Aplicada e Design",
           "priority": 99,
           "pinned": true,
-          "text_en": "**UX Maturity Level 4 (Americas):** helped the Americas reach Level 4 in Global Services through governance, standardized templates, and training—enabling distributed teams to self-serve UX research and design.",
-          "text_pt": "**Nível 4 de Maturidade em UX (Américas):** apoiei as Américas a atingir o Nível 4 em Global Services via governança, templates padronizados e treinamentos—capacitando times distribuídos a aplicar UX research e design com autonomia.",
+          "text_en": "**UX Maturity Level 4 (Americas):** guided the Americas to Level 4 in Global Services via governance, templates, and training—empowering distributed teams to self-serve UX research and design.",
+          "text_pt": "**Maturidade em UX Nível 4 (Américas):** conduzi as Américas ao Nível 4 em Global Services via governança, templates e treinamentos—capacitando times distribuídos a aplicar UX com autonomia.",
           "status": "kept"
         }
       ],
@@ -735,7 +746,7 @@
           "priority": 51,
           "pinned": false,
           "text_en": "Sharing Successes award – HR Bosch Latin America (2017; new business for Bosch LatAm).",
-          "text_pt": "Prêmio Compartilhando Sucessos – RH Bosch América Latina (2017; novo negócio Bosch LatAm).",
+          "text_pt": "Prêmio Compartilhando Sucessos – RH Bosch LatAm (2017; novo negócio).",
           "status": "kept"
         },
         {
@@ -1210,7 +1221,7 @@
           "priority": 51,
           "pinned": false,
           "text_en": "Sharing Successes award – HR Bosch Latin America (2017; new business for Bosch LatAm).",
-          "text_pt": "Prêmio Compartilhando Sucessos – RH Bosch América Latina (2017; novo negócio Bosch LatAm).",
+          "text_pt": "Prêmio Compartilhando Sucessos – RH Bosch LatAm (2017; novo negócio).",
           "status": "kept"
         },
         {
@@ -1685,7 +1696,7 @@
           "priority": 51,
           "pinned": false,
           "text_en": "Sharing Successes award – HR Bosch Latin America (2017; new business for Bosch LatAm).",
-          "text_pt": "Prêmio Compartilhando Sucessos – RH Bosch América Latina (2017; novo negócio Bosch LatAm).",
+          "text_pt": "Prêmio Compartilhando Sucessos – RH Bosch LatAm (2017; novo negócio).",
           "status": "kept"
         },
         {
@@ -2182,7 +2193,7 @@
           "priority": 51,
           "pinned": false,
           "text_en": "Sharing Successes award – HR Bosch Latin America (2017; new business for Bosch LatAm).",
-          "text_pt": "Prêmio Compartilhando Sucessos – RH Bosch América Latina (2017; novo negócio Bosch LatAm).",
+          "text_pt": "Prêmio Compartilhando Sucessos – RH Bosch LatAm (2017; novo negócio).",
           "status": "kept"
         },
         {

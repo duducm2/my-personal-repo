@@ -2534,6 +2534,7 @@
         [
           { value: "fieldwork", label: "Fazenda Sindi Fieldwork" },
           { value: "telemetry", label: "IoT Telemetry Hardware" },
+          { value: "report", label: "Research Report & Deliverables" },
         ],
         "fieldwork"
       )

@@ -1275,14 +1275,14 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 
 ## Arquitetura de Telemetria IoT e Estratégia de Campo – Projeto Astra
 
-- Projeto Astra: avaliação de dispositivos de telemetria bovina IoT da Bosch sob restrições reais de campo, conectando hardware de telemetria, alcance de transmissão e arquitetura de software cloud.
+- Projeto Astra: avaliação de telemetria IoT sob condições reais de campo em 3 fazendas de elite, benchmark na Agrishow e prospecção farmacêutica; estruturei validação de PMF em 6 dimensões, restrições de conectividade (LoRa/NB-IoT) e arquitetura de MVP conectando hardware a nuvem.
 
 <div class="astra-pt-layout">
 <div class="astra-pt-images">
 <p><img src="../../../pictures/work/astra-project/IMG-20260414-WA0003.jpg" alt="Etnografia in loco na Fazenda Sindi da Porangaba (Abr 2026)" /></p>
-<p><img src="../../../pictures/work/astra-project/IMG_20260415_141239.jpg" alt="Observação de Rotinas Operacionais no Campo" /></p>
-<p><img src="../../../pictures/work/astra-project/IMG_20260415_142514.jpg" alt="Gestão Pecuária e Mapeamento de Jornada em Campo" /></p>
 <p><img src="../../../pictures/work/astra-project/IMG_20260415_182229.jpg" alt="Dispositivo e Avaliação de Hardware de Telemetria IoT Astra (Bosch)" /></p>
+<p><img src="../../../pictures/work/astra-project/astra-report-page-4-current-journey.png" alt="Entrega de Pesquisa Astra: Jornada Atual e Mapa de 10 Dores Operacionais" /></p>
+<p><img src="../../../pictures/work/astra-project/astra-report-page-7-mvp-requirements.png" alt="Entrega de Pesquisa Astra: Requisitos de MVP e Métricas de Sucesso do Piloto" /></p>
 </div>
 </div>
 

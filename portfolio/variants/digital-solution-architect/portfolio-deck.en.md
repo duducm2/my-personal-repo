@@ -1275,14 +1275,14 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 
 ## IoT Telemetry Architecture & Field Strategy – Astra Project
 
-- Astra Project: evaluated Bosch IoT cattle telemetry devices under real ranch constraints, connecting field telemetry hardware, transmission range, and cloud software architecture.
+- Astra Project: field IoT telemetry evaluation under real ranch conditions across 3 premium cattle ranches, AgriShow competitor tech benchmark, and veterinary pharma discovery; framed 6-dimension PMF validation, connectivity constraints (LoRa/NB-IoT), and MVP architecture connecting telemetry hardware to cloud.
 
 <div class="astra-pt-layout">
 <div class="astra-pt-images">
 <p><img src="../../../pictures/work/astra-project/IMG-20260414-WA0003.jpg" alt="On-site Ethnography at Fazenda Sindi da Porangaba (Apr 2026)" /></p>
-<p><img src="../../../pictures/work/astra-project/IMG_20260415_141239.jpg" alt="Cattle Ranch Operational Routines Observation" /></p>
-<p><img src="../../../pictures/work/astra-project/IMG_20260415_142514.jpg" alt="Livestock Management & User Journey Fieldwork" /></p>
 <p><img src="../../../pictures/work/astra-project/IMG_20260415_182229.jpg" alt="Bosch Astra IoT Telemetry Device & Hardware Evaluation" /></p>
+<p><img src="../../../pictures/work/astra-project/astra-report-page-4-current-journey.png" alt="Astra Research Deliverable: As-Is Journey & 10 Operational Pain Points Map" /></p>
+<p><img src="../../../pictures/work/astra-project/astra-report-page-7-mvp-requirements.png" alt="Astra Research Deliverable: Scoped MVP Requirements & Pilot Success Metrics" /></p>
 </div>
 </div>
 

@@ -1292,14 +1292,14 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 
 ## Pesquisa de Campo e Estratégia IoT – Projeto Astra (AgriTech)
 
-- Projeto Astra (Telemetria Bovina AgriTech): etnografia in loco na Fazenda Sindi da Porangaba, entrevistas com peões e criadores, e avaliação de dispositivo de telemetria IoT transformando evidência qualitativa em estratégia de produto MVP.
+- Projeto Astra (Telemetria Bovina AgriTech): etnografia in loco em 3 fazendas de gado de elite (Fazenda Sindi da Porangaba), benchmark na Agrishow Brasil e prospecção farmacêutica veterinária; entreguei relatório com personas, mapas de jornada, validação de PMF em 6 dimensões e requisitos de MVP para telemetria bovina.
 
 <div class="astra-pt-layout">
 <div class="astra-pt-images">
 <p><img src="../pictures/work/astra-project/IMG-20260414-WA0003.jpg" alt="Etnografia in loco na Fazenda Sindi da Porangaba (Abr 2026)" /></p>
-<p><img src="../pictures/work/astra-project/IMG_20260415_141239.jpg" alt="Observação de Rotinas Operacionais no Campo" /></p>
-<p><img src="../pictures/work/astra-project/IMG_20260415_142514.jpg" alt="Gestão Pecuária e Mapeamento de Jornada em Campo" /></p>
 <p><img src="../pictures/work/astra-project/IMG_20260415_182229.jpg" alt="Dispositivo e Avaliação de Hardware de Telemetria IoT Astra (Bosch)" /></p>
+<p><img src="../pictures/work/astra-project/astra-report-page-4-current-journey.png" alt="Entrega de Pesquisa Astra: Jornada Atual e Mapa de 10 Dores Operacionais" /></p>
+<p><img src="../pictures/work/astra-project/astra-report-page-7-mvp-requirements.png" alt="Entrega de Pesquisa Astra: Requisitos de MVP e Métricas de Sucesso do Piloto" /></p>
 </div>
 </div>
 

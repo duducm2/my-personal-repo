@@ -1292,14 +1292,14 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 
 ## Field Research & IoT Strategy – Astra Project (AgriTech)
 
-- Astra Project (AgriTech Cattle Telemetry): on-site ethnography at Fazenda Sindi da Porangaba, interviews with cowboys and breeders, and IoT telemetry device evaluation turning qualitative evidence into MVP product strategy.
+- Astra Project (AgriTech Cattle Telemetry): on-site ethnography across 3 premium cattle ranches (Fazenda Sindi da Porangaba), competitor benchmarking at AgriShow Brazil, and veterinary pharma partnership discovery; delivered research report with personas, journey maps, 6-dimension PMF validation, and MVP requirements for IoT cattle telemetry.
 
 <div class="astra-pt-layout">
 <div class="astra-pt-images">
 <p><img src="../pictures/work/astra-project/IMG-20260414-WA0003.jpg" alt="On-site Ethnography at Fazenda Sindi da Porangaba (Apr 2026)" /></p>
-<p><img src="../pictures/work/astra-project/IMG_20260415_141239.jpg" alt="Cattle Ranch Operational Routines Observation" /></p>
-<p><img src="../pictures/work/astra-project/IMG_20260415_142514.jpg" alt="Livestock Management & User Journey Fieldwork" /></p>
 <p><img src="../pictures/work/astra-project/IMG_20260415_182229.jpg" alt="Bosch Astra IoT Telemetry Device & Hardware Evaluation" /></p>
+<p><img src="../pictures/work/astra-project/astra-report-page-4-current-journey.png" alt="Astra Research Deliverable: As-Is Journey & 10 Operational Pain Points Map" /></p>
+<p><img src="../pictures/work/astra-project/astra-report-page-7-mvp-requirements.png" alt="Astra Research Deliverable: Scoped MVP Requirements & Pilot Success Metrics" /></p>
 </div>
 </div>
 
