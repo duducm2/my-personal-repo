@@ -516,13 +516,13 @@ p.academic-writing-wrap img {
 p.diplomas-mockup-wrap {
   position: absolute !important;
   bottom: 0 !important;
-  left: 17rem !important;
+  left: 16rem !important;
   margin: 0 !important;
   margin-bottom: 1.6rem !important;
   line-height: 0;
 }
 p.diplomas-mockup-wrap img {
-  width: 400px !important;
+  width: 460px !important;
   height: auto !important;
   display: block !important;
   filter: drop-shadow(0 6px 14px rgba(0,0,0,0.14)) !important;
@@ -567,7 +567,7 @@ p.historico-wrap img {
 
 <p class="logos-together"><img src="../../../pictures/academia/logos/ETEC.png" alt="ETEC logo – Bento Quirino" /><img src="../../../pictures/academia/logos/UNICAMP.png" alt="Unicamp logo" /></p>
 <p class="academic-writing-wrap"><img src="../../../pictures/academia/academic-writing.jpg" alt="Academic Writing Course - Unicamp" /></p>
-<p class="diplomas-mockup-wrap"><img src="../../../pictures/academia/docs/diplomas-mockup.png" alt="Unicamp Degrees – Undergraduation & Master's Diplomas" /></p>
+<p class="diplomas-mockup-wrap"><img src="../../../pictures/academia/docs/diplomas-mockup.png" alt="Official Credentials Hall – Unicamp, ETEC, OBMEP, Bosch, Hospitalhaços" /></p>
 
 <p><img src="../../../pictures/diagrams/academic-timeline.png" alt="Diagram academic-timeline: Academic timeline" /></p>
 

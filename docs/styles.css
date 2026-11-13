@@ -612,66 +612,30 @@ figcaption {
   line-height: 1.2;
 }
 
-.pinned-wall {
-  margin-top: 2.25rem;
-  padding: 1.75rem 1.5rem 2rem;
-  background: rgba(28, 23, 18, 0.03);
-  border: 1px dashed rgba(28, 23, 18, 0.18);
-  border-radius: 16px;
-  position: relative;
+.diplomas-subtle-wrap {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.pinned-wall-header {
-  margin-bottom: 1.5rem;
-}
-
-.pinned-wall-header h3 {
-  font-family: var(--display);
-  font-size: 1.35rem;
-  margin: 0 0 0.4rem;
-  color: var(--ink);
-}
-
-.pinned-wall-lead {
-  font-size: 0.95rem;
-  line-height: 1.45;
-  color: var(--muted);
+.diplomas-pinned {
   margin: 0;
-  max-width: 58ch;
-}
-
-.pinned-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.75rem 1.25rem;
-  align-items: start;
-}
-
-.pinned-card {
-  position: relative;
-  margin: 0;
+  max-width: 960px;
+  width: 100%;
   cursor: pointer;
-  transition: transform 0.25s cubic-bezier(0.2, 0, 0.2, 1), filter 0.25s ease;
+  transition: transform 0.25s cubic-bezier(0.2, 0, 0.2, 1);
 }
 
-.pinned-card:hover {
-  transform: translateY(-6px) scale(1.02);
-  filter: brightness(1.02);
+.diplomas-pinned:hover {
+  transform: translateY(-4px) scale(1.015);
 }
 
-.pinned-card img {
+.diplomas-pinned img {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 4px;
-}
-
-.pinned-card figcaption {
-  margin-top: 0.65rem;
-  font-size: 0.82rem;
-  line-height: 1.35;
-  color: var(--muted);
-  text-align: center;
+  filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.08));
 }
 
 .shots {
