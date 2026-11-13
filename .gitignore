@@ -1,0 +1,9 @@
+# Logs and debug files
+*.log
+my-data/debug/
+
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
