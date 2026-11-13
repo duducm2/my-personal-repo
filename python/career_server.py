@@ -906,7 +906,14 @@ class CareerHandler(BaseHTTPRequestHandler):
     def _read_json(self) -> Any:
         length = int(self.headers.get("Content-Length", "0"))
         raw = self.rfile.read(length) if length else b"{}"
-        return json.loads(raw.decode("utf-8"))
+        try:
+            text = raw.decode("utf-8")
+        except UnicodeDecodeError:
+            try:
+                text = raw.decode("latin-1")
+            except Exception:
+                text = raw.decode("utf-8", errors="replace")
+        return json.loads(text)
 
     def do_OPTIONS(self) -> None:  # noqa: N802
         self.send_response(204)
@@ -1413,6 +1420,8 @@ class CareerHandler(BaseHTTPRequestHandler):
                 "Content-Disposition",
                 f'{disposition}; filename="{file_path.name}"',
             )
+            self.send_header("Cache-Control", "no-cache, no-store, must-revalidate")
+            self.send_header("Pragma", "no-cache")
             self._cors()
             self.end_headers()
             self.wfile.write(data)
@@ -1435,6 +1444,8 @@ class CareerHandler(BaseHTTPRequestHandler):
             "Content-Disposition",
             f'{disposition}; filename="{file_path.name}"',
         )
+        self.send_header("Cache-Control", "no-cache, no-store, must-revalidate")
+        self.send_header("Pragma", "no-cache")
         self._cors()
         self.end_headers()
         self.wfile.write(data)

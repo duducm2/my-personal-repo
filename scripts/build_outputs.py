@@ -248,7 +248,8 @@ def compile_portfolio(variant: str, lang: str) -> None:
     run(
         [
             "npx",
-            "@marp-team/marp-cli@latest",
+            "--yes",
+            "@marp-team/marp-cli",
             str(deck),
             "-o",
             str(out),
