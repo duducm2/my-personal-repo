@@ -907,6 +907,8 @@
     });
 
     editor.addEventListener("input", notify);
+    editor.addEventListener("blur", notify);
+    editor.addEventListener("keyup", notify);
 
     editor.addEventListener("paste", (e) => {
       e.preventDefault();
@@ -2995,7 +2997,7 @@
       const { variant, tab } = currentEditorState;
       const settings = deliverablesCache.resumeSettings || {};
       const maxPages = settings[variant] || 1;
-      const kind = tab === "portfolio" ? "portfolio" : tab === "resume" ? "resume" : "both";
+      const kind = tab === "portfolio" ? "portfolio" : "resume";
       const variantToSend = (tab === "shared") ? "all" : variant;
 
       const res = await fetch("/api/deliverables/content", {
@@ -5366,7 +5368,9 @@
     if (!dialog || !frame || !title || !dl) return;
     const pages = item.page_count != null ? ` · ${item.page_count} page` : "";
     title.textContent = `${item.label_en} · ${item.lang.toUpperCase()}${pages}`;
-    frame.src = item.view_url || item.url + "?inline=1";
+    const baseViewUrl = item.view_url || (item.url + "?inline=1");
+    const sep = baseViewUrl.includes("?") ? "&" : "?";
+    frame.src = `${baseViewUrl}${sep}t=${Date.now()}`;
     dl.href = item.url;
     dl.setAttribute("download", item.filename);
     if (editBtn) {

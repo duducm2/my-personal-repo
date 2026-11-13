@@ -3,9 +3,24 @@
 from __future__ import annotations
 
 import csv
+import shutil
 import tempfile
+import time
 from pathlib import Path
 from typing import Any
+
+
+def _atomic_replace(tmp_path: Path, target_path: Path) -> None:
+    """Replace target_path atomically with retry and copy fallback for OneDrive on Windows."""
+    try:
+        tmp_path.replace(target_path)
+    except OSError:
+        time.sleep(0.05)
+        try:
+            tmp_path.replace(target_path)
+        except OSError:
+            shutil.copy2(str(tmp_path), str(target_path))
+            tmp_path.unlink(missing_ok=True)
 
 # Columns that do not get a parallel *_detail_* twin
 STRUCTURAL_COLS = frozenset(
@@ -519,7 +534,7 @@ class CanonicalStore:
             for r in rows:
                 writer.writerow({k: str(r.get(k, "")).strip() for k in fieldnames})
             tmp_path = Path(tmp.name)
-        tmp_path.replace(path)
+        _atomic_replace(tmp_path, path)
 
     def load_prompt_context(self) -> dict[str, list[dict[str, str]]]:
         """Read-only CSV bundles used by the job openings prompt generator.
@@ -666,7 +681,7 @@ class CanonicalStore:
                     {col: row.get(col, previous.get(col, "")) for col in fieldnames}
                 )
             tmp_path = Path(tmp.name)
-        tmp_path.replace(path)
+        _atomic_replace(tmp_path, path)
 
 
 def _cell(value: Any, preserve_markdown: bool = False) -> str:

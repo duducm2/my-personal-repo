@@ -4196,7 +4196,11 @@
     }
     const lang = cell(item.lang) ? ` · ${String(item.lang).toUpperCase()}` : "";
     title.textContent = `${cell(item.label) || cell(item.label_en) || "Resume"}${lang}`;
-    frame.src = cell(item.view_url) || cell(item.url);
+    const baseViewUrl = cell(item.view_url) || cell(item.url) || "";
+    if (baseViewUrl) {
+      const sep = baseViewUrl.includes("?") ? "&" : "?";
+      frame.src = `${baseViewUrl}${sep}t=${Date.now()}`;
+    }
     dl.href = cell(item.url) || cell(item.view_url);
     if (item.filename) dl.setAttribute("download", cell(item.filename));
     else dl.removeAttribute("download");
