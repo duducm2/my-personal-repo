@@ -68,7 +68,7 @@
 )
 
 #let education = (
-  ("Mestrado em Tecnologia:", "Sist. Info. e Comunicação. Unicamp (2023–2026).", [Dissertação — Confiança Percebida em Websites de E-commerce. Construí o TrustMate para pontuar Usabilidade, Acessibilidade e UX, e comparei agentes ChatGPT o3 com 127 estudantes de TI em três sites. Análise: descritiva, visual e inferencial (Python → Power BI). Nota A em todas as disciplinas, inclusive Visualização da Informação.]),
+  ("Mestrado em Tecnologia:", "Sist. Info. e Comunicação. Unicamp (2023–2026).", [Dissertação — Confiança Percebida em Websites de E-commerce. Construí o TrustMate para pontuar Usabilidade, Acessibilidade e UX, e comparei agentes ChatGPT o3 com 127 estudantes de TI em três sites. Agentes não substituem a avaliação humana #v(0.28em) funcionam como triagem automatizada da qualidade da interface. Análise: descritiva, visual e inferencial (Python → Power BI). Nota A em todas as disciplinas, inclusive Visualização da Informação.]),
   ("Análise e Desenvolvimento de Sistemas.", "Unicamp (2015–2020).", none),
   ("Técnico em Informática.", "ETEC Bento Quirino (2012–2014).", none),
 )

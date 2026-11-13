@@ -45,7 +45,10 @@ def main() -> int:
     about = load("about_linkedin.csv")
     if len(about) < 1:
         issues.append("about_linkedin missing rows")
-    elif not about[0].get("text_pt", "").strip() or not about[0].get("text_en", "").strip():
+    elif (
+        not about[0].get("text_pt", "").strip()
+        or not about[0].get("text_en", "").strip()
+    ):
         issues.append("about_linkedin missing text_pt or text_en")
     else:
         ok.append("about_linkedin.csv: LinkedIn Sobre summary")
@@ -241,12 +244,17 @@ def main() -> int:
             issues.append(f"{var} missing Tech skills")
     if any(s["variant"] == "data-scientist" for s in skills):
         issues.append("skills.csv still has data-scientist rows")
-    ok.append(f"skills.csv: {len(skills)} skills across all variants (Core + Tech present)")
+    ok.append(
+        f"skills.csv: {len(skills)} skills across all variants (Core + Tech present)"
+    )
 
     edu = load("education.csv")
     if len(edu) < 1:
         issues.append("education.csv has no rows")
-    if "perceived trust" not in edu[0].get("detail_en", edu[0].get("detail", "")).lower():
+    if (
+        "perceived trust"
+        not in edu[0].get("detail_en", edu[0].get("detail", "")).lower()
+    ):
         issues.append("master's dissertation detail missing perceived trust")
     inst = edu[0].get("institution_en", edu[0].get("institution", ""))
     if "2023–2026" not in inst and "2023–2026" not in edu[0].get("institution_pt", ""):
@@ -443,9 +451,10 @@ def main() -> int:
     ok.append("volunteering.csv: Hospitalhaços IT Assistant")
 
     certifications = load("certifications.csv")
-    if len(certifications) != 7:
-        issues.append(f"certifications want 7 got {len(certifications)}")
+    if len(certifications) != 8:
+        issues.append(f"certifications want 8 got {len(certifications)}")
     for cid in (
+        "unicamp-msc-technology-2026",
         "ieee-hfsd-trustmate-2025",
         "sbc-ihc-2025",
         "unicamp-scientific-writing-ai-2023",
@@ -456,7 +465,9 @@ def main() -> int:
     ):
         if not any(c.get("id") == cid for c in certifications):
             issues.append(f"certifications missing {cid}")
-    ok.append("certifications.csv: IEEE, SBC, Unicamp, Udemy, ETEC, Ae Comp")
+    ok.append(
+        "certifications.csv: Unicamp MSc, IEEE, SBC, Unicamp, Udemy, ETEC, Ae Comp"
+    )
 
     projects = load("projects.csv")
     for pid in (
@@ -722,8 +733,12 @@ def main() -> int:
         ROOT / "resume" / "variants" / "digital-solution-architect" / "content.en.typ"
     ).read_text(encoding="utf-8")
     gen_resume_uxr = (
-        ROOT / "resume" / "variants" / "ux-researcher" / "content.en.typ"
-    ).read_text(encoding="utf-8") if (ROOT / "resume" / "variants" / "ux-researcher" / "content.en.typ").is_file() else ""
+        (ROOT / "resume" / "variants" / "ux-researcher" / "content.en.typ").read_text(
+            encoding="utf-8"
+        )
+        if (ROOT / "resume" / "variants" / "ux-researcher" / "content.en.typ").is_file()
+        else ""
+    )
     gen_resume_g_pt = (ROOT / "resume" / "typst" / "content.pt.typ").read_text(
         encoding="utf-8"
     )
@@ -829,13 +844,11 @@ def main() -> int:
         / "portfolio-deck.en.md"
     ).read_text(encoding="utf-8")
     deck_uxr_file = (
-        ROOT
-        / "portfolio"
-        / "variants"
-        / "ux-researcher"
-        / "portfolio-deck.en.md"
+        ROOT / "portfolio" / "variants" / "ux-researcher" / "portfolio-deck.en.md"
     )
-    deck_uxr = deck_uxr_file.read_text(encoding="utf-8") if deck_uxr_file.is_file() else ""
+    deck_uxr = (
+        deck_uxr_file.read_text(encoding="utf-8") if deck_uxr_file.is_file() else ""
+    )
     deck_g_pt = (ROOT / "portfolio" / "portfolio-deck.pt.md").read_text(
         encoding="utf-8"
     )

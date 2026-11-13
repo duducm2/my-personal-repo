@@ -507,13 +507,27 @@ p.academic-writing-wrap {
   left: 0 !important;
   margin: 0 !important;
   margin-left: 2.5rem !important;
-  margin-bottom: 2.5rem !important;
+  margin-bottom: 2.2rem !important;
   line-height: 0;
 }
 p.academic-writing-wrap img {
-  width: 400px !important;
+  width: 250px !important;
   height: auto !important;
   display: block !important;
+}
+p.diplomas-mockup-wrap {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 19rem !important;
+  margin: 0 !important;
+  margin-bottom: 2rem !important;
+  line-height: 0;
+}
+p.diplomas-mockup-wrap img {
+  width: 275px !important;
+  height: auto !important;
+  display: block !important;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.12)) !important;
 }
 img[src*="academic-timeline"] {
   width: 72% !important; height: auto !important; margin-top: 0.5rem !important;
@@ -555,6 +569,7 @@ p.historico-wrap img {
 
 <p class="logos-together"><img src="../../../pictures/academia/logos/ETEC.png" alt="ETEC logo – Bento Quirino" /><img src="../../../pictures/academia/logos/UNICAMP.png" alt="Unicamp logo" /></p>
 <p class="academic-writing-wrap"><img src="../../../pictures/academia/academic-writing.jpg" alt="Academic Writing Course - Unicamp" /></p>
+<p class="diplomas-mockup-wrap"><img src="../../../pictures/academia/docs/diplomas-mockup.png" alt="Unicamp Degrees – Undergraduation & Master's Diplomas" /></p>
 
 <p><img src="../../../pictures/diagrams/academic-timeline.png" alt="Diagram academic-timeline: Academic timeline" /></p>
 
