@@ -99,6 +99,10 @@ fields:
   future_h2: "Futuro – Product Owner Sênior"
   future_intro: "Quero me tornar Product Owner Sênior que acompanha o trabalho da descoberta à entrega. O método é descoberta, priorização e validação com stakeholders. O diagrama é como trabalho: uma necessidade, prioridade com evidência, depois um resultado entregue em que as pessoas confiem."
   future_method_diagram: "ai-agile-research-product-owner"
+  future_method_diagram_block: |
+    <div class="ai-agile-wrap">
+    <p><img src="../../../pictures/diagrams/ai-agile-research-product-owner-pt.png" alt="Diagrama: necessidade, prioridade com evidência, depois um resultado entregue" /></p>
+    </div>
   h_academic_research: "Presente – Pesquisa aplicada acadêmica (confiança em IA e UI)"
   h_cip_artifacts: "Presente – Integração CIP e Pesquisa Aplicada: Artefatos"
   h_closing: "Encerramento e contato"

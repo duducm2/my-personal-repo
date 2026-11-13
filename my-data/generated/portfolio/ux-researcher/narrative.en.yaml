@@ -55,10 +55,16 @@ fields:
     .future-po-bullets td, .future-po-bullets th {
       overflow-wrap: anywhere; padding: 0.28em 0.5em !important;
     }
-  future_diagram_alt: "Diagram ai-agile-research-ux-researcher: UX Research and Design in High-Tech Delivery"
+  future_diagram_alt: "N/A"
   future_h2: "Future – UX Research & Design for Emerging Technologies & AI"
-  future_intro: "**Human-centered research, design technology, and trustworthy AI** define my trajectory as a UX Researcher & Design Technologist. The diagram below illustrates the research and delivery loop I operate in."
-  future_method_diagram: "ai-agile-research-ux-researcher"
+  future_intro: |
+    **Human-centered research, design technology, and trustworthy AI** define my trajectory as a UX Researcher & Design Technologist:
+    
+    - **Human-Centered AI & Trust:** Designing and evaluating AI interactions users can calibrate and trust, grounded in ISO/IEC 25000 and empirical human-vs-agent benchmarks.
+    - **Design Technology & Code Prototyping:** Bridging discovery and delivery through interactive functional prototypes (Vue 3, React, Python) to de-risk engineering.
+    - **Continuous ResearchOps:** Embedding generative inquiry, evaluative usability testing, and UX Maturity governance into high-velocity product delivery.
+  future_method_diagram: ""
+  future_method_diagram_block: ""
   h_academic_research: "Present – Academic Applied Research (Trust in AI & UI)"
   h_cip_artifacts: "Present – CIP and Applied Research Integration: Applied Research Artifacts"
   h_closing: "Closing & Contact"

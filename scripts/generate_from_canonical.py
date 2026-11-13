@@ -51,7 +51,7 @@ ASSET_PREFIX = {
 }
 # Shared pictures/diagrams stem for the Future method slide (lang suffix added in template).
 FUTURE_METHOD_DIAGRAM = {
-    "ux-researcher": "ai-agile-research-ux-researcher",
+    "ux-researcher": "",
     "general": "ai-agile-research",
     "data-analyst": "ai-agile-research",
     "product-owner": "ai-agile-research-product-owner",
@@ -470,6 +470,14 @@ def build_slot_map(
         "future_intro": narrative(nars, variant, "future_intro"),
         "future_diagram_alt": narrative(nars, variant, "future_diagram_alt"),
         "future_method_diagram": FUTURE_METHOD_DIAGRAM[variant],
+        "future_method_diagram_block": (
+            f'<div class="ai-agile-wrap">\n'
+            f'<p><img src="{prefix}pictures/diagrams/{FUTURE_METHOD_DIAGRAM[variant]}-{lang}.png" alt="{narrative(nars, variant, "future_diagram_alt")}" /></p>\n'
+            f"</div>"
+            if FUTURE_METHOD_DIAGRAM[variant]
+            and narrative(nars, variant, "future_diagram_alt")
+            else ""
+        ),
         "future_career_style": narrative(nars, variant, "future_career_style"),
         "future_career_body": narrative(nars, variant, "future_career_body").replace(
             "{{canonical:asset_prefix}}", prefix
@@ -680,7 +688,8 @@ def generate_web_portfolio(
                     "Dual discovery-engineering loop: user inquiry, rapid code spikes, usability validation, and metric tracking.",
                     "Design decisions judged by user task success, adoption, and sustained satisfaction.",
                 ],
-                "diagram": "../media/path-uxr.png",
+                "diagram": "",
+                "diagramAlt": "",
             },
             "pt": {
                 "steps": ["Agora", "Próximo", "Método", "Decisões"],
@@ -690,7 +699,8 @@ def generate_web_portfolio(
                     "Ciclo duplo descoberta-engenharia: investigação com usuário, spikes de código, validação de usabilidade e acompanhamento de métricas.",
                     "Decisões de design julgadas por sucesso de tarefas do usuário, adoção e satisfação sustentada.",
                 ],
-                "diagram": "../media/path-uxr-pt.png",
+                "diagram": "",
+                "diagramAlt": "",
             },
         },
         "data-analyst": {

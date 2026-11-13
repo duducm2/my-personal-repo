@@ -808,7 +808,7 @@ figcaption {
 .rail-tools {
   margin-top: 20px;
   padding-top: 14px;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid rgba(239, 230, 214, 0.22);
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -816,21 +816,23 @@ figcaption {
 
 .rail-tools button {
   width: 100%;
-  padding: 7px 12px;
+  padding: 8px 12px;
   font-family: inherit;
-  font-size: 0.82rem;
+  font-size: 0.84rem;
   font-weight: 500;
   border-radius: 8px;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(239, 230, 214, 0.35);
   background: transparent;
-  color: var(--ink);
+  color: var(--rail-text);
   cursor: pointer;
   text-align: center;
   transition: all 0.18s ease;
 }
 
 .rail-tools button:hover {
-  background: rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.7);
 }
 
 .rail-tools button.rail-pdf-btn {

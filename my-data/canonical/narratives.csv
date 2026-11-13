@@ -1041,8 +1041,16 @@ ux-researcher,dissertation_pbi_bullets,Dissertation PBI bullets,Tópicos dissert
 - **Published HCI research:** peer-reviewed contributions at IHC 2025 and ISSRE 2025 on trust measurement and user decision dynamics in AI interaction.","- **Avaliação empírica de UX:** escalas quantitativas de confiança, métricas comportamentais de tarefas e modelagem da percepção do usuário em touchpoints humano-IA.
 - **Pesquisa publicada em IHC:** artigos com peer-review no IHC 2025 e ISSRE 2025 sobre medição de confiança e dinâmica de decisões do usuário em interação com IA."
 ux-researcher,future_h2,Future slide heading,Título slide Futuro,Future – UX Research & Design for Emerging Technologies & AI,Futuro – Pesquisa e Design de UX para Tecnologias Emergentes e IA
-ux-researcher,future_intro,Future intro,Introdução slide Futuro,"**Human-centered research, design technology, and trustworthy AI** define my trajectory as a UX Researcher & Design Technologist. The diagram below illustrates the research and delivery loop I operate in.","**Pesquisa centrada no usuário, design technology e IA confiável** definem minha trajetória como Pesquisador de UX e Design Technologist. O diagrama abaixo ilustra o ciclo de pesquisa e entrega em que atuo."
-ux-researcher,future_diagram_alt,Future diagram alt text,Texto alt diagrama Futuro,Diagram ai-agile-research-ux-researcher: UX Research and Design in High-Tech Delivery,Diagrama ai-agile-research-ux-researcher: Pesquisa e Design de UX em Entrega de Alta Tecnologia
+ux-researcher,future_intro,Future intro,Introdução slide Futuro,"**Human-centered research, design technology, and trustworthy AI** define my trajectory as a UX Researcher & Design Technologist:
+
+- **Human-Centered AI & Trust:** Designing and evaluating AI interactions users can calibrate and trust, grounded in ISO/IEC 25000 and empirical human-vs-agent benchmarks.
+- **Design Technology & Code Prototyping:** Bridging discovery and delivery through interactive functional prototypes (Vue 3, React, Python) to de-risk engineering.
+- **Continuous ResearchOps:** Embedding generative inquiry, evaluative usability testing, and UX Maturity governance into high-velocity product delivery.","**Pesquisa centrada no usuário, design technology e IA confiável** definem minha trajetória como Pesquisador de UX e Design Technologist:
+
+- **IA Centrada no Usuário e Confiança:** Projetar e avaliar interações de IA que usuários possam calibrar e confiar, com base na ISO/IEC 25000 e benchmarks empíricos humano-vs-agente.
+- **Design Technology e Protótipos em Código:** Conectar descoberta e entrega por meio de protótipos funcionais interativos (Vue 3, React, Python) para mitigar riscos de engenharia.
+- **ResearchOps Contínuo:** Integrar investigação generativa, testes avaliativos de usabilidade e governança de Maturidade UX em ciclos ágeis de entrega."
+ux-researcher,future_diagram_alt,Future diagram alt text,Texto alt diagrama Futuro,N/A,Nenhum
 ux-researcher,future_career_body,Future career body,Corpo slide carreira,"## Future – How I Conduct UX Research & Design in High-Tech
 
 - **Mixed-methods rigor:** generative discovery (interviews, contextual inquiry) combined with evaluative testing (SUS, usability benchmarks, quantitative trust scales).

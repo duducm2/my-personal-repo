@@ -97,6 +97,10 @@ fields:
   future_h2: "Future – Mid-Level Digital Solution Architect"
   future_intro: "I want to become a Mid-Level Digital Solution Architect who designs digitization and analytics that hold up in production. The method is clear boundaries, evidence-based reviews, and measurable outcomes. The diagram is how I work: a problem, an operable design, then a solution teams can run."
   future_method_diagram: "ai-agile-research-digital-solution-architect"
+  future_method_diagram_block: |
+    <div class="ai-agile-wrap">
+    <p><img src="../../../pictures/diagrams/ai-agile-research-digital-solution-architect-en.png" alt="Diagram: problem, operable design, then a solution teams can run" /></p>
+    </div>
   h_academic_research: "Present – Academic Applied Research (Trust in AI & UI)"
   h_cip_artifacts: "Present – CIP and Applied Research Integration: Applied Research Artifacts"
   h_closing: "Closing & Contact"

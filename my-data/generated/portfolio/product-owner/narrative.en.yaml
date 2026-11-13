@@ -99,6 +99,10 @@ fields:
   future_h2: "Future – Senior Product Owner"
   future_intro: "I want to become a Senior Product Owner who stays with work from discovery through delivery. The method is discovery, prioritization, and validation with stakeholders. The diagram is how I work: a need, evidence-backed priority, then a shipped outcome people can trust."
   future_method_diagram: "ai-agile-research-product-owner"
+  future_method_diagram_block: |
+    <div class="ai-agile-wrap">
+    <p><img src="../../../pictures/diagrams/ai-agile-research-product-owner-en.png" alt="Diagram: need, evidence-backed priority, then a shipped outcome" /></p>
+    </div>
   h_academic_research: "Present – Academic Applied Research (Trust in AI & UI)"
   h_cip_artifacts: "Present – CIP and Applied Research Integration: Applied Research Artifacts"
   h_closing: "Closing & Contact"

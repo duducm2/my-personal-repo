@@ -1365,9 +1365,7 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 
 {{canonical:future_intro}}
 
-<div class="ai-agile-wrap">
-<p><img src="{{canonical:asset_prefix}}pictures/diagrams/{{canonical:future_method_diagram}}-{{canonical:lang}}.png" alt="{{canonical:future_diagram_alt}}" /></p>
-</div>
+{{canonical:future_method_diagram_block}}
 
 ---
 

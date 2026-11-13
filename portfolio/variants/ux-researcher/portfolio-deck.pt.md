@@ -1391,11 +1391,13 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 
 ## Futuro – Pesquisa e Design de UX para Tecnologias Emergentes e IA
 
-**Pesquisa centrada no usuário, design technology e IA confiável** definem minha trajetória como Pesquisador de UX e Design Technologist. O diagrama abaixo ilustra o ciclo de pesquisa e entrega em que atuo.
+**Pesquisa centrada no usuário, design technology e IA confiável** definem minha trajetória como Pesquisador de UX e Design Technologist:
 
-<div class="ai-agile-wrap">
-<p><img src="../../../pictures/diagrams/ai-agile-research-ux-researcher-pt.png" alt="Diagrama ai-agile-research-ux-researcher: Pesquisa e Design de UX em Entrega de Alta Tecnologia" /></p>
-</div>
+- **IA Centrada no Usuário e Confiança:** Projetar e avaliar interações de IA que usuários possam calibrar e confiar, com base na ISO/IEC 25000 e benchmarks empíricos humano-vs-agente.
+- **Design Technology e Protótipos em Código:** Conectar descoberta e entrega por meio de protótipos funcionais interativos (Vue 3, React, Python) para mitigar riscos de engenharia.
+- **ResearchOps Contínuo:** Integrar investigação generativa, testes avaliativos de usabilidade e governança de Maturidade UX em ciclos ágeis de entrega.
+
+
 
 ---
 

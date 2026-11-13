@@ -97,6 +97,10 @@ fields:
   future_h2: "Futuro – Arquiteto de Soluções Digitais (Pleno)"
   future_intro: "Quero me tornar Arquiteto de Soluções Digitais (Pleno) que desenha digitalização e analytics que se sustentam em produção. O método é limites claros, revisões baseadas em evidência e resultados mensuráveis. O diagrama é como trabalho: um problema, um desenho operável, depois uma solução que o time consiga operar."
   future_method_diagram: "ai-agile-research-digital-solution-architect"
+  future_method_diagram_block: |
+    <div class="ai-agile-wrap">
+    <p><img src="../../../pictures/diagrams/ai-agile-research-digital-solution-architect-pt.png" alt="Diagrama: problema, desenho operável, depois uma solução que o time opera" /></p>
+    </div>
   h_academic_research: "Presente – Pesquisa aplicada acadêmica (confiança em IA e UI)"
   h_cip_artifacts: "Presente – Integração CIP e Pesquisa Aplicada: Artefatos"
   h_closing: "Encerramento e contato"

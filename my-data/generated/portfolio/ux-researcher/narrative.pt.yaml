@@ -55,10 +55,16 @@ fields:
     .future-po-bullets td, .future-po-bullets th {
       overflow-wrap: anywhere; padding: 0.28em 0.5em !important;
     }
-  future_diagram_alt: "Diagrama ai-agile-research-ux-researcher: Pesquisa e Design de UX em Entrega de Alta Tecnologia"
+  future_diagram_alt: "Nenhum"
   future_h2: "Futuro – Pesquisa e Design de UX para Tecnologias Emergentes e IA"
-  future_intro: "**Pesquisa centrada no usuário, design technology e IA confiável** definem minha trajetória como Pesquisador de UX e Design Technologist. O diagrama abaixo ilustra o ciclo de pesquisa e entrega em que atuo."
-  future_method_diagram: "ai-agile-research-ux-researcher"
+  future_intro: |
+    **Pesquisa centrada no usuário, design technology e IA confiável** definem minha trajetória como Pesquisador de UX e Design Technologist:
+    
+    - **IA Centrada no Usuário e Confiança:** Projetar e avaliar interações de IA que usuários possam calibrar e confiar, com base na ISO/IEC 25000 e benchmarks empíricos humano-vs-agente.
+    - **Design Technology e Protótipos em Código:** Conectar descoberta e entrega por meio de protótipos funcionais interativos (Vue 3, React, Python) para mitigar riscos de engenharia.
+    - **ResearchOps Contínuo:** Integrar investigação generativa, testes avaliativos de usabilidade e governança de Maturidade UX em ciclos ágeis de entrega.
+  future_method_diagram: ""
+  future_method_diagram_block: ""
   h_academic_research: "Presente – Pesquisa aplicada acadêmica (confiança em IA e UI)"
   h_cip_artifacts: "Presente – Integração CIP e Pesquisa Aplicada: Artefatos"
   h_closing: "Encerramento e contato"

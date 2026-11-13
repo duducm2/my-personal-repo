@@ -1391,11 +1391,13 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 
 ## Future – UX Research & Design for Emerging Technologies & AI
 
-**Human-centered research, design technology, and trustworthy AI** define my trajectory as a UX Researcher & Design Technologist. The diagram below illustrates the research and delivery loop I operate in.
+**Human-centered research, design technology, and trustworthy AI** define my trajectory as a UX Researcher & Design Technologist:
 
-<div class="ai-agile-wrap">
-<p><img src="../../../pictures/diagrams/ai-agile-research-ux-researcher-en.png" alt="Diagram ai-agile-research-ux-researcher: UX Research and Design in High-Tech Delivery" /></p>
-</div>
+- **Human-Centered AI & Trust:** Designing and evaluating AI interactions users can calibrate and trust, grounded in ISO/IEC 25000 and empirical human-vs-agent benchmarks.
+- **Design Technology & Code Prototyping:** Bridging discovery and delivery through interactive functional prototypes (Vue 3, React, Python) to de-risk engineering.
+- **Continuous ResearchOps:** Embedding generative inquiry, evaluative usability testing, and UX Maturity governance into high-velocity product delivery.
+
+
 
 ---
 

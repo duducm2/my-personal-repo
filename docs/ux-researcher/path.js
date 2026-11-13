@@ -23,8 +23,8 @@ const PATH_COPY = {
     "Dual discovery-engineering loop: user inquiry, rapid code spikes, usability validation, and metric tracking.",
     "Design decisions judged by user task success, adoption, and sustained satisfaction."
   ],
-  "diagram": "../media/path-uxr.png",
-  "diagramAlt": "Diagram ai-agile-research-ux-researcher: UX Research and Design in High-Tech Delivery",
+  "diagram": "",
+  "diagramAlt": "N/A",
   "pdf": "/download/ux-researcher/portfolio-deck-ux-researcher-EN.pdf",
   "contactLead": "I combine rigorous mixed-methods research, design technologist code prototyping, and empirical trust measurement to build high-tech and AI products that users trust and adopt—validated by measurable outcomes."
 },
@@ -51,8 +51,8 @@ const PATH_COPY = {
     "Ciclo duplo descoberta-engenharia: investigação com usuário, spikes de código, validação de usabilidade e acompanhamento de métricas.",
     "Decisões de design julgadas por sucesso de tarefas do usuário, adoção e satisfação sustentada."
   ],
-  "diagram": "../media/path-uxr-pt.png",
-  "diagramAlt": "Diagrama ai-agile-research-ux-researcher: Pesquisa e Design de UX em Entrega de Alta Tecnologia",
+  "diagram": "",
+  "diagramAlt": "Nenhum",
   "pdf": "/download/ux-researcher/portfolio-deck-ux-researcher-PT.pdf",
   "contactLead": "Combino pesquisa rigorosa com métodos mistos, prototipagem em código como design technologist e medição empírica de confiança para construir produtos de alta tecnologia e IA que os usuários confiam e adotam—validados por resultados mensuráveis."
 },
