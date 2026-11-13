@@ -30,6 +30,17 @@ const UI = {
       "Web application for student activities, with traditional project management",
     thesisDelivery: "Master's dissertation on perceived trust, with TrustMate",
     gradeSticker: "Best score in every discipline",
+    degreesTitle: "University Degrees & Official Credentials",
+    degreesLead:
+      "Official Unicamp diplomas with front conferrals and back registry sheets, digital verification hashes, and rectorate authentication.",
+    capMestradoFrente:
+      "Master's in Technology – Information & Communication Systems (Unicamp, 2026)",
+    capMestradoVerso:
+      "Master's Registry Verso – DAC RD-057530 & Digital Verification Key",
+    capGraduacaoFrente:
+      "Technologist in Systems Analysis & Development (Unicamp, 2020)",
+    capGraduacaoVerso:
+      "Undergraduate Registry Verso – DAC RD-026702 & Digital Verification Key",
     internCap0: "Starting as an intern at Bosch Campinas, with colleagues",
     internCap1: "The intern group at Bosch Campinas, when I started",
     pathTitle: "Bosch, place by place",
@@ -260,6 +271,17 @@ const UI = {
     thesisDelivery:
       "Dissertação de mestrado sobre confiança percebida, com o TrustMate",
     gradeSticker: "Melhor nota em todas as disciplinas",
+    degreesTitle: "Diplomas Universitários e Registros Oficiais",
+    degreesLead:
+      "Diplomas oficiais da Unicamp com anverso cerimonial e verso com registro DAC, chaves de autenticação digital e assinaturas da reitoria.",
+    capMestradoFrente:
+      "Mestrado em Tecnologia – Sistemas de Informação e Comunicação (Unicamp, 2026)",
+    capMestradoVerso:
+      "Verso do Diploma de Mestrado – Registro DAC RD-057530 e Chave de Autenticação Digital",
+    capGraduacaoFrente:
+      "Graduação – Tecnólogo em Análise e Desenvolvimento de Sistemas (Unicamp, 2020)",
+    capGraduacaoVerso:
+      "Verso do Diploma de Graduação – Registro DAC RD-026702 e Chave de Autenticação Digital",
     internCap0: "Começando como estagiário na Bosch Campinas, com os colegas",
     internCap1: "O grupo de estagiários na Bosch Campinas, quando comecei",
     pathTitle: "Bosch, lugar por lugar",

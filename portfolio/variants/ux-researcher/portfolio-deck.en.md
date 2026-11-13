@@ -506,28 +506,28 @@ p.academic-writing-wrap {
   bottom: 0 !important;
   left: 0 !important;
   margin: 0 !important;
-  margin-left: 2.5rem !important;
+  margin-left: 2rem !important;
   margin-bottom: 2.2rem !important;
   line-height: 0;
 }
 p.academic-writing-wrap img {
-  width: 250px !important;
+  width: 220px !important;
   height: auto !important;
   display: block !important;
 }
 p.diplomas-mockup-wrap {
   position: absolute !important;
   bottom: 0 !important;
-  left: 19rem !important;
+  left: 17rem !important;
   margin: 0 !important;
-  margin-bottom: 2rem !important;
+  margin-bottom: 1.6rem !important;
   line-height: 0;
 }
 p.diplomas-mockup-wrap img {
-  width: 275px !important;
+  width: 400px !important;
   height: auto !important;
   display: block !important;
-  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.12)) !important;
+  filter: drop-shadow(0 6px 14px rgba(0,0,0,0.14)) !important;
 }
 img[src*="academic-timeline"] {
   width: 72% !important; height: auto !important; margin-top: 0.5rem !important;
