@@ -197,73 +197,105 @@ main {
 }
 
 .hero {
-  min-height: 100vh;
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 36px;
-  align-items: end;
-  padding: 10vh 0 8vh;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 44px;
+  align-items: center;
+  padding: 56px 0 64px;
 }
 
 .hero-copy {
-  padding-bottom: 8px;
+  padding-bottom: 0;
 }
 
 .eyebrow {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  font-size: 0.78rem;
+  font-size: 0.76rem;
+  font-weight: 600;
   color: var(--signal);
-  margin: 0 0 12px;
+  margin: 0 0 14px;
 }
 
 .eyebrow-place {
-  display: block;
-  margin-top: 0.35em;
+  display: inline;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.eyebrow-place::before {
+  content: "· ";
+  color: var(--line);
 }
 
 h1 {
   font-family: var(--display);
-  font-weight: 500;
-  font-size: clamp(2.6rem, 6vw, 5.2rem);
-  line-height: 0.95;
-  margin: 0 0 18px;
+  font-weight: 520;
+  font-size: clamp(2.4rem, 4.8vw, 3.8rem);
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+  margin: 0 0 12px;
 }
 
 .role {
-  font-size: 1.25rem;
-  margin: 0 0 14px;
+  font-size: 1.12rem;
+  font-weight: 500;
+  line-height: 1.38;
+  color: var(--signal);
+  margin: 0 0 16px;
 }
 
 .lede {
   max-width: 38rem;
-  font-size: 1.15rem;
+  font-size: 1rem;
+  line-height: 1.62;
+  color: var(--muted);
   margin: 0 0 22px;
 }
 
-.hero-links a,
+.hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 18px;
+}
+
+.hero-links a {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.86rem;
+  font-weight: 500;
+  transition: border-color 0.18s ease, color 0.18s ease, transform 0.18s ease;
+}
+
+.hero-links a:hover {
+  border-color: var(--signal);
+  color: var(--signal);
+  transform: translateY(-1px);
+}
+
 address a,
 address span {
   margin-right: 16px;
 }
 
 .hero-export {
-  margin: 18px 0 0;
+  margin: 0;
 }
 
-.pdf-export {
-  display: inline-block;
-  padding: 8px 14px;
-  border: 1px solid var(--ink);
-  color: var(--ink);
-  text-decoration: none;
-  letter-spacing: 0.04em;
-  font-size: 0.92rem;
-}
-
-.pdf-export:hover {
-  background: var(--ink);
-  color: var(--paper);
+.hero .portrait {
+  margin: 0;
+  box-shadow: 0 14px 36px rgba(28, 23, 18, 0.08);
 }
 
 a {

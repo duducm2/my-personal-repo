@@ -208,6 +208,7 @@ let sortKey = "csi";
 let sortDesc = true;
 
 function renderScores() {
+  if (!tbody) return;
   const rows = [...scores].sort((a, b) => {
     const left = a[sortKey];
     const right = b[sortKey];
