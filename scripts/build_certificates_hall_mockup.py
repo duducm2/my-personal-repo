@@ -88,7 +88,7 @@ def build_certificates_hall():
         sh, pad = create_paper_sheet(path, w, h, ang, pin_pos)
         sheets.append((key, sh, pad))
     
-    canvas_w = 2700
+    canvas_w = 2850
     canvas_h = 700
     canvas = Image.new('RGBA', (canvas_w, canvas_h), (0, 0, 0, 0))
     
@@ -98,8 +98,8 @@ def build_certificates_hall():
         ('obmep', 20, 70),
         ('etec', 440, 55),
         ('undergrad', 890, 50),
-        ('bosch', 1760, 55),
-        ('hospital', 2280, 50),
+        ('bosch', 1810, 55),
+        ('hospital', 2340, 50),
         ('master', 1330, 80), # Master's on top of both Undergrad and Bosch!
     ]
     
@@ -114,6 +114,6 @@ def build_certificates_hall():
 
 if __name__ == '__main__':
     hall = build_certificates_hall()
-    out_preview = 'output/certificates_hall_preview.png'
-    hall.save(out_preview)
-    print(f'Certificates Hall saved: {hall.size}')
+    hall.save('pictures/academia/docs/diplomas-mockup.png')
+    hall.save('docs/media/diplomas-mockup.png')
+    print(f'Certificates Hall saved to pictures and docs/media: {hall.size}')
