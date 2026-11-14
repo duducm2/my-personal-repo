@@ -1,29 +1,4 @@
 variant,category,category_label_en,category_label_pt,sort_order,label_en,label_pt
-general,Core,Core,Núcleo,1,Applied Research,Pesquisa Aplicada
-general,Core,Core,Núcleo,2,Project Management,Gestão de Projetos
-general,Core,Core,Núcleo,3,Continuous Improvement (CIP),Melhoria Contínua (CIP)
-general,Core,Core,Núcleo,4,AI Systems,Sistemas de IA
-general,Core,Core,Núcleo,5,Autodidact,Autodidata
-general,Core,Core,Núcleo,6,Statistics,Estatística
-general,Core,Core,Núcleo,7,Vibe coding,Vibe coding
-general,Tech,Tech,Tecnologias,1,Power BI,Power BI
-general,Tech,Tech,Tecnologias,2,Python,Python
-general,Tech,Tech,Tecnologias,3,React,React
-general,Tech,Tech,Tecnologias,4,Figma,Figma
-general,Tech,Tech,Tecnologias,5,SQL,SQL
-general,Tech,Tech,Tecnologias,6,Matplotlib,Matplotlib
-general,Tech,Tech,Tecnologias,7,Seaborn,Seaborn
-general,Tech,Tech,Tecnologias,8,Git,Git
-general,Tech,Tech,Tecnologias,9,GitHub,GitHub
-general,Tech,Tech,Tecnologias,10,Azure,Azure
-general,Tech,Tech,Tecnologias,11,Bitbucket,Bitbucket
-general,Tech,Tech,Tecnologias,12,HTML,HTML
-general,Tech,Tech,Tecnologias,13,CSS,CSS
-general,Tech,Tech,Tecnologias,14,Mermaid,Mermaid
-general,Tech,Tech,Tecnologias,15,VS Code,VS Code
-general,Tech,Tech,Tecnologias,16,Excel,Excel
-general,Tech,Tech,Tecnologias,17,VBA,VBA
-general,Tech,Tech,Tecnologias,18,AutoHotkey,AutoHotkey
 product-owner,Core,Core,Núcleo,1,Product discovery,Descoberta de produto
 product-owner,Core,Core,Núcleo,2,Stakeholder alignment,Alinhamento de stakeholders
 product-owner,Core,Core,Núcleo,3,Prioritization & outcomes,Priorização e resultados

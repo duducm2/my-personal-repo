@@ -601,7 +601,6 @@
       en: "Digital Solution Architect",
       pt: "Digital Solution Architect",
     },
-    { key: "general", short: "GEN", en: "General", pt: "General" },
   ];
 
   const COMPANY_ROLES = [
@@ -681,7 +680,7 @@
   let deliverablesCache = null;
   let portfolioImagesCache = [];
   let currentEditorState = {
-    variant: "general",
+    variant: "ux-researcher",
     tab: "resume",
     dirty: false,
     saving: false,
@@ -719,7 +718,7 @@
   async function openDeliverableEditor(opts) {
     const modal = document.getElementById("deliverable-edit-modal");
     if (!modal) return;
-    const variant = opts?.variant || currentEditorState.variant || "general";
+    const variant = opts?.variant || currentEditorState.variant || "ux-researcher";
     const tab = opts?.tab || currentEditorState.tab || "resume";
     currentEditorState.variant = variant;
     currentEditorState.tab = tab;
@@ -4140,7 +4139,7 @@
         manageBtn.onclick = (e) => {
           e.preventDefault();
           e.stopPropagation();
-          openDeliverableEditor({ variant: "general", tab: "portfolio" });
+          openDeliverableEditor({ variant: "ux-researcher", tab: "portfolio" });
         };
 
         stripHead.append(stripLabel, manageBtn);
@@ -6128,7 +6127,6 @@
       "digital-solution-architect",
       "data-analyst",
       "product-owner",
-      "general",
     ].filter((variant) => matchesPathFilter(variant));
     const byVariant = {};
     for (const item of items) {

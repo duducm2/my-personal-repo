@@ -10,7 +10,6 @@ from typing import Any
 
 RESUME_OPTIONS = (
     "ux-researcher",
-    "general",
     "data-analyst",
     "product-owner",
     "digital-solution-architect",
@@ -27,7 +26,7 @@ PATH_TO_VARIANT = {
     "da": "data-analyst",
     "po": "product-owner",
     "dsa": "digital-solution-architect",
-    "other": "general",
+    "other": "ux-researcher",
 }
 UI_TREE_LIMIT = 80000
 
@@ -130,17 +129,17 @@ def build_form_fill_prompt(
         raise ValueError("opening id is required")
     path = _cell(opening, "career_path").lower() or "other"
     paths = [path]
-    variants = {PATH_TO_VARIANT.get(path, "general"), "general"}
+    variants = {PATH_TO_VARIANT.get(path, "ux-researcher")}
 
     skills = [
         row
         for row in (context.get("skills") or [])
-        if (_cell(row, "variant") or "general") in variants
+        if (_cell(row, "variant") or "ux-researcher") in variants
     ]
     narratives = [
         row
         for row in (context.get("narratives") or [])
-        if (_cell(row, "variant") or "general") in variants
+        if (_cell(row, "variant") or "ux-researcher") in variants
     ]
     experience = (context.get("experience") or [])[:8]
     education = (context.get("education") or [])[:8]
@@ -148,7 +147,7 @@ def build_form_fill_prompt(
     profile = profile_rows[0] if profile_rows else {}
 
     focus = "; ".join(
-        f"{PATH_LABELS.get(item, item)} ({PATH_TO_VARIANT.get(item, 'general')})"
+        f"{PATH_LABELS.get(item, item)} ({PATH_TO_VARIANT.get(item, 'ux-researcher')})"
         for item in paths
     )
     tree = (ui_tree or "").strip()
@@ -251,7 +250,7 @@ def build_form_fill_prompt(
     bullets = [
         row
         for row in (context.get("experienceBullets") or [])
-        if (_cell(row, "variant") or "general") in variants
+        if (_cell(row, "variant") or "ux-researcher") in variants
     ]
 
     def sort_num(row: dict[str, Any]) -> int:

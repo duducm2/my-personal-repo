@@ -171,22 +171,6 @@ DOWNLOAD_CATALOG: list[dict[str, str]] = [
         "filename": "portfolio-deck-ux-researcher-PT.pdf",
     },
     {
-        "variant": "general",
-        "label_en": "General",
-        "label_pt": "Geral",
-        "lang": "en",
-        "kind": "resume",
-        "filename": "CV-Eduardo-Figueiredo-EN.pdf",
-    },
-    {
-        "variant": "general",
-        "label_en": "General",
-        "label_pt": "Geral",
-        "lang": "pt",
-        "kind": "resume",
-        "filename": "CV-Eduardo-Figueiredo-PT.pdf",
-    },
-    {
         "variant": "product-owner",
         "label_en": "Product Owner",
         "label_pt": "Product Owner",
@@ -217,22 +201,6 @@ DOWNLOAD_CATALOG: list[dict[str, str]] = [
         "lang": "pt",
         "kind": "resume",
         "filename": "CV-Eduardo-Figueiredo-PT-data-analyst.pdf",
-    },
-    {
-        "variant": "general",
-        "label_en": "General",
-        "label_pt": "Geral",
-        "lang": "en",
-        "kind": "portfolio",
-        "filename": "portfolio-deck-EN.pdf",
-    },
-    {
-        "variant": "general",
-        "label_en": "General",
-        "label_pt": "Geral",
-        "lang": "pt",
-        "kind": "portfolio",
-        "filename": "portfolio-deck-PT.pdf",
     },
     {
         "variant": "product-owner",
@@ -316,7 +284,6 @@ def pdf_page_count(path: Path) -> int | None:
 
 RESUME_VARIANTS = {
     "ux-researcher",
-    "general",
     "product-owner",
     "data-analyst",
     "digital-solution-architect",

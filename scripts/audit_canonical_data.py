@@ -108,7 +108,6 @@ def main() -> int:
             issues.append(f"orphan bullet experience_id={b['experience_id']}")
     for eid in exp_ids:
         for var in (
-            "general",
             "product-owner",
             "data-analyst",
             "digital-solution-architect",
@@ -127,7 +126,6 @@ def main() -> int:
         "bosch-intern-2017",
     ):
         for var in (
-            "general",
             "product-owner",
             "data-analyst",
             "digital-solution-architect",
@@ -144,18 +142,12 @@ def main() -> int:
 
     # Core required phrases/disciplines (structural checks)
     required_phrases = [
-        ("general", "UX Maturity"),
         ("product-owner", "customer"),
         ("data-analyst", "Power BI"),
         ("digital-solution-architect", "ServiceNow"),
         ("ux-researcher", "Grounded Theory"),
     ]
     all_bullet_text = {
-        "general": " ".join(
-            b.get("text_en", b.get("text", ""))
-            for b in bullets
-            if b["variant"] == "general"
-        ),
         "product-owner": " ".join(
             b.get("text_en", b.get("text", ""))
             for b in bullets
@@ -230,7 +222,6 @@ def main() -> int:
 
     skills = load("skills.csv")
     for var in (
-        "general",
         "product-owner",
         "data-analyst",
         "digital-solution-architect",
@@ -308,12 +299,10 @@ def main() -> int:
 
     # PT translation completeness
     PT_IDENTICAL_OK = {
-        ("general", "future_career_style"),
         ("product-owner", "future_career_style"),
         ("data-analyst", "future_career_style"),
         ("digital-solution-architect", "future_career_style"),
         ("ux-researcher", "future_career_style"),
-        ("general", "future_intro"),  # intentionally empty in EN and PT
     }
     narratives_rows = load("narratives.csv")
     pt_gaps: list[str] = []
@@ -672,7 +661,6 @@ def main() -> int:
         "h_infovis_diagram_alt",
     ]
     for var in (
-        "general",
         "product-owner",
         "data-analyst",
         "digital-solution-architect",

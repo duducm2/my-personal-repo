@@ -37,7 +37,7 @@ def _narrative_profile(
 ) -> str:
     field_key = "text_en" if lang == "en" else "text_pt"
     # Prefer exact variant profile, then general
-    for want in (variant, "general"):
+    for want in (variant, "ux-researcher"):
         for row in narratives or []:
             if _cell(row, "variant") == want and _cell(row, "field") == "profile":
                 text = _cell(row, field_key)
@@ -51,7 +51,7 @@ def _skills_list(
 ) -> str:
     label_key = "label_en" if lang == "en" else "label_pt"
     picked: list[str] = []
-    for want in (variant, "general"):
+    for want in (variant, "ux-researcher"):
         for row in skills or []:
             if _cell(row, "variant") != want:
                 continue
@@ -138,15 +138,14 @@ def build_autofill_bundle(
                 break
 
     opening = find_opening(openings, job_id)
-    variant = _cell(opening, "recommended_resume") or "general"
+    variant = _cell(opening, "recommended_resume") or "ux-researcher"
     if variant not in {
         "ux-researcher",
-        "general",
         "product-owner",
         "data-analyst",
         "digital-solution-architect",
     }:
-        variant = "general"
+        variant = "ux-researcher"
 
     full_name = _cell(profile, "full_name")
     first_name, last_name = _split_name(full_name)

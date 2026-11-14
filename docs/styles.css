@@ -1579,38 +1579,64 @@ section.section-excluded {
     text-decoration: none;
   }
 
-  .deliverables-categories {
-    gap: 3.5mm;
+  #deliverables .deliverables-categories {
+    display: block;
     margin-top: 3mm;
   }
 
-  .deliverable-category {
+  #deliverables .deliverable-category {
     padding: 3mm 3.5mm 3.5mm;
     border-radius: 8px;
+    margin-bottom: 3.5mm;
     break-inside: avoid;
     page-break-inside: avoid;
   }
 
-  .deliverable-category-header {
+  #deliverables .deliverable-category-header {
     margin-bottom: 2.5mm;
     padding-bottom: 1.5mm;
+    break-after: avoid;
+    page-break-after: avoid;
   }
 
-  .deliverable-category-title {
+  #deliverables .deliverable-category-title {
     font-size: 9.5pt;
   }
 
-  .deliverable-category-count {
+  #deliverables .deliverable-category-count {
     font-size: 7pt;
     min-width: 18px;
     height: 16px;
     padding: 0 5px;
   }
 
-  .deliverables-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 3mm;
+  #deliverables .deliverables-grid {
+    display: block;
     margin-top: 0;
+  }
+
+  #deliverables .deliverables-grid::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  #deliverables .deliverable-card {
+    display: block;
+    float: left;
+    width: 23.5%;
+    margin: 0 2% 3mm 0;
+    box-sizing: border-box;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  #deliverables .deliverable-card:nth-child(4n) {
+    margin-right: 0;
+  }
+
+  #deliverables .deliverable-card:nth-child(4n + 1) {
+    clear: left;
   }
 
   .deliverable-thumb {
@@ -1661,11 +1687,6 @@ section.section-excluded {
     font-size: 7pt;
     line-height: 1.3;
     -webkit-line-clamp: 2;
-  }
-
-  .deliverable-card {
-    break-inside: avoid;
-    page-break-inside: avoid;
   }
 }
 

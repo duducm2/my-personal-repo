@@ -17,29 +17,12 @@ LANG_SUFFIX = {"en": "EN", "pt": "PT"}
 
 VARIANTS = (
     "ux-researcher",
-    "general",
     "product-owner",
     "data-analyst",
     "digital-solution-architect",
 )
 
 OUTPUTS = {
-    ("general", "en", "resume"): ROOT
-    / "output"
-    / "general"
-    / "CV-Eduardo-Figueiredo-EN.pdf",
-    ("general", "pt", "resume"): ROOT
-    / "output"
-    / "general"
-    / "CV-Eduardo-Figueiredo-PT.pdf",
-    ("general", "en", "portfolio"): ROOT
-    / "output"
-    / "general"
-    / "portfolio-deck-EN.pdf",
-    ("general", "pt", "portfolio"): ROOT
-    / "output"
-    / "general"
-    / "portfolio-deck-PT.pdf",
     ("product-owner", "en", "resume"): ROOT
     / "output"
     / "product-owner"
@@ -108,7 +91,6 @@ OUTPUTS = {
 
 RESUME_MAIN = {
     "ux-researcher": ROOT / "resume" / "variants" / "ux-researcher" / "main.typ",
-    "general": ROOT / "resume" / "typst" / "main.typ",
     "product-owner": ROOT / "resume" / "variants" / "product-owner" / "main.typ",
     "data-analyst": ROOT / "resume" / "variants" / "data-analyst" / "main.typ",
     "digital-solution-architect": ROOT
@@ -120,7 +102,6 @@ RESUME_MAIN = {
 
 RESUME_CONTENT = {
     "ux-researcher": ROOT / "resume" / "variants" / "ux-researcher",
-    "general": ROOT / "resume" / "typst",
     "product-owner": ROOT / "resume" / "variants" / "product-owner",
     "data-analyst": ROOT / "resume" / "variants" / "data-analyst",
     "digital-solution-architect": ROOT
@@ -135,7 +116,6 @@ DECK_SRC = {
     / "variants"
     / "ux-researcher"
     / "portfolio-deck.{lang}.md",
-    "general": ROOT / "portfolio" / "portfolio-deck.{lang}.md",
     "product-owner": ROOT
     / "portfolio"
     / "variants"

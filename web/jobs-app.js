@@ -32,7 +32,6 @@
   ];
   const RESUME_OPTIONS = [
     "ux-researcher",
-    "general",
     "data-analyst",
     "product-owner",
     "digital-solution-architect",
@@ -105,7 +104,7 @@
     da: "data-analyst",
     po: "product-owner",
     dsa: "digital-solution-architect",
-    other: "general",
+    other: "ux-researcher",
   };
 
   let collections = {};
@@ -2089,15 +2088,14 @@
       : companyKey;
 
     const variants = new Set(
-      effectivePaths.map((p) => PATH_TO_VARIANT[p] || "general"),
+      effectivePaths.map((p) => PATH_TO_VARIANT[p] || "ux-researcher"),
     );
-    variants.add("general");
 
     const skills = (ctx.skills || []).filter((s) =>
-      variants.has(cell(s.variant) || "general"),
+      variants.has(cell(s.variant) || "ux-researcher"),
     );
     const narratives = (ctx.narratives || []).filter((n) =>
-      variants.has(cell(n.variant) || "general"),
+      variants.has(cell(n.variant) || "ux-researcher"),
     );
     const pathSlugs = new Set(
       effectivePaths.map(pathSlugFor).filter(Boolean).concat(effectivePaths),
@@ -2113,7 +2111,7 @@
     const existing = existingOpeningsForCompany(companyKey);
 
     const focusLabel = effectivePaths
-      .map((p) => `${pathLabel(p)} (${PATH_TO_VARIANT[p] || "general"})`)
+      .map((p) => `${pathLabel(p)} (${PATH_TO_VARIANT[p] || "ux-researcher"})`)
       .join("; ");
 
     const profile = (ctx.profile && ctx.profile[0]) || {};
@@ -2985,22 +2983,21 @@
 
     const ctx = await fetchPromptContext();
     const variants = new Set(
-      effectivePaths.map((p) => PATH_TO_VARIANT[p] || "general"),
+      effectivePaths.map((p) => PATH_TO_VARIANT[p] || "ux-researcher"),
     );
-    variants.add("general");
 
     const skills = (ctx.skills || []).filter((s) =>
-      variants.has(cell(s.variant) || "general"),
+      variants.has(cell(s.variant) || "ux-researcher"),
     );
     const narratives = (ctx.narratives || []).filter((n) =>
-      variants.has(cell(n.variant) || "general"),
+      variants.has(cell(n.variant) || "ux-researcher"),
     );
     const experience = (ctx.experience || []).slice(0, 8);
     const education = (ctx.education || []).slice(0, 8);
     const profile = (ctx.profile && ctx.profile[0]) || {};
 
     const focusLabel = effectivePaths
-      .map((p) => `${pathLabel(p)} (${PATH_TO_VARIANT[p] || "general"})`)
+      .map((p) => `${pathLabel(p)} (${PATH_TO_VARIANT[p] || "ux-researcher"})`)
       .join("; ");
 
     const lines = [];
@@ -3616,14 +3613,14 @@
     }
 
     const path = cell(opening.career_path).toLowerCase() || "dsa";
-    const variant = PATH_TO_VARIANT[path] || "general";
+    const variant = PATH_TO_VARIANT[path] || "ux-researcher";
     const ctx = await fetchPromptContext();
-    const variants = new Set([variant, "general"]);
+    const variants = new Set([variant]);
     const skills = (ctx.skills || []).filter((s) =>
-      variants.has(cell(s.variant) || "general"),
+      variants.has(cell(s.variant) || "ux-researcher"),
     );
     const narratives = (ctx.narratives || []).filter((n) =>
-      variants.has(cell(n.variant) || "general"),
+      variants.has(cell(n.variant) || "ux-researcher"),
     );
     const experience = (ctx.experience || []).slice(0, 8);
     const education = (ctx.education || []).slice(0, 6);

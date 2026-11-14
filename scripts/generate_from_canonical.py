@@ -19,14 +19,12 @@ TEMPLATE = ROOT / "portfolio" / "templates" / "portfolio-deck.template.md"
 
 VARIANTS = (
     "ux-researcher",
-    "general",
     "product-owner",
     "data-analyst",
     "digital-solution-architect",
 )
 RESUME_DIR = {
     "ux-researcher": ROOT / "resume" / "variants" / "ux-researcher",
-    "general": ROOT / "resume" / "typst",
     "product-owner": ROOT / "resume" / "variants" / "product-owner",
     "data-analyst": ROOT / "resume" / "variants" / "data-analyst",
     "digital-solution-architect": ROOT
@@ -36,7 +34,6 @@ RESUME_DIR = {
 }
 DECK_DIR = {
     "ux-researcher": ROOT / "portfolio" / "variants" / "ux-researcher",
-    "general": ROOT / "portfolio",
     "product-owner": ROOT / "portfolio" / "variants" / "product-owner",
     "data-analyst": ROOT / "portfolio" / "variants" / "data-analyst",
     "digital-solution-architect": ROOT
@@ -46,7 +43,6 @@ DECK_DIR = {
 }
 ASSET_PREFIX = {
     "ux-researcher": "../../../",
-    "general": "../",
     "product-owner": "../../../",
     "data-analyst": "../../../",
     "digital-solution-architect": "../../../",
@@ -54,7 +50,6 @@ ASSET_PREFIX = {
 # Shared pictures/diagrams stem for the Future method slide (lang suffix added in template).
 FUTURE_METHOD_DIAGRAM = {
     "ux-researcher": "",
-    "general": "ai-agile-research",
     "data-analyst": "ai-agile-research",
     "product-owner": "ai-agile-research-product-owner",
     "digital-solution-architect": "ai-agile-research-digital-solution-architect",
