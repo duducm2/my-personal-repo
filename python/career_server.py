@@ -826,6 +826,55 @@ def resolve_cover_letter(filename: str) -> Path | None:
     return path
 
 
+def load_deliverables_catalog(repo_root: Path) -> dict[str, Any]:
+    """Load all deliverables (EN + PT) from docs/lang.js merged with docs/project-media.js."""
+    lang_js = repo_root / "docs" / "lang.js"
+    proj_js = repo_root / "docs" / "project-media.js"
+    if not lang_js.is_file():
+        return {"categories": [], "items": []}
+    node_script = (
+        "const fs=require('fs'),vm=require('vm');"
+        "const c={window:{}};"
+        "vm.createContext(c);"
+        "vm.runInContext(fs.readFileSync(process.argv[1],'utf8').replace(/\\bconst\\b/g,'var'),c);"
+        "if(process.argv[2]&&fs.existsSync(process.argv[2])){"
+        "vm.runInContext(fs.readFileSync(process.argv[2],'utf8'),c);"
+        "}"
+        "const pm=(c.window&&c.window.PROJECT_MEDIA&&c.window.PROJECT_MEDIA.en)||{};"
+        "const enItems=(c.UI&&c.UI.en&&c.UI.en.deliverablesItems)||[];"
+        "const ptItems=(c.UI&&c.UI.pt&&c.UI.pt.deliverablesItems)||[];"
+        "const ptById=Object.fromEntries(ptItems.map(x=>[x.id,x]));"
+        "const cats=(c.UI&&c.UI.en&&c.UI.en.deliverableCategories)||[];"
+        "const projMap={'astra':'agritech-iot-cattle','tooling-pt':'tooling-pt','data-insights':'data-insights-pt','relevance-model':'cip-research-gate','ux-maturity':'maturity-l4','personal-apps':'personal-web-apps'};"
+        "const items=enItems.map(x=>{"
+        "const pt=ptById[x.id]||{};"
+        "const base=Array.isArray(x.media)?x.media:[];"
+        "const extra=pm[x.id]||[];"
+        "const seen=new Set(base.map(m=>m.src));"
+        "const media=[...base];"
+        "for(const m of extra){if(m&&m.src&&!seen.has(m.src)){seen.add(m.src);media.push(m);}}"
+        "return {"
+        "id:x.id,category:x.category||'',icon:x.icon||'',"
+        "project_id:projMap[x.id]||'',"
+        "title_en:x.title||'',title_pt:pt.title||x.title||'',"
+        "short_en:x.short||'',short_pt:pt.short||'',"
+        "full_en:x.full||'',full_pt:pt.full||'',"
+        "media"
+        "};"
+        "});"
+        "console.log(JSON.stringify({categories:cats,items}));"
+    )
+    proc = subprocess.run(
+        ["node", "-e", node_script, str(lang_js), str(proj_js)],
+        capture_output=True,
+        text=True,
+        timeout=10,
+    )
+    if proc.returncode == 0 and proc.stdout.strip():
+        return json.loads(proc.stdout)
+    return {"categories": [], "items": []}
+
+
 def write_ai_fix_document(kind: str, content: str) -> dict[str, Any]:
     """Write an AI-companion fix note to the user's Desktop."""
     text = str(content or "").strip()
@@ -957,6 +1006,7 @@ class CareerHandler(BaseHTTPRequestHandler):
                     {
                         "ok": True,
                         "deliverables": self.store.load_deliverables_data(),
+                        "deliverableCatalog": load_deliverables_catalog(PICTURES_DIR.parent),
                         "resumeSettings": load_resume_settings(),
                         "priorityIndex": resume_priority_index(),
                     },
@@ -1196,6 +1246,7 @@ class CareerHandler(BaseHTTPRequestHandler):
                         "saved": save_res,
                         "regeneration": regen_res,
                         "deliverables": self.store.load_deliverables_data(),
+                        "deliverableCatalog": load_deliverables_catalog(PICTURES_DIR.parent),
                         "resumeSettings": load_resume_settings(),
                         "downloads": list_downloads(),
                         "priority": resume_priority_index(),
@@ -1663,6 +1714,8 @@ class CareerHandler(BaseHTTPRequestHandler):
             inner = "index.html"
         elif rel.startswith("portfolio/"):
             inner = rel[len("portfolio/") :] or "index.html"
+        elif rel.startswith("docs/"):
+            inner = rel[len("docs/") :] or "index.html"
         else:
             return None
         if ".." in inner.replace("\\", "/").split("/"):

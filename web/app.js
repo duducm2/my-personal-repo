@@ -2444,120 +2444,6 @@
 
     refreshAnonCatalog().then(drawList);
     container.append(sec);
-
-    // Project Fantasy Names (Public Anonymized Titles)
-    const projRows = (data && Array.isArray(data.projects)) ? data.projects : [];
-    if (projRows.length > 0) {
-      const fanSec = document.createElement("details");
-      fanSec.className = "deliverable-section-card";
-      fanSec.style.marginBottom = "16px";
-      const fanSum = document.createElement("summary");
-      fanSum.style.cssText = "cursor:pointer; font-weight:600; font-size:13px; padding:4px 0;";
-      fanSum.textContent = "🏷️ Project Fantasy Names (Public Titles — Original Names Preserved)";
-      fanSec.append(fanSum);
-
-      const fanHint = document.createElement("p");
-      fanHint.style.cssText = "font-size:12px; color:var(--muted); margin:6px 0 10px;";
-      fanHint.textContent = "Portfolios show the Fantasy Name first when set, falling back to the original name if blank. Original names stay saved here for your reference.";
-      fanSec.append(fanHint);
-
-      const fanList = document.createElement("div");
-      fanList.style.cssText = "display:flex; flex-direction:column; gap:8px;";
-      projRows.forEach((p) => {
-        const card = document.createElement("div");
-        card.style.cssText = "padding:8px 10px; border:1px solid var(--line); border-radius:6px; background:#141417;";
-        const orig = document.createElement("div");
-        orig.style.cssText = "font-size:11px; color:var(--muted); margin-bottom:6px;";
-        orig.textContent = `Original: ${p.name_en || p.name_pt || p.id}${p.name_pt && p.name_pt !== p.name_en ? ` / ${p.name_pt}` : ""}`;
-        const rowInputs = document.createElement("div");
-        rowInputs.style.cssText = "display:grid; grid-template-columns:1fr 1fr; gap:8px;";
-
-        const mkInput = (key, placeholder) => {
-          const inp = document.createElement("input");
-          inp.type = "text";
-          inp.value = p[key] || "";
-          inp.placeholder = placeholder;
-          inp.style.cssText = "width:100%; padding:5px 8px; border-radius:4px; border:1px solid var(--line); background:#09090b; color:var(--ink); font-size:12px;";
-          inp.oninput = () => {
-            p[key] = inp.value;
-            markDeliverableDirty();
-          };
-          return inp;
-        };
-
-        rowInputs.append(
-          mkInput("fantasy_name_en", "Fantasy Name (EN) — optional"),
-          mkInput("fantasy_name_pt", "Nome Fantasia (PT) — opcional")
-        );
-        card.append(orig, rowInputs);
-        fanList.append(card);
-      });
-      fanSec.append(fanList);
-      container.append(fanSec);
-    }
-
-    // Deliverable Cover Image Selector (Up Front)
-    const covSec = document.createElement("details");
-    covSec.className = "deliverable-section-card";
-    covSec.style.marginBottom = "16px";
-    const covSum = document.createElement("summary");
-    covSum.style.cssText = "cursor:pointer; font-weight:600; font-size:13px; padding:4px 0;";
-    covSum.textContent = "★ Deliverable Cover Images (Choose Front Image for Multi-Image Blocks)";
-    covSec.append(covSum);
-
-    const covWrap = document.createElement("div");
-    covWrap.style.cssText = "display:flex; flex-direction:column; gap:10px; margin-top:10px;";
-    covSec.append(covWrap);
-
-    fetch("/api/deliverables/covers")
-      .then((r) => r.json())
-      .then((res) => {
-        if (!res.ok || !Array.isArray(res.deliverables)) return;
-        const covers = Object.assign({}, res.covers || {});
-        const renderCovers = () => {
-          covWrap.replaceChildren();
-          res.deliverables.forEach((d) => {
-            const row = document.createElement("div");
-            row.style.cssText = "padding:8px; border:1px solid var(--line); border-radius:6px; background:#141417;";
-            const title = document.createElement("div");
-            title.style.cssText = "font-size:12px; font-weight:600; margin-bottom:6px;";
-            title.textContent = d.title;
-            const strip = document.createElement("div");
-            strip.style.cssText = "display:flex; flex-wrap:wrap; gap:8px;";
-            const currentCover = covers[d.id] || d.media[0].src;
-            d.media.forEach((m) => {
-              const isCov = m.src === currentCover;
-              const btn = document.createElement("button");
-              btn.type = "button";
-              btn.style.cssText = `display:flex; flex-direction:column; align-items:center; width:108px; padding:4px; border-radius:5px; cursor:pointer; background:#09090b; border:2px solid ${isCov ? "#f59e0b" : "var(--line)"};`;
-              const im = document.createElement("img");
-              im.src = `/${m.src.replace(/^\.\.\//, "portfolio/")}`;
-              im.style.cssText = "width:100%; height:56px; object-fit:contain; background:#14110e; border-radius:3px;";
-              const lbl = document.createElement("span");
-              lbl.style.cssText = `font-size:10px; margin-top:3px; color:${isCov ? "#fbbf24" : "var(--muted)"}; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:100%;`;
-              lbl.textContent = isCov ? "★ Cover" : "Set front";
-              btn.title = m.caption || m.src;
-              btn.onclick = async () => {
-                covers[d.id] = m.src;
-                renderCovers();
-                await fetch("/api/deliverables/covers", {
-                  method: "POST",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify({ covers }),
-                });
-              };
-              btn.append(im, lbl);
-              strip.append(btn);
-            });
-            row.append(title, strip);
-            covWrap.append(row);
-          });
-        };
-        renderCovers();
-      })
-      .catch(() => {});
-
-    container.append(covSec);
   }
 
   function renderPortfolioTab(container, variant, data) {
@@ -2579,9 +2465,7 @@
       { id: "slide-2", name: "02 · Foundations" },
       { id: "slide-5", name: "03 · Bosch, Place by Place" },
       { id: "slide-15", name: "03 · Future & Method" },
-      { id: "slide-4", name: "04 · Deliverable: PulseGate (CIP)" },
-      { id: "slide-16", name: "04 · Deliverable: ForgeFlow (Tooling)" },
-      { id: "slide-16b", name: "04 · Deliverable: HerdSense (Astra)" },
+      { id: "chapter-deliverables", name: "04 · Deliverables" },
       { id: "slide-18", name: "05 · Research & Visualization" },
       { id: "slide-closing", name: "07 · Contact & Closing" },
     ];
@@ -2640,29 +2524,11 @@
     );
     container.append(card1);
 
-    // --- Slide 2: Who I Am ---
-    const card2 = createSlideCard("slide-2", "02 · Foundations", "Who I Am & Academic Positioning");
-    const whoRole = getNarrative("who_role", "Who Slide - Role");
-    card2.append(
-      createBilingualInputRow("Primary Role & Title", whoRole.text_en, whoRole.text_pt, (en, pt) => {
-        whoRole.text_en = en;
-        whoRole.text_pt = pt;
-      })
-    );
-    const whoImpact = getNarrative("who_impact", "Who Slide - Impact Statement");
-    card2.append(
-      createBilingualInputRow("Strategic Impact Statement", whoImpact.text_en, whoImpact.text_pt, (en, pt) => {
-        whoImpact.text_en = en;
-        whoImpact.text_pt = pt;
-      }, { tall: true })
-    );
-    container.append(card2);
-
-    // --- Slide 3: Why This Role ---
+    // --- 01 · Why This Work ---
     const card3 = createSlideCard("slide-3", "01 · Why This Work", "Why This Role & Strategic Value");
     const whyH1 = getNarrative("why_h1", "Why Slide - Heading");
     card3.append(
-      createBilingualInputRow("Slide Title (H1)", whyH1.text_en, whyH1.text_pt, (en, pt) => {
+      createBilingualInputRow("Section Title (H1)", whyH1.text_en, whyH1.text_pt, (en, pt) => {
         whyH1.text_en = en;
         whyH1.text_pt = pt;
       })
@@ -2688,43 +2554,25 @@
     );
     container.append(card3);
 
-    // --- Slide 4–6b: CIP Pipeline, Relevance, CSI & UX Artifacts ---
-    const card4 = createSlideCard("slide-4", "04 · Deliverable", "Project PulseGate (CIP Cases, Research Gate & UX Artifacts)");
-    const cipPipeH2 = getNarrative("cip_pipeline_h2", "CIP Pipeline Heading");
-    card4.append(
-      createBilingualInputRow("CIP Pipeline Heading", cipPipeH2.text_en, cipPipeH2.text_pt, (en, pt) => {
-        cipPipeH2.text_en = en;
-        cipPipeH2.text_pt = pt;
+    // --- 02 · Academic Foundations ---
+    const card2 = createSlideCard("slide-2", "02 · Foundations", "Who I Am & Academic Positioning");
+    const whoRole = getNarrative("who_role", "Who Slide - Role");
+    card2.append(
+      createBilingualInputRow("Primary Role & Title", whoRole.text_en, whoRole.text_pt, (en, pt) => {
+        whoRole.text_en = en;
+        whoRole.text_pt = pt;
       })
     );
-    const relH2 = getNarrative("relevance_h2", "Relevance Heading");
-    card4.append(
-      createBilingualInputRow("Relevance Heading", relH2.text_en, relH2.text_pt, (en, pt) => {
-        relH2.text_en = en;
-        relH2.text_pt = pt;
-      })
+    const whoImpact = getNarrative("who_impact", "Who Slide - Impact Statement");
+    card2.append(
+      createBilingualInputRow("Strategic Impact Statement", whoImpact.text_en, whoImpact.text_pt, (en, pt) => {
+        whoImpact.text_en = en;
+        whoImpact.text_pt = pt;
+      }, { tall: true })
     );
-    const csiH2 = getNarrative("csi_h2", "CSI Heading");
-    card4.append(
-      createBilingualInputRow("CSI & Quantitative Rigor Heading", csiH2.text_en, csiH2.text_pt, (en, pt) => {
-        csiH2.text_en = en;
-        csiH2.text_pt = pt;
-      })
-    );
+    container.append(card2);
 
-    // Embedded CIP Media Editor
-    card4.append(
-      createProjectMediaEditor(
-        "cip-research-gate",
-        "Slide 6b: CIP UX Artifacts & Report Visuals",
-        images,
-        [{ value: "artifact", label: "UX Artifact Report" }],
-        "artifact"
-      )
-    );
-    container.append(card4);
-
-    // --- Slide 5–6: Present Achievements ---
+    // --- 03 · Bosch, Place by Place (Present Achievements) ---
     const card5 = createSlideCard("slide-5", "03 · Bosch, Place by Place", "Present Key Achievements");
     const presentH2 = getNarrative("present_h2", "Present Slide - Heading");
     card5.append(
@@ -2793,68 +2641,386 @@
     card15.append(diagCard);
     container.append(card15);
 
-    // --- Slide 16: Past – Tooling PT ---
-    const card16 = createSlideCard("slide-16", "04 · Deliverable", "Project ForgeFlow (Tooling PT)");
-    const toolingH2 = getNarrative("tooling_h2", "Tooling PT Heading");
-    card16.append(
-      createBilingualInputRow("Tooling PT Heading", toolingH2.text_en, toolingH2.text_pt, (en, pt) => {
-        toolingH2.text_en = en;
-        toolingH2.text_pt = pt;
-      })
+    // --- 04 · Deliverables (Unified Deliverables Manager) ---
+    const card04 = createSlideCard(
+      "chapter-deliverables",
+      "04 · Deliverables",
+      "All Portfolio Deliverables (Fantasy Names, Copy, Covers & Attached Images)"
     );
-    const toolingBullet = getNarrative("tooling_bullet", "Tooling PT Bullet");
-    card16.append(
-      createBilingualInputRow("Tooling Project Narrative", toolingBullet.text_en, toolingBullet.text_pt, (en, pt) => {
-        toolingBullet.text_en = en;
-        toolingBullet.text_pt = pt;
-      }, { tall: true })
-    );
-    // Embedded Tooling PT Media
-    card16.append(
-      createProjectMediaEditor(
-        "tooling-pt",
-        "Slide 16: Tooling PT Prototypes & Workshop Photos",
-        images,
-        [
+    const catalog = deliverablesCache?.deliverableCatalog || { categories: [], items: [] };
+    const catalogItems = Array.isArray(catalog.items) ? catalog.items : [];
+    const catalogCats = Array.isArray(catalog.categories) ? catalog.categories : [];
+    const projRows = Array.isArray(data.projects) ? data.projects : [];
+    if (!data.deliverablesOverrides || typeof data.deliverablesOverrides !== "object") {
+      data.deliverablesOverrides = {};
+    }
+    if (!data.deliverableCovers || typeof data.deliverableCovers !== "object") {
+      data.deliverableCovers = {};
+    }
+    const overrides = data.deliverablesOverrides;
+    const covers = data.deliverableCovers;
+
+    const filterBar = document.createElement("div");
+    filterBar.style.cssText = "display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin-bottom:12px;";
+    const searchInp = document.createElement("input");
+    searchInp.type = "search";
+    searchInp.placeholder = "Search deliverables (e.g. UX Super, Astra, X-Tower)...";
+    searchInp.style.cssText = "flex:1 1 220px; padding:6px 10px; border-radius:6px; border:1px solid var(--line); background:#09090b; color:var(--ink); font-size:12px;";
+    filterBar.append(searchInp);
+
+    let activeCat = "all";
+    const catBtns = [];
+    const mkCatBtn = (id, label) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "quicknav-pill";
+      b.textContent = label;
+      b.onclick = () => {
+        activeCat = id;
+        catBtns.forEach((btn) => {
+          btn.style.borderColor = btn === b ? "var(--gold)" : "";
+          btn.style.color = btn === b ? "var(--gold)" : "";
+        });
+        renderDeliverableCards();
+      };
+      catBtns.push(b);
+      filterBar.append(b);
+      return b;
+    };
+    const allBtn = mkCatBtn("all", `All (${catalogItems.length})`);
+    allBtn.style.borderColor = "var(--gold)";
+    allBtn.style.color = "var(--gold)";
+    catalogCats.forEach((c) => mkCatBtn(c.id, c.title));
+    card04.append(filterBar);
+
+    const delivListWrap = document.createElement("div");
+    delivListWrap.style.cssText = "display:flex; flex-direction:column; gap:10px;";
+    card04.append(delivListWrap);
+
+    const projMediaConfigs = {
+      "cip-research-gate": {
+        label: "CIP UX Artifacts & Report Visuals",
+        cats: [{ value: "artifact", label: "UX Artifact Report" }],
+        def: "artifact",
+      },
+      "tooling-pt": {
+        label: "Tooling PT Prototypes & Workshop Photos",
+        cats: [
           { value: "prototype", label: "Prototype Row (Wireframes/Figma)" },
           { value: "workshop", label: "Workshop Row (Co-design/Reviews)" },
         ],
-        "prototype"
-      )
-    );
-    container.append(card16);
-
-    // --- Slide 16b: Past – AgriTech IoT (Astra) ---
-    const card16b = createSlideCard("slide-16b", "04 · Deliverable", "Project HerdSense (Astra AgriTech IoT & Cattle Telemetry)");
-    const astraH2 = getNarrative("astra_h2", "Astra Heading");
-    card16b.append(
-      createBilingualInputRow("Astra Project Heading", astraH2.text_en, astraH2.text_pt, (en, pt) => {
-        astraH2.text_en = en;
-        astraH2.text_pt = pt;
-      })
-    );
-    const astraBullet = getNarrative("astra_bullet", "Astra Bullet");
-    card16b.append(
-      createBilingualInputRow("Astra Fieldwork & Telemetry Narrative", astraBullet.text_en, astraBullet.text_pt, (en, pt) => {
-        astraBullet.text_en = en;
-        astraBullet.text_pt = pt;
-      }, { tall: true })
-    );
-    // Embedded Astra Media
-    card16b.append(
-      createProjectMediaEditor(
-        "agritech-iot-cattle",
-        "Slide 16b: Astra Fieldwork & Telemetry Photos",
-        images,
-        [
+        def: "prototype",
+      },
+      "agritech-iot-cattle": {
+        label: "Astra Fieldwork & Telemetry Photos",
+        cats: [
           { value: "fieldwork", label: "Fazenda Sindi Fieldwork" },
           { value: "telemetry", label: "IoT Telemetry Hardware" },
           { value: "report", label: "Research Report & Deliverables" },
         ],
-        "fieldwork"
-      )
-    );
-    container.append(card16b);
+        def: "fieldwork",
+      },
+    };
+
+    const renderDeliverableCards = () => {
+      delivListWrap.replaceChildren();
+      const q = (searchInp.value || "").trim().toLowerCase();
+      const filtered = catalogItems.filter((d) => {
+        const curCat = (overrides[d.id]?.category) || d.category;
+        if (activeCat !== "all" && curCat !== activeCat) return false;
+        if (!q) return true;
+        const proj = d.project_id ? projRows.find((p) => p.id === d.project_id) : null;
+        const hay = [
+          d.id,
+          d.title_en,
+          d.title_pt,
+          d.short_en,
+          proj?.name_en,
+          proj?.fantasy_name_en,
+          overrides[d.id]?.fantasy_name_en,
+        ].filter(Boolean).join(" ").toLowerCase();
+        return hay.includes(q);
+      });
+
+      if (filtered.length === 0) {
+        const empty = document.createElement("p");
+        empty.style.cssText = "font-size:12px; color:var(--muted); margin:8px 0;";
+        empty.textContent = "No deliverables match this filter.";
+        delivListWrap.append(empty);
+        return;
+      }
+
+      filtered.forEach((d) => {
+        const proj = d.project_id ? projRows.find((p) => p.id === d.project_id) : null;
+        const ov = overrides[d.id] || {};
+        const ensureOv = () => {
+          if (!overrides[d.id]) overrides[d.id] = {};
+          return overrides[d.id];
+        };
+
+        const det = document.createElement("details");
+        det.className = "deliverable-section-card";
+        det.style.marginBottom = "0";
+
+        const sum = document.createElement("summary");
+        sum.style.cssText = "cursor:pointer; display:flex; align-items:center; gap:10px; padding:4px 0; list-style:none;";
+
+        const mediaList = Array.isArray(d.media) ? d.media : [];
+        const currentCover = covers[d.id] || (mediaList[0] && mediaList[0].src) || "";
+
+        const sumThumb = document.createElement("img");
+        if (currentCover) {
+          sumThumb.src = `/${currentCover.replace(/^\.\.\//, "portfolio/")}`;
+          sumThumb.style.cssText = "width:44px; height:32px; object-fit:contain; background:#14110e; border:1px solid var(--line); border-radius:4px; flex-shrink:0;";
+        } else {
+          sumThumb.style.display = "none";
+        }
+
+        const displayTitle = (proj?.fantasy_name_en || ov.fantasy_name_en || d.title_en || d.id).trim();
+        const sumTitle = document.createElement("span");
+        sumTitle.style.cssText = "font-weight:600; font-size:13px; flex:1 1 auto;";
+        sumTitle.textContent = displayTitle;
+
+        const sumMeta = document.createElement("span");
+        sumMeta.style.cssText = "font-size:11px; color:var(--muted); display:inline-flex; gap:8px; align-items:center;";
+        const catObj = catalogCats.find((c) => c.id === (ov.category || d.category));
+        sumMeta.textContent = `${catObj ? catObj.title : (ov.category || d.category)} · ${mediaList.length} img${mediaList.length === 1 ? "" : "s"}`;
+
+        sum.append(sumThumb, sumTitle, sumMeta);
+        det.append(sum);
+
+        const body = document.createElement("div");
+        body.style.cssText = "display:flex; flex-direction:column; gap:10px; margin-top:10px; padding-top:10px; border-top:1px solid var(--line);";
+
+        if (proj) {
+          const origNotice = document.createElement("div");
+          origNotice.style.cssText = "font-size:11px; color:var(--muted); padding:6px 8px; border-radius:4px; background:#09090b; border:1px solid var(--line);";
+          origNotice.textContent = `Original Name (preserved): ${proj.name_en || proj.name_pt || proj.id}${proj.name_pt && proj.name_pt !== proj.name_en ? ` / ${proj.name_pt}` : ""}`;
+          body.append(origNotice);
+        }
+
+        // Fantasy Name EN / PT + Category
+        const metaGrid = document.createElement("div");
+        metaGrid.style.cssText = "display:grid; grid-template-columns:1fr 1fr 180px; gap:8px;";
+        const mkFantasyInp = (langKey, placeholder) => {
+          const wrap = document.createElement("label");
+          wrap.style.cssText = "display:flex; flex-direction:column; gap:3px; font-size:11px; color:var(--muted);";
+          wrap.textContent = langKey === "en" ? "Fantasy Name (EN)" : "Nome Fantasia (PT)";
+          const inp = document.createElement("input");
+          inp.type = "text";
+          inp.value = (proj && proj[`fantasy_name_${langKey}`]) || ov[`fantasy_name_${langKey}`] || "";
+          inp.placeholder = placeholder;
+          inp.style.cssText = "padding:6px 8px; border-radius:4px; border:1px solid var(--line); background:#09090b; color:var(--ink); font-size:12px;";
+          inp.oninput = () => {
+            ensureOv()[`fantasy_name_${langKey}`] = inp.value;
+            if (proj) proj[`fantasy_name_${langKey}`] = inp.value;
+            if (langKey === "en") sumTitle.textContent = inp.value.trim() || d.title_en || d.id;
+            markDeliverableDirty();
+          };
+          wrap.append(inp);
+          return wrap;
+        };
+        const catWrap = document.createElement("label");
+        catWrap.style.cssText = "display:flex; flex-direction:column; gap:3px; font-size:11px; color:var(--muted);";
+        catWrap.textContent = "Category";
+        const catSel = document.createElement("select");
+        catSel.style.cssText = "padding:6px 8px; border-radius:4px; border:1px solid var(--line); background:#09090b; color:var(--ink); font-size:12px;";
+        catalogCats.forEach((c) => {
+          const opt = document.createElement("option");
+          opt.value = c.id;
+          opt.textContent = c.title;
+          if (c.id === (ov.category || d.category)) opt.selected = true;
+          catSel.append(opt);
+        });
+        catSel.onchange = () => {
+          ensureOv().category = catSel.value;
+          markDeliverableDirty();
+        };
+        catWrap.append(catSel);
+        metaGrid.append(
+          mkFantasyInp("en", `Default: ${d.title_en}`),
+          mkFantasyInp("pt", `Padrão: ${d.title_pt}`),
+          catWrap
+        );
+        body.append(metaGrid);
+
+        // Short Summary & Full Description (EN / PT)
+        body.append(
+          createBilingualInputRow(
+            "Short Card Summary",
+            ov.short_en !== undefined ? ov.short_en : d.short_en,
+            ov.short_pt !== undefined ? ov.short_pt : d.short_pt,
+            (en, pt) => {
+              const target = ensureOv();
+              target.short_en = en;
+              target.short_pt = pt;
+            }
+          ),
+          createBilingualInputRow(
+            "Full Modal Description",
+            ov.full_en !== undefined ? ov.full_en : d.full_en,
+            ov.full_pt !== undefined ? ov.full_pt : d.full_pt,
+            (en, pt) => {
+              const target = ensureOv();
+              target.full_en = en;
+              target.full_pt = pt;
+            },
+            { tall: true }
+          )
+        );
+
+        // Attached Images Strip (with ★ Cover & 🛡️ Anonymize)
+        if (mediaList.length > 0) {
+          const imgBox = document.createElement("div");
+          imgBox.style.cssText = "padding:8px; border:1px solid var(--line); border-radius:6px; background:#09090b;";
+          const imgHdr = document.createElement("div");
+          imgHdr.style.cssText = "font-size:11px; font-weight:600; color:var(--muted); margin-bottom:8px;";
+          imgHdr.textContent = `Attached Images (${mediaList.length}) — Choose Front Cover & Anonymize`;
+          imgBox.append(imgHdr);
+
+          const strip = document.createElement("div");
+          strip.style.cssText = "display:flex; flex-wrap:wrap; gap:10px;";
+          const renderStrip = () => {
+            strip.replaceChildren();
+            const curCov = covers[d.id] || mediaList[0].src;
+            mediaList.forEach((m) => {
+              const isCov = m.src === curCov;
+              const tile = document.createElement("div");
+              tile.style.cssText = `width:148px; padding:6px; border-radius:6px; background:#141417; border:2px solid ${isCov ? "#f59e0b" : "var(--line)"}; display:flex; flex-direction:column; gap:5px;`;
+              const im = document.createElement("img");
+              im.src = `/${m.src.replace(/^\.\.\//, "portfolio/")}`;
+              im.alt = m.caption || m.alt || d.title_en;
+              im.style.cssText = "width:100%; height:78px; object-fit:contain; background:#09090b; border-radius:4px; cursor:pointer;";
+              im.onclick = () => openImageLightbox(im.src, m.caption || d.title_en);
+
+              const cap = document.createElement("div");
+              cap.style.cssText = "font-size:10px; color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;";
+              cap.title = m.caption || m.src;
+              cap.textContent = m.caption || m.src.split("/").pop();
+
+              const btnRow = document.createElement("div");
+              btnRow.style.cssText = "display:flex; gap:4px; align-items:center;";
+              const covBtn = document.createElement("button");
+              covBtn.type = "button";
+              covBtn.className = "media-btn-small";
+              covBtn.style.cssText = `flex:1; font-size:10px; ${isCov ? "color:#fbbf24; border-color:#f59e0b;" : ""}`;
+              covBtn.textContent = isCov ? "★ Cover" : "★ Set front";
+              covBtn.onclick = async () => {
+                covers[d.id] = m.src;
+                sumThumb.src = `/${m.src.replace(/^\.\.\//, "portfolio/")}`;
+                renderStrip();
+                markDeliverableDirty();
+                try {
+                  await fetch("/api/deliverables/covers", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ covers }),
+                  });
+                } catch {
+                  /* ignore */
+                }
+              };
+              btnRow.append(covBtn);
+
+              const relGuess = m.src.replace(/^\.\.\//, "docs/");
+              const anonEntry = (window.__anonCatalogByPath || {})[relGuess];
+              if (anonEntry) {
+                const anBtn = document.createElement("button");
+                anBtn.type = "button";
+                anBtn.className = "media-btn-small";
+                anBtn.style.fontSize = "10px";
+                anBtn.title = "Anonymize this image";
+                anBtn.textContent = "🛡️";
+                anBtn.onclick = () => {
+                  if (typeof window.openAnonymizeStudio === "function") {
+                    window.openAnonymizeStudio({
+                      path: anonEntry.path,
+                      label: anonEntry.label,
+                      existingRecipe: anonEntry.recipe || null,
+                      onConfirmed: () => refreshAnonCatalog(),
+                    });
+                  }
+                };
+                btnRow.append(anBtn);
+              }
+              tile.append(im, cap, btnRow);
+              strip.append(tile);
+            });
+          };
+          renderStrip();
+          imgBox.append(strip);
+          body.append(imgBox);
+        }
+
+        // Deck narrative fields for deliverables that also have PDF slide narratives
+        if (d.id === "relevance-model") {
+          const cipPipeH2 = getNarrative("cip_pipeline_h2", "CIP Pipeline Heading");
+          const relH2 = getNarrative("relevance_h2", "Relevance Heading");
+          const csiH2 = getNarrative("csi_h2", "CSI Heading");
+          body.append(
+            createBilingualInputRow("PDF Deck — CIP Pipeline Heading", cipPipeH2.text_en, cipPipeH2.text_pt, (en, pt) => {
+              cipPipeH2.text_en = en;
+              cipPipeH2.text_pt = pt;
+            }),
+            createBilingualInputRow("PDF Deck — Relevance Heading", relH2.text_en, relH2.text_pt, (en, pt) => {
+              relH2.text_en = en;
+              relH2.text_pt = pt;
+            }),
+            createBilingualInputRow("PDF Deck — CSI & Quantitative Rigor Heading", csiH2.text_en, csiH2.text_pt, (en, pt) => {
+              csiH2.text_en = en;
+              csiH2.text_pt = pt;
+            })
+          );
+        } else if (d.id === "tooling-pt") {
+          const toolingH2 = getNarrative("tooling_h2", "Tooling PT Heading");
+          const toolingBullet = getNarrative("tooling_bullet", "Tooling PT Bullet");
+          body.append(
+            createBilingualInputRow("PDF Deck — Tooling Heading", toolingH2.text_en, toolingH2.text_pt, (en, pt) => {
+              toolingH2.text_en = en;
+              toolingH2.text_pt = pt;
+            }),
+            createBilingualInputRow("PDF Deck — Tooling Narrative", toolingBullet.text_en, toolingBullet.text_pt, (en, pt) => {
+              toolingBullet.text_en = en;
+              toolingBullet.text_pt = pt;
+            }, { tall: true })
+          );
+        } else if (d.id === "astra") {
+          const astraH2 = getNarrative("astra_h2", "Astra Heading");
+          const astraBullet = getNarrative("astra_bullet", "Astra Bullet");
+          body.append(
+            createBilingualInputRow("PDF Deck — Astra Heading", astraH2.text_en, astraH2.text_pt, (en, pt) => {
+              astraH2.text_en = en;
+              astraH2.text_pt = pt;
+            }),
+            createBilingualInputRow("PDF Deck — Astra Fieldwork Narrative", astraBullet.text_en, astraBullet.text_pt, (en, pt) => {
+              astraBullet.text_en = en;
+              astraBullet.text_pt = pt;
+            }, { tall: true })
+          );
+        }
+
+        // Canonical portfolio_images.csv manager when linked
+        if (d.project_id && projMediaConfigs[d.project_id]) {
+          const cfg = projMediaConfigs[d.project_id];
+          body.append(
+            createProjectMediaEditor(
+              d.project_id,
+              `${cfg.label} (Add / Toggle / Reorder)`,
+              images,
+              cfg.cats,
+              cfg.def
+            )
+          );
+        }
+
+        det.append(body);
+        delivListWrap.append(det);
+      });
+    };
+
+    searchInp.oninput = renderDeliverableCards;
+    renderDeliverableCards();
+    container.append(card04);
 
     // --- Slide 18–20: Master's Dissertation & InfoVis ---
     const card18 = createSlideCard("slide-18", "05 · Research & Visualization", "Master's Dissertation & Information Visualization");

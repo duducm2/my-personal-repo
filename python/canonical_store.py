@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import csv
+import json
 import shutil
 import tempfile
 import time
@@ -458,7 +459,27 @@ class CanonicalStore:
             "resumeSettings": self._read_csv_raw("resume_settings.csv"),
             "portfolioImages": self._read_csv_raw("portfolio_images.csv"),
             "projects": self._read_csv_raw("projects.csv"),
+            "deliverablesOverrides": self._read_json_dict("deliverables_overrides.json"),
+            "deliverableCovers": self._read_json_dict("deliverable_covers.json"),
         }
+
+    def _read_json_dict(self, filename: str) -> dict[str, Any]:
+        path = self.canonical_dir / filename
+        if not path.is_file():
+            return {}
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+            return data if isinstance(data, dict) else {}
+        except (OSError, json.JSONDecodeError):
+            return {}
+
+    def _write_json_dict(self, filename: str, payload: dict[str, Any]) -> None:
+        path = self.canonical_dir / filename
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(
+            json.dumps(payload, indent=2, ensure_ascii=False),
+            encoding="utf-8",
+        )
 
     def save_deliverables_data(self, data: dict[str, Any]) -> dict[str, Any]:
         """Save structured resume/portfolio data while preserving markdown formatting."""
@@ -485,6 +506,13 @@ class CanonicalStore:
                 rows = data[key]
                 self._write_csv_raw(filename, rows)
                 saved_counts[key] = len(rows)
+
+        if isinstance(data.get("deliverablesOverrides"), dict):
+            self._write_json_dict("deliverables_overrides.json", data["deliverablesOverrides"])
+            saved_counts["deliverablesOverrides"] = len(data["deliverablesOverrides"])
+        if isinstance(data.get("deliverableCovers"), dict):
+            self._write_json_dict("deliverable_covers.json", data["deliverableCovers"])
+            saved_counts["deliverableCovers"] = len(data["deliverableCovers"])
 
         return {"ok": True, "counts": saved_counts}
 

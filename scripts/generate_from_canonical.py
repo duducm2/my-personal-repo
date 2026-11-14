@@ -996,13 +996,47 @@ def write_project_media() -> None:
         if f_pt:
             titles_pt[deliv_id] = f_pt
 
+    overrides_file = CANON / "deliverables_overrides.json"
+    overrides_en: dict[str, dict[str, str]] = {}
+    overrides_pt: dict[str, dict[str, str]] = {}
+    if overrides_file.is_file():
+        try:
+            raw_ov = json.loads(overrides_file.read_text(encoding="utf-8"))
+            if isinstance(raw_ov, dict):
+                for d_id, ov in raw_ov.items():
+                    if not isinstance(ov, dict):
+                        continue
+                    f_en = (ov.get("fantasy_name_en") or "").strip()
+                    f_pt = (ov.get("fantasy_name_pt") or "").strip()
+                    if f_en:
+                        titles_en[d_id] = f_en
+                    if f_pt:
+                        titles_pt[d_id] = f_pt
+                    en_entry: dict[str, str] = {}
+                    pt_entry: dict[str, str] = {}
+                    for k in ("short", "full", "category"):
+                        v_en = (ov.get(f"{k}_en") or ov.get(k) or "").strip()
+                        v_pt = (ov.get(f"{k}_pt") or ov.get(k) or "").strip()
+                        if v_en:
+                            en_entry[k] = v_en
+                        if v_pt:
+                            pt_entry[k] = v_pt
+                    if en_entry:
+                        overrides_en[d_id] = en_entry
+                    if pt_entry:
+                        overrides_pt[d_id] = pt_entry
+        except (OSError, json.JSONDecodeError):
+            pass
+
     out_js = docs_dir / "project-media.js"
     payload = {"en": out_en, "pt": out_pt}
     titles_payload = {"en": titles_en, "pt": titles_pt}
+    overrides_payload = {"en": overrides_en, "pt": overrides_pt}
     out_js.write_text(
-        "// GENERATED from my-data/canonical/portfolio_images.csv and projects.csv\n"
+        "// GENERATED from my-data/canonical/portfolio_images.csv, projects.csv, deliverables_overrides.json\n"
         f"window.PROJECT_MEDIA = {json.dumps(payload, indent=2, ensure_ascii=False)};\n"
-        f"window.PROJECT_TITLES = {json.dumps(titles_payload, indent=2, ensure_ascii=False)};\n",
+        f"window.PROJECT_TITLES = {json.dumps(titles_payload, indent=2, ensure_ascii=False)};\n"
+        f"window.DELIVERABLE_OVERRIDES = {json.dumps(overrides_payload, indent=2, ensure_ascii=False)};\n",
         encoding="utf-8",
     )
     print(f"wrote {out_js.relative_to(ROOT)} ({sum(len(v) for v in out_en.values())} items across {len(out_en)} deliverables)")

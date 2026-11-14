@@ -587,10 +587,24 @@ function createDeliverableCard(item) {
   return card;
 }
 
+function resolvedDeliverable(item) {
+  const ov =
+    (window.DELIVERABLE_OVERRIDES &&
+      window.DELIVERABLE_OVERRIDES[lang] &&
+      window.DELIVERABLE_OVERRIDES[lang][item.id]) ||
+    {};
+  return {
+    ...item,
+    ...ov,
+    title: deliverableTitle(item),
+  };
+}
+
 function renderDeliverables() {
   const root = document.getElementById("deliverables-grid");
   if (!root) return;
-  const items = UI[lang]?.deliverablesItems || [];
+  const rawItems = UI[lang]?.deliverablesItems || [];
+  const items = rawItems.map(resolvedDeliverable);
   const categories = UI[lang]?.deliverableCategories || [];
   root.replaceChildren();
 

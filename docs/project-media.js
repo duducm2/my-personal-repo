@@ -1,4 +1,4 @@
-// GENERATED from my-data/canonical/portfolio_images.csv and projects.csv
+// GENERATED from my-data/canonical/portfolio_images.csv, projects.csv, deliverables_overrides.json
 window.PROJECT_MEDIA = {
   "en": {
     "tooling-pt": [
@@ -314,4 +314,8 @@ window.PROJECT_TITLES = {
     "data-insights": "Projeto VoiceLens (Analytics de CX em Suporte)",
     "astra": "Projeto HerdSense — Pesquisa AgriTech IoT e Telemetria Bovina"
   }
+};
+window.DELIVERABLE_OVERRIDES = {
+  "en": {},
+  "pt": {}
 };
