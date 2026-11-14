@@ -1477,7 +1477,6 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 <tr><td>Piano</td></tr>
 <tr><td>Linguistics (phonology & phonetics)</td></tr>
 <tr><td>Physics (GR & Quantum)</td></tr>
-<tr><td>Acting</td></tr>
 <tr><td>Impressionist art</td></tr>
 <tr><td>Macro creation</td></tr>
 <tr><td>Specialized keyboards</td></tr>

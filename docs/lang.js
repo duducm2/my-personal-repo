@@ -325,6 +325,21 @@ const UI = {
         icon: "radar",
         media: [],
       },
+      {
+        id: "workspace-efficiency",
+        title: "Workspace setup for efficiency",
+        short:
+          "Ergonomic hardware, split keyboard macros, and tooling setup engineered for high efficiency.",
+        full:
+          "Custom workspace setup combining hardware, split keyboard macro workflows, and productivity tooling designed for sustained focus and high-throughput delivery.",
+        media: [
+          {
+            src: "../media/workspace-efficiency.jpg",
+            alt: "Workspace setup of tools and hardware for high efficiency",
+            caption: "Workspace setup for efficiency",
+          },
+        ],
+      },
     ],
     researchTitle: "Trust in AI and interfaces",
     research: [
@@ -354,14 +369,12 @@ const UI = {
       "Piano",
       "Linguistics",
       "Physics",
-      "Acting",
       "Impressionist art",
       "Macros and keyboards",
     ],
     interestCaps: [
       "Piano practice at home",
       "Split keyboard and macros",
-      "Workspace setup for efficiency",
     ],
     contactTitle: "Let's connect",
     contactLead:
@@ -807,6 +820,21 @@ const UI = {
         icon: "radar",
         media: [],
       },
+      {
+        id: "workspace-efficiency",
+        title: "Setup de trabalho e eficiência",
+        short:
+          "Setup de hardware, teclado dividido com macros e ferramentas voltado para alta eficiência.",
+        full:
+          "Ambiente de trabalho personalizado combinando hardware ergonômico, macros em teclado dividido e ferramentas de produtividade para foco contínuo e entregas de alta eficiência.",
+        media: [
+          {
+            src: "../media/workspace-efficiency.jpg",
+            alt: "Setup de ferramentas e hardware para alta eficiência no trabalho",
+            caption: "Setup de trabalho e eficiência",
+          },
+        ],
+      },
     ],
     researchTitle: "Confiança em IA e interfaces",
     research: [
@@ -836,14 +864,12 @@ const UI = {
       "Piano",
       "Linguística (fonologia e fonética)",
       "Física (relatividade e quântica)",
-      "Atuação",
       "Arte impressionista",
       "Criação de macros e teclados",
     ],
     interestCaps: [
       "Prática de piano em casa",
       "Teclado dividido e macros",
-      "Setup de trabalho e eficiência",
     ],
     contactTitle: "Vamos conversar",
     contactLead:

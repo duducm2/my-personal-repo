@@ -1511,7 +1511,6 @@ Quero me tornar Arquiteto de Soluções Digitais (Pleno) que desenha digitaliza�
 <tr><td>Piano</td></tr>
 <tr><td>Linguística (fonologia e fonética)</td></tr>
 <tr><td>Física (relatividade e quântica)</td></tr>
-<tr><td>Atuação</td></tr>
 <tr><td>Arte impressionista</td></tr>
 <tr><td>Criação de macros</td></tr>
 <tr><td>Teclados especializados</td></tr>
