@@ -2373,7 +2373,7 @@
     }
   }
 
-  function renderImagePrivacySection(container) {
+  function renderImagePrivacySection(container, data) {
     const sec = document.createElement("details");
     sec.className = "deliverable-section-card";
     sec.style.marginBottom = "16px";
@@ -2446,7 +2446,7 @@
     container.append(sec);
 
     // Project Fantasy Names (Public Anonymized Titles)
-    const projRows = Array.isArray(deliverablesData.projects) ? deliverablesData.projects : [];
+    const projRows = (data && Array.isArray(data.projects)) ? data.projects : [];
     if (projRows.length > 0) {
       const fanSec = document.createElement("details");
       fanSec.className = "deliverable-section-card";
@@ -2531,8 +2531,8 @@
               btn.type = "button";
               btn.style.cssText = `display:flex; flex-direction:column; align-items:center; width:108px; padding:4px; border-radius:5px; cursor:pointer; background:#09090b; border:2px solid ${isCov ? "#f59e0b" : "var(--line)"};`;
               const im = document.createElement("img");
-              im.src = `/${m.src.replace(/^\.\.\//, "docs/")}`;
-              im.style.cssText = "width:100%; height:56px; object-fit:cover; border-radius:3px;";
+              im.src = `/${m.src.replace(/^\.\.\//, "portfolio/")}`;
+              im.style.cssText = "width:100%; height:56px; object-fit:contain; background:#14110e; border-radius:3px;";
               const lbl = document.createElement("span");
               lbl.style.cssText = `font-size:10px; margin-top:3px; color:${isCov ? "#fbbf24" : "var(--muted)"}; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:100%;`;
               lbl.textContent = isCov ? "★ Cover" : "Set front";
@@ -2565,28 +2565,28 @@
     const images = data.portfolioImages || [];
     refreshAnonCatalog();
 
-    // Quick-jump navigation bar
+    // Quick-jump navigation bar (aligned with Web Portfolio Chapters & Deliverables)
     const quickNav = document.createElement("nav");
     quickNav.className = "deliverable-quicknav-bar";
     const navLabel = document.createElement("span");
     navLabel.className = "deliverable-quicknav-label";
-    navLabel.textContent = "Jump to Slide:";
+    navLabel.textContent = "Jump to Chapter:";
     quickNav.append(navLabel);
 
-    const slidesList = [
-      { id: "slide-1", name: "Slide 1 · Cover" },
-      { id: "slide-2", name: "Slide 2 · Who I Am" },
-      { id: "slide-3", name: "Slide 3 · Why This Role" },
-      { id: "slide-4", name: "Slide 4–6b · CIP & UX" },
-      { id: "slide-5", name: "Slide 5–6 · Present" },
-      { id: "slide-15", name: "Slide 15 · Future" },
-      { id: "slide-16", name: "Slide 16 · Tooling PT" },
-      { id: "slide-16b", name: "Slide 16b · Astra IoT" },
-      { id: "slide-18", name: "Slide 18–20 · Research & Vis" },
-      { id: "slide-closing", name: "Slide 27 · Closing" },
+    const chaptersList = [
+      { id: "slide-1", name: "Intro · Hero" },
+      { id: "slide-3", name: "01 · Why This Work" },
+      { id: "slide-2", name: "02 · Foundations" },
+      { id: "slide-5", name: "03 · Bosch, Place by Place" },
+      { id: "slide-15", name: "03 · Future & Method" },
+      { id: "slide-4", name: "04 · Deliverable: PulseGate (CIP)" },
+      { id: "slide-16", name: "04 · Deliverable: ForgeFlow (Tooling)" },
+      { id: "slide-16b", name: "04 · Deliverable: HerdSense (Astra)" },
+      { id: "slide-18", name: "05 · Research & Visualization" },
+      { id: "slide-closing", name: "07 · Contact & Closing" },
     ];
 
-    slidesList.forEach((s) => {
+    chaptersList.forEach((s) => {
       const pill = document.createElement("a");
       pill.className = "quicknav-pill";
       pill.textContent = s.name;
@@ -2600,7 +2600,7 @@
     });
 
     container.append(quickNav);
-    renderImagePrivacySection(container);
+    renderImagePrivacySection(container, data);
 
     const getNarrative = (key, defaultLabel) => {
       let row = narratives.find((r) => r.variant === variant && r.field === key);
@@ -2630,7 +2630,7 @@
     };
 
     // --- Slide 1: Cover ---
-    const card1 = createSlideCard("slide-1", "Slide 1", "Cover Slide");
+    const card1 = createSlideCard("slide-1", "Intro", "Hero & Role Positioning");
     const deckTitle = getNarrative("deck_title", "Deck Title");
     card1.append(
       createBilingualInputRow("Deck Title", deckTitle.text_en, deckTitle.text_pt, (en, pt) => {
@@ -2641,7 +2641,7 @@
     container.append(card1);
 
     // --- Slide 2: Who I Am ---
-    const card2 = createSlideCard("slide-2", "Slide 2", "Who I Am & Positioning");
+    const card2 = createSlideCard("slide-2", "02 · Foundations", "Who I Am & Academic Positioning");
     const whoRole = getNarrative("who_role", "Who Slide - Role");
     card2.append(
       createBilingualInputRow("Primary Role & Title", whoRole.text_en, whoRole.text_pt, (en, pt) => {
@@ -2659,7 +2659,7 @@
     container.append(card2);
 
     // --- Slide 3: Why This Role ---
-    const card3 = createSlideCard("slide-3", "Slide 3", "Why This Role & Strategic Value");
+    const card3 = createSlideCard("slide-3", "01 · Why This Work", "Why This Role & Strategic Value");
     const whyH1 = getNarrative("why_h1", "Why Slide - Heading");
     card3.append(
       createBilingualInputRow("Slide Title (H1)", whyH1.text_en, whyH1.text_pt, (en, pt) => {
@@ -2689,7 +2689,7 @@
     container.append(card3);
 
     // --- Slide 4–6b: CIP Pipeline, Relevance, CSI & UX Artifacts ---
-    const card4 = createSlideCard("slide-4", "Slides 4–6b", "CIP Cases, Research Gate & UX Artifacts");
+    const card4 = createSlideCard("slide-4", "04 · Deliverable", "Project PulseGate (CIP Cases, Research Gate & UX Artifacts)");
     const cipPipeH2 = getNarrative("cip_pipeline_h2", "CIP Pipeline Heading");
     card4.append(
       createBilingualInputRow("CIP Pipeline Heading", cipPipeH2.text_en, cipPipeH2.text_pt, (en, pt) => {
@@ -2725,7 +2725,7 @@
     container.append(card4);
 
     // --- Slide 5–6: Present Achievements ---
-    const card5 = createSlideCard("slide-5", "Slides 5–6", "Present Key Achievements (Split Across Slides 5 & 6)");
+    const card5 = createSlideCard("slide-5", "03 · Bosch, Place by Place", "Present Key Achievements");
     const presentH2 = getNarrative("present_h2", "Present Slide - Heading");
     card5.append(
       createBilingualInputRow("Present Slide — Heading", presentH2.text_en, presentH2.text_pt, (en, pt) => {
@@ -2748,7 +2748,7 @@
     container.append(card5);
 
     // --- Slide 15: Future Vision & Career Path ---
-    const card15 = createSlideCard("slide-15", "Slide 15", "Future Vision, Career Path & Methodologies");
+    const card15 = createSlideCard("slide-15", "03 · Future & Method", "Where I'm Going, Career Path & Methodologies");
     const futureH2 = getNarrative("future_h2", "Future Slide - Heading");
     card15.append(
       createBilingualInputRow("Future Slide — Heading", futureH2.text_en, futureH2.text_pt, (en, pt) => {
@@ -2794,7 +2794,7 @@
     container.append(card15);
 
     // --- Slide 16: Past – Tooling PT ---
-    const card16 = createSlideCard("slide-16", "Slide 16", "Past – Tooling PT (Power Tools)");
+    const card16 = createSlideCard("slide-16", "04 · Deliverable", "Project ForgeFlow (Tooling PT)");
     const toolingH2 = getNarrative("tooling_h2", "Tooling PT Heading");
     card16.append(
       createBilingualInputRow("Tooling PT Heading", toolingH2.text_en, toolingH2.text_pt, (en, pt) => {
@@ -2825,7 +2825,7 @@
     container.append(card16);
 
     // --- Slide 16b: Past – AgriTech IoT (Astra) ---
-    const card16b = createSlideCard("slide-16b", "Slide 16b", "Past – Astra AgriTech IoT & Cattle Telemetry");
+    const card16b = createSlideCard("slide-16b", "04 · Deliverable", "Project HerdSense (Astra AgriTech IoT & Cattle Telemetry)");
     const astraH2 = getNarrative("astra_h2", "Astra Heading");
     card16b.append(
       createBilingualInputRow("Astra Project Heading", astraH2.text_en, astraH2.text_pt, (en, pt) => {
@@ -2857,7 +2857,7 @@
     container.append(card16b);
 
     // --- Slide 18–20: Master's Dissertation & InfoVis ---
-    const card18 = createSlideCard("slide-18", "Slides 18–20", "Past – Master's Dissertation & Information Visualization");
+    const card18 = createSlideCard("slide-18", "05 · Research & Visualization", "Master's Dissertation & Information Visualization");
     const dissIntro = getNarrative("dissertation_pbi_intro", "Dissertation Intro");
     card18.append(
       createBilingualInputRow("Dissertation Intro", dissIntro.text_en, dissIntro.text_pt, (en, pt) => {
@@ -2903,7 +2903,7 @@
     container.append(card18);
 
     // --- Slide 27: Closing ---
-    const cardClose = createSlideCard("slide-closing", "Slide 27", "Closing & Contact Summary");
+    const cardClose = createSlideCard("slide-closing", "07 · Contact & Closing", "Closing & Contact Summary");
     const closingSummary = getNarrative("closing_summary", "Closing Slide - Summary");
     cardClose.append(
       createBilingualInputRow("Closing Summary & Forward Outlook", closingSummary.text_en, closingSummary.text_pt, (en, pt) => {
