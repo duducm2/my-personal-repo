@@ -821,16 +821,13 @@ section.diagram-slide-top-title .diagram-wrapper img {
 ## Presente – Integração CIP e Pesquisa Aplicada: Artefatos
 
 <div class="cip-artifacts-grid">
+<p><img src="../pictures/work/cip-ux/_anonymized/cip-ux-3.anon.png" alt="Contexto e Metodologia" /></p>
 <p><img src="../pictures/work/cip-ux/_anonymized/cip-ux-1.anon.png" alt="Capa do Relatório CIP-Pesquisa Aplicada" /></p>
-<p><img src="../pictures/work/cip-ux/cip-ux-2.png" alt="Resumo e Descobertas Executivas" /></p>
-<p><img src="../pictures/work/cip-ux/cip-ux-3.png" alt="Contexto e Metodologia" /></p>
-<p><img src="../pictures/work/cip-ux/cip-ux-4.png" alt="Revisão de Literatura e Benchmark" /></p>
-<p><img src="../pictures/work/cip-ux/cip-ux-5.png" alt="Descobertas e Índice de Criticalidade" /></p>
-<p><img src="../pictures/work/cip-ux/cip-ux-6.png" alt="Pipeline e Processamento de Dados" /></p>
-<p><img src="../pictures/work/cip-ux/cip-ux-7.png" alt="Oportunidades Estratégicas e Conclusões" /></p>
-<p><img src="../pictures/work/cip-ux/cip-ux-8.png" alt="Visuais de Pesquisa Aplicada" /></p>
-<p><img src="../pictures/work/cip-ux/ux-relevance-wireframe.png" alt="Wireframe do UX Relevance Quick Method (V1 e V2)" /></p>
-<p><img src="../pictures/work/cip-ux/ux-relevance-scoring.png" alt="Algoritmo de Pontuação e Faixas Baixa/Média/Alta" /></p>
+<p><img src="../pictures/work/cip-ux/_anonymized/cip-ux-2.anon.png" alt="Resumo e Descobertas Executivas" /></p>
+<p><img src="../pictures/work/cip-ux/_anonymized/cip-ux-4.anon.png" alt="Revisão de Literatura e Benchmark" /></p>
+<p><img src="../pictures/work/cip-ux/_anonymized/cip-ux-7.anon.png" alt="Oportunidades Estratégicas e Conclusões" /></p>
+<p><img src="../pictures/work/cip-ux/_anonymized/cip-ux-8.anon.png" alt="Visuais de Pesquisa Aplicada" /></p>
+<p><img src="../pictures/work/cip-ux/_anonymized/ux-relevance-scoring.anon.png" alt="Algoritmo de Pontuação e Faixas Baixa/Média/Alta" /></p>
 </div>
 
 ---
@@ -1263,9 +1260,9 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 <div class="tooling-pt-layout">
 <div class="tooling-pt-main">
 <div class="tooling-pt-prototypes">
-<p><img src="../pictures/work/tooling-project/tooling-1.png" alt="Wireframe e Arquitetura de Informação" /></p>
-<p><img src="../pictures/work/tooling-project/tooling-2.png" alt="Protótipo de Baixa Fidelidade e Teste de Usuários" /></p>
-<p><img src="../pictures/work/tooling-project/tooling-3.png" alt="Protótipo Interativo de Alta Fidelidade" /></p>
+<p><img src="../pictures/work/tooling-project/_anonymized/tooling-1.anon.png" alt="Wireframe e Arquitetura de Informação" /></p>
+<p><img src="../pictures/work/tooling-project/_anonymized/tooling-2.anon.png" alt="Protótipo de Baixa Fidelidade e Teste de Usuários" /></p>
+<p><img src="../pictures/work/tooling-project/_anonymized/tooling-3.anon.png" alt="Protótipo Interativo de Alta Fidelidade" /></p>
 </div>
 <div class="tooling-pt-right">
 <p class="tooling-pt-diagram"><img src="../pictures/diagrams/tooling-pt-workflow.png" alt="Diagram tooling-pt-workflow: Tooling PT delivery workflow" /></p>

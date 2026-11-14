@@ -2635,6 +2635,7 @@
       delivListWrap.replaceChildren();
       const q = (searchInp.value || "").trim().toLowerCase();
       const filtered = catalogItems.filter((d) => {
+        if (overrides[d.id]?.hidden === true) return false;
         const curCat = (overrides[d.id]?.category) || d.category;
         if (activeCat !== "all" && curCat !== activeCat) return false;
         if (!q) return true;
@@ -2701,12 +2702,34 @@
         const body = document.createElement("div");
         body.style.cssText = "display:flex; flex-direction:column; gap:10px; margin-top:10px; padding-top:10px; border-top:1px solid var(--line);";
 
+        const topActionRow = document.createElement("div");
+        topActionRow.style.cssText = "display:flex; align-items:center; justify-content:space-between; gap:8px; flex-wrap:wrap;";
         if (proj) {
           const origNotice = document.createElement("div");
-          origNotice.style.cssText = "font-size:11px; color:var(--muted); padding:6px 8px; border-radius:4px; background:#09090b; border:1px solid var(--line);";
+          origNotice.style.cssText = "flex:1 1 auto; font-size:11px; color:var(--muted); padding:6px 8px; border-radius:4px; background:#09090b; border:1px solid var(--line);";
           origNotice.textContent = `Original Name (preserved): ${proj.name_en || proj.name_pt || proj.id}${proj.name_pt && proj.name_pt !== proj.name_en ? ` / ${proj.name_pt}` : ""}`;
-          body.append(origNotice);
+          topActionRow.append(origNotice);
+        } else {
+          topActionRow.append(document.createElement("span"));
         }
+        const removeDelivBtn = document.createElement("button");
+        removeDelivBtn.type = "button";
+        removeDelivBtn.className = "mini-action-btn";
+        removeDelivBtn.style.cssText = "color:#f87171; border-color:rgba(248,113,113,0.45);";
+        removeDelivBtn.textContent = "🗑️ Remove from Portfolio";
+        removeDelivBtn.onclick = () => {
+          if (!confirm(`Remove "${displayTitle}" from your portfolio?\n\nThis will hide it from the public portfolio and PDF.`)) {
+            return;
+          }
+          if (!confirm(`Are you 100% sure you want to remove "${displayTitle}"?\n\nPlease confirm a second time to proceed (Save & Regenerate to apply).`)) {
+            return;
+          }
+          ensureOv().hidden = true;
+          markDeliverableDirty();
+          renderDeliverableCards();
+        };
+        topActionRow.append(removeDelivBtn);
+        body.append(topActionRow);
 
         // Fantasy Name EN / PT + Category
         const metaGrid = document.createElement("div");
@@ -2778,39 +2801,30 @@
           )
         );
 
-        // Attached Images: use canonical portfolio_images.csv editor when linked, otherwise show Attached Images Strip
-        const hasProjMediaEditor = Boolean(d.project_id && projMediaConfigs[d.project_id]);
-        if (hasProjMediaEditor) {
-          const cfg = projMediaConfigs[d.project_id];
-          body.append(
-            createProjectMediaEditor(
-              d.project_id,
-              `${cfg.label} (Cover, Anonymize, Add / Toggle / Reorder)`,
-              images,
-              cfg.cats,
-              cfg.def
-            )
-          );
-        } else if (mediaList.length > 0) {
+        const appendAttachedImagesStrip = (list, headingLabel) => {
+          if (!list.length) return;
           const imgBox = document.createElement("div");
           imgBox.style.cssText = "padding:8px; border:1px solid var(--line); border-radius:6px; background:#09090b;";
           const imgHdr = document.createElement("div");
           imgHdr.style.cssText = "font-size:11px; font-weight:600; color:var(--muted); margin-bottom:8px;";
-          imgHdr.textContent = `Attached Images (${mediaList.length}) — Choose Front Cover & Anonymize`;
           imgBox.append(imgHdr);
 
           const strip = document.createElement("div");
           strip.style.cssText = "display:flex; flex-wrap:wrap; gap:10px;";
           const renderStrip = () => {
             strip.replaceChildren();
-            const curCov = covers[d.id] || mediaList[0].src;
-            mediaList.forEach((m) => {
+            const curCov = covers[d.id] || list[0].src;
+            const excludedList = Array.isArray(ov.excluded_media) ? ov.excluded_media : [];
+            const activeCount = list.filter((m) => !excludedList.includes(m.src)).length;
+            imgHdr.textContent = `${headingLabel} (${activeCount}/${list.length} active) — Cover, Anonymize & Exclude`;
+            list.forEach((m) => {
               const isCov = m.src === curCov;
+              const isExcl = excludedList.includes(m.src);
               const relGuess = m.src.replace(/^\.\.\//, "docs/");
               const anonEntry = (window.__anonCatalogByPath || {})[relGuess];
               const isAnon = Boolean(anonEntry && anonEntry.anonymized);
               const tile = document.createElement("div");
-              tile.style.cssText = `width:148px; padding:6px; border-radius:6px; background:#141417; border:2px solid ${isCov ? "#f59e0b" : "var(--line)"}; display:flex; flex-direction:column; gap:5px;`;
+              tile.style.cssText = `width:148px; padding:6px; border-radius:6px; background:#141417; border:2px solid ${isCov ? "#f59e0b" : "var(--line)"}; opacity:${isExcl ? "0.45" : "1"}; display:flex; flex-direction:column; gap:5px;`;
               const im = document.createElement("img");
               const previewUrl = isAnon && anonEntry.display_url ? anonEntry.display_url : `/${m.src.replace(/^\.\.\//, "portfolio/")}`;
               im.src = previewUrl;
@@ -2821,7 +2835,7 @@
               const cap = document.createElement("div");
               cap.style.cssText = "font-size:10px; color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;";
               cap.title = m.caption || m.src;
-              cap.textContent = m.caption || m.src.split("/").pop();
+              cap.textContent = (isExcl ? "[Excluded] " : "") + (m.caption || m.src.split("/").pop());
 
               const btnRow = document.createElement("div");
               btnRow.style.cssText = "display:flex; gap:4px; align-items:center;";
@@ -2871,6 +2885,25 @@
                 }
               };
               btnRow.append(anBtn);
+
+              const exclBtn = document.createElement("button");
+              exclBtn.type = "button";
+              exclBtn.className = "media-btn-small";
+              exclBtn.style.cssText = `font-size:10px; ${isExcl ? "color:#f87171; border-color:#ef4444;" : ""}`;
+              exclBtn.title = isExcl ? "Re-include image in portfolio" : "Exclude image from portfolio";
+              exclBtn.textContent = isExcl ? "↩" : "✕";
+              exclBtn.onclick = () => {
+                const target = ensureOv();
+                const cur = Array.isArray(target.excluded_media) ? [...target.excluded_media] : [];
+                const idx = cur.indexOf(m.src);
+                if (idx >= 0) cur.splice(idx, 1);
+                else cur.push(m.src);
+                target.excluded_media = cur;
+                renderStrip();
+                markDeliverableDirty();
+              };
+              btnRow.append(exclBtn);
+
               tile.append(im, cap, btnRow);
               strip.append(tile);
             });
@@ -2881,6 +2914,36 @@
           }
           imgBox.append(strip);
           body.append(imgBox);
+        };
+
+        // Attached Images: use canonical portfolio_images.csv editor when linked, plus any extra lang.js images
+        const hasProjMediaEditor = Boolean(d.project_id && projMediaConfigs[d.project_id]);
+        if (hasProjMediaEditor) {
+          const cfg = projMediaConfigs[d.project_id];
+          body.append(
+            createProjectMediaEditor(
+              d.project_id,
+              `${cfg.label} (Cover, Anonymize, Add / Toggle / Reorder)`,
+              images,
+              cfg.cats,
+              cfg.def
+            )
+          );
+          const projSrcSet = new Set(
+            images
+              .filter((i) => i.project_id === d.project_id)
+              .flatMap((i) => {
+                const fname = String(i.path || "").replace(/\\/g, "/").split("/").pop();
+                if (!fname) return [];
+                return [`../media/${fname}`, `../media/projects/${d.id}__${fname}`];
+              })
+          );
+          const extraLangMedia = mediaList.filter((m) => m && m.src && !projSrcSet.has(m.src));
+          if (extraLangMedia.length > 0) {
+            appendAttachedImagesStrip(extraLangMedia, "Additional Portfolio Images");
+          }
+        } else if (mediaList.length > 0) {
+          appendAttachedImagesStrip(mediaList, "Attached Images");
         }
 
         det.append(body);

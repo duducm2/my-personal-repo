@@ -35,6 +35,11 @@ window.PROJECT_MEDIA = {
     ],
     "relevance-model": [
       {
+        "src": "../media/projects/relevance-model__cip-ux-3.png",
+        "alt": "Context & Methodology",
+        "caption": "Context & Methodology"
+      },
+      {
         "src": "../media/projects/relevance-model__cip-ux-1.png",
         "alt": "CIP-Applied Research Report Cover",
         "caption": "CIP-Applied Research Report Cover"
@@ -45,24 +50,9 @@ window.PROJECT_MEDIA = {
         "caption": "Summary & Executive Findings"
       },
       {
-        "src": "../media/projects/relevance-model__cip-ux-3.png",
-        "alt": "Context & Methodology",
-        "caption": "Context & Methodology"
-      },
-      {
         "src": "../media/projects/relevance-model__cip-ux-4.png",
         "alt": "Literature Review & Benchmark",
         "caption": "Literature Review & Benchmark"
-      },
-      {
-        "src": "../media/projects/relevance-model__cip-ux-5.png",
-        "alt": "Findings & Criticality Index",
-        "caption": "Findings & Criticality Index"
-      },
-      {
-        "src": "../media/projects/relevance-model__cip-ux-6.png",
-        "alt": "Pipeline & Data Processing",
-        "caption": "Pipeline & Data Processing"
       },
       {
         "src": "../media/projects/relevance-model__cip-ux-7.png",
@@ -73,11 +63,6 @@ window.PROJECT_MEDIA = {
         "src": "../media/projects/relevance-model__cip-ux-8.png",
         "alt": "Applied Research Visuals",
         "caption": "Applied Research Visuals"
-      },
-      {
-        "src": "../media/ux-relevance-wireframe.png",
-        "alt": "UX Relevance Quick Method V1 & V2 Wireframe",
-        "caption": "UX Relevance Quick Method V1 & V2 Wireframe"
       },
       {
         "src": "../media/ux-relevance-scoring.png",
@@ -185,6 +170,11 @@ window.PROJECT_MEDIA = {
     ],
     "relevance-model": [
       {
+        "src": "../media/projects/relevance-model__cip-ux-3.png",
+        "alt": "Contexto e Metodologia",
+        "caption": "Contexto e Metodologia"
+      },
+      {
         "src": "../media/projects/relevance-model__cip-ux-1.png",
         "alt": "Capa do Relatório CIP-Pesquisa Aplicada",
         "caption": "Capa do Relatório CIP-Pesquisa Aplicada"
@@ -195,24 +185,9 @@ window.PROJECT_MEDIA = {
         "caption": "Resumo e Descobertas Executivas"
       },
       {
-        "src": "../media/projects/relevance-model__cip-ux-3.png",
-        "alt": "Contexto e Metodologia",
-        "caption": "Contexto e Metodologia"
-      },
-      {
         "src": "../media/projects/relevance-model__cip-ux-4.png",
         "alt": "Revisão de Literatura e Benchmark",
         "caption": "Revisão de Literatura e Benchmark"
-      },
-      {
-        "src": "../media/projects/relevance-model__cip-ux-5.png",
-        "alt": "Descobertas e Índice de Criticalidade",
-        "caption": "Descobertas e Índice de Criticalidade"
-      },
-      {
-        "src": "../media/projects/relevance-model__cip-ux-6.png",
-        "alt": "Pipeline e Processamento de Dados",
-        "caption": "Pipeline e Processamento de Dados"
       },
       {
         "src": "../media/projects/relevance-model__cip-ux-7.png",
@@ -223,11 +198,6 @@ window.PROJECT_MEDIA = {
         "src": "../media/projects/relevance-model__cip-ux-8.png",
         "alt": "Visuais de Pesquisa Aplicada",
         "caption": "Visuais de Pesquisa Aplicada"
-      },
-      {
-        "src": "../media/ux-relevance-wireframe.png",
-        "alt": "Wireframe do UX Relevance Quick Method (V1 e V2)",
-        "caption": "Wireframe do UX Relevance Quick Method (V1 e V2)"
       },
       {
         "src": "../media/ux-relevance-scoring.png",
@@ -310,7 +280,6 @@ window.PROJECT_TITLES = {
     "x-tower": "Project BeaconTower — UX Practice Portal & Service Blueprint",
     "rise-automation": "Project FlowPulse — Automation Intake Prototype",
     "cim-journey": "Project SignalMap — Continuous Improvement Evidence Synthesis",
-    "ux-maturity": "Regional UX Governance & Maturity Program",
     "co2-scouting": "Project EcoTrace — Carbon Telemetry Market Scouting",
     "cip-training": "Continuous Improvement Fundamentals Workshop"
   },
@@ -322,7 +291,6 @@ window.PROJECT_TITLES = {
     "x-tower": "Projeto BeaconTower — Portal de Prática UX e Service Blueprint",
     "rise-automation": "Projeto FlowPulse — Protótipo de Entrada de Automação",
     "cim-journey": "Projeto SignalMap — Síntese de Evidências de Melhoria Contínua",
-    "ux-maturity": "Programa Regional de Governança e Maturidade em UX",
     "co2-scouting": "Projeto EcoTrace — Prospecção de Telemetria de Carbono",
     "cip-training": "Workshop de Fundamentos de Melhoria Contínua"
   }
@@ -356,10 +324,6 @@ window.DELIVERABLE_OVERRIDES = {
     "tooling-pt": {
       "short": "Technical delivery and project management from requirements through high-fidelity prototypes for industrial tooling.",
       "full": "Led discovery-to-delivery on Project ForgeFlow for the industrial tooling division: gathering requirements, running regular customer check-ins, and guiding high-fidelity prototypes into accountable engineering handoffs (CSI 5.0 / NPS 10)."
-    },
-    "ux-maturity": {
-      "short": "Guided regional UX Maturity to Level 4 with governance, reusable templates, training, and Power BI audit dashboards.",
-      "full": "Supported the Americas region in reaching UX Maturity Level 4 by building governance frameworks, reusable research templates, stakeholder training, and an automated Power BI audit dashboard connected to Microsoft Lists."
     },
     "co2-scouting": {
       "short": "Market scouting for CO₂ telemetry in enterprise service operations; validated lack of immediate market demand.",
@@ -399,10 +363,6 @@ window.DELIVERABLE_OVERRIDES = {
       "short": "Entrega técnica e gestão de projetos dos requisitos até protótipos de alta fidelidade para ferramentas industriais.",
       "full": "Conduzi a jornada de descoberta à entrega no Projeto ForgeFlow para a divisão de ferramentas industriais: levantamento de requisitos, check-ins regulares com clientes e protótipos de alta fidelidade até o handoff com engenharia (CSI 5,0 / NPS 10)."
     },
-    "ux-maturity": {
-      "short": "Conduzi a Maturidade em UX regional ao Nível 4 com governança, templates reutilizáveis, treinamentos e dashboards de auditoria em Power BI.",
-      "full": "Apoiei a região das Américas a alcançar o Nível 4 de Maturidade em UX construindo governança, templates reutilizáveis de pesquisa, treinamentos e um dashboard de auditoria em Power BI integrado ao Microsoft Lists."
-    },
     "co2-scouting": {
       "short": "Prospecção de mercado para telemetria de CO₂ em operações de serviço; validou ausência de demanda imediata.",
       "full": "Conduzi prospecção estruturada de mercado para oportunidades de rastreamento e telemetria de CO₂ em operações de serviço, evitando investimento prematuro ao validar que a demanda ainda não estava madura."
@@ -412,4 +372,16 @@ window.DELIVERABLE_OVERRIDES = {
       "full": "Desenhei e facilitei um workshop prático ensinando conceitos macro e micro de Melhoria Contínua para equipes regionais de RH."
     }
   }
+};
+window.DELIVERABLE_REMOVED = [
+  "results-portal"
+];
+window.EXCLUDED_MEDIA = {
+  "tooling-pt": [
+    "../media/projects/tooling-pt__1700672395098.jpg",
+    "../media/projects/tooling-pt__1700672395111.jpg",
+    "../media/projects/tooling-pt__1700672395122.jpg",
+    "../media/projects/tooling-pt__1700672395134.jpg",
+    "../media/projects/tooling-pt__1700672630418.jpg"
+  ]
 };

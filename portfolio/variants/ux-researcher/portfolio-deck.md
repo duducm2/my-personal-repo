@@ -807,16 +807,13 @@ section.diagram-slide-top-title .diagram-wrapper img {
 ## Present – CIP and Applied Research Integration: Applied Research Artifacts
 
 <div class="cip-artifacts-grid">
+<p><img src="../../../pictures/work/cip-ux/_anonymized/cip-ux-3.anon.png" alt="Context & Methodology" /></p>
 <p><img src="../../../pictures/work/cip-ux/_anonymized/cip-ux-1.anon.png" alt="CIP-Applied Research Report Cover" /></p>
-<p><img src="../../../pictures/work/cip-ux/cip-ux-2.png" alt="Summary & Executive Findings" /></p>
-<p><img src="../../../pictures/work/cip-ux/cip-ux-3.png" alt="Context & Methodology" /></p>
-<p><img src="../../../pictures/work/cip-ux/cip-ux-4.png" alt="Literature Review & Benchmark" /></p>
-<p><img src="../../../pictures/work/cip-ux/cip-ux-5.png" alt="Findings & Criticality Index" /></p>
-<p><img src="../../../pictures/work/cip-ux/cip-ux-6.png" alt="Pipeline & Data Processing" /></p>
-<p><img src="../../../pictures/work/cip-ux/cip-ux-7.png" alt="Strategic Opportunities & Conclusions" /></p>
-<p><img src="../../../pictures/work/cip-ux/cip-ux-8.png" alt="Applied Research Visuals" /></p>
-<p><img src="../../../pictures/work/cip-ux/ux-relevance-wireframe.png" alt="UX Relevance Quick Method V1 & V2 Wireframe" /></p>
-<p><img src="../../../pictures/work/cip-ux/ux-relevance-scoring.png" alt="UX Relevance Scoring & Low/Medium/High Decision Bands" /></p>
+<p><img src="../../../pictures/work/cip-ux/_anonymized/cip-ux-2.anon.png" alt="Summary & Executive Findings" /></p>
+<p><img src="../../../pictures/work/cip-ux/_anonymized/cip-ux-4.anon.png" alt="Literature Review & Benchmark" /></p>
+<p><img src="../../../pictures/work/cip-ux/_anonymized/cip-ux-7.anon.png" alt="Strategic Opportunities & Conclusions" /></p>
+<p><img src="../../../pictures/work/cip-ux/_anonymized/cip-ux-8.anon.png" alt="Applied Research Visuals" /></p>
+<p><img src="../../../pictures/work/cip-ux/_anonymized/ux-relevance-scoring.anon.png" alt="UX Relevance Scoring & Low/Medium/High Decision Bands" /></p>
 </div>
 
 ---

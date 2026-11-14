@@ -1,0 +1,153 @@
+{
+  "method": "all_text_pixelate",
+  "strength": 3,
+  "keywords": [],
+  "regions": [
+    {
+      "id": "ocr-1",
+      "type": "rect",
+      "x": 369,
+      "y": 238,
+      "w": 197,
+      "h": 48,
+      "text": "Summary",
+      "confidence": 0.7918512374162674,
+      "source": "ocr",
+      "effect": "pixelate"
+    },
+    {
+      "id": "ocr-2",
+      "type": "rect",
+      "x": 249,
+      "y": 312,
+      "w": 439,
+      "h": 23,
+      "text": "Tip: The items on the right are clickable links to each chapter.",
+      "confidence": 0.9339097848305336,
+      "source": "ocr",
+      "effect": "pixelate"
+    },
+    {
+      "id": "ocr-3",
+      "type": "rect",
+      "x": 501,
+      "y": 508,
+      "w": 173,
+      "h": 29,
+      "text": "Executive Summary",
+      "confidence": 0.8713912036683824,
+      "source": "ocr",
+      "effect": "pixelate"
+    },
+    {
+      "id": "ocr-4",
+      "type": "rect",
+      "x": 504,
+      "y": 540,
+      "w": 185,
+      "h": 24,
+      "text": "Context and Objectives",
+      "confidence": 0.9410791863565859,
+      "source": "ocr",
+      "effect": "pixelate"
+    },
+    {
+      "id": "ocr-5",
+      "type": "rect",
+      "x": 503,
+      "y": 570,
+      "w": 243,
+      "h": 24,
+      "text": "Literature Review (Benchmark)",
+      "confidence": 0.9440609494845073,
+      "source": "ocr",
+      "effect": "pixelate"
+    },
+    {
+      "id": "ocr-6",
+      "type": "rect",
+      "x": 499,
+      "y": 595,
+      "w": 111,
+      "h": 33,
+      "text": "Methodology",
+      "confidence": 0.8754308025042216,
+      "source": "ocr",
+      "effect": "pixelate"
+    },
+    {
+      "id": "ocr-7",
+      "type": "rect",
+      "x": 500,
+      "y": 626,
+      "w": 71,
+      "h": 28,
+      "text": "Legend",
+      "confidence": 0.856747397354671,
+      "source": "ocr",
+      "effect": "pixelate"
+    },
+    {
+      "id": "ocr-8",
+      "type": "rect",
+      "x": 499,
+      "y": 652,
+      "w": 78,
+      "h": 33,
+      "text": "Findings",
+      "confidence": 0.8710686696900262,
+      "source": "ocr",
+      "effect": "pixelate"
+    },
+    {
+      "id": "ocr-9",
+      "type": "rect",
+      "x": 503,
+      "y": 687,
+      "w": 102,
+      "h": 24,
+      "text": "Conclusions",
+      "confidence": 0.8836839944124222,
+      "source": "ocr",
+      "effect": "pixelate"
+    },
+    {
+      "id": "ocr-10",
+      "type": "rect",
+      "x": 503,
+      "y": 716,
+      "w": 182,
+      "h": 24,
+      "text": "Strategic Opportunities",
+      "confidence": 0.9087265431880951,
+      "source": "ocr",
+      "effect": "pixelate"
+    },
+    {
+      "id": "ocr-11",
+      "type": "rect",
+      "x": 504,
+      "y": 746,
+      "w": 186,
+      "h": 21,
+      "text": "Questions and Answers",
+      "confidence": 0.8572694144465707,
+      "source": "ocr",
+      "effect": "pixelate"
+    },
+    {
+      "id": "ocr-12",
+      "type": "rect",
+      "x": 502,
+      "y": 773,
+      "w": 97,
+      "h": 25,
+      "text": "Appendices",
+      "confidence": 0.856786771254106,
+      "source": "ocr",
+      "effect": "pixelate"
+    }
+  ],
+  "original_path": "pictures/work/cip-ux/cip-ux-2.png",
+  "original_sha256": "de4382e474e0a5b5d19ea1df7867f5a417938405bdcb0ced68614b4df214c2b0"
+}

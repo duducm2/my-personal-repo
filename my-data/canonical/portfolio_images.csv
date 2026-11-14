@@ -10,14 +10,12 @@ tooling-ws-8,tooling-pt,pictures/work/tooling-project/1700672395111.jpg,Discover
 tooling-ws-9,tooling-pt,pictures/work/tooling-project/1700672395122.jpg,Requirements Prioritization Session,Sessão de Priorização de Requisitos,workshop,false,9
 tooling-ws-10,tooling-pt,pictures/work/tooling-project/1700672395134.jpg,Customer Cadence & Hand-off Review,Cadência com Clientes e Revisão de Handoff,workshop,false,10
 tooling-ws-11,tooling-pt,pictures/work/tooling-project/1700672630418.jpg,Design Sprint Team Collaboration,Colaboração de Equipe em Design Sprint,workshop,false,11
-cip-ux-1,cip-research-gate,pictures/work/cip-ux/cip-ux-1.png,CIP-Applied Research Report Cover,Capa do Relatório CIP-Pesquisa Aplicada,artifact,true,1
-cip-ux-2,cip-research-gate,pictures/work/cip-ux/cip-ux-2.png,Summary & Executive Findings,Resumo e Descobertas Executivas,artifact,true,2
-cip-ux-3,cip-research-gate,pictures/work/cip-ux/cip-ux-3.png,Context & Methodology,Contexto e Metodologia,artifact,true,3
+cip-ux-1,cip-research-gate,pictures/work/cip-ux/cip-ux-1.png,CIP-Applied Research Report Cover,Capa do Relatório CIP-Pesquisa Aplicada,artifact,true,2
+cip-ux-2,cip-research-gate,pictures/work/cip-ux/cip-ux-2.png,Summary & Executive Findings,Resumo e Descobertas Executivas,artifact,true,3
+cip-ux-3,cip-research-gate,pictures/work/cip-ux/cip-ux-3.png,Context & Methodology,Contexto e Metodologia,artifact,true,1
 cip-ux-4,cip-research-gate,pictures/work/cip-ux/cip-ux-4.png,Literature Review & Benchmark,Revisão de Literatura e Benchmark,artifact,true,4
-cip-ux-5,cip-research-gate,pictures/work/cip-ux/cip-ux-5.png,Findings & Criticality Index,Descobertas e Índice de Criticalidade,artifact,true,5
-cip-ux-6,cip-research-gate,pictures/work/cip-ux/cip-ux-6.png,Pipeline & Data Processing,Pipeline e Processamento de Dados,artifact,true,6
-cip-ux-7,cip-research-gate,pictures/work/cip-ux/cip-ux-7.png,Strategic Opportunities & Conclusions,Oportunidades Estratégicas e Conclusões,artifact,true,7
-cip-ux-8,cip-research-gate,pictures/work/cip-ux/cip-ux-8.png,Applied Research Visuals,Visuais de Pesquisa Aplicada,artifact,true,8
+cip-ux-7,cip-research-gate,pictures/work/cip-ux/cip-ux-7.png,Strategic Opportunities & Conclusions,Oportunidades Estratégicas e Conclusões,artifact,true,5
+cip-ux-8,cip-research-gate,pictures/work/cip-ux/cip-ux-8.png,Applied Research Visuals,Visuais de Pesquisa Aplicada,artifact,true,6
 ai-agents-1,ai-agents-sessions-2026,pictures/work/ai-agents-sessions-2026.jpg,Bosch AI Sessions (8 sessions with Felipe Oshiro & Gabriel Reis),Sessões de IA na Bosch (8 sessões com Felipe Oshiro e Gabriel Reis),training,true,1
 astra-img-5,agritech-iot-cattle,pictures/work/astra-project/IMG_20260415_182229.jpg,Bosch Astra IoT Telemetry Device & Hardware Evaluation,Dispositivo e Avaliação de Hardware de Telemetria IoT Astra (Bosch),telemetry,true,2
 astra-rep-4,agritech-iot-cattle,pictures/work/astra-project/astra-report-page-4-current-journey.png,Astra Research Deliverable: As-Is Journey & 10 Operational Pain Points Map,Entrega de Pesquisa Astra: Jornada Atual e Mapa de 10 Dores Operacionais,report,true,1
@@ -34,5 +32,4 @@ diplomas-mockup,academic-timeline,pictures/academia/docs/diplomas-mockup.png,Uni
 data-insights-funnel,data-insights-pt,pictures/work/data-insights/data-insights-funnel.png,Evidence-to-Insight Funnel (10 Transcripts -> 242 Evidences -> 7 Insights),Funil de Evidências ao Insight (10 Transcrições -> 242 Evidências -> 7 Insights),report,true,1
 data-insights-summary,data-insights-pt,pictures/work/data-insights/data-insights-summary.png,Overview of the 7 CX Insights & Risk Levels,Visão Geral dos 7 Insights de CX e Níveis de Risco,report,true,2
 data-insights-journey,data-insights-pt,pictures/work/data-insights/data-insights-journey.png,Customer Journey Evidence Mapping (QMAI),Mapeamento da Jornada do Cliente (QMAI),report,true,3
-ux-relevance-wireframe,cip-research-gate,pictures/work/cip-ux/ux-relevance-wireframe.png,UX Relevance Quick Method V1 & V2 Wireframe,Wireframe do UX Relevance Quick Method (V1 e V2),artifact,true,9
-ux-relevance-scoring,cip-research-gate,pictures/work/cip-ux/ux-relevance-scoring.png,UX Relevance Scoring & Low/Medium/High Decision Bands,Algoritmo de Pontuação e Faixas Baixa/Média/Alta,artifact,true,10
+ux-relevance-scoring,cip-research-gate,pictures/work/cip-ux/ux-relevance-scoring.png,UX Relevance Scoring & Low/Medium/High Decision Bands,Algoritmo de Pontuação e Faixas Baixa/Média/Alta,artifact,true,7

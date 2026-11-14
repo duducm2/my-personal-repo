@@ -821,16 +821,13 @@ section.diagram-slide-top-title .diagram-wrapper img {
 ## Present – CIP and Applied Research Integration: Applied Research Artifacts
 
 <div class="cip-artifacts-grid">
+<p><img src="../pictures/work/cip-ux/_anonymized/cip-ux-3.anon.png" alt="Context & Methodology" /></p>
 <p><img src="../pictures/work/cip-ux/_anonymized/cip-ux-1.anon.png" alt="CIP-Applied Research Report Cover" /></p>
-<p><img src="../pictures/work/cip-ux/cip-ux-2.png" alt="Summary & Executive Findings" /></p>
-<p><img src="../pictures/work/cip-ux/cip-ux-3.png" alt="Context & Methodology" /></p>
-<p><img src="../pictures/work/cip-ux/cip-ux-4.png" alt="Literature Review & Benchmark" /></p>
-<p><img src="../pictures/work/cip-ux/cip-ux-5.png" alt="Findings & Criticality Index" /></p>
-<p><img src="../pictures/work/cip-ux/cip-ux-6.png" alt="Pipeline & Data Processing" /></p>
-<p><img src="../pictures/work/cip-ux/cip-ux-7.png" alt="Strategic Opportunities & Conclusions" /></p>
-<p><img src="../pictures/work/cip-ux/cip-ux-8.png" alt="Applied Research Visuals" /></p>
-<p><img src="../pictures/work/cip-ux/ux-relevance-wireframe.png" alt="UX Relevance Quick Method V1 & V2 Wireframe" /></p>
-<p><img src="../pictures/work/cip-ux/ux-relevance-scoring.png" alt="UX Relevance Scoring & Low/Medium/High Decision Bands" /></p>
+<p><img src="../pictures/work/cip-ux/_anonymized/cip-ux-2.anon.png" alt="Summary & Executive Findings" /></p>
+<p><img src="../pictures/work/cip-ux/_anonymized/cip-ux-4.anon.png" alt="Literature Review & Benchmark" /></p>
+<p><img src="../pictures/work/cip-ux/_anonymized/cip-ux-7.anon.png" alt="Strategic Opportunities & Conclusions" /></p>
+<p><img src="../pictures/work/cip-ux/_anonymized/cip-ux-8.anon.png" alt="Applied Research Visuals" /></p>
+<p><img src="../pictures/work/cip-ux/_anonymized/ux-relevance-scoring.anon.png" alt="UX Relevance Scoring & Low/Medium/High Decision Bands" /></p>
 </div>
 
 ---
@@ -1263,9 +1260,9 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 <div class="tooling-pt-layout">
 <div class="tooling-pt-main">
 <div class="tooling-pt-prototypes">
-<p><img src="../pictures/work/tooling-project/tooling-1.png" alt="Tooling Wireframe & Information Architecture" /></p>
-<p><img src="../pictures/work/tooling-project/tooling-2.png" alt="Low-Fidelity Prototype & User Testing Flow" /></p>
-<p><img src="../pictures/work/tooling-project/tooling-3.png" alt="High-Fidelity Interactive Prototype" /></p>
+<p><img src="../pictures/work/tooling-project/_anonymized/tooling-1.anon.png" alt="Tooling Wireframe & Information Architecture" /></p>
+<p><img src="../pictures/work/tooling-project/_anonymized/tooling-2.anon.png" alt="Low-Fidelity Prototype & User Testing Flow" /></p>
+<p><img src="../pictures/work/tooling-project/_anonymized/tooling-3.anon.png" alt="High-Fidelity Interactive Prototype" /></p>
 </div>
 <div class="tooling-pt-right">
 <p class="tooling-pt-diagram"><img src="../pictures/diagrams/tooling-pt-workflow.png" alt="Diagram tooling-pt-workflow: Tooling PT delivery workflow" /></p>

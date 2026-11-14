@@ -23,16 +23,19 @@ function deliverableTitle(item) {
 }
 
 function orderedDeliverableMedia(item) {
+  const excludedSet = new Set(
+    (window.EXCLUDED_MEDIA && window.EXCLUDED_MEDIA[item?.id]) || [],
+  );
   const base = Array.isArray(item?.media) ? item.media : [];
   const extra =
     (window.PROJECT_MEDIA &&
       window.PROJECT_MEDIA[lang] &&
       window.PROJECT_MEDIA[lang][item.id]) ||
     [];
-  const seen = new Set(base.map((m) => m.src));
-  const media = [...base];
-  for (const m of extra) {
-    if (m && m.src && !seen.has(m.src)) {
+  const seen = new Set();
+  const media = [];
+  for (const m of [...base, ...extra]) {
+    if (m && m.src && !seen.has(m.src) && !excludedSet.has(m.src)) {
       seen.add(m.src);
       media.push(m);
     }
@@ -604,7 +607,10 @@ function renderDeliverables() {
   const root = document.getElementById("deliverables-grid");
   if (!root) return;
   const rawItems = UI[lang]?.deliverablesItems || [];
-  const items = rawItems.map(resolvedDeliverable);
+  const removed = new Set(window.DELIVERABLE_REMOVED || []);
+  const items = rawItems
+    .filter((item) => !removed.has(item.id))
+    .map(resolvedDeliverable);
   const categories = UI[lang]?.deliverableCategories || [];
   root.replaceChildren();
 

@@ -308,21 +308,26 @@ const UI = {
       {
         id: "power-bi",
         category: "data",
-        title: "Power BI dashboards",
+        title: "UX Maturity Audit & Governance Dashboards",
         short:
-          "Dashboards for allocation, training evolution, and the TrustMate study.",
+          "Power BI audit dashboards (2+ years of data) tracking template adoption & PM compliance that drove UX Maturity Level 4/5.",
         full:
-          "Power BI suites built for Applied Research Americas resource allocation, training evolution tracking, and statistical visualization of the TrustMate dissertation study.",
+          "Built automated Power BI audit and governance dashboards (connected to Microsoft Lists) to track whether teams were using standardized UX templates and completing required project-management documentation. Over two years of continuous governance data, training evolution tracking, and resource allocation oversight directly enabled the Global Services Americas unit to achieve UX Maturity Level 4 out of 5.",
         media: [
           {
             src: "../media/pbi-allocation.jpg",
-            alt: "Power BI allocation dashboard for Bosch Applied Research Americas",
-            caption: "Power BI, allocation",
+            alt: "Power BI UX maturity audit and project governance dashboard",
+            caption: "Power BI — UX maturity audit & PM compliance",
           },
           {
             src: "../media/pbi-training.jpg",
-            alt: "Power BI training evolution dashboard",
-            caption: "Power BI, training",
+            alt: "Power BI dashboard tracking UX training adoption and evolution",
+            caption: "Power BI — UX training evolution",
+          },
+          {
+            src: "../media/digital-ws.jpg",
+            alt: "UX training session empowering teams to apply UX in daily activities",
+            caption: "UX training session — empowering daily UX practice",
           },
         ],
       },
@@ -349,27 +354,6 @@ const UI = {
             src: "../media/ahk-finance-menu.png",
             alt: "AutoHotkey Finance launcher menu with keyboard shortcuts",
             caption: "AutoHotkey Finance launcher & quick-key menu",
-          },
-        ],
-      },
-      {
-        id: "ux-maturity",
-        category: "platforms",
-        title: "Applied research & UX maturity",
-        short:
-          "Guided Americas UX Maturity to Level 4 with governance, templates, and delivery reports.",
-        full:
-          "Applied Research Expert and Project Champion at Bosch GS/BDU. Guided the Americas UX Maturity to Level 4 through intake governance, standardized templates, training, and research delivery reporting.",
-        media: [
-          {
-            src: "../media/digital-ws.jpg",
-            alt: "Applied Research GS team in the digital workspace",
-            caption: "Applied Research, GS",
-          },
-          {
-            src: "../media/research-delivery.jpg",
-            alt: "Delivery report for my research, January 2026",
-            caption: "Delivery report for my research",
           },
         ],
       },
@@ -980,21 +964,26 @@ const UI = {
       {
         id: "power-bi",
         category: "data",
-        title: "Dashboards em Power BI",
+        title: "Dashboards de Auditoria e Maturidade UX",
         short:
-          "Painéis de alocação, evolução de treinamentos e estudo TrustMate.",
+          "Dashboards de auditoria em Power BI (2+ anos de dados) rastreando uso de templates e gestão de projetos rumo à Maturidade UX Nível 4/5.",
         full:
-          "Conjunto de painéis em Power BI para alocação da equipe Applied Research Americas, evolução de treinamentos e análise estatística da dissertação com a TrustMate.",
+          "Desenvolvi dashboards automatizados de auditoria e governança em Power BI (integrados ao Microsoft Lists) para monitorar se as equipes utilizavam os templates padronizados e cumpriam a documentação obrigatória de gestão de projetos. Mais de dois anos de dados contínuos de auditoria, evolução de treinamentos e gestão de alocação foram decisivos para a unidade Global Services Américas alcançar a Maturidade em UX Nível 4 de 5.",
         media: [
           {
             src: "../media/pbi-allocation.jpg",
-            alt: "Dashboard de alocação em Power BI para Bosch Applied Research Americas",
-            caption: "Power BI, alocação",
+            alt: "Dashboard Power BI de auditoria de maturidade UX e conformidade de projetos",
+            caption: "Power BI — auditoria de maturidade UX e conformidade",
           },
           {
             src: "../media/pbi-training.jpg",
-            alt: "Dashboard de evolução de treinamentos em Power BI",
-            caption: "Power BI, treinamentos",
+            alt: "Dashboard Power BI de evolução de treinamentos em UX",
+            caption: "Power BI — evolução de treinamentos em UX",
+          },
+          {
+            src: "../media/digital-ws.jpg",
+            alt: "Sessão de treinamento em UX capacitando equipes para o uso no dia a dia",
+            caption: "Treinamento em UX — capacitando equipes no dia a dia",
           },
         ],
       },
@@ -1021,27 +1010,6 @@ const UI = {
             src: "../media/ahk-finance-menu.png",
             alt: "Menu inicial do Finance em AutoHotkey com atalhos de teclado",
             caption: "Menu rápido do Finance em AutoHotkey",
-          },
-        ],
-      },
-      {
-        id: "ux-maturity",
-        category: "platforms",
-        title: "Pesquisa aplicada e maturidade UX",
-        short:
-          "Condução da maturidade de UX das Américas ao Nível 4 com governança e templates.",
-        full:
-          "Applied Research Expert e Project Champion na Bosch GS/BDU. Conduzi a maturidade de UX das Américas ao Nível 4 por meio de governança de intake, templates padronizados, treinamentos e relatórios de entrega de pesquisa.",
-        media: [
-          {
-            src: "../media/digital-ws.jpg",
-            alt: "Equipe de Pesquisa Aplicada GS no espaço digital",
-            caption: "Pesquisa Aplicada, GS",
-          },
-          {
-            src: "../media/research-delivery.jpg",
-            alt: "Relatório de entrega de pesquisa, janeiro de 2026",
-            caption: "Relatório de entrega da pesquisa",
           },
         ],
       },

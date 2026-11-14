@@ -55,14 +55,6 @@
     "full_en": "Led discovery-to-delivery on Project ForgeFlow for the industrial tooling division: gathering requirements, running regular customer check-ins, and guiding high-fidelity prototypes into accountable engineering handoffs (CSI 5.0 / NPS 10).",
     "full_pt": "Conduzi a jornada de descoberta à entrega no Projeto ForgeFlow para a divisão de ferramentas industriais: levantamento de requisitos, check-ins regulares com clientes e protótipos de alta fidelidade até o handoff com engenharia (CSI 5,0 / NPS 10)."
   },
-  "ux-maturity": {
-    "fantasy_name_en": "Regional UX Governance & Maturity Program",
-    "fantasy_name_pt": "Programa Regional de Governança e Maturidade em UX",
-    "short_en": "Guided regional UX Maturity to Level 4 with governance, reusable templates, training, and Power BI audit dashboards.",
-    "short_pt": "Conduzi a Maturidade em UX regional ao Nível 4 com governança, templates reutilizáveis, treinamentos e dashboards de auditoria em Power BI.",
-    "full_en": "Supported the Americas region in reaching UX Maturity Level 4 by building governance frameworks, reusable research templates, stakeholder training, and an automated Power BI audit dashboard connected to Microsoft Lists.",
-    "full_pt": "Apoiei a região das Américas a alcançar o Nível 4 de Maturidade em UX construindo governança, templates reutilizáveis de pesquisa, treinamentos e um dashboard de auditoria em Power BI integrado ao Microsoft Lists."
-  },
   "co2-scouting": {
     "fantasy_name_en": "Project EcoTrace — Carbon Telemetry Market Scouting",
     "fantasy_name_pt": "Projeto EcoTrace — Prospecção de Telemetria de Carbono",
@@ -78,5 +70,8 @@
     "short_pt": "Treinamento de equipes regionais de RH em conceitos macro e micro de Melhoria Contínua.",
     "full_en": "Designed and facilitated a hands-on workshop teaching Continuous Improvement macro and micro concepts to regional HR teams.",
     "full_pt": "Desenhei e facilitei um workshop prático ensinando conceitos macro e micro de Melhoria Contínua para equipes regionais de RH."
+  },
+  "results-portal": {
+    "hidden": true
   }
 }

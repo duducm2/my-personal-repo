@@ -807,16 +807,13 @@ section.diagram-slide-top-title .diagram-wrapper img {
 ## Presente – Integração CIP e Pesquisa Aplicada: Artefatos
 
 <div class="cip-artifacts-grid">
+<p><img src="../../../pictures/work/cip-ux/_anonymized/cip-ux-3.anon.png" alt="Contexto e Metodologia" /></p>
 <p><img src="../../../pictures/work/cip-ux/_anonymized/cip-ux-1.anon.png" alt="Capa do Relatório CIP-Pesquisa Aplicada" /></p>
-<p><img src="../../../pictures/work/cip-ux/cip-ux-2.png" alt="Resumo e Descobertas Executivas" /></p>
-<p><img src="../../../pictures/work/cip-ux/cip-ux-3.png" alt="Contexto e Metodologia" /></p>
-<p><img src="../../../pictures/work/cip-ux/cip-ux-4.png" alt="Revisão de Literatura e Benchmark" /></p>
-<p><img src="../../../pictures/work/cip-ux/cip-ux-5.png" alt="Descobertas e Índice de Criticalidade" /></p>
-<p><img src="../../../pictures/work/cip-ux/cip-ux-6.png" alt="Pipeline e Processamento de Dados" /></p>
-<p><img src="../../../pictures/work/cip-ux/cip-ux-7.png" alt="Oportunidades Estratégicas e Conclusões" /></p>
-<p><img src="../../../pictures/work/cip-ux/cip-ux-8.png" alt="Visuais de Pesquisa Aplicada" /></p>
-<p><img src="../../../pictures/work/cip-ux/ux-relevance-wireframe.png" alt="Wireframe do UX Relevance Quick Method (V1 e V2)" /></p>
-<p><img src="../../../pictures/work/cip-ux/ux-relevance-scoring.png" alt="Algoritmo de Pontuação e Faixas Baixa/Média/Alta" /></p>
+<p><img src="../../../pictures/work/cip-ux/_anonymized/cip-ux-2.anon.png" alt="Resumo e Descobertas Executivas" /></p>
+<p><img src="../../../pictures/work/cip-ux/_anonymized/cip-ux-4.anon.png" alt="Revisão de Literatura e Benchmark" /></p>
+<p><img src="../../../pictures/work/cip-ux/_anonymized/cip-ux-7.anon.png" alt="Oportunidades Estratégicas e Conclusões" /></p>
+<p><img src="../../../pictures/work/cip-ux/_anonymized/cip-ux-8.anon.png" alt="Visuais de Pesquisa Aplicada" /></p>
+<p><img src="../../../pictures/work/cip-ux/_anonymized/ux-relevance-scoring.anon.png" alt="Algoritmo de Pontuação e Faixas Baixa/Média/Alta" /></p>
 </div>
 
 ---

@@ -927,6 +927,32 @@ KNOWN_MEDIA_ALIASES = {
 }
 
 
+def _resolve_portfolio_web_src(
+    rel_path: str,
+    deliv_id: str,
+    media_dir: Path,
+    proj_pub_dir: Path,
+    *,
+    copy_missing: bool = True,
+) -> str | None:
+    """Resolve a portfolio_images.csv relative path to its docs/media/ web src."""
+    if not rel_path:
+        return None
+    if rel_path in KNOWN_MEDIA_ALIASES:
+        return KNOWN_MEDIA_ALIASES[rel_path]
+    fname = Path(rel_path).name
+    if (media_dir / fname).is_file():
+        return f"../media/{fname}"
+    src_abs = ROOT / rel_path
+    if not src_abs.is_file():
+        return None
+    dest_name = f"{deliv_id}__{fname}"
+    if copy_missing:
+        dest = proj_pub_dir / dest_name
+        dest.write_bytes(src_abs.read_bytes())
+    return f"../media/projects/{dest_name}"
+
+
 def write_project_media() -> None:
     """Publish selected portfolio_images.csv entries into docs/media/projects/ and docs/project-media.js."""
     csv_path = CANON / "portfolio_images.csv"
@@ -940,15 +966,44 @@ def write_project_media() -> None:
     with csv_path.open("r", encoding="utf-8", newline="") as f:
         rows = list(csv.DictReader(f))
 
+    excluded_media: dict[str, list[str]] = {}
+    def _add_excluded(d_id: str, src: str) -> None:
+        if not d_id or not src:
+            return
+        bucket = excluded_media.setdefault(d_id, [])
+        if src not in bucket:
+            bucket.append(src)
+
     grouped: dict[str, list[dict]] = {}
     for row in rows:
-        if (row.get("selected") or "").strip().lower() != "true":
-            continue
         proj_id = (row.get("project_id") or "").strip()
         deliv_id = PROJECT_TO_DELIVERABLE.get(proj_id)
         if not deliv_id:
             continue
+        if (row.get("selected") or "").strip().lower() != "true":
+            rel_path = (row.get("path") or "").strip().replace("\\", "/")
+            web_src = _resolve_portfolio_web_src(
+                rel_path, deliv_id, media_dir, proj_pub_dir, copy_missing=False
+            )
+            if web_src:
+                _add_excluded(deliv_id, web_src)
+            continue
         grouped.setdefault(deliv_id, []).append(row)
+
+    overrides_file = CANON / "deliverables_overrides.json"
+    raw_overrides: dict[str, Any] = {}
+    if overrides_file.is_file():
+        try:
+            loaded_ov = json.loads(overrides_file.read_text(encoding="utf-8"))
+            if isinstance(loaded_ov, dict):
+                raw_overrides = loaded_ov
+                for d_id, ov in raw_overrides.items():
+                    if isinstance(ov, dict) and isinstance(ov.get("excluded_media"), list):
+                        for src in ov["excluded_media"]:
+                            if isinstance(src, str) and src.strip():
+                                _add_excluded(str(d_id), src.strip())
+        except (OSError, json.JSONDecodeError):
+            raw_overrides = {}
 
     out_en: dict[str, list[dict[str, str]]] = {}
     out_pt: dict[str, list[dict[str, str]]] = {}
@@ -957,24 +1012,14 @@ def write_project_media() -> None:
         items.sort(key=lambda r: int((r.get("sort_order") or "999").strip() or 999))
         en_list: list[dict[str, str]] = []
         pt_list: list[dict[str, str]] = []
+        excl_set = set(excluded_media.get(deliv_id, []))
         for r in items:
             rel_path = (r.get("path") or "").strip().replace("\\", "/")
-            if not rel_path:
+            web_src = _resolve_portfolio_web_src(
+                rel_path, deliv_id, media_dir, proj_pub_dir, copy_missing=True
+            )
+            if not web_src or web_src in excl_set:
                 continue
-            if rel_path in KNOWN_MEDIA_ALIASES:
-                web_src = KNOWN_MEDIA_ALIASES[rel_path]
-            else:
-                fname = Path(rel_path).name
-                if (media_dir / fname).is_file():
-                    web_src = f"../media/{fname}"
-                else:
-                    src_abs = ROOT / rel_path
-                    if not src_abs.is_file():
-                        continue
-                    dest_name = f"{deliv_id}__{fname}"
-                    dest = proj_pub_dir / dest_name
-                    dest.write_bytes(src_abs.read_bytes())
-                    web_src = f"../media/projects/{dest_name}"
             cap_en = (r.get("caption_en") or r.get("caption_pt") or "").strip()
             cap_pt = (r.get("caption_pt") or r.get("caption_en") or "").strip()
             en_list.append({"src": web_src, "alt": cap_en, "caption": cap_en})
@@ -996,37 +1041,34 @@ def write_project_media() -> None:
         if f_pt:
             titles_pt[deliv_id] = f_pt
 
-    overrides_file = CANON / "deliverables_overrides.json"
     overrides_en: dict[str, dict[str, str]] = {}
     overrides_pt: dict[str, dict[str, str]] = {}
-    if overrides_file.is_file():
-        try:
-            raw_ov = json.loads(overrides_file.read_text(encoding="utf-8"))
-            if isinstance(raw_ov, dict):
-                for d_id, ov in raw_ov.items():
-                    if not isinstance(ov, dict):
-                        continue
-                    f_en = (ov.get("fantasy_name_en") or "").strip()
-                    f_pt = (ov.get("fantasy_name_pt") or "").strip()
-                    if f_en:
-                        titles_en[d_id] = f_en
-                    if f_pt:
-                        titles_pt[d_id] = f_pt
-                    en_entry: dict[str, str] = {}
-                    pt_entry: dict[str, str] = {}
-                    for k in ("short", "full", "category"):
-                        v_en = (ov.get(f"{k}_en") or ov.get(k) or "").strip()
-                        v_pt = (ov.get(f"{k}_pt") or ov.get(k) or "").strip()
-                        if v_en:
-                            en_entry[k] = v_en
-                        if v_pt:
-                            pt_entry[k] = v_pt
-                    if en_entry:
-                        overrides_en[d_id] = en_entry
-                    if pt_entry:
-                        overrides_pt[d_id] = pt_entry
-        except (OSError, json.JSONDecodeError):
-            pass
+    removed_ids: list[str] = []
+    for d_id, ov in raw_overrides.items():
+        if not isinstance(ov, dict):
+            continue
+        if ov.get("hidden") is True:
+            removed_ids.append(str(d_id))
+            continue
+        f_en = (ov.get("fantasy_name_en") or "").strip()
+        f_pt = (ov.get("fantasy_name_pt") or "").strip()
+        if f_en:
+            titles_en[d_id] = f_en
+        if f_pt:
+            titles_pt[d_id] = f_pt
+        en_entry: dict[str, str] = {}
+        pt_entry: dict[str, str] = {}
+        for k in ("short", "full", "category"):
+            v_en = (ov.get(f"{k}_en") or ov.get(k) or "").strip()
+            v_pt = (ov.get(f"{k}_pt") or ov.get(k) or "").strip()
+            if v_en:
+                en_entry[k] = v_en
+            if v_pt:
+                pt_entry[k] = v_pt
+        if en_entry:
+            overrides_en[d_id] = en_entry
+        if pt_entry:
+            overrides_pt[d_id] = pt_entry
 
     out_js = docs_dir / "project-media.js"
     payload = {"en": out_en, "pt": out_pt}
@@ -1036,7 +1078,9 @@ def write_project_media() -> None:
         "// GENERATED from my-data/canonical/portfolio_images.csv, projects.csv, deliverables_overrides.json\n"
         f"window.PROJECT_MEDIA = {json.dumps(payload, indent=2, ensure_ascii=False)};\n"
         f"window.PROJECT_TITLES = {json.dumps(titles_payload, indent=2, ensure_ascii=False)};\n"
-        f"window.DELIVERABLE_OVERRIDES = {json.dumps(overrides_payload, indent=2, ensure_ascii=False)};\n",
+        f"window.DELIVERABLE_OVERRIDES = {json.dumps(overrides_payload, indent=2, ensure_ascii=False)};\n"
+        f"window.DELIVERABLE_REMOVED = {json.dumps(removed_ids, indent=2, ensure_ascii=False)};\n"
+        f"window.EXCLUDED_MEDIA = {json.dumps(excluded_media, indent=2, ensure_ascii=False)};\n",
         encoding="utf-8",
     )
     print(f"wrote {out_js.relative_to(ROOT)} ({sum(len(v) for v in out_en.values())} items across {len(out_en)} deliverables)")
