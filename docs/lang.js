@@ -216,6 +216,21 @@ const UI = {
             alt: "Power BI Grounded Theory CX report showing customer journey phase, boleto payment friction, and causal conditions",
             caption: "Power BI Grounded Theory CX synthesis (Power Tools)",
           },
+          {
+            src: "../media/data-insights-funnel.png",
+            alt: "Evidence-to-insight funnel showing 10 audio transcripts distilled into 242 evidences and 7 insights",
+            caption: "Evidence-to-insight funnel: 10 transcripts → 242 evidences → 7 insights",
+          },
+          {
+            src: "../media/data-insights-summary.png",
+            alt: "Overview table of the 7 CX insights with risk levels, evidence counts, and verbatim quotes",
+            caption: "Overview of the 7 CX insights & risk levels",
+          },
+          {
+            src: "../media/data-insights-journey.png",
+            alt: "5-phase customer journey map across QMAI call-center evidence",
+            caption: "Customer journey evidence mapping (QMAI)",
+          },
         ],
       },
       {
@@ -270,6 +285,16 @@ const UI = {
             src: "../media/ux-relevance-flow.png",
             alt: "ServiceNow CIM workflow showing UX quality gate, AI triage, and UX champion check",
             caption: "UX quality gate & ServiceNow CIM relevance workflow",
+          },
+          {
+            src: "../media/ux-relevance-wireframe.png",
+            alt: "Hand-drawn wireframe of the Proposed UX Relevance Quick Method V1 and V2",
+            caption: "UX Relevance Quick Method V1 & V2 wireframe",
+          },
+          {
+            src: "../media/ux-relevance-scoring.png",
+            alt: "Flowchart of CIM auto-fill, scoring normalization, and Low/Medium/High decision bands",
+            caption: "Scoring algorithm & Low/Medium/High decision bands",
           },
         ],
       },
@@ -872,6 +897,21 @@ const UI = {
             alt: "Relatório em Power BI de Teoria Fundamentada para CX mostrando jornada, atrito com boleto e condições causais",
             caption: "Síntese em Power BI com Teoria Fundamentada (Power Tools)",
           },
+          {
+            src: "../media/data-insights-funnel.png",
+            alt: "Funil de evidências ao insight: 10 transcrições de áudio gerando 242 evidências e 7 insights",
+            caption: "Funil de evidências ao insight: 10 transcrições → 242 evidências → 7 insights",
+          },
+          {
+            src: "../media/data-insights-summary.png",
+            alt: "Visão geral dos 7 insights de CX com nível de risco, contagem de evidências e verbatims",
+            caption: "Visão geral dos 7 insights de CX e níveis de risco",
+          },
+          {
+            src: "../media/data-insights-journey.png",
+            alt: "Mapa da jornada do cliente em 5 fases com base nas evidências QMAI",
+            caption: "Mapeamento da jornada do cliente (QMAI)",
+          },
         ],
       },
       {
@@ -926,6 +966,16 @@ const UI = {
             src: "../media/ux-relevance-flow.png",
             alt: "Fluxo no ServiceNow CIM com portão de qualidade UX, triagem com IA e rede de UX champions",
             caption: "Portão de qualidade UX e fluxo de relevância no ServiceNow CIM",
+          },
+          {
+            src: "../media/ux-relevance-wireframe.png",
+            alt: "Wireframe do método rápido de relevância UX (V1 e V2)",
+            caption: "Wireframe do UX Relevance Quick Method (V1 e V2)",
+          },
+          {
+            src: "../media/ux-relevance-scoring.png",
+            alt: "Fluxograma de preenchimento automático via CIM, normalização e faixas Baixa/Média/Alta",
+            caption: "Algoritmo de pontuação e faixas Baixa/Média/Alta",
           },
         ],
       },

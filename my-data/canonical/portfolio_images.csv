@@ -34,3 +34,8 @@ astra-rep-6,agritech-iot-cattle,pictures/work/astra-project/astra-report-page-6-
 diploma-msc,academic-timeline,pictures/academia/docs/diploma-mestrado.png,Master's Degree Diploma (Mestre em Tecnologia – Unicamp),Diploma de Mestrado em Tecnologia (Unicamp),diploma,true,1
 diploma-ug,academic-timeline,pictures/academia/docs/diploma-graduacao.png,Undergraduate Degree Diploma (Tecnólogo em ADS – Unicamp),Diploma de Graduação em Análise e Desenvolvimento de Sistemas (Unicamp),diploma,true,2
 diplomas-mockup,academic-timeline,pictures/academia/docs/diplomas-mockup.png,Unicamp Diplomas Mockup (Undergraduate & Master's Degrees),Mockup dos Diplomas da Unicamp (Graduação e Mestrado),mockup,true,3
+data-insights-funnel,data-insights-pt,pictures/work/data-insights/data-insights-funnel.png,Evidence-to-Insight Funnel (10 Transcripts -> 242 Evidences -> 7 Insights),Funil de Evidências ao Insight (10 Transcrições -> 242 Evidências -> 7 Insights),report,true,1
+data-insights-summary,data-insights-pt,pictures/work/data-insights/data-insights-summary.png,Overview of the 7 CX Insights & Risk Levels,Visão Geral dos 7 Insights de CX e Níveis de Risco,report,true,2
+data-insights-journey,data-insights-pt,pictures/work/data-insights/data-insights-journey.png,Customer Journey Evidence Mapping (QMAI),Mapeamento da Jornada do Cliente (QMAI),report,true,3
+ux-relevance-wireframe,cip-research-gate,pictures/work/cip-ux/ux-relevance-wireframe.png,UX Relevance Quick Method V1 & V2 Wireframe,Wireframe do UX Relevance Quick Method (V1 e V2),artifact,true,9
+ux-relevance-scoring,cip-research-gate,pictures/work/cip-ux/ux-relevance-scoring.png,UX Relevance Scoring & Low/Medium/High Decision Bands,Algoritmo de Pontuação e Faixas Baixa/Média/Alta,artifact,true,10

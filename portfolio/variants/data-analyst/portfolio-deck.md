@@ -836,6 +836,8 @@ section.diagram-slide-top-title .diagram-wrapper img {
 <p><img src="../../../pictures/work/cip-ux/cip-ux-6.png" alt="Pipeline & Data Processing" /></p>
 <p><img src="../../../pictures/work/cip-ux/cip-ux-7.png" alt="Strategic Opportunities & Conclusions" /></p>
 <p><img src="../../../pictures/work/cip-ux/cip-ux-8.png" alt="Applied Research Visuals" /></p>
+<p><img src="../../../pictures/work/cip-ux/ux-relevance-wireframe.png" alt="UX Relevance Quick Method V1 & V2 Wireframe" /></p>
+<p><img src="../../../pictures/work/cip-ux/ux-relevance-scoring.png" alt="UX Relevance Scoring & Low/Medium/High Decision Bands" /></p>
 </div>
 
 ---
