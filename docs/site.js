@@ -826,6 +826,39 @@ document.querySelectorAll(".lang-switch button").forEach((button) => {
   });
 });
 
+function initSnakeTimelines() {
+  const cols = 3;
+  document.querySelectorAll(".school-line").forEach((line) => {
+    line.classList.add("snake-timeline");
+    const shots = [...line.querySelectorAll(":scope > .school-shot")];
+    shots.forEach((shot, i) => {
+      const row = Math.floor(i / cols);
+      const posInRow = i % cols;
+      const isReversed = row % 2 === 1;
+      const col = isReversed ? cols - posInRow : posInRow + 1;
+
+      shot.style.setProperty("--snake-row", String(row + 1));
+      shot.style.setProperty("--snake-col", String(col));
+
+      if (!shot.querySelector(".snake-step")) {
+        const badge = document.createElement("span");
+        badge.className = "snake-step";
+        badge.textContent = String(i + 1).padStart(2, "0");
+        shot.append(badge);
+      }
+
+      if (i === shots.length - 1) {
+        shot.dataset.snakeDir = "end";
+      } else if (posInRow === cols - 1) {
+        shot.dataset.snakeDir = "down";
+      } else {
+        shot.dataset.snakeDir = isReversed ? "left" : "right";
+      }
+    });
+  });
+}
+
+initSnakeTimelines();
 applyLanguage();
 
 if (isCustomizeMode) {
