@@ -73,12 +73,16 @@ const links = [];
 
 const pathSegments = window.location.pathname.split("/").filter(Boolean);
 const currentVariant = pathSegments[pathSegments.length - 1] || "general";
+const isCustomizeMode =
+  new URLSearchParams(window.location.search).get("customize") === "1";
 
 function loadSectionState() {
-  try {
-    const saved = localStorage.getItem(`portfolio-sections-${currentVariant}`);
-    if (saved) return JSON.parse(saved);
-  } catch (error) {}
+  if (isCustomizeMode) {
+    try {
+      const saved = localStorage.getItem(`portfolio-sections-${currentVariant}`);
+      if (saved) return JSON.parse(saved);
+    } catch (error) {}
+  }
   const defaults = {};
   chapters.forEach((s) => (defaults[s.id] = true));
   return defaults;
@@ -118,12 +122,14 @@ function renderNav() {
 
 function applySectionState(state) {
   sectionState = state;
-  try {
-    localStorage.setItem(
-      `portfolio-sections-${currentVariant}`,
-      JSON.stringify(state),
-    );
-  } catch (error) {}
+  if (isCustomizeMode) {
+    try {
+      localStorage.setItem(
+        `portfolio-sections-${currentVariant}`,
+        JSON.stringify(state),
+      );
+    } catch (error) {}
+  }
 
   chapters.forEach((sec) => {
     const isVisible = state[sec.id] !== false;
@@ -240,7 +246,7 @@ const stepText = document.getElementById("step-copy");
 function showStep(index) {
   stepIndex = index;
   const copy = activePath()?.stepCopy;
-  if (!copy) return;
+  if (!copy || !stepText) return;
   stepButtons.forEach((button, i) => {
     button.setAttribute("aria-pressed", i === index ? "true" : "false");
   });
@@ -379,34 +385,41 @@ let customizerModal = null;
 function ensureCustomizerUI() {
   const copy = UI[lang] || {};
 
-  // 1. Add Customize button to hero export if missing
+  // 1. Add Customize button to hero export only in customize mode
   const heroExport = document.querySelector(".hero-export");
-  if (heroExport && !document.getElementById("hero-customize-btn")) {
-    const custBtn = document.createElement("button");
-    custBtn.type = "button";
-    custBtn.id = "hero-customize-btn";
-    custBtn.className = "btn-customize";
-    custBtn.setAttribute("data-i18n", "customizePortfolio");
-    custBtn.textContent = copy.customizePortfolio || "Customize";
-    custBtn.addEventListener("click", () => openCustomizer());
-    heroExport.append(custBtn);
-  } else if (document.getElementById("hero-customize-btn")) {
-    document.getElementById("hero-customize-btn").textContent =
-      copy.customizePortfolio || "Customize";
+  const existingHeroCust = document.getElementById("hero-customize-btn");
+  if (isCustomizeMode) {
+    if (heroExport && !existingHeroCust) {
+      const custBtn = document.createElement("button");
+      custBtn.type = "button";
+      custBtn.id = "hero-customize-btn";
+      custBtn.className = "btn-customize";
+      custBtn.setAttribute("data-i18n", "customizePortfolio");
+      custBtn.textContent = copy.customizePortfolio || "Customize";
+      custBtn.addEventListener("click", () => openCustomizer());
+      heroExport.append(custBtn);
+    } else if (existingHeroCust) {
+      existingHeroCust.textContent = copy.customizePortfolio || "Customize";
+    }
+  } else if (existingHeroCust) {
+    existingHeroCust.remove();
   }
 
-  // 2. Add tools into rail if missing
+  // 2. Add tools into rail (Customize only in customize mode; PDF always)
   const rail = document.querySelector(".rail");
   if (rail && !document.querySelector(".rail-tools")) {
     const tools = document.createElement("div");
     tools.className = "rail-tools";
 
-    const railCustBtn = document.createElement("button");
-    railCustBtn.type = "button";
-    railCustBtn.className = "rail-customize-btn";
-    railCustBtn.setAttribute("data-i18n", "customizePortfolio");
-    railCustBtn.textContent = copy.customizePortfolio || "Customize";
-    railCustBtn.addEventListener("click", () => openCustomizer());
+    if (isCustomizeMode) {
+      const railCustBtn = document.createElement("button");
+      railCustBtn.type = "button";
+      railCustBtn.className = "rail-customize-btn";
+      railCustBtn.setAttribute("data-i18n", "customizePortfolio");
+      railCustBtn.textContent = copy.customizePortfolio || "Customize";
+      railCustBtn.addEventListener("click", () => openCustomizer());
+      tools.append(railCustBtn);
+    }
 
     const railPdfBtn = document.createElement("button");
     railPdfBtn.type = "button";
@@ -418,7 +431,7 @@ function ensureCustomizerUI() {
       downloadDynamicPdf();
     });
 
-    tools.append(railCustBtn, railPdfBtn);
+    tools.append(railPdfBtn);
     rail.append(tools);
   } else if (document.querySelector(".rail-tools")) {
     const cust = document.querySelector(".rail-customize-btn");
@@ -427,7 +440,9 @@ function ensureCustomizerUI() {
     if (pdf) pdf.textContent = copy.pdfButton || "Download PDF";
   }
 
-  // 3. Inject modal if missing
+  if (!isCustomizeMode) return;
+
+  // 3. Inject modal if missing (customize mode only)
   if (!document.getElementById("customizer-modal")) {
     customizerModal = document.createElement("dialog");
     customizerModal.id = "customizer-modal";
@@ -649,3 +664,7 @@ document.querySelectorAll(".lang-switch button").forEach((button) => {
 });
 
 applyLanguage();
+
+if (isCustomizeMode) {
+  openCustomizer();
+}

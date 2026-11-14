@@ -126,7 +126,7 @@ const UI = {
     contactLead:
       "I bring applied research, technology, and project delivery. What I care about is work people can trust and use, with clear data and results you can measure.",
     pdfButton: "Download PDF",
-    contactFine: "The PDF button saves this customized portfolio.",
+    contactFine: "The PDF button saves a print-ready copy of this portfolio.",
     customizePortfolio: "Customize",
     customizeModalTitle: "Customize Portfolio",
     customizeSubtitle: "Select which chapters to include in your portfolio and exported PDF:",
@@ -367,7 +367,7 @@ const UI = {
     contactLead:
       "Trago pesquisa aplicada, tecnologia e entrega de projetos. O que me importa é trabalho em que as pessoas possam confiar e usar, com dados claros e resultados que dá para medir.",
     pdfButton: "Baixar PDF",
-    contactFine: "O botão de PDF salva este portfólio personalizado.",
+    contactFine: "O botão de PDF salva uma cópia em PDF deste portfólio.",
     customizePortfolio: "Personalizar",
     customizeModalTitle: "Personalizar Portfólio",
     customizeSubtitle: "Escolha quais capítulos incluir no seu portfólio e no PDF exportado:",

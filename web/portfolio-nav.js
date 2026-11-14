@@ -1,6 +1,33 @@
 const portfolioButton = document.getElementById("open-portfolio-btn");
 const portfolioMenu = document.getElementById("portfolio-menu");
 if (portfolioButton && portfolioMenu) {
+  // Pair each public portfolio link with a private Customize action
+  const menuLinks = [...portfolioMenu.querySelectorAll("a[role='menuitem']")];
+  menuLinks.forEach((link) => {
+    const href = link.getAttribute("href");
+    if (!href || link.closest(".portfolio-menu-row")) return;
+
+    const row = document.createElement("div");
+    row.className = "portfolio-menu-row";
+    link.parentNode.insertBefore(row, link);
+    row.append(link);
+
+    const cust = document.createElement("a");
+    cust.setAttribute("role", "menuitem");
+    cust.className = "portfolio-customize-link";
+    cust.href = `${href}${href.includes("?") ? "&" : "?"}customize=1`;
+    cust.target = "_blank";
+    cust.rel = "noopener";
+    cust.title = "Customize sections and export PDF";
+    cust.textContent = "Customize";
+    row.append(cust);
+  });
+
+  portfolioMenu.addEventListener("click", (event) => {
+    if (event.target.closest("a[role='menuitem']")) {
+      closePortfolioMenu();
+    }
+  });
 
 function placePortfolioMenu() {
   const rect = portfolioButton.getBoundingClientRect();
