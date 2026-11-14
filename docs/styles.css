@@ -1862,6 +1862,7 @@ dialog.deliverable-modal {
   max-width: 780px;
   width: calc(100% - 32px);
   max-height: 88vh;
+  overflow: hidden;
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
 }
 
@@ -1876,7 +1877,7 @@ dialog.deliverable-modal::backdrop {
   flex-direction: column;
   gap: 16px;
   max-height: 88vh;
-  overflow-y: auto;
+  overflow: hidden;
 }
 
 .deliverable-modal-header {
@@ -1886,6 +1887,7 @@ dialog.deliverable-modal::backdrop {
   gap: 12px;
   border-bottom: 1px solid var(--line);
   padding-bottom: 12px;
+  flex-shrink: 0;
 }
 
 .deliverable-modal-header h2 {
@@ -1899,6 +1901,10 @@ dialog.deliverable-modal::backdrop {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  overflow-y: auto;
+  flex: 1 1 auto;
+  min-height: 0;
+  padding-right: 4px;
 }
 
 .deliverable-modal-desc {
@@ -1911,6 +1917,7 @@ dialog.deliverable-modal::backdrop {
 .deliverable-modal-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  align-items: start;
   gap: 14px;
 }
 
@@ -1928,7 +1935,8 @@ dialog.deliverable-modal::backdrop {
 
 .deliverable-modal-gallery img {
   width: 100%;
-  max-height: 55vh;
+  aspect-ratio: 4 / 3;
+  max-height: 280px;
   object-fit: contain;
   background: #14110e;
   display: block;

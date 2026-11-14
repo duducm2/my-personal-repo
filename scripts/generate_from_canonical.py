@@ -882,14 +882,18 @@ def write_anon_map() -> None:
             dest.write_bytes(anon_abs.read_bytes())
             anon_map[f"../media/{rel_inside}"] = f"../media/anon/{dest.name}"
 
-    # Also match any docs/media/* file whose SHA-256 equals a registered pictures/* original
-    if media_dir.is_dir():
-        for f in sorted(media_dir.iterdir()):
+    # Also match any docs/media/* or docs/media/projects/* file whose SHA-256 equals a registered pictures/* original
+    scan_dirs = [media_dir, media_dir / "projects"]
+    for scan_dir in scan_dirs:
+        if not scan_dir.is_dir():
+            continue
+        for f in sorted(scan_dir.iterdir()):
             if not f.is_file():
                 continue
             f_sha = sha256_file(f)
             if f_sha in hash_to_anon:
-                src_key = f"../media/{f.name}"
+                rel_from_media = f.relative_to(media_dir).as_posix()
+                src_key = f"../media/{rel_from_media}"
                 if src_key not in anon_map:
                     dest = anon_pub_dir / f"{f.stem}.anon.png"
                     dest.write_bytes(hash_to_anon[f_sha].read_bytes())
@@ -902,6 +906,86 @@ def write_anon_map() -> None:
         encoding="utf-8",
     )
     print(f"wrote {out_js.relative_to(ROOT)} ({len(anon_map)} entries)")
+
+
+PROJECT_TO_DELIVERABLE = {
+    "agritech-iot-cattle": "astra",
+    "tooling-pt": "tooling-pt",
+    "data-insights-pt": "data-insights",
+    "cip-research-gate": "relevance-model",
+}
+
+KNOWN_MEDIA_ALIASES = {
+    "pictures/work/astra-project/IMG_20260415_182229.jpg": "../media/astra-iot-device.jpg",
+    "pictures/work/astra-project/astra-report-page-4-current-journey.png": "../media/astra-current-journey.png",
+    "pictures/work/astra-project/astra-report-page-7-mvp-requirements.png": "../media/astra-mvp-requirements.png",
+}
+
+
+def write_project_media() -> None:
+    """Publish selected portfolio_images.csv entries into docs/media/projects/ and docs/project-media.js."""
+    csv_path = CANON / "portfolio_images.csv"
+    if not csv_path.exists():
+        return
+    docs_dir = ROOT / "docs"
+    media_dir = docs_dir / "media"
+    proj_pub_dir = media_dir / "projects"
+    proj_pub_dir.mkdir(parents=True, exist_ok=True)
+
+    with csv_path.open("r", encoding="utf-8", newline="") as f:
+        rows = list(csv.DictReader(f))
+
+    grouped: dict[str, list[dict]] = {}
+    for row in rows:
+        if (row.get("selected") or "").strip().lower() != "true":
+            continue
+        proj_id = (row.get("project_id") or "").strip()
+        deliv_id = PROJECT_TO_DELIVERABLE.get(proj_id)
+        if not deliv_id:
+            continue
+        grouped.setdefault(deliv_id, []).append(row)
+
+    out_en: dict[str, list[dict[str, str]]] = {}
+    out_pt: dict[str, list[dict[str, str]]] = {}
+
+    for deliv_id, items in grouped.items():
+        items.sort(key=lambda r: int((r.get("sort_order") or "999").strip() or 999))
+        en_list: list[dict[str, str]] = []
+        pt_list: list[dict[str, str]] = []
+        for r in items:
+            rel_path = (r.get("path") or "").strip().replace("\\", "/")
+            if not rel_path:
+                continue
+            if rel_path in KNOWN_MEDIA_ALIASES:
+                web_src = KNOWN_MEDIA_ALIASES[rel_path]
+            else:
+                fname = Path(rel_path).name
+                if (media_dir / fname).is_file():
+                    web_src = f"../media/{fname}"
+                else:
+                    src_abs = ROOT / rel_path
+                    if not src_abs.is_file():
+                        continue
+                    dest_name = f"{deliv_id}__{fname}"
+                    dest = proj_pub_dir / dest_name
+                    dest.write_bytes(src_abs.read_bytes())
+                    web_src = f"../media/projects/{dest_name}"
+            cap_en = (r.get("caption_en") or r.get("caption_pt") or "").strip()
+            cap_pt = (r.get("caption_pt") or r.get("caption_en") or "").strip()
+            en_list.append({"src": web_src, "alt": cap_en, "caption": cap_en})
+            pt_list.append({"src": web_src, "alt": cap_pt, "caption": cap_pt})
+        if en_list:
+            out_en[deliv_id] = en_list
+            out_pt[deliv_id] = pt_list
+
+    out_js = docs_dir / "project-media.js"
+    payload = {"en": out_en, "pt": out_pt}
+    out_js.write_text(
+        "// GENERATED from my-data/canonical/portfolio_images.csv\n"
+        f"window.PROJECT_MEDIA = {json.dumps(payload, indent=2, ensure_ascii=False)};\n",
+        encoding="utf-8",
+    )
+    print(f"wrote {out_js.relative_to(ROOT)} ({sum(len(v) for v in out_en.values())} items across {len(out_en)} deliverables)")
 
 
 def main() -> int:
@@ -936,6 +1020,7 @@ def main() -> int:
 
     # Synchronize Web Portfolio (docs/<variant>/path.js and docs/scores.js)
     generate_web_portfolio(warnings, variants=target_variants)
+    write_project_media()
     write_anon_map()
 
     if warnings:

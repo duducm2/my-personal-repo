@@ -14,29 +14,23 @@ function resolveMedia(src) {
   return (window.ANON_MAP && window.ANON_MAP[src]) || src;
 }
 
-function getLocalCoverMap() {
-  try {
-    return JSON.parse(localStorage.getItem("portfolio-cover-map") || "{}") || {};
-  } catch {
-    return {};
-  }
-}
-
-function setDeliverableCover(itemId, src) {
-  const map = getLocalCoverMap();
-  map[itemId] = src;
-  try {
-    localStorage.setItem("portfolio-cover-map", JSON.stringify(map));
-  } catch {
-    /* ignore */
-  }
-  renderDeliverables();
-}
-
 function orderedDeliverableMedia(item) {
-  const media = Array.isArray(item?.media) ? item.media : [];
+  const base = Array.isArray(item?.media) ? item.media : [];
+  const extra =
+    (window.PROJECT_MEDIA &&
+      window.PROJECT_MEDIA[lang] &&
+      window.PROJECT_MEDIA[lang][item.id]) ||
+    [];
+  const seen = new Set(base.map((m) => m.src));
+  const media = [...base];
+  for (const m of extra) {
+    if (m && m.src && !seen.has(m.src)) {
+      seen.add(m.src);
+      media.push(m);
+    }
+  }
   if (media.length <= 1) return media;
-  const preferred = getLocalCoverMap()[item.id] || (window.COVER_MAP && window.COVER_MAP[item.id]);
+  const preferred = window.COVER_MAP && window.COVER_MAP[item.id];
   if (!preferred) return media;
   const idx = media.findIndex((m) => m.src === preferred);
   if (idx <= 0) return media;
@@ -510,36 +504,17 @@ function openDeliverableModal(item) {
       mediaList.length === 1
         ? "deliverable-modal-gallery single"
         : "deliverable-modal-gallery";
-    mediaList.forEach((m, idx) => {
+    mediaList.forEach((m) => {
       const fig = document.createElement("figure");
       const img = document.createElement("img");
       img.src = resolveMedia(m.src);
       img.alt = m.alt || item.title;
       fig.append(img);
-      const cap = document.createElement("figcaption");
       if (m.caption) {
+        const cap = document.createElement("figcaption");
         cap.textContent = m.caption;
+        fig.append(cap);
       }
-      if (mediaList.length > 1) {
-        if (idx === 0) {
-          const badge = document.createElement("span");
-          badge.style.cssText = "font-size:11px;font-weight:600;color:var(--accent,#a3481e);margin-left:8px;";
-          badge.textContent = lang === "pt" ? "★ Capa atual" : "★ Current cover";
-          cap.append(badge);
-        } else {
-          const btn = document.createElement("button");
-          btn.type = "button";
-          btn.className = "media-cover-btn";
-          btn.style.cssText = "margin-left:8px;font-size:11px;padding:2px 8px;border-radius:999px;border:1px solid var(--line);background:var(--paper);cursor:pointer;";
-          btn.textContent = lang === "pt" ? "★ Definir como capa" : "★ Set as cover";
-          btn.onclick = () => {
-            setDeliverableCover(item.id, m.src);
-            openDeliverableModal(item);
-          };
-          cap.append(btn);
-        }
-      }
-      if (cap.childNodes.length > 0) fig.append(cap);
       gallery.append(fig);
     });
     bodyEl.append(gallery);

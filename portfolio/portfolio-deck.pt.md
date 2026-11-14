@@ -821,7 +821,7 @@ section.diagram-slide-top-title .diagram-wrapper img {
 ## Presente – Integração CIP e Pesquisa Aplicada: Artefatos
 
 <div class="cip-artifacts-grid">
-<p><img src="../pictures/work/cip-ux/cip-ux-1.png" alt="Capa do Relatório CIP-Pesquisa Aplicada" /></p>
+<p><img src="../pictures/work/cip-ux/_anonymized/cip-ux-1.anon.png" alt="Capa do Relatório CIP-Pesquisa Aplicada" /></p>
 <p><img src="../pictures/work/cip-ux/cip-ux-2.png" alt="Resumo e Descobertas Executivas" /></p>
 <p><img src="../pictures/work/cip-ux/cip-ux-3.png" alt="Contexto e Metodologia" /></p>
 <p><img src="../pictures/work/cip-ux/cip-ux-4.png" alt="Revisão de Literatura e Benchmark" /></p>
@@ -1313,9 +1313,15 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 
 <div class="astra-pt-layout">
 <div class="astra-pt-images">
+<p><img src="../pictures/work/astra-project/_anonymized/astra-report-page-4-current-journey.anon.png" alt="Entrega de Pesquisa Astra: Jornada Atual e Mapa de 10 Dores Operacionais" /></p>
 <p><img src="../pictures/work/astra-project/IMG_20260415_182229.jpg" alt="Dispositivo e Avaliação de Hardware de Telemetria IoT Astra (Bosch)" /></p>
-<p><img src="../pictures/work/astra-project/astra-report-page-4-current-journey.png" alt="Entrega de Pesquisa Astra: Jornada Atual e Mapa de 10 Dores Operacionais" /></p>
-<p><img src="../pictures/work/astra-project/astra-report-page-7-mvp-requirements.png" alt="Entrega de Pesquisa Astra: Requisitos de MVP e Métricas de Sucesso do Piloto" /></p>
+<p><img src="../pictures/work/astra-project/_anonymized/astra-report-page-7-mvp-requirements.anon.png" alt="Entrega de Pesquisa Astra: Requisitos de MVP e Métricas de Sucesso do Piloto" /></p>
+<p><img src="../pictures/work/astra-project/IMG_20260415_141239.jpg" alt="Observação de Rotinas Operacionais no Campo" /></p>
+<p><img src="../pictures/work/astra-project/IMG_20260415_142514.jpg" alt="Gestão Pecuária e Mapeamento de Jornada em Campo" /></p>
+<p><img src="../pictures/work/astra-project/IMG_20260415_162810.jpg" alt="Entrevistas Semiestruturadas com Peões e Criadores" /></p>
+<p><img src="../pictures/work/astra-project/IMG_20260416_091043.jpg" alt="Validação de Campo e Teste de Transmissão de Dados da Telemetria IoT" /></p>
+<p><img src="../pictures/work/astra-project/_anonymized/astra-report-page-2-persona-breeder.anon.png" alt="Definição de Persona: Pecuarista Premium (Objetivos, Dores, Necessidades e Condições de Sucesso)" /></p>
+<p><img src="../pictures/work/astra-project/_anonymized/astra-report-page-6-pmf-validation.anon.png" alt="Validação de Product-Market Fit Astra: Veredicto GO para Piloto Direcionado e 6 Dimensões" /></p>
 </div>
 </div>
 
