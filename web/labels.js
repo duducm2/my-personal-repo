@@ -1,5 +1,6 @@
 /** UI field labels for the career cockpit (not persisted). */
 window.CAREER_LABELS = {
+  projectFantasyName: { en: "Fantasy Name (Public)", pt: "Nome Fantasia (Público)" },
   projectName: { en: "Project Name", pt: "Nome do projeto" },
   projectDescription: {
     en: "Project Description",

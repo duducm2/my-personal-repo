@@ -93,6 +93,8 @@
       "pinned",
       "name_en",
       "name_pt",
+      "fantasy_name_en",
+      "fantasy_name_pt",
       "summary_en",
       "summary_pt",
       "csi",
@@ -356,6 +358,7 @@
       { label: "titleSource", pt: "source_pt", en: "source_en" },
     ],
     projects: [
+      { label: "projectFantasyName", pt: "fantasy_name_pt", en: "fantasy_name_en" },
       { label: "projectName", pt: "name_pt", en: "name_en" },
       {
         label: "projectDescription",
@@ -2060,13 +2063,47 @@
             coverBtn.className = "media-btn-small";
             coverBtn.textContent = "★";
             coverBtn.title = "Set as cover (up front)";
-            coverBtn.onclick = () => {
+            coverBtn.onclick = async () => {
               const reordered = [img, ...projImgs.filter((_, j) => j !== idx)];
               reordered.forEach((item, j) => {
                 item.sort_order = String(j + 1);
               });
               renderCards();
               markDeliverableDirty();
+              const projToDeliv = {
+                "agritech-iot-cattle": "astra",
+                "tooling-pt": "tooling-pt",
+                "data-insights-pt": "data-insights",
+                "cip-research-gate": "relevance-model",
+              };
+              const delivId = projToDeliv[img.project_id];
+              if (delivId && img.path) {
+                const rel = String(img.path).replace(/\\/g, "/").replace(/^\/+/, "");
+                const aliases = {
+                  "pictures/work/astra-project/IMG_20260415_182229.jpg": "../media/astra-iot-device.jpg",
+                  "pictures/work/astra-project/astra-report-page-4-current-journey.png": "../media/astra-current-journey.png",
+                  "pictures/work/astra-project/astra-report-page-7-mvp-requirements.png": "../media/astra-mvp-requirements.png",
+                  "pictures/work/data-insights/data-insights-overview.png": "../media/data-insights-overview.png",
+                  "pictures/work/data-insights/data-insights-results.png": "../media/data-insights-results.png",
+                  "pictures/work/data-insights/data-insights-journey.png": "../media/data-insights-journey.png",
+                  "pictures/work/cip-ux/ux-relevance-wireframe.png": "../media/ux-relevance-wireframe.png",
+                  "pictures/work/cip-ux/ux-relevance-scoring.png": "../media/ux-relevance-scoring.png",
+                };
+                const fname = rel.split("/").pop();
+                const webSrc = aliases[rel] || `../media/projects/${delivId}__${fname}`;
+                try {
+                  const cur = await fetch("/api/deliverables/covers").then((r) => r.json());
+                  const covers = Object.assign({}, (cur && cur.covers) || {});
+                  covers[delivId] = webSrc;
+                  await fetch("/api/deliverables/covers", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ covers }),
+                  });
+                } catch {
+                  /* ignore */
+                }
+              }
             };
             orderWrap.append(coverBtn);
           }
@@ -2407,6 +2444,57 @@
 
     refreshAnonCatalog().then(drawList);
     container.append(sec);
+
+    // Project Fantasy Names (Public Anonymized Titles)
+    const projRows = Array.isArray(deliverablesData.projects) ? deliverablesData.projects : [];
+    if (projRows.length > 0) {
+      const fanSec = document.createElement("details");
+      fanSec.className = "deliverable-section-card";
+      fanSec.style.marginBottom = "16px";
+      const fanSum = document.createElement("summary");
+      fanSum.style.cssText = "cursor:pointer; font-weight:600; font-size:13px; padding:4px 0;";
+      fanSum.textContent = "🏷️ Project Fantasy Names (Public Titles — Original Names Preserved)";
+      fanSec.append(fanSum);
+
+      const fanHint = document.createElement("p");
+      fanHint.style.cssText = "font-size:12px; color:var(--muted); margin:6px 0 10px;";
+      fanHint.textContent = "Portfolios show the Fantasy Name first when set, falling back to the original name if blank. Original names stay saved here for your reference.";
+      fanSec.append(fanHint);
+
+      const fanList = document.createElement("div");
+      fanList.style.cssText = "display:flex; flex-direction:column; gap:8px;";
+      projRows.forEach((p) => {
+        const card = document.createElement("div");
+        card.style.cssText = "padding:8px 10px; border:1px solid var(--line); border-radius:6px; background:#141417;";
+        const orig = document.createElement("div");
+        orig.style.cssText = "font-size:11px; color:var(--muted); margin-bottom:6px;";
+        orig.textContent = `Original: ${p.name_en || p.name_pt || p.id}${p.name_pt && p.name_pt !== p.name_en ? ` / ${p.name_pt}` : ""}`;
+        const rowInputs = document.createElement("div");
+        rowInputs.style.cssText = "display:grid; grid-template-columns:1fr 1fr; gap:8px;";
+
+        const mkInput = (key, placeholder) => {
+          const inp = document.createElement("input");
+          inp.type = "text";
+          inp.value = p[key] || "";
+          inp.placeholder = placeholder;
+          inp.style.cssText = "width:100%; padding:5px 8px; border-radius:4px; border:1px solid var(--line); background:#09090b; color:var(--ink); font-size:12px;";
+          inp.oninput = () => {
+            p[key] = inp.value;
+            markDeliverableDirty();
+          };
+          return inp;
+        };
+
+        rowInputs.append(
+          mkInput("fantasy_name_en", "Fantasy Name (EN) — optional"),
+          mkInput("fantasy_name_pt", "Nome Fantasia (PT) — opcional")
+        );
+        card.append(orig, rowInputs);
+        fanList.append(card);
+      });
+      fanSec.append(fanList);
+      container.append(fanSec);
+    }
 
     // Deliverable Cover Image Selector (Up Front)
     const covSec = document.createElement("details");

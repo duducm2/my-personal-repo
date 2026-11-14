@@ -14,6 +14,14 @@ function resolveMedia(src) {
   return (window.ANON_MAP && window.ANON_MAP[src]) || src;
 }
 
+function deliverableTitle(item) {
+  const fantasy =
+    window.PROJECT_TITLES &&
+    window.PROJECT_TITLES[lang] &&
+    window.PROJECT_TITLES[lang][item.id];
+  return fantasy || item.title;
+}
+
 function orderedDeliverableMedia(item) {
   const base = Array.isArray(item?.media) ? item.media : [];
   const extra =
@@ -465,7 +473,7 @@ function openDeliverableModal(item) {
   const modal = ensureDeliverableModal();
   const titleEl = modal.querySelector("#deliverable-modal-title");
   const bodyEl = modal.querySelector("#deliverable-modal-body");
-  titleEl.textContent = item.title;
+  titleEl.textContent = deliverableTitle(item);
   bodyEl.replaceChildren();
 
   const desc = document.createElement("p");
@@ -529,10 +537,11 @@ function openDeliverableModal(item) {
 }
 
 function createDeliverableCard(item) {
+  const displayTitle = deliverableTitle(item);
   const card = document.createElement("button");
   card.type = "button";
   card.className = "deliverable-card";
-  card.setAttribute("aria-label", item.title);
+  card.setAttribute("aria-label", displayTitle);
 
   const thumb = document.createElement("div");
   thumb.className = "deliverable-thumb";
@@ -541,7 +550,7 @@ function createDeliverableCard(item) {
     const img = document.createElement("img");
     img.className = "deliverable-main-img";
     img.src = resolveMedia(orderedMedia[0].src);
-    img.alt = orderedMedia[0].alt || item.title;
+    img.alt = orderedMedia[0].alt || displayTitle;
     thumb.append(img);
 
     const extras = orderedMedia.slice(1, 3);
@@ -568,7 +577,7 @@ function createDeliverableCard(item) {
   const body = document.createElement("div");
   body.className = "deliverable-body";
   const h3 = document.createElement("h3");
-  h3.textContent = item.title;
+  h3.textContent = displayTitle;
   const p = document.createElement("p");
   p.textContent = item.short;
   body.append(h3, p);

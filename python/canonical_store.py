@@ -119,6 +119,8 @@ _BASE: dict[str, tuple[str, list[str]]] = {
             "pinned",
             "name_en",
             "name_pt",
+            "fantasy_name_en",
+            "fantasy_name_pt",
             "summary_en",
             "summary_pt",
             "csi",

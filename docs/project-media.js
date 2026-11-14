@@ -1,4 +1,4 @@
-// GENERATED from my-data/canonical/portfolio_images.csv
+// GENERATED from my-data/canonical/portfolio_images.csv and projects.csv
 window.PROJECT_MEDIA = {
   "en": {
     "tooling-pt": [
@@ -299,5 +299,19 @@ window.PROJECT_MEDIA = {
         "caption": "Mapeamento da Jornada do Cliente (QMAI)"
       }
     ]
+  }
+};
+window.PROJECT_TITLES = {
+  "en": {
+    "tooling-pt": "Project ForgeFlow (Industrial Tooling)",
+    "relevance-model": "Project PulseGate (Service Intake Scoring)",
+    "data-insights": "Project VoiceLens (Customer Support CX Analytics)",
+    "astra": "Project HerdSense — AgriTech IoT & Cattle Telemetry"
+  },
+  "pt": {
+    "tooling-pt": "Projeto ForgeFlow (Ferramentas Industriais)",
+    "relevance-model": "Projeto PulseGate (Pontuação de Demandas)",
+    "data-insights": "Projeto VoiceLens (Analytics de CX em Suporte)",
+    "astra": "Projeto HerdSense — Pesquisa AgriTech IoT e Telemetria Bovina"
   }
 };

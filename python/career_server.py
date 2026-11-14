@@ -1057,17 +1057,31 @@ class CareerHandler(BaseHTTPRequestHandler):
                     except (OSError, json.JSONDecodeError):
                         covers = {}
                 lang_js = repo_root / "docs" / "lang.js"
+                proj_js = repo_root / "docs" / "project-media.js"
                 deliverables: list[dict[str, Any]] = []
                 if lang_js.is_file():
                     node_script = (
                         "const fs=require('fs'),vm=require('vm');"
-                        "const c={};vm.createContext(c);"
+                        "const c={window:{}};"
+                        "vm.createContext(c);"
                         "vm.runInContext(fs.readFileSync(process.argv[1],'utf8').replace(/\\bconst\\b/g,'var'),c);"
+                        "if(process.argv[2]&&fs.existsSync(process.argv[2])){"
+                        "vm.runInContext(fs.readFileSync(process.argv[2],'utf8'),c);"
+                        "}"
+                        "const pm=(c.window&&c.window.PROJECT_MEDIA&&c.window.PROJECT_MEDIA.en)||{};"
                         "const items=(c.UI&&c.UI.en&&c.UI.en.deliverablesItems)||[];"
-                        "console.log(JSON.stringify(items.filter(x=>Array.isArray(x.media)&&x.media.length>1).map(x=>({id:x.id,title:x.title,media:x.media}))));"
+                        "const merged=items.map(x=>{"
+                        "const base=Array.isArray(x.media)?x.media:[];"
+                        "const extra=pm[x.id]||[];"
+                        "const seen=new Set(base.map(m=>m.src));"
+                        "const all=[...base];"
+                        "for(const m of extra){if(m&&m.src&&!seen.has(m.src)){seen.add(m.src);all.push(m);}}"
+                        "return {id:x.id,title:x.title,media:all};"
+                        "}).filter(x=>x.media.length>1);"
+                        "console.log(JSON.stringify(merged));"
                     )
                     proc = subprocess.run(
-                        ["node", "-e", node_script, str(lang_js)],
+                        ["node", "-e", node_script, str(lang_js), str(proj_js)],
                         capture_output=True,
                         text=True,
                         timeout=10,

@@ -647,7 +647,12 @@ def generate_web_portfolio(
         csi_val = p.get("csi", "").strip()
         nps_val = p.get("nps", "").strip()
         if csi_val or nps_val:
-            name = p.get("name_en") or p.get("name") or p.get("id")
+            name = (
+                p.get("fantasy_name_en")
+                or p.get("name_en")
+                or p.get("name")
+                or p.get("id")
+            )
             if "averages" in name.lower() or "médias" in name.lower():
                 continue
             scores.append(
@@ -978,14 +983,49 @@ def write_project_media() -> None:
             out_en[deliv_id] = en_list
             out_pt[deliv_id] = pt_list
 
+    titles_en: dict[str, str] = {}
+    titles_pt: dict[str, str] = {}
+    for p in load_csv("projects.csv"):
+        deliv_id = PROJECT_TO_DELIVERABLE.get((p.get("id") or "").strip())
+        if not deliv_id:
+            continue
+        f_en = (p.get("fantasy_name_en") or "").strip()
+        f_pt = (p.get("fantasy_name_pt") or "").strip()
+        if f_en:
+            titles_en[deliv_id] = f_en
+        if f_pt:
+            titles_pt[deliv_id] = f_pt
+
     out_js = docs_dir / "project-media.js"
     payload = {"en": out_en, "pt": out_pt}
+    titles_payload = {"en": titles_en, "pt": titles_pt}
     out_js.write_text(
-        "// GENERATED from my-data/canonical/portfolio_images.csv\n"
-        f"window.PROJECT_MEDIA = {json.dumps(payload, indent=2, ensure_ascii=False)};\n",
+        "// GENERATED from my-data/canonical/portfolio_images.csv and projects.csv\n"
+        f"window.PROJECT_MEDIA = {json.dumps(payload, indent=2, ensure_ascii=False)};\n"
+        f"window.PROJECT_TITLES = {json.dumps(titles_payload, indent=2, ensure_ascii=False)};\n",
         encoding="utf-8",
     )
     print(f"wrote {out_js.relative_to(ROOT)} ({sum(len(v) for v in out_en.values())} items across {len(out_en)} deliverables)")
+
+    covers_file = CANON / "deliverable_covers.json"
+    covers: dict[str, str] = {}
+    if covers_file.is_file():
+        try:
+            loaded = json.loads(covers_file.read_text(encoding="utf-8"))
+            if isinstance(loaded, dict):
+                covers = {str(k): str(v) for k, v in loaded.items() if k and v}
+        except (OSError, json.JSONDecodeError):
+            covers = {}
+    for deliv_id, items in out_en.items():
+        if deliv_id not in covers and items:
+            covers[deliv_id] = items[0]["src"]
+    cover_js = docs_dir / "cover-map.js"
+    cover_js.write_text(
+        "// GENERATED from my-data/canonical/deliverable_covers.json\n"
+        f"window.COVER_MAP = {json.dumps(covers, indent=2, ensure_ascii=False)};\n",
+        encoding="utf-8",
+    )
+    print(f"wrote {cover_js.relative_to(ROOT)} ({len(covers)} entries)")
 
 
 def main() -> int:

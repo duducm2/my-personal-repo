@@ -1,7 +1,7 @@
 // GENERATED from my-data/canonical/projects.csv
 const SCORES_DATA = [
   {
-    "name": "EXT_M-PUR36 Tooling (Power Tools)",
+    "name": "Project ForgeFlow (Industrial Tooling)",
     "csi": 5.0,
     "nps": 10.0
   },
