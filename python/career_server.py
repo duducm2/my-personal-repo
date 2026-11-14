@@ -1002,7 +1002,11 @@ class CareerHandler(BaseHTTPRequestHandler):
                             "recipe": st["recipe"],
                         }
                 docs_dir = repo_root / "docs"
-                scan_files = [docs_dir / "lang.js", *sorted(docs_dir.glob("*/index.html"))]
+                scan_files = [
+                    docs_dir / "lang.js",
+                    *sorted(docs_dir.glob("*/index.html")),
+                    *sorted(docs_dir.glob("*/path.js")),
+                ]
                 for f in scan_files:
                     if not f.is_file():
                         continue
@@ -1285,68 +1289,6 @@ class CareerHandler(BaseHTTPRequestHandler):
                 body = self._read_json()
                 result = build_cover_letter_pdf(body if isinstance(body, dict) else {})
                 self._json(200, result)
-                return
-            if path == "/api/anonymize/list":
-                seen: dict[str, dict[str, Any]] = {}
-                deliv = self.store.load_deliverables_data()
-                repo_root = PICTURES_DIR.parent
-                for row in deliv.get("portfolioImages") or []:
-                    p = (row.get("path") or "").strip().lstrip("/")
-                    if p and (repo_root / p).is_file() and p not in seen:
-                        st = get_anonymization_status(p)
-                        disp = resolve_display_path(p)
-                        seen[p] = {
-                            "path": p,
-                            "url": f"/{p}",
-                            "display_url": f"/{disp}",
-                            "source": "deck",
-                            "label": row.get("caption_en") or Path(p).name,
-                            "anonymized": st["anonymized"],
-                            "method": (st["row"] or {}).get("method", ""),
-                            "updated_at": (st["row"] or {}).get("updated_at", ""),
-                            "recipe": st["recipe"],
-                        }
-                docs_dir = repo_root / "docs"
-                scan_files = [docs_dir / "lang.js", *sorted(docs_dir.glob("*/index.html"))]
-                for f in scan_files:
-                    if not f.is_file():
-                        continue
-                    txt = f.read_text(encoding="utf-8")
-                    for m in re.findall(r"\.\./media/([^\s\"'`>]+)", txt):
-                        if m.startswith("anon/"):
-                            continue
-                        p = f"docs/media/{m}"
-                        if (repo_root / p).is_file() and p not in seen:
-                            st = get_anonymization_status(p)
-                            disp = resolve_display_path(p)
-                            seen[p] = {
-                                "path": p,
-                                "url": f"/{p}",
-                                "display_url": f"/{disp}",
-                                "source": "website",
-                                "label": Path(p).name,
-                                "anonymized": st["anonymized"],
-                                "method": (st["row"] or {}).get("method", ""),
-                                "updated_at": (st["row"] or {}).get("updated_at", ""),
-                                "recipe": st["recipe"],
-                            }
-                items = sorted(seen.values(), key=lambda x: (x["source"], x["path"]))
-                self._json(200, {"ok": True, "images": items})
-                return
-            if path.startswith("/api/anonymize/preview/"):
-                fname = Path(unquote(path)).name
-                safe_name = "".join(ch for ch in fname if ch.isalnum() or ch in "._-")
-                target = (PREVIEW_DIR / safe_name).resolve()
-                if PREVIEW_DIR.resolve() not in target.parents or not target.is_file():
-                    self._json(404, {"ok": False, "error": "Preview not found"})
-                    return
-                data_bytes = target.read_bytes()
-                self.send_response(200)
-                self.send_header("Content-Type", "image/png")
-                self.send_header("Content-Length", str(len(data_bytes)))
-                self.send_header("Cache-Control", "no-store")
-                self.end_headers()
-                self.wfile.write(data_bytes)
                 return
             if path == "/api/resume-priority":
                 body = self._read_json()
