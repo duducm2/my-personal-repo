@@ -494,40 +494,74 @@ function openDeliverableModal(item) {
   modal.showModal();
 }
 
+function createDeliverableCard(item) {
+  const card = document.createElement("button");
+  card.type = "button";
+  card.className = "deliverable-card";
+  card.setAttribute("aria-label", item.title);
+
+  const thumb = document.createElement("div");
+  thumb.className = "deliverable-thumb";
+  if (Array.isArray(item.media) && item.media.length > 0) {
+    const img = document.createElement("img");
+    img.src = item.media[0].src;
+    img.alt = item.media[0].alt || item.title;
+    thumb.append(img);
+  } else {
+    thumb.classList.add("is-icon");
+    thumb.innerHTML = deliverableIconSvg(item.icon);
+  }
+
+  const body = document.createElement("div");
+  body.className = "deliverable-body";
+  const h3 = document.createElement("h3");
+  h3.textContent = item.title;
+  const p = document.createElement("p");
+  p.textContent = item.short;
+  body.append(h3, p);
+
+  card.append(thumb, body);
+  card.addEventListener("click", () => openDeliverableModal(item));
+  return card;
+}
+
 function renderDeliverables() {
-  const grid = document.getElementById("deliverables-grid");
-  if (!grid) return;
+  const root = document.getElementById("deliverables-grid");
+  if (!root) return;
   const items = UI[lang]?.deliverablesItems || [];
-  grid.replaceChildren();
-  items.forEach((item) => {
-    const card = document.createElement("button");
-    card.type = "button";
-    card.className = "deliverable-card";
-    card.setAttribute("aria-label", item.title);
+  const categories = UI[lang]?.deliverableCategories || [];
+  root.replaceChildren();
 
-    const thumb = document.createElement("div");
-    thumb.className = "deliverable-thumb";
-    if (Array.isArray(item.media) && item.media.length > 0) {
-      const img = document.createElement("img");
-      img.src = item.media[0].src;
-      img.alt = item.media[0].alt || item.title;
-      thumb.append(img);
-    } else {
-      thumb.classList.add("is-icon");
-      thumb.innerHTML = deliverableIconSvg(item.icon);
-    }
+  if (categories.length === 0) {
+    root.className = "deliverables-grid";
+    items.forEach((item) => root.append(createDeliverableCard(item)));
+    return;
+  }
 
-    const body = document.createElement("div");
-    body.className = "deliverable-body";
-    const h3 = document.createElement("h3");
-    h3.textContent = item.title;
-    const p = document.createElement("p");
-    p.textContent = item.short;
-    body.append(h3, p);
+  root.className = "deliverables-categories";
+  categories.forEach((cat) => {
+    const catItems = items.filter((item) => item.category === cat.id);
+    if (catItems.length === 0) return;
 
-    card.append(thumb, body);
-    card.addEventListener("click", () => openDeliverableModal(item));
-    grid.append(card);
+    const group = document.createElement("div");
+    group.className = "deliverable-category";
+
+    const header = document.createElement("div");
+    header.className = "deliverable-category-header";
+    const title = document.createElement("h3");
+    title.className = "deliverable-category-title";
+    title.textContent = cat.title;
+    const count = document.createElement("span");
+    count.className = "deliverable-category-count";
+    count.textContent = String(catItems.length);
+    header.append(title, count);
+
+    const grid = document.createElement("div");
+    grid.className = "deliverables-grid";
+    catItems.forEach((item) => grid.append(createDeliverableCard(item)));
+
+    group.append(header, grid);
+    root.append(group);
   });
 }
 

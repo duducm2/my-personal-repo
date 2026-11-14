@@ -86,9 +86,16 @@ const UI = {
     modelCap: "Relevance model for CIP initiatives",
     bars: ["Low", "Medium", "High"],
     deliverablesHint: "Select any deliverable to expand details and visuals.",
+    deliverableCategories: [
+      { id: "platforms", title: "Product, Platforms & Governance" },
+      { id: "data", title: "Data, Analytics & Models" },
+      { id: "training", title: "Training, Workshops & Presentations" },
+      { id: "personal", title: "Personal Apps & Productivity" },
+    ],
     deliverablesItems: [
       {
         id: "ux-super",
+        category: "platforms",
         title: "UX Super",
         short:
           "Portal for the UX practice tracking offerings, personas, opportunities, and project KPIs.",
@@ -109,6 +116,7 @@ const UI = {
       },
       {
         id: "relevance-model",
+        category: "data",
         title: "Relevance model",
         short:
           "Automated Python triage pipeline scoring CIP initiatives in ServiceNow (Low, Medium, High).",
@@ -132,6 +140,7 @@ const UI = {
       },
       {
         id: "tooling-pt",
+        category: "platforms",
         title: "Tooling, Power Tools",
         short:
           "Technical delivery and project management from requirements through high-fidelity prototypes.",
@@ -147,6 +156,7 @@ const UI = {
       },
       {
         id: "power-bi",
+        category: "data",
         title: "Power BI dashboards",
         short:
           "Dashboards for allocation, training evolution, and the TrustMate study.",
@@ -167,6 +177,7 @@ const UI = {
       },
       {
         id: "personal-apps",
+        category: "personal",
         title: "Personal apps",
         short:
           "Task board and finance cockpit built for personal workflows and budgets.",
@@ -187,6 +198,7 @@ const UI = {
       },
       {
         id: "ux-maturity",
+        category: "platforms",
         title: "Applied research & UX maturity",
         short:
           "Guided Americas UX Maturity to Level 4 with governance, templates, and delivery reports.",
@@ -207,6 +219,7 @@ const UI = {
       },
       {
         id: "results-portal",
+        category: "platforms",
         title: "Results portal",
         short:
           "Publishes UX findings as cards, a recommendations library, and a task timeline instead of a static PDF.",
@@ -217,6 +230,7 @@ const UI = {
       },
       {
         id: "ai-training",
+        category: "training",
         title: "AI tools & agents training",
         short:
           "Tutor for Digital Talent Academy; trained 100+ people (4.88 / 5) and led 2026 AI agent sessions.",
@@ -232,6 +246,7 @@ const UI = {
       },
       {
         id: "talent-forum",
+        category: "training",
         title: "Bosch Talent Forum (3rd place)",
         short:
           "Awarded Excel VBA project management tool based on the Project Model Canvas.",
@@ -247,6 +262,7 @@ const UI = {
       },
       {
         id: "international",
+        category: "training",
         title: "International & cross-site workshops",
         short:
           "Two work trips to Germany (2024, 2025) and alignment workshops across Bosch sites.",
@@ -272,6 +288,7 @@ const UI = {
       },
       {
         id: "presentations",
+        category: "training",
         title: "UX & digital services roadshows",
         short:
           "Presented UX services, digital solution journeys, and software capabilities across Americas.",
@@ -302,6 +319,7 @@ const UI = {
       },
       {
         id: "cip-training",
+        category: "training",
         title: "CIP fundamentals training",
         short:
           "Trained the Bosch Sorocaba HR team on Continuous Improvement macro and micro concepts.",
@@ -317,6 +335,7 @@ const UI = {
       },
       {
         id: "co2-scouting",
+        category: "data",
         title: "CO₂ tracking scouting",
         short:
           "Market scouting for CO₂ telemetry at GS; validated lack of market demand.",
@@ -327,6 +346,7 @@ const UI = {
       },
       {
         id: "workspace-efficiency",
+        category: "personal",
         title: "Workspace setup for efficiency",
         short:
           "Ergonomic hardware, split keyboard macros, and tooling setup engineered for high efficiency.",
@@ -581,9 +601,16 @@ const UI = {
     modelCap: "Modelo de relevância para iniciativas CIP",
     bars: ["Baixa", "Média", "Alta"],
     deliverablesHint: "Clique em qualquer entrega para expandir os detalhes e imagens.",
+    deliverableCategories: [
+      { id: "platforms", title: "Produtos, Plataformas e Governança" },
+      { id: "data", title: "Dados, Analytics e Modelos" },
+      { id: "training", title: "Treinamentos, Workshops e Apresentações" },
+      { id: "personal", title: "Apps Pessoais e Produtividade" },
+    ],
     deliverablesItems: [
       {
         id: "ux-super",
+        category: "platforms",
         title: "UX Super",
         short:
           "Portal da prática de UX com ofertas, personas, oportunidades e KPIs dos projetos.",
@@ -604,6 +631,7 @@ const UI = {
       },
       {
         id: "relevance-model",
+        category: "data",
         title: "Modelo de relevância",
         short:
           "Pipeline em Python para triagem de iniciativas CIP no ServiceNow (Baixa, Média, Alta).",
@@ -627,6 +655,7 @@ const UI = {
       },
       {
         id: "tooling-pt",
+        category: "platforms",
         title: "Tooling, Power Tools",
         short:
           "Entrega técnica e gestão de projeto dos requisitos aos protótipos de alta fidelidade.",
@@ -642,6 +671,7 @@ const UI = {
       },
       {
         id: "power-bi",
+        category: "data",
         title: "Dashboards em Power BI",
         short:
           "Painéis de alocação, evolução de treinamentos e estudo TrustMate.",
@@ -662,6 +692,7 @@ const UI = {
       },
       {
         id: "personal-apps",
+        category: "personal",
         title: "Apps pessoais",
         short:
           "Quadro de tarefas e cockpit financeiro criados para organização pessoal e orçamentos.",
@@ -682,6 +713,7 @@ const UI = {
       },
       {
         id: "ux-maturity",
+        category: "platforms",
         title: "Pesquisa aplicada e maturidade UX",
         short:
           "Condução da maturidade de UX das Américas ao Nível 4 com governança e templates.",
@@ -702,6 +734,7 @@ const UI = {
       },
       {
         id: "results-portal",
+        category: "platforms",
         title: "Portal de resultados",
         short:
           "Publica achados de UX em cards, biblioteca de recomendações e linha do tempo em vez de PDF estático.",
@@ -712,6 +745,7 @@ const UI = {
       },
       {
         id: "ai-training",
+        category: "training",
         title: "Treinamentos de IA e agentes",
         short:
           "Tutor na Digital Talent Academy; capacitação para 100+ pessoas (4,88 / 5) e sessões de 2026.",
@@ -727,6 +761,7 @@ const UI = {
       },
       {
         id: "talent-forum",
+        category: "training",
         title: "Talent Forum Bosch (3º lugar)",
         short:
           "Ferramenta em Excel VBA premiada para gestão de projetos baseada no Project Model Canvas.",
@@ -742,6 +777,7 @@ const UI = {
       },
       {
         id: "international",
+        category: "training",
         title: "Workshops internacionais e entre plantas",
         short:
           "Duas viagens à Alemanha (2024 e 2025) e workshops de alinhamento entre unidades da Bosch.",
@@ -767,6 +803,7 @@ const UI = {
       },
       {
         id: "presentations",
+        category: "training",
         title: "Apresentações de serviços UX e digitais",
         short:
           "Apresentações de serviços UX, jornadas digitais e desenvolvimento de software nas Américas.",
@@ -797,6 +834,7 @@ const UI = {
       },
       {
         id: "cip-training",
+        category: "training",
         title: "Treinamento de fundamentos CIP",
         short:
           "Capacitação do time de RH da Bosch Sorocaba nos conceitos macro e micro de Melhoria Contínua.",
@@ -812,6 +850,7 @@ const UI = {
       },
       {
         id: "co2-scouting",
+        category: "data",
         title: "Prospecção de rastreamento de CO₂",
         short:
           "Prospecção de mercado para telemetria de CO₂ na GS; validada ausência de demanda.",
@@ -822,6 +861,7 @@ const UI = {
       },
       {
         id: "workspace-efficiency",
+        category: "personal",
         title: "Setup de trabalho e eficiência",
         short:
           "Setup de hardware, teclado dividido com macros e ferramentas voltado para alta eficiência.",
