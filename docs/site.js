@@ -511,7 +511,6 @@ function renderDeliverables() {
       const img = document.createElement("img");
       img.src = item.media[0].src;
       img.alt = item.media[0].alt || item.title;
-      img.loading = "lazy";
       thumb.append(img);
     } else {
       thumb.classList.add("is-icon");
@@ -827,6 +826,25 @@ document.querySelectorAll(".lang-switch button").forEach((button) => {
   });
 });
 
+function snakeArrowSvg(dir) {
+  if (dir === "down") {
+    return `<svg viewBox="0 0 16 28" preserveAspectRatio="none" aria-hidden="true">
+      <line x1="8" y1="0" x2="8" y2="21" stroke="currentColor" stroke-width="2" stroke-dasharray="4 3" />
+      <polygon points="3,20 13,20 8,28" fill="currentColor" />
+    </svg>`;
+  }
+  if (dir === "left") {
+    return `<svg viewBox="0 0 28 16" preserveAspectRatio="none" aria-hidden="true">
+      <line x1="28" y1="8" x2="7" y2="8" stroke="currentColor" stroke-width="2" stroke-dasharray="4 3" />
+      <polygon points="8,3 8,13 0,8" fill="currentColor" />
+    </svg>`;
+  }
+  return `<svg viewBox="0 0 28 16" preserveAspectRatio="none" aria-hidden="true">
+    <line x1="0" y1="8" x2="21" y2="8" stroke="currentColor" stroke-width="2" stroke-dasharray="4 3" />
+    <polygon points="20,3 20,13 28,8" fill="currentColor" />
+  </svg>`;
+}
+
 function initSnakeTimelines() {
   const cols = 3;
   document.querySelectorAll(".school-line").forEach((line) => {
@@ -848,12 +866,23 @@ function initSnakeTimelines() {
         shot.append(badge);
       }
 
+      let dir = "end";
       if (i === shots.length - 1) {
-        shot.dataset.snakeDir = "end";
+        dir = "end";
       } else if (posInRow === cols - 1) {
-        shot.dataset.snakeDir = "down";
+        dir = "down";
       } else {
-        shot.dataset.snakeDir = isReversed ? "left" : "right";
+        dir = isReversed ? "left" : "right";
+      }
+      shot.dataset.snakeDir = dir;
+
+      const existingArrow = shot.querySelector(".snake-arrow");
+      if (existingArrow) existingArrow.remove();
+      if (dir !== "end") {
+        const arrow = document.createElement("span");
+        arrow.className = `snake-arrow snake-arrow-${dir}`;
+        arrow.innerHTML = snakeArrowSvg(dir);
+        shot.append(arrow);
       }
     });
   });

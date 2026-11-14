@@ -548,12 +548,14 @@ figcaption {
 }
 
 .school-line {
+  --snake-gap-x: 32px;
+  --snake-gap-y: 34px;
   position: relative;
   width: 100%;
   margin: 22px auto 0;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 34px 32px;
+  gap: var(--snake-gap-y) var(--snake-gap-x);
   padding-left: 0;
 }
 
@@ -633,84 +635,50 @@ figcaption {
   backdrop-filter: blur(4px);
 }
 
-.school-shot[data-snake-dir="right"]::before,
-.school-shot[data-snake-dir="left"]::before,
-.school-shot[data-snake-dir="down"]::before {
-  content: "";
-  position: absolute;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.school-shot[data-snake-dir="right"]::before {
-  top: 50%;
-  right: -30px;
-  width: 26px;
-  height: 0;
-  border-top: 2px dashed var(--signal);
-  transform: translateY(-50%);
-}
-
-.school-shot[data-snake-dir="left"]::before {
-  top: 50%;
-  left: -30px;
-  width: 26px;
-  height: 0;
-  border-top: 2px dashed var(--signal);
-  transform: translateY(-50%);
-}
-
-.school-shot[data-snake-dir="down"]::before {
-  left: 50%;
-  bottom: -32px;
-  width: 0;
-  height: 28px;
-  border-left: 2px dashed var(--signal);
-  transform: translateX(-50%);
-}
-
-.school-shot[data-snake-dir="right"]::after,
-.school-shot[data-snake-dir="left"]::after,
-.school-shot[data-snake-dir="down"]::after {
-  content: "";
+.snake-arrow {
   position: absolute;
   z-index: 3;
-  width: 0;
-  height: 0;
+  color: var(--signal);
   pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.school-shot[data-snake-dir="right"]::after {
+.snake-arrow svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.snake-arrow-right {
   top: 50%;
-  right: -32px;
+  left: calc(100% + 1px);
+  width: var(--snake-gap-x);
+  height: 16px;
   transform: translateY(-50%);
-  border-top: 5px solid transparent;
-  border-bottom: 5px solid transparent;
-  border-left: 7px solid var(--signal);
 }
 
-.school-shot[data-snake-dir="left"]::after {
+.snake-arrow-left {
   top: 50%;
-  left: -32px;
+  right: calc(100% + 1px);
+  width: var(--snake-gap-x);
+  height: 16px;
   transform: translateY(-50%);
-  border-top: 5px solid transparent;
-  border-bottom: 5px solid transparent;
-  border-right: 7px solid var(--signal);
 }
 
-.school-shot[data-snake-dir="down"]::after {
+.snake-arrow-down {
   left: 50%;
-  bottom: -34px;
+  top: calc(100% + 1px);
+  width: 16px;
+  height: var(--snake-gap-y);
   transform: translateX(-50%);
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 7px solid var(--signal);
 }
 
-@media (max-width: 760px) {
+@media screen and (max-width: 760px) {
   .school-line {
+    --snake-gap-y: 32px;
     grid-template-columns: 1fr;
-    gap: 32px;
   }
 
   .school-shot {
@@ -718,32 +686,26 @@ figcaption {
     grid-column: auto !important;
   }
 
-  .school-shot[data-snake-dir="right"]::before,
-  .school-shot[data-snake-dir="left"]::before,
-  .school-shot[data-snake-dir="down"]::before {
-    top: auto;
-    right: auto;
+  .snake-arrow-right,
+  .snake-arrow-left,
+  .snake-arrow-down {
     left: 50%;
-    bottom: -30px;
-    width: 0;
-    height: 26px;
-    border-top: 0;
-    border-left: 2px dashed var(--signal);
+    right: auto;
+    top: calc(100% + 1px);
+    width: 16px;
+    height: var(--snake-gap-y);
     transform: translateX(-50%);
   }
 
-  .school-shot[data-snake-dir="right"]::after,
-  .school-shot[data-snake-dir="left"]::after,
-  .school-shot[data-snake-dir="down"]::after {
-    top: auto;
-    right: auto;
-    left: 50%;
-    bottom: -32px;
-    transform: translateX(-50%);
-    border-top: 7px solid var(--signal);
-    border-bottom: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
+  .snake-arrow-right svg,
+  .snake-arrow-left svg {
+    transform: rotate(90deg);
+    width: var(--snake-gap-y);
+    height: 16px;
+  }
+
+  .snake-arrow-left svg {
+    transform: rotate(-90deg);
   }
 }
 
@@ -865,7 +827,7 @@ figcaption {
   grid-template-columns: repeat(3, 1fr);
 }
 
-@media (max-width: 760px) {
+@media screen and (max-width: 760px) {
   .shots-three {
     grid-template-columns: 1fr;
   }
@@ -921,7 +883,7 @@ figcaption {
   margin-bottom: 10px;
 }
 
-@media (max-width: 800px) {
+@media screen and (max-width: 800px) {
   .shell {
     grid-template-columns: 1fr;
   }
@@ -1530,10 +1492,21 @@ section.section-excluded {
   }
 
   .school-line {
+    --snake-gap-x: 7mm;
+    --snake-gap-y: 7mm;
     width: 100%;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 6mm 6mm;
     margin-top: 3mm;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .snake-step {
+    backdrop-filter: none;
+    background: var(--rail);
+    color: var(--rail-text);
+    font-size: 6.5pt;
+    padding: 0.8mm 2mm;
   }
 
   .school-shot > img,
