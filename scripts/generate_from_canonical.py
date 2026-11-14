@@ -11,6 +11,8 @@ from collections import defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "python"))
+from anonymizer.storage import load_registry, resolve_display_path, sha256_file  # noqa: E402
 CANON = ROOT / "my-data" / "canonical"
 GENERATED = ROOT / "my-data" / "generated" / "portfolio"
 TEMPLATE = ROOT / "portfolio" / "templates" / "portfolio-deck.template.md"
@@ -368,7 +370,9 @@ def build_portfolio_image_tags(
     caption_key = f"caption_{lang}"
     for img in selected:
         caption = img.get(caption_key) or img.get("caption_en") or ""
-        p = f"{prefix}{img.get('path')}"
+        raw_path = (img.get("path") or "").strip()
+        resolved_path = resolve_display_path(raw_path) if raw_path else raw_path
+        p = f"{prefix}{resolved_path}"
         tags.append(f'<p><img src="{p}" alt="{caption}" /></p>')
     return tags
 
@@ -852,6 +856,54 @@ def generate_web_portfolio(
         print(f"wrote {path_js_file.relative_to(ROOT)}")
 
 
+def write_anon_map() -> None:
+    """Publish confirmed anonymized images into docs/media/anon/ and write docs/anon-map.js."""
+    docs_dir = ROOT / "docs"
+    media_dir = docs_dir / "media"
+    anon_pub_dir = media_dir / "anon"
+    anon_pub_dir.mkdir(parents=True, exist_ok=True)
+
+    rows = [r for r in load_registry() if r.get("status") == "confirmed"]
+    hash_to_anon: dict[str, Path] = {}
+    anon_map: dict[str, str] = {}
+
+    for r in rows:
+        orig_rel = (r.get("original_path") or "").strip()
+        anon_rel = (r.get("anonymized_path") or "").strip()
+        orig_sha = (r.get("original_sha256") or "").strip()
+        anon_abs = ROOT / anon_rel
+        if not anon_abs.is_file():
+            continue
+        if orig_sha:
+            hash_to_anon[orig_sha] = anon_abs
+        if orig_rel.startswith("docs/media/"):
+            rel_inside = orig_rel[len("docs/media/"):]
+            dest = anon_pub_dir / f"{Path(rel_inside).stem}.anon.png"
+            dest.write_bytes(anon_abs.read_bytes())
+            anon_map[f"../media/{rel_inside}"] = f"../media/anon/{dest.name}"
+
+    # Also match any docs/media/* file whose SHA-256 equals a registered pictures/* original
+    if media_dir.is_dir():
+        for f in sorted(media_dir.iterdir()):
+            if not f.is_file():
+                continue
+            f_sha = sha256_file(f)
+            if f_sha in hash_to_anon:
+                src_key = f"../media/{f.name}"
+                if src_key not in anon_map:
+                    dest = anon_pub_dir / f"{f.stem}.anon.png"
+                    dest.write_bytes(hash_to_anon[f_sha].read_bytes())
+                    anon_map[src_key] = f"../media/anon/{dest.name}"
+
+    out_js = docs_dir / "anon-map.js"
+    out_js.write_text(
+        "// GENERATED from my-data/canonical/image_anonymizations.csv\n"
+        f"window.ANON_MAP = {json.dumps(anon_map, indent=2, ensure_ascii=False)};\n",
+        encoding="utf-8",
+    )
+    print(f"wrote {out_js.relative_to(ROOT)} ({len(anon_map)} entries)")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(
         description="Generate resume and portfolio from canonical CSV"
@@ -884,6 +936,7 @@ def main() -> int:
 
     # Synchronize Web Portfolio (docs/<variant>/path.js and docs/scores.js)
     generate_web_portfolio(warnings, variants=target_variants)
+    write_anon_map()
 
     if warnings:
         print("\nConsistency report:")

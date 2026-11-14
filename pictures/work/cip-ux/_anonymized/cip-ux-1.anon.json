@@ -1,0 +1,105 @@
+{
+  "method": "all_text_pixelate",
+  "strength": 3,
+  "keywords": [],
+  "regions": [
+    {
+      "id": "ocr-1",
+      "type": "rect",
+      "x": 790,
+      "y": 55,
+      "w": 74,
+      "h": 51,
+      "text": "UX",
+      "confidence": 0.5404431223869324,
+      "source": "ocr",
+      "effect": "pixelate"
+    },
+    {
+      "id": "ocr-2",
+      "type": "rect",
+      "x": 792,
+      "y": 93,
+      "w": 71,
+      "h": 51,
+      "text": "GS",
+      "confidence": 0.662225345770518,
+      "source": "ocr",
+      "effect": "pixelate"
+    },
+    {
+      "id": "ocr-3",
+      "type": "rect",
+      "x": 132,
+      "y": 430,
+      "w": 654,
+      "h": 34,
+      "text": "Make governance clear. Keep improvements",
+      "confidence": 0.9006525169058544,
+      "source": "ocr",
+      "effect": "pixelate"
+    },
+    {
+      "id": "ocr-4",
+      "type": "rect",
+      "x": 394,
+      "y": 467,
+      "w": 127,
+      "h": 43,
+      "text": "moving.",
+      "confidence": 0.8511464670300484,
+      "source": "ocr",
+      "effect": "pixelate"
+    },
+    {
+      "id": "ocr-5",
+      "type": "rect",
+      "x": 145,
+      "y": 524,
+      "w": 628,
+      "h": 37,
+      "text": "Define roles and decision rights to stay on",
+      "confidence": 0.9081033373420889,
+      "source": "ocr",
+      "effect": "pixelate"
+    },
+    {
+      "id": "ocr-6",
+      "type": "rect",
+      "x": 337,
+      "y": 568,
+      "w": 243,
+      "h": 31,
+      "text": "track for launch.",
+      "confidence": 0.8424680762820773,
+      "source": "ocr",
+      "effect": "pixelate"
+    },
+    {
+      "id": "ocr-7",
+      "type": "rect",
+      "x": 391,
+      "y": 626,
+      "w": 137,
+      "h": 24,
+      "text": "Eduardo Figueredo",
+      "confidence": 0.8480077120992873,
+      "source": "ocr",
+      "effect": "pixelate"
+    },
+    {
+      "id": "ocr-8",
+      "type": "rect",
+      "x": 409,
+      "y": 648,
+      "w": 102,
+      "h": 27,
+      "text": "January 2026",
+      "confidence": 0.8833917929575994,
+      "source": "ocr",
+      "effect": "pixelate"
+    }
+  ],
+  "original_path": "pictures/work/cip-ux/cip-ux-1.png",
+  "original_sha256": "b65e7dffe8d46036eebdc570412876e37470eea2ec2fac9bba7bc8a1c461e524"
+}

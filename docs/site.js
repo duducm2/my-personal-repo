@@ -9,6 +9,11 @@ try {
 }
 let stepIndex = 0;
 
+function resolveMedia(src) {
+  if (!src) return src;
+  return (window.ANON_MAP && window.ANON_MAP[src]) || src;
+}
+
 function activePath() {
   return PATH_COPY[lang];
 }
@@ -50,9 +55,14 @@ function applyPath() {
   });
   const diagram = document.getElementById("path-diagram");
   if (diagram) {
-    diagram.src = pathCopy.diagram;
+    diagram.src = resolveMedia(pathCopy.diagram);
     diagram.alt = pathCopy.diagramAlt;
   }
+  document.querySelectorAll("img[src]").forEach((img) => {
+    const raw = img.getAttribute("src");
+    const next = resolveMedia(raw);
+    if (next && next !== raw) img.setAttribute("src", next);
+  });
 }
 
 applyPath();
@@ -473,7 +483,7 @@ function openDeliverableModal(item) {
     item.media.forEach((m) => {
       const fig = document.createElement("figure");
       const img = document.createElement("img");
-      img.src = m.src;
+      img.src = resolveMedia(m.src);
       img.alt = m.alt || item.title;
       fig.append(img);
       if (m.caption) {
@@ -505,7 +515,7 @@ function createDeliverableCard(item) {
   if (Array.isArray(item.media) && item.media.length > 0) {
     const img = document.createElement("img");
     img.className = "deliverable-main-img";
-    img.src = item.media[0].src;
+    img.src = resolveMedia(item.media[0].src);
     img.alt = item.media[0].alt || item.title;
     thumb.append(img);
 
@@ -513,7 +523,7 @@ function createDeliverableCard(item) {
     extras.forEach((extra, idx) => {
       const sticker = document.createElement("img");
       sticker.className = `deliverable-sticker deliverable-sticker-${idx + 1}`;
-      sticker.src = extra.src;
+      sticker.src = resolveMedia(extra.src);
       sticker.alt = "";
       sticker.setAttribute("aria-hidden", "true");
       thumb.append(sticker);

@@ -1954,3 +1954,10 @@ dialog.deliverable-modal::backdrop {
   width: 84px;
   height: 84px;
 }
+
+.privacy-disclaimer {
+  margin: 8px 0 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-style: italic;
+}

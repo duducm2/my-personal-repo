@@ -86,6 +86,8 @@ const UI = {
     modelCap: "Relevance model for CIP initiatives",
     bars: ["Low", "Medium", "High"],
     deliverablesHint: "Select any deliverable to expand details and visuals.",
+    privacyDisclaimer:
+      "All images are anonymized in order to respect the data privacy for the project.",
     deliverableCategories: [
       { id: "platforms", title: "Product, Platforms & Governance" },
       { id: "data", title: "Data, Analytics & Models" },
@@ -767,6 +769,8 @@ const UI = {
     modelCap: "Modelo de relevância para iniciativas CIP",
     bars: ["Baixa", "Média", "Alta"],
     deliverablesHint: "Clique em qualquer entrega para expandir os detalhes e imagens.",
+    privacyDisclaimer:
+      "Todas as imagens são anonimizadas para respeitar a privacidade dos dados do projeto.",
     deliverableCategories: [
       { id: "platforms", title: "Produtos, Plataformas e Governança" },
       { id: "data", title: "Dados, Analytics e Modelos" },

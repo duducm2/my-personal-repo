@@ -2050,6 +2050,53 @@
         topBar.append(chkLabel, orderWrap);
         info.append(topBar);
 
+        // Anonymization controls on media card
+        const anonEntry = (window.__anonCatalogByPath || {})[String(img.path || "").replace(/^\/+/, "")];
+        const anonRow = document.createElement("div");
+        anonRow.style.cssText = "display:flex; align-items:center; justify-content:space-between; gap:4px; margin-top:4px;";
+        const anonBtn = document.createElement("button");
+        anonBtn.type = "button";
+        anonBtn.className = "media-btn-small";
+        anonBtn.textContent = anonEntry?.anonymized ? "🛡 Re-edit" : "🛡 Anonymize";
+        anonBtn.title = "Open Anonymization Studio (original is never overwritten)";
+        anonBtn.onclick = () => {
+          if (typeof window.openAnonymizeStudio === "function") {
+            window.openAnonymizeStudio({
+              path: img.path,
+              label: img.caption_en || img.path,
+              existingRecipe: anonEntry?.recipe || null,
+              onConfirmed: async () => {
+                await refreshAnonCatalog();
+                renderCards();
+              },
+            });
+          }
+        };
+        anonRow.append(anonBtn);
+        if (anonEntry?.anonymized) {
+          thumb.src = `${anonEntry.display_url}?t=${Date.now()}`;
+          const anonBadge = document.createElement("span");
+          anonBadge.className = "anon-card-badge";
+          anonBadge.textContent = "🛡 Anonymized";
+          previewWrap.append(anonBadge);
+          const revBtn = document.createElement("button");
+          revBtn.type = "button";
+          revBtn.className = "media-btn-small";
+          revBtn.textContent = "Revert";
+          revBtn.title = "Use original image instead (keeps original untouched)";
+          revBtn.onclick = async () => {
+            await fetch("/api/anonymize/revert", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ path: img.path }),
+            });
+            await refreshAnonCatalog();
+            renderCards();
+          };
+          anonRow.append(revBtn);
+        }
+        info.append(anonRow);
+
         // Category dropdown
         if (allowedCategories && allowedCategories.length > 0) {
           const catRow = document.createElement("div");
@@ -2249,9 +2296,98 @@
     document.body.append(modal);
   }
 
+  async function refreshAnonCatalog() {
+    try {
+      const res = await fetch("/api/anonymize/list");
+      const data = await res.json();
+      if (data.ok && Array.isArray(data.images)) {
+        const map = {};
+        data.images.forEach((it) => { map[it.path] = it; });
+        window.__anonCatalog = data.images;
+        window.__anonCatalogByPath = map;
+      }
+    } catch {
+      /* ignore if offline */
+    }
+  }
+
+  function renderImagePrivacySection(container) {
+    const sec = document.createElement("details");
+    sec.className = "deliverable-section-card";
+    sec.style.marginBottom = "16px";
+    const sum = document.createElement("summary");
+    sum.style.cssText = "cursor:pointer; font-weight:600; font-size:13px; padding:4px 0;";
+    sum.textContent = "🛡 Image Privacy & Anonymization (Website + Deck Images)";
+    sec.append(sum);
+
+    const grid = document.createElement("div");
+    grid.className = "anon-catalog-grid";
+    sec.append(grid);
+
+    const drawList = () => {
+      grid.replaceChildren();
+      const items = window.__anonCatalog || [];
+      if (!items.length) {
+        grid.textContent = "No images found.";
+        return;
+      }
+      items.forEach((it) => {
+        const card = document.createElement("div");
+        card.className = "anon-catalog-card";
+        const img = document.createElement("img");
+        img.src = `${it.anonymized ? it.display_url : it.url}?t=${Date.now()}`;
+        img.loading = "lazy";
+        img.alt = it.label;
+        const meta = document.createElement("div");
+        meta.className = "anon-catalog-meta";
+        meta.innerHTML = `<div class="anon-catalog-name" title="${it.path}">${it.label}</div><div class="anon-catalog-sub">${it.source} · ${it.anonymized ? `🛡 Anonymized (${it.method})` : "Original"}</div>`;
+        const actions = document.createElement("div");
+        actions.className = "anon-catalog-actions";
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "mini-action-btn";
+        btn.textContent = it.anonymized ? "Re-edit" : "Anonymize";
+        btn.onclick = () => {
+          window.openAnonymizeStudio({
+            path: it.path,
+            label: it.label,
+            existingRecipe: it.recipe || null,
+            onConfirmed: async () => {
+              await refreshAnonCatalog();
+              drawList();
+            },
+          });
+        };
+        actions.append(btn);
+        if (it.anonymized) {
+          const rev = document.createElement("button");
+          rev.type = "button";
+          rev.className = "mini-action-btn";
+          rev.textContent = "Revert";
+          rev.onclick = async () => {
+            await fetch("/api/anonymize/revert", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ path: it.path }),
+            });
+            await refreshAnonCatalog();
+            drawList();
+          };
+          actions.append(rev);
+        }
+        card.append(img, meta, actions);
+        grid.append(card);
+      });
+    };
+
+    refreshAnonCatalog().then(drawList);
+    container.append(sec);
+  }
+
   function renderPortfolioTab(container, variant, data) {
     const narratives = data.narratives || [];
     const images = data.portfolioImages || [];
+    refreshAnonCatalog();
 
     // Quick-jump navigation bar
     const quickNav = document.createElement("nav");
@@ -2288,6 +2424,7 @@
     });
 
     container.append(quickNav);
+    renderImagePrivacySection(container);
 
     const getNarrative = (key, defaultLabel) => {
       let row = narratives.find((r) => r.variant === variant && r.field === key);
