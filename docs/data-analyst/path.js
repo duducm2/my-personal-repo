@@ -1,9 +1,9 @@
 // GENERATED from canonical CSVs (narratives, profile, projects)
 const PATH_COPY = {
   en: {
-  "label": "Data Analyst \\| AI for Data Manipulation, Validation & Applied Insights",
+  "label": "Data Analyst | AI for Data Manipulation, Validation & Applied Insights",
   "eyebrow": "Eduardo Figueiredo · Nova Odessa, SP, Brazil",
-  "role": "Data Analyst \\| AI for Data Manipulation, Validation & Applied Insights",
+  "role": "Data Analyst | AI for Data Manipulation, Validation & Applied Insights",
   "lede": "I'm a data analyst with a Master's in Information Systems and Communication (Unicamp). I have done applied research for more than four years, using reasoning and evidence to choose the right business action. I turn questions into numbers people can act on with Power BI, Python, SQL, and descriptive and inferential statistics. Information Visualization, grade A. I also use visuals to decide in personal apps for finances and for buying a house. I am currently learning Databricks, PySpark, and Apache Spark.",
   "whyTitle": "Why I Work with Data, Experimentation & Applied Research",
   "whyA": "I believe decisions should start from reasoning and evidence, then scale to analysis, BI, and code.",
@@ -29,9 +29,9 @@ const PATH_COPY = {
   "contactLead": "I connect research to the right business action. A Master's in Information Systems and Communication and more than four years of applied research sit behind the numbers. I try to leave the people deciding with something they can act on, not only charts."
 },
   pt: {
-  "label": "Analista de Dados \\| IA para Manipulação, Checagem de Dados e Insights Aplicados",
+  "label": "Analista de Dados | IA para Manipulação, Checagem de Dados e Insights Aplicados",
   "eyebrow": "Eduardo Figueiredo · Nova Odessa, SP, Brasil",
-  "role": "Analista de Dados \\| IA para Manipulação, Checagem de Dados e Insights Aplicados",
+  "role": "Analista de Dados | IA para Manipulação, Checagem de Dados e Insights Aplicados",
   "lede": "Sou analista de dados, mestre em Sistemas de Informação e Comunicação (Unicamp). Faço pesquisa aplicada há mais de quatro anos e uso raciocínio e evidência para escolher a ação de negócio certa. Transformo perguntas em números que as pessoas consigam usar, com Power BI, Python, SQL e estatística descritiva e inferencial. Visualização da Informação, nota A. Também uso visuais para decidir em apps pessoais de finanças e da compra da casa. Estou aprendendo Databricks, PySpark e Apache Spark.",
   "whyTitle": "Por que trabalho com Dados, Experimentação e Pesquisa Aplicada",
   "whyA": "Acredito que decisões devem partir de raciocínio e evidência, e então escalar para análise, BI e código.",

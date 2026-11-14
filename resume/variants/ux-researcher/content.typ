@@ -35,7 +35,7 @@
 )
 
 #let profile = [
-  UX researcher and design technologist with ~10 years of technology experience at Bosch (intern → web developer → applied research & design analyst). Combines #strong[mixed-methods research] (Straussian Grounded Theory, qualitative coding, surveys, usability testing) with #strong[design technologist execution] (websites trough vibe coding, high-fidelity code prototypes, Figma, Power BI). Master's in Technology approved Sep 2026 (Unicamp, Grade A across coursework); published peer-reviewed research on user trust in human-AI interaction (IHC 2025, ISSRE 2025). Guided Americas UX Maturity to Level 4; sustained average CSI 4.86 / NPS 9.94 across projects.
+  UX researcher and design technologist with ~10 years of technology experience at Bosch (intern → web developer → applied research & design analyst). Combines #strong[mixed-methods research] (Straussian Grounded Theory, qualitative coding, surveys, usability testing) with #strong[design technologist execution] (websites through vibe coding, high-fidelity code prototypes, Figma, Power BI). Master's in Technology approved Sep 2026 (Unicamp, Grade A across coursework); published peer-reviewed research on user trust in human-AI interaction (IHC 2025, ISSRE 2025). Guided Americas UX Maturity to Level 4; sustained average CSI 4.86 / NPS 9.94 across projects.
 ]
 
 #let languages = "Portuguese (Native)   English (Fluent)"
