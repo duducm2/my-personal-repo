@@ -2778,8 +2778,20 @@
           )
         );
 
-        // Attached Images Strip (with ★ Cover & 🛡️ Anonymize)
-        if (mediaList.length > 0) {
+        // Attached Images: use canonical portfolio_images.csv editor when linked, otherwise show Attached Images Strip
+        const hasProjMediaEditor = Boolean(d.project_id && projMediaConfigs[d.project_id]);
+        if (hasProjMediaEditor) {
+          const cfg = projMediaConfigs[d.project_id];
+          body.append(
+            createProjectMediaEditor(
+              d.project_id,
+              `${cfg.label} (Cover, Anonymize, Add / Toggle / Reorder)`,
+              images,
+              cfg.cats,
+              cfg.def
+            )
+          );
+        } else if (mediaList.length > 0) {
           const imgBox = document.createElement("div");
           imgBox.style.cssText = "padding:8px; border:1px solid var(--line); border-radius:6px; background:#09090b;";
           const imgHdr = document.createElement("div");
@@ -2794,13 +2806,17 @@
             const curCov = covers[d.id] || mediaList[0].src;
             mediaList.forEach((m) => {
               const isCov = m.src === curCov;
+              const relGuess = m.src.replace(/^\.\.\//, "docs/");
+              const anonEntry = (window.__anonCatalogByPath || {})[relGuess];
+              const isAnon = Boolean(anonEntry && anonEntry.anonymized);
               const tile = document.createElement("div");
               tile.style.cssText = `width:148px; padding:6px; border-radius:6px; background:#141417; border:2px solid ${isCov ? "#f59e0b" : "var(--line)"}; display:flex; flex-direction:column; gap:5px;`;
               const im = document.createElement("img");
-              im.src = `/${m.src.replace(/^\.\.\//, "portfolio/")}`;
+              const previewUrl = isAnon && anonEntry.display_url ? anonEntry.display_url : `/${m.src.replace(/^\.\.\//, "portfolio/")}`;
+              im.src = previewUrl;
               im.alt = m.caption || m.alt || d.title_en;
               im.style.cssText = "width:100%; height:78px; object-fit:contain; background:#09090b; border-radius:4px; cursor:pointer;";
-              im.onclick = () => openImageLightbox(im.src, m.caption || d.title_en);
+              im.onclick = () => openImageLightbox(previewUrl, m.caption || d.title_en);
 
               const cap = document.createElement("div");
               cap.style.cssText = "font-size:10px; color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;";
@@ -2831,48 +2847,40 @@
               };
               btnRow.append(covBtn);
 
-              const relGuess = m.src.replace(/^\.\.\//, "docs/");
-              const anonEntry = (window.__anonCatalogByPath || {})[relGuess];
-              if (anonEntry) {
-                const anBtn = document.createElement("button");
-                anBtn.type = "button";
-                anBtn.className = "media-btn-small";
-                anBtn.style.fontSize = "10px";
-                anBtn.title = "Anonymize this image";
-                anBtn.textContent = "🛡️";
-                anBtn.onclick = () => {
-                  if (typeof window.openAnonymizeStudio === "function") {
-                    window.openAnonymizeStudio({
-                      path: anonEntry.path,
-                      label: anonEntry.label,
-                      existingRecipe: anonEntry.recipe || null,
-                      onConfirmed: () => refreshAnonCatalog(),
-                    });
-                  }
-                };
-                btnRow.append(anBtn);
-              }
+              const anBtn = document.createElement("button");
+              anBtn.type = "button";
+              anBtn.className = "media-btn-small";
+              anBtn.style.cssText = `font-size:10px; ${isAnon ? "color:#34d399; border-color:#10b981;" : ""}`;
+              anBtn.title = isAnon ? "Edit anonymization" : "Anonymize this image";
+              anBtn.textContent = isAnon ? "🛡️✓" : "🛡️";
+              anBtn.onclick = async () => {
+                if (!window.__anonCatalogByPath) {
+                  await refreshAnonCatalog();
+                }
+                const entry = (window.__anonCatalogByPath || {})[relGuess];
+                if (typeof window.openAnonymizeStudio === "function") {
+                  window.openAnonymizeStudio({
+                    path: entry ? entry.path : relGuess,
+                    label: (entry && entry.label) || m.caption || d.title_en,
+                    existingRecipe: (entry && entry.recipe) || null,
+                    onConfirmed: async () => {
+                      await refreshAnonCatalog();
+                      renderStrip();
+                    },
+                  });
+                }
+              };
+              btnRow.append(anBtn);
               tile.append(im, cap, btnRow);
               strip.append(tile);
             });
           };
           renderStrip();
+          if (!window.__anonCatalogByPath) {
+            refreshAnonCatalog().then(renderStrip);
+          }
           imgBox.append(strip);
           body.append(imgBox);
-        }
-
-        // Canonical portfolio_images.csv manager when linked
-        if (d.project_id && projMediaConfigs[d.project_id]) {
-          const cfg = projMediaConfigs[d.project_id];
-          body.append(
-            createProjectMediaEditor(
-              d.project_id,
-              `${cfg.label} (Add / Toggle / Reorder)`,
-              images,
-              cfg.cats,
-              cfg.def
-            )
-          );
         }
 
         det.append(body);

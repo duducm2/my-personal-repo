@@ -303,19 +303,113 @@ window.PROJECT_MEDIA = {
 };
 window.PROJECT_TITLES = {
   "en": {
-    "tooling-pt": "Project ForgeFlow (Industrial Tooling)",
-    "relevance-model": "Project PulseGate (Service Intake Scoring)",
-    "data-insights": "Project VoiceLens (Customer Support CX Analytics)",
-    "astra": "Project HerdSense — AgriTech IoT & Cattle Telemetry"
+    "tooling-pt": "Project ForgeFlow — Industrial Tooling Delivery",
+    "relevance-model": "Project PulseGate — Automated Intake Scoring",
+    "data-insights": "Project VoiceLens — Customer Support CX Analytics",
+    "astra": "Project HerdSense — AgriTech IoT & Cattle Telemetry",
+    "x-tower": "Project BeaconTower — UX Practice Portal & Service Blueprint",
+    "rise-automation": "Project FlowPulse — Automation Intake Prototype",
+    "cim-journey": "Project SignalMap — Continuous Improvement Evidence Synthesis",
+    "ux-maturity": "Regional UX Governance & Maturity Program",
+    "co2-scouting": "Project EcoTrace — Carbon Telemetry Market Scouting",
+    "cip-training": "Continuous Improvement Fundamentals Workshop"
   },
   "pt": {
-    "tooling-pt": "Projeto ForgeFlow (Ferramentas Industriais)",
-    "relevance-model": "Projeto PulseGate (Pontuação de Demandas)",
-    "data-insights": "Projeto VoiceLens (Analytics de CX em Suporte)",
-    "astra": "Projeto HerdSense — Pesquisa AgriTech IoT e Telemetria Bovina"
+    "tooling-pt": "Projeto ForgeFlow — Entrega de Ferramentas Industriais",
+    "relevance-model": "Projeto PulseGate — Pontuação Automatizada de Demandas",
+    "data-insights": "Projeto VoiceLens — Analytics de CX em Suporte ao Cliente",
+    "astra": "Projeto HerdSense — Pesquisa AgriTech IoT e Telemetria Bovina",
+    "x-tower": "Projeto BeaconTower — Portal de Prática UX e Service Blueprint",
+    "rise-automation": "Projeto FlowPulse — Protótipo de Entrada de Automação",
+    "cim-journey": "Projeto SignalMap — Síntese de Evidências de Melhoria Contínua",
+    "ux-maturity": "Programa Regional de Governança e Maturidade em UX",
+    "co2-scouting": "Projeto EcoTrace — Prospecção de Telemetria de Carbono",
+    "cip-training": "Workshop de Fundamentos de Melhoria Contínua"
   }
 };
 window.DELIVERABLE_OVERRIDES = {
-  "en": {},
-  "pt": {}
+  "en": {
+    "astra": {
+      "short": "AgriTech field ethnography across 3 cattle ranches, AgriShow benchmark, 6-dimension PMF validation, and MVP requirements.",
+      "full": "In Project HerdSense (an AgriTech livestock telemetry initiative), I conducted comprehensive field research to solve operational bottlenecks in premium cattle ranching and turn qualitative evidence into hardware and software product strategy. Fieldwork included on-site ethnography across 3 premium cattle ranches, competitor benchmarking at AgriShow Brazil, and veterinary pharma partnership discovery—delivering dual personas, as-is/future journey maps, a 6-dimension PMF validation ('GO for targeted pilot'), and scoped MVP requirements."
+    },
+    "x-tower": {
+      "short": "Custom UX practice portal (offerings, personas, KPIs) applied to BeaconTower discovery: blueprint & evaluation saving 150k EUR/quarter and 240h/month.",
+      "full": "Built the PracticeHub UX portal to organize businesses, offerings, personas, opportunities, and baseline-to-target project KPIs, and applied it to end-to-end UX research and architecture discovery for the BeaconTower platform across global business operations teams. Conducted a heuristic evaluation of 8 core screens (33 flaws uncovered), stakeholder interviews, global survey, concentric stakeholder and ecosystem mapping, and an as-is service blueprint exposing 240-row parallel Excel workarounds—establishing unified governance and impact projections of 150,000 EUR/quarter in avoided rework and 240 hours/month saved."
+    },
+    "rise-automation": {
+      "short": "Low-fidelity wireframe prototype for an automation intake and impact-tracking dashboard.",
+      "full": "Designed a low-fidelity interactive wireframe for Project FlowPulse, structuring automation project intake, savings tracking, and stakeholder alignment before engineering build."
+    },
+    "data-insights": {
+      "short": "Grounded Theory qualitative analysis of call-center transcripts using Python, AI-assisted coding, and Power BI.",
+      "full": "Led Customer Experience qualitative analytics for industrial equipment support call-center transcripts using Strauss & Corbin Grounded Theory (open and axial coding) automated with Python and AI-assisted coding, synthesized into an interactive Power BI dashboard."
+    },
+    "cim-journey": {
+      "short": "Power BI synthesis of 1,045 Continuous Improvement research evidence units into executive reporting and data-quality insights.",
+      "full": "Consolidated 1,045 Continuous Improvement research evidence units into an executive Power BI synthesis highlighting recurring friction points, data-quality gaps, and strategic improvement opportunities."
+    },
+    "relevance-model": {
+      "short": "Automated Python triage pipeline scoring Continuous Improvement initiatives in ServiceNow (Low, Medium, High).",
+      "full": "Built an automated Python triage pipeline using property-based weights to score Continuous Improvement initiatives in ServiceNow into Low, Medium, and High UX relevance bands, replacing subjective intake review with a consistent data gate."
+    },
+    "tooling-pt": {
+      "short": "Technical delivery and project management from requirements through high-fidelity prototypes for industrial tooling.",
+      "full": "Led discovery-to-delivery on Project ForgeFlow for the industrial tooling division: gathering requirements, running regular customer check-ins, and guiding high-fidelity prototypes into accountable engineering handoffs (CSI 5.0 / NPS 10)."
+    },
+    "ux-maturity": {
+      "short": "Guided regional UX Maturity to Level 4 with governance, reusable templates, training, and Power BI audit dashboards.",
+      "full": "Supported the Americas region in reaching UX Maturity Level 4 by building governance frameworks, reusable research templates, stakeholder training, and an automated Power BI audit dashboard connected to Microsoft Lists."
+    },
+    "co2-scouting": {
+      "short": "Market scouting for CO₂ telemetry in enterprise service operations; validated lack of immediate market demand.",
+      "full": "Conducted structured market scouting for CO₂ tracking and telemetry opportunities in enterprise service operations, preventing premature investment by validating that market demand was not yet mature."
+    },
+    "cip-training": {
+      "short": "Trained regional HR teams on Continuous Improvement macro and micro concepts.",
+      "full": "Designed and facilitated a hands-on workshop teaching Continuous Improvement macro and micro concepts to regional HR teams."
+    }
+  },
+  "pt": {
+    "astra": {
+      "short": "Etnografia em 3 fazendas de gado de elite, benchmark na Agrishow, validação de PMF em 6 dimensões e especificação de MVP.",
+      "full": "No Projeto HerdSense (iniciativa AgriTech de telemetria bovina), conduzi pesquisa de campo completa para resolver gargalos operacionais na pecuária de elite e transformar evidências qualitativas em estratégia de produto de hardware e software. O trabalho incluiu etnografia in loco em 3 fazendas de gado de elite, benchmark na Agrishow Brasil e prospecção de parcerias veterinárias—entregando personas duplas, jornadas atual e futura, validação de PMF em 6 dimensões ('GO para piloto direcionado') e requisitos de MVP."
+    },
+    "x-tower": {
+      "short": "Portal da prática de UX (ofertas, personas, KPIs) aplicado à descoberta do BeaconTower: blueprint e avaliação com economia de 150 mil EUR/trimestre e 240h/mês.",
+      "full": "Desenvolvi o portal PracticeHub para estruturar negócios, ofertas, personas, oportunidades e KPIs de projeto (linha de base à meta), aplicando-o na pesquisa de UX e descoberta de arquitetura ponta a ponta da plataforma BeaconTower em times globais de operações. Incluiu avaliação heurística de 8 telas principais (33 falhas mapeadas), entrevistas com stakeholders, survey global, mapeamento concêntrico de stakeholders e ecossistema, e service blueprint as-is expondo planilhas paralelas de 240 linhas—estruturando governança unificada com impacto projetado de 150.000 EUR/trimestre em retrabalho evitado e 240 horas/mês economizadas."
+    },
+    "rise-automation": {
+      "short": "Protótipo de wireframe de baixa fidelidade para painel de entrada de automações e acompanhamento de impacto.",
+      "full": "Desenhei um wireframe interativo de baixa fidelidade para o Projeto FlowPulse, estruturando a entrada de projetos de automação, acompanhamento de ganhos e alinhamento com stakeholders antes do desenvolvimento."
+    },
+    "data-insights": {
+      "short": "Análise qualitativa com Teoria Fundamentada de transcrições de call center usando Python, codificação assistida por IA e Power BI.",
+      "full": "Conduzi análise qualitativa de Customer Experience sobre transcrições de call center de equipamentos industriais usando Teoria Fundamentada (codificação aberta e axial) automatizada com Python e IA, sintetizada em dashboard Power BI."
+    },
+    "cim-journey": {
+      "short": "Síntese em Power BI de 1.045 unidades de evidência de pesquisa em Melhoria Contínua para relatórios executivos e qualidade de dados.",
+      "full": "Consolidei 1.045 unidades de evidência de pesquisa em Melhoria Contínua em uma síntese executiva no Power BI destacando pontos de atrito recorrentes, lacunas de qualidade de dados e oportunidades estratégicas."
+    },
+    "relevance-model": {
+      "short": "Pipeline automatizado em Python para pontuar iniciativas de Melhoria Contínua no ServiceNow (Baixa, Média, Alta).",
+      "full": "Construí um pipeline automatizado em Python com pesos por propriedades para pontuar iniciativas de Melhoria Contínua no ServiceNow em faixas Baixa, Média e Alta de relevância em UX, substituindo triagens subjetivas por um gate consistente."
+    },
+    "tooling-pt": {
+      "short": "Entrega técnica e gestão de projetos dos requisitos até protótipos de alta fidelidade para ferramentas industriais.",
+      "full": "Conduzi a jornada de descoberta à entrega no Projeto ForgeFlow para a divisão de ferramentas industriais: levantamento de requisitos, check-ins regulares com clientes e protótipos de alta fidelidade até o handoff com engenharia (CSI 5,0 / NPS 10)."
+    },
+    "ux-maturity": {
+      "short": "Conduzi a Maturidade em UX regional ao Nível 4 com governança, templates reutilizáveis, treinamentos e dashboards de auditoria em Power BI.",
+      "full": "Apoiei a região das Américas a alcançar o Nível 4 de Maturidade em UX construindo governança, templates reutilizáveis de pesquisa, treinamentos e um dashboard de auditoria em Power BI integrado ao Microsoft Lists."
+    },
+    "co2-scouting": {
+      "short": "Prospecção de mercado para telemetria de CO₂ em operações de serviço; validou ausência de demanda imediata.",
+      "full": "Conduzi prospecção estruturada de mercado para oportunidades de rastreamento e telemetria de CO₂ em operações de serviço, evitando investimento prematuro ao validar que a demanda ainda não estava madura."
+    },
+    "cip-training": {
+      "short": "Treinamento de equipes regionais de RH em conceitos macro e micro de Melhoria Contínua.",
+      "full": "Desenhei e facilitei um workshop prático ensinando conceitos macro e micro de Melhoria Contínua para equipes regionais de RH."
+    }
+  }
 };

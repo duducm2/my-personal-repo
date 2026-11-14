@@ -664,14 +664,14 @@ def generate_web_portfolio(
             )
     default_names = {s["name"] for s in scores}
     baseline_scores = [
-        {"name": "GS_R2S Financial Portal", "csi": 5, "nps": None},
-        {"name": "EXT_PS_CCC Telemetry", "csi": 5, "nps": 10},
-        {"name": "EXT_M-PUR36 Tooling", "csi": 5, "nps": 10},
-        {"name": "EXT_M-PMQ PPAP", "csi": 5, "nps": 10},
-        {"name": "GS_P2P_MovDiv", "csi": 5, "nps": 10},
-        {"name": "GS_P2P_Financial_Portal", "csi": 5, "nps": 10},
-        {"name": "GS Applied Research Bootcamp 2024", "csi": 4.9, "nps": 9.6},
-        {"name": "GS_B2R_AA CF Automation", "csi": 4, "nps": 10},
+        {"name": "Financial Portal (R2S)", "csi": 5, "nps": None},
+        {"name": "Telemetry Platform (CCC)", "csi": 5, "nps": 10},
+        {"name": "Project ForgeFlow (Industrial Tooling)", "csi": 5, "nps": 10},
+        {"name": "Quality PPAP Workflow", "csi": 5, "nps": 10},
+        {"name": "Process Automation (P2P)", "csi": 5, "nps": 10},
+        {"name": "Financial Portal (P2P)", "csi": 5, "nps": 10},
+        {"name": "Applied Research Bootcamp 2024", "csi": 4.9, "nps": 9.6},
+        {"name": "Workflow Automation (B2R)", "csi": 4, "nps": 10},
     ]
     for b in baseline_scores:
         if b["name"] not in default_names:

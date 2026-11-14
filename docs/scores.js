@@ -11,42 +11,37 @@ const SCORES_DATA = [
     "nps": null
   },
   {
-    "name": "GS_R2S Financial Portal",
+    "name": "Financial Portal (R2S)",
     "csi": 5,
     "nps": null
   },
   {
-    "name": "EXT_PS_CCC Telemetry",
+    "name": "Telemetry Platform (CCC)",
     "csi": 5,
     "nps": 10
   },
   {
-    "name": "EXT_M-PUR36 Tooling",
+    "name": "Quality PPAP Workflow",
     "csi": 5,
     "nps": 10
   },
   {
-    "name": "EXT_M-PMQ PPAP",
+    "name": "Process Automation (P2P)",
     "csi": 5,
     "nps": 10
   },
   {
-    "name": "GS_P2P_MovDiv",
+    "name": "Financial Portal (P2P)",
     "csi": 5,
     "nps": 10
   },
   {
-    "name": "GS_P2P_Financial_Portal",
-    "csi": 5,
-    "nps": 10
-  },
-  {
-    "name": "GS Applied Research Bootcamp 2024",
+    "name": "Applied Research Bootcamp 2024",
     "csi": 4.9,
     "nps": 9.6
   },
   {
-    "name": "GS_B2R_AA CF Automation",
+    "name": "Workflow Automation (B2R)",
     "csi": 4,
     "nps": 10
   }

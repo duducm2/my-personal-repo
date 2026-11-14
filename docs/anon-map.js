@@ -1,5 +1,7 @@
 // GENERATED from my-data/canonical/image_anonymizations.csv
 window.ANON_MAP = {
+  "../media/x-tower-as-is-journey.png": "../media/anon/x-tower-as-is-journey.anon.png",
+  "../media/x-tower-summary.png": "../media/anon/x-tower-summary.anon.png",
   "../media/astra-current-journey.png": "../media/anon/astra-current-journey.anon.png",
   "../media/astra-mvp-requirements.png": "../media/anon/astra-mvp-requirements.anon.png",
   "../media/projects/astra__astra-report-page-2-persona-breeder.png": "../media/anon/astra__astra-report-page-2-persona-breeder.anon.png",
