@@ -85,6 +85,247 @@ const UI = {
     modelSample: "Sample of 35 projects",
     modelCap: "Relevance model for CIP initiatives",
     bars: ["Low", "Medium", "High"],
+    deliverablesHint: "Select any deliverable to expand details and visuals.",
+    deliverablesItems: [
+      {
+        id: "ux-super",
+        title: "UX Super",
+        short:
+          "Portal for the UX practice tracking offerings, personas, opportunities, and project KPIs.",
+        full:
+          "A portal for the UX practice. It keeps each business with its offerings, personas, and opportunities, and tracks project KPIs from baseline to target.",
+        media: [
+          {
+            src: "../media/ux-super-businesses.jpg",
+            alt: "UX Super businesses view, with offerings, personas, and opportunities",
+            caption: "UX Super, businesses",
+          },
+          {
+            src: "../media/ux-super-kpis.jpg",
+            alt: "UX Super project KPIs, with baseline and target",
+            caption: "UX Super, project KPIs",
+          },
+        ],
+      },
+      {
+        id: "relevance-model",
+        title: "Relevance model",
+        short:
+          "Automated Python triage pipeline scoring CIP initiatives in ServiceNow (Low, Medium, High).",
+        full:
+          "I built a model to score applied-research relevance for CIP initiatives. CIM (ServiceNow) fields are set by priority and evaluated into Low, Medium, or High—a triage for when deeper research involvement is needed. Also evaluated strategic CIP dashboards with the UX team so leadership could spot main issues and efficiency gains.",
+        metrics: {
+          sample: "Sample of 35 projects",
+          bars: [
+            { label: "Low", pct: 40.0 },
+            { label: "Medium", pct: 37.1 },
+            { label: "High", pct: 22.9 },
+          ],
+        },
+        media: [
+          {
+            src: "../media/relevance.png",
+            alt: "Applied research relevance model: CIM fields, priority, then Low, Medium, or High",
+            caption: "Relevance model for CIP initiatives",
+          },
+        ],
+      },
+      {
+        id: "tooling-pt",
+        title: "Tooling, Power Tools",
+        short:
+          "Technical delivery and project management from requirements through high-fidelity prototypes.",
+        full:
+          "Led technical delivery and project management for Power Tools (EXT_M-PUR36 Tooling) from requirements through high-fidelity prototypes, with regular customer check-ins (CSI 5.0, NPS 10).",
+        media: [
+          {
+            src: "../media/tooling.jpg",
+            alt: "Tooling project prototype",
+            caption: "Tooling project, PT",
+          },
+        ],
+      },
+      {
+        id: "power-bi",
+        title: "Power BI dashboards",
+        short:
+          "Dashboards for allocation, training evolution, and the TrustMate study.",
+        full:
+          "Power BI suites built for Applied Research Americas resource allocation, training evolution tracking, and statistical visualization of the TrustMate dissertation study.",
+        media: [
+          {
+            src: "../media/pbi-allocation.jpg",
+            alt: "Power BI allocation dashboard for Bosch Applied Research Americas",
+            caption: "Power BI, allocation",
+          },
+          {
+            src: "../media/pbi-training.jpg",
+            alt: "Power BI training evolution dashboard",
+            caption: "Power BI, training",
+          },
+        ],
+      },
+      {
+        id: "personal-apps",
+        title: "Personal apps",
+        short:
+          "Task board and finance cockpit built for personal workflows and budgets.",
+        full:
+          "Tools I built for my own work: a Kanban-style task board tracking personal projects in columns, and a finance cockpit with budgets and spending by category.",
+        media: [
+          {
+            src: "../media/tasks-board.jpg",
+            alt: "Tasks board, with personal projects in columns",
+            caption: "Tasks, personal board",
+          },
+          {
+            src: "../media/finance-cockpit.jpg",
+            alt: "Finance cockpit, with budgets and spending by category",
+            caption: "Finance cockpit, budgets and spending",
+          },
+        ],
+      },
+      {
+        id: "ux-maturity",
+        title: "Applied research & UX maturity",
+        short:
+          "Guided Americas UX Maturity to Level 4 with governance, templates, and delivery reports.",
+        full:
+          "Applied Research Expert and Project Champion at Bosch GS/BDU. Guided the Americas UX Maturity to Level 4 through intake governance, standardized templates, training, and research delivery reporting.",
+        media: [
+          {
+            src: "../media/digital-ws.jpg",
+            alt: "Applied Research GS team in the digital workspace",
+            caption: "Applied Research, GS",
+          },
+          {
+            src: "../media/research-delivery.jpg",
+            alt: "Delivery report for my research, January 2026",
+            caption: "Delivery report for my research",
+          },
+        ],
+      },
+      {
+        id: "results-portal",
+        title: "Results portal",
+        short:
+          "Publishes UX findings as cards, a recommendations library, and a task timeline instead of a static PDF.",
+        full:
+          "A results portal that publishes UX findings as structured cards, a searchable recommendations library, and a task timeline—replacing static PDF handoffs with a living deliverable.",
+        icon: "portal",
+        media: [],
+      },
+      {
+        id: "ai-training",
+        title: "AI tools & agents training",
+        short:
+          "Tutor for Digital Talent Academy; trained 100+ people (4.88 / 5) and led 2026 AI agent sessions.",
+        full:
+          "Tutor for Digital Talent Academy students. Delivered AI tools training for 100+ people with a 4.88 / 5 satisfaction score. In 2026, led eight sessions at Bosch with Felipe Oshiro and Gabriel Reis where participants learned AI concepts and applied them with agents.",
+        media: [
+          {
+            src: "../media/ai-agents-sessions-2026.jpg",
+            alt: "Bosch colleagues in the 2026 AI training sessions",
+            caption: "Bosch AI sessions, 2026, with Felipe Oshiro and Gabriel Reis",
+          },
+        ],
+      },
+      {
+        id: "talent-forum",
+        title: "Bosch Talent Forum (3rd place)",
+        short:
+          "Awarded Excel VBA project management tool based on the Project Model Canvas.",
+        full:
+          "Third place at the Bosch Campinas Talent Forum in September 2018, which recognizes the plant's best internship projects. Built an internal Excel VBA tool for project management based on the Project Model Canvas to help teams organize project information and reach their goals.",
+        media: [
+          {
+            src: "../media/talent-forum-boss-2018.jpg",
+            alt: "Eduardo Figueiredo receiving the third-place award at the Bosch Talent Forum with his boss, September 2018",
+            caption: "3rd place, Bosch Talent Forum, Campinas, September 2018",
+          },
+        ],
+      },
+      {
+        id: "international",
+        title: "International & cross-site workshops",
+        short:
+          "Two work trips to Germany (2024, 2025) and alignment workshops across Bosch sites.",
+        full:
+          "Two trips to Germany in 2024 and 2025 for role-related work, alongside cross-site workshops in Joinville and Campinas.",
+        media: [
+          {
+            src: "../media/germany-2024.jpg",
+            alt: "Germany workshop, 2024",
+            caption: "Germany workshop, 2024",
+          },
+          {
+            src: "../media/joinville-2024.jpg",
+            alt: "Joinville workshop, 2024",
+            caption: "Joinville workshop, 2024",
+          },
+          {
+            src: "../media/bosch-building.jpg",
+            alt: "Eduardo Figueiredo in front of the Bosch building",
+            caption: "Bosch Brasil",
+          },
+        ],
+      },
+      {
+        id: "presentations",
+        title: "UX & digital services roadshows",
+        short:
+          "Presented UX services, digital solution journeys, and software capabilities across Americas.",
+        full:
+          "Presented UX services to the GS UX team (2023), the GS/TET-LA digital solution journey to Purchasing (2022), Technology & Enabling services at GS Service Day (August 2022), and digital solutions & software development services in Buenos Aires, Argentina (August 2022).",
+        media: [
+          {
+            src: "../media/ux-services-gs-2023.jpg",
+            alt: "Eduardo Figueiredo presenting UX services to the GS team in 2023",
+            caption: "UX services, GS, 2023",
+          },
+          {
+            src: "../media/digital-journey-gs-tet-2022.jpg",
+            alt: "Eduardo Figueiredo presenting the GS/TET-LA digital journey to a Purchasing team",
+            caption: "Digital journey for Purchasing, GS/TET-LA, 2022",
+          },
+          {
+            src: "../media/gs-service-day-2022.jpg",
+            alt: "Eduardo Figueiredo at GS Service Day, August 2022",
+            caption: "GS Service Day, Technology & Enabling, August 2022",
+          },
+          {
+            src: "../media/buenos-aires-2022.jpg",
+            alt: "Eduardo Figueiredo presenting services to a group in Buenos Aires, August 2022",
+            caption: "Presenting our services in Buenos Aires, August 2022",
+          },
+        ],
+      },
+      {
+        id: "cip-training",
+        title: "CIP fundamentals training",
+        short:
+          "Trained the Bosch Sorocaba HR team on Continuous Improvement macro and micro concepts.",
+        full:
+          "In August 2020, trained the HR team at the Bosch plant in Sorocaba on the fundamentals of Continuous Improvement, covering the macro and micro concepts of the CIP process.",
+        media: [
+          {
+            src: "../media/cip-fundamentals-sorocaba-2020.jpg",
+            alt: "Eduardo Figueiredo presenting CIP fundamentals to the HR team at Bosch Sorocaba, August 2020",
+            caption: "CIP fundamentals for HR, Bosch Sorocaba, August 2020",
+          },
+        ],
+      },
+      {
+        id: "co2-scouting",
+        title: "CO₂ tracking scouting",
+        short:
+          "Market scouting for CO₂ telemetry at GS; validated lack of market demand.",
+        full:
+          "Conducted marketing and demand scouting for CO₂ telemetry at GS. Finding: lack of market demand—preventing unnecessary engineering investment.",
+        icon: "radar",
+        media: [],
+      },
+    ],
     researchTitle: "Trust in AI and interfaces",
     research: [
       "The master's dissertation asks whether AI agents can stand in for humans when scoring perceived trust on e-commerce interfaces. The model is ITQM / MQCI, rooted in ISO/IEC 25000. TrustMate collects the questionnaire and scores Usability, Accessibility, and UX.",
@@ -326,6 +567,247 @@ const UI = {
     modelSample: "Amostra de 35 projetos",
     modelCap: "Modelo de relevância para iniciativas CIP",
     bars: ["Baixa", "Média", "Alta"],
+    deliverablesHint: "Clique em qualquer entrega para expandir os detalhes e imagens.",
+    deliverablesItems: [
+      {
+        id: "ux-super",
+        title: "UX Super",
+        short:
+          "Portal da prática de UX com ofertas, personas, oportunidades e KPIs dos projetos.",
+        full:
+          "Portal para a prática de UX. Mantém cada negócio com suas ofertas, personas e oportunidades, e acompanha os KPIs dos projetos da linha de base à meta.",
+        media: [
+          {
+            src: "../media/ux-super-businesses.jpg",
+            alt: "Visão de negócios do UX Super, com ofertas, personas e oportunidades",
+            caption: "UX Super, negócios",
+          },
+          {
+            src: "../media/ux-super-kpis.jpg",
+            alt: "KPIs de projeto no UX Super, com linha de base e meta",
+            caption: "UX Super, KPIs de projeto",
+          },
+        ],
+      },
+      {
+        id: "relevance-model",
+        title: "Modelo de relevância",
+        short:
+          "Pipeline em Python para triagem de iniciativas CIP no ServiceNow (Baixa, Média, Alta).",
+        full:
+          "Construí um modelo para avaliar a relevância de pesquisa aplicada em iniciativas CIP. Campos do CIM (ServiceNow) entram por prioridade, gerando uma triagem em Baixa, Média ou Alta. Também avaliei dashboards estratégicos de CIP com o time de UX para a liderança identificar gargalos e ganhos de eficiência.",
+        metrics: {
+          sample: "Amostra de 35 projetos",
+          bars: [
+            { label: "Baixa", pct: 40.0 },
+            { label: "Média", pct: 37.1 },
+            { label: "Alta", pct: 22.9 },
+          ],
+        },
+        media: [
+          {
+            src: "../media/relevance-pt.png",
+            alt: "Modelo de relevância de pesquisa aplicada: campos do CIM, prioridade e classificação Baixa, Média ou Alta",
+            caption: "Modelo de relevância para iniciativas CIP",
+          },
+        ],
+      },
+      {
+        id: "tooling-pt",
+        title: "Tooling, Power Tools",
+        short:
+          "Entrega técnica e gestão de projeto dos requisitos aos protótipos de alta fidelidade.",
+        full:
+          "Liderança da entrega técnica e gestão de projeto para Power Tools (EXT_M-PUR36 Tooling), dos requisitos aos protótipos de alta fidelidade, com alinhamentos regulares com o cliente (CSI 5,0, NPS 10).",
+        media: [
+          {
+            src: "../media/tooling.jpg",
+            alt: "Protótipo do projeto de Tooling",
+            caption: "Projeto de Tooling, PT",
+          },
+        ],
+      },
+      {
+        id: "power-bi",
+        title: "Dashboards em Power BI",
+        short:
+          "Painéis de alocação, evolução de treinamentos e estudo TrustMate.",
+        full:
+          "Conjunto de painéis em Power BI para alocação da equipe Applied Research Americas, evolução de treinamentos e análise estatística da dissertação com a TrustMate.",
+        media: [
+          {
+            src: "../media/pbi-allocation.jpg",
+            alt: "Dashboard de alocação em Power BI para Bosch Applied Research Americas",
+            caption: "Power BI, alocação",
+          },
+          {
+            src: "../media/pbi-training.jpg",
+            alt: "Dashboard de evolução de treinamentos em Power BI",
+            caption: "Power BI, treinamentos",
+          },
+        ],
+      },
+      {
+        id: "personal-apps",
+        title: "Apps pessoais",
+        short:
+          "Quadro de tarefas e cockpit financeiro criados para organização pessoal e orçamentos.",
+        full:
+          "Ferramentas que construí para o meu próprio uso: um quadro de tarefas em colunas para projetos pessoais e um cockpit financeiro com orçamentos e gastos por categoria.",
+        media: [
+          {
+            src: "../media/tasks-board.jpg",
+            alt: "Quadro de tarefas com projetos pessoais em colunas",
+            caption: "Tarefas, quadro pessoal",
+          },
+          {
+            src: "../media/finance-cockpit.jpg",
+            alt: "Cockpit financeiro com orçamentos e gastos por categoria",
+            caption: "Cockpit financeiro, orçamentos e gastos",
+          },
+        ],
+      },
+      {
+        id: "ux-maturity",
+        title: "Pesquisa aplicada e maturidade UX",
+        short:
+          "Condução da maturidade de UX das Américas ao Nível 4 com governança e templates.",
+        full:
+          "Applied Research Expert e Project Champion na Bosch GS/BDU. Conduzi a maturidade de UX das Américas ao Nível 4 por meio de governança de intake, templates padronizados, treinamentos e relatórios de entrega de pesquisa.",
+        media: [
+          {
+            src: "../media/digital-ws.jpg",
+            alt: "Equipe de Pesquisa Aplicada GS no espaço digital",
+            caption: "Pesquisa Aplicada, GS",
+          },
+          {
+            src: "../media/research-delivery.jpg",
+            alt: "Relatório de entrega de pesquisa, janeiro de 2026",
+            caption: "Relatório de entrega da pesquisa",
+          },
+        ],
+      },
+      {
+        id: "results-portal",
+        title: "Portal de resultados",
+        short:
+          "Publica achados de UX em cards, biblioteca de recomendações e linha do tempo em vez de PDF estático.",
+        full:
+          "Um portal de resultados que publica achados de UX em cards estruturados, biblioteca de recomendações pesquisável e linha do tempo de tarefas, substituindo entregas em PDF estático.",
+        icon: "portal",
+        media: [],
+      },
+      {
+        id: "ai-training",
+        title: "Treinamentos de IA e agentes",
+        short:
+          "Tutor na Digital Talent Academy; capacitação para 100+ pessoas (4,88 / 5) e sessões de 2026.",
+        full:
+          "Tutor para estudantes do programa Digital Talent Academy. Treinamento em ferramentas de IA para mais de 100 pessoas, com satisfação de 4,88 / 5. Em 2026, oito sessões na Bosch com Felipe Oshiro e Gabriel Reis aplicando conceitos de IA com agentes.",
+        media: [
+          {
+            src: "../media/ai-agents-sessions-2026.jpg",
+            alt: "Colegas da Bosch nas sessões de treinamento em IA de 2026",
+            caption: "Sessões de IA na Bosch, 2026, com Felipe Oshiro e Gabriel Reis",
+          },
+        ],
+      },
+      {
+        id: "talent-forum",
+        title: "Talent Forum Bosch (3º lugar)",
+        short:
+          "Ferramenta em Excel VBA premiada para gestão de projetos baseada no Project Model Canvas.",
+        full:
+          "Terceiro lugar no Talent Forum da Bosch Campinas em setembro de 2018, que reconhece os melhores projetos de estágio da planta. Ferramenta interna em Excel VBA baseada no Project Model Canvas para ajudar equipes a organizar projetos e atingir metas.",
+        media: [
+          {
+            src: "../media/talent-forum-boss-2018.jpg",
+            alt: "Eduardo Figueiredo recebendo o terceiro lugar no Talent Forum Bosch com sua chefe, setembro de 2018",
+            caption: "3º lugar, Talent Forum Bosch, Campinas, setembro de 2018",
+          },
+        ],
+      },
+      {
+        id: "international",
+        title: "Workshops internacionais e entre plantas",
+        short:
+          "Duas viagens à Alemanha (2024 e 2025) e workshops de alinhamento entre unidades da Bosch.",
+        full:
+          "Duas viagens à Alemanha em 2024 e 2025 por trabalho do cargo, além de workshops presenciais em Joinville e Campinas.",
+        media: [
+          {
+            src: "../media/germany-2024.jpg",
+            alt: "Workshop na Alemanha, 2024",
+            caption: "Workshop na Alemanha, 2024",
+          },
+          {
+            src: "../media/joinville-2024.jpg",
+            alt: "Workshop em Joinville, 2024",
+            caption: "Workshop em Joinville, 2024",
+          },
+          {
+            src: "../media/bosch-building.jpg",
+            alt: "Eduardo Figueiredo em frente ao prédio da Bosch",
+            caption: "Bosch Brasil",
+          },
+        ],
+      },
+      {
+        id: "presentations",
+        title: "Apresentações de serviços UX e digitais",
+        short:
+          "Apresentações de serviços UX, jornadas digitais e desenvolvimento de software nas Américas.",
+        full:
+          "Apresentação de serviços UX para o time GS UX (2023), jornada de soluções digitais GS/TET-LA para Compras (2022), serviços de Tecnologia e Enabling no GS Service Day (agosto de 2022) e serviços digitais em Buenos Aires, Argentina (agosto de 2022).",
+        media: [
+          {
+            src: "../media/ux-services-gs-2023.jpg",
+            alt: "Eduardo Figueiredo apresentando serviços UX para a equipe GS em 2023",
+            caption: "Serviços UX, GS, 2023",
+          },
+          {
+            src: "../media/digital-journey-gs-tet-2022.jpg",
+            alt: "Eduardo Figueiredo apresentando a jornada digital GS/TET-LA para o time de Compras",
+            caption: "Jornada digital para Compras, GS/TET-LA, 2022",
+          },
+          {
+            src: "../media/gs-service-day-2022.jpg",
+            alt: "Eduardo Figueiredo no GS Service Day em agosto de 2022",
+            caption: "GS Service Day, Technology & Enabling, agosto de 2022",
+          },
+          {
+            src: "../media/buenos-aires-2022.jpg",
+            alt: "Eduardo Figueiredo apresentando serviços em Buenos Aires em agosto de 2022",
+            caption: "Apresentando nossos serviços em Buenos Aires, agosto de 2022",
+          },
+        ],
+      },
+      {
+        id: "cip-training",
+        title: "Treinamento de fundamentos CIP",
+        short:
+          "Capacitação do time de RH da Bosch Sorocaba nos conceitos macro e micro de Melhoria Contínua.",
+        full:
+          "Em agosto de 2020, treinei o time de RH da planta da Bosch em Sorocaba nos fundamentos de Melhoria Contínua, cobrindo os conceitos macro e micro do processo CIP.",
+        media: [
+          {
+            src: "../media/cip-fundamentals-sorocaba-2020.jpg",
+            alt: "Eduardo Figueiredo apresentando fundamentos de CIP para o time de RH na Bosch Sorocaba, agosto de 2020",
+            caption: "Fundamentos de CIP para RH, Bosch Sorocaba, agosto de 2020",
+          },
+        ],
+      },
+      {
+        id: "co2-scouting",
+        title: "Prospecção de rastreamento de CO₂",
+        short:
+          "Prospecção de mercado para telemetria de CO₂ na GS; validada ausência de demanda.",
+        full:
+          "Prospecção de mercado e demanda para telemetria de CO₂ na GS. Resultado: ausência de demanda de mercado, evitando investimento desnecessário.",
+        icon: "radar",
+        media: [],
+      },
+    ],
     researchTitle: "Confiança em IA e interfaces",
     research: [
       "A dissertação de mestrado compara pontuações humanas e de agentes de IA sobre confiança percebida em interfaces de e-commerce. A TrustMate aplica o questionário do MQCI (ISO/IEC 25000) e calcula Usabilidade, Acessibilidade e UX.",

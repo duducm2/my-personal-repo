@@ -171,17 +171,19 @@ const spy = new IntersectionObserver(
 chapters.forEach((section) => spy.observe(section));
 
 const bars = document.getElementById("bars");
-const barObserver = new IntersectionObserver(
-  (entries) => {
-    if (!entries.some((entry) => entry.isIntersecting)) return;
-    bars.querySelectorAll("[data-width]").forEach((bar) => {
-      bar.style.width = `${bar.dataset.width}%`;
-    });
-    barObserver.disconnect();
-  },
-  { threshold: 0.4 },
-);
-barObserver.observe(bars);
+if (bars) {
+  const barObserver = new IntersectionObserver(
+    (entries) => {
+      if (!entries.some((entry) => entry.isIntersecting)) return;
+      bars.querySelectorAll("[data-width]").forEach((bar) => {
+        bar.style.width = `${bar.dataset.width}%`;
+      });
+      barObserver.disconnect();
+    },
+    { threshold: 0.4 },
+  );
+  barObserver.observe(bars);
+}
 
 const defaultScores = [
   { name: "GS_R2S Financial Portal", csi: 5, nps: null },
@@ -359,6 +361,7 @@ function applyLanguage() {
   });
   renderNav();
   applyPath();
+  renderDeliverables();
   applyPdfLink();
   ensureCustomizerUI();
   showStep(stepIndex);
@@ -366,6 +369,166 @@ function applyLanguage() {
   if (new URLSearchParams(location.search).has("print")) {
     prepareForPrint();
   }
+}
+
+function deliverableIconSvg(iconKey) {
+  if (iconKey === "portal") {
+    return `<svg class="deliverable-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect x="3" y="4" width="18" height="16" rx="2" />
+      <path d="M3 9h18" />
+      <rect x="6.5" y="12" width="4.5" height="5" rx="1" />
+      <path d="M13.5 13h4" />
+      <path d="M13.5 16h3" />
+    </svg>`;
+  }
+  if (iconKey === "radar") {
+    return `<svg class="deliverable-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="9" />
+      <circle cx="12" cy="12" r="5" />
+      <circle cx="12" cy="12" r="1.5" fill="currentColor" />
+      <path d="M12 12l5.5-5.5" />
+    </svg>`;
+  }
+  return `<svg class="deliverable-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <rect x="4" y="4" width="16" height="16" rx="2" />
+    <path d="M8 10h8M8 14h5" />
+  </svg>`;
+}
+
+let deliverableModal = null;
+
+function ensureDeliverableModal() {
+  if (deliverableModal) return deliverableModal;
+  deliverableModal = document.createElement("dialog");
+  deliverableModal.id = "deliverable-modal";
+  deliverableModal.className = "deliverable-modal";
+  deliverableModal.innerHTML = `
+    <div class="deliverable-modal-content">
+      <div class="deliverable-modal-header">
+        <h2 id="deliverable-modal-title"></h2>
+        <button type="button" class="customizer-close" id="deliverable-modal-close" aria-label="Close">&times;</button>
+      </div>
+      <div class="deliverable-modal-body" id="deliverable-modal-body"></div>
+    </div>
+  `;
+  document.body.append(deliverableModal);
+  deliverableModal
+    .querySelector("#deliverable-modal-close")
+    .addEventListener("click", () => deliverableModal.close());
+  deliverableModal.addEventListener("click", (e) => {
+    const rect = deliverableModal.getBoundingClientRect();
+    const inside =
+      rect.top <= e.clientY &&
+      e.clientY <= rect.top + rect.height &&
+      rect.left <= e.clientX &&
+      e.clientX <= rect.left + rect.width;
+    if (!inside) deliverableModal.close();
+  });
+  return deliverableModal;
+}
+
+function openDeliverableModal(item) {
+  const modal = ensureDeliverableModal();
+  const titleEl = modal.querySelector("#deliverable-modal-title");
+  const bodyEl = modal.querySelector("#deliverable-modal-body");
+  titleEl.textContent = item.title;
+  bodyEl.replaceChildren();
+
+  const desc = document.createElement("p");
+  desc.className = "deliverable-modal-desc";
+  desc.textContent = item.full || item.short;
+  bodyEl.append(desc);
+
+  if (item.metrics && Array.isArray(item.metrics.bars)) {
+    const sample = document.createElement("p");
+    sample.className = "sample";
+    sample.textContent = item.metrics.sample || "";
+    const barsWrap = document.createElement("div");
+    barsWrap.className = "bars";
+    item.metrics.bars.forEach((b) => {
+      const row = document.createElement("div");
+      row.className = "bar-row";
+      const label = document.createElement("span");
+      label.textContent = b.label;
+      const track = document.createElement("div");
+      track.className = "track";
+      const fill = document.createElement("span");
+      fill.style.width = `${b.pct}%`;
+      track.append(fill);
+      const strong = document.createElement("strong");
+      strong.textContent = `${b.pct.toFixed(1)}%`;
+      row.append(label, track, strong);
+      barsWrap.append(row);
+    });
+    bodyEl.append(sample, barsWrap);
+  }
+
+  if (Array.isArray(item.media) && item.media.length > 0) {
+    const gallery = document.createElement("div");
+    gallery.className =
+      item.media.length === 1
+        ? "deliverable-modal-gallery single"
+        : "deliverable-modal-gallery";
+    item.media.forEach((m) => {
+      const fig = document.createElement("figure");
+      const img = document.createElement("img");
+      img.src = m.src;
+      img.alt = m.alt || item.title;
+      fig.append(img);
+      if (m.caption) {
+        const cap = document.createElement("figcaption");
+        cap.textContent = m.caption;
+        fig.append(cap);
+      }
+      gallery.append(fig);
+    });
+    bodyEl.append(gallery);
+  } else if (item.icon) {
+    const iconBox = document.createElement("div");
+    iconBox.className = "deliverable-modal-icon";
+    iconBox.innerHTML = deliverableIconSvg(item.icon);
+    bodyEl.append(iconBox);
+  }
+
+  modal.showModal();
+}
+
+function renderDeliverables() {
+  const grid = document.getElementById("deliverables-grid");
+  if (!grid) return;
+  const items = UI[lang]?.deliverablesItems || [];
+  grid.replaceChildren();
+  items.forEach((item) => {
+    const card = document.createElement("button");
+    card.type = "button";
+    card.className = "deliverable-card";
+    card.setAttribute("aria-label", item.title);
+
+    const thumb = document.createElement("div");
+    thumb.className = "deliverable-thumb";
+    if (Array.isArray(item.media) && item.media.length > 0) {
+      const img = document.createElement("img");
+      img.src = item.media[0].src;
+      img.alt = item.media[0].alt || item.title;
+      img.loading = "lazy";
+      thumb.append(img);
+    } else {
+      thumb.classList.add("is-icon");
+      thumb.innerHTML = deliverableIconSvg(item.icon);
+    }
+
+    const body = document.createElement("div");
+    body.className = "deliverable-body";
+    const h3 = document.createElement("h3");
+    h3.textContent = item.title;
+    const p = document.createElement("p");
+    p.textContent = item.short;
+    body.append(h3, p);
+
+    card.append(thumb, body);
+    card.addEventListener("click", () => openDeliverableModal(item));
+    grid.append(card);
+  });
 }
 
 function applyPdfLink() {
