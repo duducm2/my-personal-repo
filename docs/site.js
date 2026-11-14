@@ -504,9 +504,27 @@ function createDeliverableCard(item) {
   thumb.className = "deliverable-thumb";
   if (Array.isArray(item.media) && item.media.length > 0) {
     const img = document.createElement("img");
+    img.className = "deliverable-main-img";
     img.src = item.media[0].src;
     img.alt = item.media[0].alt || item.title;
     thumb.append(img);
+
+    const extras = item.media.slice(1, 3);
+    extras.forEach((extra, idx) => {
+      const sticker = document.createElement("img");
+      sticker.className = `deliverable-sticker deliverable-sticker-${idx + 1}`;
+      sticker.src = extra.src;
+      sticker.alt = "";
+      sticker.setAttribute("aria-hidden", "true");
+      thumb.append(sticker);
+    });
+
+    if (item.media.length > 3) {
+      const more = document.createElement("span");
+      more.className = "deliverable-more-badge";
+      more.textContent = `+${item.media.length - 3}`;
+      thumb.append(more);
+    }
   } else {
     thumb.classList.add("is-icon");
     thumb.innerHTML = deliverableIconSvg(item.icon);
