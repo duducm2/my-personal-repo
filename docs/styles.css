@@ -1683,10 +1683,12 @@ section.section-excluded {
     line-height: 1.2;
   }
 
-  .deliverable-body p {
+  #deliverables .deliverable-body p {
     font-size: 7pt;
     line-height: 1.3;
-    -webkit-line-clamp: 2;
+    display: block;
+    -webkit-line-clamp: unset;
+    overflow: visible;
   }
 }
 
