@@ -406,7 +406,6 @@ def build_slot_map(
     )
     if not astra_tags:
         astra_tags = [
-            f'<p><img src="{prefix}pictures/work/astra-project/IMG-20260414-WA0003.jpg" alt="Fazenda Sindi da Porangaba" /></p>',
             f'<p><img src="{prefix}pictures/work/astra-project/IMG_20260415_182229.jpg" alt="Bosch Astra IoT Telemetry" /></p>',
         ]
 

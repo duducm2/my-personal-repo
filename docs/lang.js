@@ -94,6 +94,32 @@ const UI = {
     ],
     deliverablesItems: [
       {
+        id: "astra",
+        category: "platforms",
+        title: "Astra (AgriTech IoT & Cattle Telemetry)",
+        short:
+          "AgriTech field ethnography across 3 cattle ranches, AgriShow benchmark, 6-dimension PMF validation, and MVP requirements.",
+        full:
+          "In the Astra project (AgriTech livestock telemetry at Bosch), I conducted field research to solve operational bottlenecks in premium cattle ranching and turn qualitative evidence into hardware and software product strategy. Fieldwork included on-site ethnography and semi-structured interviews across 3 premium cattle ranches (including Fazenda Sindi da Porangaba), competitor benchmarking at AgriShow Brazil in Ribeirão Preto, and strategic partnership discovery in veterinary pharma. I delivered the formal research report defining dual personas (Premium Breeder vs. Farm Cowboy), an as-is journey with 10 operational pain points, a future-state journey with 10 IoT solutions, a 6-dimension Product-Market Fit (PMF) validation ('GO for targeted pilot'), and scoped MVP requirements with pilot metrics.",
+        media: [
+          {
+            src: "../media/astra-iot-device.jpg",
+            alt: "Bosch Astra IoT telemetry hardware evaluation in field conditions",
+            caption: "Bosch Astra IoT telemetry device & hardware evaluation",
+          },
+          {
+            src: "../media/astra-current-journey.png",
+            alt: "Astra as-is journey map and 10 operational pain points",
+            caption: "As-is journey & 10 operational pain points map",
+          },
+          {
+            src: "../media/astra-mvp-requirements.png",
+            alt: "Astra scoped MVP requirements and pilot success metrics",
+            caption: "Scoped MVP requirements & pilot success metrics",
+          },
+        ],
+      },
+      {
         id: "ux-super",
         category: "platforms",
         title: "UX Super",
@@ -111,6 +137,110 @@ const UI = {
             src: "../media/ux-super-kpis.jpg",
             alt: "UX Super project KPIs, with baseline and target",
             caption: "UX Super, project KPIs",
+          },
+        ],
+      },
+      {
+        id: "x-tower",
+        category: "platforms",
+        title: "X-Tower Platform UX & Service Blueprint",
+        short:
+          "Heuristic evaluation, ecosystem & stakeholder maps, and service blueprint saving 150k EUR/quarter and 240h/month.",
+        full:
+          "End-to-end UX research and architecture discovery for the X-Tower platform across global PS-BDO teams. Conducted a heuristic evaluation of 8 core screens (33 flaws uncovered), stakeholder interviews, global survey, concentric stakeholder and ecosystem mapping, and an as-is service blueprint exposing 240-row parallel Excel workarounds—establishing unified governance and impact projections of 150,000 EUR/quarter in avoided rework and 240 hours/month saved.",
+        media: [
+          {
+            src: "../media/x-tower-summary.png",
+            alt: "X-Tower project overview and consolidated before-and-after impact results",
+            caption: "X-Tower impact summary: 150k EUR/quarter & 240h/month saved",
+          },
+          {
+            src: "../media/x-tower-ecosystem.png",
+            alt: "X-Tower platform ecosystem map across modules, leadership, and Bosch organization",
+            caption: "X-Tower ecosystem map",
+          },
+          {
+            src: "../media/x-tower-as-is-journey.png",
+            alt: "X-Tower as-is service blueprint across User, Frontstage, Backstage, and Support",
+            caption: "As-is journey service blueprint",
+          },
+          {
+            src: "../media/x-tower-stakeholders.png",
+            alt: "Concentric stakeholder map for X-Tower showing Core team, Core user, Direct and Indirect stakeholders",
+            caption: "Stakeholder proximity map",
+          },
+          {
+            src: "../media/x-tower-plan.png",
+            alt: "5-phase UX research and design plan timeline for X-Tower",
+            caption: "5-phase UX research plan",
+          },
+          {
+            src: "../media/x-tower-survey.png",
+            alt: "X-Tower Microsoft Forms survey invitation and structured question insights",
+            caption: "Stakeholder survey & insight mapping",
+          },
+          {
+            src: "../media/x-tower-interviews.png",
+            alt: "Cross-participant interview matrix for X-Tower research",
+            caption: "Interview coding matrix",
+          },
+        ],
+      },
+      {
+        id: "rise-automation",
+        category: "platforms",
+        title: "SO Automação Prototype (Rise)",
+        short:
+          "Low-fidelity wireframe prototype for an automation intake and impact-tracking dashboard.",
+        full:
+          "Designed the Dashboard SO Automação wireframe prototype to standardize how automation initiatives are registered, owned, and tracked—capturing organizational structure, go-live lifecycle dates, and monthly hours saved (e.g., SAP report extraction and HR onboarding automations).",
+        media: [
+          {
+            src: "../media/rise-so-automacao.png",
+            alt: "Wireframe prototype for Dashboard SO Automação and automation registration form",
+            caption: "SO Automação wireframe prototype (Rise)",
+          },
+        ],
+      },
+      {
+        id: "data-insights",
+        category: "data",
+        title: "Data Insights (Power Tools CX)",
+        short:
+          "Grounded Theory qualitative analysis of call-center transcripts using Python, AI-assisted coding, and Power BI.",
+        full:
+          "Led a Customer Experience analysis for the power tools segment focused on unstructured call-center transcriptions. Applied Grounded Theory (Strauss and Corbin open and axial coding) with Python and AI-assisted coding, then synthesized customer journey phases, causal conditions, and action strategies in Power BI.",
+        media: [
+          {
+            src: "../media/data-insights-powerbi.png",
+            alt: "Power BI Grounded Theory CX report showing customer journey phase, boleto payment friction, and causal conditions",
+            caption: "Power BI Grounded Theory CX synthesis (Power Tools)",
+          },
+        ],
+      },
+      {
+        id: "cim-journey",
+        category: "data",
+        title: "CIM Journey & Evidence Synthesis",
+        short:
+          "Power BI synthesis of 1,045 CIM research evidence units into executive reporting and data-quality insights.",
+        full:
+          "Synthesized 1,045 qualitative and operational evidence units from CIM research across CSDs, intervention levers, themes, risks, and success metrics in Power BI, distilling executive insight cards on reporting visibility and data standardization.",
+        media: [
+          {
+            src: "../media/cim-journey-dashboard.png",
+            alt: "Power BI dashboard analyzing 1,045 CIM evidence units by CSD, intervention lever, theme, risk, and success metric",
+            caption: "CIM evidence synthesis dashboard (1,045 units)",
+          },
+          {
+            src: "../media/cim-journey-insight-1.png",
+            alt: "Insight 1 slide: highest-relevance evidence converges on reporting and visibility",
+            caption: "Insight 1: Reporting & visibility convergence",
+          },
+          {
+            src: "../media/cim-journey-insight-2.png",
+            alt: "Insight 2 slide: focus on data quality, consistency, and standardization-related evidence",
+            caption: "Insight 2: Data quality & standardization",
           },
         ],
       },
@@ -135,6 +265,11 @@ const UI = {
             src: "../media/relevance.png",
             alt: "Applied research relevance model: CIM fields, priority, then Low, Medium, or High",
             caption: "Relevance model for CIP initiatives",
+          },
+          {
+            src: "../media/ux-relevance-flow.png",
+            alt: "ServiceNow CIM workflow showing UX quality gate, AI triage, and UX champion check",
+            caption: "UX quality gate & ServiceNow CIM relevance workflow",
           },
         ],
       },
@@ -193,6 +328,11 @@ const UI = {
             src: "../media/finance-cockpit.jpg",
             alt: "Finance cockpit, with budgets and spending by category",
             caption: "Finance cockpit, budgets and spending",
+          },
+          {
+            src: "../media/ahk-finance-menu.png",
+            alt: "AutoHotkey Finance launcher menu with keyboard shortcuts",
+            caption: "AutoHotkey Finance launcher & quick-key menu",
           },
         ],
       },
@@ -384,7 +524,7 @@ const UI = {
     na: "N/A",
     interestsTitle: "What I do outside the job",
     interestsLead:
-      "At home: two cats, learning piano, and a split keyboard I use for macros.",
+      "At home: my dog Moka, two cats, learning piano, and a split keyboard I use for macros.",
     interests: [
       "Piano",
       "Linguistics",
@@ -395,6 +535,7 @@ const UI = {
     interestCaps: [
       "Piano practice at home",
       "Split keyboard and macros",
+      "Me and my dog Moka",
     ],
     contactTitle: "Let's connect",
     contactLead:
@@ -609,6 +750,32 @@ const UI = {
     ],
     deliverablesItems: [
       {
+        id: "astra",
+        category: "platforms",
+        title: "Projeto Astra (AgriTech IoT e Telemetria Bovina)",
+        short:
+          "Etnografia em 3 fazendas de gado de elite, benchmark na Agrishow, validação de PMF em 6 dimensões e requisitos de MVP.",
+        full:
+          "No projeto Astra (telemetria pecuária AgriTech na Bosch), conduzi pesquisa de campo completa para resolver gargalos operacionais na pecuária de elite e transformar evidências qualitativas em estratégia de produto de hardware e software. O trabalho incluiu etnografia in loco e entrevistas semiestruturadas em 3 fazendas de gado de elite (como a Fazenda Sindi da Porangaba), benchmarking competitivo na feira Agrishow Brasil em Ribeirão Preto e prospecção de parcerias em medicamentos veterinários. Entreguei o relatório formal definindo personas duplas (Pecuarista Premium vs. Peão de Fazenda), jornada atual com 10 dores operacionais, jornada futura com 10 soluções IoT, validação de Product-Market Fit (PMF) em 6 dimensões ('GO para piloto direcionado') e especificação de MVP com métricas do piloto.",
+        media: [
+          {
+            src: "../media/astra-iot-device.jpg",
+            alt: "Avaliação de hardware e dispositivo IoT de telemetria Bosch Astra em campo",
+            caption: "Dispositivo e avaliação de hardware IoT Astra (Bosch)",
+          },
+          {
+            src: "../media/astra-current-journey.png",
+            alt: "Mapa da jornada atual e 10 dores operacionais do projeto Astra",
+            caption: "Jornada atual e mapa de 10 dores operacionais",
+          },
+          {
+            src: "../media/astra-mvp-requirements.png",
+            alt: "Requisitos de MVP e métricas de sucesso do piloto do projeto Astra",
+            caption: "Requisitos de MVP e métricas de sucesso do piloto",
+          },
+        ],
+      },
+      {
         id: "ux-super",
         category: "platforms",
         title: "UX Super",
@@ -626,6 +793,110 @@ const UI = {
             src: "../media/ux-super-kpis.jpg",
             alt: "KPIs de projeto no UX Super, com linha de base e meta",
             caption: "UX Super, KPIs de projeto",
+          },
+        ],
+      },
+      {
+        id: "x-tower",
+        category: "platforms",
+        title: "UX e Service Blueprint da Plataforma X-Tower",
+        short:
+          "Avaliação heurística, mapas de ecossistema e stakeholders e blueprint com economia de 150 mil EUR/trimestre e 240h/mês.",
+        full:
+          "Pesquisa de UX e descoberta de arquitetura ponta a ponta para a plataforma X-Tower em times globais PS-BDO. Incluiu avaliação heurística de 8 telas principais (33 falhas mapeadas), entrevistas com stakeholders, survey global, mapeamento concêntrico de stakeholders e ecossistema, e service blueprint as-is expondo planilhas paralelas de 240 linhas—estruturando governança unificada com impacto projetado de 150.000 EUR/trimestre em retrabalho evitado e 240 horas/mês economizadas.",
+        media: [
+          {
+            src: "../media/x-tower-summary.png",
+            alt: "Resumo do projeto X-Tower e resultados consolidados de impacto antes e depois",
+            caption: "Resumo de impacto X-Tower: 150 mil EUR/trimestre e 240h/mês",
+          },
+          {
+            src: "../media/x-tower-ecosystem.png",
+            alt: "Mapa do ecossistema X-Tower entre módulos, liderança e organização Bosch",
+            caption: "Mapa de ecossistema X-Tower",
+          },
+          {
+            src: "../media/x-tower-as-is-journey.png",
+            alt: "Service blueprint da jornada atual do X-Tower em User, Frontstage, Backstage e Support",
+            caption: "Service blueprint da jornada atual (as-is)",
+          },
+          {
+            src: "../media/x-tower-stakeholders.png",
+            alt: "Mapa concêntrico de stakeholders do X-Tower com Core team, Core user, diretos e indiretos",
+            caption: "Mapa de proximidade de stakeholders",
+          },
+          {
+            src: "../media/x-tower-plan.png",
+            alt: "Cronograma em 5 fases do plano de pesquisa e design UX do X-Tower",
+            caption: "Plano de pesquisa UX em 5 fases",
+          },
+          {
+            src: "../media/x-tower-survey.png",
+            alt: "Convite de survey no Microsoft Forms e mapeamento de insights do X-Tower",
+            caption: "Survey com stakeholders e mapeamento de insights",
+          },
+          {
+            src: "../media/x-tower-interviews.png",
+            alt: "Matriz de codificação de entrevistas entre participantes do X-Tower",
+            caption: "Matriz de codificação de entrevistas",
+          },
+        ],
+      },
+      {
+        id: "rise-automation",
+        category: "platforms",
+        title: "Protótipo SO Automação (Rise)",
+        short:
+          "Protótipo de wireframe para painel de cadastro, governança e horas economizadas por automações.",
+        full:
+          "Desenvolvimento do protótipo de wireframe do Dashboard SO Automação para padronizar o cadastro, responsabilidade, datas de go-live e medição de horas economizadas por mês (como extração de relatórios SAP e onboarding no RH).",
+        media: [
+          {
+            src: "../media/rise-so-automacao.png",
+            alt: "Protótipo de wireframe do Dashboard SO Automação e formulário de cadastro",
+            caption: "Protótipo de wireframe SO Automação (Rise)",
+          },
+        ],
+      },
+      {
+        id: "data-insights",
+        category: "data",
+        title: "Data Insights (CX Power Tools)",
+        short:
+          "Análise qualitativa com Teoria Fundamentada em transcrições de call center via Python, IA e Power BI.",
+        full:
+          "Análise de Customer Experience no segmento de power tools a partir de transcrições não estruturadas de call center. Aplicação de Teoria Fundamentada (codificação aberta e axial de Strauss e Corbin) com Python e codificação assistida por IA, sintetizando fases da jornada, condições causais e estratégias em Power BI.",
+        media: [
+          {
+            src: "../media/data-insights-powerbi.png",
+            alt: "Relatório em Power BI de Teoria Fundamentada para CX mostrando jornada, atrito com boleto e condições causais",
+            caption: "Síntese em Power BI com Teoria Fundamentada (Power Tools)",
+          },
+        ],
+      },
+      {
+        id: "cim-journey",
+        category: "data",
+        title: "Jornada CIM e Síntese de Evidências",
+        short:
+          "Síntese em Power BI de 1.045 unidades de evidência de pesquisa CIM em insights executivos.",
+        full:
+          "Síntese de 1.045 unidades de evidência qualitativa e operacional da pesquisa CIM por CSD, alavancas de intervenção, temas, riscos e métricas de sucesso no Power BI, gerando cards executivos sobre visibilidade de reporting e padronização de dados.",
+        media: [
+          {
+            src: "../media/cim-journey-dashboard.png",
+            alt: "Dashboard Power BI analisando 1.045 evidências CIM por CSD, alavanca, tema, risco e métrica",
+            caption: "Dashboard de síntese de evidências CIM (1.045 unidades)",
+          },
+          {
+            src: "../media/cim-journey-insight-1.png",
+            alt: "Slide Insight 1: evidências de maior relevância convergem para reporting e visibilidade",
+            caption: "Insight 1: Convergência em reporting e visibilidade",
+          },
+          {
+            src: "../media/cim-journey-insight-2.png",
+            alt: "Slide Insight 2: foco em qualidade de dados, consistência e padronização",
+            caption: "Insight 2: Qualidade de dados e padronização",
           },
         ],
       },
@@ -650,6 +921,11 @@ const UI = {
             src: "../media/relevance-pt.png",
             alt: "Modelo de relevância de pesquisa aplicada: campos do CIM, prioridade e classificação Baixa, Média ou Alta",
             caption: "Modelo de relevância para iniciativas CIP",
+          },
+          {
+            src: "../media/ux-relevance-flow.png",
+            alt: "Fluxo no ServiceNow CIM com portão de qualidade UX, triagem com IA e rede de UX champions",
+            caption: "Portão de qualidade UX e fluxo de relevância no ServiceNow CIM",
           },
         ],
       },
@@ -708,6 +984,11 @@ const UI = {
             src: "../media/finance-cockpit.jpg",
             alt: "Cockpit financeiro com orçamentos e gastos por categoria",
             caption: "Cockpit financeiro, orçamentos e gastos",
+          },
+          {
+            src: "../media/ahk-finance-menu.png",
+            alt: "Menu inicial do Finance em AutoHotkey com atalhos de teclado",
+            caption: "Menu rápido do Finance em AutoHotkey",
           },
         ],
       },
@@ -899,7 +1180,7 @@ const UI = {
     na: "N/D",
     interestsTitle: "O que faço fora do trabalho",
     interestsLead:
-      "Em casa: dois gatos, piano iniciante e um teclado dividido que uso para macros.",
+      "Em casa: minha cachorra Moka, dois gatos, piano iniciante e um teclado dividido que uso para macros.",
     interests: [
       "Piano",
       "Linguística (fonologia e fonética)",
@@ -910,6 +1191,7 @@ const UI = {
     interestCaps: [
       "Prática de piano em casa",
       "Teclado dividido e macros",
+      "Eu e minha cachorra Moka",
     ],
     contactTitle: "Vamos conversar",
     contactLead:

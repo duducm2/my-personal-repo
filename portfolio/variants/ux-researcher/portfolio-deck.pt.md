@@ -440,10 +440,10 @@ img[src*="story-flow"] {
 
 ## Design baseado em evidências unindo modelos mentais do usuário e sistemas técnicos complexos
 
-- Acredito que produtos tecnológicos vencem quando **pesquisa rigorosa com usuários e prototipagem rápida em engenharia** avançam juntas.
-- A Pesquisa Aplicada na Bosch me ensinou a estruturar **governança de UX escalável**: gates de intake, templates padronizados e maturidade mensurável (Nível 4).
-- A Teoria Fundamentada em transcrições de suporte mostrou como a voz qualitativa do usuário se traduz em **decisões quantificadas e priorizadas de backlog**.
-- Minha pesquisa de mestrado na Unicamp (IHC 2025, ISSRE 2025) consolidou minha prática em **calibração de confiança do usuário para IA e interfaces complexas**.
+- Acredito que produtos tecnológicos vencem quando **pesquisa rigorosa com usuários e prototipagem rápida em engenharia** avançam juntas.
+- A Pesquisa Aplicada na Bosch me ensinou a estruturar **governança de UX escalável**: gates de intake, templates padronizados e maturidade mensurável (Nível 4).
+- A Teoria Fundamentada em transcrições de suporte mostrou como a voz qualitativa do usuário se traduz em **decisões quantificadas e priorizadas de backlog**.
+- Minha pesquisa de mestrado na Unicamp (IHC 2025, ISSRE 2025) consolidou minha prática em **calibração de confiança do usuário para IA e interfaces complexas**.
 - A capacidade de design technologist em **React, Figma, Python e Power BI** me permite prototipar soluções em código real para validar viabilidade cedo.
 
 <p><img src="../../../pictures/diagrams/story-flow.png" alt="Diagram story-flow: Why story flow" /></p>
@@ -678,13 +678,13 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 <p class="americas-img"><img src="../../../pictures/work/americas-team-2025.jpg" alt="Americas Team 2025 - UX Maturity Level 4" /></p>
 </div>
 
-| Área | Conquista |
-|------|-----------|
-| Maturidade e Governança UX | Conduzi as Américas ao **Nível 4 de Maturidade em UX** (Global Services); templates e governança |
-| Síntese Qualitativa | **Data Insights**: Teoria Fundamentada (codificação aberta/axial) + **Python/IA** em transcrições → Power BI |
-| Gates Automatizados de UX | Pontuação de relevância em UX no **ServiceNow** e dashboards **CIP** para visibilidade da liderança |
-| Design Technologist | Tooling ponta a ponta de requisitos a **protótipos interativos** com check-ins contínuos de usuários |
-| Resultados de Entrega | Média sustentada de **CSI 4,86 / NPS 9,94** (2024–2025); treinamento de IA para **100+** pessoas (**4,88**/5) |
+| Área | Conquista |
+|------|-----------|
+| Maturidade e Governança UX | Conduzi as Américas ao **Nível 4 de Maturidade em UX** (Global Services); templates e governança |
+| Síntese Qualitativa | **Data Insights**: Teoria Fundamentada (codificação aberta/axial) + **Python/IA** em transcrições → Power BI |
+| Gates Automatizados de UX | Pontuação de relevância em UX no **ServiceNow** e dashboards **CIP** para visibilidade da liderança |
+| Design Technologist | Tooling ponta a ponta de requisitos a **protótipos interativos** com check-ins contínuos de usuários |
+| Resultados de Entrega | Média sustentada de **CSI 4,86 / NPS 9,94** (2024–2025); treinamento de IA para **100+** pessoas (**4,88**/5) |
 | Pesquisa em IHC e Confiança | Mestrado Unicamp (nota A); artigos com peer-review sobre **confiança do usuário em IA** (**IHC 2025, ISSRE 2025**) |
 
 ---
@@ -1028,7 +1028,7 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 
 <p class="dissertation-pbi-intro"><span class="thesis-emphasis">Minha dissertação de mestrado investiga **confiança do usuário** em experiências digitais e avalia como usuários interagem e adotam **sistemas de IA agêntica** em comparação a fluxos tradicionais.</span></p>
 
-- **Avaliação empírica de UX:** escalas quantitativas de confiança, métricas comportamentais de tarefas e modelagem da percepção do usuário em touchpoints humano-IA.
+- **Avaliação empírica de UX:** escalas quantitativas de confiança, métricas comportamentais de tarefas e modelagem da percepção do usuário em touchpoints humano-IA.
 - **Pesquisa publicada em IHC:** artigos com peer-review no IHC 2025 e ISSRE 2025 sobre medição de confiança e dinâmica de decisões do usuário em interação com IA.
 
 <div class="dissertation-pbi-row">
@@ -1083,7 +1083,7 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 
 ## Ergonomia Visual e Avaliação – InfoVis (Mestrado): PNAD Contínua (Power BI)
 
-- **Visualização da Informação (Mestrado Unicamp, nota A):** percepção visual do usuário, carga cognitiva e mapeamento visual—princípios aplicados para desenhar interfaces legíveis e eficientes para tarefas.
+- **Visualização da Informação (Mestrado Unicamp, nota A):** percepção visual do usuário, carga cognitiva e mapeamento visual—princípios aplicados para desenhar interfaces legíveis e eficientes para tarefas.
 - **PNAD Contínua no Power BI:** desenhei interfaces exploratórias priorizando legibilidade para o usuário, velocidade de fluxo e filtragem intuitiva.
 
 <div class="infovis-split">
@@ -1294,7 +1294,6 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 
 <div class="astra-pt-layout">
 <div class="astra-pt-images">
-<p><img src="../../../pictures/work/astra-project/IMG-20260414-WA0003.jpg" alt="Etnografia in loco na Fazenda Sindi da Porangaba (Abr 2026)" /></p>
 <p><img src="../../../pictures/work/astra-project/IMG_20260415_182229.jpg" alt="Dispositivo e Avaliação de Hardware de Telemetria IoT Astra (Bosch)" /></p>
 <p><img src="../../../pictures/work/astra-project/astra-report-page-4-current-journey.png" alt="Entrega de Pesquisa Astra: Jornada Atual e Mapa de 10 Dores Operacionais" /></p>
 <p><img src="../../../pictures/work/astra-project/astra-report-page-7-mvp-requirements.png" alt="Entrega de Pesquisa Astra: Requisitos de MVP e Métricas de Sucesso do Piloto" /></p>
@@ -1360,7 +1359,7 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 
 ## Análise Qualitativa e Textual – Estruturas de Texto e Redes (PhraseNets)
 
-- **Mapeamento de expressões qualitativas do usuário:** visualização de termos, padrões semânticos e relações conceituais não estruturadas por grafos de rede.
+- **Mapeamento de expressões qualitativas do usuário:** visualização de termos, padrões semânticos e relações conceituais não estruturadas por grafos de rede.
 - **Princípios de design de interação:** aplicação do mantra de Shneiderman para exploração de hierarquias complexas de informação.
 
 <div class="phrase-net-row">
@@ -1391,10 +1390,10 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 
 ## Futuro – Pesquisa e Design de UX para Tecnologias Emergentes e IA
 
-**Pesquisa centrada no usuário, design technology e IA confiável** definem minha trajetória como Pesquisador de UX e Design Technologist:
-
-- **IA Centrada no Usuário e Confiança:** Projetar e avaliar interações de IA que usuários possam calibrar e confiar, com base na ISO/IEC 25000 e benchmarks empíricos humano-vs-agente.
-- **Design Technology e Protótipos em Código:** Conectar descoberta e entrega por meio de protótipos funcionais interativos (Vue 3, React, Python) para mitigar riscos de engenharia.
+**Pesquisa centrada no usuário, design technology e IA confiável** definem minha trajetória como Pesquisador de UX e Design Technologist:
+
+- **IA Centrada no Usuário e Confiança:** Projetar e avaliar interações de IA que usuários possam calibrar e confiar, com base na ISO/IEC 25000 e benchmarks empíricos humano-vs-agente.
+- **Design Technology e Protótipos em Código:** Conectar descoberta e entrega por meio de protótipos funcionais interativos (Vue 3, React, Python) para mitigar riscos de engenharia.
 - **ResearchOps Contínuo:** Integrar investigação generativa, testes avaliativos de usabilidade e governança de Maturidade UX em ciclos ágeis de entrega.
 
 
@@ -1404,32 +1403,32 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 <!-- Slide 21 – Future (Career) -->
 
 <style scoped>
-.future-career-wrap {
-  display: flex !important; flex-direction: column !important;
-  justify-content: flex-start !important; align-items: stretch !important;
-  width: 100% !important; margin-top: 0.35rem !important;
-  gap: 0.4rem !important;
-}
-.future-career-wrap p { margin: 0 !important; text-align: left !important; }
-.future-po-bullets {
-  width: 100% !important; max-width: 100% !important; text-align: left !important; font-size: 0.85em !important;
-}
-.future-po-bullets table {
-  width: 100% !important; table-layout: fixed !important; margin-top: 0.35rem !important;
-}
-.future-po-bullets th:first-child,
-.future-po-bullets td:first-child { width: 22% !important; }
-.future-po-bullets td, .future-po-bullets th {
-  overflow-wrap: anywhere; padding: 0.28em 0.5em !important;
+.future-career-wrap {
+  display: flex !important; flex-direction: column !important;
+  justify-content: flex-start !important; align-items: stretch !important;
+  width: 100% !important; margin-top: 0.35rem !important;
+  gap: 0.4rem !important;
+}
+.future-career-wrap p { margin: 0 !important; text-align: left !important; }
+.future-po-bullets {
+  width: 100% !important; max-width: 100% !important; text-align: left !important; font-size: 0.85em !important;
+}
+.future-po-bullets table {
+  width: 100% !important; table-layout: fixed !important; margin-top: 0.35rem !important;
+}
+.future-po-bullets th:first-child,
+.future-po-bullets td:first-child { width: 22% !important; }
+.future-po-bullets td, .future-po-bullets th {
+  overflow-wrap: anywhere; padding: 0.28em 0.5em !important;
 }
 </style>
 
-## Futuro – Como conduzo Pesquisa e Design de UX em Alta Tecnologia
-
-- **Rigor em métodos mistos:** descoberta generativa (entrevistas, pesquisa contextual) combinada com testes avaliativos (SUS, benchmarks de usabilidade, escalas quantitativas de confiança).
-- **Ponte de design technologist:** traduzindo conceitos de UX em protótipos interativos em **React** e especificações de componentes que aceleram o handoff de engenharia.
-- **Interação com IA confiável:** aplicando diretrizes Microsoft HAX, Google PAIR e medição empírica de confiança em fluxos de trabalho com IA.
-- **ResearchOps e insights escaláveis:** repositórios de pesquisa, achados atômicos e kits de ferramentas self-service para squads multidisciplinares.
+## Futuro – Como conduzo Pesquisa e Design de UX em Alta Tecnologia
+
+- **Rigor em métodos mistos:** descoberta generativa (entrevistas, pesquisa contextual) combinada com testes avaliativos (SUS, benchmarks de usabilidade, escalas quantitativas de confiança).
+- **Ponte de design technologist:** traduzindo conceitos de UX em protótipos interativos em **React** e especificações de componentes que aceleram o handoff de engenharia.
+- **Interação com IA confiável:** aplicando diretrizes Microsoft HAX, Google PAIR e medição empírica de confiança em fluxos de trabalho com IA.
+- **ResearchOps e insights escaláveis:** repositórios de pesquisa, achados atômicos e kits de ferramentas self-service para squads multidisciplinares.
 - **Compromisso com resultados:** conectando intervenções de design diretamente à eficiência de tarefas do usuário, adoção, redução de erros e **CSI/NPS** sustentados.
 
 <!-- Diagram: future-career-path (mermaid/diagrams.md). Export to future-career-path.png -->
@@ -1474,11 +1473,11 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 <table>
 <thead><tr><th>Interesse</th></tr></thead>
 <tbody>
-<tr><td>Piano</td></tr>
-<tr><td>Linguística (fonologia e fonética)</td></tr>
-<tr><td>Física (relatividade e quântica)</td></tr>
-<tr><td>Arte impressionista</td></tr>
-<tr><td>Criação de macros</td></tr>
+<tr><td>Piano</td></tr>
+<tr><td>Linguística (fonologia e fonética)</td></tr>
+<tr><td>Física (relatividade e quântica)</td></tr>
+<tr><td>Arte impressionista</td></tr>
+<tr><td>Criação de macros</td></tr>
 <tr><td>Teclados especializados</td></tr>
 </tbody>
 </table>

@@ -440,8 +440,8 @@ img[src*="story-flow"] {
 
 ## Digitization and analytics that hold up once they hit production
 
-- I think digital solutions in service organizations have to survive real operations—not just look good in a review.
-- My work connects digitization, data paths, and applied research quality gates: architecture that teams can actually run.
+- I think digital solutions in service organizations have to survive real operations—not just look good in a review.
+- My work connects digitization, data paths, and applied research quality gates: architecture that teams can actually run.
 - This portfolio shows that path through systems, dashboards, and delivery work.
 
 <p><img src="../../../pictures/diagrams/story-flow.png" alt="Diagram story-flow: Why story flow" /></p>
@@ -676,13 +676,13 @@ table { margin-top: 0.5rem !important; clear: both !important; }
 <p class="americas-img"><img src="../../../pictures/work/americas-team-2025.jpg" alt="Americas Team 2025 - UX Maturity Level 4" /></p>
 </div>
 
-| Area | Achievement |
-|------|-------------|
-| Digitization (Bosch HU) | End-to-end web systems for Business Excellence on SQL Server, IIS, Git; Kanban delivery |
-| Architecture gates (GS) | Automated UX relevance in ServiceNow; strategic CIP dashboards for leadership clarity |
-| Analytics → insight | Data Insights: Grounded Theory + Python/AI + Power BI on call-center transcripts |
-| Maturity & governance | Americas UX Maturity Level 4; Power BI + Microsoft Lists document compliance |
-| Delivery outcomes | Avg CSI 4.86 / NPS 9.94 (2024–2025); tooling from requirements to hi-fi prototypes |
+| Area | Achievement |
+|------|-------------|
+| Digitization (Bosch HU) | End-to-end web systems for Business Excellence on SQL Server, IIS, Git; Kanban delivery |
+| Architecture gates (GS) | Automated UX relevance in ServiceNow; strategic CIP dashboards for leadership clarity |
+| Analytics → insight | Data Insights: Grounded Theory + Python/AI + Power BI on call-center transcripts |
+| Maturity & governance | Americas UX Maturity Level 4; Power BI + Microsoft Lists document compliance |
+| Delivery outcomes | Avg CSI 4.86 / NPS 9.94 (2024–2025); tooling from requirements to hi-fi prototypes |
 | Enablement | AI tools training for 100+ people (4.88/5); 8-session Bosch AI course in 2026 with Felipe Oshiro and Gabriel Reis; Germany trips 2024–2025 |
 
 ---
@@ -1026,9 +1026,9 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 
 <p class="dissertation-pbi-intro"><span class="thesis-emphasis">My Master's dissertation measures perceived trust in e-commerce interfaces with ITQM/MQCI (ISO/IEC 25000) and TrustMate, then compares ChatGPT o3 AI agents with 127 IT students on three sites. The architecture angle: can automated interface-quality triage support decisions before you scale AI features—without pretending agents replace human evaluation? The study's answer is yes to triage, no to substitution.</span></p>
 
-- Topic: ITQM/MQCI trust scoring on e-commerce interfaces with TrustMate; AI agents as automated triage vs human evaluation (127 IT students, three sites).
-- Finding: AI agents don't replace human evaluation; they are a promising automated triage for interface quality (directional alignment on top/bottom attributes; stricter bias on most leaf scores).
-- Inferential pipeline: Shapiro-Wilk → Welch/paired t-tests, Cohen's d, FDR—then Power BI reporting with 50+ visual structures.
+- Topic: ITQM/MQCI trust scoring on e-commerce interfaces with TrustMate; AI agents as automated triage vs human evaluation (127 IT students, three sites).
+- Finding: AI agents don't replace human evaluation; they are a promising automated triage for interface quality (directional alignment on top/bottom attributes; stricter bias on most leaf scores).
+- Inferential pipeline: Shapiro-Wilk → Welch/paired t-tests, Cohen's d, FDR—then Power BI reporting with 50+ visual structures.
 - Why it matters for architects: evaluation design and honest metrics before scaling AI features on a platform.
 
 <div class="dissertation-pbi-row">
@@ -1083,7 +1083,7 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 
 ## Data Visualization – MSc InfoVis: PNAD Contínua (Power BI)
 
-- MSc Information Visualization (Unicamp, Grade A): visual structures and mapping for multivariate operational data—skills that transfer to architecting readable cloud analytics surfaces.
+- MSc Information Visualization (Unicamp, Grade A): visual structures and mapping for multivariate operational data—skills that transfer to architecting readable cloud analytics surfaces.
 - PNAD Contínua in Power BI: from raw tables to interactive views stakeholders can explore.
 
 <div class="infovis-split">
@@ -1294,7 +1294,6 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 
 <div class="astra-pt-layout">
 <div class="astra-pt-images">
-<p><img src="../../../pictures/work/astra-project/IMG-20260414-WA0003.jpg" alt="On-site Ethnography at Fazenda Sindi da Porangaba (Apr 2026)" /></p>
 <p><img src="../../../pictures/work/astra-project/IMG_20260415_182229.jpg" alt="Bosch Astra IoT Telemetry Device & Hardware Evaluation" /></p>
 <p><img src="../../../pictures/work/astra-project/astra-report-page-4-current-journey.png" alt="Astra Research Deliverable: As-Is Journey & 10 Operational Pain Points Map" /></p>
 <p><img src="../../../pictures/work/astra-project/astra-report-page-7-mvp-requirements.png" alt="Astra Research Deliverable: Scoped MVP Requirements & Pilot Success Metrics" /></p>
@@ -1360,7 +1359,7 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 
 ## InfoVis – Text & Graph Visualization (PhraseNets)
 
-- Graphs, trees, and text viz: encoding relationships and co-occurrence—useful when architecture must expose event and dependency structure.
+- Graphs, trees, and text viz: encoding relationships and co-occurrence—useful when architecture must expose event and dependency structure.
 - Interaction patterns: filtering and detail-on-demand as UX constraints on data platforms.
 
 <div class="phrase-net-row">
@@ -1402,68 +1401,68 @@ I want to become a Mid-Level Digital Solution Architect who designs digitization
 <!-- Slide 21 – Future (Career) -->
 
 <style scoped>
-.future-career-wrap {
-  display: flex !important; flex-direction: column !important;
-  justify-content: flex-start !important; align-items: stretch !important;
-  width: 100% !important; margin-top: 0.35rem !important;
-  gap: 0.4rem !important;
-}
-.future-career-wrap p { margin: 0 !important; text-align: left !important; }
-.future-po-bullets {
-  width: 100% !important; max-width: 100% !important; text-align: left !important; font-size: 0.85em !important;
-}
-.future-po-bullets table {
-  width: 100% !important; table-layout: fixed !important; margin-top: 0.35rem !important;
-}
-.future-po-bullets th:first-child,
-.future-po-bullets td:first-child { width: 22% !important; }
-.future-po-bullets td, .future-po-bullets th {
-  overflow-wrap: anywhere; padding: 0.28em 0.5em !important;
-}
-</style>
-
-## Future – How I get there
-
-<div class="future-career-wrap">
-<div class="future-po-bullets">
-
-| Step | What it is |
-| ---- | ---------- |
-| Now | Digitization systems (Bosch HU), architecture gates in ServiceNow CIP, analytics→insight (Data Insights), UX maturity & delivery outcomes at Bosch |
-| Next | Mid-Level Digital Solution Architect: cloud, digitization & evidence-based delivery |
-| Method | Boundaries, evidence gates, and designs that survive operations |
-| Decisions | Solutions judged by production outcomes, not decks |
-
-</div>
-</div>
-
----
-
-<style scoped>
-.career-path-slide {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: flex-start !important;
-  width: 100% !important;
-  margin-top: 0.35rem !important;
-}
-.career-path-slide p { margin: 0 !important; text-align: center !important; width: 100% !important; }
-.career-path-slide img {
-  width: 78% !important;
-  max-width: 78% !important;
-  height: auto !important;
-  max-height: 76vh !important;
-  display: block !important;
-  margin: 0 auto !important;
-  border: none !important;
-  box-shadow: none !important;
+.future-career-wrap {
+  display: flex !important; flex-direction: column !important;
+  justify-content: flex-start !important; align-items: stretch !important;
+  width: 100% !important; margin-top: 0.35rem !important;
+  gap: 0.4rem !important;
+}
+.future-career-wrap p { margin: 0 !important; text-align: left !important; }
+.future-po-bullets {
+  width: 100% !important; max-width: 100% !important; text-align: left !important; font-size: 0.85em !important;
+}
+.future-po-bullets table {
+  width: 100% !important; table-layout: fixed !important; margin-top: 0.35rem !important;
+}
+.future-po-bullets th:first-child,
+.future-po-bullets td:first-child { width: 22% !important; }
+.future-po-bullets td, .future-po-bullets th {
+  overflow-wrap: anywhere; padding: 0.28em 0.5em !important;
 }
 </style>
 
-## Future – The path
-
-<div class="career-path-slide">
-<p><img src="../../../pictures/diagrams/future-career-path-digital-solution-architect-en.png" alt="Diagram: digitization and architecture gates today, then Mid-Level Digital Solution Architect, then operable solutions" /></p>
+## Future – How I get there
+
+<div class="future-career-wrap">
+<div class="future-po-bullets">
+
+| Step | What it is |
+| ---- | ---------- |
+| Now | Digitization systems (Bosch HU), architecture gates in ServiceNow CIP, analytics→insight (Data Insights), UX maturity & delivery outcomes at Bosch |
+| Next | Mid-Level Digital Solution Architect: cloud, digitization & evidence-based delivery |
+| Method | Boundaries, evidence gates, and designs that survive operations |
+| Decisions | Solutions judged by production outcomes, not decks |
+
+</div>
+</div>
+
+---
+
+<style scoped>
+.career-path-slide {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  width: 100% !important;
+  margin-top: 0.35rem !important;
+}
+.career-path-slide p { margin: 0 !important; text-align: center !important; width: 100% !important; }
+.career-path-slide img {
+  width: 78% !important;
+  max-width: 78% !important;
+  height: auto !important;
+  max-height: 76vh !important;
+  display: block !important;
+  margin: 0 auto !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+</style>
+
+## Future – The path
+
+<div class="career-path-slide">
+<p><img src="../../../pictures/diagrams/future-career-path-digital-solution-architect-en.png" alt="Diagram: digitization and architecture gates today, then Mid-Level Digital Solution Architect, then operable solutions" /></p>
 </div>
 
 <!-- Diagram: future-career-path (mermaid/diagrams.md). Export to future-career-path.png -->
@@ -1508,11 +1507,11 @@ I want to become a Mid-Level Digital Solution Architect who designs digitization
 <table>
 <thead><tr><th>Interest</th></tr></thead>
 <tbody>
-<tr><td>Piano</td></tr>
-<tr><td>Linguistics (phonology & phonetics)</td></tr>
-<tr><td>Physics (GR & Quantum)</td></tr>
-<tr><td>Impressionist art</td></tr>
-<tr><td>Macro creation</td></tr>
+<tr><td>Piano</td></tr>
+<tr><td>Linguistics (phonology & phonetics)</td></tr>
+<tr><td>Physics (GR & Quantum)</td></tr>
+<tr><td>Impressionist art</td></tr>
+<tr><td>Macro creation</td></tr>
 <tr><td>Specialized keyboards</td></tr>
 </tbody>
 </table>
