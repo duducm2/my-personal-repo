@@ -2462,12 +2462,8 @@
     const chaptersList = [
       { id: "slide-1", name: "Intro · Hero" },
       { id: "slide-3", name: "01 · Why This Work" },
-      { id: "slide-2", name: "02 · Foundations" },
-      { id: "slide-5", name: "03 · Bosch, Place by Place" },
-      { id: "slide-15", name: "03 · Future & Method" },
       { id: "chapter-deliverables", name: "04 · Deliverables" },
-      { id: "slide-18", name: "05 · Research & Visualization" },
-      { id: "slide-closing", name: "07 · Contact & Closing" },
+      { id: "slide-closing", name: "07 · Contact" },
     ];
 
     chaptersList.forEach((s) => {
@@ -2513,11 +2509,18 @@
       return card;
     };
 
-    // --- Slide 1: Cover ---
+    // --- Intro · Hero ---
     const card1 = createSlideCard("slide-1", "Intro", "Hero & Role Positioning");
+    const whoRole = getNarrative("who_role", "Hero Role");
+    card1.append(
+      createBilingualInputRow("Hero Role & Page Title", whoRole.text_en, whoRole.text_pt, (en, pt) => {
+        whoRole.text_en = en;
+        whoRole.text_pt = pt;
+      })
+    );
     const deckTitle = getNarrative("deck_title", "Deck Title");
     card1.append(
-      createBilingualInputRow("Deck Title", deckTitle.text_en, deckTitle.text_pt, (en, pt) => {
+      createBilingualInputRow("Fallback Label", deckTitle.text_en, deckTitle.text_pt, (en, pt) => {
         deckTitle.text_en = en;
         deckTitle.text_pt = pt;
       })
@@ -2525,25 +2528,18 @@
     container.append(card1);
 
     // --- 01 · Why This Work ---
-    const card3 = createSlideCard("slide-3", "01 · Why This Work", "Why This Role & Strategic Value");
-    const whyH1 = getNarrative("why_h1", "Why Slide - Heading");
+    const card3 = createSlideCard("slide-3", "01 · Why This Work", "Why This Work");
+    const whyH1 = getNarrative("why_h1", "Why Heading");
     card3.append(
-      createBilingualInputRow("Section Title (H1)", whyH1.text_en, whyH1.text_pt, (en, pt) => {
+      createBilingualInputRow("Section Title", whyH1.text_en, whyH1.text_pt, (en, pt) => {
         whyH1.text_en = en;
         whyH1.text_pt = pt;
       })
     );
-    const whyH2 = getNarrative("why_h2", "Why Slide - Subheading");
-    card3.append(
-      createBilingualInputRow("Subheading (H2)", whyH2.text_en, whyH2.text_pt, (en, pt) => {
-        whyH2.text_en = en;
-        whyH2.text_pt = pt;
-      })
-    );
-    const whyBullets = getNarrative("why_bullets", "Why Slide - Bullets");
+    const whyBullets = getNarrative("why_bullets", "Why Paragraphs");
     card3.append(
       createStructuredBulletsEditor(
-        "Value Proposition Bullets",
+        "Why Paragraphs (Rendered as Paragraph 1 & 2)",
         whyBullets.text_en,
         whyBullets.text_pt,
         (en, pt) => {
@@ -2553,93 +2549,6 @@
       )
     );
     container.append(card3);
-
-    // --- 02 · Academic Foundations ---
-    const card2 = createSlideCard("slide-2", "02 · Foundations", "Who I Am & Academic Positioning");
-    const whoRole = getNarrative("who_role", "Who Slide - Role");
-    card2.append(
-      createBilingualInputRow("Primary Role & Title", whoRole.text_en, whoRole.text_pt, (en, pt) => {
-        whoRole.text_en = en;
-        whoRole.text_pt = pt;
-      })
-    );
-    const whoImpact = getNarrative("who_impact", "Who Slide - Impact Statement");
-    card2.append(
-      createBilingualInputRow("Strategic Impact Statement", whoImpact.text_en, whoImpact.text_pt, (en, pt) => {
-        whoImpact.text_en = en;
-        whoImpact.text_pt = pt;
-      }, { tall: true })
-    );
-    container.append(card2);
-
-    // --- 03 · Bosch, Place by Place (Present Achievements) ---
-    const card5 = createSlideCard("slide-5", "03 · Bosch, Place by Place", "Present Key Achievements");
-    const presentH2 = getNarrative("present_h2", "Present Slide - Heading");
-    card5.append(
-      createBilingualInputRow("Present Slide — Heading", presentH2.text_en, presentH2.text_pt, (en, pt) => {
-        presentH2.text_en = en;
-        presentH2.text_pt = pt;
-      })
-    );
-    const presentTable = getNarrative("present_table", "Present Slide - Achievements Table");
-    card5.append(
-      createStructuredTableEditor(
-        "Present Key Achievements & Evidence",
-        presentTable.text_en,
-        presentTable.text_pt,
-        (en, pt) => {
-          presentTable.text_en = en;
-          presentTable.text_pt = pt;
-        }
-      )
-    );
-    container.append(card5);
-
-    // --- Slide 15: Future Vision & Career Path ---
-    const card15 = createSlideCard("slide-15", "03 · Future & Method", "Where I'm Going, Career Path & Methodologies");
-    const futureH2 = getNarrative("future_h2", "Future Slide - Heading");
-    card15.append(
-      createBilingualInputRow("Future Slide — Heading", futureH2.text_en, futureH2.text_pt, (en, pt) => {
-        futureH2.text_en = en;
-        futureH2.text_pt = pt;
-      })
-    );
-    const futureIntro = getNarrative("future_intro", "Future Slide - Intro");
-    card15.append(
-      createBilingualInputRow("Future Slide — Strategic Vision / Intro", futureIntro.text_en, futureIntro.text_pt, (en, pt) => {
-        futureIntro.text_en = en;
-        futureIntro.text_pt = pt;
-      }, { tall: true })
-    );
-    const futureCareerBody = getNarrative("future_career_body", "Future Slide - Career Body");
-    card15.append(
-      createStructuredFutureCareerEditor(
-        "Future Progression Steps & Methodologies",
-        futureCareerBody.text_en,
-        futureCareerBody.text_pt,
-        (en, pt) => {
-          futureCareerBody.text_en = en;
-          futureCareerBody.text_pt = pt;
-        }
-      )
-    );
-
-    // Visual preview for the career path diagram
-    const diagCard = document.createElement("div");
-    diagCard.className = "diagram-preview-card";
-    const diagStem = {
-      "ux-researcher": "ai-agile-research-ux-researcher",
-      "general": "ai-agile-research",
-      "data-analyst": "ai-agile-research",
-      "product-owner": "ai-agile-research-product-owner",
-      "digital-solution-architect": "ai-agile-research-digital-solution-architect",
-    }[variant] || "ai-agile-research";
-    diagCard.innerHTML = `
-      <strong style="font-size: 11px; color: var(--gold);">Career Path Method Diagram (Slide 15 / Future):</strong>
-      <img class="diagram-preview-img" src="/pictures/diagrams/${diagStem}-en.png" alt="Career Path Diagram Preview" onerror="this.style.display='none'" />
-    `;
-    card15.append(diagCard);
-    container.append(card15);
 
     // --- 04 · Deliverables (Unified Deliverables Manager) ---
     const card04 = createSlideCard(
@@ -2952,53 +2861,6 @@
           body.append(imgBox);
         }
 
-        // Deck narrative fields for deliverables that also have PDF slide narratives
-        if (d.id === "relevance-model") {
-          const cipPipeH2 = getNarrative("cip_pipeline_h2", "CIP Pipeline Heading");
-          const relH2 = getNarrative("relevance_h2", "Relevance Heading");
-          const csiH2 = getNarrative("csi_h2", "CSI Heading");
-          body.append(
-            createBilingualInputRow("PDF Deck — CIP Pipeline Heading", cipPipeH2.text_en, cipPipeH2.text_pt, (en, pt) => {
-              cipPipeH2.text_en = en;
-              cipPipeH2.text_pt = pt;
-            }),
-            createBilingualInputRow("PDF Deck — Relevance Heading", relH2.text_en, relH2.text_pt, (en, pt) => {
-              relH2.text_en = en;
-              relH2.text_pt = pt;
-            }),
-            createBilingualInputRow("PDF Deck — CSI & Quantitative Rigor Heading", csiH2.text_en, csiH2.text_pt, (en, pt) => {
-              csiH2.text_en = en;
-              csiH2.text_pt = pt;
-            })
-          );
-        } else if (d.id === "tooling-pt") {
-          const toolingH2 = getNarrative("tooling_h2", "Tooling PT Heading");
-          const toolingBullet = getNarrative("tooling_bullet", "Tooling PT Bullet");
-          body.append(
-            createBilingualInputRow("PDF Deck — Tooling Heading", toolingH2.text_en, toolingH2.text_pt, (en, pt) => {
-              toolingH2.text_en = en;
-              toolingH2.text_pt = pt;
-            }),
-            createBilingualInputRow("PDF Deck — Tooling Narrative", toolingBullet.text_en, toolingBullet.text_pt, (en, pt) => {
-              toolingBullet.text_en = en;
-              toolingBullet.text_pt = pt;
-            }, { tall: true })
-          );
-        } else if (d.id === "astra") {
-          const astraH2 = getNarrative("astra_h2", "Astra Heading");
-          const astraBullet = getNarrative("astra_bullet", "Astra Bullet");
-          body.append(
-            createBilingualInputRow("PDF Deck — Astra Heading", astraH2.text_en, astraH2.text_pt, (en, pt) => {
-              astraH2.text_en = en;
-              astraH2.text_pt = pt;
-            }),
-            createBilingualInputRow("PDF Deck — Astra Fieldwork Narrative", astraBullet.text_en, astraBullet.text_pt, (en, pt) => {
-              astraBullet.text_en = en;
-              astraBullet.text_pt = pt;
-            }, { tall: true })
-          );
-        }
-
         // Canonical portfolio_images.csv manager when linked
         if (d.project_id && projMediaConfigs[d.project_id]) {
           const cfg = projMediaConfigs[d.project_id];
@@ -3022,57 +2884,11 @@
     renderDeliverableCards();
     container.append(card04);
 
-    // --- Slide 18–20: Master's Dissertation & InfoVis ---
-    const card18 = createSlideCard("slide-18", "05 · Research & Visualization", "Master's Dissertation & Information Visualization");
-    const dissIntro = getNarrative("dissertation_pbi_intro", "Dissertation Intro");
-    card18.append(
-      createBilingualInputRow("Dissertation Intro", dissIntro.text_en, dissIntro.text_pt, (en, pt) => {
-        dissIntro.text_en = en;
-        dissIntro.text_pt = pt;
-      }, { tall: true })
-    );
-    const dissBullets = getNarrative("dissertation_pbi_bullets", "Dissertation Bullets");
-    card18.append(
-      createStructuredBulletsEditor("Dissertation Highlights", dissBullets.text_en, dissBullets.text_pt, (en, pt) => {
-        dissBullets.text_en = en;
-        dissBullets.text_pt = pt;
-      })
-    );
-    const pnadH2 = getNarrative("infovis_pnad_h2", "InfoVis PNAD Heading");
-    card18.append(
-      createBilingualInputRow("InfoVis PNAD Heading", pnadH2.text_en, pnadH2.text_pt, (en, pt) => {
-        pnadH2.text_en = en;
-        pnadH2.text_pt = pt;
-      })
-    );
-    const pnadBullets = getNarrative("infovis_pnad_bullets", "InfoVis PNAD Bullets");
-    card18.append(
-      createStructuredBulletsEditor("InfoVis PNAD Highlights", pnadBullets.text_en, pnadBullets.text_pt, (en, pt) => {
-        pnadBullets.text_en = en;
-        pnadBullets.text_pt = pt;
-      })
-    );
-    const phraseH2 = getNarrative("infovis_phrasenet_h2", "PhraseNet Heading");
-    card18.append(
-      createBilingualInputRow("InfoVis PhraseNet Heading", phraseH2.text_en, phraseH2.text_pt, (en, pt) => {
-        phraseH2.text_en = en;
-        phraseH2.text_pt = pt;
-      })
-    );
-    const phraseBullets = getNarrative("infovis_phrasenet_bullets", "PhraseNet Bullets");
-    card18.append(
-      createStructuredBulletsEditor("InfoVis PhraseNet Highlights", phraseBullets.text_en, phraseBullets.text_pt, (en, pt) => {
-        phraseBullets.text_en = en;
-        phraseBullets.text_pt = pt;
-      })
-    );
-    container.append(card18);
-
-    // --- Slide 27: Closing ---
-    const cardClose = createSlideCard("slide-closing", "07 · Contact & Closing", "Closing & Contact Summary");
-    const closingSummary = getNarrative("closing_summary", "Closing Slide - Summary");
+    // --- 07 · Contact ---
+    const cardClose = createSlideCard("slide-closing", "07 · Contact", "Let's Connect (Contact Lead)");
+    const closingSummary = getNarrative("closing_summary", "Contact Lead");
     cardClose.append(
-      createBilingualInputRow("Closing Summary & Forward Outlook", closingSummary.text_en, closingSummary.text_pt, (en, pt) => {
+      createBilingualInputRow("Contact Lead Paragraph", closingSummary.text_en, closingSummary.text_pt, (en, pt) => {
         closingSummary.text_en = en;
         closingSummary.text_pt = pt;
       }, { tall: true })

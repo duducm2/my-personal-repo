@@ -122,34 +122,13 @@ const UI = {
         ],
       },
       {
-        id: "ux-super",
-        category: "platforms",
-        title: "UX Super",
-        short:
-          "Portal for the UX practice tracking offerings, personas, opportunities, and project KPIs.",
-        full:
-          "A portal for the UX practice. It keeps each business with its offerings, personas, and opportunities, and tracks project KPIs from baseline to target.",
-        media: [
-          {
-            src: "../media/ux-super-businesses.jpg",
-            alt: "UX Super businesses view, with offerings, personas, and opportunities",
-            caption: "UX Super, businesses",
-          },
-          {
-            src: "../media/ux-super-kpis.jpg",
-            alt: "UX Super project KPIs, with baseline and target",
-            caption: "UX Super, project KPIs",
-          },
-        ],
-      },
-      {
         id: "x-tower",
         category: "platforms",
-        title: "X-Tower Platform UX & Service Blueprint",
+        title: "UX Super Portal & X-Tower Service Blueprint",
         short:
-          "Heuristic evaluation, ecosystem & stakeholder maps, and service blueprint saving 150k EUR/quarter and 240h/month.",
+          "Custom UX practice portal (offerings, personas, KPIs) applied to X-Tower discovery: blueprint & evaluation saving 150k EUR/quarter and 240h/month.",
         full:
-          "End-to-end UX research and architecture discovery for the X-Tower platform across global PS-BDO teams. Conducted a heuristic evaluation of 8 core screens (33 flaws uncovered), stakeholder interviews, global survey, concentric stakeholder and ecosystem mapping, and an as-is service blueprint exposing 240-row parallel Excel workarounds—establishing unified governance and impact projections of 150,000 EUR/quarter in avoided rework and 240 hours/month saved.",
+          "Built the UX Super practice portal to organize businesses, offerings, personas, opportunities, and baseline-to-target project KPIs, and applied it to end-to-end UX research and architecture discovery for the X-Tower platform across global PS-BDO teams. Conducted a heuristic evaluation of 8 core screens (33 flaws uncovered), stakeholder interviews, global survey, concentric stakeholder and ecosystem mapping, and an as-is service blueprint exposing 240-row parallel Excel workarounds—establishing unified governance and impact projections of 150,000 EUR/quarter in avoided rework and 240 hours/month saved.",
         media: [
           {
             src: "../media/x-tower-summary.png",
@@ -185,6 +164,16 @@ const UI = {
             src: "../media/x-tower-interviews.png",
             alt: "Cross-participant interview matrix for X-Tower research",
             caption: "Interview coding matrix",
+          },
+          {
+            src: "../media/ux-super-businesses.jpg",
+            alt: "UX Super businesses view, with offerings, personas, and opportunities",
+            caption: "UX Super tool: businesses, offerings & personas",
+          },
+          {
+            src: "../media/ux-super-kpis.jpg",
+            alt: "UX Super project KPIs, with baseline and target",
+            caption: "UX Super tool: project KPIs (baseline & target)",
           },
         ],
       },
@@ -805,34 +794,13 @@ const UI = {
         ],
       },
       {
-        id: "ux-super",
-        category: "platforms",
-        title: "UX Super",
-        short:
-          "Portal da prática de UX com ofertas, personas, oportunidades e KPIs dos projetos.",
-        full:
-          "Portal para a prática de UX. Mantém cada negócio com suas ofertas, personas e oportunidades, e acompanha os KPIs dos projetos da linha de base à meta.",
-        media: [
-          {
-            src: "../media/ux-super-businesses.jpg",
-            alt: "Visão de negócios do UX Super, com ofertas, personas e oportunidades",
-            caption: "UX Super, negócios",
-          },
-          {
-            src: "../media/ux-super-kpis.jpg",
-            alt: "KPIs de projeto no UX Super, com linha de base e meta",
-            caption: "UX Super, KPIs de projeto",
-          },
-        ],
-      },
-      {
         id: "x-tower",
         category: "platforms",
-        title: "UX e Service Blueprint da Plataforma X-Tower",
+        title: "Portal UX Super e Service Blueprint X-Tower",
         short:
-          "Avaliação heurística, mapas de ecossistema e stakeholders e blueprint com economia de 150 mil EUR/trimestre e 240h/mês.",
+          "Portal da prática de UX (ofertas, personas, KPIs) aplicado à descoberta do X-Tower: blueprint e avaliação com economia de 150 mil EUR/trimestre e 240h/mês.",
         full:
-          "Pesquisa de UX e descoberta de arquitetura ponta a ponta para a plataforma X-Tower em times globais PS-BDO. Incluiu avaliação heurística de 8 telas principais (33 falhas mapeadas), entrevistas com stakeholders, survey global, mapeamento concêntrico de stakeholders e ecossistema, e service blueprint as-is expondo planilhas paralelas de 240 linhas—estruturando governança unificada com impacto projetado de 150.000 EUR/trimestre em retrabalho evitado e 240 horas/mês economizadas.",
+          "Desenvolvi o portal UX Super para estruturar negócios, ofertas, personas, oportunidades e KPIs de projeto (linha de base à meta), aplicando-o na pesquisa de UX e descoberta de arquitetura ponta a ponta da plataforma X-Tower em times globais PS-BDO. Incluiu avaliação heurística de 8 telas principais (33 falhas mapeadas), entrevistas com stakeholders, survey global, mapeamento concêntrico de stakeholders e ecossistema, e service blueprint as-is expondo planilhas paralelas de 240 linhas—estruturando governança unificada com impacto projetado de 150.000 EUR/trimestre em retrabalho evitado e 240 horas/mês economizadas.",
         media: [
           {
             src: "../media/x-tower-summary.png",
@@ -868,6 +836,16 @@ const UI = {
             src: "../media/x-tower-interviews.png",
             alt: "Matriz de codificação de entrevistas entre participantes do X-Tower",
             caption: "Matriz de codificação de entrevistas",
+          },
+          {
+            src: "../media/ux-super-businesses.jpg",
+            alt: "Visão de negócios do UX Super, com ofertas, personas e oportunidades",
+            caption: "Ferramenta UX Super: negócios, ofertas e personas",
+          },
+          {
+            src: "../media/ux-super-kpis.jpg",
+            alt: "KPIs de projeto no UX Super, com linha de base e meta",
+            caption: "Ferramenta UX Super: KPIs de projeto (linha de base e meta)",
           },
         ],
       },
