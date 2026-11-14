@@ -1,0 +1,19 @@
+{
+  "method": "all_text_pixelate",
+  "strength": 1,
+  "keywords": [],
+  "regions": [
+    {
+      "id": "box-1794696959473",
+      "type": "rect",
+      "x": 166,
+      "y": 43,
+      "w": 1420,
+      "h": 75,
+      "effect": "blur",
+      "source": "manual"
+    }
+  ],
+  "original_path": "docs/media/x-tower-interviews.png",
+  "original_sha256": "59f7d1bfb9694e1f2c9ce6158aee33d166dd51663c2fe9ea58b65ecb198bb2cc"
+}

@@ -1,0 +1,8 @@
+{
+  "method": "all_text_pixelate",
+  "strength": 3,
+  "keywords": [],
+  "regions": [],
+  "original_path": "docs/media/tasks-board.jpg",
+  "original_sha256": "ba1e0db5fd46c8cd4931497673e937eb3beed5d0f68d1f1c43ae2fa95f2ac090"
+}

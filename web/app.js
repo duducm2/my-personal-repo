@@ -2908,7 +2908,7 @@
     const existing = document.querySelector(".image-lightbox-modal");
     if (existing) existing.remove();
 
-    const overlay = document.createElement("div");
+    const overlay = document.createElement("dialog");
     overlay.className = "image-lightbox-modal";
 
     const content = document.createElement("div");
@@ -2926,29 +2926,28 @@
     capSpan.className = "image-lightbox-caption";
     capSpan.textContent = caption || "";
 
+    const closeLightbox = () => {
+      if (overlay.open) overlay.close();
+      overlay.remove();
+    };
+
     const closeBtn = document.createElement("button");
     closeBtn.type = "button";
     closeBtn.className = "image-lightbox-close";
     closeBtn.textContent = "✕ Close";
-    closeBtn.onclick = () => overlay.remove();
+    closeBtn.onclick = closeLightbox;
 
     footer.append(capSpan, closeBtn);
     content.append(img, footer);
     overlay.append(content);
 
     overlay.onclick = (e) => {
-      if (e.target === overlay) overlay.remove();
+      if (e.target === overlay) closeLightbox();
     };
-
-    const onKey = (e) => {
-      if (e.key === "Escape") {
-        overlay.remove();
-        document.removeEventListener("keydown", onKey);
-      }
-    };
-    document.addEventListener("keydown", onKey);
+    overlay.addEventListener("close", () => overlay.remove());
 
     document.body.append(overlay);
+    overlay.showModal();
   }
 
   function renderSharedTab(container, data) {

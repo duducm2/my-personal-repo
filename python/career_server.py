@@ -1342,7 +1342,14 @@ class CareerHandler(BaseHTTPRequestHandler):
                 img_rel = str(body.get("path") or "").strip()
                 preview_id = body.get("preview_id")
                 recipe = body.get("recipe") if isinstance(body.get("recipe"), dict) else {}
-                self._json(200, confirm_from_preview(img_rel, preview_id, recipe))
+                res = confirm_from_preview(img_rel, preview_id, recipe)
+                subprocess.run(
+                    [sys.executable, "-c", "import scripts.generate_from_canonical as g; g.write_anon_map()"],
+                    cwd=str(PICTURES_DIR.parent),
+                    capture_output=True,
+                    timeout=15,
+                )
+                self._json(200, res)
                 return
             if path == "/api/anonymize/revert":
                 body = self._read_json()
@@ -1350,6 +1357,12 @@ class CareerHandler(BaseHTTPRequestHandler):
                     raise ValueError("JSON object expected")
                 img_rel = str(body.get("path") or "").strip()
                 reverted = revert_anonymization(img_rel)
+                subprocess.run(
+                    [sys.executable, "-c", "import scripts.generate_from_canonical as g; g.write_anon_map()"],
+                    cwd=str(PICTURES_DIR.parent),
+                    capture_output=True,
+                    timeout=15,
+                )
                 self._json(200, {"ok": True, "reverted": reverted})
                 return
             if path == "/api/deliverables/covers":

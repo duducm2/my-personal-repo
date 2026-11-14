@@ -1,0 +1,105 @@
+{
+  "method": "all_text_pixelate",
+  "strength": 3,
+  "keywords": [],
+  "regions": [
+    {
+      "id": "ocr-1",
+      "type": "rect",
+      "x": 790,
+      "y": 55,
+      "w": 74,
+      "h": 51,
+      "text": "UX",
+      "confidence": 0.5944973627726237,
+      "source": "ocr",
+      "effect": "pixelate"
+    },
+    {
+      "id": "ocr-2",
+      "type": "rect",
+      "x": 792,
+      "y": 93,
+      "w": 71,
+      "h": 51,
+      "text": "GS",
+      "confidence": 0.6626283923784891,
+      "source": "ocr",
+      "effect": "pixelate"
+    },
+    {
+      "id": "ocr-3",
+      "type": "rect",
+      "x": 132,
+      "y": 430,
+      "w": 655,
+      "h": 34,
+      "text": "Makegovernanceclear.Keepimprovements",
+      "confidence": 0.920251321148228,
+      "source": "ocr",
+      "effect": "pixelate"
+    },
+    {
+      "id": "ocr-4",
+      "type": "rect",
+      "x": 394,
+      "y": 467,
+      "w": 127,
+      "h": 43,
+      "text": "moving.",
+      "confidence": 0.8415512591600418,
+      "source": "ocr",
+      "effect": "pixelate"
+    },
+    {
+      "id": "ocr-5",
+      "type": "rect",
+      "x": 145,
+      "y": 524,
+      "w": 628,
+      "h": 37,
+      "text": "Define roles and decision rights to stay on",
+      "confidence": 0.8962954499504783,
+      "source": "ocr",
+      "effect": "pixelate"
+    },
+    {
+      "id": "ocr-6",
+      "type": "rect",
+      "x": 336,
+      "y": 567,
+      "w": 243,
+      "h": 31,
+      "text": "track for launch.",
+      "confidence": 0.8514671723047892,
+      "source": "ocr",
+      "effect": "pixelate"
+    },
+    {
+      "id": "ocr-7",
+      "type": "rect",
+      "x": 390,
+      "y": 624,
+      "w": 138,
+      "h": 27,
+      "text": "EduardoFigueredo",
+      "confidence": 0.9210014869185055,
+      "source": "ocr",
+      "effect": "pixelate"
+    },
+    {
+      "id": "ocr-8",
+      "type": "rect",
+      "x": 409,
+      "y": 648,
+      "w": 103,
+      "h": 27,
+      "text": "January 2026",
+      "confidence": 0.8910083770751953,
+      "source": "ocr",
+      "effect": "pixelate"
+    }
+  ],
+  "original_path": "docs/media/research-delivery.jpg",
+  "original_sha256": "7aefcf34b837a3e872793cdf605a722716628c5d88db242ef4dc70324afa6db4"
+}

@@ -1246,9 +1246,9 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 <div class="tooling-pt-layout">
 <div class="tooling-pt-main">
 <div class="tooling-pt-prototypes">
-<p><img src="../../../pictures/work/tooling-project/tooling-1.png" alt="Tooling Wireframe & Information Architecture" /></p>
-<p><img src="../../../pictures/work/tooling-project/tooling-2.png" alt="Low-Fidelity Prototype & User Testing Flow" /></p>
-<p><img src="../../../pictures/work/tooling-project/tooling-3.png" alt="High-Fidelity Interactive Prototype" /></p>
+<p><img src="../../../pictures/work/tooling-project/_anonymized/tooling-1.anon.png" alt="Tooling Wireframe & Information Architecture" /></p>
+<p><img src="../../../pictures/work/tooling-project/_anonymized/tooling-2.anon.png" alt="Low-Fidelity Prototype & User Testing Flow" /></p>
+<p><img src="../../../pictures/work/tooling-project/_anonymized/tooling-3.anon.png" alt="High-Fidelity Interactive Prototype" /></p>
 </div>
 <div class="tooling-pt-right">
 <p class="tooling-pt-diagram"><img src="../../../pictures/diagrams/tooling-pt-workflow.png" alt="Diagram tooling-pt-workflow: Tooling PT delivery workflow" /></p>

@@ -299,9 +299,9 @@ const UI = {
           "Led technical delivery and project management for Power Tools (EXT_M-PUR36 Tooling) from requirements through high-fidelity prototypes, with regular customer check-ins (CSI 5.0, NPS 10).",
         media: [
           {
-            src: "../media/tooling.jpg",
-            alt: "Tooling project prototype",
-            caption: "Tooling project, PT",
+            src: "../media/projects/tooling-pt__tooling-1.png",
+            alt: "Wireframe & Information Architecture",
+            caption: "Wireframe & Information Architecture",
           },
         ],
       },
@@ -971,9 +971,9 @@ const UI = {
           "Liderança da entrega técnica e gestão de projeto para Power Tools (EXT_M-PUR36 Tooling), dos requisitos aos protótipos de alta fidelidade, com alinhamentos regulares com o cliente (CSI 5,0, NPS 10).",
         media: [
           {
-            src: "../media/tooling.jpg",
-            alt: "Protótipo do projeto de Tooling",
-            caption: "Projeto de Tooling, PT",
+            src: "../media/projects/tooling-pt__tooling-1.png",
+            alt: "Wireframe e Arquitetura de Informação",
+            caption: "Wireframe e Arquitetura de Informação",
           },
         ],
       },
