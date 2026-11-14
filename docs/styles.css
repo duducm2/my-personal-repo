@@ -1430,6 +1430,10 @@ section.section-excluded {
     page-break-inside: avoid;
   }
 
+  .shot-row > figure:only-child {
+    max-width: calc(50% - 2mm);
+  }
+
   .shot-row > figure > figcaption {
     margin-top: auto;
   }
@@ -1464,12 +1468,25 @@ section.section-excluded {
   .shots img.portrait,
   .wide img,
   .print-stops .wide img {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: auto;
     width: 100%;
-    height: auto;
+    height: 40mm;
     max-height: 46mm;
     object-fit: cover;
-    object-position: center;
+    object-position: center 22%;
+    background: transparent;
+  }
+
+  .shots.shots-three img {
+    height: 38mm;
+  }
+
+  .shots img.natural,
+  .shots.shots-natural img {
+    aspect-ratio: auto;
+    height: auto;
+    max-height: 52mm;
+    object-fit: contain;
     background: transparent;
   }
 

@@ -826,13 +826,15 @@ function prepareForPrint() {
     if (grid.dataset.paired === "1" || grid.classList.contains("shots-apps")) {
       return;
     }
+    const step = grid.classList.contains("shots-three") ? 3 : 2;
     const figures = [...grid.querySelectorAll(":scope > figure")];
-    for (let index = 0; index < figures.length; index += 2) {
+    for (let index = 0; index < figures.length; index += step) {
       const row = document.createElement("div");
       row.className = "shot-row";
       grid.insertBefore(row, figures[index]);
-      row.append(figures[index]);
-      if (figures[index + 1]) row.append(figures[index + 1]);
+      for (let offset = 0; offset < step; offset += 1) {
+        if (figures[index + offset]) row.append(figures[index + offset]);
+      }
     }
     grid.dataset.paired = "1";
   });
