@@ -14,6 +14,35 @@ function resolveMedia(src) {
   return (window.ANON_MAP && window.ANON_MAP[src]) || src;
 }
 
+function getLocalCoverMap() {
+  try {
+    return JSON.parse(localStorage.getItem("portfolio-cover-map") || "{}") || {};
+  } catch {
+    return {};
+  }
+}
+
+function setDeliverableCover(itemId, src) {
+  const map = getLocalCoverMap();
+  map[itemId] = src;
+  try {
+    localStorage.setItem("portfolio-cover-map", JSON.stringify(map));
+  } catch {
+    /* ignore */
+  }
+  renderDeliverables();
+}
+
+function orderedDeliverableMedia(item) {
+  const media = Array.isArray(item?.media) ? item.media : [];
+  if (media.length <= 1) return media;
+  const preferred = getLocalCoverMap()[item.id] || (window.COVER_MAP && window.COVER_MAP[item.id]);
+  if (!preferred) return media;
+  const idx = media.findIndex((m) => m.src === preferred);
+  if (idx <= 0) return media;
+  return [media[idx], ...media.slice(0, idx), ...media.slice(idx + 1)];
+}
+
 function activePath() {
   return PATH_COPY[lang];
 }
@@ -474,23 +503,43 @@ function openDeliverableModal(item) {
     bodyEl.append(sample, barsWrap);
   }
 
-  if (Array.isArray(item.media) && item.media.length > 0) {
+  const mediaList = orderedDeliverableMedia(item);
+  if (mediaList.length > 0) {
     const gallery = document.createElement("div");
     gallery.className =
-      item.media.length === 1
+      mediaList.length === 1
         ? "deliverable-modal-gallery single"
         : "deliverable-modal-gallery";
-    item.media.forEach((m) => {
+    mediaList.forEach((m, idx) => {
       const fig = document.createElement("figure");
       const img = document.createElement("img");
       img.src = resolveMedia(m.src);
       img.alt = m.alt || item.title;
       fig.append(img);
+      const cap = document.createElement("figcaption");
       if (m.caption) {
-        const cap = document.createElement("figcaption");
         cap.textContent = m.caption;
-        fig.append(cap);
       }
+      if (mediaList.length > 1) {
+        if (idx === 0) {
+          const badge = document.createElement("span");
+          badge.style.cssText = "font-size:11px;font-weight:600;color:var(--accent,#a3481e);margin-left:8px;";
+          badge.textContent = lang === "pt" ? "★ Capa atual" : "★ Current cover";
+          cap.append(badge);
+        } else {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "media-cover-btn";
+          btn.style.cssText = "margin-left:8px;font-size:11px;padding:2px 8px;border-radius:999px;border:1px solid var(--line);background:var(--paper);cursor:pointer;";
+          btn.textContent = lang === "pt" ? "★ Definir como capa" : "★ Set as cover";
+          btn.onclick = () => {
+            setDeliverableCover(item.id, m.src);
+            openDeliverableModal(item);
+          };
+          cap.append(btn);
+        }
+      }
+      if (cap.childNodes.length > 0) fig.append(cap);
       gallery.append(fig);
     });
     bodyEl.append(gallery);
@@ -512,14 +561,15 @@ function createDeliverableCard(item) {
 
   const thumb = document.createElement("div");
   thumb.className = "deliverable-thumb";
-  if (Array.isArray(item.media) && item.media.length > 0) {
+  const orderedMedia = orderedDeliverableMedia(item);
+  if (orderedMedia.length > 0) {
     const img = document.createElement("img");
     img.className = "deliverable-main-img";
-    img.src = resolveMedia(item.media[0].src);
-    img.alt = item.media[0].alt || item.title;
+    img.src = resolveMedia(orderedMedia[0].src);
+    img.alt = orderedMedia[0].alt || item.title;
     thumb.append(img);
 
-    const extras = item.media.slice(1, 3);
+    const extras = orderedMedia.slice(1, 3);
     extras.forEach((extra, idx) => {
       const sticker = document.createElement("img");
       sticker.className = `deliverable-sticker deliverable-sticker-${idx + 1}`;
@@ -529,10 +579,10 @@ function createDeliverableCard(item) {
       thumb.append(sticker);
     });
 
-    if (item.media.length > 3) {
+    if (orderedMedia.length > 3) {
       const more = document.createElement("span");
       more.className = "deliverable-more-badge";
-      more.textContent = `+${item.media.length - 3}`;
+      more.textContent = `+${orderedMedia.length - 3}`;
       thumb.append(more);
     }
   } else {

@@ -1047,6 +1047,35 @@ class CareerHandler(BaseHTTPRequestHandler):
                 self.end_headers()
                 self.wfile.write(data_bytes)
                 return
+            if path == "/api/deliverables/covers":
+                repo_root = PICTURES_DIR.parent
+                covers_file = repo_root / "my-data" / "canonical" / "deliverable_covers.json"
+                covers = {}
+                if covers_file.is_file():
+                    try:
+                        covers = json.loads(covers_file.read_text(encoding="utf-8"))
+                    except (OSError, json.JSONDecodeError):
+                        covers = {}
+                lang_js = repo_root / "docs" / "lang.js"
+                deliverables: list[dict[str, Any]] = []
+                if lang_js.is_file():
+                    node_script = (
+                        "const fs=require('fs'),vm=require('vm');"
+                        "const c={};vm.createContext(c);"
+                        "vm.runInContext(fs.readFileSync(process.argv[1],'utf8').replace(/\\bconst\\b/g,'var'),c);"
+                        "const items=(c.UI&&c.UI.en&&c.UI.en.deliverablesItems)||[];"
+                        "console.log(JSON.stringify(items.filter(x=>Array.isArray(x.media)&&x.media.length>1).map(x=>({id:x.id,title:x.title,media:x.media}))));"
+                    )
+                    proc = subprocess.run(
+                        ["node", "-e", node_script, str(lang_js)],
+                        capture_output=True,
+                        text=True,
+                        timeout=10,
+                    )
+                    if proc.returncode == 0 and proc.stdout.strip():
+                        deliverables = json.loads(proc.stdout)
+                self._json(200, {"ok": True, "covers": covers, "deliverables": deliverables})
+                return
             if path == "/api/resume-priority":
                 self._json(200, resume_priority_index())
                 return
@@ -1257,6 +1286,27 @@ class CareerHandler(BaseHTTPRequestHandler):
                 img_rel = str(body.get("path") or "").strip()
                 reverted = revert_anonymization(img_rel)
                 self._json(200, {"ok": True, "reverted": reverted})
+                return
+            if path == "/api/deliverables/covers":
+                body = self._read_json()
+                if not isinstance(body, dict) or not isinstance(body.get("covers"), dict):
+                    raise ValueError("JSON object with 'covers' dict expected")
+                repo_root = PICTURES_DIR.parent
+                covers = {
+                    str(k).strip(): str(v).strip()
+                    for k, v in body["covers"].items()
+                    if str(k).strip() and str(v).strip()
+                }
+                covers_file = repo_root / "my-data" / "canonical" / "deliverable_covers.json"
+                covers_file.parent.mkdir(parents=True, exist_ok=True)
+                covers_file.write_text(json.dumps(covers, indent=2, ensure_ascii=False), encoding="utf-8")
+                cover_js = repo_root / "docs" / "cover-map.js"
+                cover_js.write_text(
+                    "// GENERATED from my-data/canonical/deliverable_covers.json\n"
+                    f"window.COVER_MAP = {json.dumps(covers, indent=2, ensure_ascii=False)};\n",
+                    encoding="utf-8",
+                )
+                self._json(200, {"ok": True, "covers": covers})
                 return
             if path == "/api/deliverables/regenerate":
                 body = self._read_json()

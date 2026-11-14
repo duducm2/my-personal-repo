@@ -2046,6 +2046,31 @@
           markDeliverableDirty();
         };
 
+        if (projImgs.length > 1) {
+          if (idx === 0) {
+            const coverTag = document.createElement("span");
+            coverTag.className = "media-btn-small";
+            coverTag.style.cssText = "color:#fbbf24; border-color:#f59e0b; cursor:default;";
+            coverTag.textContent = "★ Cover";
+            coverTag.title = "Front / cover image";
+            orderWrap.append(coverTag);
+          } else {
+            const coverBtn = document.createElement("button");
+            coverBtn.type = "button";
+            coverBtn.className = "media-btn-small";
+            coverBtn.textContent = "★";
+            coverBtn.title = "Set as cover (up front)";
+            coverBtn.onclick = () => {
+              const reordered = [img, ...projImgs.filter((_, j) => j !== idx)];
+              reordered.forEach((item, j) => {
+                item.sort_order = String(j + 1);
+              });
+              renderCards();
+              markDeliverableDirty();
+            };
+            orderWrap.append(coverBtn);
+          }
+        }
         orderWrap.append(leftBtn, rightBtn, delBtn);
         topBar.append(chkLabel, orderWrap);
         info.append(topBar);
@@ -2382,6 +2407,69 @@
 
     refreshAnonCatalog().then(drawList);
     container.append(sec);
+
+    // Deliverable Cover Image Selector (Up Front)
+    const covSec = document.createElement("details");
+    covSec.className = "deliverable-section-card";
+    covSec.style.marginBottom = "16px";
+    const covSum = document.createElement("summary");
+    covSum.style.cssText = "cursor:pointer; font-weight:600; font-size:13px; padding:4px 0;";
+    covSum.textContent = "★ Deliverable Cover Images (Choose Front Image for Multi-Image Blocks)";
+    covSec.append(covSum);
+
+    const covWrap = document.createElement("div");
+    covWrap.style.cssText = "display:flex; flex-direction:column; gap:10px; margin-top:10px;";
+    covSec.append(covWrap);
+
+    fetch("/api/deliverables/covers")
+      .then((r) => r.json())
+      .then((res) => {
+        if (!res.ok || !Array.isArray(res.deliverables)) return;
+        const covers = Object.assign({}, res.covers || {});
+        const renderCovers = () => {
+          covWrap.replaceChildren();
+          res.deliverables.forEach((d) => {
+            const row = document.createElement("div");
+            row.style.cssText = "padding:8px; border:1px solid var(--line); border-radius:6px; background:#141417;";
+            const title = document.createElement("div");
+            title.style.cssText = "font-size:12px; font-weight:600; margin-bottom:6px;";
+            title.textContent = d.title;
+            const strip = document.createElement("div");
+            strip.style.cssText = "display:flex; flex-wrap:wrap; gap:8px;";
+            const currentCover = covers[d.id] || d.media[0].src;
+            d.media.forEach((m) => {
+              const isCov = m.src === currentCover;
+              const btn = document.createElement("button");
+              btn.type = "button";
+              btn.style.cssText = `display:flex; flex-direction:column; align-items:center; width:108px; padding:4px; border-radius:5px; cursor:pointer; background:#09090b; border:2px solid ${isCov ? "#f59e0b" : "var(--line)"};`;
+              const im = document.createElement("img");
+              im.src = `/${m.src.replace(/^\.\.\//, "docs/")}`;
+              im.style.cssText = "width:100%; height:56px; object-fit:cover; border-radius:3px;";
+              const lbl = document.createElement("span");
+              lbl.style.cssText = `font-size:10px; margin-top:3px; color:${isCov ? "#fbbf24" : "var(--muted)"}; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:100%;`;
+              lbl.textContent = isCov ? "★ Cover" : "Set front";
+              btn.title = m.caption || m.src;
+              btn.onclick = async () => {
+                covers[d.id] = m.src;
+                renderCovers();
+                await fetch("/api/deliverables/covers", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({ covers }),
+                });
+              };
+              btn.append(im, lbl);
+              strip.append(btn);
+            });
+            row.append(title, strip);
+            covWrap.append(row);
+          });
+        };
+        renderCovers();
+      })
+      .catch(() => {});
+
+    container.append(covSec);
   }
 
   function renderPortfolioTab(container, variant, data) {
