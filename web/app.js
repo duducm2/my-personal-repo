@@ -6684,13 +6684,50 @@
     }
   }
 
+  function exportFreezeChangesJson() {
+    if (!freezeCache) return;
+    const m = freezeCache.manifest || null;
+    const payload = {
+      exported_at: new Date().toISOString(),
+      frozen: Boolean(freezeCache.frozen),
+      baseline: m
+        ? {
+            frozen_at: m.frozen_at || "",
+            note: m.note || "",
+            git_head: m.git_head || "",
+            file_count: m.file_count || 0,
+          }
+        : null,
+      summary: freezeCache.summary || {},
+      changes: freezeCache.changes || [],
+      history: freezeCache.history || [],
+    };
+    const jsonText = JSON.stringify(payload, null, 2);
+    const blob = new Blob([jsonText], { type: "application/json;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    const stamp = new Date().toISOString().slice(0, 10);
+    a.href = url;
+    a.download = `resume-portfolio-changes-${stamp}.json`;
+    document.body.append(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+    setSaveStatus("Exported changes JSON", "ok");
+  }
+
   function wireFreezeControls() {
     const compareBtn = document.getElementById("freeze-compare-btn");
     const historyBtn = document.getElementById("freeze-history-btn");
     const freezeBtn = document.getElementById("freeze-now-btn");
     const modal = document.getElementById("freeze-diff-modal");
     const closeBtn = document.getElementById("freeze-diff-close");
+    const exportBtn = document.getElementById("freeze-export-json-btn");
     const modalFreezeBtn = document.getElementById("freeze-modal-freeze-btn");
+
+    if (exportBtn) {
+      exportBtn.addEventListener("click", () => exportFreezeChangesJson());
+    }
 
     if (compareBtn) {
       compareBtn.addEventListener("click", () => openFreezeModal("all"));
