@@ -35,36 +35,36 @@
 )
 
 #let profile = [
-  I'm a data analyst with a Master's in Information Systems and Communication (Unicamp). I have done applied research for more than four years, using reasoning and evidence to choose the right business action. I turn questions into numbers people can act on with Power BI, Python, SQL, and descriptive and inferential statistics. Information Visualization, grade A. I also use visuals to decide in personal apps for finances and for buying a house. I am currently learning Databricks, PySpark, and Apache Spark.
+  Data analyst with ~10 years at Bosch and a Master's in Technology (Unicamp, Grade A across coursework, including Information Visualization; IHC/ISSRE 2025). Turns complex operational and research data into decisions using #strong[Power BI, Python, SQL Server, and descriptive/inferential statistics] (Welch, Cohen's d, FDR). Guided Americas UX Maturity to Level 4 with automated audit BI; sustained average CSI 4.86 / NPS 9.94. Currently learning Databricks, PySpark, and Apache Spark.
 ]
 
 #let languages = "Portuguese (Native)   English (Fluent)"
 
 #let skills = (
-  ("Core", "Core:", ("Research reasoning for business action", "Descriptive, inferential and visual analysis", "Python / SQL / Statistics", "Visualization, BI & InfoVis", "Information Systems (MSc)", "Databricks, PySpark & Apache Spark (learning)", "Autodidact", "Vibe coding")),
+  ("Core", "Core:", ("Research reasoning for business action", "Descriptive, inferential and visual analysis", "Python / SQL / Statistics", "Visualization, BI & InfoVis", "Information Systems (MSc)", "Databricks, PySpark & Apache Spark (learning)", "Autodidact", "Vibe coding", "Experimental & survey design", "Inferential statistics (Welch, Cohen's d, FDR)", "Qualitative coding (Grounded Theory)", "KPIs, CSI/NPS & executive BI", "ETL & CSV/SQL pipelines", "Applied AI & LLM evaluation")),
   ("Tech", "Tech:", ("Power BI", "Python", "SQL", "Matplotlib", "Seaborn", "Azure", "Git", "GitHub", "React", "Figma", "ServiceNow", "Bitbucket", "HTML", "CSS", "Mermaid", "VS Code", "AutoHotkey", "Excel", "VBA", "CSV")),
 )
 
 #let experience = (
   ("Jan 2023 – Present", "Bosch Brasil", "Applied Research & Design Analyst", (
-    [Power BI dashboards for project and resource oversight; average CSI 4.86 / NPS 9.94 across my projects (2024–2025).],
-    [CIP CIM (Global Services): AI-assisted UX relevance scoring and data classification in ServiceNow (property-based weights); AI-supported method design; evaluated GS strategic CIP dashboards for leadership on issues and efficiency/efficacy.],
-    [Tooling project (Power Tools): delivery from requirements through prototypes; regular check-ins; progress tracked for decisions.],
-    [Data Insights (Power Tools B2B): Straussian grounded theory on call-center records. AI-assisted Python for manipulation and categorization; stakeholder validation; Power BI insights across finance, material transport, logistics, and related themes.],
-    [Helped the Americas reach UX Maturity Level 4: governance, templates, training; Power BI audit dashboard auto-fetching Microsoft Lists data to track project-management document fulfillment.],
-    [Use AI in VS Code every day, including vibe coding, for research, analysis, and problem-solving.],
-    [Two trips to Germany (2024, 2025); tutor at SENAI Digital Talent Academy; AI tools training for 100+ people (4.88/5 satisfaction); 8-session Bosch AI course in 2026 with Felipe Oshiro and Gabriel Reis.],
+    [#strong[Executive BI & outcomes:] built Power BI dashboards for project and resource oversight; sustained #strong[CSI 4.86 / NPS 9.94] across projects (2024–2025).],
+    [#strong[Data Insights (Power Tools B2B):] applied Straussian Grounded Theory + AI-assisted Python on call-center records, validated with stakeholders, and built Power BI theme dashboards.],
+    [#strong[CIP CIM & ServiceNow scoring:] built property-weighted UX relevance scoring and data classification in ServiceNow; evaluated Global Services strategic CIP dashboards.],
+    [#strong[AgriTech field data & PMF validation (Astra):] collected field data across 3 cattle ranches, ran competitor benchmarking, and validated quantitative PMF for MVP scope.],
+    [#strong[UX Maturity Level 4 (Americas):] created governance, templates, and a Power BI audit dashboard auto-fetching Microsoft Lists data to track compliance.],
+    [#strong[Tooling & AI-assisted analysis:] tracked delivery metrics from requirements through prototypes; daily use of Python and AI in VS Code for analysis and method design.],
+    [#strong[Enablement & global collaboration:] two trips to Germany (2024, 2025); SENAI Digital Talent Academy tutor; AI tools training for 100+ participants (#strong[4.88/5]).],
   )),
   ("Jan 2020 – Nov 2022", "Bosch Brasil", "Web Developer", (
-    [Front-end (React) and applied research in Scrum and Kanban; customer-facing and internal tools.],
-    [Built customer-facing and internal web tools with the team.],
+    [#strong[Data-backed web tools (React):] built customer-facing and internal React applications integrated with back-end data pipelines in Scrum and Kanban.],
+    [#strong[Applied research & metrics:] partnered across design and engineering to track adoption, reduce interaction friction, and validate releases.],
   )),
   ("Jan 2019 – Dec 2019", "Bosch Magyarország (Hungary)", "Digitization Support Analyst", (
-    [Digitized Business Excellence workflows in Kanban.],
-    [Full-stack web development with VS Code, SQL Server, and Windows Server (IIS).],
+    [#strong[Business Excellence digitization (Budapest):] analyzed operational workflows in Kanban and replaced manual spreadsheets with structured data tools.],
+    [#strong[Full-stack SQL Server systems:] built internal data-driven web applications using VS Code, SQL Server, and Windows Server (IIS).],
   )),
   ("Jan 2017 – Nov 2018", "Bosch Brasil (Campinas)", "Intern", (
-    [Excel and VBA: advanced formulas, macros, database-style workbooks, shortcuts, and CSV workflows; 3rd place, Bosch Talent Forum 2018 (Excel macro).],
+    [#strong[Excel, VBA & CSV pipelines:] built advanced macros, database-style workbooks, and automated CSV workflows; #strong[3rd place, Bosch Talent Forum 2018].],
   )),
 )
 

@@ -197,6 +197,14 @@
               </button>
               <button
                 type="button"
+                id="freeze-history-btn"
+                class="download-btn download-btn-view"
+                title="View version history log of frozen baselines"
+              >
+                History
+              </button>
+              <button
+                type="button"
                 id="freeze-now-btn"
                 class="download-btn download-btn-edit"
                 title="Freeze current resumes and portfolios as the new baseline"
@@ -575,7 +583,7 @@
           <!-- Rendered by app.js -->
         </div>
 
-        <footer class="deliverable-edit-footer">
+        <footer class="deliverable-edit-footer" id="freeze-diff-footer">
           <div class="freeze-note-wrap">
             <input
               type="text"

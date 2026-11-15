@@ -6422,6 +6422,12 @@
     if (!badge) return;
     try {
       const res = await fetch("/api/freeze/status");
+      if (res.status === 404) {
+        badge.textContent = "Restart server to enable Freeze";
+        badge.className = "freeze-status-badge is-warn";
+        badge.title = "career_server.py is running an older version without /api/freeze/* endpoints. Restart the server and refresh.";
+        return;
+      }
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       freezeCache = await res.json();
       renderFreezeBadge();
@@ -6461,7 +6467,15 @@
   function renderFreezeModal() {
     const body = document.getElementById("freeze-diff-body");
     const meta = document.getElementById("freeze-modal-meta");
+    const footer = document.getElementById("freeze-diff-footer");
     if (!body || !freezeCache) return;
+
+    const totalChanged = freezeCache.summary?.total_changed || 0;
+    if (footer) {
+      footer.hidden =
+        freezeActiveTab === "history" ||
+        (freezeCache.frozen && totalChanged === 0);
+    }
 
     if (meta) {
       if (!freezeCache.frozen) {
@@ -6588,7 +6602,17 @@
     }
   }
 
-  async function openFreezeModal() {
+  function setFreezeTab(tabName) {
+    freezeActiveTab = tabName || "all";
+    document.querySelectorAll("[data-freeze-tab]").forEach((b) => {
+      const active = (b.dataset.freezeTab || "all") === freezeActiveTab;
+      b.classList.toggle("is-active", active);
+      b.setAttribute("aria-selected", active ? "true" : "false");
+    });
+  }
+
+  async function openFreezeModal(initialTab) {
+    if (initialTab) setFreezeTab(initialTab);
     await loadFreezeStatus();
     const modal = document.getElementById("freeze-diff-modal");
     if (!modal) return;
@@ -6611,6 +6635,9 @@
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ note }),
       });
+      if (res.status === 404) {
+        throw new Error("Server needs restart to enable Freeze (/api/freeze/now returned 404)");
+      }
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
       freezeCache = {
@@ -6633,13 +6660,17 @@
 
   function wireFreezeControls() {
     const compareBtn = document.getElementById("freeze-compare-btn");
+    const historyBtn = document.getElementById("freeze-history-btn");
     const freezeBtn = document.getElementById("freeze-now-btn");
     const modal = document.getElementById("freeze-diff-modal");
     const closeBtn = document.getElementById("freeze-diff-close");
     const modalFreezeBtn = document.getElementById("freeze-modal-freeze-btn");
 
     if (compareBtn) {
-      compareBtn.addEventListener("click", () => openFreezeModal());
+      compareBtn.addEventListener("click", () => openFreezeModal("all"));
+    }
+    if (historyBtn) {
+      historyBtn.addEventListener("click", () => openFreezeModal("history"));
     }
     if (freezeBtn) {
       freezeBtn.addEventListener("click", () => triggerFreezeNow());
@@ -6660,12 +6691,7 @@
     }
     document.querySelectorAll("[data-freeze-tab]").forEach((btn) => {
       btn.addEventListener("click", () => {
-        freezeActiveTab = btn.dataset.freezeTab || "all";
-        document.querySelectorAll("[data-freeze-tab]").forEach((b) => {
-          const active = b === btn;
-          b.classList.toggle("is-active", active);
-          b.setAttribute("aria-selected", active ? "true" : "false");
-        });
+        setFreezeTab(btn.dataset.freezeTab || "all");
         renderFreezeModal();
       });
     });

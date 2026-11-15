@@ -307,28 +307,32 @@ def freeze_current(
         }
         history.insert(0, checkpoint)
 
-    # Rebuild current/ snapshot cleanly via staging directory
-    stage_dir = fdir / ".staging_current"
-    if stage_dir.exists():
-        shutil.rmtree(stage_dir)
-    stage_dir.mkdir(parents=True, exist_ok=True)
-
+    # Update current/ snapshot in-place (avoids Windows / Google Drive directory lock on rmtree)
+    current_snap_dir.mkdir(parents=True, exist_ok=True)
     hashes: dict[str, str] = {}
     file_count = 0
+    written_rels: set[str] = set()
     for rel, _cat in _tracked_specs(base):
         src = base / rel
         if not src.is_file():
             continue
-        dst = stage_dir / rel
+        dst = current_snap_dir / rel
         dst.parent.mkdir(parents=True, exist_ok=True)
         text = _read_text(src)
-        dst.write_text(text, encoding="utf-8")
-        hashes[rel] = _sha256_text(text)
+        file_hash = _sha256_text(text)
+        hashes[rel] = file_hash
+        written_rels.add(rel)
         file_count += 1
+        if dst.is_file() and _sha256_text(_read_text(dst)) == file_hash:
+            continue
+        dst.write_text(text, encoding="utf-8")
 
-    if current_snap_dir.exists():
-        shutil.rmtree(current_snap_dir)
-    stage_dir.replace(current_snap_dir)
+    # Remove any stale files in current/ that are no longer tracked
+    for old_file in list(current_snap_dir.rglob("*")):
+        if old_file.is_file():
+            rel = old_file.relative_to(current_snap_dir).as_posix()
+            if rel not in written_rels:
+                old_file.unlink(missing_ok=True)
 
     manifest = {
         "frozen_at": now_iso,

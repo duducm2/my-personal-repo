@@ -1,5 +1,139 @@
 [
   {
+    "frozen_at": "2026-11-15T18:31:13-03:00",
+    "note": "1",
+    "git_head": "e4aa556",
+    "changed_count": 0,
+    "changed_files": []
+  },
+  {
+    "frozen_at": "2026-11-15T18:26:45-03:00",
+    "note": "Enriched DSA, PO, and DA resumes (EN & PT)",
+    "git_head": "e4aa556",
+    "changed_count": 17,
+    "changed_files": [
+      {
+        "path": "docs/ux-researcher/index.html",
+        "category": "portfolios",
+        "status": "added",
+        "additions": 433,
+        "deletions": 0
+      },
+      {
+        "path": "docs/ux-researcher/path.js",
+        "category": "portfolios",
+        "status": "added",
+        "additions": 59,
+        "deletions": 0
+      },
+      {
+        "path": "resume/variants/product-owner/content.en.typ",
+        "category": "resumes",
+        "status": "modified",
+        "additions": 13,
+        "deletions": 12
+      },
+      {
+        "path": "resume/variants/product-owner/content.pt.typ",
+        "category": "resumes",
+        "status": "modified",
+        "additions": 13,
+        "deletions": 12
+      },
+      {
+        "path": "docs/product-owner/index.html",
+        "category": "portfolios",
+        "status": "added",
+        "additions": 433,
+        "deletions": 0
+      },
+      {
+        "path": "docs/product-owner/path.js",
+        "category": "portfolios",
+        "status": "added",
+        "additions": 59,
+        "deletions": 0
+      },
+      {
+        "path": "resume/variants/data-analyst/content.en.typ",
+        "category": "resumes",
+        "status": "modified",
+        "additions": 14,
+        "deletions": 14
+      },
+      {
+        "path": "resume/variants/data-analyst/content.pt.typ",
+        "category": "resumes",
+        "status": "modified",
+        "additions": 14,
+        "deletions": 14
+      },
+      {
+        "path": "docs/data-analyst/index.html",
+        "category": "portfolios",
+        "status": "added",
+        "additions": 434,
+        "deletions": 0
+      },
+      {
+        "path": "docs/data-analyst/path.js",
+        "category": "portfolios",
+        "status": "added",
+        "additions": 59,
+        "deletions": 0
+      },
+      {
+        "path": "resume/variants/digital-solution-architect/content.en.typ",
+        "category": "resumes",
+        "status": "modified",
+        "additions": 13,
+        "deletions": 12
+      },
+      {
+        "path": "resume/variants/digital-solution-architect/content.pt.typ",
+        "category": "resumes",
+        "status": "modified",
+        "additions": 13,
+        "deletions": 12
+      },
+      {
+        "path": "docs/digital-solution-architect/index.html",
+        "category": "portfolios",
+        "status": "added",
+        "additions": 433,
+        "deletions": 0
+      },
+      {
+        "path": "docs/digital-solution-architect/path.js",
+        "category": "portfolios",
+        "status": "added",
+        "additions": 59,
+        "deletions": 0
+      },
+      {
+        "path": "my-data/canonical/experience_bullets.csv",
+        "category": "canonical",
+        "status": "modified",
+        "additions": 34,
+        "deletions": 32
+      },
+      {
+        "path": "my-data/canonical/skills.csv",
+        "category": "canonical",
+        "status": "modified",
+        "additions": 18,
+        "deletions": 0
+      },
+      {
+        "path": "my-data/canonical/narratives.csv",
+        "category": "canonical",
+        "status": "modified",
+        "additions": 3,
+        "deletions": 3
+      }
+    ]
+  },
+  {
     "frozen_at": "2026-11-15T18:06:59-03:00",
     "note": "Initial baseline after Applied AI terminology & Hospitalhaços fix",
     "git_head": "6438439",

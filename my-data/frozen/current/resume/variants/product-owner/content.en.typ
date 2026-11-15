@@ -35,34 +35,35 @@
 )
 
 #let profile = [
-  I work close to discovery and delivery: I clarify what people need, keep stakeholders aligned, and stay with the work from requirements through validation. Background in applied research, UX, and project delivery, with a full-stack foundation. I lean on data, CIP, and customer check-ins when prioritizing.
+  Product Owner and applied researcher with ~10 years of technology experience at Bosch (intern → web developer → applied research & product delivery). Connects #strong[discovery to delivery]: clarifying stakeholder needs, defining MVP scope and backlogs, validating PMF (AgriTech/Astra), and prioritizing with data, CIP, and customer check-ins. Master's in Technology (Unicamp, Grade A; IHC/ISSRE 2025). Guided Americas UX Maturity to Level 4; sustained average CSI 4.86 / NPS 9.94.
 ]
 
 #let languages = "Portuguese (Native)   English (Fluent)"
 
 #let skills = (
-  ("Core", "Core:", ("Product discovery", "Stakeholder alignment", "Prioritization & outcomes", "Applied Research", "Agile (Scrum / Kanban) / CIP", "Autodidact", "Statistics", "Vibe coding")),
+  ("Core", "Core:", ("Product discovery", "Stakeholder alignment", "Prioritization & outcomes", "Applied Research", "Agile (Scrum / Kanban) / CIP", "Autodidact", "Statistics", "Vibe coding", "Backlog definition & refinement", "User stories & acceptance criteria", "Discovery & PMF validation", "Process & ecosystem mapping", "Prioritization & SWOT matrices", "CSI, NPS & outcome tracking")),
   ("Tech", "Tech:", ("Power BI", "Python", "React", "Figma", "SQL", "Matplotlib", "Seaborn", "Git", "GitHub", "Azure", "ServiceNow", "Bitbucket", "HTML", "CSS", "Mermaid", "VS Code", "Excel", "VBA", "AutoHotkey")),
 )
 
 #let experience = (
   ("Jan 2023 – Present", "Bosch Brasil", "Applied Research & Design Analyst", (
-    [Tooling project (Power Tools): owned the path from requirements through high-fidelity prototypes; regular customer check-ins and delivery coordination with technical partners.],
-    [CIP CIM / Global Services: with the UX team, improved strategic CIP dashboards so GS leadership could see the main issues and the efficiency and efficacy gains; automated UX relevance intake in ServiceNow.],
-    [Helped the Americas reach UX Maturity Level 4: governance, templates, and training so other teams could apply UX themselves.],
-    [Average CSI 4.86 / NPS 9.94 across my projects (2024–2025); Power BI for project and resource oversight.],
-    [Two trips to Germany (2024, 2025); tutor at SENAI Digital Talent Academy; AI tools training for 100+ people (4.88/5 satisfaction); 8-session Bosch AI course in 2026 with Felipe Oshiro and Gabriel Reis.],
+    [#strong[Tooling product ownership (Power Tools):] owned requirements through high-fidelity prototypes, managing customer check-ins and technical delivery.],
+    [#strong[AgriTech discovery & MVP scope (Astra):] led in-situ discovery across 3 cattle ranches, competitor benchmarking, dual personas, journeys, PMF validation, and MVP backlog.],
+    [#strong[Voice-of-Customer backlog (Power Tools CX):] applied Grounded Theory + Python/AI on call-center transcripts to turn qualitative pain points into prioritized backlog decisions.],
+    [#strong[CIP CIM & ServiceNow governance:] improved strategic CIP dashboards for Global Services leadership and automated UX relevance intake scoring.],
+    [#strong[UX Maturity Level 4 (Americas):] scaled governance, templates, and training so squads could self-serve discovery and UX.],
+    [#strong[Delivery outcomes & enablement:] sustained #strong[CSI 4.86 / NPS 9.94] (2024–2025); two trips to Germany (2024, 2025); SENAI Digital Talent Academy tutor; AI tools training for 100+ participants (#strong[4.88/5]).],
   )),
   ("Jan 2020 – Nov 2022", "Bosch Brasil", "Web Developer", (
-    [Delivered customer-facing and internal web solutions in Scrum and Kanban; collaborated across design, research, and engineering.],
-    [Turned requests into React screens the team released.],
+    [#strong[Agile product delivery:] delivered customer-facing and internal web solutions in Scrum and Kanban alongside design, research, and engineering.],
+    [#strong[Backlog & iterative validation:] translated stakeholder requests into refined user stories, React screens, and validated production increments.],
   )),
   ("Jan 2019 – Dec 2019", "Bosch Magyarország (Hungary)", "Digitization Support Analyst", (
-    [Digitized Business Excellence workflows in Kanban, clarifying what the process needed and building the internal tools.],
-    [Full-stack web development with VS Code, SQL Server, and Windows Server (IIS).],
+    [#strong[Business Excellence digitization (Budapest):] clarified process bottlenecks in Kanban and delivered internal web tools.],
+    [#strong[Full-stack execution:] built and hosted internal solutions using VS Code, SQL Server, and Windows Server (IIS).],
   )),
   ("Jan 2017 – Nov 2018", "Bosch Brasil (Campinas)", "Intern", (
-    [Built VBA tools supporting Continuous Improvement and internal communication processes.],
+    [#strong[Continuous Improvement tooling:] built Excel/VBA tools supporting Continuous Improvement and Internal Communication; #strong[3rd place, Bosch Talent Forum 2018].],
   )),
 )
 
