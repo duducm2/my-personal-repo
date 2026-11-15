@@ -107,7 +107,7 @@ const UI = {
           {
             src: "../media/astra-iot-device.jpg",
             alt: "Bosch Astra IoT telemetry hardware evaluation in field conditions",
-            caption: "Bosch Astra IoT telemetry device & hardware evaluation",
+            caption: "HerdSense IoT telemetry device & hardware evaluation",
           },
           {
             src: "../media/astra-current-journey.png",
@@ -133,12 +133,12 @@ const UI = {
           {
             src: "../media/x-tower-summary.png",
             alt: "X-Tower project overview and consolidated before-and-after impact results",
-            caption: "X-Tower impact summary: 150k EUR/quarter & 240h/month saved",
+            caption: "BeaconTower impact summary: 150k EUR/quarter & 240h/month saved",
           },
           {
             src: "../media/x-tower-ecosystem.png",
             alt: "X-Tower platform ecosystem map across modules, leadership, and Bosch organization",
-            caption: "X-Tower ecosystem map",
+            caption: "BeaconTower ecosystem map",
           },
           {
             src: "../media/x-tower-as-is-journey.png",
@@ -168,12 +168,12 @@ const UI = {
           {
             src: "../media/ux-super-businesses.jpg",
             alt: "UX Super businesses view, with offerings, personas, and opportunities",
-            caption: "UX Super tool: businesses, offerings & personas",
+            caption: "UX Practice Portal: businesses, offerings & personas",
           },
           {
             src: "../media/ux-super-kpis.jpg",
             alt: "UX Super project KPIs, with baseline and target",
-            caption: "UX Super tool: project KPIs (baseline & target)",
+            caption: "UX Practice Portal: project KPIs (baseline & target)",
           },
         ],
       },
@@ -189,7 +189,7 @@ const UI = {
           {
             src: "../media/rise-so-automacao.png",
             alt: "Wireframe prototype for Dashboard SO Automação and automation registration form",
-            caption: "SO Automação wireframe prototype (Rise)",
+            caption: "FlowPulse — Automation intake wireframe prototype",
           },
         ],
       },
@@ -205,7 +205,7 @@ const UI = {
           {
             src: "../media/data-insights-powerbi.png",
             alt: "Power BI Grounded Theory CX report showing customer journey phase, boleto payment friction, and causal conditions",
-            caption: "Power BI Grounded Theory CX synthesis (Power Tools)",
+            caption: "VoiceLens — Power BI Grounded Theory CX synthesis",
           },
           {
             src: "../media/data-insights-funnel.png",

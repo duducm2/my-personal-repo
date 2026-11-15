@@ -1038,6 +1038,8 @@ def write_project_media() -> None:
 
     overrides_en: dict[str, dict[str, str]] = {}
     overrides_pt: dict[str, dict[str, str]] = {}
+    media_captions_en: dict[str, dict[str, str]] = {}
+    media_captions_pt: dict[str, dict[str, str]] = {}
     removed_ids: list[str] = []
     for d_id, ov in raw_overrides.items():
         if not isinstance(ov, dict):
@@ -1045,6 +1047,17 @@ def write_project_media() -> None:
         if ov.get("hidden") is True:
             removed_ids.append(str(d_id))
             continue
+        raw_caps = ov.get("media_captions")
+        if isinstance(raw_caps, dict):
+            for src, cap_obj in raw_caps.items():
+                if not isinstance(src, str) or not isinstance(cap_obj, dict):
+                    continue
+                c_en = str(cap_obj.get("en") or "").strip()
+                c_pt = str(cap_obj.get("pt") or "").strip()
+                if c_en:
+                    media_captions_en.setdefault(str(d_id), {})[src] = c_en
+                if c_pt:
+                    media_captions_pt.setdefault(str(d_id), {})[src] = c_pt
         f_en = (ov.get("fantasy_name_en") or "").strip()
         f_pt = (ov.get("fantasy_name_pt") or "").strip()
         if f_en:
@@ -1075,7 +1088,8 @@ def write_project_media() -> None:
         f"window.PROJECT_TITLES = {json.dumps(titles_payload, indent=2, ensure_ascii=False)};\n"
         f"window.DELIVERABLE_OVERRIDES = {json.dumps(overrides_payload, indent=2, ensure_ascii=False)};\n"
         f"window.DELIVERABLE_REMOVED = {json.dumps(removed_ids, indent=2, ensure_ascii=False)};\n"
-        f"window.EXCLUDED_MEDIA = {json.dumps(excluded_media, indent=2, ensure_ascii=False)};\n",
+        f"window.EXCLUDED_MEDIA = {json.dumps(excluded_media, indent=2, ensure_ascii=False)};\n"
+        f"window.MEDIA_CAPTIONS = {json.dumps({'en': media_captions_en, 'pt': media_captions_pt}, indent=2, ensure_ascii=False)};\n",
         encoding="utf-8",
     )
     print(f"wrote {out_js.relative_to(ROOT)} ({sum(len(v) for v in out_en.values())} items across {len(out_en)} deliverables)")

@@ -26,6 +26,11 @@ function orderedDeliverableMedia(item) {
   const excludedSet = new Set(
     (window.EXCLUDED_MEDIA && window.EXCLUDED_MEDIA[item?.id]) || [],
   );
+  const capMap =
+    (window.MEDIA_CAPTIONS &&
+      window.MEDIA_CAPTIONS[lang] &&
+      window.MEDIA_CAPTIONS[lang][item?.id]) ||
+    {};
   const base = Array.isArray(item?.media) ? item.media : [];
   const extra =
     (window.PROJECT_MEDIA &&
@@ -37,7 +42,8 @@ function orderedDeliverableMedia(item) {
   for (const m of [...base, ...extra]) {
     if (m && m.src && !seen.has(m.src) && !excludedSet.has(m.src)) {
       seen.add(m.src);
-      media.push(m);
+      const customCap = capMap[m.src];
+      media.push(customCap ? { ...m, caption: customCap } : m);
     }
   }
   if (media.length <= 1) return media;

@@ -2823,18 +2823,42 @@
               const anonEntry = (window.__anonCatalogByPath || {})[relGuess];
               const isAnon = Boolean(anonEntry && anonEntry.anonymized);
               const tile = document.createElement("div");
-              tile.style.cssText = `width:148px; padding:6px; border-radius:6px; background:#141417; border:2px solid ${isCov ? "#f59e0b" : "var(--line)"}; opacity:${isExcl ? "0.45" : "1"}; display:flex; flex-direction:column; gap:5px;`;
+              tile.style.cssText = `width:210px; padding:6px; border-radius:6px; background:#141417; border:2px solid ${isCov ? "#f59e0b" : "var(--line)"}; opacity:${isExcl ? "0.45" : "1"}; display:flex; flex-direction:column; gap:5px;`;
               const im = document.createElement("img");
               const previewUrl = isAnon && anonEntry.display_url ? anonEntry.display_url : `/${m.src.replace(/^\.\.\//, "portfolio/")}`;
               im.src = previewUrl;
-              im.alt = m.caption || m.alt || d.title_en;
+              const curCapEn = (ov.media_captions && ov.media_captions[m.src] && ov.media_captions[m.src].en) ?? m.caption_en ?? m.caption ?? "";
+              const curCapPt = (ov.media_captions && ov.media_captions[m.src] && ov.media_captions[m.src].pt) ?? m.caption_pt ?? m.caption ?? "";
+              im.alt = curCapEn || m.alt || d.title_en;
               im.style.cssText = "width:100%; height:78px; object-fit:contain; background:#09090b; border-radius:4px; cursor:pointer;";
-              im.onclick = () => openImageLightbox(previewUrl, m.caption || d.title_en);
+              im.onclick = () => openImageLightbox(previewUrl, curCapEn || d.title_en);
 
-              const cap = document.createElement("div");
-              cap.style.cssText = "font-size:10px; color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;";
-              cap.title = m.caption || m.src;
-              cap.textContent = (isExcl ? "[Excluded] " : "") + (m.caption || m.src.split("/").pop());
+              const capWrap = document.createElement("div");
+              capWrap.style.cssText = "display:flex; flex-direction:column; gap:3px;";
+              const makeCapInput = (val, placeholder, langKey) => {
+                const inp = document.createElement("input");
+                inp.type = "text";
+                inp.value = val;
+                inp.placeholder = placeholder;
+                inp.title = `${placeholder} (${m.src.split("/").pop()})`;
+                inp.style.cssText = "width:100%; font-size:10px; padding:3px 5px; border-radius:4px; border:1px solid var(--line); background:#09090b; color:var(--text, #f4f4f5);";
+                inp.addEventListener("input", () => {
+                  const target = ensureOv();
+                  if (!target.media_captions || typeof target.media_captions !== "object") {
+                    target.media_captions = {};
+                  }
+                  if (!target.media_captions[m.src] || typeof target.media_captions[m.src] !== "object") {
+                    target.media_captions[m.src] = {};
+                  }
+                  target.media_captions[m.src][langKey] = inp.value;
+                  markDeliverableDirty();
+                });
+                return inp;
+              };
+              capWrap.append(
+                makeCapInput(curCapEn, "Legend (EN)…", "en"),
+                makeCapInput(curCapPt, "Legenda (PT)…", "pt"),
+              );
 
               const btnRow = document.createElement("div");
               btnRow.style.cssText = "display:flex; gap:4px; align-items:center;";
@@ -2903,7 +2927,7 @@
               };
               btnRow.append(exclBtn);
 
-              tile.append(im, cap, btnRow);
+              tile.append(im, capWrap, btnRow);
               strip.append(tile);
             });
           };

@@ -303,7 +303,7 @@ window.DELIVERABLE_OVERRIDES = {
     },
     "x-tower": {
       "short": "Custom UX practice portal (offerings, personas, KPIs) applied to BeaconTower discovery: blueprint & evaluation saving 150k EUR/quarter and 240h/month.",
-      "full": "Built the PracticeHub UX portal to organize businesses, offerings, personas, opportunities, and baseline-to-target project KPIs, and applied it to end-to-end UX research and architecture discovery for the BeaconTower platform across global business operations teams. Conducted a heuristic evaluation of 8 core screens (33 flaws uncovered), stakeholder interviews, global survey, concentric stakeholder and ecosystem mapping, and an as-is service blueprint exposing 240-row parallel Excel workarounds—establishing unified governance and impact projections of 150,000 EUR/quarter in avoided rework and 240 hours/month saved."
+      "full": "Built the PracticeHub UX portal to organize businesses, offerings, personas, opportunities, and baseline-to-target project KPIs, and applied it to end-to-end UX research and architecture discovery for the BeaconTower platform across global business operations teams. Conducted a heuristic evaluation of 8 core screens (33 flaws uncovered), stakeholder interviews, global survey, concentric stakeholder and ecosystem mapping, and an as-is service blueprint exposing parallel Excel workarounds."
     },
     "rise-automation": {
       "short": "Low-fidelity wireframe prototype for an automation intake and impact-tracking dashboard.",
@@ -341,7 +341,7 @@ window.DELIVERABLE_OVERRIDES = {
     },
     "x-tower": {
       "short": "Portal da prática de UX (ofertas, personas, KPIs) aplicado à descoberta do BeaconTower: blueprint e avaliação com economia de 150 mil EUR/trimestre e 240h/mês.",
-      "full": "Desenvolvi o portal PracticeHub para estruturar negócios, ofertas, personas, oportunidades e KPIs de projeto (linha de base à meta), aplicando-o na pesquisa de UX e descoberta de arquitetura ponta a ponta da plataforma BeaconTower em times globais de operações. Incluiu avaliação heurística de 8 telas principais (33 falhas mapeadas), entrevistas com stakeholders, survey global, mapeamento concêntrico de stakeholders e ecossistema, e service blueprint as-is expondo planilhas paralelas de 240 linhas—estruturando governança unificada com impacto projetado de 150.000 EUR/trimestre em retrabalho evitado e 240 horas/mês economizadas."
+      "full": "Desenvolvi o portal PracticeHub para estruturar negócios, ofertas, personas, oportunidades e KPIs de projeto (linha de base à meta), aplicando-o na pesquisa de UX e descoberta de arquitetura ponta a ponta da plataforma BeaconTower em times globais de operações. Incluiu avaliação heurística de 8 telas principais (33 falhas mapeadas), entrevistas com stakeholders, survey global, mapeamento concêntrico de stakeholders e ecossistema, e service blueprint as-is expondo planilhas paralelas."
     },
     "rise-automation": {
       "short": "Protótipo de wireframe de baixa fidelidade para painel de entrada de automações e acompanhamento de impacto.",
@@ -384,4 +384,8 @@ window.EXCLUDED_MEDIA = {
     "../media/projects/tooling-pt__1700672395134.jpg",
     "../media/projects/tooling-pt__1700672630418.jpg"
   ]
+};
+window.MEDIA_CAPTIONS = {
+  "en": {},
+  "pt": {}
 };
