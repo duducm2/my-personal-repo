@@ -83,5 +83,5 @@
   [3º Lugar – Fórum de Talentos da Bosch 2018 (projeto de estágio Project Model Canvas).],
   [1º Lugar – X-Games Brazil 2018 (projeto mais criativo; nova consultoria de negócio).],
   [Prêmio Compartilhando Sucessos – RH Bosch LatAm (2017; novo negócio).],
-  [Voluntário – Assistente de TI na ONG Hospitalhaços (dez/2016 – atual).],
+  [Voluntário – Assistente de TI na ONG Hospitalhaços (dez/2016 – jan/2017).],
 )
