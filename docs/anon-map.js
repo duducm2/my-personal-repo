@@ -13,6 +13,7 @@ window.ANON_MAP = {
   "../media/research-delivery.jpg": "../media/anon/research-delivery.anon.png",
   "../media/rise-so-automacao.png": "../media/anon/rise-so-automacao.anon.png",
   "../media/tasks-board.jpg": "../media/anon/tasks-board.anon.png",
+  "../media/ux-relevance-flow.png": "../media/anon/ux-relevance-flow.anon.png",
   "../media/ux-super-businesses.jpg": "../media/anon/ux-super-businesses.anon.png",
   "../media/ux-super-kpis.jpg": "../media/anon/ux-super-kpis.anon.png",
   "../media/x-tower-as-is-journey.png": "../media/anon/x-tower-as-is-journey.anon.png",
