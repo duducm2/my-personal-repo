@@ -1293,15 +1293,15 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 
 <div class="astra-pt-layout">
 <div class="astra-pt-images">
-<p><img src="../../../pictures/work/astra-project/_anonymized/astra-report-page-4-current-journey.anon.png" alt="Astra Research Deliverable: As-Is Journey & 10 Operational Pain Points Map" /></p>
-<p><img src="../../../pictures/work/astra-project/IMG_20260415_182229.jpg" alt="Bosch Astra IoT Telemetry Device & Hardware Evaluation" /></p>
-<p><img src="../../../pictures/work/astra-project/_anonymized/astra-report-page-7-mvp-requirements.anon.png" alt="Astra Research Deliverable: Scoped MVP Requirements & Pilot Success Metrics" /></p>
+<p><img src="../../../pictures/work/astra-project/_anonymized/astra-report-page-4-current-journey.anon.png" alt="HerdSense Research Deliverable: As-Is Journey & 10 Operational Pain Points Map" /></p>
+<p><img src="../../../pictures/work/astra-project/IMG_20260415_182229.jpg" alt="HerdSense IoT Telemetry Device & Hardware Evaluation" /></p>
+<p><img src="../../../pictures/work/astra-project/_anonymized/astra-report-page-7-mvp-requirements.anon.png" alt="HerdSense Research Deliverable: Scoped MVP Requirements & Pilot Success Metrics" /></p>
 <p><img src="../../../pictures/work/astra-project/IMG_20260415_141239.jpg" alt="Cattle Ranch Operational Routines Observation" /></p>
 <p><img src="../../../pictures/work/astra-project/IMG_20260415_142514.jpg" alt="Livestock Management & User Journey Fieldwork" /></p>
 <p><img src="../../../pictures/work/astra-project/IMG_20260415_162810.jpg" alt="Cowboys & Breeders Semi-Structured Interviews" /></p>
 <p><img src="../../../pictures/work/astra-project/IMG_20260416_091043.jpg" alt="IoT Telemetry Field Validation & Data Transmission Test" /></p>
 <p><img src="../../../pictures/work/astra-project/_anonymized/astra-report-page-2-persona-breeder.anon.png" alt="Persona Definition: Premium Cattle Breeder (Objectives, Pains, Needs & Success Conditions)" /></p>
-<p><img src="../../../pictures/work/astra-project/_anonymized/astra-report-page-6-pmf-validation.anon.png" alt="Astra Product-Market Fit Validation: Narrow Targeted Pilot Verdict & 6 PMF Dimensions" /></p>
+<p><img src="../../../pictures/work/astra-project/_anonymized/astra-report-page-6-pmf-validation.anon.png" alt="HerdSense Product-Market Fit Validation: Narrow Targeted Pilot Verdict & 6 PMF Dimensions" /></p>
 </div>
 </div>
 

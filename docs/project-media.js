@@ -73,18 +73,18 @@ window.PROJECT_MEDIA = {
     "astra": [
       {
         "src": "../media/astra-current-journey.png",
-        "alt": "Astra Research Deliverable: As-Is Journey & 10 Operational Pain Points Map",
-        "caption": "Astra Research Deliverable: As-Is Journey & 10 Operational Pain Points Map"
+        "alt": "HerdSense Research Deliverable: As-Is Journey & 10 Operational Pain Points Map",
+        "caption": "HerdSense Research Deliverable: As-Is Journey & 10 Operational Pain Points Map"
       },
       {
         "src": "../media/astra-iot-device.jpg",
-        "alt": "Bosch Astra IoT Telemetry Device & Hardware Evaluation",
-        "caption": "Bosch Astra IoT Telemetry Device & Hardware Evaluation"
+        "alt": "HerdSense IoT Telemetry Device & Hardware Evaluation",
+        "caption": "HerdSense IoT Telemetry Device & Hardware Evaluation"
       },
       {
         "src": "../media/astra-mvp-requirements.png",
-        "alt": "Astra Research Deliverable: Scoped MVP Requirements & Pilot Success Metrics",
-        "caption": "Astra Research Deliverable: Scoped MVP Requirements & Pilot Success Metrics"
+        "alt": "HerdSense Research Deliverable: Scoped MVP Requirements & Pilot Success Metrics",
+        "caption": "HerdSense Research Deliverable: Scoped MVP Requirements & Pilot Success Metrics"
       },
       {
         "src": "../media/projects/astra__IMG_20260415_141239.jpg",
@@ -113,8 +113,8 @@ window.PROJECT_MEDIA = {
       },
       {
         "src": "../media/projects/astra__astra-report-page-6-pmf-validation.png",
-        "alt": "Astra Product-Market Fit Validation: Narrow Targeted Pilot Verdict & 6 PMF Dimensions",
-        "caption": "Astra Product-Market Fit Validation: Narrow Targeted Pilot Verdict & 6 PMF Dimensions"
+        "alt": "HerdSense Product-Market Fit Validation: Narrow Targeted Pilot Verdict & 6 PMF Dimensions",
+        "caption": "HerdSense Product-Market Fit Validation: Narrow Targeted Pilot Verdict & 6 PMF Dimensions"
       }
     ],
     "data-insights": [
@@ -130,8 +130,8 @@ window.PROJECT_MEDIA = {
       },
       {
         "src": "../media/data-insights-journey.png",
-        "alt": "Customer Journey Evidence Mapping (QMAI)",
-        "caption": "Customer Journey Evidence Mapping (QMAI)"
+        "alt": "VoiceLens — Customer Journey Evidence Mapping",
+        "caption": "VoiceLens — Customer Journey Evidence Mapping"
       }
     ]
   },
@@ -208,18 +208,18 @@ window.PROJECT_MEDIA = {
     "astra": [
       {
         "src": "../media/astra-current-journey.png",
-        "alt": "Entrega de Pesquisa Astra: Jornada Atual e Mapa de 10 Dores Operacionais",
-        "caption": "Entrega de Pesquisa Astra: Jornada Atual e Mapa de 10 Dores Operacionais"
+        "alt": "Entrega de Pesquisa HerdSense: Jornada Atual e Mapa de 10 Dores Operacionais",
+        "caption": "Entrega de Pesquisa HerdSense: Jornada Atual e Mapa de 10 Dores Operacionais"
       },
       {
         "src": "../media/astra-iot-device.jpg",
-        "alt": "Dispositivo e Avaliação de Hardware de Telemetria IoT Astra (Bosch)",
-        "caption": "Dispositivo e Avaliação de Hardware de Telemetria IoT Astra (Bosch)"
+        "alt": "Dispositivo e Avaliação de Hardware de Telemetria IoT HerdSense",
+        "caption": "Dispositivo e Avaliação de Hardware de Telemetria IoT HerdSense"
       },
       {
         "src": "../media/astra-mvp-requirements.png",
-        "alt": "Entrega de Pesquisa Astra: Requisitos de MVP e Métricas de Sucesso do Piloto",
-        "caption": "Entrega de Pesquisa Astra: Requisitos de MVP e Métricas de Sucesso do Piloto"
+        "alt": "Entrega de Pesquisa HerdSense: Requisitos de MVP e Métricas de Sucesso do Piloto",
+        "caption": "Entrega de Pesquisa HerdSense: Requisitos de MVP e Métricas de Sucesso do Piloto"
       },
       {
         "src": "../media/projects/astra__IMG_20260415_141239.jpg",
@@ -248,8 +248,8 @@ window.PROJECT_MEDIA = {
       },
       {
         "src": "../media/projects/astra__astra-report-page-6-pmf-validation.png",
-        "alt": "Validação de Product-Market Fit Astra: Veredicto GO para Piloto Direcionado e 6 Dimensões",
-        "caption": "Validação de Product-Market Fit Astra: Veredicto GO para Piloto Direcionado e 6 Dimensões"
+        "alt": "Validação de Product-Market Fit HerdSense: Veredicto GO para Piloto Direcionado e 6 Dimensões",
+        "caption": "Validação de Product-Market Fit HerdSense: Veredicto GO para Piloto Direcionado e 6 Dimensões"
       }
     ],
     "data-insights": [
@@ -265,8 +265,8 @@ window.PROJECT_MEDIA = {
       },
       {
         "src": "../media/data-insights-journey.png",
-        "alt": "Mapeamento da Jornada do Cliente (QMAI)",
-        "caption": "Mapeamento da Jornada do Cliente (QMAI)"
+        "alt": "VoiceLens — Mapeamento da Jornada do Cliente",
+        "caption": "VoiceLens — Mapeamento da Jornada do Cliente"
       }
     ]
   }
@@ -386,6 +386,14 @@ window.EXCLUDED_MEDIA = {
   ]
 };
 window.MEDIA_CAPTIONS = {
-  "en": {},
-  "pt": {}
+  "en": {
+    "x-tower": {
+      "../media/x-tower-summary.png": "BeaconTower KPIs impact summary"
+    }
+  },
+  "pt": {
+    "x-tower": {
+      "../media/x-tower-summary.png": "Resumo de impacto em KPIs do BeaconTower"
+    }
+  }
 };

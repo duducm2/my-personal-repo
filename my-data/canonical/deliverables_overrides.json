@@ -13,7 +13,13 @@
     "short_en": "Custom UX practice portal (offerings, personas, KPIs) applied to BeaconTower discovery: blueprint & evaluation saving 150k EUR/quarter and 240h/month.",
     "short_pt": "Portal da prática de UX (ofertas, personas, KPIs) aplicado à descoberta do BeaconTower: blueprint e avaliação com economia de 150 mil EUR/trimestre e 240h/mês.",
     "full_en": "Built the PracticeHub UX portal to organize businesses, offerings, personas, opportunities, and baseline-to-target project KPIs, and applied it to end-to-end UX research and architecture discovery for the BeaconTower platform across global business operations teams. Conducted a heuristic evaluation of 8 core screens (33 flaws uncovered), stakeholder interviews, global survey, concentric stakeholder and ecosystem mapping, and an as-is service blueprint exposing parallel Excel workarounds.",
-    "full_pt": "Desenvolvi o portal PracticeHub para estruturar negócios, ofertas, personas, oportunidades e KPIs de projeto (linha de base à meta), aplicando-o na pesquisa de UX e descoberta de arquitetura ponta a ponta da plataforma BeaconTower em times globais de operações. Incluiu avaliação heurística de 8 telas principais (33 falhas mapeadas), entrevistas com stakeholders, survey global, mapeamento concêntrico de stakeholders e ecossistema, e service blueprint as-is expondo planilhas paralelas."
+    "full_pt": "Desenvolvi o portal PracticeHub para estruturar negócios, ofertas, personas, oportunidades e KPIs de projeto (linha de base à meta), aplicando-o na pesquisa de UX e descoberta de arquitetura ponta a ponta da plataforma BeaconTower em times globais de operações. Incluiu avaliação heurística de 8 telas principais (33 falhas mapeadas), entrevistas com stakeholders, survey global, mapeamento concêntrico de stakeholders e ecossistema, e service blueprint as-is expondo planilhas paralelas.",
+    "media_captions": {
+      "../media/x-tower-summary.png": {
+        "en": "BeaconTower KPIs impact summary",
+        "pt": "Resumo de impacto em KPIs do BeaconTower"
+      }
+    }
   },
   "rise-automation": {
     "fantasy_name_en": "Project FlowPulse — Automation Intake Prototype",

@@ -2825,7 +2825,8 @@
               const tile = document.createElement("div");
               tile.style.cssText = `width:210px; padding:6px; border-radius:6px; background:#141417; border:2px solid ${isCov ? "#f59e0b" : "var(--line)"}; opacity:${isExcl ? "0.45" : "1"}; display:flex; flex-direction:column; gap:5px;`;
               const im = document.createElement("img");
-              const previewUrl = isAnon && anonEntry.display_url ? anonEntry.display_url : `/${m.src.replace(/^\.\.\//, "portfolio/")}`;
+              const rawPreviewUrl = isAnon && anonEntry.display_url ? anonEntry.display_url.replace(/^\/docs\//, "/portfolio/") : `/${m.src.replace(/^\.\.\//, "portfolio/")}`;
+              const previewUrl = rawPreviewUrl;
               im.src = previewUrl;
               const curCapEn = (ov.media_captions && ov.media_captions[m.src] && ov.media_captions[m.src].en) ?? m.caption_en ?? m.caption ?? "";
               const curCapPt = (ov.media_captions && ov.media_captions[m.src] && ov.media_captions[m.src].pt) ?? m.caption_pt ?? m.caption ?? "";
@@ -6584,10 +6585,11 @@
     }
 
     for (const item of changes) {
-      const card = document.createElement("div");
+      const card = document.createElement("details");
       card.className = "freeze-diff-card";
+      card.open = true;
 
-      const head = document.createElement("div");
+      const head = document.createElement("summary");
       head.className = "freeze-diff-head";
       const pathEl = document.createElement("code");
       pathEl.className = "freeze-diff-path";

@@ -159,6 +159,8 @@ def _compute_file_diff(
         status = "modified"
         old_lines = (frozen_text or "").splitlines()
         new_lines = (live_text or "").splitlines()
+        if old_lines == new_lines:
+            return None
 
     diff_iter = list(
         difflib.unified_diff(

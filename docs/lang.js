@@ -220,7 +220,7 @@ const UI = {
           {
             src: "../media/data-insights-journey.png",
             alt: "5-phase customer journey map across QMAI call-center evidence",
-            caption: "Customer journey evidence mapping (QMAI)",
+            caption: "VoiceLens — Customer journey evidence mapping",
           },
         ],
       },
@@ -236,7 +236,7 @@ const UI = {
           {
             src: "../media/cim-journey-dashboard.png",
             alt: "Power BI dashboard analyzing 1,045 CIM evidence units by CSD, intervention lever, theme, risk, and success metric",
-            caption: "CIM evidence synthesis dashboard (1,045 units)",
+            caption: "SignalMap — Continuous improvement evidence dashboard (1,045 units)",
           },
           {
             src: "../media/cim-journey-insight-1.png",
@@ -275,7 +275,7 @@ const UI = {
           {
             src: "../media/ux-relevance-flow.png",
             alt: "ServiceNow CIM workflow showing UX quality gate, AI triage, and UX champion check",
-            caption: "UX quality gate & ServiceNow CIM relevance workflow",
+            caption: "PulseGate — UX quality gate & ServiceNow intake relevance workflow",
           },
           {
             src: "../media/ux-relevance-wireframe.png",
@@ -763,7 +763,7 @@ const UI = {
           {
             src: "../media/astra-iot-device.jpg",
             alt: "Avaliação de hardware e dispositivo IoT de telemetria Bosch Astra em campo",
-            caption: "Dispositivo e avaliação de hardware IoT Astra (Bosch)",
+            caption: "Dispositivo e avaliação de hardware IoT HerdSense",
           },
           {
             src: "../media/astra-current-journey.png",
@@ -789,12 +789,12 @@ const UI = {
           {
             src: "../media/x-tower-summary.png",
             alt: "Resumo do projeto X-Tower e resultados consolidados de impacto antes e depois",
-            caption: "Resumo de impacto X-Tower: 150 mil EUR/trimestre e 240h/mês",
+            caption: "Resumo de impacto BeaconTower: 150 mil EUR/trimestre e 240h/mês",
           },
           {
             src: "../media/x-tower-ecosystem.png",
             alt: "Mapa do ecossistema X-Tower entre módulos, liderança e organização Bosch",
-            caption: "Mapa de ecossistema X-Tower",
+            caption: "Mapa de ecossistema BeaconTower",
           },
           {
             src: "../media/x-tower-as-is-journey.png",
@@ -824,12 +824,12 @@ const UI = {
           {
             src: "../media/ux-super-businesses.jpg",
             alt: "Visão de negócios do UX Super, com ofertas, personas e oportunidades",
-            caption: "Ferramenta UX Super: negócios, ofertas e personas",
+            caption: "Portal de Prática UX: negócios, ofertas e personas",
           },
           {
             src: "../media/ux-super-kpis.jpg",
             alt: "KPIs de projeto no UX Super, com linha de base e meta",
-            caption: "Ferramenta UX Super: KPIs de projeto (linha de base e meta)",
+            caption: "Portal de Prática UX: KPIs de projeto (linha de base e meta)",
           },
         ],
       },
@@ -845,7 +845,7 @@ const UI = {
           {
             src: "../media/rise-so-automacao.png",
             alt: "Protótipo de wireframe do Dashboard SO Automação e formulário de cadastro",
-            caption: "Protótipo de wireframe SO Automação (Rise)",
+            caption: "FlowPulse — Protótipo de wireframe de entrada de automação",
           },
         ],
       },
@@ -861,7 +861,7 @@ const UI = {
           {
             src: "../media/data-insights-powerbi.png",
             alt: "Relatório em Power BI de Teoria Fundamentada para CX mostrando jornada, atrito com boleto e condições causais",
-            caption: "Síntese em Power BI com Teoria Fundamentada (Power Tools)",
+            caption: "VoiceLens — Síntese em Power BI com Teoria Fundamentada",
           },
           {
             src: "../media/data-insights-funnel.png",
@@ -876,7 +876,7 @@ const UI = {
           {
             src: "../media/data-insights-journey.png",
             alt: "Mapa da jornada do cliente em 5 fases com base nas evidências QMAI",
-            caption: "Mapeamento da jornada do cliente (QMAI)",
+            caption: "VoiceLens — Mapeamento da jornada do cliente",
           },
         ],
       },
@@ -892,7 +892,7 @@ const UI = {
           {
             src: "../media/cim-journey-dashboard.png",
             alt: "Dashboard Power BI analisando 1.045 evidências CIM por CSD, alavanca, tema, risco e métrica",
-            caption: "Dashboard de síntese de evidências CIM (1.045 unidades)",
+            caption: "SignalMap — Dashboard de síntese de evidências (1.045 unidades)",
           },
           {
             src: "../media/cim-journey-insight-1.png",
@@ -931,7 +931,7 @@ const UI = {
           {
             src: "../media/ux-relevance-flow.png",
             alt: "Fluxo no ServiceNow CIM com portão de qualidade UX, triagem com IA e rede de UX champions",
-            caption: "Portão de qualidade UX e fluxo de relevância no ServiceNow CIM",
+            caption: "PulseGate — Portão de qualidade UX e fluxo de relevância no ServiceNow",
           },
           {
             src: "../media/ux-relevance-wireframe.png",

@@ -6311,13 +6311,24 @@ body.lang-en .field-row {
   color: var(--muted);
   font-size: 14px;
 }
+#freeze-diff-body {
+  display: block;
+}
 .freeze-diff-card,
 .freeze-history-card {
+  flex-shrink: 0;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: #141417;
   margin-bottom: 12px;
   overflow: hidden;
+}
+summary.freeze-diff-head {
+  cursor: pointer;
+  list-style: none;
+}
+summary.freeze-diff-head::-webkit-details-marker {
+  display: none;
 }
 .freeze-diff-head,
 .freeze-history-head {
