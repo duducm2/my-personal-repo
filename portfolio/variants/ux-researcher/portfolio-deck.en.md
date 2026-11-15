@@ -474,7 +474,7 @@ table thead { display: none !important; }
 | Attribute    | Value |
 | --------------------------- | ------------------------- |
 | Name    | Eduardo M. de A. Figueiredo    |
-| Role    | UX Researcher & Design Technologist \| Mixed-Methods Research, Prototyping & Trustworthy AI    |
+| Role    | UX Researcher & Design Technologist \| Mixed-Methods Research, Prototyping & Applied AI    |
 | Impact  | I help technology and AI teams discover real user needs, design usable systems, and validate interaction paradigms through mixed-methods research, metrics (CSI/NPS, SUS), and high-fidelity code prototypes.  |
 | Contact | Nova Odessa, SP – Brazil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583 |
 
@@ -1395,9 +1395,9 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 
 ## Future – UX Research & Design for Emerging Technologies & AI
 
-**Human-centered research, design technology, and trustworthy AI** define my trajectory as a UX Researcher & Design Technologist:
+**Human-centered research, design technology, and applied AI** define my trajectory as a UX Researcher & Design Technologist:
 
-- **Human-Centered AI & Trust:** Designing and evaluating AI interactions users can calibrate and trust, grounded in ISO/IEC 25000 and empirical human-vs-agent benchmarks.
+- **Human-Centered AI:** Designing and evaluating effective AI interactions, grounded in ISO/IEC 25000 and empirical human-vs-agent benchmarks.
 - **Design Technology & Code Prototyping:** Bridging discovery and delivery through interactive functional prototypes (Vue 3, React, Python) to de-risk engineering.
 - **Continuous ResearchOps:** Embedding generative inquiry, evaluative usability testing, and UX Maturity governance into high-velocity product delivery.
 
@@ -1432,7 +1432,7 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 
 - **Mixed-methods rigor:** generative discovery (interviews, contextual inquiry) combined with evaluative testing (SUS, usability benchmarks, quantitative trust scales).
 - **Design technologist bridge:** translating UX concepts into interactive **React** prototypes and component specs that speed up engineering handoff.
-- **Trustworthy AI interaction:** applying Microsoft HAX, Google PAIR, and empirical trust measurement to AI-augmented workflows.
+- **Human-AI interaction:** applying Microsoft HAX, Google PAIR, and empirical evaluation to AI-augmented workflows.
 - **ResearchOps & scalable insights:** repository-driven research findings, atomic UX nuggets, and self-service toolkits for cross-functional squads.
 - **Outcome accountability:** tying design interventions directly to user task efficiency, adoption, error reduction, and sustained **CSI/NPS**.
 

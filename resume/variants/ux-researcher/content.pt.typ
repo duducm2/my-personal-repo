@@ -5,7 +5,7 @@
 // =============================================================================
 
 #let name = "Eduardo M. de A. Figueiredo"
-#let tagline = "Pesquisador de UX e Design Technologist | Pesquisa com Métodos Mistos, Prototipagem e IA Confiável"
+#let tagline = "Pesquisador de UX e Design Technologist | Pesquisa com Métodos Mistos, Prototipagem e IA Aplicada"
 #let phone = "+55 (19) 98176-6583"
 #let email = "edu.evangelista.figueiredo@gmail.com"
 #let linkedin = "LinkedIn"

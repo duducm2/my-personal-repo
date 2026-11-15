@@ -732,7 +732,7 @@ digital-solution-architect,h_closing,Closing heading,Título encerramento,Closin
 digital-solution-architect,h_closing_connect,Closing connect,Chamada de contato,Let's connect,Vamos conversar
 digital-solution-architect,h_closing_request,Closing request,Disponibilidade,Resume and this deck available on request.,Currículo e este deck disponíveis sob pedido.
 digital-solution-architect,h_infovis_diagram_alt,InfoVis diagram alt,Alt diagrama InfoVis,InfoVis PNAD visual structures,Estruturas visuais da PNAD no InfoVis
-ux-researcher,tagline,Tagline,Linha de apresentação,"UX Researcher & Design Technologist | Mixed-Methods Research, Prototyping & Trustworthy AI","Pesquisador de UX e Design Technologist | Pesquisa com Métodos Mistos, Prototipagem e IA Confiável"
+ux-researcher,tagline,Tagline,Linha de apresentação,"UX Researcher & Design Technologist | Mixed-Methods Research, Prototyping & Applied AI","Pesquisador de UX e Design Technologist | Pesquisa com Métodos Mistos, Prototipagem e IA Aplicada"
 ux-researcher,profile,Profile summary,Resumo do perfil,"UX researcher and design technologist with ~10 years of technology experience at Bosch (intern → web developer → applied research & design analyst). Combines **mixed-methods research** (Straussian Grounded Theory, qualitative coding, surveys, usability testing) with **design technologist execution** (websites through vibe coding, high-fidelity code prototypes, Figma, Power BI). Master's in Technology approved Sep 2026 (Unicamp, Grade A across coursework); published peer-reviewed research on user trust in human-AI interaction (IHC 2025, ISSRE 2025). Guided Americas UX Maturity to Level 4; sustained average CSI 4.86 / NPS 9.94 across projects.","Pesquisador de UX e design technologist com ~10 anos de experiência em tecnologia na Bosch (estágio → desenvolvedor web → analista de pesquisa aplicada e design). Combino **pesquisa com métodos mistos** (Teoria Fundamentada de Strauss, codificação qualitativa, surveys, testes de usabilidade) com **execução de design technologist** (websites por vibe coding, protótipos de alta fidelidade em código, Figma, Power BI). Mestrado em Tecnologia aprovado em set/2026 (Unicamp, nota A em todas as disciplinas); pesquisa publicada com peer-review sobre confiança do usuário na interação humano-IA (IHC 2025, ISSRE 2025). Conduzi a maturidade de UX das Américas ao Nível 4; média sustentada de CSI 4,86 / NPS 9,94."
 ux-researcher,deck_title,Deck title,Título do portfólio,Eduardo Figueiredo – UX Research & Design Portfolio,Eduardo Figueiredo – Portfólio de UX Research e Design
 ux-researcher,why_h1,Why slide heading,Título slide Por quê,Why I Practice UX Research and Design in Technology,Por que atuo em Pesquisa e Design de UX em Tecnologia
@@ -746,7 +746,7 @@ ux-researcher,why_bullets,Why slide bullets,Tópicos slide Por quê,"- I believe
 - A Teoria Fundamentada em transcrições de suporte mostrou como a voz qualitativa do usuário se traduz em **decisões quantificadas e priorizadas de backlog**.
 - Minha pesquisa de mestrado na Unicamp (IHC 2025, ISSRE 2025) consolidou minha prática em **calibração de confiança do usuário para IA e interfaces complexas**.
 - A capacidade de design technologist em **React, Figma, Python e Power BI** me permite prototipar soluções em código real para validar viabilidade cedo."
-ux-researcher,who_role,Who slide role,Papel slide Quem sou,"UX Researcher & Design Technologist | Mixed-Methods Research, Prototyping & Trustworthy AI","Pesquisador de UX e Design Technologist | Pesquisa com Métodos Mistos, Prototipagem e IA Confiável"
+ux-researcher,who_role,Who slide role,Papel slide Quem sou,"UX Researcher & Design Technologist | Mixed-Methods Research, Prototyping & Applied AI","Pesquisador de UX e Design Technologist | Pesquisa com Métodos Mistos, Prototipagem e IA Aplicada"
 ux-researcher,who_impact,Who slide impact,Impacto slide Quem sou,"I help technology and AI teams discover real user needs, design usable systems, and validate interaction paradigms through mixed-methods research, metrics (CSI/NPS, SUS), and high-fidelity code prototypes.","Ajudo times de tecnologia e IA a descobrir necessidades reais de usuários, desenhar sistemas usáveis e validar paradigmas de interação por meio de métodos mistos, métricas (CSI/NPS, SUS) e protótipos de alta fidelidade em código."
 ux-researcher,present_h2,Present slide heading,Título slide Presente,"Present – UX Research, Design Technologist & Governance (Bosch)","Presente – Pesquisa de UX, Design Technologist e Governança (Bosch)"
 ux-researcher,present_table,Present achievements table,Tabela de conquistas,"| Area | Achievement |
@@ -782,13 +782,13 @@ ux-researcher,dissertation_pbi_bullets,Dissertation PBI bullets,Tópicos dissert
 - **Published HCI research:** peer-reviewed contributions at IHC 2025 and ISSRE 2025 on trust measurement and user decision dynamics in AI interaction.","- **Avaliação empírica de UX:** escalas quantitativas de confiança, métricas comportamentais de tarefas e modelagem da percepção do usuário em touchpoints humano-IA.
 - **Pesquisa publicada em IHC:** artigos com peer-review no IHC 2025 e ISSRE 2025 sobre medição de confiança e dinâmica de decisões do usuário em interação com IA."
 ux-researcher,future_h2,Future slide heading,Título slide Futuro,Future – UX Research & Design for Emerging Technologies & AI,Futuro – Pesquisa e Design de UX para Tecnologias Emergentes e IA
-ux-researcher,future_intro,Future intro,Introdução slide Futuro,"**Human-centered research, design technology, and trustworthy AI** define my trajectory as a UX Researcher & Design Technologist:
+ux-researcher,future_intro,Future intro,Introdução slide Futuro,"**Human-centered research, design technology, and applied AI** define my trajectory as a UX Researcher & Design Technologist:
 
-- **Human-Centered AI & Trust:** Designing and evaluating AI interactions users can calibrate and trust, grounded in ISO/IEC 25000 and empirical human-vs-agent benchmarks.
+- **Human-Centered AI:** Designing and evaluating effective AI interactions, grounded in ISO/IEC 25000 and empirical human-vs-agent benchmarks.
 - **Design Technology & Code Prototyping:** Bridging discovery and delivery through interactive functional prototypes (Vue 3, React, Python) to de-risk engineering.
-- **Continuous ResearchOps:** Embedding generative inquiry, evaluative usability testing, and UX Maturity governance into high-velocity product delivery.","**Pesquisa centrada no usuário, design technology e IA confiável** definem minha trajetória como Pesquisador de UX e Design Technologist:
+- **Continuous ResearchOps:** Embedding generative inquiry, evaluative usability testing, and UX Maturity governance into high-velocity product delivery.","**Pesquisa centrada no usuário, design technology e IA aplicada** definem minha trajetória como Pesquisador de UX e Design Technologist:
 
-- **IA Centrada no Usuário e Confiança:** Projetar e avaliar interações de IA que usuários possam calibrar e confiar, com base na ISO/IEC 25000 e benchmarks empíricos humano-vs-agente.
+- **IA Centrada no Usuário:** Projetar e avaliar interações eficazes de IA, com base na ISO/IEC 25000 e benchmarks empíricos humano-vs-agente.
 - **Design Technology e Protótipos em Código:** Conectar descoberta e entrega por meio de protótipos funcionais interativos (Vue 3, React, Python) para mitigar riscos de engenharia.
 - **ResearchOps Contínuo:** Integrar investigação generativa, testes avaliativos de usabilidade e governança de Maturidade UX em ciclos ágeis de entrega."
 ux-researcher,future_diagram_alt,Future diagram alt text,Texto alt diagrama Futuro,N/A,Nenhum
@@ -796,13 +796,13 @@ ux-researcher,future_career_body,Future career body,Corpo slide carreira,"## Fut
 
 - **Mixed-methods rigor:** generative discovery (interviews, contextual inquiry) combined with evaluative testing (SUS, usability benchmarks, quantitative trust scales).
 - **Design technologist bridge:** translating UX concepts into interactive **React** prototypes and component specs that speed up engineering handoff.
-- **Trustworthy AI interaction:** applying Microsoft HAX, Google PAIR, and empirical trust measurement to AI-augmented workflows.
+- **Human-AI interaction:** applying Microsoft HAX, Google PAIR, and empirical evaluation to AI-augmented workflows.
 - **ResearchOps & scalable insights:** repository-driven research findings, atomic UX nuggets, and self-service toolkits for cross-functional squads.
 - **Outcome accountability:** tying design interventions directly to user task efficiency, adoption, error reduction, and sustained **CSI/NPS**.","## Futuro – Como conduzo Pesquisa e Design de UX em Alta Tecnologia
 
 - **Rigor em métodos mistos:** descoberta generativa (entrevistas, pesquisa contextual) combinada com testes avaliativos (SUS, benchmarks de usabilidade, escalas quantitativas de confiança).
 - **Ponte de design technologist:** traduzindo conceitos de UX em protótipos interativos em **React** e especificações de componentes que aceleram o handoff de engenharia.
-- **Interação com IA confiável:** aplicando diretrizes Microsoft HAX, Google PAIR e medição empírica de confiança em fluxos de trabalho com IA.
+- **Interação humano-IA:** aplicando diretrizes Microsoft HAX, Google PAIR e avaliação empírica em fluxos de trabalho com IA.
 - **ResearchOps e insights escaláveis:** repositórios de pesquisa, achados atômicos e kits de ferramentas self-service para squads multidisciplinares.
 - **Compromisso com resultados:** conectando intervenções de design diretamente à eficiência de tarefas do usuário, adoção, redução de erros e **CSI/NPS** sustentados."
 ux-researcher,future_career_style,Future career CSS,CSS slide carreira,".future-career-wrap {

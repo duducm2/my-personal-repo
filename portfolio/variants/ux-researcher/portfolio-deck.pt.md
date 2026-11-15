@@ -474,7 +474,7 @@ table thead { display: none !important; }
 | Atributo    | Valor |
 | --------------------------- | ------------------------- |
 | Nome    | Eduardo M. de A. Figueiredo    |
-| Papel    | Pesquisador de UX e Design Technologist \| Pesquisa com Métodos Mistos, Prototipagem e IA Confiável    |
+| Papel    | Pesquisador de UX e Design Technologist \| Pesquisa com Métodos Mistos, Prototipagem e IA Aplicada    |
 | Impacto  | Ajudo times de tecnologia e IA a descobrir necessidades reais de usuários, desenhar sistemas usáveis e validar paradigmas de interação por meio de métodos mistos, métricas (CSI/NPS, SUS) e protótipos de alta fidelidade em código.  |
 | Contato | Nova Odessa, SP – Brasil · edu.evangelista.figueiredo@gmail.com · [LinkedIn](https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b) · [Lattes](https://lattes.cnpq.br/2708641049892967) · [ORCID](https://orcid.org/0009-0002-5178-6157) · +55 19 98176-6583 |
 
@@ -1395,9 +1395,9 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 
 ## Futuro – Pesquisa e Design de UX para Tecnologias Emergentes e IA
 
-**Pesquisa centrada no usuário, design technology e IA confiável** definem minha trajetória como Pesquisador de UX e Design Technologist:
+**Pesquisa centrada no usuário, design technology e IA aplicada** definem minha trajetória como Pesquisador de UX e Design Technologist:
 
-- **IA Centrada no Usuário e Confiança:** Projetar e avaliar interações de IA que usuários possam calibrar e confiar, com base na ISO/IEC 25000 e benchmarks empíricos humano-vs-agente.
+- **IA Centrada no Usuário:** Projetar e avaliar interações eficazes de IA, com base na ISO/IEC 25000 e benchmarks empíricos humano-vs-agente.
 - **Design Technology e Protótipos em Código:** Conectar descoberta e entrega por meio de protótipos funcionais interativos (Vue 3, React, Python) para mitigar riscos de engenharia.
 - **ResearchOps Contínuo:** Integrar investigação generativa, testes avaliativos de usabilidade e governança de Maturidade UX em ciclos ágeis de entrega.
 
@@ -1432,7 +1432,7 @@ section ul { font-size: 0.8em !important; line-height: 1.25 !important; margin-t
 
 - **Rigor em métodos mistos:** descoberta generativa (entrevistas, pesquisa contextual) combinada com testes avaliativos (SUS, benchmarks de usabilidade, escalas quantitativas de confiança).
 - **Ponte de design technologist:** traduzindo conceitos de UX em protótipos interativos em **React** e especificações de componentes que aceleram o handoff de engenharia.
-- **Interação com IA confiável:** aplicando diretrizes Microsoft HAX, Google PAIR e medição empírica de confiança em fluxos de trabalho com IA.
+- **Interação humano-IA:** aplicando diretrizes Microsoft HAX, Google PAIR e avaliação empírica em fluxos de trabalho com IA.
 - **ResearchOps e insights escaláveis:** repositórios de pesquisa, achados atômicos e kits de ferramentas self-service para squads multidisciplinares.
 - **Compromisso com resultados:** conectando intervenções de design diretamente à eficiência de tarefas do usuário, adoção, redução de erros e **CSI/NPS** sustentados.
 

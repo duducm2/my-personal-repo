@@ -200,8 +200,8 @@ def upsert_titles() -> None:
             "uxr-headline",
             "LinkedIn headline",
             "Headline do LinkedIn",
-            "UX Researcher & Design Technologist | Mixed-Methods Research, Prototyping & Trustworthy AI",
-            "Pesquisador de UX e Design Technologist | Pesquisa com Métodos Mistos, Prototipagem e IA Confiável",
+            "UX Researcher & Design Technologist | Mixed-Methods Research, Prototyping & Applied AI",
+            "Pesquisador de UX e Design Technologist | Pesquisa com Métodos Mistos, Prototipagem e IA Aplicada",
             "CV tagline (ux-researcher)",
             "Linha de apresentação do CV (ux-researcher)",
         ),
@@ -343,7 +343,7 @@ def upsert_narratives() -> None:
 
 - **Mixed-methods rigor:** generative discovery (interviews, contextual inquiry) combined with evaluative testing (SUS, usability benchmarks, quantitative trust scales).
 - **Design technologist bridge:** translating UX concepts into interactive **React** prototypes and component specs that speed up engineering handoff.
-- **Trustworthy AI interaction:** applying Microsoft HAX, Google PAIR, and empirical trust measurement to AI-augmented workflows.
+- **Human-AI interaction:** applying Microsoft HAX, Google PAIR, and empirical evaluation to AI-augmented workflows.
 - **ResearchOps & scalable insights:** repository-driven research findings, atomic UX nuggets, and self-service toolkits for cross-functional squads.
 - **Outcome accountability:** tying design interventions directly to user task efficiency, adoption, error reduction, and sustained **CSI/NPS**.
 """
@@ -352,7 +352,7 @@ def upsert_narratives() -> None:
 
 - **Rigor em métodos mistos:** descoberta generativa (entrevistas, pesquisa contextual) combinada com testes avaliativos (SUS, benchmarks de usabilidade, escalas quantitativas de confiança).
 - **Ponte de design technologist:** traduzindo conceitos de UX em protótipos interativos em **React** e especificações de componentes que aceleram o handoff de engenharia.
-- **Interação com IA confiável:** aplicando diretrizes Microsoft HAX, Google PAIR e medição empírica de confiança em fluxos de trabalho com IA.
+- **Interação humano-IA:** aplicando diretrizes Microsoft HAX, Google PAIR e avaliação empírica em fluxos de trabalho com IA.
 - **ResearchOps e insights escaláveis:** repositórios de pesquisa, achados atômicos e kits de ferramentas self-service para squads multidisciplinares.
 - **Compromisso com resultados:** conectando intervenções de design diretamente à eficiência de tarefas do usuário, adoção, redução de erros e **CSI/NPS** sustentados.
 """
@@ -362,8 +362,8 @@ def upsert_narratives() -> None:
             "tagline",
             "Tagline",
             "Linha de apresentação",
-            "UX Researcher & Design Technologist | Mixed-Methods Research, Prototyping & Trustworthy AI",
-            "Pesquisador de UX e Design Technologist | Pesquisa com Métodos Mistos, Prototipagem e IA Confiável",
+            "UX Researcher & Design Technologist | Mixed-Methods Research, Prototyping & Applied AI",
+            "Pesquisador de UX e Design Technologist | Pesquisa com Métodos Mistos, Prototipagem e IA Aplicada",
         ),
         n(
             "profile",
@@ -404,8 +404,8 @@ def upsert_narratives() -> None:
             "who_role",
             "Who slide role",
             "Papel slide Quem sou",
-            "UX Researcher & Design Technologist | Mixed-Methods Research, Prototyping & Trustworthy AI",
-            "Pesquisador de UX e Design Technologist | Pesquisa com Métodos Mistos, Prototipagem e IA Confiável",
+            "UX Researcher & Design Technologist | Mixed-Methods Research, Prototyping & Applied AI",
+            "Pesquisador de UX e Design Technologist | Pesquisa com Métodos Mistos, Prototipagem e IA Aplicada",
         ),
         n(
             "who_impact",
@@ -522,8 +522,8 @@ def upsert_narratives() -> None:
             "future_intro",
             "Future intro",
             "Introdução slide Futuro",
-            "**Human-centered research, design technology, and trustworthy AI** define my trajectory as a UX Researcher & Design Technologist. The diagram below illustrates the research and delivery loop I operate in.",
-            "**Pesquisa centrada no usuário, design technology e IA confiável** definem minha trajetória como Pesquisador de UX e Design Technologist. O diagrama abaixo ilustra o ciclo de pesquisa e entrega em que atuo.",
+            "**Human-centered research, design technology, and applied AI** define my trajectory as a UX Researcher & Design Technologist. The diagram below illustrates the research and delivery loop I operate in.",
+            "**Pesquisa centrada no usuário, design technology e IA aplicada** definem minha trajetória como Pesquisador de UX e Design Technologist. O diagrama abaixo ilustra o ciclo de pesquisa e entrega em que atuo.",
         ),
         n(
             "future_diagram_alt",

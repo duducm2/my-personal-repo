@@ -687,7 +687,7 @@ def generate_web_portfolio(
                 "steps": ["Now", "Next", "Method", "Decisions"],
                 "stepCopy": [
                     "Mixed-methods research at Bosch, UX Maturity Level 4 governance, Grounded Theory on CX transcripts, and empirical HCI publications on trust in AI.",
-                    "Senior UX Researcher & Design Technologist: user research, high-fidelity prototyping, and trustworthy AI systems.",
+                    "Senior UX Researcher & Design Technologist: user research, high-fidelity prototyping, and applied AI workflows.",
                     "Dual discovery-engineering loop: user inquiry, rapid code spikes, usability validation, and metric tracking.",
                     "Design decisions judged by user task success, adoption, and sustained satisfaction.",
                 ],
@@ -698,7 +698,7 @@ def generate_web_portfolio(
                 "steps": ["Agora", "Próximo", "Método", "Decisões"],
                 "stepCopy": [
                     "Pesquisa de métodos mistos na Bosch, governança de Maturidade UX Nível 4, Teoria Fundamentada em CX e publicações de IHC em confiança na IA.",
-                    "UX Researcher Sênior e Design Technologist: pesquisa com usuários, prototipagem em código e sistemas de IA confiáveis.",
+                    "UX Researcher Sênior e Design Technologist: pesquisa com usuários, prototipagem em código e fluxos com IA aplicada.",
                     "Ciclo duplo descoberta-engenharia: investigação com usuário, spikes de código, validação de usabilidade e acompanhamento de métricas.",
                     "Decisões de design julgadas por sucesso de tarefas do usuário, adoção e satisfação sustentada.",
                 ],
