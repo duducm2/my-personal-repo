@@ -5541,7 +5541,37 @@
         }
         const resumeDialog = document.getElementById("resume-viewer-modal");
         if (resumeDialog && resumeDialog.open) {
+          event.preventDefault();
           closeResumeViewer();
+          return;
+        }
+        const lightboxDialog = document.querySelector(
+          ".image-lightbox-modal[open]",
+        );
+        if (lightboxDialog) {
+          event.preventDefault();
+          lightboxDialog.close();
+          lightboxDialog.remove();
+          return;
+        }
+        const anonymizeDialog = document.getElementById("anonymize-studio");
+        if (anonymizeDialog && anonymizeDialog.open) {
+          event.preventDefault();
+          anonymizeDialog.close();
+          return;
+        }
+        const deliverableDialog = document.getElementById(
+          "deliverable-edit-modal",
+        );
+        if (deliverableDialog && deliverableDialog.open) {
+          event.preventDefault();
+          closeDeliverableEditor();
+          return;
+        }
+        const openDialog = document.querySelector("dialog[open]");
+        if (openDialog) {
+          event.preventDefault();
+          openDialog.close();
           return;
         }
         if (

@@ -41,7 +41,7 @@
 #let languages = "Portuguese (Native)   English (Fluent)"
 
 #let skills = (
-  ("Core", "Core:", ("Mixed-methods UX research", "Usability & heuristic evaluation", "Qualitative synthesis & Grounded Theory", "Human-AI interaction & trust measurement", "Interaction design & code prototyping", "UX metrics & governance (CSI/NPS, SUS)", "Cross-functional stakeholder alignment")),
+  ("Core", "Core:", ("Mixed-methods UX research", "Usability & heuristic evaluation", "Qualitative synthesis & Grounded Theory", "Human-AI interaction & trust measurement", "Interaction design & code prototyping", "UX metrics & governance (CSI/NPS, SUS)", "Cross-functional stakeholder alignment", "Process Mapping", "Personas Definition", "Creation of Ecosystem Maps", "Definition of the Backlog", "Prioritization matrix", "SWOT matrix", "Wireframing")),
   ("Tech", "Tech:", ("Figma", "React", "HTML / CSS", "Python", "Power BI", "SQL / SQL Server", "ServiceNow", "Mermaid", "Git", "GitHub", "Bitbucket", "VS Code", "Excel / VBA", "CSV pipelines", "AI-assisted coding & prompt engineering", "Qualtrics / survey tools", "Agile / Scrum / Kanban", "Miro / FigJam")),
 )
 

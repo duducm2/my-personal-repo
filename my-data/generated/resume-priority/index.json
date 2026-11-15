@@ -319,6 +319,83 @@
           "status": "kept"
         },
         {
+          "id": "skill:ux-researcher:Core:14",
+          "kind": "skill",
+          "section_en": "Core",
+          "section_pt": "Núcleo",
+          "priority": 66,
+          "pinned": false,
+          "text_en": "Wireframing",
+          "text_pt": "Wireframing",
+          "status": "kept"
+        },
+        {
+          "id": "skill:ux-researcher:Core:13",
+          "kind": "skill",
+          "section_en": "Core",
+          "section_pt": "Núcleo",
+          "priority": 67,
+          "pinned": false,
+          "text_en": "SWOT matrix",
+          "text_pt": "Matriz SWOT",
+          "status": "kept"
+        },
+        {
+          "id": "skill:ux-researcher:Core:12",
+          "kind": "skill",
+          "section_en": "Core",
+          "section_pt": "Núcleo",
+          "priority": 68,
+          "pinned": false,
+          "text_en": "Prioritization matrix",
+          "text_pt": "Matriz de priorização",
+          "status": "kept"
+        },
+        {
+          "id": "skill:ux-researcher:Core:11",
+          "kind": "skill",
+          "section_en": "Core",
+          "section_pt": "Núcleo",
+          "priority": 69,
+          "pinned": false,
+          "text_en": "Definition of the Backlog",
+          "text_pt": "Definição do Backlog",
+          "status": "kept"
+        },
+        {
+          "id": "skill:ux-researcher:Core:10",
+          "kind": "skill",
+          "section_en": "Core",
+          "section_pt": "Núcleo",
+          "priority": 70,
+          "pinned": false,
+          "text_en": "Creation of Ecosystem Maps",
+          "text_pt": "Criação de Mapas de Ecossistemas",
+          "status": "kept"
+        },
+        {
+          "id": "skill:ux-researcher:Core:9",
+          "kind": "skill",
+          "section_en": "Core",
+          "section_pt": "Núcleo",
+          "priority": 71,
+          "pinned": false,
+          "text_en": "Personas Definition",
+          "text_pt": "Definição de Personas",
+          "status": "kept"
+        },
+        {
+          "id": "skill:ux-researcher:Core:8",
+          "kind": "skill",
+          "section_en": "Core",
+          "section_pt": "Núcleo",
+          "priority": 72,
+          "pinned": false,
+          "text_en": "Process Mapping",
+          "text_pt": "Mapeamento de Processo",
+          "status": "kept"
+        },
+        {
           "id": "skill:ux-researcher:Core:7",
           "kind": "skill",
           "section_en": "Core",

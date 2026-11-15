@@ -41,7 +41,7 @@
 #let languages = "Português (Nativo)   Inglês (Fluente)"
 
 #let skills = (
-  ("Core", "Núcleo:", ("Pesquisa de UX com métodos mistos", "Avaliação de usabilidade e heurística", "Síntese qualitativa e Teoria Fundamentada", "Interação humano-IA e medição de confiança", "Design de interação e prototipagem em código", "Métricas de UX e governança (CSI/NPS, SUS)", "Alinhamento multidisciplinar de stakeholders")),
+  ("Core", "Núcleo:", ("Pesquisa de UX com métodos mistos", "Avaliação de usabilidade e heurística", "Síntese qualitativa e Teoria Fundamentada", "Interação humano-IA e medição de confiança", "Design de interação e prototipagem em código", "Métricas de UX e governança (CSI/NPS, SUS)", "Alinhamento multidisciplinar de stakeholders", "Mapeamento de Processo", "Definição de Personas", "Criação de Mapas de Ecossistemas", "Definição do Backlog", "Matriz de priorização", "Matriz SWOT", "Wireframing")),
   ("Tech", "Tecnologias:", ("Figma", "React", "HTML / CSS", "Python", "Power BI", "SQL / SQL Server", "ServiceNow", "Mermaid", "Git", "GitHub", "Bitbucket", "VS Code", "Excel / VBA", "Pipelines CSV", "Coding assistido por IA e engenharia de prompt", "Qualtrics / ferramentas de survey", "Agile / Scrum / Kanban", "Miro / FigJam")),
 )
 
