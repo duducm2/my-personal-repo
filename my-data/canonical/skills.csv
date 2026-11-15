@@ -112,3 +112,21 @@ ux-researcher,Core,Core,Núcleo,11,Definition of the Backlog,Definição do Back
 ux-researcher,Core,Core,Núcleo,12,Prioritization matrix,Matriz de priorização
 ux-researcher,Core,Core,Núcleo,13,SWOT matrix,Matriz SWOT
 ux-researcher,Core,Core,Núcleo,14,Wireframing,Wireframing
+digital-solution-architect,Core,Core,Núcleo:,9,API & database integration,Integração de APIs e bancos de dados
+digital-solution-architect,Core,Core,Núcleo:,10,Requirements & process mapping,Requisitos e mapeamento de processos
+digital-solution-architect,Core,Core,Núcleo:,11,Automated quality gates,Gates automatizados de qualidade
+digital-solution-architect,Core,Core,Núcleo:,12,Stakeholder & vendor alignment,Alinhamento com stakeholders e fornecedores
+digital-solution-architect,Core,Core,Núcleo:,13,Applied AI workflows,Fluxos com IA aplicada
+digital-solution-architect,Core,Core,Núcleo:,14,Governance & compliance,Governança e conformidade
+product-owner,Core,Core,Núcleo:,9,Backlog definition & refinement,Definição e refinamento de backlog
+product-owner,Core,Core,Núcleo:,10,User stories & acceptance criteria,User stories e critérios de aceite
+product-owner,Core,Core,Núcleo:,11,Discovery & PMF validation,Discovery e validação de PMF
+product-owner,Core,Core,Núcleo:,12,Process & ecosystem mapping,Mapeamento de processos e ecossistemas
+product-owner,Core,Core,Núcleo:,13,Prioritization & SWOT matrices,Matriz de priorização e SWOT
+product-owner,Core,Core,Núcleo:,14,"CSI, NPS & outcome tracking","Métricas CSI, NPS e resultados"
+data-analyst,Core,Core,Núcleo:,9,Experimental & survey design,Desenho experimental e surveys
+data-analyst,Core,Core,Núcleo:,10,"Inferential statistics (Welch, Cohen's d, FDR)","Estatística inferencial (Welch, d de Cohen, FDR)"
+data-analyst,Core,Core,Núcleo:,11,Qualitative coding (Grounded Theory),Codificação qualitativa (Teoria Fundamentada)
+data-analyst,Core,Core,Núcleo:,12,"KPIs, CSI/NPS & executive BI","KPIs, CSI/NPS e BI executivo"
+data-analyst,Core,Core,Núcleo:,13,ETL & CSV/SQL pipelines,Pipelines ETL e CSV/SQL
+data-analyst,Core,Core,Núcleo:,14,Applied AI & LLM evaluation,IA aplicada e avaliação de LLMs

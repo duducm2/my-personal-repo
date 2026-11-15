@@ -1,0 +1,61 @@
+domain,key,label_en,label_pt
+variant,ux-researcher,UX Researcher & Design Technologist,Pesquisador de UX e Design Technologist
+variant,general,General,Geral
+variant,product-owner,Discovery & delivery,Descoberta e entrega
+variant,data-analyst,Data analyst,Analista de dados
+variant,digital-solution-architect,Digital Solution Architect,Arquiteto de Soluções Digitais
+skill_category,Core,Core,Núcleo
+skill_category,Tech,Tech,Tecnologias
+narrative_field,tagline,Tagline,Linha de apresentação
+narrative_field,profile,Profile summary,Resumo do perfil
+narrative_field,deck_title,Deck title,Título do portfólio
+narrative_field,why_h1,Why slide heading,Título slide Por quê
+narrative_field,why_h2,Why slide subheading,Subtítulo slide Por quê
+narrative_field,why_bullets,Why slide bullets,Tópicos slide Por quê
+narrative_field,who_role,Who slide role,Papel slide Quem sou
+narrative_field,who_impact,Who slide impact,Impacto slide Quem sou
+narrative_field,present_h2,Present slide heading,Título slide Presente
+narrative_field,present_table,Present achievements table,Tabela de conquistas
+narrative_field,cip_pipeline_h2,CIP pipeline heading,Título pipeline CIP
+narrative_field,relevance_h2,Relevance model heading,Título modelo de relevância
+narrative_field,csi_h2,CSI/NPS heading,Título CSI/NPS
+narrative_field,tooling_h2,Tooling project heading,Título projeto tooling
+narrative_field,tooling_bullet,Tooling bullet,Item projeto tooling
+narrative_field,infovis_pnad_h2,InfoVis PNAD heading,Título InfoVis PNAD
+narrative_field,infovis_pnad_bullets,InfoVis PNAD bullets,Tópicos InfoVis PNAD
+narrative_field,infovis_phrasenet_h2,InfoVis PhraseNets heading,Título InfoVis PhraseNets
+narrative_field,infovis_phrasenet_bullets,InfoVis PhraseNets bullets,Tópicos InfoVis PhraseNets
+narrative_field,dissertation_pbi_intro,Dissertation PBI intro,Intro dissertação PBI
+narrative_field,dissertation_pbi_bullets,Dissertation PBI bullets,Tópicos dissertação PBI
+narrative_field,future_h2,Future slide heading,Título slide Futuro
+narrative_field,future_intro,Future intro,Introdução slide Futuro
+narrative_field,future_diagram_alt,Future diagram alt text,Texto alt diagrama Futuro
+narrative_field,future_career_body,Future career body,Corpo slide carreira
+narrative_field,future_career_style,Future career CSS,CSS slide carreira
+narrative_field,closing_summary,Closing summary,Resumo de encerramento
+resume_ui,contact,Contact,Contato
+resume_ui,phone_abbr,Ph.,Tel.
+resume_ui,email,E-mail,E-mail
+resume_ui,linkedin,LinkedIn,LinkedIn
+resume_ui,lattes,Lattes,Lattes
+resume_ui,orcid,ORCID,ORCID
+resume_ui,location,Location,Localização
+resume_ui,profile,Profile,Perfil
+resume_ui,languages,Languages,Idiomas
+resume_ui,skills,Skills,Habilidades
+resume_ui,experience,EXPERIENCE,EXPERIÊNCIA
+resume_ui,education,EDUCATION,FORMAÇÃO
+resume_ui,publications,SELECTED PUBLICATIONS,PUBLICAÇÕES
+resume_ui,additional,ADDITIONAL,ADICIONAL
+autofill,full_name,Full name,Nome completo
+autofill,first_name,First name,Nome
+autofill,last_name,Last name,Sobrenome
+autofill,email,Email,E-mail
+autofill,phone,Phone,Telefone
+autofill,linkedin_url,LinkedIn URL,URL do LinkedIn
+autofill,cover_letter,Cover letter,Carta de apresentação
+autofill,about,About / summary,Sobre / resumo
+autofill,skills,Skills,Habilidades
+autofill,current_company,Current company,Empresa atual
+autofill,current_title,Current title,Cargo atual
+autofill,hear_about,How did you hear about us,Como soube da vaga

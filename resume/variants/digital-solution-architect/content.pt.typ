@@ -35,34 +35,35 @@
 )
 
 #let profile = [
-  Desenho soluções de digitalização e analytics que o time consegue operar: Azure, caminhos em Python e SQL, CI/CD e checagens de qualidade. Uno pesquisa e entrega na Global Services e na Power Tools. Nos apps pessoais de finanças e da compra da casa, uso vários visuais para analisar e decidir.
+  Arquiteto de soluções digitais e pesquisador aplicado com ~10 anos na Bosch (estágio → desenvolvedor web → pesquisa aplicada e soluções digitais). Projeto sistemas ponta a ponta de digitalização, cloud e analytics com #strong[Azure, Python, SQL Server, React, ServiceNow e Power BI], com CI/CD e gates automatizados de qualidade. Mestrado em Tecnologia (Unicamp, nota A; IHC/ISSRE 2025). Conduzi a maturidade de UX das Américas ao Nível 4; média sustentada de CSI 4,86 / NPS 9,94 na Global Services e Power Tools.
 ]
 
 #let languages = "Português (Nativo)   Inglês (Fluente)"
 
 #let skills = (
-  ("Core", "Núcleo:", ("Arquitetura de soluções e cloud", "Digitalização e desenho de sistemas", "DevOps / CI-CD e automação", "Pesquisa aplicada e checagens de qualidade", "Trabalho com stakeholders globais", "Autodidata", "Estatística", "Vibe coding")),
+  ("Core", "Núcleo:", ("Arquitetura de soluções e cloud", "Digitalização e desenho de sistemas", "DevOps / CI-CD e automação", "Pesquisa aplicada e checagens de qualidade", "Trabalho com stakeholders globais", "Autodidata", "Estatística", "Vibe coding", "Integração de APIs e bancos de dados", "Requisitos e mapeamento de processos", "Gates automatizados de qualidade", "Alinhamento com stakeholders e fornecedores", "Fluxos com IA aplicada", "Governança e conformidade")),
   ("Tech", "Tecnologias:", ("Azure", "Python", "SQL / SQL Server", "Power BI", "ServiceNow", "Git", "GitHub", "Bitbucket", "VS Code", "React", "Windows Server / IIS", "Docker", "Excel / VBA", "Pipelines CSV", "Mermaid", "HTML / CSS", "Figma", "Terraform (IaC)")),
 )
 
 #let experience = (
   ("Jan 2023 – Atual", "Bosch Brasil", "Analista de Pesquisa Aplicada e Design", (
-    [Desenho de solução (Global Services): dashboards CIP e pontuação de relevância em UX no ServiceNow; método com IA para a liderança ver os problemas.],
-    [Data Insights (Power Tools): Python e IA nas transcrições de call center (Grounded Theory), com o resumo no Power BI.],
-    [Nível 4 de Maturidade em UX (Américas): governança, templates e treinamento; dashboard Power BI de auditoria lendo o Microsoft Lists.],
-    [Uso VS Code com IA todo dia, inclusive vibe coding, na pesquisa e no desenho de método, nas frentes globais.],
-    [Média CSI 4,86 / NPS 9,94 (2024–2025); colaboração internacional com a Alemanha (2024, 2025); curso de IA de 8 sessões na Bosch em 2026 com Felipe Oshiro e Gabriel Reis.],
+    [#strong[Arquitetura Global Services (ServiceNow e CIP):] projetei pontuação automatizada de relevância de UX e dashboards estratégicos de CIP com apoio de IA para visibilidade da liderança.],
+    [#strong[Pipeline Data Insights (Power Tools):] construí pipelines em Python + IA para transcrições de atendimento (Teoria Fundamentada) alimentando dashboards executivos no Power BI.],
+    [#strong[Tooling e prototipagem ponta a ponta (Power Tools):] traduzi fluxos complexos em protótipos interativos e arquiteturas de produção com check-ins regulares de stakeholders.],
+    [#strong[Arquitetura AgriTech IoT e MVP (Astra):] conduzi descoberta em campo em 3 fazendas de gado e defini requisitos de telemetria IoT e escopo do MVP.],
+    [#strong[Maturidade UX Nível 4 (Américas):] estruturei governança, templates reutilizáveis e dashboard de auditoria no Power BI conectado ao Microsoft Lists.],
+    [#strong[Resultados e capacitação em IA:] média #strong[CSI 4,86 / NPS 9,94] (2024–2025); colaboração internacional na Alemanha (2024, 2025); treinamento de IA para 100+ pessoas (#strong[4,88/5]); tutor na Academia Digital SENAI.],
   )),
   ("Jan 2020 – Nov 2022", "Bosch Brasil", "Desenvolvedor Web", (
-    [Front-ends em React e soluções web internas e de cliente, em Scrum e Kanban.],
-    [Trabalhei com design, pesquisa e engenharia para publicar essas entregas.],
+    [#strong[Front-end e ferramentas corporativas (React):] desenvolvi aplicações web acessíveis em React e componentes reutilizáveis em Scrum e Kanban.],
+    [#strong[Entrega multidisciplinar:] atuei com times de design, pesquisa e engenharia em arquitetura, checagens de qualidade CI/CD e releases em produção.],
   )),
   ("Jan 2019 – Dez 2019", "Bosch Magyarország (Hungary)", "Analista de Suporte à Digitalização", (
-    [Digitalização (Budapeste): Business Excellence em Kanban, com fluxos e ferramentas web hospedadas.],
-    [Fiz as ferramentas internas da necessidade do processo até o site hospedado (VS Code, SQL Server, IIS).],
+    [#strong[Digitalização em Business Excellence (Budapeste):] digitalizei fluxos operacionais em Kanban, transformando gargalos em ferramentas web hospedadas.],
+    [#strong[Sistemas internos full-stack:] entreguei ferramentas ponta a ponta dos requisitos à produção com VS Code, SQL Server e Windows Server (IIS).],
   )),
   ("Jan 2017 – Nov 2018", "Bosch Brasil (Campinas)", "Estagiário", (
-    [Sistemas digitais em Excel/VBA e Access para Melhoria Contínua e Comunicação Interna; 3º lugar no Fórum de Talentos Bosch 2018.],
+    [#strong[Automação em Melhoria Contínua:] construí sistemas em Excel/VBA e Access para Melhoria Contínua e Comunicação Interna; #strong[3º lugar no Bosch Talent Forum 2018].],
   )),
 )
 

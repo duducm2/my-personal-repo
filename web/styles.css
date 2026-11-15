@@ -6257,3 +6257,117 @@ body.lang-en .field-row {
   display: flex;
   gap: 6px;
 }
+
+/* Freeze & Compare UI */
+.freeze-controls-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.freeze-status-badge {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--muted);
+}
+.freeze-status-badge.is-ok {
+  border-color: rgba(52, 211, 153, 0.4);
+  color: #6ee7b7;
+  background: rgba(16, 185, 129, 0.12);
+}
+.freeze-status-badge.is-changed {
+  border-color: rgba(251, 191, 36, 0.45);
+  color: #fcd34d;
+  background: rgba(245, 158, 11, 0.14);
+}
+.freeze-status-badge.is-warn {
+  border-color: rgba(248, 113, 113, 0.4);
+  color: #fca5a5;
+  background: rgba(239, 68, 68, 0.12);
+}
+.freeze-modal-meta {
+  font-size: 12px;
+  color: var(--muted);
+}
+.freeze-note-wrap {
+  flex: 1;
+  min-width: 220px;
+}
+.freeze-note-input {
+  width: 100%;
+  padding: 7px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  background: #141417;
+  color: var(--text, #f4f4f5);
+  font-size: 13px;
+}
+.freeze-empty {
+  padding: 24px 12px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+}
+.freeze-diff-card,
+.freeze-history-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #141417;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+.freeze-diff-head,
+.freeze-history-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid var(--line);
+}
+.freeze-diff-path {
+  font-size: 12px;
+  font-weight: 600;
+  color: #e4e4e7;
+}
+.freeze-diff-counts {
+  font-size: 11px;
+  color: var(--muted);
+}
+.freeze-diff-pre {
+  margin: 0;
+  padding: 10px 12px;
+  font-size: 12px;
+  line-height: 1.45;
+  overflow-x: auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+.freeze-diff-line {
+  display: block;
+  white-space: pre;
+}
+.freeze-diff-line.is-add {
+  background: rgba(16, 185, 129, 0.16);
+  color: #86efac;
+}
+.freeze-diff-line.is-del {
+  background: rgba(239, 68, 68, 0.16);
+  color: #fca5a5;
+}
+.freeze-diff-line.is-hunk {
+  color: #93c5fd;
+}
+.freeze-history-note {
+  margin: 8px 12px 4px;
+  font-size: 13px;
+}
+.freeze-history-files {
+  margin: 6px 12px 10px;
+  padding-left: 18px;
+  font-size: 12px;
+  color: var(--muted);
+}

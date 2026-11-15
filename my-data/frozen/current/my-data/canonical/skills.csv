@@ -1,0 +1,114 @@
+variant,category,category_label_en,category_label_pt,sort_order,label_en,label_pt
+product-owner,Core,Core,Núcleo,1,Product discovery,Descoberta de produto
+product-owner,Core,Core,Núcleo,2,Stakeholder alignment,Alinhamento de stakeholders
+product-owner,Core,Core,Núcleo,3,Prioritization & outcomes,Priorização e resultados
+product-owner,Core,Core,Núcleo,4,Applied Research,Pesquisa Aplicada
+product-owner,Core,Core,Núcleo,5,Agile (Scrum / Kanban) / CIP,Ágil (Scrum / Kanban) / CIP
+product-owner,Core,Core,Núcleo,6,Autodidact,Autodidata
+product-owner,Core,Core,Núcleo,7,Statistics,Estatística
+product-owner,Core,Core,Núcleo,8,Vibe coding,Vibe coding
+product-owner,Tech,Tech,Tecnologias,1,Power BI,Power BI
+product-owner,Tech,Tech,Tecnologias,2,Python,Python
+product-owner,Tech,Tech,Tecnologias,3,React,React
+product-owner,Tech,Tech,Tecnologias,4,Figma,Figma
+product-owner,Tech,Tech,Tecnologias,5,SQL,SQL
+product-owner,Tech,Tech,Tecnologias,6,Matplotlib,Matplotlib
+product-owner,Tech,Tech,Tecnologias,7,Seaborn,Seaborn
+product-owner,Tech,Tech,Tecnologias,8,Git,Git
+product-owner,Tech,Tech,Tecnologias,9,GitHub,GitHub
+product-owner,Tech,Tech,Tecnologias,10,Azure,Azure
+product-owner,Tech,Tech,Tecnologias,11,ServiceNow,ServiceNow
+product-owner,Tech,Tech,Tecnologias,12,Bitbucket,Bitbucket
+product-owner,Tech,Tech,Tecnologias,13,HTML,HTML
+product-owner,Tech,Tech,Tecnologias,14,CSS,CSS
+product-owner,Tech,Tech,Tecnologias,15,Mermaid,Mermaid
+product-owner,Tech,Tech,Tecnologias,16,VS Code,VS Code
+product-owner,Tech,Tech,Tecnologias,17,Excel,Excel
+product-owner,Tech,Tech,Tecnologias,18,VBA,VBA
+product-owner,Tech,Tech,Tecnologias,19,AutoHotkey,AutoHotkey
+data-analyst,Core,Core,Núcleo,1,Research reasoning for business action,Raciocínio de pesquisa para a ação de negócio
+data-analyst,Core,Core,Núcleo,2,"Descriptive, inferential and visual analysis","Análise descritiva, inferencial e visual"
+data-analyst,Core,Core,Núcleo,3,Python / SQL / Statistics,Python / SQL / Estatística
+data-analyst,Core,Core,Núcleo,4,"Visualization, BI & InfoVis","Visualização, BI e InfoVis"
+data-analyst,Core,Core,Núcleo,5,Information Systems (MSc),Sistemas de Informação (mestrado)
+data-analyst,Core,Core,Núcleo,6,"Databricks, PySpark & Apache Spark (learning)","Databricks, PySpark e Apache Spark (em aprendizado)"
+data-analyst,Core,Core,Núcleo,7,Autodidact,Autodidata
+data-analyst,Core,Core,Núcleo,8,Vibe coding,Vibe coding
+data-analyst,Tech,Tech,Tecnologias,1,Power BI,Power BI
+data-analyst,Tech,Tech,Tecnologias,2,Python,Python
+data-analyst,Tech,Tech,Tecnologias,3,SQL,SQL
+data-analyst,Tech,Tech,Tecnologias,4,Matplotlib,Matplotlib
+data-analyst,Tech,Tech,Tecnologias,5,Seaborn,Seaborn
+data-analyst,Tech,Tech,Tecnologias,6,Azure,Azure
+data-analyst,Tech,Tech,Tecnologias,7,Git,Git
+data-analyst,Tech,Tech,Tecnologias,8,GitHub,GitHub
+data-analyst,Tech,Tech,Tecnologias,9,React,React
+data-analyst,Tech,Tech,Tecnologias,10,Figma,Figma
+data-analyst,Tech,Tech,Tecnologias,11,ServiceNow,ServiceNow
+data-analyst,Tech,Tech,Tecnologias,12,Bitbucket,Bitbucket
+data-analyst,Tech,Tech,Tecnologias,13,HTML,HTML
+data-analyst,Tech,Tech,Tecnologias,14,CSS,CSS
+data-analyst,Tech,Tech,Tecnologias,15,Mermaid,Mermaid
+data-analyst,Tech,Tech,Tecnologias,16,VS Code,VS Code
+data-analyst,Tech,Tech,Tecnologias,17,AutoHotkey,AutoHotkey
+data-analyst,Tech,Tech,Tecnologias,18,Excel,Excel
+data-analyst,Tech,Tech,Tecnologias,19,VBA,VBA
+data-analyst,Tech,Tech,Tecnologias,20,CSV,CSV
+digital-solution-architect,Core,Core,Núcleo,1,Solution & cloud architecture,Arquitetura de soluções e cloud
+digital-solution-architect,Core,Core,Núcleo,2,Digitization & systems,Digitalização e desenho de sistemas
+digital-solution-architect,Core,Core,Núcleo,3,DevOps / CI-CD,DevOps / CI-CD e automação
+digital-solution-architect,Core,Core,Núcleo,4,Applied research and quality checks,Pesquisa aplicada e checagens de qualidade
+digital-solution-architect,Core,Core,Núcleo,5,Work with global stakeholders,Trabalho com stakeholders globais
+digital-solution-architect,Core,Core,Núcleo,6,Autodidact,Autodidata
+digital-solution-architect,Core,Core,Núcleo,7,Statistics,Estatística
+digital-solution-architect,Core,Core,Núcleo,8,Vibe coding,Vibe coding
+digital-solution-architect,Tech,Tech,Tecnologias,1,Azure,Azure
+digital-solution-architect,Tech,Tech,Tecnologias,2,Python,Python
+digital-solution-architect,Tech,Tech,Tecnologias,3,SQL / SQL Server,SQL / SQL Server
+digital-solution-architect,Tech,Tech,Tecnologias,4,Power BI,Power BI
+digital-solution-architect,Tech,Tech,Tecnologias,5,ServiceNow,ServiceNow
+digital-solution-architect,Tech,Tech,Tecnologias,6,Git,Git
+digital-solution-architect,Tech,Tech,Tecnologias,7,GitHub,GitHub
+digital-solution-architect,Tech,Tech,Tecnologias,8,Bitbucket,Bitbucket
+digital-solution-architect,Tech,Tech,Tecnologias,9,VS Code,VS Code
+digital-solution-architect,Tech,Tech,Tecnologias,10,React,React
+digital-solution-architect,Tech,Tech,Tecnologias,11,Windows Server / IIS,Windows Server / IIS
+digital-solution-architect,Tech,Tech,Tecnologias,12,Docker,Docker
+digital-solution-architect,Tech,Tech,Tecnologias,13,Excel / VBA,Excel / VBA
+digital-solution-architect,Tech,Tech,Tecnologias,14,CSV pipelines,Pipelines CSV
+digital-solution-architect,Tech,Tech,Tecnologias,15,Mermaid,Mermaid
+digital-solution-architect,Tech,Tech,Tecnologias,16,HTML / CSS,HTML / CSS
+digital-solution-architect,Tech,Tech,Tecnologias,17,Figma,Figma
+digital-solution-architect,Tech,Tech,Tecnologias,18,Terraform (IaC),Terraform (IaC)
+ux-researcher,Core,Core,Núcleo,1,Mixed-methods UX research,Pesquisa de UX com métodos mistos
+ux-researcher,Core,Core,Núcleo,2,Usability & heuristic evaluation,Avaliação de usabilidade e heurística
+ux-researcher,Core,Core,Núcleo,3,Qualitative synthesis & Grounded Theory,Síntese qualitativa e Teoria Fundamentada
+ux-researcher,Core,Core,Núcleo,4,Human-AI interaction & trust measurement,Interação humano-IA e medição de confiança
+ux-researcher,Core,Core,Núcleo,5,Interaction design & code prototyping,Design de interação e prototipagem em código
+ux-researcher,Core,Core,Núcleo,6,"UX metrics & governance (CSI/NPS, SUS)","Métricas de UX e governança (CSI/NPS, SUS)"
+ux-researcher,Core,Core,Núcleo,7,Cross-functional stakeholder alignment,Alinhamento multidisciplinar de stakeholders
+ux-researcher,Tech,Tech,Tecnologias,1,Figma,Figma
+ux-researcher,Tech,Tech,Tecnologias,2,React,React
+ux-researcher,Tech,Tech,Tecnologias,3,HTML / CSS,HTML / CSS
+ux-researcher,Tech,Tech,Tecnologias,4,Python,Python
+ux-researcher,Tech,Tech,Tecnologias,5,Power BI,Power BI
+ux-researcher,Tech,Tech,Tecnologias,6,SQL / SQL Server,SQL / SQL Server
+ux-researcher,Tech,Tech,Tecnologias,7,ServiceNow,ServiceNow
+ux-researcher,Tech,Tech,Tecnologias,8,Mermaid,Mermaid
+ux-researcher,Tech,Tech,Tecnologias,9,Git,Git
+ux-researcher,Tech,Tech,Tecnologias,10,GitHub,GitHub
+ux-researcher,Tech,Tech,Tecnologias,11,Bitbucket,Bitbucket
+ux-researcher,Tech,Tech,Tecnologias,12,VS Code,VS Code
+ux-researcher,Tech,Tech,Tecnologias,13,Excel / VBA,Excel / VBA
+ux-researcher,Tech,Tech,Tecnologias,14,CSV pipelines,Pipelines CSV
+ux-researcher,Tech,Tech,Tecnologias,15,AI-assisted coding & prompt engineering,Coding assistido por IA e engenharia de prompt
+ux-researcher,Tech,Tech,Tecnologias,16,Qualtrics / survey tools,Qualtrics / ferramentas de survey
+ux-researcher,Tech,Tech,Tecnologias,17,Agile / Scrum / Kanban,Agile / Scrum / Kanban
+ux-researcher,Tech,Tech,Tecnologias,18,Miro / FigJam,Miro / FigJam
+ux-researcher,Core,Core,Núcleo,8,Process Mapping,Mapeamento de Processo
+ux-researcher,Core,Core,Núcleo,9,Personas Definition,Definição de Personas
+ux-researcher,Core,Core,Núcleo,10,Creation of Ecosystem Maps,Criação de Mapas de Ecossistemas
+ux-researcher,Core,Core,Núcleo,11,Definition of the Backlog,Definição do Backlog
+ux-researcher,Core,Core,Núcleo,12,Prioritization matrix,Matriz de priorização
+ux-researcher,Core,Core,Núcleo,13,SWOT matrix,Matriz SWOT
+ux-researcher,Core,Core,Núcleo,14,Wireframing,Wireframing

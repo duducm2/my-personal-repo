@@ -180,14 +180,38 @@
             <h2 id="downloads-heading" class="section-title">
               <span class="section-title-en">Resumes</span>
             </h2>
-            <button
-              type="button"
-              id="rebuild-all-deliverables-btn"
-              class="add-btn"
-              title="Recompile all resumes"
-            >
-              Rebuild all PDFs
-            </button>
+            <div class="freeze-controls-bar">
+              <span
+                id="freeze-status-badge"
+                class="freeze-status-badge"
+                title="Comparison against frozen baseline"
+                >Checking baseline…</span
+              >
+              <button
+                type="button"
+                id="freeze-compare-btn"
+                class="download-btn download-btn-view"
+                title="Compare current resumes, portfolios, and canonical data against frozen baseline"
+              >
+                Compare
+              </button>
+              <button
+                type="button"
+                id="freeze-now-btn"
+                class="download-btn download-btn-edit"
+                title="Freeze current resumes and portfolios as the new baseline"
+              >
+                Freeze
+              </button>
+              <button
+                type="button"
+                id="rebuild-all-deliverables-btn"
+                class="add-btn"
+                title="Recompile all resumes"
+              >
+                Rebuild all PDFs
+              </button>
+            </div>
           </div>
           <p class="section-lede downloads-policy">
             <span
@@ -509,6 +533,66 @@
             <button type="button" class="download-btn download-btn-view" id="deliverable-preview-en-btn">Preview EN PDF</button>
             <button type="button" class="download-btn download-btn-view" id="deliverable-preview-pt-btn">Preview PT PDF</button>
             <button type="button" class="add-btn primary-save-btn" id="deliverable-save-btn">Save &amp; Regenerate (Ctrl+S)</button>
+          </div>
+        </footer>
+      </div>
+    </dialog>
+
+    <dialog
+      id="freeze-diff-modal"
+      class="company-modal deliverable-edit-modal"
+      aria-labelledby="freeze-diff-title"
+    >
+      <div class="company-modal-inner deliverable-edit-inner">
+        <header class="company-modal-head deliverable-edit-head">
+          <div class="deliverable-edit-head-left">
+            <h2 id="freeze-diff-title" class="company-modal-title">
+              Frozen Baseline &amp; Changes
+            </h2>
+            <span id="freeze-modal-meta" class="freeze-modal-meta"></span>
+          </div>
+          <div class="deliverable-edit-head-actions">
+            <button
+              type="button"
+              id="freeze-diff-close"
+              class="company-modal-close"
+              aria-label="Close"
+            >
+              ✕
+            </button>
+          </div>
+        </header>
+
+        <nav class="deliverable-tabs-bar freeze-tabs-bar" role="tablist">
+          <button type="button" class="deliverable-tab is-active" data-freeze-tab="all" role="tab" aria-selected="true">All Changes</button>
+          <button type="button" class="deliverable-tab" data-freeze-tab="resumes" role="tab" aria-selected="false">Resumes</button>
+          <button type="button" class="deliverable-tab" data-freeze-tab="portfolios" role="tab" aria-selected="false">Portfolios</button>
+          <button type="button" class="deliverable-tab" data-freeze-tab="canonical" role="tab" aria-selected="false">Canonical Data</button>
+          <button type="button" class="deliverable-tab" data-freeze-tab="history" role="tab" aria-selected="false">History</button>
+        </nav>
+
+        <div id="freeze-diff-body" class="company-modal-body deliverable-edit-body">
+          <!-- Rendered by app.js -->
+        </div>
+
+        <footer class="deliverable-edit-footer">
+          <div class="freeze-note-wrap">
+            <input
+              type="text"
+              id="freeze-note-input"
+              class="freeze-note-input"
+              placeholder="Optional review note (e.g. Updated UX Researcher AI terminology)…"
+              aria-label="Freeze review note"
+            />
+          </div>
+          <div class="deliverable-footer-actions">
+            <button
+              type="button"
+              class="add-btn primary-save-btn"
+              id="freeze-modal-freeze-btn"
+            >
+              Freeze current version
+            </button>
           </div>
         </footer>
       </div>

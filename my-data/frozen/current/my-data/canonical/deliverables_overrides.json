@@ -1,0 +1,77 @@
+{
+  "astra": {
+    "fantasy_name_en": "Project HerdSense — AgriTech IoT & Cattle Telemetry",
+    "fantasy_name_pt": "Projeto HerdSense — Pesquisa AgriTech IoT e Telemetria Bovina",
+    "short_en": "AgriTech field ethnography across 3 cattle ranches, AgriShow benchmark, 6-dimension PMF validation, and MVP requirements.",
+    "short_pt": "Etnografia em 3 fazendas de gado de elite, benchmark na Agrishow, validação de PMF em 6 dimensões e especificação de MVP.",
+    "full_en": "In Project HerdSense (an AgriTech livestock telemetry initiative), I conducted comprehensive field research to solve operational bottlenecks in premium cattle ranching and turn qualitative evidence into hardware and software product strategy. Fieldwork included on-site ethnography across 3 premium cattle ranches, competitor benchmarking at AgriShow Brazil, and veterinary pharma partnership discovery—delivering dual personas, as-is/future journey maps, a 6-dimension PMF validation ('GO for targeted pilot'), and scoped MVP requirements.",
+    "full_pt": "No Projeto HerdSense (iniciativa AgriTech de telemetria bovina), conduzi pesquisa de campo completa para resolver gargalos operacionais na pecuária de elite e transformar evidências qualitativas em estratégia de produto de hardware e software. O trabalho incluiu etnografia in loco em 3 fazendas de gado de elite, benchmark na Agrishow Brasil e prospecção de parcerias veterinárias—entregando personas duplas, jornadas atual e futura, validação de PMF em 6 dimensões ('GO para piloto direcionado') e requisitos de MVP."
+  },
+  "x-tower": {
+    "fantasy_name_en": "Project BeaconTower — UX Practice Portal & Service Blueprint",
+    "fantasy_name_pt": "Projeto BeaconTower — Portal de Prática UX e Service Blueprint",
+    "short_en": "Custom UX practice portal (offerings, personas, KPIs) applied to BeaconTower discovery: blueprint & evaluation saving 150k EUR/quarter and 240h/month.",
+    "short_pt": "Portal da prática de UX (ofertas, personas, KPIs) aplicado à descoberta do BeaconTower: blueprint e avaliação com economia de 150 mil EUR/trimestre e 240h/mês.",
+    "full_en": "Built the PracticeHub UX portal to organize businesses, offerings, personas, opportunities, and baseline-to-target project KPIs, and applied it to end-to-end UX research and architecture discovery for the BeaconTower platform across global business operations teams. Conducted a heuristic evaluation of 8 core screens (33 flaws uncovered), stakeholder interviews, global survey, concentric stakeholder and ecosystem mapping, and an as-is service blueprint exposing 240-row parallel Excel workarounds—establishing unified governance and impact projections of 150,000 EUR/quarter in avoided rework and 240 hours/month saved.",
+    "full_pt": "Desenvolvi o portal PracticeHub para estruturar negócios, ofertas, personas, oportunidades e KPIs de projeto (linha de base à meta), aplicando-o na pesquisa de UX e descoberta de arquitetura ponta a ponta da plataforma BeaconTower em times globais de operações. Incluiu avaliação heurística de 8 telas principais (33 falhas mapeadas), entrevistas com stakeholders, survey global, mapeamento concêntrico de stakeholders e ecossistema, e service blueprint as-is expondo planilhas paralelas de 240 linhas—estruturando governança unificada com impacto projetado de 150.000 EUR/trimestre em retrabalho evitado e 240 horas/mês economizadas."
+  },
+  "rise-automation": {
+    "fantasy_name_en": "Project FlowPulse — Automation Intake Prototype",
+    "fantasy_name_pt": "Projeto FlowPulse — Protótipo de Entrada de Automação",
+    "short_en": "Low-fidelity wireframe prototype for an automation intake and impact-tracking dashboard.",
+    "short_pt": "Protótipo de wireframe de baixa fidelidade para painel de entrada de automações e acompanhamento de impacto.",
+    "full_en": "Designed a low-fidelity interactive wireframe for Project FlowPulse, structuring automation project intake, savings tracking, and stakeholder alignment before engineering build.",
+    "full_pt": "Desenhei um wireframe interativo de baixa fidelidade para o Projeto FlowPulse, estruturando a entrada de projetos de automação, acompanhamento de ganhos e alinhamento com stakeholders antes do desenvolvimento."
+  },
+  "data-insights": {
+    "fantasy_name_en": "Project VoiceLens — Customer Support CX Analytics",
+    "fantasy_name_pt": "Projeto VoiceLens — Analytics de CX em Suporte ao Cliente",
+    "short_en": "Grounded Theory qualitative analysis of call-center transcripts using Python, AI-assisted coding, and Power BI.",
+    "short_pt": "Análise qualitativa com Teoria Fundamentada de transcrições de call center usando Python, codificação assistida por IA e Power BI.",
+    "full_en": "Led Customer Experience qualitative analytics for industrial equipment support call-center transcripts using Strauss & Corbin Grounded Theory (open and axial coding) automated with Python and AI-assisted coding, synthesized into an interactive Power BI dashboard.",
+    "full_pt": "Conduzi análise qualitativa de Customer Experience sobre transcrições de call center de equipamentos industriais usando Teoria Fundamentada (codificação aberta e axial) automatizada com Python e IA, sintetizada em dashboard Power BI."
+  },
+  "cim-journey": {
+    "fantasy_name_en": "Project SignalMap — Continuous Improvement Evidence Synthesis",
+    "fantasy_name_pt": "Projeto SignalMap — Síntese de Evidências de Melhoria Contínua",
+    "short_en": "Power BI synthesis of 1,045 Continuous Improvement research evidence units into executive reporting and data-quality insights.",
+    "short_pt": "Síntese em Power BI de 1.045 unidades de evidência de pesquisa em Melhoria Contínua para relatórios executivos e qualidade de dados.",
+    "full_en": "Consolidated 1,045 Continuous Improvement research evidence units into an executive Power BI synthesis highlighting recurring friction points, data-quality gaps, and strategic improvement opportunities.",
+    "full_pt": "Consolidei 1.045 unidades de evidência de pesquisa em Melhoria Contínua em uma síntese executiva no Power BI destacando pontos de atrito recorrentes, lacunas de qualidade de dados e oportunidades estratégicas."
+  },
+  "relevance-model": {
+    "fantasy_name_en": "Project PulseGate — Automated Intake Scoring",
+    "fantasy_name_pt": "Projeto PulseGate — Pontuação Automatizada de Demandas",
+    "short_en": "Automated Python triage pipeline scoring Continuous Improvement initiatives in ServiceNow (Low, Medium, High).",
+    "short_pt": "Pipeline automatizado em Python para pontuar iniciativas de Melhoria Contínua no ServiceNow (Baixa, Média, Alta).",
+    "full_en": "Built an automated Python triage pipeline using property-based weights to score Continuous Improvement initiatives in ServiceNow into Low, Medium, and High UX relevance bands, replacing subjective intake review with a consistent data gate.",
+    "full_pt": "Construí um pipeline automatizado em Python com pesos por propriedades para pontuar iniciativas de Melhoria Contínua no ServiceNow em faixas Baixa, Média e Alta de relevância em UX, substituindo triagens subjetivas por um gate consistente."
+  },
+  "tooling-pt": {
+    "fantasy_name_en": "Project ForgeFlow — Industrial Tooling Delivery",
+    "fantasy_name_pt": "Projeto ForgeFlow — Entrega de Ferramentas Industriais",
+    "short_en": "Technical delivery and project management from requirements through high-fidelity prototypes for industrial tooling.",
+    "short_pt": "Entrega técnica e gestão de projetos dos requisitos até protótipos de alta fidelidade para ferramentas industriais.",
+    "full_en": "Led discovery-to-delivery on Project ForgeFlow for the industrial tooling division: gathering requirements, running regular customer check-ins, and guiding high-fidelity prototypes into accountable engineering handoffs (CSI 5.0 / NPS 10).",
+    "full_pt": "Conduzi a jornada de descoberta à entrega no Projeto ForgeFlow para a divisão de ferramentas industriais: levantamento de requisitos, check-ins regulares com clientes e protótipos de alta fidelidade até o handoff com engenharia (CSI 5,0 / NPS 10)."
+  },
+  "co2-scouting": {
+    "fantasy_name_en": "Project EcoTrace — Carbon Telemetry Market Scouting",
+    "fantasy_name_pt": "Projeto EcoTrace — Prospecção de Telemetria de Carbono",
+    "short_en": "Market scouting for CO₂ telemetry in enterprise service operations; validated lack of immediate market demand.",
+    "short_pt": "Prospecção de mercado para telemetria de CO₂ em operações de serviço; validou ausência de demanda imediata.",
+    "full_en": "Conducted structured market scouting for CO₂ tracking and telemetry opportunities in enterprise service operations, preventing premature investment by validating that market demand was not yet mature.",
+    "full_pt": "Conduzi prospecção estruturada de mercado para oportunidades de rastreamento e telemetria de CO₂ em operações de serviço, evitando investimento prematuro ao validar que a demanda ainda não estava madura."
+  },
+  "cip-training": {
+    "fantasy_name_en": "Continuous Improvement Fundamentals Workshop",
+    "fantasy_name_pt": "Workshop de Fundamentos de Melhoria Contínua",
+    "short_en": "Trained regional HR teams on Continuous Improvement macro and micro concepts.",
+    "short_pt": "Treinamento de equipes regionais de RH em conceitos macro e micro de Melhoria Contínua.",
+    "full_en": "Designed and facilitated a hands-on workshop teaching Continuous Improvement macro and micro concepts to regional HR teams.",
+    "full_pt": "Desenhei e facilitei um workshop prático ensinando conceitos macro e micro de Melhoria Contínua para equipes regionais de RH."
+  },
+  "results-portal": {
+    "hidden": true
+  }
+}

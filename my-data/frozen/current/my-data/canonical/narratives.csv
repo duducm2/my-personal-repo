@@ -1,0 +1,893 @@
+variant,field,label_en,label_pt,text_en,text_pt
+product-owner,tagline,Tagline,Linha de apresentação,"Discovery, Delivery & Stakeholder Outcomes","Descoberta, Entrega e Resultados com Stakeholders"
+product-owner,profile,Profile summary,Resumo do perfil,"I work close to discovery and delivery: I clarify what people need, keep stakeholders aligned, and stay with the work from requirements through validation. Background in applied research, UX, and project delivery, with a full-stack foundation. I lean on data, CIP, and customer check-ins when prioritizing.","Trabalho perto da descoberta e da entrega: esclareço o que as pessoas precisam, mantenho stakeholders alinhados e acompanho o trabalho de requisitos até a validação. Venho de pesquisa aplicada, UX e entrega de projetos, com base full-stack. Uso dados, CIP e check-ins com clientes na hora de priorizar."
+product-owner,deck_title,Deck title,Título do portfólio,Eduardo Figueiredo – Portfolio,Eduardo Figueiredo – Portfólio
+product-owner,why_h1,Why slide heading,Título slide Por quê,Why Discovery and Delivery Matter,Por que descoberta e entrega importam
+product-owner,why_h2,Why slide subheading,Subtítulo slide Por quê,Products people can rely on in complex service work,Produtos em que as pessoas possam confiar em serviços complexos
+product-owner,why_bullets,Why slide bullets,Tópicos slide Por quê,"- I think products in service organizations have to be reliable and usable—especially when they affect real people and businesses.
+- My work connects stakeholder needs, prioritization, and applied research: evidence shaping what we build, why, and in what order.
+- This portfolio walks that discovery-to-delivery path through real projects.","- Acho que produtos em organizações de serviço precisam ser confiáveis e utilizáveis—principalmente quando afetam pessoas e negócios de verdade.
+- Meu trabalho conecta necessidades de stakeholders, priorização e pesquisa aplicada: evidência moldando o que construímos, por quê e em qual ordem.
+- Este portfólio percorre esse caminho da descoberta à entrega em projetos reais."
+product-owner,who_role,Who slide role,Papel slide Quem sou,"Discovery, Delivery & Stakeholder Outcomes","Descoberta, Entrega e Resultados com Stakeholders"
+product-owner,who_impact,Who slide impact,Impacto slide Quem sou,"I help teams decide what to build next and get it shipped—research for the call, alignment for the commit, metrics afterward.","Ajudo times a decidir o que construir em seguida e colocar no ar—pesquisa para a decisão, alinhamento para o compromisso, métricas depois."
+product-owner,present_h2,Present slide heading,Título slide Presente,Present – Product-Shaped Work at Bosch Brasil,Presente – Trabalho orientado a produto na Bosch Brasil
+product-owner,present_table,Present achievements table,Tabela de conquistas,"| Area                               | Achievement                                                                                                                       |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| Role (official)                    | Applied Research & Design Analyst – Bosch Brasil (January 2023 – present); Applied Research Expert & Project Champion at GS/BDU       |
+| International                      | Two trips to Germany (2024, 2025) for role-related work                                                                           |
+| CO2 Tracking (GS/Applied Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand — a discovery outcome that stopped low-value work            |
+| Tooling project (PT)               | Requirements → high-fidelity prototypes → regular customer check-ins; discovery-to-delivery ownership with technical partners |
+| UX Maturity          | Americas Level 4 – governance, templates, training that productized UX practice for stakeholders                        |
+
+---
+
+<!-- _class: dense-content -->
+
+<style scoped>
+table { font-size: 0.78em !important; line-height: 1.25 !important; width: 100% !important; table-layout: fixed !important; }
+th:first-child, td:first-child { width: 28% !important; }
+td, th { overflow-wrap: anywhere; padding: 0.22em 0.45em !important; }
+</style>
+
+## Present – Product-Shaped Work at Bosch Brasil (continued)
+
+| Area                               | Achievement                                                                                                                       |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| CIP CIM (Global Services)          | With UX team, improved strategic CIP dashboards so GS president could quickly identify main issues and efficiency/efficacy gains; automated UX relevance intake / quality gate in ServiceNow                           |
+| Collaboration                      | Tutor of Digital Talent Academy Students; AI tools training for 100+ people (4.88/5 satisfaction); 8-session Bosch AI course in 2026 with Felipe Oshiro and Gabriel Reis                                                                                          |","| Área                               | Conquista                                                                                                                       |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| Cargo (oficial)                    | Analista de Pesquisa Aplicada e Design – Bosch Brasil (jan 2023 – atual); Especialista em Pesquisa Aplicada e Project Champion na GS/BDU       |
+| Internacional                      | Realizei duas viagens à Alemanha (2024, 2025) por trabalho relacionado ao cargo                                                                           |
+| Rastreamento CO2 (GS/Pesquisa Aplicada) | Conduzi prospecção de mercado para telemetria CO2; achado: falta de demanda — resultado de descoberta que interrompeu trabalho de baixo valor            |
+| Projeto tooling (PT)               | Conduzi de requisitos a protótipos de alta fidelidade com check-ins regulares com clientes; ownership descoberta→entrega com parceiros técnicos |
+| Maturidade em UX          | Apoiei as Américas a atingir Nível 4 – governança, templates, treinamento que produtizaram a prática de UX para stakeholders                        |
+
+---
+
+<!-- _class: dense-content -->
+
+<style scoped>
+table { font-size: 0.78em !important; line-height: 1.25 !important; width: 100% !important; table-layout: fixed !important; }
+th:first-child, td:first-child { width: 28% !important; }
+td, th { overflow-wrap: anywhere; padding: 0.22em 0.45em !important; }
+</style>
+
+## Presente – Trabalho orientado a produto na Bosch Brasil (continuação)
+
+| Área                               | Conquista                                                                                                                       |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| CIP CIM (Global Services)          | Com equipe de UX, melhorei dashboards estratégicos de CIP para o presidente da GS identificar problemas e ganhos de eficiência/eficácia; gate de entrada / qualidade de relevância em UX automatizado no ServiceNow                           |
+| Colaboração                      | Sou tutor de estudantes da Digital Talent Academy; treinamento de ferramentas de IA para 100+ pessoas (satisfação 4,88/5); curso de IA de 8 sessões na Bosch em 2026 com Felipe Oshiro e Gabriel Reis                                                                                          |"
+product-owner,cip_pipeline_h2,CIP pipeline heading,Título pipeline CIP,Present – CIP Intake Gate: Methodology Pipeline,Presente – Gate de entrada CIP: Pipeline metodológico
+product-owner,relevance_h2,Relevance model heading,Título modelo de relevância,Present – Prioritization Model (Low / Medium / High relevance),Presente – Modelo de priorização (relevância Baixa / Média / Alta)
+product-owner,csi_h2,CSI/NPS heading,Título CSI/NPS,Present – Outcome Evidence: CSI & NPS (2024–2025),Presente – Evidência de resultados: CSI e NPS (2024–2025)
+product-owner,tooling_h2,Tooling project heading,Título projeto tooling,Discovery → Delivery – Tooling Project for PT,Descoberta → Entrega – Projeto Tooling para PT
+product-owner,tooling_bullet,Tooling bullet,Item projeto tooling,"- Tooling project for Power Tools: I owned the path from requirements through high-fidelity prototypes, with regular customer check-ins baked into delivery.","- Projeto tooling para Power Tools: conduzi o caminho de requisitos a protótipos de alta fidelidade, com check-ins regulares com clientes integrados à entrega."
+product-owner,future_h2,Future slide heading,Título slide Futuro,Future – Senior Product Owner,Futuro – Product Owner Sênior
+product-owner,future_intro,Future intro,Introdução slide Futuro,"I want to become a Senior Product Owner who stays with work from discovery through delivery. The method is discovery, prioritization, and validation with stakeholders. The diagram is how I work: a need, evidence-backed priority, then a shipped outcome people can trust.","Quero me tornar Product Owner Sênior que acompanha o trabalho da descoberta à entrega. O método é descoberta, priorização e validação com stakeholders. O diagrama é como trabalho: uma necessidade, prioridade com evidência, depois um resultado entregue em que as pessoas confiem."
+product-owner,future_diagram_alt,Future diagram alt text,Texto alt diagrama Futuro,"Diagram: need, evidence-backed priority, then a shipped outcome","Diagrama: necessidade, prioridade com evidência, depois um resultado entregue"
+product-owner,future_career_body,Future career body,Corpo slide carreira,"## Future – How I Work
+
+<div class=""future-career-wrap"">
+<div class=""future-po-bullets"">
+
+| Competency | Evidence from my work |
+| ---------- | --------------------- |
+| Discovery & validation | Tooling PT requirements → prototypes → customer check-ins |
+| Prioritization / intake | ServiceNow Applied Research gate in CIP |
+| Stakeholder enablement | Americas UX Maturity Level 4 (templates, training) |
+| Outcome ownership | CSI 4.86 / NPS 9.94 avg. (2024–2025) |
+| Next | Senior Product Owner: discovery → prioritize → validate |
+
+</div>
+</div>
+
+---
+
+<style scoped>
+.career-path-slide {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  width: 100% !important;
+  margin-top: 0.35rem !important;
+}
+.career-path-slide p { margin: 0 !important; text-align: center !important; width: 100% !important; }
+.career-path-slide img {
+  width: 78% !important;
+  max-width: 78% !important;
+  height: auto !important;
+  max-height: 76vh !important;
+  display: block !important;
+  margin: 0 auto !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+</style>
+
+## Future – The path
+
+<div class=""career-path-slide"">
+<p><img src=""{{canonical:asset_prefix}}pictures/diagrams/future-career-path-product-owner-en.png"" alt=""Diagram: discovery and delivery today, then Senior Product Owner, then trusted product outcomes"" /></p>
+</div>","## Futuro – Como Trabalho
+
+<div class=""future-career-wrap"">
+<div class=""future-po-bullets"">
+
+| Competência | Evidência do meu trabalho |
+| ----------- | ------------------------- |
+| Descoberta e validação | Tooling PT requisitos → protótipos → check-ins com clientes |
+| Priorização / entrada | Gate de Pesquisa Aplicada no CIP ServiceNow |
+| Habilitação de stakeholders | Nível 4 de Maturidade em UX nas Américas (templates, treinamento) |
+| Ownership de resultados | CSI 4,86 / NPS 9,94 méd. (2024–2025) |
+| Próximo | Product Owner Sênior: descoberta → priorizar → validar |
+
+</div>
+</div>
+
+---
+
+<style scoped>
+.career-path-slide {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  width: 100% !important;
+  margin-top: 0.35rem !important;
+}
+.career-path-slide p { margin: 0 !important; text-align: center !important; width: 100% !important; }
+.career-path-slide img {
+  width: 78% !important;
+  max-width: 78% !important;
+  height: auto !important;
+  max-height: 76vh !important;
+  display: block !important;
+  margin: 0 auto !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+</style>
+
+## Futuro – O caminho
+
+<div class=""career-path-slide"">
+<p><img src=""{{canonical:asset_prefix}}pictures/diagrams/future-career-path-product-owner-pt.png"" alt=""Diagrama: descoberta e entrega hoje, depois Product Owner Sênior, depois resultados de produto confiáveis"" /></p>
+</div>"
+product-owner,future_career_style,Future career CSS,CSS slide carreira,".future-career-wrap {
+  display: flex !important; flex-direction: column !important;
+  justify-content: flex-start !important; align-items: stretch !important;
+  width: 100% !important; margin-top: 0.35rem !important;
+  gap: 0.4rem !important;
+}
+.future-career-wrap p { margin: 0 !important; text-align: left !important; }
+.future-po-bullets {
+  width: 100% !important; max-width: 100% !important; text-align: left !important; font-size: 0.85em !important;
+}
+.future-po-bullets table {
+  width: 100% !important; table-layout: fixed !important; margin-top: 0.35rem !important;
+}
+.future-po-bullets th:first-child,
+.future-po-bullets td:first-child { width: 22% !important; }
+.future-po-bullets td, .future-po-bullets th {
+  overflow-wrap: anywhere; padding: 0.28em 0.5em !important;
+}",".future-career-wrap {
+  display: flex !important; flex-direction: column !important;
+  justify-content: flex-start !important; align-items: stretch !important;
+  width: 100% !important; margin-top: 0.35rem !important;
+  gap: 0.4rem !important;
+}
+.future-career-wrap p { margin: 0 !important; text-align: left !important; }
+.future-po-bullets {
+  width: 100% !important; max-width: 100% !important; text-align: left !important; font-size: 0.85em !important;
+}
+.future-po-bullets table {
+  width: 100% !important; table-layout: fixed !important; margin-top: 0.35rem !important;
+}
+.future-po-bullets th:first-child,
+.future-po-bullets td:first-child { width: 22% !important; }
+.future-po-bullets td, .future-po-bullets th {
+  overflow-wrap: anywhere; padding: 0.28em 0.5em !important;
+}"
+product-owner,closing_summary,Closing summary,Resumo de encerramento,"I stay with work from discovery through delivery—clarifying needs, aligning people, prioritizing with evidence, and checking whether the outcome held up.","Acompanho o trabalho da descoberta à entrega—esclareço necessidades, alinho pessoas, priorizo com evidência e verifico se o resultado se sustentou."
+data-analyst,tagline,Tagline,Linha de apresentação,"Data Analyst | Stats, Python & Applied Analysis","Analista de Dados | Estatística, Python e Análise Aplicada"
+data-analyst,profile,Profile summary,Resumo do perfil,"I'm a data analyst with a Master's in Information Systems and Communication (Unicamp). I have done applied research for more than four years, using reasoning and evidence to choose the right business action. I turn questions into numbers people can act on with Power BI, Python, SQL, and descriptive and inferential statistics. Information Visualization, grade A. I also use visuals to decide in personal apps for finances and for buying a house. I am currently learning Databricks, PySpark, and Apache Spark.","Sou analista de dados, mestre em Sistemas de Informação e Comunicação (Unicamp). Faço pesquisa aplicada há mais de quatro anos e uso raciocínio e evidência para escolher a ação de negócio certa. Transformo perguntas em números que as pessoas consigam usar, com Power BI, Python, SQL e estatística descritiva e inferencial. Visualização da Informação, nota A. Também uso visuais para decidir em apps pessoais de finanças e da compra da casa. Estou aprendendo Databricks, PySpark e Apache Spark."
+data-analyst,deck_title,Deck title,Título do portfólio,Eduardo Figueiredo – Portfolio,Eduardo Figueiredo – Portfólio
+data-analyst,why_h1,Why slide heading,Título slide Por quê,"Why I Work with Data, Experimentation & Applied Research","Por que trabalho com Dados, Experimentação e Pesquisa Aplicada"
+data-analyst,why_h2,Why slide subheading,Subtítulo slide Por quê,Decisions backed by numbers people can actually use,Decisões apoiadas em números que as pessoas consigam usar
+data-analyst,why_bullets,Why slide bullets,Tópicos slide Por quê,"- I believe decisions should start from reasoning and evidence, then scale to analysis, BI, and code.
+- My work centers data analysis, experimentation, and applied research: measuring outcomes and feeding insight into delivery.
+- This portfolio shows that path through real projects and metrics.","- Acredito que decisões devem partir de raciocínio e evidência, e então escalar para análise, BI e código.
+- Meu trabalho centra análise de dados, experimentação e pesquisa aplicada: mensurar resultados e alimentar a entrega com insight.
+- Este portfólio mostra esse caminho em projetos reais e métricas."
+data-analyst,who_role,Who slide role,Papel slide Quem sou,"Data Analyst | AI for Data Manipulation, Validation & Applied Insights","Analista de Dados | IA para Manipulação, Checagem de Dados e Insights Aplicados"
+data-analyst,who_impact,Who slide impact,Impacto slide Quem sou,"I help teams make decisions with clearer numbers. I hold a Master's in Information Systems and Communication, and I have done applied research for more than four years: reasoning and evidence for the right business action. I am currently learning Databricks, PySpark, and Apache Spark.","Ajudo times a decidir com números mais claros. Tenho mestrado em Sistemas de Informação e Comunicação e faço pesquisa aplicada há mais de quatro anos: raciocínio e evidência para a ação de negócio certa. Estou aprendendo Databricks, PySpark e Apache Spark."
+data-analyst,present_h2,Present slide heading,Título slide Presente,"Present – Data, Metrics & Applied Research (Bosch Brasil)","Presente – Dados, Métricas e Pesquisa Aplicada (Bosch Brasil)"
+data-analyst,present_table,Present achievements table,Tabela de conquistas,"| Area                               | Achievement                                                                                                                        |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Role                               | Applied Research & Design Analyst – Bosch Brasil (January 2023 – present); Applied Research Expert & Project Champion at GS/BDU            |
+| Research | Master's in Information Systems and Communication (Unicamp). Applied research for more than four years: reasoning and evidence for the right business action. |
+| Metrics & BI                       | Power BI dashboards for project/resource oversight; CSI 4.86 / NPS 9.94 avg. across my projects (2024–2025)                         |
+| International                      | Two trips to Germany (2024, 2025) for role-related work                                                                            |
+| CO2 Tracking (GS/Applied Research) | Marketing scouting for CO2 telemetry; finding: lack of market demand — a data-informed stop                                       |
+
+---
+
+<!-- _class: dense-content -->
+
+<style scoped>
+table { font-size: 0.78em !important; line-height: 1.25 !important; width: 100% !important; table-layout: fixed !important; }
+th:first-child, td:first-child { width: 28% !important; }
+td, th { overflow-wrap: anywhere; padding: 0.22em 0.45em !important; }
+</style>
+
+## Present – Data, Metrics & Applied Research (continued)
+
+| Area                               | Achievement                                                                                                                        |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Tooling project (PT)               | Requirements through high-fidelity prototypes with regular customer check-ins; progress and feedback tracked for decisions         |
+| Data Insights (Power Tools B2B)    | Call-center records analyzed with Straussian grounded theory (datasets, Python, AI); open → axial → selective coding; controlled semantic categories; stakeholder-validated insights in Power BI—finance, material transport, logistics, and more |
+| UX Maturity                        | Americas Level 4 – governance, templates, training; Power BI audit dashboard auto-fetching Microsoft Lists data to track project-management document fulfillment                                                |
+| CIP CIM (Global Services)          | Automated UX relevance in ServiceNow (data manipulation, property-based weights); with UX team, evaluated strategic CIP dashboards so GS leadership could quickly spot main issues and efficiency/efficacy improvements                                           |
+| MSc Information Visualization      | Grade A (Unicamp)—visual structures & mapping, multivariate data, views/interaction, graphs/trees, text viz; PNAD Contínua Power BI + PhraseNets web project                                                                                           |
+| Dissertation (TrustMate stats)     | Shapiro-Wilk normality checks; Python Welch/paired t-tests, Cohen's d, FDR → Power BI; mean, SD, variance, SE, CI + graphical analysis; descriptive vs inferential split (sample → population)                                                                                                               |
+| Research methods                   | MSc coursework + practice: descriptive vs inferential reasoning (sample → population); grounded theory, IPA, phenomenology, PAR; connects to Data Insights (Straussian grounded theory)                                                                                                                       |
+| Augmented analytics                | Daily VS Code + Python/AI in analysis pipeline—augmented-analytics mindset for faster insight extraction                                                                                           |
+| Collaboration                      | Tutor of Digital Talent Academy Students; AI tools training for 100+ people (4.88/5 satisfaction); 8-session Bosch AI course in 2026 with Felipe Oshiro and Gabriel Reis                                                                                           |","| Área                               | Conquista                                                                                                                        |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Cargo                               | Analista de Pesquisa Aplicada e Design – Bosch Brasil (jan 2023 – atual); Especialista em Pesquisa Aplicada e Project Champion na GS/BDU            |
+| Pesquisa | Mestrado em Sistemas de Informação e Comunicação (Unicamp). Pesquisa aplicada há mais de quatro anos: raciocínio e evidência para a ação de negócio certa. |
+| Métricas e BI                       | Dashboards Power BI para projetos/recursos; CSI 4,86 / NPS 9,94 méd. nos meus projetos (2024–2025)                         |
+| Internacional                      | Realizei duas viagens à Alemanha (2024, 2025) por trabalho relacionado ao cargo                                                                            |
+| Rastreamento CO2 (GS/Pesquisa Aplicada) | Conduzi prospecção de mercado para telemetria CO2; achado: falta de demanda — interrupção baseada em dados                                       |
+
+---
+
+<!-- _class: dense-content -->
+
+<style scoped>
+table { font-size: 0.78em !important; line-height: 1.25 !important; width: 100% !important; table-layout: fixed !important; }
+th:first-child, td:first-child { width: 28% !important; }
+td, th { overflow-wrap: anywhere; padding: 0.22em 0.45em !important; }
+</style>
+
+## Presente – Dados, Métricas e Pesquisa Aplicada (continuação)
+
+| Área                               | Conquista                                                                                                                        |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Projeto tooling (PT)               | Requisitos a protótipos de alta fidelidade com check-ins regulares; progresso e feedback acompanhados para decisões         |
+| Data Insights (Power Tools B2B)    | Registros do call center analisados com teoria fundamentada straussiana (datasets, Python, IA); codificação aberta → axial → seletiva; categorias semânticas controladas; insights validados com stakeholders no Power BI—finanças, transporte de materiais, logística e mais |
+| Maturidade em UX                        | Nível 4 nas Américas – governança, templates, treinamento; dashboard Power BI de auditoria com ingestão automática de Microsoft Lists para documentação de gestão de projetos                                                |
+| CIP CIM (Global Services)          | Relevância em UX automatizada no ServiceNow (manipulação de dados, pesos por propriedades); com equipe de UX, avaliei dashboards estratégicos de CIP para a liderança da GS identificar problemas e melhorias de eficiência/eficácia                                           |
+| Visualização da Informação (Mestrado)      | Nota A (Unicamp)—estruturas visuais e mapeamento, dados multivariados, visões/interação, grafos/árvores, viz de textos; PNAD Contínua Power BI + projeto web PhraseNets                                                                                           |
+| Dissertação (TrustMate estatística)     | Testes de normalidade Shapiro-Wilk; t de Welch/pareado, d de Cohen, FDR (Python → Power BI); média, DP, variância, EE, IC + análise gráfica; divisão descritivo vs inferencial (amostra → população)                                                                                                               |
+| Métodos de pesquisa                   | Disciplinas do mestrado + prática: raciocínio descritivo vs inferencial (amostra → população); teoria fundamentada, IPA, fenomenologia, PAR; conecta ao Data Insights (TFD straussiana)                                                                                                                       |
+| Análise aumentada (augmented)                | Uso diário de VS Code + Python/IA no pipeline analítico—mindset de análise aumentada para extrair insight mais rápido                                                                                           |
+| Colaboração                      | Sou tutor de estudantes da Digital Talent Academy; treinamento de ferramentas de IA para 100+ pessoas (satisfação 4,88/5); curso de IA de 8 sessões na Bosch em 2026 com Felipe Oshiro e Gabriel Reis                                                                                           |"
+data-analyst,cip_pipeline_h2,CIP pipeline heading,Título pipeline CIP,Present – CIP and Applied Research: Data-Informed Methodology Pipeline,Presente – CIP e Pesquisa Aplicada: Pipeline metodológico baseado em dados
+data-analyst,relevance_h2,Relevance model heading,Título modelo de relevância,Present – Relevance evaluation model (Low / Medium / High),Presente – Modelo de avaliação de relevância (Baixa / Média / Alta)
+data-analyst,csi_h2,CSI/NPS heading,Título CSI/NPS,Present – Outcome Metrics: CSI & NPS (2024–2025),Presente – Métricas de resultado: CSI e NPS (2024–2025)
+data-analyst,tooling_h2,Tooling project heading,Título projeto tooling,Measurement in Delivery – Tooling Project for PT,Mensuração na entrega – Projeto Tooling para PT
+data-analyst,tooling_bullet,Tooling bullet,Item projeto tooling,"- Tooling project for Power Tools: delivery from requirements through prototypes, with regular check-ins and progress tracked for decisions.","- Projeto tooling para Power Tools: entrega de requisitos a protótipos, com check-ins regulares e progresso acompanhado para decisões."
+data-analyst,future_h2,Future slide heading,Título slide Futuro,Future – Senior data analyst,Futuro – Analista de dados sênior
+data-analyst,future_intro,Future intro,Introdução slide Futuro,"I want to become a senior data analyst who turns insight into fast decisions. The method is scientific: descriptive, inferential, and visual analysis. The diagram is how I work: a question, that analysis, then a decision people can take quickly.","Quero me tornar analista de dados sênior que transforma insight em decisões rápidas. O método é científico: análise descritiva, inferencial e visual. O diagrama é como trabalho: uma pergunta, essa análise, depois uma decisão que as pessoas conseguem tomar rápido."
+data-analyst,future_diagram_alt,Future diagram alt text,Texto alt diagrama Futuro,"Diagram: question, descriptive inferential and visual analysis, then a fast decision","Diagrama: pergunta, análise descritiva, inferencial e visual, depois uma decisão rápida"
+data-analyst,future_career_body,Future career body,Corpo slide carreira,"## Future – How I get there
+
+<div class=""future-career-wrap"">
+<div class=""future-po-bullets"">
+
+| Step | What it is |
+| ---- | ---------- |
+| Now | Experimental design and inferential statistics (TrustMate: Welch, Cohen's d, FDR; LLM evaluation versus humans); messy text turned into validated BI (Data Insights); CSI/NPS, Power BI, Python/SQL at Bosch |
+| Next | Senior data analyst: insight through the scientific method |
+| Method | Descriptive, inferential, and visual analysis |
+| Decisions | Fast decisions from that evidence |
+
+</div>
+</div>
+
+---
+
+<style scoped>
+.career-path-slide {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  width: 100% !important;
+  margin-top: 0.35rem !important;
+}
+.career-path-slide p { margin: 0 !important; text-align: center !important; width: 100% !important; }
+.career-path-slide img {
+  width: 78% !important;
+  max-width: 78% !important;
+  height: auto !important;
+  max-height: 76vh !important;
+  display: block !important;
+  margin: 0 auto !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+</style>
+
+## Future – The path
+
+<div class=""career-path-slide"">
+<p><img src=""{{canonical:asset_prefix}}pictures/diagrams/future-career-path-en.png"" alt=""Diagram: descriptive, inferential, and visual analysis, then senior data analyst, then fast decisions from insight"" /></p>
+</div>","## Futuro – Como chego lá
+
+<div class=""future-career-wrap"">
+<div class=""future-po-bullets"">
+
+| Passo | O que é |
+| ----- | ------- |
+| Agora | Desenho experimental e estatística inferencial (TrustMate: Welch, d de Cohen, FDR; avaliação com LLM versus humanos); texto confuso virando BI validado (Data Insights); CSI/NPS, Power BI, Python/SQL na Bosch |
+| Próximo | Analista de dados sênior: insight pelo método científico |
+| Método | Análise descritiva, inferencial e visual |
+| Decisões | Decisões rápidas a partir dessa evidência |
+
+</div>
+</div>
+
+---
+
+<style scoped>
+.career-path-slide {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  width: 100% !important;
+  margin-top: 0.35rem !important;
+}
+.career-path-slide p { margin: 0 !important; text-align: center !important; width: 100% !important; }
+.career-path-slide img {
+  width: 78% !important;
+  max-width: 78% !important;
+  height: auto !important;
+  max-height: 76vh !important;
+  display: block !important;
+  margin: 0 auto !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+</style>
+
+## Futuro – O caminho
+
+<div class=""career-path-slide"">
+<p><img src=""{{canonical:asset_prefix}}pictures/diagrams/future-career-path-pt.png"" alt=""Diagrama: análise descritiva, inferencial e visual, depois analista de dados sênior, depois decisões rápidas a partir do insight"" /></p>
+</div>"
+data-analyst,future_career_style,Future career CSS,CSS slide carreira,".future-career-wrap {
+  display: flex !important; flex-direction: column !important;
+  justify-content: flex-start !important; align-items: stretch !important;
+  width: 100% !important; margin-top: 0.35rem !important;
+  gap: 0.4rem !important;
+}
+.future-career-wrap p { margin: 0 !important; text-align: left !important; }
+.future-po-bullets {
+  width: 100% !important; max-width: 100% !important; text-align: left !important; font-size: 0.85em !important;
+}
+.future-po-bullets table {
+  width: 100% !important; table-layout: fixed !important; margin-top: 0.35rem !important;
+}
+.future-po-bullets th:first-child,
+.future-po-bullets td:first-child { width: 22% !important; }
+.future-po-bullets td, .future-po-bullets th {
+  overflow-wrap: anywhere; padding: 0.28em 0.5em !important;
+}",".future-career-wrap {
+  display: flex !important; flex-direction: column !important;
+  justify-content: flex-start !important; align-items: stretch !important;
+  width: 100% !important; margin-top: 0.35rem !important;
+  gap: 0.4rem !important;
+}
+.future-career-wrap p { margin: 0 !important; text-align: left !important; }
+.future-po-bullets {
+  width: 100% !important; max-width: 100% !important; text-align: left !important; font-size: 0.85em !important;
+}
+.future-po-bullets table {
+  width: 100% !important; table-layout: fixed !important; margin-top: 0.35rem !important;
+}
+.future-po-bullets th:first-child,
+.future-po-bullets td:first-child { width: 22% !important; }
+.future-po-bullets td, .future-po-bullets th {
+  overflow-wrap: anywhere; padding: 0.28em 0.5em !important;
+}"
+data-analyst,closing_summary,Closing summary,Resumo de encerramento,"I connect research to the right business action. A Master's in Information Systems and Communication and more than four years of applied research sit behind the numbers. I try to leave the people deciding with something they can act on, not only charts.","Conecto pesquisa à ação de negócio certa. O mestrado em Sistemas de Informação e Comunicação e mais de quatro anos de pesquisa aplicada estão por trás dos números. Tento deixar quem decide com algo acionável, não só gráficos."
+product-owner,infovis_pnad_h2,InfoVis PNAD heading,Título InfoVis PNAD,Data Visualization – MSc InfoVis: PNAD Contínua (Power BI),Visualização de dados – InfoVis (Mestrado): PNAD Contínua (Power BI)
+product-owner,infovis_pnad_bullets,InfoVis PNAD bullets,Tópicos InfoVis PNAD,"- MSc Information Visualization (Unicamp, Grade A): Card et al. pipeline—raw data → tables → visual structures; visual mapping (expressiveness & effectiveness); multivariate techniques (composition, small multiples, dimension handling).
+- PNAD Contínua (Power BI): Sankey, choropleth, and faceted encodings for education–employment trajectories and socioeconomic patterns—the same structural choices behind executive dashboards.","- Visualização da Informação (Unicamp, nota A): Pipeline de Card et al.—dados brutos → tabelas → estruturas visuais; mapeamento visual (expressividade e efetividade); técnicas multivariadas (composição, small multiples, redução de dimensões).
+- PNAD Contínua (Power BI): Codificações Sankey, coropleta e facetadas para trajetórias educação–emprego e padrões socioeconômicos—as mesmas decisões estruturais em dashboards executivos."
+product-owner,infovis_phrasenet_h2,InfoVis PhraseNets heading,Título InfoVis PhraseNets,InfoVis – Text & Graph Visualization (PhraseNets),InfoVis – Visualização de textos e grafos (PhraseNets)
+product-owner,infovis_phrasenet_bullets,InfoVis PhraseNets bullets,Tópicos InfoVis PhraseNets,"- Course topics → analyst skills: Views & interaction (filtering, detail-on-demand); graphs & trees (network layout); text visualization (co-occurrence, patterns/outliers)—how to encode data and enable exploration.
+- PhraseNets project: Web network viz for word relationships—structure that bar/line charts cannot show.
+- Payoff for data work: Mapping variables to marks, choosing the right structure for the question—not just charts, but effective visual communication.","- Tópicos do curso → skills de analista: Visões e interação (filtros, detalhes sob demanda); grafos e árvores (layout de redes); visualização de textos (coocorrência, padrões/outliers)—como codificar dados e permitir exploração.
+- Projeto PhraseNets: Viz web em rede para relações entre palavras—estrutura que gráficos de barras/linhas não mostram.
+- Ganho para trabalho com dados: Mapear variáveis a marcas e escolher a estrutura certa para a pergunta—não só gráficos, mas comunicação visual eficaz."
+data-analyst,infovis_pnad_h2,InfoVis PNAD heading,Título InfoVis PNAD,Data Visualization – MSc InfoVis: PNAD Contínua (Power BI),Visualização de dados – InfoVis (Mestrado): PNAD Contínua (Power BI)
+data-analyst,infovis_pnad_bullets,InfoVis PNAD bullets,Tópicos InfoVis PNAD,"- MSc Information Visualization (Unicamp, Grade A): Card et al. pipeline—raw data → tables → visual structures; visual mapping (expressiveness & effectiveness); multivariate techniques (composition, small multiples, dimension handling).
+- PNAD Contínua (Power BI): Sankey, choropleth, and faceted encodings for education–employment trajectories and socioeconomic patterns—the same structural choices behind executive dashboards.","- Visualização da Informação (Unicamp, nota A): Pipeline de Card et al.—dados brutos → tabelas → estruturas visuais; mapeamento visual (expressividade e efetividade); técnicas multivariadas (composição, small multiples, redução de dimensões).
+- PNAD Contínua (Power BI): Codificações Sankey, coropleta e facetadas para trajetórias educação–emprego e padrões socioeconômicos—as mesmas decisões estruturais em dashboards executivos."
+data-analyst,infovis_phrasenet_h2,InfoVis PhraseNets heading,Título InfoVis PhraseNets,InfoVis – Text & Graph Visualization (PhraseNets),InfoVis – Visualização de textos e grafos (PhraseNets)
+data-analyst,infovis_phrasenet_bullets,InfoVis PhraseNets bullets,Tópicos InfoVis PhraseNets,"- Course topics → analyst skills: Views & interaction (filtering, detail-on-demand); graphs & trees (network layout); text visualization (co-occurrence, patterns/outliers)—how to encode data and enable exploration.
+- PhraseNets project: Web network viz for word relationships—structure that bar/line charts cannot show.
+- Payoff for data work: Mapping variables to marks, choosing the right structure for the question—not just charts, but effective visual communication.","- Tópicos do curso → skills de analista: Visões e interação (filtros, detalhes sob demanda); grafos e árvores (layout de redes); visualização de textos (coocorrência, padrões/outliers)—como codificar dados e permitir exploração.
+- Projeto PhraseNets: Viz web em rede para relações entre palavras—estrutura que gráficos de barras/linhas não mostram.
+- Ganho para trabalho com dados: Mapear variáveis a marcas e escolher a estrutura certa para a pergunta—não só gráficos, mas comunicação visual eficaz."
+product-owner,dissertation_pbi_intro,Dissertation PBI intro,Intro dissertação PBI,"My Master's dissertation looks at perceived trust on e-commerce interfaces: can AI agents score what humans feel? Using ITQM/MQCI (ISO/IEC 25000) and the TrustMate tool I built, I compared ChatGPT o3 agents with 127 IT students on the same three sites. The research stays close to discovery and validation—whether automated triage is good enough before human judgment. Short answer from the study: triage yes, full replacement no.","Minha dissertação de mestrado olha a confiança percebida em interfaces de e-commerce: agentes de IA conseguem pontuar o que humanos sentem? Com o MQCI (ISO/IEC 25000) e a TrustMate que construí, comparei agentes ChatGPT o3 com 127 estudantes de TI nos mesmos três sites. A pergunta fica perto de descoberta e validação—se a triagem automatizada basta antes do julgamento humano. Resposta curta do estudo: triagem sim, substituição total não."
+product-owner,dissertation_pbi_bullets,Dissertation PBI bullets,Tópicos dissertação PBI,"- Topic: can AI agents triage perceived-trust scores on e-commerce UIs the way humans do? ITQM/MQCI + TrustMate; agents vs 127 IT students on three sites.
+- Finding: AI agents don't replace human evaluation; they are a promising automated triage for interface quality (directional alignment on top/bottom attributes; stricter bias on most leaf scores).
+- Normality first: Shapiro-Wilk on attribute score distributions before choosing inferential tests.
+- Python → Power BI: Offline scripts compute Welch (Human–AI), paired t-tests (Human–Human), and independent t-tests (AI–AI) with Cohen's d and Benjamini-Hochberg FDR; results imported into Power BI for reporting.
+- Descriptive + visual: DAX measures for mean, SD, variance, standard error, and CI bounds; 50+ chart structures (boxplots, forest plots, small multiples) aligned with InfoVis coursework.","- Tema: agentes de IA conseguem fazer triagem de confiança percebida em UIs de e-commerce como humanos? MQCI + TrustMate; agentes vs 127 estudantes de TI em três sites.
+- Achado: agentes de IA não substituem a avaliação humana; são triagem automatizada promissora da qualidade da interface (alinhamento direcional nos melhores/piores atributos; viés mais rigoroso na maior parte das pontuações folha).
+- Normalidade primeiro: Shapiro-Wilk nas distribuições de scores por atributo antes de escolher testes inferenciais.
+- Python → Power BI: Scripts offline calculam Welch (Humano–IA), t pareado (Humano–Humano) e t independente (IA–IA) com d de Cohen e FDR Benjamini-Hochberg; resultados importados ao Power BI para reporting.
+- Descritivo + visual: Medidas DAX para média, DP, variância, erro padrão e limites de IC; 50+ estruturas de gráficos (boxplots, forest plots, small multiples) alinhadas ao curso de InfoVis."
+data-analyst,dissertation_pbi_intro,Dissertation PBI intro,Intro dissertação PBI,"My Master's dissertation compares human and AI-agent scores of perceived trust on e-commerce interfaces. TrustMate applies the ITQM/MQCI questionnaire (ISO/IEC 25000) and computes hierarchical Usability, Accessibility, and UX scores; ChatGPT o3 agents and 127 IT students evaluated the same three sites. Beyond the method, the takeaway is practical: agents showed directional alignment on best/worst attributes, but were not statistically interchangeable with humans on most scores—so triage, not replacement. Analysis covers descriptive stats, visuals, and inference from Python into Power BI.","Minha dissertação de mestrado compara pontuações humanas e de agentes de IA sobre confiança percebida em interfaces de e-commerce. A TrustMate aplica o questionário do MQCI (ISO/IEC 25000) e calcula pontuações hierárquicas de Usabilidade, Acessibilidade e UX; agentes ChatGPT o3 e 127 estudantes de TI avaliaram os mesmos três sites. Além do método, o aprendizado é prático: os agentes mostraram alinhamento direcional nos melhores/piores atributos, mas não foram estatisticamente intercambiáveis com humanos na maior parte das pontuações—triagem, não substituição. A análise cobre descritivas, visuais e inferência de Python ao Power BI."
+data-analyst,dissertation_pbi_bullets,Dissertation PBI bullets,Tópicos dissertação PBI,"- Topic: human vs AI-agent perceived-trust scores on e-commerce interfaces (ITQM/MQCI via TrustMate; three sites; 127 IT students vs ChatGPT o3).
+- Finding: AI agents don't replace human evaluation; they are a promising automated triage for interface quality (directional alignment on top/bottom attributes; stricter bias on most leaf scores).
+- Normality first: Shapiro-Wilk on attribute score distributions before choosing inferential tests.
+- Python → Power BI: Offline scripts compute Welch (Human–AI), paired t-tests (Human–Human), and independent t-tests (AI–AI) with Cohen's d and Benjamini-Hochberg FDR; results imported into Power BI for reporting.
+- Descriptive + visual: DAX measures for mean, SD, variance, standard error, and CI bounds; 50+ chart structures (boxplots, forest plots, small multiples) aligned with InfoVis coursework.","- Tema: pontuações de confiança percebida humano vs agente de IA em interfaces de e-commerce (MQCI via TrustMate; três sites; 127 estudantes de TI vs ChatGPT o3).
+- Achado: agentes de IA não substituem a avaliação humana; são triagem automatizada promissora da qualidade da interface (alinhamento direcional nos melhores/piores atributos; viés mais rigoroso na maior parte das pontuações folha).
+- Normalidade primeiro: Shapiro-Wilk nas distribuições de scores por atributo antes de escolher testes inferenciais.
+- Python → Power BI: Scripts offline calculam Welch (Humano–IA), t pareado (Humano–Humano) e t independente (IA–IA) com d de Cohen e FDR Benjamini-Hochberg; resultados importados ao Power BI para reporting.
+- Descritivo + visual: Medidas DAX para média, DP, variância, erro padrão e limites de IC; 50+ estruturas de gráficos (boxplots, forest plots, small multiples) alinhadas ao curso de InfoVis."
+digital-solution-architect,tagline,Tagline,Linha de apresentação,"Digital Solution Architect | Cloud, Digitization & Delivery","Arquiteto de Soluções Digitais | Cloud, Digitalização e Entrega"
+digital-solution-architect,profile,Profile summary,Resumo do perfil,"I design digitization and analytics setups that teams can run: Azure, Python and SQL data paths, CI/CD, and quality checks. I connect research and delivery in Global Services and Power Tools. On personal web apps for finances and for buying my house, I use a lot of visuals to analyze and decide.","Desenho soluções de digitalização e analytics que o time consegue operar: Azure, caminhos em Python e SQL, CI/CD e checagens de qualidade. Uno pesquisa e entrega na Global Services e na Power Tools. Nos apps pessoais de finanças e da compra da casa, uso vários visuais para analisar e decidir."
+digital-solution-architect,deck_title,Deck title,Título do portfólio,Eduardo Figueiredo – Portfolio,Eduardo Figueiredo – Portfólio
+digital-solution-architect,why_h1,Why slide heading,Título slide Por quê,Why I Design Digital Solutions,Por que desenho soluções digitais
+digital-solution-architect,why_h2,Why slide subheading,Subtítulo slide Por quê,Digitization and analytics that hold up once they hit production,Digitalização e analytics que se sustentam quando chegam à produção
+digital-solution-architect,why_bullets,Why slide bullets,Tópicos slide Por quê,"- I think digital solutions in service organizations have to survive real operations—not just look good in a review.
+- My work connects digitization, data paths, and applied research quality gates: architecture that teams can actually run.
+- This portfolio shows that path through systems, dashboards, and delivery work.","- Acho que soluções digitais em organizações de serviço precisam sobreviver à operação real—não só ficar bem em uma revisão.
+- Meu trabalho conecta digitalização, caminhos de dados e quality gates de pesquisa aplicada: arquitetura que os times consigam operar.
+- Este portfólio mostra esse caminho em sistemas, dashboards e entrega."
+digital-solution-architect,who_role,Who slide role,Papel slide Quem sou,"Digital Solution Architect | Cloud, Digitization & Evidence-Based Delivery","Arquiteto de Soluções Digitais | Cloud, Digitalização e Entrega Baseada em Evidência"
+digital-solution-architect,who_impact,Who slide impact,Impacto slide Quem sou,"I help teams design digitization and analytics solutions that hold up in production—clear boundaries, measurable outcomes, reviews grounded in evidence.","Ajudo times a desenhar soluções de digitalização e analytics que se sustentam em produção—limites claros, resultados mensuráveis, revisões baseadas em evidência."
+digital-solution-architect,present_h2,Present slide heading,Título slide Presente,"Present – Digitization, Architecture Gates & Delivery (Bosch)","Presente – Digitalização, gates de arquitetura e entrega (Bosch)"
+digital-solution-architect,present_table,Present achievements table,Tabela de conquistas,"| Area | Achievement |
+|------|-------------|
+| Digitization (Bosch HU) | End-to-end web systems for Business Excellence on SQL Server, IIS, Git; Kanban delivery |
+| Architecture gates (GS) | Automated UX relevance in ServiceNow; strategic CIP dashboards for leadership clarity |
+| Analytics → insight | Data Insights: Grounded Theory + Python/AI + Power BI on call-center transcripts |
+| Maturity & governance | Americas UX Maturity Level 4; Power BI + Microsoft Lists document compliance |
+| Delivery outcomes | Avg CSI 4.86 / NPS 9.94 (2024–2025); tooling from requirements to hi-fi prototypes |
+| Enablement | AI tools training for 100+ people (4.88/5); 8-session Bosch AI course in 2026 with Felipe Oshiro and Gabriel Reis; Germany trips 2024–2025 |","| Área | Conquista |
+|------|-----------|
+| Digitalização (Bosch HU) | Sistemas web ponta a ponta para Business Excellence em SQL Server, IIS, Git; entrega Kanban |
+| Gates de arquitetura (GS) | Relevância em UX automatizada no ServiceNow; dashboards CIP estratégicos para liderança |
+| Analytics → insight | Data Insights: Teoria Fundamentada + Python/IA + Power BI em transcrições de call center |
+| Maturidade e governança | Nível 4 de Maturidade UX nas Américas; Power BI + Microsoft Lists para conformidade documental |
+| Resultados de entrega | Média CSI 4,86 / NPS 9,94 (2024–2025); tooling de requisitos a protótipos hi-fi |
+| Capacitação | Treinamento de ferramentas de IA para 100+ pessoas (4,88/5); curso de IA de 8 sessões na Bosch em 2026 com Felipe Oshiro e Gabriel Reis; viagens à Alemanha 2024–2025 |"
+digital-solution-architect,cip_pipeline_h2,CIP pipeline heading,Título pipeline CIP,Present – Method Pipeline: Evidence → Gate → Dashboard,Presente – Pipeline de método: Evidência → Gate → Dashboard
+digital-solution-architect,relevance_h2,Relevance model heading,Título modelo de relevância,Present – Relevance evaluation model (Low / Medium / High),Presente – Modelo de avaliação de relevância (Baixa / Média / Alta)
+digital-solution-architect,csi_h2,CSI/NPS heading,Título CSI/NPS,Present – Outcome Metrics: CSI & NPS (2024–2025),Presente – Métricas de resultado: CSI e NPS (2024–2025)
+digital-solution-architect,tooling_h2,Tooling project heading,Título projeto tooling,Architecture in Delivery – Tooling Project for Power Tools,Arquitetura na entrega – Projeto Tooling para Power Tools
+digital-solution-architect,tooling_bullet,Tooling bullet,Item projeto tooling,"- Tooling for Power Tools: end-to-end delivery from requirements to high-fidelity prototypes with customer check-ins, bridging business intent and technical design.","- Tooling para Power Tools: entrega ponta a ponta de requisitos a protótipos de alta fidelidade com check-ins com clientes, ligando intenção de negócio e desenho técnico."
+digital-solution-architect,infovis_pnad_h2,InfoVis PNAD heading,Título InfoVis PNAD,Data Visualization – MSc InfoVis: PNAD Contínua (Power BI),Visualização de dados – InfoVis (Mestrado): PNAD Contínua (Power BI)
+digital-solution-architect,infovis_pnad_bullets,InfoVis PNAD bullets,Tópicos InfoVis PNAD,"- MSc Information Visualization (Unicamp, Grade A): visual structures and mapping for multivariate operational data—skills that transfer to architecting readable cloud analytics surfaces.
+- PNAD Contínua in Power BI: from raw tables to interactive views stakeholders can explore.","- Visualização da Informação (Mestrado Unicamp, nota A): estruturas visuais e mapeamento para dados operacionais multivariados—habilidades que transferem para arquitetar superfícies analíticas cloud legíveis.
+- PNAD Contínua no Power BI: de tabelas brutas a visões interativas exploráveis por stakeholders."
+digital-solution-architect,infovis_phrasenet_h2,InfoVis PhraseNets heading,Título InfoVis PhraseNets,InfoVis – Text & Graph Visualization (PhraseNets),InfoVis – Visualização de textos e grafos (PhraseNets)
+digital-solution-architect,infovis_phrasenet_bullets,InfoVis PhraseNets bullets,Tópicos InfoVis PhraseNets,"- Graphs, trees, and text viz: encoding relationships and co-occurrence—useful when architecture must expose event and dependency structure.
+- Interaction patterns: filtering and detail-on-demand as UX constraints on data platforms.","- Grafos, árvores e viz de texto: codificar relações e coocorrência—útil quando a arquitetura precisa expor estrutura de eventos e dependências.
+- Padrões de interação: filtragem e detalhe sob demanda como restrições de UX em plataformas de dados."
+digital-solution-architect,dissertation_pbi_intro,Dissertation PBI intro,Intro dissertação PBI,"My Master's dissertation measures perceived trust in e-commerce interfaces with ITQM/MQCI (ISO/IEC 25000) and TrustMate, then compares ChatGPT o3 AI agents with 127 IT students on three sites. The architecture angle: can automated interface-quality triage support decisions before you scale AI features—without pretending agents replace human evaluation? The study's answer is yes to triage, no to substitution.","Minha dissertação de mestrado mensura confiança percebida em interfaces de e-commerce com o MQCI (ISO/IEC 25000) e a TrustMate, depois compara agentes ChatGPT o3 com 127 estudantes de TI em três sites. O ângulo de arquitetura: a triagem automatizada de qualidade de interface consegue apoiar decisões antes de escalar features de IA—sem fingir que agentes substituem avaliação humana? A resposta do estudo é sim à triagem, não à substituição."
+digital-solution-architect,dissertation_pbi_bullets,Dissertation PBI bullets,Tópicos dissertação PBI,"- Topic: ITQM/MQCI trust scoring on e-commerce interfaces with TrustMate; AI agents as automated triage vs human evaluation (127 IT students, three sites).
+- Finding: AI agents don't replace human evaluation; they are a promising automated triage for interface quality (directional alignment on top/bottom attributes; stricter bias on most leaf scores).
+- Inferential pipeline: Shapiro-Wilk → Welch/paired t-tests, Cohen's d, FDR—then Power BI reporting with 50+ visual structures.
+- Why it matters for architects: evaluation design and honest metrics before scaling AI features on a platform.","- Tema: pontuação de confiança MQCI em interfaces de e-commerce com TrustMate; agentes de IA como triagem automatizada vs avaliação humana (127 estudantes de TI, três sites).
+- Achado: agentes de IA não substituem a avaliação humana; são triagem automatizada promissora da qualidade da interface (alinhamento direcional nos melhores/piores atributos; viés mais rigoroso na maior parte das pontuações folha).
+- Pipeline inferencial: Shapiro-Wilk → t de Welch/pareado, d de Cohen, FDR—depois reporting em Power BI com 50+ estruturas visuais.
+- Por que importa para arquitetos: desenho de avaliação e métricas honestas antes de escalar features de IA em uma plataforma."
+digital-solution-architect,future_h2,Future slide heading,Título slide Futuro,Future – Mid-Level Digital Solution Architect,Futuro – Arquiteto de Soluções Digitais (Pleno)
+digital-solution-architect,future_intro,Future intro,Introdução slide Futuro,"I want to become a Mid-Level Digital Solution Architect who designs digitization and analytics that hold up in production. The method is clear boundaries, evidence-based reviews, and measurable outcomes. The diagram is how I work: a problem, an operable design, then a solution teams can run.","Quero me tornar Arquiteto de Soluções Digitais (Pleno) que desenha digitalização e analytics que se sustentam em produção. O método é limites claros, revisões baseadas em evidência e resultados mensuráveis. O diagrama é como trabalho: um problema, um desenho operável, depois uma solução que o time consiga operar."
+digital-solution-architect,future_diagram_alt,Future diagram alt text,Texto alt diagrama Futuro,"Diagram: problem, operable design, then a solution teams can run","Diagrama: problema, desenho operável, depois uma solução que o time opera"
+digital-solution-architect,future_career_body,Future career body,Corpo slide carreira,"## Future – How I get there
+
+<div class=""future-career-wrap"">
+<div class=""future-po-bullets"">
+
+| Step | What it is |
+| ---- | ---------- |
+| Now | Digitization systems (Bosch HU), architecture gates in ServiceNow CIP, analytics→insight (Data Insights), UX maturity & delivery outcomes at Bosch |
+| Next | Mid-Level Digital Solution Architect: cloud, digitization & evidence-based delivery |
+| Method | Boundaries, evidence gates, and designs that survive operations |
+| Decisions | Solutions judged by production outcomes, not decks |
+
+</div>
+</div>
+
+---
+
+<style scoped>
+.career-path-slide {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  width: 100% !important;
+  margin-top: 0.35rem !important;
+}
+.career-path-slide p { margin: 0 !important; text-align: center !important; width: 100% !important; }
+.career-path-slide img {
+  width: 78% !important;
+  max-width: 78% !important;
+  height: auto !important;
+  max-height: 76vh !important;
+  display: block !important;
+  margin: 0 auto !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+</style>
+
+## Future – The path
+
+<div class=""career-path-slide"">
+<p><img src=""{{canonical:asset_prefix}}pictures/diagrams/future-career-path-digital-solution-architect-en.png"" alt=""Diagram: digitization and architecture gates today, then Mid-Level Digital Solution Architect, then operable solutions"" /></p>
+</div>","## Futuro – Como chego lá
+
+<div class=""future-career-wrap"">
+<div class=""future-po-bullets"">
+
+| Passo | O que é |
+| ----- | ------- |
+| Agora | Sistemas de digitalização (Bosch HU), gates de arquitetura no CIP ServiceNow, analytics→insight (Data Insights), maturidade UX e resultados de entrega na Bosch |
+| Próximo | Arquiteto de Soluções Digitais (Pleno): cloud, digitalização e entrega baseada em evidência |
+| Método | Limites, gates de evidência e desenhos que sobrevivem à operação |
+| Decisões | Soluções julgadas por resultados em produção, não por slides |
+
+</div>
+</div>
+
+---
+
+<style scoped>
+.career-path-slide {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  width: 100% !important;
+  margin-top: 0.35rem !important;
+}
+.career-path-slide p { margin: 0 !important; text-align: center !important; width: 100% !important; }
+.career-path-slide img {
+  width: 78% !important;
+  max-width: 78% !important;
+  height: auto !important;
+  max-height: 76vh !important;
+  display: block !important;
+  margin: 0 auto !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+</style>
+
+## Futuro – O caminho
+
+<div class=""career-path-slide"">
+<p><img src=""{{canonical:asset_prefix}}pictures/diagrams/future-career-path-digital-solution-architect-pt.png"" alt=""Diagrama: digitalização e gates de arquitetura hoje, depois Arquiteto de Soluções Digitais Pleno, depois soluções operáveis"" /></p>
+</div>"
+digital-solution-architect,future_career_style,Future career CSS,CSS slide carreira,".future-career-wrap {
+  display: flex !important; flex-direction: column !important;
+  justify-content: flex-start !important; align-items: stretch !important;
+  width: 100% !important; margin-top: 0.35rem !important;
+  gap: 0.4rem !important;
+}
+.future-career-wrap p { margin: 0 !important; text-align: left !important; }
+.future-po-bullets {
+  width: 100% !important; max-width: 100% !important; text-align: left !important; font-size: 0.85em !important;
+}
+.future-po-bullets table {
+  width: 100% !important; table-layout: fixed !important; margin-top: 0.35rem !important;
+}
+.future-po-bullets th:first-child,
+.future-po-bullets td:first-child { width: 22% !important; }
+.future-po-bullets td, .future-po-bullets th {
+  overflow-wrap: anywhere; padding: 0.28em 0.5em !important;
+}",".future-career-wrap {
+  display: flex !important; flex-direction: column !important;
+  justify-content: flex-start !important; align-items: stretch !important;
+  width: 100% !important; margin-top: 0.35rem !important;
+  gap: 0.4rem !important;
+}
+.future-career-wrap p { margin: 0 !important; text-align: left !important; }
+.future-po-bullets {
+  width: 100% !important; max-width: 100% !important; text-align: left !important; font-size: 0.85em !important;
+}
+.future-po-bullets table {
+  width: 100% !important; table-layout: fixed !important; margin-top: 0.35rem !important;
+}
+.future-po-bullets th:first-child,
+.future-po-bullets td:first-child { width: 22% !important; }
+.future-po-bullets td, .future-po-bullets th {
+  overflow-wrap: anywhere; padding: 0.28em 0.5em !important;
+}"
+digital-solution-architect,closing_summary,Closing summary,Resumo de encerramento,"I bring digitization experience, analytics pipelines, and research quality gates into solution architecture that global teams can run—judged by outcomes, not decks.","Levo experiência em digitalização, pipelines analíticos e quality gates de pesquisa para arquitetura de soluções que times globais consigam operar—avaliada por resultados, não por slides."
+product-owner,h_who,Who heading,Título Quem sou,Who I Am – Snapshot,Quem sou – Retrato
+product-owner,h_who_attr,Who attribute,Atributo,Attribute,Atributo
+product-owner,h_who_value,Who value,Valor,Value,Valor
+product-owner,h_who_name,Who name label,Rótulo nome,Name,Nome
+product-owner,h_who_role,Who role label,Rótulo papel,Role,Papel
+product-owner,h_who_impact,Who impact label,Rótulo impacto,Impact,Impacto
+product-owner,h_who_contact,Who contact label,Rótulo contato,Contact,Contato
+product-owner,h_past_academic,Past academic heading,Título formação,Past – Academic Foundations & Professional Profile,Passado – Formação acadêmica e perfil profissional
+product-owner,h_past_feeling,Past feeling,Frase de perfil,"I feel proactive, self-reliant and organized.","Me sinto proativo, autônomo e organizado."
+product-owner,h_past_grade,Past grade,Nota do mestrado,Grade 'A' in all Master's coursework,Nota A em todas as disciplinas do mestrado
+product-owner,h_past_grade_note,Past grade note,Nota de proficiência,English proficiency test verification.,comprovação de proficiência em inglês.
+product-owner,h_past_experience,Past experience heading,Título trajetória,Past – Experience Timeline (Condensed),Passado – Linha do tempo (resumida)
+product-owner,h_past_trajectory,Past trajectory,Trajetória Bosch,"**Trajectory across Bosch locations:** Campinas, Hungary, Sorocaba, and Campinas.","**Trajetória entre unidades Bosch:** Campinas, Hungria, Sorocaba e Campinas."
+product-owner,h_cip_artifacts,CIP artifacts heading,Título artefatos CIP,Present – CIP and Applied Research Integration: Applied Research Artifacts,Presente – Integração CIP e Pesquisa Aplicada: Artefatos
+product-owner,h_academic_research,Academic research heading,Título pesquisa acadêmica,Present – Academic Applied Research (Trust in AI & UI),Presente – Pesquisa aplicada acadêmica (confiança em IA e UI)
+product-owner,h_publications,Publications heading,Título publicações,Present – Scientific Publications,Presente – Publicações científicas
+product-owner,h_publications_intro,Publications intro,Intro publicações,"Published work in <strong>ISSRE 2025 (HFSD Workshop)</strong> and <strong>IHC 2025 (SBC SOL)</strong>; <span class=""thesis-emphasis"">master's dissertation on software trustworthiness and Agentic AI</span>.","Trabalho publicado no <strong>ISSRE 2025 (Workshop HFSD)</strong> e no <strong>IHC 2025 (SBC SOL)</strong>; <span class=""thesis-emphasis"">dissertação de mestrado sobre confiabilidade de software e IA agêntica</span>."
+product-owner,h_pbi_work,Work dashboards heading,Título dashboards,Data Visualization – Power BI Dashboards at Work,Visualização de dados – Dashboards Power BI no trabalho
+product-owner,h_pbi_work_bullet,Work dashboards bullet,Item dashboards,"- **Bosch Applied Research Americas (GS):** Built Power BI dashboards for project and resource oversight and training tracking, so the team can see the numbers and make better calls.","- **Pesquisa Aplicada Américas da Bosch (GS):** Construí dashboards Power BI para acompanhar projetos, recursos e treinamentos, para o time ver os números e decidir melhor."
+product-owner,h_dissertation_pbi,Dissertation PBI heading,Título Power BI dissertação,Data Visualization – Dissertation Power BI,Visualização de dados – Power BI da dissertação
+product-owner,h_diss_tech,Dissertation tech heading,Título implementação dissertação,"Technical Implementation – Dissertation (<span class=""agentic-ai-emphasis"">Agentic AI</span> & Full Stack)","Implementação técnica – Dissertação (<span class=""agentic-ai-emphasis"">IA agêntica</span> e full stack)"
+product-owner,h_diss_tech_bullet,Dissertation tech bullet,Item arquitetura,"- **Architecture:** Database design supporting projects, experiments, attributes, scores, and <span class=""agentic-ai-emphasis"">Agentic AI</span> runs.","- **Arquitetura:** desenho de banco para projetos, experimentos, atributos, pontuações e execuções de <span class=""agentic-ai-emphasis"">IA agêntica</span>."
+product-owner,h_tech_impl,Technical implementation heading,Título implementação,Technical Implementation,Implementação técnica
+product-owner,h_proposal,Proposal generator heading,Título gerador de propostas,Technical Implementation – Proposal Generator (Excel VBA),Implementação técnica – Gerador de propostas (Excel VBA)
+product-owner,h_interests,Interests heading,Título interesses,Personal Interests that Power My Work,Interesses pessoais que alimentam o trabalho
+product-owner,h_interests_bullet,Interests bullet,Item interesses,"- **At home:** Two cats, learning piano, and a split keyboard I use for macros and productivity.","- **Em casa:** dois gatos, piano iniciante e um teclado dividido que uso para macros e produtividade."
+product-owner,h_interests_col,Interests column,Coluna interesses,Interest,Interesse
+product-owner,h_interests_rows,Interests rows,Linhas interesses,"<tr><td>Piano</td></tr>
+<tr><td>Linguistics (phonology & phonetics)</td></tr>
+<tr><td>Physics (GR & Quantum)</td></tr>
+<tr><td>Impressionist art</td></tr>
+<tr><td>Macro creation</td></tr>
+<tr><td>Specialized keyboards</td></tr>","<tr><td>Piano</td></tr>
+<tr><td>Linguística (fonologia e fonética)</td></tr>
+<tr><td>Física (relatividade e quântica)</td></tr>
+<tr><td>Arte impressionista</td></tr>
+<tr><td>Criação de macros</td></tr>
+<tr><td>Teclados especializados</td></tr>"
+product-owner,h_closing,Closing heading,Título encerramento,Closing & Contact,Encerramento e contato
+product-owner,h_closing_connect,Closing connect,Chamada de contato,Let's connect,Vamos conversar
+product-owner,h_closing_request,Closing request,Disponibilidade,Resume and this deck available on request.,Currículo e este deck disponíveis sob pedido.
+product-owner,h_infovis_diagram_alt,InfoVis diagram alt,Alt diagrama InfoVis,InfoVis PNAD visual structures,Estruturas visuais da PNAD no InfoVis
+data-analyst,h_who,Who heading,Título Quem sou,Who I Am – Snapshot,Quem sou – Retrato
+data-analyst,h_who_attr,Who attribute,Atributo,Attribute,Atributo
+data-analyst,h_who_value,Who value,Valor,Value,Valor
+data-analyst,h_who_name,Who name label,Rótulo nome,Name,Nome
+data-analyst,h_who_role,Who role label,Rótulo papel,Role,Papel
+data-analyst,h_who_impact,Who impact label,Rótulo impacto,Impact,Impacto
+data-analyst,h_who_contact,Who contact label,Rótulo contato,Contact,Contato
+data-analyst,h_past_academic,Past academic heading,Título formação,Past – Academic Foundations & Professional Profile,Passado – Formação acadêmica e perfil profissional
+data-analyst,h_past_feeling,Past feeling,Frase de perfil,"I feel proactive, self-reliant and organized.","Me sinto proativo, autônomo e organizado."
+data-analyst,h_past_grade,Past grade,Nota do mestrado,Grade 'A' in all Master's coursework,Nota A em todas as disciplinas do mestrado
+data-analyst,h_past_grade_note,Past grade note,Nota de proficiência,English proficiency test verification.,comprovação de proficiência em inglês.
+data-analyst,h_past_experience,Past experience heading,Título trajetória,Past – Experience Timeline (Condensed),Passado – Linha do tempo (resumida)
+data-analyst,h_past_trajectory,Past trajectory,Trajetória Bosch,"**Trajectory across Bosch locations:** Campinas, Hungary, Sorocaba, and Campinas.","**Trajetória entre unidades Bosch:** Campinas, Hungria, Sorocaba e Campinas."
+data-analyst,h_cip_artifacts,CIP artifacts heading,Título artefatos CIP,Present – CIP and Applied Research Integration: Applied Research Artifacts,Presente – Integração CIP e Pesquisa Aplicada: Artefatos
+data-analyst,h_academic_research,Academic research heading,Título pesquisa acadêmica,Present – Academic Applied Research (Trust in AI & UI),Presente – Pesquisa aplicada acadêmica (confiança em IA e UI)
+data-analyst,h_publications,Publications heading,Título publicações,Present – Scientific Publications,Presente – Publicações científicas
+data-analyst,h_publications_intro,Publications intro,Intro publicações,"Published work in <strong>ISSRE 2025 (HFSD Workshop)</strong> and <strong>IHC 2025 (SBC SOL)</strong>; <span class=""thesis-emphasis"">master's dissertation on software trustworthiness and Agentic AI</span>.","Trabalho publicado no <strong>ISSRE 2025 (Workshop HFSD)</strong> e no <strong>IHC 2025 (SBC SOL)</strong>; <span class=""thesis-emphasis"">dissertação de mestrado sobre confiabilidade de software e IA agêntica</span>."
+data-analyst,h_pbi_work,Work dashboards heading,Título dashboards,Data Visualization – Power BI Dashboards at Work,Visualização de dados – Dashboards Power BI no trabalho
+data-analyst,h_pbi_work_bullet,Work dashboards bullet,Item dashboards,"- **Bosch Applied Research Americas (GS):** Built Power BI dashboards for project and resource oversight and training tracking, so the team can see the numbers and make better calls.","- **Pesquisa Aplicada Américas da Bosch (GS):** Construí dashboards Power BI para acompanhar projetos, recursos e treinamentos, para o time ver os números e decidir melhor."
+data-analyst,h_dissertation_pbi,Dissertation PBI heading,Título Power BI dissertação,Data Visualization – Dissertation Power BI,Visualização de dados – Power BI da dissertação
+data-analyst,h_diss_tech,Dissertation tech heading,Título implementação dissertação,"Technical Implementation – Dissertation (<span class=""agentic-ai-emphasis"">Agentic AI</span> & Full Stack)","Implementação técnica – Dissertação (<span class=""agentic-ai-emphasis"">IA agêntica</span> e full stack)"
+data-analyst,h_diss_tech_bullet,Dissertation tech bullet,Item arquitetura,"- **Architecture:** Database design supporting projects, experiments, attributes, scores, and <span class=""agentic-ai-emphasis"">Agentic AI</span> runs.","- **Arquitetura:** desenho de banco para projetos, experimentos, atributos, pontuações e execuções de <span class=""agentic-ai-emphasis"">IA agêntica</span>."
+data-analyst,h_tech_impl,Technical implementation heading,Título implementação,Technical Implementation,Implementação técnica
+data-analyst,h_proposal,Proposal generator heading,Título gerador de propostas,Technical Implementation – Proposal Generator (Excel VBA),Implementação técnica – Gerador de propostas (Excel VBA)
+data-analyst,h_interests,Interests heading,Título interesses,Personal Interests that Power My Work,Interesses pessoais que alimentam o trabalho
+data-analyst,h_interests_bullet,Interests bullet,Item interesses,"- **At home:** Two cats, learning piano, and a split keyboard I use for macros and productivity.","- **Em casa:** dois gatos, piano iniciante e um teclado dividido que uso para macros e produtividade."
+data-analyst,h_interests_col,Interests column,Coluna interesses,Interest,Interesse
+data-analyst,h_interests_rows,Interests rows,Linhas interesses,"<tr><td>Piano</td></tr>
+<tr><td>Linguistics (phonology & phonetics)</td></tr>
+<tr><td>Physics (GR & Quantum)</td></tr>
+<tr><td>Impressionist art</td></tr>
+<tr><td>Macro creation</td></tr>
+<tr><td>Specialized keyboards</td></tr>","<tr><td>Piano</td></tr>
+<tr><td>Linguística (fonologia e fonética)</td></tr>
+<tr><td>Física (relatividade e quântica)</td></tr>
+<tr><td>Arte impressionista</td></tr>
+<tr><td>Criação de macros</td></tr>
+<tr><td>Teclados especializados</td></tr>"
+data-analyst,h_closing,Closing heading,Título encerramento,Closing & Contact,Encerramento e contato
+data-analyst,h_closing_connect,Closing connect,Chamada de contato,Let's connect,Vamos conversar
+data-analyst,h_closing_request,Closing request,Disponibilidade,Resume and this deck available on request.,Currículo e este deck disponíveis sob pedido.
+data-analyst,h_infovis_diagram_alt,InfoVis diagram alt,Alt diagrama InfoVis,InfoVis PNAD visual structures,Estruturas visuais da PNAD no InfoVis
+digital-solution-architect,h_who,Who heading,Título Quem sou,Who I Am – Snapshot,Quem sou – Retrato
+digital-solution-architect,h_who_attr,Who attribute,Atributo,Attribute,Atributo
+digital-solution-architect,h_who_value,Who value,Valor,Value,Valor
+digital-solution-architect,h_who_name,Who name label,Rótulo nome,Name,Nome
+digital-solution-architect,h_who_role,Who role label,Rótulo papel,Role,Papel
+digital-solution-architect,h_who_impact,Who impact label,Rótulo impacto,Impact,Impacto
+digital-solution-architect,h_who_contact,Who contact label,Rótulo contato,Contact,Contato
+digital-solution-architect,h_past_academic,Past academic heading,Título formação,Past – Academic Foundations & Professional Profile,Passado – Formação acadêmica e perfil profissional
+digital-solution-architect,h_past_feeling,Past feeling,Frase de perfil,"I feel proactive, self-reliant and organized.","Me sinto proativo, autônomo e organizado."
+digital-solution-architect,h_past_grade,Past grade,Nota do mestrado,Grade 'A' in all Master's coursework,Nota A em todas as disciplinas do mestrado
+digital-solution-architect,h_past_grade_note,Past grade note,Nota de proficiência,English proficiency test verification.,comprovação de proficiência em inglês.
+digital-solution-architect,h_past_experience,Past experience heading,Título trajetória,Past – Experience Timeline (Condensed),Passado – Linha do tempo (resumida)
+digital-solution-architect,h_past_trajectory,Past trajectory,Trajetória Bosch,"**Trajectory across Bosch locations:** Campinas, Hungary, Sorocaba, and Campinas.","**Trajetória entre unidades Bosch:** Campinas, Hungria, Sorocaba e Campinas."
+digital-solution-architect,h_cip_artifacts,CIP artifacts heading,Título artefatos CIP,Present – CIP and Applied Research Integration: Applied Research Artifacts,Presente – Integração CIP e Pesquisa Aplicada: Artefatos
+digital-solution-architect,h_academic_research,Academic research heading,Título pesquisa acadêmica,Present – Academic Applied Research (Trust in AI & UI),Presente – Pesquisa aplicada acadêmica (confiança em IA e UI)
+digital-solution-architect,h_publications,Publications heading,Título publicações,Present – Scientific Publications,Presente – Publicações científicas
+digital-solution-architect,h_publications_intro,Publications intro,Intro publicações,"Published work in <strong>ISSRE 2025 (HFSD Workshop)</strong> and <strong>IHC 2025 (SBC SOL)</strong>; <span class=""thesis-emphasis"">master's dissertation on software trustworthiness and Agentic AI</span>.","Trabalho publicado no <strong>ISSRE 2025 (Workshop HFSD)</strong> e no <strong>IHC 2025 (SBC SOL)</strong>; <span class=""thesis-emphasis"">dissertação de mestrado sobre confiabilidade de software e IA agêntica</span>."
+digital-solution-architect,h_pbi_work,Work dashboards heading,Título dashboards,Data Visualization – Power BI Dashboards at Work,Visualização de dados – Dashboards Power BI no trabalho
+digital-solution-architect,h_pbi_work_bullet,Work dashboards bullet,Item dashboards,"- **Bosch Applied Research Americas (GS):** Built Power BI dashboards for project and resource oversight and training tracking, so the team can see the numbers and make better calls.","- **Pesquisa Aplicada Américas da Bosch (GS):** Construí dashboards Power BI para acompanhar projetos, recursos e treinamentos, para o time ver os números e decidir melhor."
+digital-solution-architect,h_dissertation_pbi,Dissertation PBI heading,Título Power BI dissertação,Data Visualization – Dissertation Power BI,Visualização de dados – Power BI da dissertação
+digital-solution-architect,h_diss_tech,Dissertation tech heading,Título implementação dissertação,"Technical Implementation – Dissertation (<span class=""agentic-ai-emphasis"">Agentic AI</span> & Full Stack)","Implementação técnica – Dissertação (<span class=""agentic-ai-emphasis"">IA agêntica</span> e full stack)"
+digital-solution-architect,h_diss_tech_bullet,Dissertation tech bullet,Item arquitetura,"- **Architecture:** Database design supporting projects, experiments, attributes, scores, and <span class=""agentic-ai-emphasis"">Agentic AI</span> runs.","- **Arquitetura:** desenho de banco para projetos, experimentos, atributos, pontuações e execuções de <span class=""agentic-ai-emphasis"">IA agêntica</span>."
+digital-solution-architect,h_tech_impl,Technical implementation heading,Título implementação,Technical Implementation,Implementação técnica
+digital-solution-architect,h_proposal,Proposal generator heading,Título gerador de propostas,Technical Implementation – Proposal Generator (Excel VBA),Implementação técnica – Gerador de propostas (Excel VBA)
+digital-solution-architect,h_interests,Interests heading,Título interesses,Personal Interests that Power My Work,Interesses pessoais que alimentam o trabalho
+digital-solution-architect,h_interests_bullet,Interests bullet,Item interesses,"- **At home:** Two cats, learning piano, and a split keyboard I use for macros and productivity.","- **Em casa:** dois gatos, piano iniciante e um teclado dividido que uso para macros e produtividade."
+digital-solution-architect,h_interests_col,Interests column,Coluna interesses,Interest,Interesse
+digital-solution-architect,h_interests_rows,Interests rows,Linhas interesses,"<tr><td>Piano</td></tr>
+<tr><td>Linguistics (phonology & phonetics)</td></tr>
+<tr><td>Physics (GR & Quantum)</td></tr>
+<tr><td>Impressionist art</td></tr>
+<tr><td>Macro creation</td></tr>
+<tr><td>Specialized keyboards</td></tr>","<tr><td>Piano</td></tr>
+<tr><td>Linguística (fonologia e fonética)</td></tr>
+<tr><td>Física (relatividade e quântica)</td></tr>
+<tr><td>Arte impressionista</td></tr>
+<tr><td>Criação de macros</td></tr>
+<tr><td>Teclados especializados</td></tr>"
+digital-solution-architect,h_closing,Closing heading,Título encerramento,Closing & Contact,Encerramento e contato
+digital-solution-architect,h_closing_connect,Closing connect,Chamada de contato,Let's connect,Vamos conversar
+digital-solution-architect,h_closing_request,Closing request,Disponibilidade,Resume and this deck available on request.,Currículo e este deck disponíveis sob pedido.
+digital-solution-architect,h_infovis_diagram_alt,InfoVis diagram alt,Alt diagrama InfoVis,InfoVis PNAD visual structures,Estruturas visuais da PNAD no InfoVis
+ux-researcher,tagline,Tagline,Linha de apresentação,"UX Researcher & Design Technologist | Mixed-Methods Research, Prototyping & Applied AI","Pesquisador de UX e Design Technologist | Pesquisa com Métodos Mistos, Prototipagem e IA Aplicada"
+ux-researcher,profile,Profile summary,Resumo do perfil,"UX researcher and design technologist with ~10 years of technology experience at Bosch (intern → web developer → applied research & design analyst). Combines **mixed-methods research** (Straussian Grounded Theory, qualitative coding, surveys, usability testing) with **design technologist execution** (websites through vibe coding, high-fidelity code prototypes, Figma, Power BI). Master's in Technology approved Sep 2026 (Unicamp, Grade A across coursework); published peer-reviewed research on user trust in human-AI interaction (IHC 2025, ISSRE 2025). Guided Americas UX Maturity to Level 4; sustained average CSI 4.86 / NPS 9.94 across projects.","Pesquisador de UX e design technologist com ~10 anos de experiência em tecnologia na Bosch (estágio → desenvolvedor web → analista de pesquisa aplicada e design). Combino **pesquisa com métodos mistos** (Teoria Fundamentada de Strauss, codificação qualitativa, surveys, testes de usabilidade) com **execução de design technologist** (websites por vibe coding, protótipos de alta fidelidade em código, Figma, Power BI). Mestrado em Tecnologia aprovado em set/2026 (Unicamp, nota A em todas as disciplinas); pesquisa publicada com peer-review sobre confiança do usuário na interação humano-IA (IHC 2025, ISSRE 2025). Conduzi a maturidade de UX das Américas ao Nível 4; média sustentada de CSI 4,86 / NPS 9,94."
+ux-researcher,deck_title,Deck title,Título do portfólio,Eduardo Figueiredo – UX Research & Design Portfolio,Eduardo Figueiredo – Portfólio de UX Research e Design
+ux-researcher,why_h1,Why slide heading,Título slide Por quê,Why I Practice UX Research and Design in Technology,Por que atuo em Pesquisa e Design de UX em Tecnologia
+ux-researcher,why_h2,Why slide subheading,Subtítulo slide Por quê,Evidence-based design that bridges user mental models and complex technical systems,Design baseado em evidências unindo modelos mentais do usuário e sistemas técnicos complexos
+ux-researcher,why_bullets,Why slide bullets,Tópicos slide Por quê,"- I believe technological products succeed when **rigorous user research and rapid engineering prototyping** move together.
+- Applied Research at Bosch taught me to build **scalable UX governance**: intake gates, standardized templates, and measurable UX maturity (Level 4).
+- Grounded Theory on call-center transcripts showed how qualitative user voice turns into **quantified, prioritized backlog decisions**.
+- My master's research at Unicamp (IHC 2025, ISSRE 2025) grounded my practice in **user trust calibration for AI and complex interfaces**.
+- Design technologist capability in **React, Figma, Python, and Power BI** allows me to prototype solutions in real code to validate feasibility early.","- Acredito que produtos tecnológicos vencem quando **pesquisa rigorosa com usuários e prototipagem rápida em engenharia** avançam juntas.
+- A Pesquisa Aplicada na Bosch me ensinou a estruturar **governança de UX escalável**: gates de intake, templates padronizados e maturidade mensurável (Nível 4).
+- A Teoria Fundamentada em transcrições de suporte mostrou como a voz qualitativa do usuário se traduz em **decisões quantificadas e priorizadas de backlog**.
+- Minha pesquisa de mestrado na Unicamp (IHC 2025, ISSRE 2025) consolidou minha prática em **calibração de confiança do usuário para IA e interfaces complexas**.
+- A capacidade de design technologist em **React, Figma, Python e Power BI** me permite prototipar soluções em código real para validar viabilidade cedo."
+ux-researcher,who_role,Who slide role,Papel slide Quem sou,"UX Researcher & Design Technologist | Mixed-Methods Research, Prototyping & Applied AI","Pesquisador de UX e Design Technologist | Pesquisa com Métodos Mistos, Prototipagem e IA Aplicada"
+ux-researcher,who_impact,Who slide impact,Impacto slide Quem sou,"I help technology and AI teams discover real user needs, design usable systems, and validate interaction paradigms through mixed-methods research, metrics (CSI/NPS, SUS), and high-fidelity code prototypes.","Ajudo times de tecnologia e IA a descobrir necessidades reais de usuários, desenhar sistemas usáveis e validar paradigmas de interação por meio de métodos mistos, métricas (CSI/NPS, SUS) e protótipos de alta fidelidade em código."
+ux-researcher,present_h2,Present slide heading,Título slide Presente,"Present – UX Research, Design Technologist & Governance (Bosch)","Presente – Pesquisa de UX, Design Technologist e Governança (Bosch)"
+ux-researcher,present_table,Present achievements table,Tabela de conquistas,"| Area | Achievement |
+|------|-------------|
+| UX Maturity & Governance | Guided Americas to **UX Maturity Level 4** (Global Services); standardized templates & compliance tracking |
+| Qualitative Synthesis | **Data Insights**: Grounded Theory (open/axial coding) + **Python/AI** on call-center transcripts → Power BI |
+| Automated UX Gates | **ServiceNow** automated UX relevance scoring and strategic **CIP dashboards** for leadership visibility |
+| Design Technologist | End-to-end tooling from requirements to **interactive prototypes** with regular user check-ins |
+| Delivery Outcomes | Sustained average **CSI 4.86 / NPS 9.94** (2024–2025); delivered AI tools training to **100+** people (**4.88**/5) |
+| HCI & Trust Research | Unicamp MSc (Grade A); peer-reviewed publications on **user trust in AI** (**IHC 2025, ISSRE 2025**) |","| Área | Conquista |
+|------|-----------|
+| Maturidade e Governança UX | Conduzi as Américas ao **Nível 4 de Maturidade em UX** (Global Services); templates e governança |
+| Síntese Qualitativa | **Data Insights**: Teoria Fundamentada (codificação aberta/axial) + **Python/IA** em transcrições → Power BI |
+| Gates Automatizados de UX | Pontuação de relevância em UX no **ServiceNow** e dashboards **CIP** para visibilidade da liderança |
+| Design Technologist | Tooling ponta a ponta de requisitos a **protótipos interativos** com check-ins contínuos de usuários |
+| Resultados de Entrega | Média sustentada de **CSI 4,86 / NPS 9,94** (2024–2025); treinamento de IA para **100+** pessoas (**4,88**/5) |
+| Pesquisa em IHC e Confiança | Mestrado Unicamp (nota A); artigos com peer-review sobre **confiança do usuário em IA** (**IHC 2025, ISSRE 2025**) |"
+ux-researcher,cip_pipeline_h2,CIP pipeline heading,Título pipeline CIP,Present – User Research to Implementation: Intake → Evaluation → Governance,Presente – Da Pesquisa do Usuário à Implementação: Intake → Avaliação → Governança
+ux-researcher,relevance_h2,Relevance model heading,Título modelo de relevância,Present – UX Relevance Scoring Model in ServiceNow,Presente – Modelo de Pontuação de Relevância em UX no ServiceNow
+ux-researcher,csi_h2,CSI/NPS heading,Título CSI/NPS,Present – User Satisfaction Outcomes: CSI & NPS (2024–2025),Presente – Resultados de Satisfação do Usuário: CSI e NPS (2024–2025)
+ux-researcher,tooling_h2,Tooling project heading,Título projeto tooling,Design Technologist in Delivery – Tooling for Power Tools,Design Technologist na Entrega – Projeto Tooling para Power Tools
+ux-researcher,tooling_bullet,Tooling bullet,Item projeto tooling,- **Tooling project for PT:** Translated complex domain workflows into interactive prototypes with **regular user and stakeholder check-ins**—bridging user mental models and production technical architecture.,- **Projeto tooling para PT:** Traduzi fluxos complexos de domínio em protótipos interativos com **check-ins regulares de usuários e stakeholders**—unindo modelos mentais do usuário à arquitetura técnica de produção.
+ux-researcher,infovis_pnad_h2,InfoVis PNAD heading,Título InfoVis PNAD,Visual Ergonomics & Evaluation – MSc InfoVis: PNAD Contínua (Power BI),Ergonomia Visual e Avaliação – InfoVis (Mestrado): PNAD Contínua (Power BI)
+ux-researcher,infovis_pnad_bullets,InfoVis PNAD bullets,Tópicos InfoVis PNAD,"- **MSc Information Visualization (Unicamp, Grade A):** user visual perception, cognitive load, and visual mapping—principles applied to design readable, task-efficient user interfaces.
+- **PNAD Contínua in Power BI:** designed exploratory data interfaces prioritizing user legibility, workflow speed, and intuitive filtering.","- **Visualização da Informação (Mestrado Unicamp, nota A):** percepção visual do usuário, carga cognitiva e mapeamento visual—princípios aplicados para desenhar interfaces legíveis e eficientes para tarefas.
+- **PNAD Contínua no Power BI:** desenhei interfaces exploratórias priorizando legibilidade para o usuário, velocidade de fluxo e filtragem intuitiva."
+ux-researcher,infovis_phrasenet_h2,InfoVis PhraseNets heading,Título InfoVis PhraseNets,Qualitative & Text Analysis – Text & Network Structures (PhraseNets),Análise Qualitativa e Textual – Estruturas de Texto e Redes (PhraseNets)
+ux-researcher,infovis_phrasenet_bullets,InfoVis PhraseNets bullets,Tópicos InfoVis PhraseNets,"- **Qualitative user expression mapping:** visualized unstructured user expressions, semantic patterns, and terminology through network graphs.
+- **Interaction design principles:** Shneiderman's visual information seeking mantra applied to complex information hierarchies.","- **Mapeamento de expressões qualitativas do usuário:** visualização de termos, padrões semânticos e relações conceituais não estruturadas por grafos de rede.
+- **Princípios de design de interação:** aplicação do mantra de Shneiderman para exploração de hierarquias complexas de informação."
+ux-researcher,dissertation_pbi_intro,Dissertation PBI intro,Intro dissertação PBI,My master's dissertation investigates **user trust** in digital experiences and evaluates how users interact with and adopt **Agentic AI systems** compared to traditional workflows.,Minha dissertação de mestrado investiga **confiança do usuário** em experiências digitais e avalia como usuários interagem e adotam **sistemas de IA agêntica** em comparação a fluxos tradicionais.
+ux-researcher,dissertation_pbi_bullets,Dissertation PBI bullets,Tópicos dissertação PBI,"- **Empirical UX evaluation:** quantitative trust scales, behavioral task metrics, and user perception modeling across human-AI touchpoints.
+- **Published HCI research:** peer-reviewed contributions at IHC 2025 and ISSRE 2025 on trust measurement and user decision dynamics in AI interaction.","- **Avaliação empírica de UX:** escalas quantitativas de confiança, métricas comportamentais de tarefas e modelagem da percepção do usuário em touchpoints humano-IA.
+- **Pesquisa publicada em IHC:** artigos com peer-review no IHC 2025 e ISSRE 2025 sobre medição de confiança e dinâmica de decisões do usuário em interação com IA."
+ux-researcher,future_h2,Future slide heading,Título slide Futuro,Future – UX Research & Design for Emerging Technologies & AI,Futuro – Pesquisa e Design de UX para Tecnologias Emergentes e IA
+ux-researcher,future_intro,Future intro,Introdução slide Futuro,"**Human-centered research, design technology, and applied AI** define my trajectory as a UX Researcher & Design Technologist:
+
+- **Human-Centered AI:** Designing and evaluating effective AI interactions, grounded in ISO/IEC 25000 and empirical human-vs-agent benchmarks.
+- **Design Technology & Code Prototyping:** Bridging discovery and delivery through interactive functional prototypes (Vue 3, React, Python) to de-risk engineering.
+- **Continuous ResearchOps:** Embedding generative inquiry, evaluative usability testing, and UX Maturity governance into high-velocity product delivery.","**Pesquisa centrada no usuário, design technology e IA aplicada** definem minha trajetória como Pesquisador de UX e Design Technologist:
+
+- **IA Centrada no Usuário:** Projetar e avaliar interações eficazes de IA, com base na ISO/IEC 25000 e benchmarks empíricos humano-vs-agente.
+- **Design Technology e Protótipos em Código:** Conectar descoberta e entrega por meio de protótipos funcionais interativos (Vue 3, React, Python) para mitigar riscos de engenharia.
+- **ResearchOps Contínuo:** Integrar investigação generativa, testes avaliativos de usabilidade e governança de Maturidade UX em ciclos ágeis de entrega."
+ux-researcher,future_diagram_alt,Future diagram alt text,Texto alt diagrama Futuro,N/A,Nenhum
+ux-researcher,future_career_body,Future career body,Corpo slide carreira,"## Future – How I Conduct UX Research & Design in High-Tech
+
+- **Mixed-methods rigor:** generative discovery (interviews, contextual inquiry) combined with evaluative testing (SUS, usability benchmarks, quantitative trust scales).
+- **Design technologist bridge:** translating UX concepts into interactive **React** prototypes and component specs that speed up engineering handoff.
+- **Human-AI interaction:** applying Microsoft HAX, Google PAIR, and empirical evaluation to AI-augmented workflows.
+- **ResearchOps & scalable insights:** repository-driven research findings, atomic UX nuggets, and self-service toolkits for cross-functional squads.
+- **Outcome accountability:** tying design interventions directly to user task efficiency, adoption, error reduction, and sustained **CSI/NPS**.","## Futuro – Como conduzo Pesquisa e Design de UX em Alta Tecnologia
+
+- **Rigor em métodos mistos:** descoberta generativa (entrevistas, pesquisa contextual) combinada com testes avaliativos (SUS, benchmarks de usabilidade, escalas quantitativas de confiança).
+- **Ponte de design technologist:** traduzindo conceitos de UX em protótipos interativos em **React** e especificações de componentes que aceleram o handoff de engenharia.
+- **Interação humano-IA:** aplicando diretrizes Microsoft HAX, Google PAIR e avaliação empírica em fluxos de trabalho com IA.
+- **ResearchOps e insights escaláveis:** repositórios de pesquisa, achados atômicos e kits de ferramentas self-service para squads multidisciplinares.
+- **Compromisso com resultados:** conectando intervenções de design diretamente à eficiência de tarefas do usuário, adoção, redução de erros e **CSI/NPS** sustentados."
+ux-researcher,future_career_style,Future career CSS,CSS slide carreira,".future-career-wrap {
+  display: flex !important; flex-direction: column !important;
+  justify-content: flex-start !important; align-items: stretch !important;
+  width: 100% !important; margin-top: 0.35rem !important;
+  gap: 0.4rem !important;
+}
+.future-career-wrap p { margin: 0 !important; text-align: left !important; }
+.future-po-bullets {
+  width: 100% !important; max-width: 100% !important; text-align: left !important; font-size: 0.85em !important;
+}
+.future-po-bullets table {
+  width: 100% !important; table-layout: fixed !important; margin-top: 0.35rem !important;
+}
+.future-po-bullets th:first-child,
+.future-po-bullets td:first-child { width: 22% !important; }
+.future-po-bullets td, .future-po-bullets th {
+  overflow-wrap: anywhere; padding: 0.28em 0.5em !important;
+}",".future-career-wrap {
+  display: flex !important; flex-direction: column !important;
+  justify-content: flex-start !important; align-items: stretch !important;
+  width: 100% !important; margin-top: 0.35rem !important;
+  gap: 0.4rem !important;
+}
+.future-career-wrap p { margin: 0 !important; text-align: left !important; }
+.future-po-bullets {
+  width: 100% !important; max-width: 100% !important; text-align: left !important; font-size: 0.85em !important;
+}
+.future-po-bullets table {
+  width: 100% !important; table-layout: fixed !important; margin-top: 0.35rem !important;
+}
+.future-po-bullets th:first-child,
+.future-po-bullets td:first-child { width: 22% !important; }
+.future-po-bullets td, .future-po-bullets th {
+  overflow-wrap: anywhere; padding: 0.28em 0.5em !important;
+}"
+ux-researcher,closing_summary,Closing summary,Resumo de encerramento,"I combine rigorous mixed-methods research, design technologist code prototyping, and empirical trust measurement to build high-tech and AI products that users trust and adopt—validated by measurable outcomes.","Combino pesquisa rigorosa com métodos mistos, prototipagem em código como design technologist e medição empírica de confiança para construir produtos de alta tecnologia e IA que os usuários confiam e adotam—validados por resultados mensuráveis."
+ux-researcher,h_who,Who heading,Título Quem sou,Who I Am – Snapshot,Quem sou – Retrato
+ux-researcher,h_who_attr,Who attribute,Atributo,Attribute,Atributo
+ux-researcher,h_who_value,Who value,Valor,Value,Valor
+ux-researcher,h_who_name,Who name label,Rótulo nome,Name,Nome
+ux-researcher,h_who_role,Who role label,Rótulo papel,Role,Papel
+ux-researcher,h_who_impact,Who impact label,Rótulo impacto,Impact,Impacto
+ux-researcher,h_who_contact,Who contact label,Rótulo contato,Contact,Contato
+ux-researcher,h_past_academic,Past academic heading,Título formação,Past – Academic Foundations & Professional Profile,Passado – Formação acadêmica e perfil profissional
+ux-researcher,h_past_feeling,Past feeling,Frase de perfil,"I feel proactive, self-reliant and organized.","Me sinto proativo, autônomo e organizado."
+ux-researcher,h_past_grade,Past grade,Nota do mestrado,Grade 'A' in all Master's coursework,Nota A em todas as disciplinas do mestrado
+ux-researcher,h_past_grade_note,Past grade note,Nota de proficiência,English proficiency test verification.,comprovação de proficiência em inglês.
+ux-researcher,h_past_experience,Past experience heading,Título trajetória,Past – Experience Timeline (Condensed),Passado – Linha do tempo (resumida)
+ux-researcher,h_past_trajectory,Past trajectory,Trajetória Bosch,"**Trajectory across Bosch locations:** Campinas, Hungary, Sorocaba, and Campinas.","**Trajetória entre unidades Bosch:** Campinas, Hungria, Sorocaba e Campinas."
+ux-researcher,h_cip_artifacts,CIP artifacts heading,Título artefatos CIP,Present – CIP and Applied Research Integration: Applied Research Artifacts,Presente – Integração CIP e Pesquisa Aplicada: Artefatos
+ux-researcher,h_academic_research,Academic research heading,Título pesquisa acadêmica,Present – Academic Applied Research (Trust in AI & UI),Presente – Pesquisa aplicada acadêmica (confiança em IA e UI)
+ux-researcher,h_publications,Publications heading,Título publicações,Present – Scientific Publications,Presente – Publicações científicas
+ux-researcher,h_publications_intro,Publications intro,Intro publicações,"Published work in <strong>ISSRE 2025 (HFSD Workshop)</strong> and <strong>IHC 2025 (SBC SOL)</strong>; <span class=""thesis-emphasis"">master's dissertation on software trustworthiness and Agentic AI</span>.","Trabalho publicado no <strong>ISSRE 2025 (Workshop HFSD)</strong> e no <strong>IHC 2025 (SBC SOL)</strong>; <span class=""thesis-emphasis"">dissertação de mestrado sobre confiabilidade de software e IA agêntica</span>."
+ux-researcher,h_pbi_work,Work dashboards heading,Título dashboards,Data Visualization – Power BI Dashboards at Work,Visualização de dados – Dashboards Power BI no trabalho
+ux-researcher,h_pbi_work_bullet,Work dashboards bullet,Item dashboards,"- **Bosch Applied Research Americas (GS):** Built Power BI dashboards for project and resource oversight and training tracking, so the team can see the numbers and make better calls.","- **Pesquisa Aplicada Américas da Bosch (GS):** Construí dashboards Power BI para acompanhar projetos, recursos e treinamentos, para o time ver os números e decidir melhor."
+ux-researcher,h_dissertation_pbi,Dissertation PBI heading,Título Power BI dissertação,Data Visualization – Dissertation Power BI,Visualização de dados – Power BI da dissertação
+ux-researcher,h_diss_tech,Dissertation tech heading,Título implementação dissertação,"Technical Implementation – Dissertation (<span class=""agentic-ai-emphasis"">Agentic AI</span> & Full Stack)","Implementação técnica – Dissertação (<span class=""agentic-ai-emphasis"">IA agêntica</span> e full stack)"
+ux-researcher,h_diss_tech_bullet,Dissertation tech bullet,Item arquitetura,"- **Architecture:** Database design supporting projects, experiments, attributes, scores, and <span class=""agentic-ai-emphasis"">Agentic AI</span> runs.","- **Arquitetura:** desenho de banco para projetos, experimentos, atributos, pontuações e execuções de <span class=""agentic-ai-emphasis"">IA agêntica</span>."
+ux-researcher,h_tech_impl,Technical implementation heading,Título implementação,Technical Implementation,Implementação técnica
+ux-researcher,h_proposal,Proposal generator heading,Título gerador de propostas,Technical Implementation – Proposal Generator (Excel VBA),Implementação técnica – Gerador de propostas (Excel VBA)
+ux-researcher,h_interests,Interests heading,Título interesses,Personal Interests that Power My Work,Interesses pessoais que alimentam o trabalho
+ux-researcher,h_interests_bullet,Interests bullet,Item interesses,"- **At home:** Two cats, learning piano, and a split keyboard I use for macros and productivity.","- **Em casa:** dois gatos, piano iniciante e um teclado dividido que uso para macros e produtividade."
+ux-researcher,h_interests_col,Interests column,Coluna interesses,Interest,Interesse
+ux-researcher,h_interests_rows,Interests rows,Linhas interesses,"<tr><td>Piano</td></tr>
+<tr><td>Linguistics (phonology & phonetics)</td></tr>
+<tr><td>Physics (GR & Quantum)</td></tr>
+<tr><td>Impressionist art</td></tr>
+<tr><td>Macro creation</td></tr>
+<tr><td>Specialized keyboards</td></tr>","<tr><td>Piano</td></tr>
+<tr><td>Linguística (fonologia e fonética)</td></tr>
+<tr><td>Física (relatividade e quântica)</td></tr>
+<tr><td>Arte impressionista</td></tr>
+<tr><td>Criação de macros</td></tr>
+<tr><td>Teclados especializados</td></tr>"
+ux-researcher,h_closing,Closing heading,Título encerramento,Closing & Contact,Encerramento e contato
+ux-researcher,h_closing_connect,Closing connect,Chamada de contato,Let's connect,Vamos conversar
+ux-researcher,h_closing_request,Closing request,Disponibilidade,Resume and this deck available on request.,Currículo e este deck disponíveis sob pedido.
+ux-researcher,h_infovis_diagram_alt,InfoVis diagram alt,Alt diagrama InfoVis,InfoVis PNAD visual structures,Estruturas visuais da PNAD no InfoVis
+product-owner,astra_h2,Astra project heading,Título projeto Astra,Product Discovery & Field Validation – Astra Project (AgriTech IoT),Descoberta de Produto e Validação de Campo – Projeto Astra (IoT AgriTech)
+product-owner,astra_bullet,Astra project bullet,Item projeto Astra,"- Astra Project: led product discovery across 3 premium cattle ranches (Fazenda Sindi da Porangaba), AgriShow competitor benchmark, and pharma partner visits; delivered research report defining dual personas, journey maps, 6-dimension PMF validation ('GO for targeted pilot'), and scoped MVP specifications for cattle IoT telemetry.","- Projeto Astra: liderei descoberta de produto em 3 fazendas de gado de elite (Fazenda Sindi da Porangaba), benchmark na Agrishow e prospecção farmacêutica; entreguei relatório com personas, jornadas, validação de PMF em 6 dimensões ('GO para piloto direcionado') e especificações de MVP para telemetria IoT bovina."
+data-analyst,astra_h2,Astra project heading,Título projeto Astra,Qualitative Field Analytics & IoT Telemetry – Astra Project,Análise Qualitativa de Campo e Telemetria IoT – Projeto Astra
+data-analyst,astra_bullet,Astra project bullet,Item projeto Astra,"- Astra Project: field analytics across 3 cattle ranches, AgriShow competitor technology benchmark, and pharma partnership discovery; synthesized 100+ field evidences into personas, journey maps, 6-dimension PMF validation, and IoT telemetry data stream requirements.","- Projeto Astra: análise de campo em 3 fazendas de gado de elite, benchmark de tecnologias na Agrishow e prospecção farmacêutica; sintetizei 100+ evidências em personas, jornadas, validação de PMF em 6 dimensões e requisitos de fluxo de dados de telemetria IoT."
+digital-solution-architect,astra_h2,Astra project heading,Título projeto Astra,IoT Telemetry Architecture & Field Strategy – Astra Project,Arquitetura de Telemetria IoT e Estratégia de Campo – Projeto Astra
+digital-solution-architect,astra_bullet,Astra project bullet,Item projeto Astra,"- Astra Project: field IoT telemetry evaluation under real ranch conditions across 3 premium cattle ranches, AgriShow competitor tech benchmark, and veterinary pharma discovery; framed 6-dimension PMF validation, connectivity constraints (LoRa/NB-IoT), and MVP architecture connecting telemetry hardware to cloud.","- Projeto Astra: avaliação de telemetria IoT sob condições reais de campo em 3 fazendas de elite, benchmark na Agrishow e prospecção farmacêutica; estruturei validação de PMF em 6 dimensões, restrições de conectividade (LoRa/NB-IoT) e arquitetura de MVP conectando hardware a nuvem."
+ux-researcher,astra_h2,Astra project heading,Título projeto Astra,In-situ Ethnography & Experience Research – Astra Project,Etnografia in situ e Pesquisa de Experiência – Projeto Astra
+ux-researcher,astra_bullet,Astra project bullet,Item projeto Astra,"- **Astra Project (AgriTech Cattle Telemetry):** In-situ ethnography across 3 premium cattle ranches (Fazenda Sindi da Porangaba), competitor technology benchmarking at AgriShow Brazil, and veterinary pharma partnership discovery; delivered research report defining dual personas (breeder vs. cowboy), as-is/to-be journeys (10 field pain points), 6-dimension PMF validation ('GO for targeted pilot'), and scoped MVP requirements for cattle IoT telemetry.","- **Projeto Astra (Telemetria Bovina AgriTech):** Etnografia in situ em 3 fazendas de gado de elite (Fazenda Sindi da Porangaba), benchmark na Agrishow Brasil e prospecção de parcerias com indústria de medicamentos veterinários; entreguei relatório de pesquisa com personas duplas (pecuarista vs. peão), jornadas atual/futura (10 dores de campo), validação de PMF em 6 dimensões ('GO para piloto direcionado') e requisitos de MVP para telemetria IoT bovina."

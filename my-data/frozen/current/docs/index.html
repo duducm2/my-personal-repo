@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Eduardo Figueiredo — Portfolio</title>
+    <meta
+      name="description"
+      content="Eduardo Figueiredo, Nova Odessa, SP, Brazil."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,620&family=Outfit:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="chooser">
+    <main class="chooser-main">
+      <p class="eyebrow" id="chooser-eyebrow">
+        Eduardo Figueiredo · Nova Odessa, SP, Brazil
+      </p>
+      <h1>Eduardo Figueiredo</h1>
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true">
+          English
+        </button>
+        <button type="button" data-lang="pt" aria-pressed="false">
+          Português
+        </button>
+      </div>
+      <figure class="portrait">
+        <img
+          src="media/eduardo.jpg"
+          alt="Eduardo Figueiredo"
+          width="1400"
+          height="929"
+        />
+      </figure>
+      <nav class="chooser-paths" style="margin-top: 2rem; display: flex; flex-direction: column; gap: 0.85rem; width: 100%; max-width: 480px;">
+        <h2 id="chooser-paths-title" style="font-size: 1.15rem; font-weight: 500; text-align: center; margin-bottom: 0.5rem; opacity: 0.85;">Explore Portfolios by Career Path</h2>
+        <a href="ux-researcher/" class="chooser-card" style="display: block; padding: 1rem 1.25rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.03); text-decoration: none; color: inherit; transition: all 0.2s;">
+          <strong id="path-uxr-title" style="display: block; font-size: 1.05rem; margin-bottom: 0.25rem;">UX Researcher & Design Technologist</strong>
+          <span id="path-uxr-desc" style="font-size: 0.88rem; opacity: 0.7;">Mixed-methods research, code prototyping, and applied AI.</span>
+        </a>
+        <a href="data-analyst/" class="chooser-card" style="display: block; padding: 1rem 1.25rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.03); text-decoration: none; color: inherit; transition: all 0.2s;">
+          <strong id="path-da-title" style="display: block; font-size: 1.05rem; margin-bottom: 0.25rem;">Data Analyst</strong>
+          <span id="path-da-desc" style="font-size: 0.88rem; opacity: 0.7;">AI for data manipulation, validation, and applied insights.</span>
+        </a>
+        <a href="product-owner/" class="chooser-card" style="display: block; padding: 1rem 1.25rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.03); text-decoration: none; color: inherit; transition: all 0.2s;">
+          <strong id="path-po-title" style="display: block; font-size: 1.05rem; margin-bottom: 0.25rem;">Product Owner</strong>
+          <span id="path-po-desc" style="font-size: 0.88rem; opacity: 0.7;">Discovery, delivery, and stakeholder outcomes.</span>
+        </a>
+        <a href="digital-solution-architect/" class="chooser-card" style="display: block; padding: 1rem 1.25rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.03); text-decoration: none; color: inherit; transition: all 0.2s;">
+          <strong id="path-dsa-title" style="display: block; font-size: 1.05rem; margin-bottom: 0.25rem;">Digital Solution Architect</strong>
+          <span id="path-dsa-desc" style="font-size: 0.88rem; opacity: 0.7;">Cloud, digitization, and evidence-based delivery.</span>
+        </a>
+      </nav>
+    </main>
+    <script>
+      const chooserCopy = {
+        en: {
+          title: "Eduardo Figueiredo — Portfolio",
+          eyebrow: "Eduardo Figueiredo · Nova Odessa, SP, Brazil",
+          label: "Language",
+          pathsTitle: "Explore Portfolios by Career Path",
+          uxrTitle: "UX Researcher & Design Technologist",
+          uxrDesc: "Mixed-methods research, code prototyping, and applied AI.",
+          daTitle: "Data Analyst",
+          daDesc: "AI for data manipulation, validation, and applied insights.",
+          poTitle: "Product Owner",
+          poDesc: "Discovery, delivery, and stakeholder outcomes.",
+          dsaTitle: "Digital Solution Architect",
+          dsaDesc: "Cloud, digitization, and evidence-based delivery.",
+        },
+        pt: {
+          title: "Eduardo Figueiredo — Portfólio",
+          eyebrow: "Eduardo Figueiredo · Nova Odessa, SP, Brasil",
+          label: "Idioma",
+          pathsTitle: "Explore os Portfólios por Trilha de Carreira",
+          uxrTitle: "Pesquisador de UX e Design Technologist",
+          uxrDesc: "Pesquisa com métodos mistos, prototipagem em código e IA aplicada.",
+          daTitle: "Analista de Dados",
+          daDesc: "IA para manipulação, validação de dados e insights aplicados.",
+          poTitle: "Product Owner",
+          poDesc: "Descoberta, entrega e resultados com stakeholders.",
+          dsaTitle: "Arquiteto de Soluções Digitais",
+          dsaDesc: "Cloud, digitalização e entrega baseada em evidência.",
+        },
+      };
+      let chooserLang = "en";
+      try {
+        const saved = localStorage.getItem("portfolio-lang");
+        if (saved === "en" || saved === "pt") chooserLang = saved;
+        else if ((navigator.language || "").toLowerCase().startsWith("pt"))
+          chooserLang = "pt";
+      } catch (error) {
+        chooserLang = "en";
+      }
+      function applyChooser() {
+        const copy = chooserCopy[chooserLang];
+        document.documentElement.lang = chooserLang === "pt" ? "pt-BR" : "en";
+        document.title = copy.title;
+        document.getElementById("chooser-eyebrow").textContent = copy.eyebrow;
+        document.getElementById("chooser-paths-title").textContent = copy.pathsTitle;
+        document.getElementById("path-uxr-title").textContent = copy.uxrTitle;
+        document.getElementById("path-uxr-desc").textContent = copy.uxrDesc;
+        document.getElementById("path-da-title").textContent = copy.daTitle;
+        document.getElementById("path-da-desc").textContent = copy.daDesc;
+        document.getElementById("path-po-title").textContent = copy.poTitle;
+        document.getElementById("path-po-desc").textContent = copy.poDesc;
+        document.getElementById("path-dsa-title").textContent = copy.dsaTitle;
+        document.getElementById("path-dsa-desc").textContent = copy.dsaDesc;
+        const group = document.querySelector(".lang-switch");
+        group.setAttribute("aria-label", copy.label);
+        group.querySelectorAll("button").forEach((button) => {
+          button.setAttribute(
+            "aria-pressed",
+            button.dataset.lang === chooserLang ? "true" : "false",
+          );
+        });
+      }
+      document.querySelectorAll(".lang-switch button").forEach((button) => {
+        button.addEventListener("click", () => {
+          chooserLang = button.dataset.lang;
+          try {
+            localStorage.setItem("portfolio-lang", chooserLang);
+          } catch (error) {
+            chooserLang = button.dataset.lang;
+          }
+          applyChooser();
+        });
+      });
+      applyChooser();
+    </script>
+  </body>
+</html>

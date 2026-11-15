@@ -3386,6 +3386,7 @@
       downloadsCache = { items: result.downloads, policy: downloadsCache.policy, priority: result.priority };
 
       renderDownloads(downloadsCache.items, downloadsCache.policy);
+      loadFreezeStatus();
       renderDeliverableEditor();
       currentEditorState.dirty = false;
       setDeliverableFooterStatus("Saved and successfully recompiled! Ready.", "ok");
@@ -3545,6 +3546,7 @@
     if (rerender) {
       renderAll();
       renderDownloads(downloadsCache.items, downloadsCache.policy);
+      loadFreezeStatus();
     }
   }
 
@@ -5739,6 +5741,7 @@
         priority,
       };
       renderDownloads(downloadsCache.items, downloadsCache.policy);
+      loadFreezeStatus();
     } catch (err) {
       downloadsCache = { items: [], policy: null };
       const p = document.createElement("p");
@@ -6394,6 +6397,278 @@
       setSaveStatus("Load error: " + (err.message || String(err)), "err");
     }
     await loadDownloads();
+    wireFreezeControls();
+    await loadFreezeStatus();
+  }
+
+  let freezeCache = null;
+  let freezeActiveTab = "all";
+
+  function formatFreezeDate(iso) {
+    if (!iso) return "";
+    const d = new Date(iso);
+    if (Number.isNaN(d.getTime())) return iso;
+    return d.toLocaleString(undefined, {
+      year: "numeric",
+      month: "short",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  }
+
+  async function loadFreezeStatus() {
+    const badge = document.getElementById("freeze-status-badge");
+    if (!badge) return;
+    try {
+      const res = await fetch("/api/freeze/status");
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      freezeCache = await res.json();
+      renderFreezeBadge();
+      const modal = document.getElementById("freeze-diff-modal");
+      if (modal && modal.open) {
+        renderFreezeModal();
+      }
+    } catch (err) {
+      badge.textContent = "Freeze status unavailable";
+      badge.className = "freeze-status-badge is-warn";
+    }
+  }
+
+  function renderFreezeBadge() {
+    const badge = document.getElementById("freeze-status-badge");
+    if (!badge || !freezeCache) return;
+    if (!freezeCache.frozen) {
+      badge.textContent = "Not frozen yet";
+      badge.className = "freeze-status-badge is-warn";
+      badge.title = "Click Freeze to save the current baseline";
+      return;
+    }
+    const when = formatFreezeDate(freezeCache.manifest?.frozen_at);
+    const total = freezeCache.summary?.total_changed || 0;
+    if (total === 0) {
+      badge.textContent = `Frozen (${when}) · In sync`;
+      badge.className = "freeze-status-badge is-ok";
+    } else {
+      badge.textContent = `Frozen (${when}) · ${total} changed`;
+      badge.className = "freeze-status-badge is-changed";
+    }
+    badge.title = freezeCache.manifest?.note
+      ? `Frozen note: ${freezeCache.manifest.note}`
+      : "Baseline comparison status";
+  }
+
+  function renderFreezeModal() {
+    const body = document.getElementById("freeze-diff-body");
+    const meta = document.getElementById("freeze-modal-meta");
+    if (!body || !freezeCache) return;
+
+    if (meta) {
+      if (!freezeCache.frozen) {
+        meta.textContent = "No frozen baseline saved yet.";
+      } else {
+        const when = formatFreezeDate(freezeCache.manifest?.frozen_at);
+        const note = freezeCache.manifest?.note
+          ? ` — “${freezeCache.manifest.note}”`
+          : "";
+        const total = freezeCache.summary?.total_changed || 0;
+        meta.textContent = `Baseline: ${when}${note} (${total} changed)`;
+      }
+    }
+
+    body.replaceChildren();
+
+    if (freezeActiveTab === "history") {
+      const history = freezeCache.history || [];
+      if (!history.length) {
+        const empty = document.createElement("p");
+        empty.className = "freeze-empty";
+        empty.textContent = "No freeze checkpoints recorded yet.";
+        body.append(empty);
+        return;
+      }
+      for (const entry of history) {
+        const card = document.createElement("div");
+        card.className = "freeze-history-card";
+        const head = document.createElement("div");
+        head.className = "freeze-history-head";
+        const title = document.createElement("strong");
+        title.textContent = formatFreezeDate(entry.frozen_at);
+        const count = document.createElement("span");
+        count.className = "freeze-diff-counts";
+        count.textContent = `${entry.changed_count || 0} changed files`;
+        head.append(title, count);
+        card.append(head);
+        if (entry.note) {
+          const noteEl = document.createElement("p");
+          noteEl.className = "freeze-history-note";
+          noteEl.textContent = entry.note;
+          card.append(noteEl);
+        }
+        const files = entry.changed_files || [];
+        if (files.length) {
+          const ul = document.createElement("ul");
+          ul.className = "freeze-history-files";
+          for (const f of files) {
+            const li = document.createElement("li");
+            li.textContent = `[${f.category}] ${f.path} (+${f.additions}/-${f.deletions})`;
+            ul.append(li);
+          }
+          card.append(ul);
+        }
+        body.append(card);
+      }
+      return;
+    }
+
+    if (!freezeCache.frozen) {
+      const empty = document.createElement("p");
+      empty.className = "freeze-empty";
+      empty.textContent =
+        "No frozen baseline yet. Click 'Freeze current version' below to create one.";
+      body.append(empty);
+      return;
+    }
+
+    const changes = (freezeCache.changes || []).filter(
+      (c) => freezeActiveTab === "all" || c.category === freezeActiveTab,
+    );
+
+    if (!changes.length) {
+      const empty = document.createElement("p");
+      empty.className = "freeze-empty";
+      empty.textContent =
+        freezeActiveTab === "all"
+          ? "Everything matches the frozen baseline (0 changes)."
+          : `No changes in ${freezeActiveTab} compared to the frozen baseline.`;
+      body.append(empty);
+      return;
+    }
+
+    for (const item of changes) {
+      const card = document.createElement("div");
+      card.className = "freeze-diff-card";
+
+      const head = document.createElement("div");
+      head.className = "freeze-diff-head";
+      const pathEl = document.createElement("code");
+      pathEl.className = "freeze-diff-path";
+      pathEl.textContent = item.path;
+
+      const metaWrap = document.createElement("span");
+      metaWrap.className = "freeze-diff-counts";
+      metaWrap.textContent = `${item.category} · ${item.status} · +${item.additions} / -${item.deletions}`;
+
+      head.append(pathEl, metaWrap);
+      card.append(head);
+
+      const pre = document.createElement("pre");
+      pre.className = "freeze-diff-pre";
+      for (const line of item.diff_lines || []) {
+        const span = document.createElement("span");
+        span.className = "freeze-diff-line";
+        if (line.startsWith("+") && !line.startsWith("+++")) {
+          span.classList.add("is-add");
+        } else if (line.startsWith("-") && !line.startsWith("---")) {
+          span.classList.add("is-del");
+        } else if (line.startsWith("@@")) {
+          span.classList.add("is-hunk");
+        }
+        span.textContent = line + "\n";
+        pre.append(span);
+      }
+      if (item.truncated) {
+        const trunc = document.createElement("span");
+        trunc.className = "freeze-diff-line is-hunk";
+        trunc.textContent = "… (diff truncated for display)\n";
+        pre.append(trunc);
+      }
+      card.append(pre);
+      body.append(card);
+    }
+  }
+
+  async function openFreezeModal() {
+    await loadFreezeStatus();
+    const modal = document.getElementById("freeze-diff-modal");
+    if (!modal) return;
+    renderFreezeModal();
+    if (typeof modal.showModal === "function" && !modal.open) {
+      modal.showModal();
+    }
+  }
+
+  async function triggerFreezeNow(noteValue) {
+    const note =
+      typeof noteValue === "string"
+        ? noteValue
+        : window.prompt("Optional review note for this frozen baseline:", "") ?? null;
+    if (note === null) return;
+    try {
+      setSaveStatus("Freezing baseline…");
+      const res = await fetch("/api/freeze/now", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ note }),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      freezeCache = {
+        ok: true,
+        ...(data.status || {}),
+        history: data.history || [],
+      };
+      renderFreezeBadge();
+      const noteInput = document.getElementById("freeze-note-input");
+      if (noteInput) noteInput.value = "";
+      const modal = document.getElementById("freeze-diff-modal");
+      if (modal && modal.open) {
+        renderFreezeModal();
+      }
+      setSaveStatus("Baseline frozen", "ok");
+    } catch (err) {
+      setSaveStatus("Freeze failed: " + (err.message || String(err)), "err");
+    }
+  }
+
+  function wireFreezeControls() {
+    const compareBtn = document.getElementById("freeze-compare-btn");
+    const freezeBtn = document.getElementById("freeze-now-btn");
+    const modal = document.getElementById("freeze-diff-modal");
+    const closeBtn = document.getElementById("freeze-diff-close");
+    const modalFreezeBtn = document.getElementById("freeze-modal-freeze-btn");
+
+    if (compareBtn) {
+      compareBtn.addEventListener("click", () => openFreezeModal());
+    }
+    if (freezeBtn) {
+      freezeBtn.addEventListener("click", () => triggerFreezeNow());
+    }
+    if (closeBtn && modal) {
+      closeBtn.addEventListener("click", () => modal.close());
+    }
+    if (modal) {
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal) modal.close();
+      });
+    }
+    if (modalFreezeBtn) {
+      modalFreezeBtn.addEventListener("click", () => {
+        const noteInput = document.getElementById("freeze-note-input");
+        triggerFreezeNow(noteInput ? noteInput.value : "");
+      });
+    }
+    document.querySelectorAll("[data-freeze-tab]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        freezeActiveTab = btn.dataset.freezeTab || "all";
+        document.querySelectorAll("[data-freeze-tab]").forEach((b) => {
+          const active = b === btn;
+          b.classList.toggle("is-active", active);
+          b.setAttribute("aria-selected", active ? "true" : "false");
+        });
+        renderFreezeModal();
+      });
+    });
   }
 
   if (document.readyState === "loading") {

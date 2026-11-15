@@ -28,6 +28,11 @@ from autofill_data_source import (  # noqa: E402
 from autofill_feedback import apply_feedback, load_mappings  # noqa: E402
 from autofill_mapper import map_fields  # noqa: E402
 from canonical_store import CanonicalStore  # noqa: E402
+from content_freeze import (  # noqa: E402
+    compare_with_frozen,
+    freeze_current,
+    get_history,
+)
 from anonymizer import (  # noqa: E402
     confirm_from_preview,
     detect_regions,
@@ -967,6 +972,17 @@ class CareerHandler(BaseHTTPRequestHandler):
                     },
                 )
                 return
+            if path == "/api/freeze/status":
+                status = compare_with_frozen(root=ROOT_DIR)
+                self._json(
+                    200,
+                    {
+                        "ok": True,
+                        **status,
+                        "history": get_history(root=ROOT_DIR),
+                    },
+                )
+                return
             if path == "/api/deliverables/content":
                 self._json(
                     200,
@@ -1242,6 +1258,14 @@ class CareerHandler(BaseHTTPRequestHandler):
     def do_POST(self) -> None:  # noqa: N802
         try:
             path = urlparse(self.path).path
+            if path == "/api/freeze/now":
+                body = self._read_json()
+                note = ""
+                if isinstance(body, dict):
+                    note = str(body.get("note") or "")
+                result = freeze_current(note=note, root=ROOT_DIR)
+                self._json(200, result)
+                return
             if path == "/api/deliverables/upload-image":
                 import base64
 

@@ -35,34 +35,35 @@
 )
 
 #let profile = [
-  I design digitization and analytics setups that teams can run: Azure, Python and SQL data paths, CI/CD, and quality checks. I connect research and delivery in Global Services and Power Tools. On personal web apps for finances and for buying my house, I use a lot of visuals to analyze and decide.
+  Digital solution architect and applied researcher with ~10 years at Bosch (intern → web developer → applied research & digital solutions). Designs end-to-end digitization, cloud, and analytics systems using #strong[Azure, Python, SQL Server, React, ServiceNow, and Power BI], with CI/CD and automated quality gates. Master's in Technology (Unicamp, Grade A; IHC/ISSRE 2025). Guided Americas UX Maturity to Level 4; sustained average CSI 4.86 / NPS 9.94 across Global Services and Power Tools.
 ]
 
 #let languages = "Portuguese (Native)   English (Fluent)"
 
 #let skills = (
-  ("Core", "Core:", ("Solution & cloud architecture", "Digitization & systems", "DevOps / CI-CD", "Applied research and quality checks", "Work with global stakeholders", "Autodidact", "Statistics", "Vibe coding")),
+  ("Core", "Core:", ("Solution & cloud architecture", "Digitization & systems", "DevOps / CI-CD", "Applied research and quality checks", "Work with global stakeholders", "Autodidact", "Statistics", "Vibe coding", "API & database integration", "Requirements & process mapping", "Automated quality gates", "Stakeholder & vendor alignment", "Applied AI workflows", "Governance & compliance")),
   ("Tech", "Tech:", ("Azure", "Python", "SQL / SQL Server", "Power BI", "ServiceNow", "Git", "GitHub", "Bitbucket", "VS Code", "React", "Windows Server / IIS", "Docker", "Excel / VBA", "CSV pipelines", "Mermaid", "HTML / CSS", "Figma", "Terraform (IaC)")),
 )
 
 #let experience = (
   ("Jan 2023 – Present", "Bosch Brasil", "Applied Research & Design Analyst", (
-    [Solution design for Global Services: CIP dashboards and automated UX relevance scoring in ServiceNow, plus method design with AI so leadership could see the issues.],
-    [Data Insights (Power Tools): Python and AI on call-center transcripts (Grounded Theory), summarized in Power BI.],
-    [UX Maturity Level 4 (Americas): governance, templates, training; Power BI audit dashboard that reads Microsoft Lists.],
-    [I use VS Code with AI every day, including vibe coding, for research and method design on the global work.],
-    [Average CSI 4.86 / NPS 9.94 (2024–2025); international collaboration with Germany (2024, 2025); 8-session Bosch AI course in 2026 with Felipe Oshiro and Gabriel Reis.],
+    [#strong[Global Services architecture (ServiceNow & CIP):] designed automated UX relevance scoring and strategic CIP dashboards with AI-assisted method design for leadership visibility.],
+    [#strong[Data Insights pipeline (Power Tools):] built Python + AI pipelines on call-center transcripts (Grounded Theory) feeding executive Power BI dashboards.],
+    [#strong[End-to-end tooling & prototyping (Power Tools):] translated complex domain workflows into interactive prototypes and production architectures with regular stakeholder check-ins.],
+    [#strong[AgriTech IoT & MVP architecture (Astra):] conducted field discovery across 3 cattle ranches and defined IoT telemetry requirements and MVP scope.],
+    [#strong[UX Maturity Level 4 (Americas):] established governance, reusable templates, and a Power BI audit dashboard auto-fetching Microsoft Lists data.],
+    [#strong[Outcomes & AI enablement:] average #strong[CSI 4.86 / NPS 9.94] (2024–2025); international collaboration in Germany (2024, 2025); AI tools training for 100+ participants (#strong[4.88/5]); SENAI Digital Talent Academy tutor.],
   )),
   ("Jan 2020 – Nov 2022", "Bosch Brasil", "Web Developer", (
-    [Built React front ends and internal and customer web tools in Scrum and Kanban.],
-    [Worked with design, research, and engineering to release them.],
+    [#strong[Front-end & internal/customer tools (React):] built accessible React web applications and reusable components in Scrum and Kanban.],
+    [#strong[Cross-functional delivery:] partnered with design, research, and engineering squads on architecture, CI/CD quality checks, and production releases.],
   )),
   ("Jan 2019 – Dec 2019", "Bosch Magyarország (Hungary)", "Digitization Support Analyst", (
-    [Business Excellence systems in Kanban: digitized workflows and hosted web tools.],
-    [Built the internal tools from the process need through the hosted site (VS Code, SQL Server, IIS).],
+    [#strong[Business Excellence digitization (Budapest):] digitized operational workflows in Kanban, turning process bottlenecks into hosted web tools.],
+    [#strong[Full-stack internal systems:] delivered end-to-end tools from process requirements to production using VS Code, SQL Server, and Windows Server (IIS).],
   )),
   ("Jan 2017 – Nov 2018", "Bosch Brasil (Campinas)", "Intern", (
-    [Excel/VBA + Access digital systems for Continuous Improvement and Internal Communication; 3rd place, Bosch Talent Forum 2018.],
+    [#strong[Continuous Improvement automation:] built Excel/VBA and Access digital systems for Continuous Improvement and Internal Communication; #strong[3rd place, Bosch Talent Forum 2018].],
   )),
 )
 

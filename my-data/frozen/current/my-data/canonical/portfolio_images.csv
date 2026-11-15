@@ -1,0 +1,35 @@
+id,project_id,path,caption_en,caption_pt,category,selected,sort_order
+tooling-proto-1,tooling-pt,pictures/work/tooling-project/tooling-1.png,Tooling Wireframe & Information Architecture,Wireframe e Arquitetura de Informação,prototype,true,1
+tooling-proto-2,tooling-pt,pictures/work/tooling-project/tooling-2.png,Low-Fidelity Prototype & User Testing Flow,Protótipo de Baixa Fidelidade e Teste de Usuários,prototype,true,2
+tooling-proto-3,tooling-pt,pictures/work/tooling-project/tooling-3.png,High-Fidelity Interactive Prototype,Protótipo Interativo de Alta Fidelidade,prototype,true,3
+tooling-ws-4,tooling-pt,pictures/work/tooling-project/tooling-4.jpg,Customer Workshop & Check-in Session,Workshop e Check-in com Clientes,workshop,true,4
+tooling-ws-5,tooling-pt,pictures/work/tooling-project/tooling-5.jpg,Stakeholder Co-Design & Journey Mapping,Sessão de Co-design com Stakeholders,workshop,true,5
+tooling-ws-6,tooling-pt,pictures/work/tooling-project/tooling-6.jpg,Delivery Validation & Prototype Review,Validação de Entrega e Revisão de Protótipo,workshop,true,6
+tooling-ws-7,tooling-pt,pictures/work/tooling-project/1700672395098.jpg,Technical Architecture Alignment Workshop,Workshop de Alinhamento de Arquitetura Técnica,workshop,false,7
+tooling-ws-8,tooling-pt,pictures/work/tooling-project/1700672395111.jpg,Discovery Mapping & Backlog Discussion,Mapeamento de Descoberta e Discussão de Backlog,workshop,false,8
+tooling-ws-9,tooling-pt,pictures/work/tooling-project/1700672395122.jpg,Requirements Prioritization Session,Sessão de Priorização de Requisitos,workshop,false,9
+tooling-ws-10,tooling-pt,pictures/work/tooling-project/1700672395134.jpg,Customer Cadence & Hand-off Review,Cadência com Clientes e Revisão de Handoff,workshop,false,10
+tooling-ws-11,tooling-pt,pictures/work/tooling-project/1700672630418.jpg,Design Sprint Team Collaboration,Colaboração de Equipe em Design Sprint,workshop,false,11
+cip-ux-1,cip-research-gate,pictures/work/cip-ux/cip-ux-1.png,CIP-Applied Research Report Cover,Capa do Relatório CIP-Pesquisa Aplicada,artifact,true,2
+cip-ux-2,cip-research-gate,pictures/work/cip-ux/cip-ux-2.png,Summary & Executive Findings,Resumo e Descobertas Executivas,artifact,true,3
+cip-ux-3,cip-research-gate,pictures/work/cip-ux/cip-ux-3.png,Context & Methodology,Contexto e Metodologia,artifact,true,1
+cip-ux-4,cip-research-gate,pictures/work/cip-ux/cip-ux-4.png,Literature Review & Benchmark,Revisão de Literatura e Benchmark,artifact,true,4
+cip-ux-7,cip-research-gate,pictures/work/cip-ux/cip-ux-7.png,Strategic Opportunities & Conclusions,Oportunidades Estratégicas e Conclusões,artifact,true,5
+cip-ux-8,cip-research-gate,pictures/work/cip-ux/cip-ux-8.png,Applied Research Visuals,Visuais de Pesquisa Aplicada,artifact,true,6
+ai-agents-1,ai-agents-sessions-2026,pictures/work/ai-agents-sessions-2026.jpg,Bosch AI Sessions (8 sessions with Felipe Oshiro & Gabriel Reis),Sessões de IA na Bosch (8 sessões com Felipe Oshiro e Gabriel Reis),training,true,1
+astra-img-5,agritech-iot-cattle,pictures/work/astra-project/IMG_20260415_182229.jpg,Bosch Astra IoT Telemetry Device & Hardware Evaluation,Dispositivo e Avaliação de Hardware de Telemetria IoT Astra (Bosch),telemetry,true,2
+astra-rep-4,agritech-iot-cattle,pictures/work/astra-project/astra-report-page-4-current-journey.png,Astra Research Deliverable: As-Is Journey & 10 Operational Pain Points Map,Entrega de Pesquisa Astra: Jornada Atual e Mapa de 10 Dores Operacionais,report,true,1
+astra-rep-7,agritech-iot-cattle,pictures/work/astra-project/astra-report-page-7-mvp-requirements.png,Astra Research Deliverable: Scoped MVP Requirements & Pilot Success Metrics,Entrega de Pesquisa Astra: Requisitos de MVP e Métricas de Sucesso do Piloto,report,true,3
+astra-img-2,agritech-iot-cattle,pictures/work/astra-project/IMG_20260415_141239.jpg,Cattle Ranch Operational Routines Observation,Observação de Rotinas Operacionais no Campo,fieldwork,true,4
+astra-img-3,agritech-iot-cattle,pictures/work/astra-project/IMG_20260415_142514.jpg,Livestock Management & User Journey Fieldwork,Gestão Pecuária e Mapeamento de Jornada em Campo,fieldwork,true,5
+astra-img-4,agritech-iot-cattle,pictures/work/astra-project/IMG_20260415_162810.jpg,Cowboys & Breeders Semi-Structured Interviews,Entrevistas Semiestruturadas com Peões e Criadores,fieldwork,true,6
+astra-img-6,agritech-iot-cattle,pictures/work/astra-project/IMG_20260416_091043.jpg,IoT Telemetry Field Validation & Data Transmission Test,Validação de Campo e Teste de Transmissão de Dados da Telemetria IoT,telemetry,true,7
+astra-rep-2,agritech-iot-cattle,pictures/work/astra-project/astra-report-page-2-persona-breeder.png,"Persona Definition: Premium Cattle Breeder (Objectives, Pains, Needs & Success Conditions)","Definição de Persona: Pecuarista Premium (Objetivos, Dores, Necessidades e Condições de Sucesso)",report,true,8
+astra-rep-6,agritech-iot-cattle,pictures/work/astra-project/astra-report-page-6-pmf-validation.png,Astra Product-Market Fit Validation: Narrow Targeted Pilot Verdict & 6 PMF Dimensions,Validação de Product-Market Fit Astra: Veredicto GO para Piloto Direcionado e 6 Dimensões,report,true,9
+diploma-msc,academic-timeline,pictures/academia/docs/diploma-mestrado.png,Master's Degree Diploma (Mestre em Tecnologia – Unicamp),Diploma de Mestrado em Tecnologia (Unicamp),diploma,true,1
+diploma-ug,academic-timeline,pictures/academia/docs/diploma-graduacao.png,Undergraduate Degree Diploma (Tecnólogo em ADS – Unicamp),Diploma de Graduação em Análise e Desenvolvimento de Sistemas (Unicamp),diploma,true,2
+diplomas-mockup,academic-timeline,pictures/academia/docs/diplomas-mockup.png,Unicamp Diplomas Mockup (Undergraduate & Master's Degrees),Mockup dos Diplomas da Unicamp (Graduação e Mestrado),mockup,true,3
+data-insights-funnel,data-insights-pt,pictures/work/data-insights/data-insights-funnel.png,Evidence-to-Insight Funnel (10 Transcripts -> 242 Evidences -> 7 Insights),Funil de Evidências ao Insight (10 Transcrições -> 242 Evidências -> 7 Insights),report,true,1
+data-insights-summary,data-insights-pt,pictures/work/data-insights/data-insights-summary.png,Overview of the 7 CX Insights & Risk Levels,Visão Geral dos 7 Insights de CX e Níveis de Risco,report,true,2
+data-insights-journey,data-insights-pt,pictures/work/data-insights/data-insights-journey.png,Customer Journey Evidence Mapping (QMAI),Mapeamento da Jornada do Cliente (QMAI),report,true,3
+ux-relevance-scoring,cip-research-gate,pictures/work/cip-ux/ux-relevance-scoring.png,UX Relevance Scoring & Low/Medium/High Decision Bands,Algoritmo de Pontuação e Faixas Baixa/Média/Alta,artifact,true,7
