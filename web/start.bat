@@ -21,10 +21,13 @@ if not exist "%SERVER%" (
   exit /b 1
 )
 
-rem Windowless Python: pyw creates no console. python.exe would open "career-cockpit".
-set "USE_PYW="
-where pyw >nul 2>&1 && set "USE_PYW=1"
-if not defined USE_PYW (
+rem Windowless Python: pythonw/pyw creates no console. python.exe would open "career-cockpit".
+set "PYW_CMD="
+where pythonw >nul 2>&1 && set "PYW_CMD=pythonw"
+if not defined PYW_CMD (
+  where pyw >nul 2>&1 && set "PYW_CMD=pyw -3"
+)
+if not defined PYW_CMD (
   call :fail_pause "Python sem janela nao encontrado. Instale Python 3.10+ e tente de novo."
   exit /b 1
 )
@@ -47,7 +50,7 @@ powershell -NoProfile -Command ^
   "  catch {} } }" >nul 2>&1
 
 pushd "%ROOT%"
-start "" pyw -3 "%SERVER%" --port %PORT%
+start "" %PYW_CMD% "%SERVER%" --port %PORT%
 popd
 
 rem Wait for /health (avoid `timeout` — it fails when stdin is redirected)
