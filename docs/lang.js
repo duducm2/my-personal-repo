@@ -76,7 +76,7 @@ const UI = {
       "A results portal that publishes UX findings as cards, a recommendations library, and a task timeline, instead of a static PDF.",
     appsTitle: "Personal apps",
     appsLead:
-      "Tools I built for my own work: a task board and a finance cockpit.",
+      "Tools I built for my own work: a task board, a finance cockpit, and a personal study-progress web app.",
     appsCapTasks: "Tasks, personal board",
     appsCapFinance: "Finance cockpit, budgets and spending",
     modelTitle: "Relevance model",
@@ -336,9 +336,9 @@ const UI = {
         category: "personal",
         title: "Personal apps",
         short:
-          "Task board and finance cockpit built for personal workflows and budgets.",
+          "Task board, finance cockpit, and a personal study-progress web app built for daily workflows and learning.",
         full:
-          "Tools I built for my own work: a Kanban-style task board tracking personal projects in columns, and a finance cockpit with budgets and spending by category.",
+          "Tools I built for my own work: a Kanban-style task board tracking personal projects in columns, a finance cockpit with budgets and spending by category, and a personal web app for studying where I track my learning progress across phases and tasks.",
         media: [
           {
             src: "../media/tasks-board.jpg",
@@ -354,6 +354,11 @@ const UI = {
             src: "../media/ahk-finance-menu.png",
             alt: "AutoHotkey Finance launcher menu with keyboard shortcuts",
             caption: "AutoHotkey Finance launcher & quick-key menu",
+          },
+          {
+            src: "../media/study-progress-app.png",
+            alt: "Personal web app for studying showing study phases, tasks, and overall learning progress",
+            caption: "Personal study-progress web app",
           },
         ],
       },
@@ -732,7 +737,7 @@ const UI = {
       "Um portal de resultados que publica achados de UX em cartões, uma biblioteca de recomendações e uma linha do tempo de tarefas, em vez de um PDF estático.",
     appsTitle: "Aplicativos pessoais",
     appsLead:
-      "Ferramentas que construí para o meu próprio uso: um quadro de tarefas e um cockpit financeiro.",
+      "Ferramentas que construí para o meu próprio uso: um quadro de tarefas, um cockpit financeiro e um app web pessoal de estudos.",
     appsCapTasks: "Tarefas, quadro pessoal",
     appsCapFinance: "Cockpit financeiro, orçamentos e gastos",
     modelTitle: "Modelo de relevância",
@@ -992,9 +997,9 @@ const UI = {
         category: "personal",
         title: "Apps pessoais",
         short:
-          "Quadro de tarefas e cockpit financeiro criados para organização pessoal e orçamentos.",
+          "Quadro de tarefas, cockpit financeiro e um app web pessoal para acompanhar o progresso dos meus estudos.",
         full:
-          "Ferramentas que construí para o meu próprio uso: um quadro de tarefas em colunas para projetos pessoais e um cockpit financeiro com orçamentos e gastos por categoria.",
+          "Ferramentas que construí para o meu próprio uso: um quadro de tarefas em colunas para projetos pessoais, um cockpit financeiro com orçamentos e gastos por categoria e uma aplicação web pessoal para estudos onde acompanho meu progresso por fases e tarefas.",
         media: [
           {
             src: "../media/tasks-board.jpg",
@@ -1010,6 +1015,11 @@ const UI = {
             src: "../media/ahk-finance-menu.png",
             alt: "Menu inicial do Finance em AutoHotkey com atalhos de teclado",
             caption: "Menu rápido do Finance em AutoHotkey",
+          },
+          {
+            src: "../media/study-progress-app.png",
+            alt: "Aplicação web pessoal para estudos mostrando fases, tarefas e progresso geral de aprendizagem",
+            caption: "App web pessoal de progresso nos estudos",
           },
         ],
       },
