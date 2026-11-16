@@ -223,6 +223,7 @@ def build_and_send(store: Any, opening_id: str, window_name: str) -> dict[str, A
         raise ValueError("Type the application tab title first.")
 
     tree = ""
+    dump_error = ""
     # 1. Direct AHK dump-tree from the live Chrome window (fast, 100% automatic)
     with tempfile.TemporaryDirectory(prefix="career-form-") as tmp:
         tree_path = Path(tmp) / "tree.txt"
@@ -240,7 +241,10 @@ def build_and_send(store: Any, opening_id: str, window_name: str) -> dict[str, A
                     log_info(
                         f"build_and_send: live dump-tree succeeded ({len(tree)} chars)"
                     )
+            elif dumped.get("error"):
+                dump_error = str(dumped["error"]).strip()
         except Exception as e:
+            dump_error = str(e).strip()
             log_error("build_and_send: dump-tree failed", e)
 
     # 2. Check if the clipboard contains a valid UIA tree
@@ -274,7 +278,10 @@ def build_and_send(store: Any, opening_id: str, window_name: str) -> dict[str, A
 
     # 5. If still no tree, report error clearly
     if not tree:
-        msg = f"Could not read the application window UI tree automatically. Make sure the application tab ({window_name}) is open in Chrome."
+        if dump_error:
+            msg = f"Could not read the application window UI tree: {dump_error}"
+        else:
+            msg = f"Could not read the application window UI tree automatically. Make sure the application tab ({window_name}) is open in Chrome."
         log_error(f"build_and_send: {msg}")
         raise ValueError(msg)
 

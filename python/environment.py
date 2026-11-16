@@ -60,18 +60,33 @@ CURRENT_ENV = detect_environment()
 
 # --- Path Resolution based on Environment ---
 
-def get_scripts_dir() -> Path:
+def _script_dir_candidates() -> list[Path]:
+    candidates: list[Path] = []
     override = os.environ.get("CAREER_SCRIPTS_DIR", "").strip()
-    if override and Path(override).is_dir():
-        return Path(override)
+    if override:
+        candidates.append(Path(override))
+
+    home = Path.home()
+    candidates.append(home / "Documents" / "scripts")
+
+    userprofile = os.environ.get("USERPROFILE", "").strip()
+    if userprofile:
+        candidates.append(Path(userprofile) / "Documents" / "scripts")
+
+    onedrive = os.environ.get("OneDrive", "").strip()
+    if onedrive:
+        candidates.append(Path(onedrive) / "Documents" / "scripts")
+
+    onedrive_commercial = os.environ.get("OneDriveCommercial", "").strip()
+    if onedrive_commercial:
+        candidates.append(Path(onedrive_commercial) / "Documents" / "scripts")
 
     env = detect_environment()
-    candidates: list[Path] = []
-
     if env == "work":
         candidates.extend([
+            Path(r"C:\Users\fie7ca\Documents\scripts"),
             Path(r"C:\Users\fie7ca\Documents\01 - Scripts"),
-            Path.home() / "Documents" / "01 - Scripts",
+            home / "Documents" / "01 - Scripts",
             ROOT_DIR.parent / "01 - Scripts",
             ROOT_DIR.parent / "scripts",
         ])
@@ -79,19 +94,39 @@ def get_scripts_dir() -> Path:
         candidates.extend([
             Path(r"C:\Users\eduev\Meu Drive\17 - Projects\scripts"),
             ROOT_DIR.parent / "scripts",
-            Path.home() / "Documents" / "scripts",
+            home / "Documents" / "scripts",
         ])
 
-    # Generic fallbacks
     candidates.extend([
         ROOT_DIR.parent / "scripts",
         ROOT_DIR.parent.parent / "scripts",
         ROOT_DIR / "scripts",
     ])
 
+    unique: list[Path] = []
+    seen: set[str] = set()
+    for candidate in candidates:
+        key = str(candidate).lower()
+        if key not in seen:
+            seen.add(key)
+            unique.append(candidate)
+    return unique
+
+
+def get_scripts_dir() -> Path:
+    override = os.environ.get("CAREER_SCRIPTS_DIR", "").strip()
+    if override and Path(override).is_dir():
+        return Path(override)
+
+    candidates = _script_dir_candidates()
+
+    # 1. Prefer candidate directories that actually contain career_form_fill.ahk
     for c in candidates:
-        if (c / "Utils" / "career_form_fill.ahk").is_file():
+        if (c / "Utils" / "career_form_fill.ahk").is_file() or (c / "career_form_fill.ahk").is_file():
             return c
+
+    # 2. Fallback to any candidate directory that exists
+    for c in candidates:
         if c.is_dir():
             return c
 
@@ -104,6 +139,14 @@ def get_ahk_script() -> Path:
         target = sdir / sub
         if target.is_file():
             return target
+
+    # Exhaustive fallback: check all candidate paths directly
+    for c in _script_dir_candidates():
+        for sub in ("Utils/career_form_fill.ahk", "career_form_fill.ahk"):
+            target = c / sub
+            if target.is_file():
+                return target
+
     return sdir / "Utils" / "career_form_fill.ahk"
 
 
@@ -112,7 +155,17 @@ def get_uia_inspector_path() -> Path:
     candidate = sdir / "vendor" / "UIA-v2" / "UIATreeInspector.ahk"
     if candidate.is_file():
         return candidate
-    return sdir / "UIATreeInspector.ahk"
+    alt = sdir / "UIATreeInspector.ahk"
+    if alt.is_file():
+        return alt
+
+    for c in _script_dir_candidates():
+        for sub in ("vendor/UIA-v2/UIATreeInspector.ahk", "UIATreeInspector.ahk"):
+            target = c / sub
+            if target.is_file():
+                return target
+
+    return candidate
 
 
 def get_ahk_exe() -> Path:
