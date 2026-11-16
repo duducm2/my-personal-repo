@@ -28,6 +28,13 @@ PATH_TO_VARIANT = {
     "dsa": "digital-solution-architect",
     "other": "ux-researcher",
 }
+GITHUB_PAGES_BASE = "https://duducm2.github.io/my-personal-repo"
+PORTFOLIO_URLS = {
+    "ux-researcher": f"{GITHUB_PAGES_BASE}/ux-researcher/",
+    "data-analyst": f"{GITHUB_PAGES_BASE}/data-analyst/",
+    "product-owner": f"{GITHUB_PAGES_BASE}/product-owner/",
+    "digital-solution-architect": f"{GITHUB_PAGES_BASE}/digital-solution-architect/",
+}
 UI_TREE_LIMIT = 80000
 
 HUMAN_VOICE = "\n".join(
@@ -73,6 +80,9 @@ def _instructions(opening_id: str, career_paths: list[str]) -> str:
             "   Prefer exact stored values. Never invent email, phone, or URLs.",
             "   Put URLs as the bare https link only. Do not wrap a URL as markdown",
             "   [url](url) when both sides are the same address.",
+            "   For Website / Personal Website / Portfolio URL fields, use the",
+            "   Portfolio URL from PROFILE CONTEXT matching your chosen",
+            "   recommended_resume (never LinkedIn unless the field asks for LinkedIn).",
             "3. Split full_name into first_name / last_name when the form asks for them.",
             "4. For email confirmation fields, repeat the same email value.",
             "5. For phone country / dial code, derive from profile phone when present",
@@ -154,6 +164,12 @@ def build_form_fill_prompt(
     if len(tree) > UI_TREE_LIMIT:
         tree = tree[:UI_TREE_LIMIT] + "\n\n[…UIA tree truncated]"
 
+    default_variant = _cell(opening, "recommended_resume")
+    if default_variant not in PORTFOLIO_URLS:
+        default_variant = PATH_TO_VARIANT.get(path, "ux-researcher")
+    portfolio_url = PORTFOLIO_URLS.get(default_variant, f"{GITHUB_PAGES_BASE}/ux-researcher/")
+    all_portfolios = " | ".join(f"{k}: {v}" for k, v in PORTFOLIO_URLS.items())
+
     lines: list[str] = [
         "You are my AI companion (AIB) for ATS application form field extraction.",
         "The form structure is a UI Automation tree copied from the application window.",
@@ -185,6 +201,8 @@ def build_form_fill_prompt(
         f"LinkedIn: {_cell(profile, 'linkedin_url')}",
         f"Lattes: {_cell(profile, 'lattes_url')}",
         f"ORCID: {_cell(profile, 'orcid_url')}",
+        f"Portfolio / Personal Website (matched to career path): {portfolio_url}",
+        f"Portfolio URLs by résumé variant: {all_portfolios}",
         f"Career path focus: {focus}",
         "",
     ]

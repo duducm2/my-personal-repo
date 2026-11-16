@@ -218,9 +218,17 @@ def build_autofill_bundle(
         "highest_degree": _highest_degree(education, lang),
         "languages": "; ".join([x for x in lang_labels if x]),
         "cover_letter": cover_full,
-        "website": linkedin,
+        "website": (
+            f"https://duducm2.github.io/my-personal-repo/{variant}/"
+            if variant in ("ux-researcher", "data-analyst", "product-owner", "digital-solution-architect")
+            else f"https://duducm2.github.io/my-personal-repo/ux-researcher/"
+        ),
         "github": "",
-        "portfolio": linkedin,
+        "portfolio": (
+            f"https://duducm2.github.io/my-personal-repo/{variant}/"
+            if variant in ("ux-researcher", "data-analyst", "product-owner", "digital-solution-architect")
+            else f"https://duducm2.github.io/my-personal-repo/ux-researcher/"
+        ),
         "salary_expectation": _cell(opening, "salary_range"),
         "work_authorization_note": "Brazilian citizen; open to remote roles (Canada, UK, US, etc.) as permitted by the employer.",
         "relocation": "Open to discussion for the right remote / hybrid role.",

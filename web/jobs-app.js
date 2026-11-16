@@ -2930,6 +2930,9 @@
       "   Prefer exact stored values. Never invent email, phone, or URLs.",
       "   Put URLs as the bare https link only. Do not wrap a URL as markdown",
       "   [url](url) when both sides are the same address.",
+      "   For Website / Personal Website / Portfolio URL fields, use the",
+      "   Portfolio URL from PROFILE CONTEXT matching your chosen",
+      "   recommended_resume (never LinkedIn unless the field asks for LinkedIn).",
       "3. Split full_name into first_name / last_name when the form asks for them.",
       "4. For email confirmation fields, repeat the same email value.",
       "5. For phone country / dial code, derive from profile phone when present",
@@ -3041,6 +3044,24 @@
     lines.push(`LinkedIn: ${cell(profile.linkedin_url)}`);
     lines.push(`Lattes: ${cell(profile.lattes_url)}`);
     lines.push(`ORCID: ${cell(profile.orcid_url)}`);
+    const portfolioBase = "https://duducm2.github.io/my-personal-repo";
+    const portfolioByVariant = {
+      "ux-researcher": `${portfolioBase}/ux-researcher/`,
+      "data-analyst": `${portfolioBase}/data-analyst/`,
+      "product-owner": `${portfolioBase}/product-owner/`,
+      "digital-solution-architect": `${portfolioBase}/digital-solution-architect/`,
+    };
+    const defaultVariant = portfolioByVariant[cell(opening.recommended_resume)]
+      ? cell(opening.recommended_resume)
+      : PATH_TO_VARIANT[effectivePaths[0]] || "ux-researcher";
+    lines.push(
+      `Portfolio / Personal Website (matched to career path): ${portfolioByVariant[defaultVariant]}`,
+    );
+    lines.push(
+      `Portfolio URLs by résumé variant: ${Object.entries(portfolioByVariant)
+        .map(([k, v]) => `${k}: ${v}`)
+        .join(" | ")}`,
+    );
     lines.push(`Career path focus: ${focusLabel}`);
     lines.push("");
 
