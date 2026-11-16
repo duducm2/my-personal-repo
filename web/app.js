@@ -564,7 +564,7 @@
   let saveTimer = null;
   let saveGeneration = 0;
   const SAVE_DEBOUNCE_MS = 500;
-  let detailMode = false;
+  let detailMode = true;
   /** Profile career path filter (`""` = All). */
   let pathFilter = "";
   /** Local-only filters for companies (`""` = All). */
@@ -3588,27 +3588,16 @@
   }
 
   function updateDetailIndicator() {
-    const summaryBtn = document.getElementById("detail-mode-summary");
-    const detailBtn = document.getElementById("detail-mode-detail");
-    if (summaryBtn) {
-      summaryBtn.classList.toggle("is-active", !detailMode);
-      summaryBtn.setAttribute("aria-pressed", !detailMode ? "true" : "false");
-    }
-    if (detailBtn) {
-      detailBtn.classList.toggle("is-active", detailMode);
-      detailBtn.setAttribute("aria-pressed", detailMode ? "true" : "false");
+    const label = document.getElementById("detail-mode-label");
+    if (label) {
+      label.textContent = "Full description";
     }
   }
 
-  function setDetailMode(next, rerender) {
-    detailMode = !!next;
-    document.body.classList.toggle("detail-mode", detailMode);
-    document.body.classList.toggle("summary-mode", !detailMode);
-    try {
-      localStorage.setItem(DETAIL_KEY, detailMode ? "detail" : "summary");
-    } catch {
-      /* ignore */
-    }
+  function setDetailMode(_next, rerender) {
+    detailMode = true;
+    document.body.classList.add("detail-mode");
+    document.body.classList.remove("summary-mode");
     updateDetailIndicator();
     if (rerender) renderAll();
   }
@@ -5682,11 +5671,6 @@
         togglePanelsCollapsed();
         return;
       }
-      if (event.key.toLowerCase() === "d") {
-        event.preventDefault();
-        setDetailMode(!detailMode, true);
-        return;
-      }
       if (event.key.toLowerCase() === "p" || event.code === "KeyP") {
         event.preventDefault();
         scrollProfileToTop();
@@ -5736,13 +5720,7 @@
   }
 
   function initDetailMode() {
-    let detail = false;
-    try {
-      detail = localStorage.getItem(DETAIL_KEY) === "detail";
-    } catch {
-      /* ignore */
-    }
-    setDetailMode(detail, false);
+    setDetailMode(true, false);
   }
 
   async function loadDownloads() {
@@ -6341,18 +6319,6 @@
     initPathFilter();
     wireResumeViewer();
     wireDeliverableEditor();
-    document
-      .getElementById("detail-mode-summary")
-      ?.addEventListener("click", () => {
-        if (!detailMode) return;
-        setDetailMode(false, true);
-      });
-    document
-      .getElementById("detail-mode-detail")
-      ?.addEventListener("click", () => {
-        if (detailMode) return;
-        setDetailMode(true, true);
-      });
     document
       .getElementById("sections-collapse-btn")
       ?.addEventListener("click", () => togglePanelsCollapsed());
