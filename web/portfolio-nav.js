@@ -74,3 +74,24 @@ window.addEventListener("resize", () => {
   if (!portfolioMenu.hidden) placePortfolioMenu();
 });
 }
+
+// Ensure every portal page header has a Publish button linking to /publish.html
+(() => {
+  const actions = document.querySelector(".hero-actions");
+  if (!actions) return;
+  if (actions.querySelector('a[href="/publish.html"]')) return;
+  const link = document.createElement("a");
+  link.className = "nav-btn";
+  link.href = "/publish.html";
+  link.title = "Step-by-step GitHub Pages publishing guide";
+  const span = document.createElement("span");
+  span.className = "section-title-en";
+  span.textContent = "Publish";
+  link.append(span);
+  const anchor = actions.querySelector(".portfolio-nav");
+  if (anchor && anchor.nextSibling) {
+    actions.insertBefore(link, anchor.nextSibling);
+  } else {
+    actions.append(link);
+  }
+})();

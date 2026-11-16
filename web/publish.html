@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Publish Portfolios — GitHub Pages Guide</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="portfolio-nav.js" defer></script>
+    <style>
+      .publish-grid {
+        display: grid;
+        gap: 16px;
+      }
+      .publish-step {
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+        padding: 14px 16px;
+        border: 1px solid var(--border, #2a2621);
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.02);
+        transition: border-color 0.15s ease, opacity 0.15s ease;
+      }
+      .publish-step.is-done {
+        opacity: 0.72;
+        border-color: rgba(110, 180, 130, 0.45);
+      }
+      .publish-step input[type="checkbox"] {
+        margin-top: 4px;
+        width: 18px;
+        height: 18px;
+        accent-color: #d4a35e;
+        cursor: pointer;
+        flex: 0 0 auto;
+      }
+      .publish-step-body {
+        flex: 1 1 auto;
+        min-width: 0;
+      }
+      .publish-step-title {
+        margin: 0 0 6px;
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text, #f5f0e8);
+      }
+      .publish-step-desc {
+        margin: 0 0 8px;
+        color: var(--muted, #b8afa3);
+        line-height: 1.5;
+      }
+      .publish-code-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 10px 12px;
+        border-radius: 8px;
+        border: 1px solid var(--border, #2a2621);
+        background: rgba(0, 0, 0, 0.28);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 0.85rem;
+        color: #e7dfd3;
+        overflow-x: auto;
+      }
+      .publish-code-wrap pre {
+        margin: 0;
+        white-space: pre-wrap;
+        word-break: break-word;
+      }
+      .publish-copy-btn {
+        flex: 0 0 auto;
+        padding: 4px 10px;
+        border-radius: 6px;
+        border: 1px solid var(--border, #3a342c);
+        background: rgba(255, 255, 255, 0.05);
+        color: #f5f0e8;
+        font-size: 0.78rem;
+        cursor: pointer;
+      }
+      .publish-copy-btn:hover {
+        border-color: #d4a35e;
+      }
+      .publish-toolbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 12px;
+        flex-wrap: wrap;
+      }
+      .publish-progress {
+        font-size: 0.9rem;
+        color: var(--muted, #b8afa3);
+      }
+      .publish-url {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 0.85rem;
+        word-break: break-all;
+      }
+    </style>
+  </head>
+  <body class="page-help">
+    <div class="page">
+      <header class="hero">
+        <div class="hero-top">
+          <div>
+            <h1 class="brand">
+              <span class="section-title-en">Publish Portfolios</span>
+            </h1>
+          </div>
+          <div class="hero-actions">
+            <a class="nav-btn" href="/portals.html">
+              <span class="section-title-en">Job portals</span>
+            </a>
+            <a class="nav-btn" href="/jobs.html">
+              <span class="section-title-en">Openings</span>
+            </a>
+            <a class="nav-btn" href="/companies.html">
+              <span class="section-title-en">Companies</span>
+            </a>
+            <a class="nav-btn" href="/profile.html">
+              <span class="section-title-en">Profile</span>
+            </a>
+            <a class="nav-btn" href="/people.html" title="People (Shift+O)">
+              <span class="section-title-en">People</span>
+            </a>
+            <a class="nav-btn" href="/hiring.html">
+              <span class="section-title-en">Hiring 2026</span>
+            </a>
+            <div class="portfolio-nav">
+              <button
+                type="button"
+                class="nav-btn"
+                id="open-portfolio-btn"
+                aria-haspopup="menu"
+                aria-expanded="false"
+                aria-controls="portfolio-menu"
+                title="Portfolio"
+              >
+                <span class="section-title-en">Portfolio</span>
+              </button>
+              <div
+                class="portfolio-menu"
+                id="portfolio-menu"
+                role="menu"
+                hidden
+              >
+                <a
+                  role="menuitem"
+                  href="/portfolio/ux-researcher/"
+                  target="_blank"
+                  rel="noopener"
+                  >UX Researcher &amp; Design Technologist</a
+                >
+                <a
+                  role="menuitem"
+                  href="/portfolio/data-analyst/"
+                  target="_blank"
+                  rel="noopener"
+                  >Data Analyst</a
+                >
+                <a
+                  role="menuitem"
+                  href="/portfolio/product-owner/"
+                  target="_blank"
+                  rel="noopener"
+                  >Product Owner</a
+                >
+                <a
+                  role="menuitem"
+                  href="/portfolio/digital-solution-architect/"
+                  target="_blank"
+                  rel="noopener"
+                  >Digital Solution Architect</a
+                >
+              </div>
+            </div>
+            <a class="nav-btn is-active" href="/publish.html" aria-current="page">
+              <span class="section-title-en">Publish</span>
+            </a>
+            <a class="nav-btn" href="/advice.html">
+              <span class="section-title-en">Advice</span>
+            </a>
+            <a class="nav-btn" href="/help.html">
+              <span class="section-title-en">Help</span>
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <main class="help-main">
+        <section class="help-section">
+          <h2 class="section-title">
+            <span class="section-title-en">GitHub Pages Deployment Overview</span>
+          </h2>
+          <p class="help-lede">
+            All four static portfolios live inside the <code>docs/</code> folder of
+            <code>duducm2/my-personal-repo</code> (with <code>docs/.nojekyll</code> already configured).
+            Publishing <code>main</code> &rarr; <code>/docs</code> on GitHub Pages hosts every career-path portfolio at its own public URL.
+          </p>
+          <table class="help-table">
+            <thead>
+              <tr>
+                <th>Portfolio</th>
+                <th>Local Folder</th>
+                <th>Live GitHub Pages URL</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Portfolio Hub (selector)</td>
+                <td><code>docs/index.html</code></td>
+                <td class="publish-url">
+                  <a href="https://duducm2.github.io/my-personal-repo/" target="_blank" rel="noopener">
+                    https://duducm2.github.io/my-personal-repo/
+                  </a>
+                </td>
+                <td><button type="button" class="publish-copy-btn" data-copy="https://duducm2.github.io/my-personal-repo/">Copy</button></td>
+              </tr>
+              <tr>
+                <td>UX Researcher &amp; Design Technologist</td>
+                <td><code>docs/ux-researcher/</code></td>
+                <td class="publish-url">
+                  <a href="https://duducm2.github.io/my-personal-repo/ux-researcher/" target="_blank" rel="noopener">
+                    https://duducm2.github.io/my-personal-repo/ux-researcher/
+                  </a>
+                </td>
+                <td><button type="button" class="publish-copy-btn" data-copy="https://duducm2.github.io/my-personal-repo/ux-researcher/">Copy</button></td>
+              </tr>
+              <tr>
+                <td>Data Analyst</td>
+                <td><code>docs/data-analyst/</code></td>
+                <td class="publish-url">
+                  <a href="https://duducm2.github.io/my-personal-repo/data-analyst/" target="_blank" rel="noopener">
+                    https://duducm2.github.io/my-personal-repo/data-analyst/
+                  </a>
+                </td>
+                <td><button type="button" class="publish-copy-btn" data-copy="https://duducm2.github.io/my-personal-repo/data-analyst/">Copy</button></td>
+              </tr>
+              <tr>
+                <td>Product Owner</td>
+                <td><code>docs/product-owner/</code></td>
+                <td class="publish-url">
+                  <a href="https://duducm2.github.io/my-personal-repo/product-owner/" target="_blank" rel="noopener">
+                    https://duducm2.github.io/my-personal-repo/product-owner/
+                  </a>
+                </td>
+                <td><button type="button" class="publish-copy-btn" data-copy="https://duducm2.github.io/my-personal-repo/product-owner/">Copy</button></td>
+              </tr>
+              <tr>
+                <td>Digital Solution Architect</td>
+                <td><code>docs/digital-solution-architect/</code></td>
+                <td class="publish-url">
+                  <a href="https://duducm2.github.io/my-personal-repo/digital-solution-architect/" target="_blank" rel="noopener">
+                    https://duducm2.github.io/my-personal-repo/digital-solution-architect/
+                  </a>
+                </td>
+                <td><button type="button" class="publish-copy-btn" data-copy="https://duducm2.github.io/my-personal-repo/digital-solution-architect/">Copy</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="help-section">
+          <div class="publish-toolbar">
+            <h2 class="section-title" style="margin: 0;">
+              <span class="section-title-en">Step-by-Step Publishing Checklist</span>
+            </h2>
+            <div>
+              <span id="publish-progress" class="publish-progress">0 / 6 completed</span>
+              <button type="button" id="publish-reset-btn" class="publish-copy-btn" style="margin-left: 8px;">Reset checklist</button>
+            </div>
+          </div>
+
+          <div class="publish-grid">
+            <label class="publish-step" data-step="step-1">
+              <input type="checkbox" data-step-cb="step-1" />
+              <div class="publish-step-body">
+                <p class="publish-step-title">1. Regenerate &amp; preview locally</p>
+                <p class="publish-step-desc">
+                  After editing canonical CSVs, image captions, or portfolio content, regenerate derived files and verify each portfolio locally under <code>http://127.0.0.1:8770/portfolio/&lt;role&gt;/</code>.
+                </p>
+                <div class="publish-code-wrap">
+                  <pre>python scripts/generate_from_canonical.py</pre>
+                  <button type="button" class="publish-copy-btn" data-copy="python scripts/generate_from_canonical.py">Copy</button>
+                </div>
+              </div>
+            </label>
+
+            <label class="publish-step" data-step="step-2">
+              <input type="checkbox" data-step-cb="step-2" />
+              <div class="publish-step-body">
+                <p class="publish-step-title">2. Verify static assets in <code>docs/</code></p>
+                <p class="publish-step-desc">
+                  Confirm <code>docs/.nojekyll</code> is present and any newly added images (e.g., diagrams, screenshots) are saved inside <code>docs/media/</code> with relative paths (<code>../media/...</code>) so they load on GitHub Pages. Share clean URLs without <code>?customize=1</code>.
+                </p>
+              </div>
+            </label>
+
+            <label class="publish-step" data-step="step-3">
+              <input type="checkbox" data-step-cb="step-3" />
+              <div class="publish-step-body">
+                <p class="publish-step-title">3. Stage, commit &amp; push <code>docs/</code> to <code>main</code></p>
+                <p class="publish-step-desc">
+                  Push your updated <code>docs/</code> folder to the <code>origin</code> remote (<code>https://github.com/duducm2/my-personal-repo.git</code>).
+                </p>
+                <div class="publish-code-wrap">
+                  <pre>git status; git add docs/; git commit -m "Publish updated portfolios to GitHub Pages"; git push origin main</pre>
+                  <button type="button" class="publish-copy-btn" data-copy='git status; git add docs/; git commit -m "Publish updated portfolios to GitHub Pages"; git push origin main'>Copy</button>
+                </div>
+              </div>
+            </label>
+
+            <label class="publish-step" data-step="step-4">
+              <input type="checkbox" data-step-cb="step-4" />
+              <div class="publish-step-body">
+                <p class="publish-step-title">4. Enable GitHub Pages (one-time repository setup)</p>
+                <p class="publish-step-desc">
+                  Open <a href="https://github.com/duducm2/my-personal-repo/settings/pages" target="_blank" rel="noopener">GitHub Repository Settings &rarr; Pages</a>.
+                  Under <strong>Build and deployment &rarr; Source</strong>, choose <strong>Deploy from a branch</strong>.
+                  Under <strong>Branch</strong>, select <strong><code>main</code></strong> and folder <strong><code>/docs</code></strong>, then click <strong>Save</strong>.
+                </p>
+              </div>
+            </label>
+
+            <label class="publish-step" data-step="step-5">
+              <input type="checkbox" data-step-cb="step-5" />
+              <div class="publish-step-body">
+                <p class="publish-step-title">5. Wait for deployment &amp; verify all 4 live pages</p>
+                <p class="publish-step-desc">
+                  Check the <strong>Actions</strong> tab (<a href="https://github.com/duducm2/my-personal-repo/actions" target="_blank" rel="noopener">pages-build-deployment</a>) until it turns green (~1–2 minutes). Then open each live URL above, test the EN/PT toggle, deliverable modals, and <strong>Download PDF &rarr; Save as PDF</strong>.
+                </p>
+              </div>
+            </label>
+
+            <label class="publish-step" data-step="step-6">
+              <input type="checkbox" data-step-cb="step-6" />
+              <div class="publish-step-body">
+                <p class="publish-step-title">6. Ongoing updates</p>
+                <p class="publish-step-desc">
+                  Whenever you freeze a new baseline or edit a portfolio in the Career Profile editor, simply commit and push <code>docs/</code> to <code>main</code> again—GitHub Pages automatically rebuilds and publishes the changes.
+                </p>
+              </div>
+            </label>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      (() => {
+        const STORAGE_KEY = "publish-checklist-v1";
+        const boxes = [...document.querySelectorAll("[data-step-cb]")];
+        const progressEl = document.getElementById("publish-progress");
+        const resetBtn = document.getElementById("publish-reset-btn");
+
+        function loadState() {
+          try {
+            return JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+          } catch {
+            return {};
+          }
+        }
+
+        function saveState(state) {
+          try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+          } catch {
+            // ignore storage errors
+          }
+        }
+
+        function render() {
+          const state = loadState();
+          let doneCount = 0;
+          boxes.forEach((cb) => {
+            const key = cb.dataset.stepCb;
+            const checked = Boolean(state[key]);
+            cb.checked = checked;
+            const card = cb.closest(".publish-step");
+            if (card) card.classList.toggle("is-done", checked);
+            if (checked) doneCount += 1;
+          });
+          if (progressEl) {
+            progressEl.textContent = `${doneCount} / ${boxes.length} completed`;
+          }
+        }
+
+        boxes.forEach((cb) => {
+          cb.addEventListener("change", () => {
+            const state = loadState();
+            state[cb.dataset.stepCb] = cb.checked;
+            saveState(state);
+            render();
+          });
+        });
+
+        if (resetBtn) {
+          resetBtn.addEventListener("click", () => {
+            saveState({});
+            render();
+          });
+        }
+
+        document.querySelectorAll("[data-copy]").forEach((btn) => {
+          btn.addEventListener("click", async (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const text = btn.getAttribute("data-copy") || "";
+            try {
+              await navigator.clipboard.writeText(text);
+              const prev = btn.textContent;
+              btn.textContent = "Copied!";
+              setTimeout(() => {
+                btn.textContent = prev;
+              }, 1400);
+            } catch {
+              // fallback
+            }
+          });
+        });
+
+        render();
+      })();
+    </script>
+  </body>
+</html>

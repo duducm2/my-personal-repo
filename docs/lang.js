@@ -363,6 +363,27 @@ const UI = {
         ],
       },
       {
+        id: "trustmate-cloud",
+        category: "platforms",
+        title: "TrustMate (Azure Cloud Architecture & Platform)",
+        short:
+          "Full-stack Microsoft Azure cloud architecture (Static Web Apps, App Service, Azure SQL, Application Insights & metric alerts) supporting human and AI evaluations.",
+        full:
+          "Built and deployed the TrustMate research platform on Microsoft Azure to support empirical perceived-trust evaluations (ISO/IEC 25000 MQCI) across 127 human participants and 150 low-context AI agent runs. The cloud architecture separates a Vue 3 SPA frontend on Azure Static Web Apps (trustmate), a Python Flask REST API backend on Azure App Service (TrustMateRestAPI), and relational scoring storage on Azure SQL Database (trust-mate-sql-server), instrumented with Application Insights and 6 Azure Monitor metric alert rules (HTTP errors, health check, failed DB connections, DTU %, data space usage, and CPU %) to guarantee availability during live experiments and feed CSV exports into Python nonparametric analysis and Power BI.",
+        media: [
+          {
+            src: "../media/trustmate-cloud-arch.png",
+            alt: "TrustMate Microsoft Azure cloud architecture diagram: Static Web Apps, App Service, Azure SQL, Application Insights, and downstream Python/Power BI analytics",
+            caption: "TrustMate Azure cloud architecture (Static Web Apps, App Service, Azure SQL & Monitor)",
+          },
+          {
+            src: "../media/trustmate-azure-portal.png",
+            alt: "Microsoft Azure Portal showing deployed TrustMate resources: trustmate Static Web App, TrustMateRestAPI App Service, trust-mate-sql-server, Application Insights, and 6 metric alert rules",
+            caption: "Microsoft Azure Portal: deployed TrustMate resources, Application Insights & 6 metric alerts",
+          },
+        ],
+      },
+      {
         id: "results-portal",
         category: "platforms",
         title: "Results portal",
@@ -1020,6 +1041,27 @@ const UI = {
             src: "../media/study-progress-app.png",
             alt: "Aplicação web pessoal para estudos mostrando fases, tarefas e progresso geral de aprendizagem",
             caption: "App web pessoal de progresso nos estudos",
+          },
+        ],
+      },
+      {
+        id: "trustmate-cloud",
+        category: "platforms",
+        title: "TrustMate (Arquitetura Cloud Azure & Plataforma)",
+        short:
+          "Arquitetura cloud full-stack no Microsoft Azure (Static Web Apps, App Service, Azure SQL, Application Insights e alertas de métricas) para avaliações humanas e de IA.",
+        full:
+          "Arquitetada e implantada no Microsoft Azure, a plataforma TrustMate viabilizou avaliações empíricas de confiança percebida (MQCI / ISO/IEC 25000) com 127 participantes humanos e 150 execuções de agentes de IA de baixo contexto. A arquitetura separa o front-end SPA em Vue 3 no Azure Static Web Apps (trustmate), o back-end API REST em Flask/Python no Azure App Service (TrustMateRestAPI) e o banco relacional no Azure SQL Database (trust-mate-sql-server), com observabilidade via Application Insights e 6 regras de alerta de métricas no Azure Monitor (erros HTTP, health check, falhas de conexão, DTU %, uso de espaço e CPU %) para garantir disponibilidade durante os experimentos, alimentando análises estatísticas em Python e visualizações em Power BI.",
+        media: [
+          {
+            src: "../media/trustmate-cloud-arch-pt.png",
+            alt: "Diagrama da arquitetura cloud do TrustMate no Microsoft Azure: Static Web Apps, App Service, Azure SQL, Application Insights e analytics em Python/Power BI",
+            caption: "Arquitetura cloud do TrustMate no Azure (Static Web Apps, App Service, Azure SQL e Monitor)",
+          },
+          {
+            src: "../media/trustmate-azure-portal.png",
+            alt: "Portal do Microsoft Azure mostrando os recursos implantados do TrustMate: Static Web App, App Service, SQL Server, Application Insights e 6 regras de alerta",
+            caption: "Portal Microsoft Azure: recursos implantados, Application Insights e 6 alertas de métricas",
           },
         ],
       },
