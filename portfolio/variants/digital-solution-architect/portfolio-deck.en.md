@@ -1505,7 +1505,7 @@ I want to become a Mid-Level Digital Solution Architect who designs digitization
 
 ## Personal Interests that Power My Work
 
-- **At home:** Two cats, learning piano, and a split keyboard I use for macros and productivity.
+- **At home:** Two cats (Baby and Faísca), learning piano, and a split keyboard I use for macros and productivity.
 
 <div class="personal-interests-layout">
 <div class="personal-interests-left">
@@ -1525,8 +1525,8 @@ I want to become a Mid-Level Digital Solution Architect who designs digitization
 <p><img src="../../../pictures/personal/my-family.jpg" alt="Family" /></p>
 <p><img src="../../../pictures/personal/friends.jpg" alt="Friends" /></p>
 <p><img src="../../../pictures/personal/germany-2025.jpg" alt="Germany 2025" /></p>
-<p><img src="../../../pictures/personal/cat-piano.jpg" alt="Cat on piano – beginner piano practice" /></p>
-<p><img src="../../../pictures/personal/cat-split-keyboard.jpg" alt="Cat on split keyboard – macro creation and productivity" /></p>
+<p><img src="../../../pictures/personal/cat-piano.jpg" alt="Baby, the gray cat, on the piano – beginner piano practice" /></p>
+<p><img src="../../../pictures/personal/cat-split-keyboard.jpg" alt="Faísca, the orange cat, on the split keyboard – macro creation and productivity" /></p>
 <p><img src="../../../pictures/personal/workspace-efficiency.jpg" alt="Workspace setup – tools and hardware for high efficiency" /></p>
 </div>
 </div>

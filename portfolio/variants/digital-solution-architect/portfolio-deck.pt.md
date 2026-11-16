@@ -1505,7 +1505,7 @@ Quero me tornar Arquiteto de Soluções Digitais (Pleno) que desenha digitaliza�
 
 ## Interesses pessoais que alimentam o trabalho
 
-- **Em casa:** dois gatos, piano iniciante e um teclado dividido que uso para macros e produtividade.
+- **Em casa:** dois gatos (Baby e Faísca), piano iniciante e um teclado dividido que uso para macros e produtividade.
 
 <div class="personal-interests-layout">
 <div class="personal-interests-left">
@@ -1525,8 +1525,8 @@ Quero me tornar Arquiteto de Soluções Digitais (Pleno) que desenha digitaliza�
 <p><img src="../../../pictures/personal/my-family.jpg" alt="Family" /></p>
 <p><img src="../../../pictures/personal/friends.jpg" alt="Friends" /></p>
 <p><img src="../../../pictures/personal/germany-2025.jpg" alt="Germany 2025" /></p>
-<p><img src="../../../pictures/personal/cat-piano.jpg" alt="Cat on piano – beginner piano practice" /></p>
-<p><img src="../../../pictures/personal/cat-split-keyboard.jpg" alt="Cat on split keyboard – macro creation and productivity" /></p>
+<p><img src="../../../pictures/personal/cat-piano.jpg" alt="Baby, the gray cat, on the piano – beginner piano practice" /></p>
+<p><img src="../../../pictures/personal/cat-split-keyboard.jpg" alt="Faísca, the orange cat, on the split keyboard – macro creation and productivity" /></p>
 <p><img src="../../../pictures/personal/workspace-efficiency.jpg" alt="Workspace setup – tools and hardware for high efficiency" /></p>
 </div>
 </div>

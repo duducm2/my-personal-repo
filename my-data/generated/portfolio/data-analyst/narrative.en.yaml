@@ -116,7 +116,7 @@ fields:
   h_dissertation_pbi: "Data Visualization – Dissertation Power BI"
   h_infovis_diagram_alt: "InfoVis PNAD visual structures"
   h_interests: "Personal Interests that Power My Work"
-  h_interests_bullet: "- **At home:** Two cats, learning piano, and a split keyboard I use for macros and productivity."
+  h_interests_bullet: "- **At home:** Two cats (Baby and Faísca), learning piano, and a split keyboard I use for macros and productivity."
   h_interests_col: "Interest"
   h_interests_rows: |
     <tr><td>Piano</td></tr>

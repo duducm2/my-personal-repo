@@ -524,7 +524,7 @@ const UI = {
     na: "N/A",
     interestsTitle: "What I do outside the job",
     interestsLead:
-      "At home: my dog Moka, two cats, learning piano, and a split keyboard I use for macros.",
+      "At home: my dog Moka, my two cats Baby and Faísca, learning piano, and a split keyboard I use for macros.",
     interests: [
       "Piano",
       "Linguistics",
@@ -533,8 +533,8 @@ const UI = {
       "Macros and keyboards",
     ],
     interestCaps: [
-      "Piano practice at home",
-      "Split keyboard and macros",
+      "Baby during piano practice at home",
+      "Faísca on my split keyboard and macros",
       "Me and my dog Moka",
     ],
     contactTitle: "Let's connect",
@@ -1180,7 +1180,7 @@ const UI = {
     na: "N/D",
     interestsTitle: "O que faço fora do trabalho",
     interestsLead:
-      "Em casa: minha cachorra Moka, dois gatos, piano iniciante e um teclado dividido que uso para macros.",
+      "Em casa: minha cachorra Moka, meus dois gatos Baby e Faísca, piano iniciante e um teclado dividido que uso para macros.",
     interests: [
       "Piano",
       "Linguística (fonologia e fonética)",
@@ -1189,8 +1189,8 @@ const UI = {
       "Criação de macros e teclados",
     ],
     interestCaps: [
-      "Prática de piano em casa",
-      "Teclado dividido e macros",
+      "Baby durante a prática de piano em casa",
+      "Faísca no meu teclado dividido e macros",
       "Eu e minha cachorra Moka",
     ],
     contactTitle: "Vamos conversar",

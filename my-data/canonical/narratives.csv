@@ -631,7 +631,7 @@ product-owner,h_diss_tech_bullet,Dissertation tech bullet,Item arquitetura,"- **
 product-owner,h_tech_impl,Technical implementation heading,Título implementação,Technical Implementation,Implementação técnica
 product-owner,h_proposal,Proposal generator heading,Título gerador de propostas,Technical Implementation – Proposal Generator (Excel VBA),Implementação técnica – Gerador de propostas (Excel VBA)
 product-owner,h_interests,Interests heading,Título interesses,Personal Interests that Power My Work,Interesses pessoais que alimentam o trabalho
-product-owner,h_interests_bullet,Interests bullet,Item interesses,"- **At home:** Two cats, learning piano, and a split keyboard I use for macros and productivity.","- **Em casa:** dois gatos, piano iniciante e um teclado dividido que uso para macros e produtividade."
+product-owner,h_interests_bullet,Interests bullet,Item interesses,"- **At home:** Two cats (Baby and Faísca), learning piano, and a split keyboard I use for macros and productivity.","- **Em casa:** dois gatos (Baby e Faísca), piano iniciante e um teclado dividido que uso para macros e produtividade."
 product-owner,h_interests_col,Interests column,Coluna interesses,Interest,Interesse
 product-owner,h_interests_rows,Interests rows,Linhas interesses,"<tr><td>Piano</td></tr>
 <tr><td>Linguistics (phonology & phonetics)</td></tr>
@@ -673,7 +673,7 @@ data-analyst,h_diss_tech_bullet,Dissertation tech bullet,Item arquitetura,"- **A
 data-analyst,h_tech_impl,Technical implementation heading,Título implementação,Technical Implementation,Implementação técnica
 data-analyst,h_proposal,Proposal generator heading,Título gerador de propostas,Technical Implementation – Proposal Generator (Excel VBA),Implementação técnica – Gerador de propostas (Excel VBA)
 data-analyst,h_interests,Interests heading,Título interesses,Personal Interests that Power My Work,Interesses pessoais que alimentam o trabalho
-data-analyst,h_interests_bullet,Interests bullet,Item interesses,"- **At home:** Two cats, learning piano, and a split keyboard I use for macros and productivity.","- **Em casa:** dois gatos, piano iniciante e um teclado dividido que uso para macros e produtividade."
+data-analyst,h_interests_bullet,Interests bullet,Item interesses,"- **At home:** Two cats (Baby and Faísca), learning piano, and a split keyboard I use for macros and productivity.","- **Em casa:** dois gatos (Baby e Faísca), piano iniciante e um teclado dividido que uso para macros e produtividade."
 data-analyst,h_interests_col,Interests column,Coluna interesses,Interest,Interesse
 data-analyst,h_interests_rows,Interests rows,Linhas interesses,"<tr><td>Piano</td></tr>
 <tr><td>Linguistics (phonology & phonetics)</td></tr>
@@ -715,7 +715,7 @@ digital-solution-architect,h_diss_tech_bullet,Dissertation tech bullet,Item arqu
 digital-solution-architect,h_tech_impl,Technical implementation heading,Título implementação,Technical Implementation,Implementação técnica
 digital-solution-architect,h_proposal,Proposal generator heading,Título gerador de propostas,Technical Implementation – Proposal Generator (Excel VBA),Implementação técnica – Gerador de propostas (Excel VBA)
 digital-solution-architect,h_interests,Interests heading,Título interesses,Personal Interests that Power My Work,Interesses pessoais que alimentam o trabalho
-digital-solution-architect,h_interests_bullet,Interests bullet,Item interesses,"- **At home:** Two cats, learning piano, and a split keyboard I use for macros and productivity.","- **Em casa:** dois gatos, piano iniciante e um teclado dividido que uso para macros e produtividade."
+digital-solution-architect,h_interests_bullet,Interests bullet,Item interesses,"- **At home:** Two cats (Baby and Faísca), learning piano, and a split keyboard I use for macros and productivity.","- **Em casa:** dois gatos (Baby e Faísca), piano iniciante e um teclado dividido que uso para macros e produtividade."
 digital-solution-architect,h_interests_col,Interests column,Coluna interesses,Interest,Interesse
 digital-solution-architect,h_interests_rows,Interests rows,Linhas interesses,"<tr><td>Piano</td></tr>
 <tr><td>Linguistics (phonology & phonetics)</td></tr>
@@ -866,7 +866,7 @@ ux-researcher,h_diss_tech_bullet,Dissertation tech bullet,Item arquitetura,"- **
 ux-researcher,h_tech_impl,Technical implementation heading,Título implementação,Technical Implementation,Implementação técnica
 ux-researcher,h_proposal,Proposal generator heading,Título gerador de propostas,Technical Implementation – Proposal Generator (Excel VBA),Implementação técnica – Gerador de propostas (Excel VBA)
 ux-researcher,h_interests,Interests heading,Título interesses,Personal Interests that Power My Work,Interesses pessoais que alimentam o trabalho
-ux-researcher,h_interests_bullet,Interests bullet,Item interesses,"- **At home:** Two cats, learning piano, and a split keyboard I use for macros and productivity.","- **Em casa:** dois gatos, piano iniciante e um teclado dividido que uso para macros e produtividade."
+ux-researcher,h_interests_bullet,Interests bullet,Item interesses,"- **At home:** Two cats (Baby and Faísca), learning piano, and a split keyboard I use for macros and productivity.","- **Em casa:** dois gatos (Baby e Faísca), piano iniciante e um teclado dividido que uso para macros e produtividade."
 ux-researcher,h_interests_col,Interests column,Coluna interesses,Interest,Interesse
 ux-researcher,h_interests_rows,Interests rows,Linhas interesses,"<tr><td>Piano</td></tr>
 <tr><td>Linguistics (phonology & phonetics)</td></tr>
