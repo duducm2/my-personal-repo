@@ -736,6 +736,13 @@
     return isPinned(row) ? 0 : 1;
   }
 
+  function scoreRank(row) {
+    const raw = cell(row?.match_score);
+    if (!raw) return -Infinity;
+    const n = Number(raw.replace(",", "."));
+    return Number.isFinite(n) ? n : -Infinity;
+  }
+
   function focusJobCard(id) {
     const sid = cell(id);
     if (!sid) return;
@@ -1159,7 +1166,11 @@
       by.get(key).push(row);
     }
     for (const list of by.values()) {
-      list.sort((a, b) => pinRank(a) - pinRank(b));
+      list.sort((a, b) => {
+        const byPin = pinRank(a) - pinRank(b);
+        if (byPin !== 0) return byPin;
+        return scoreRank(b) - scoreRank(a);
+      });
     }
     const order = STATUS_OPTIONS.slice();
     for (const key of by.keys()) {
