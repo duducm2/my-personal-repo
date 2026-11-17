@@ -38,7 +38,7 @@
   Digital solution architect and applied researcher with ~10 years at Bosch (intern → web developer → applied research & digital solutions). Designs end-to-end digitization, cloud, and analytics systems using #strong[Azure, Python, SQL Server, React, ServiceNow, and Power BI], with CI/CD and automated quality gates. Master's in Technology (Unicamp, Grade A; IHC/ISSRE 2025). Guided Americas UX Maturity to Level 4; sustained average CSI 4.86 / NPS 9.94 across Global Services and Power Tools.
 ]
 
-#let languages = "Portuguese (Native)   English (Fluent)"
+#let languages = "Portuguese (Native)   English (Fluent · General American accent · phonetics)"
 
 #let skills = (
   ("Core", "Core:", ("Solution & cloud architecture", "Digitization & systems", "DevOps / CI-CD", "Applied research and quality checks", "Work with global stakeholders", "Autodidact", "Statistics", "Vibe coding", "API & database integration", "Requirements & process mapping", "Automated quality gates", "Stakeholder & vendor alignment", "Applied AI workflows", "Governance & compliance")),

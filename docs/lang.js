@@ -16,7 +16,7 @@ const UI = {
     skip: "Skip to the story",
     foundationsTitle: "Academic foundations",
     foundationsLead:
-      "Technical school at ETEC Bento Quirino, then Unicamp. Grade A in all master's coursework. English proficiency verified. Portuguese is native, English is fluent.",
+      "Technical school at ETEC Bento Quirino, then Unicamp. Grade A in all master's coursework. English proficiency verified. Portuguese is native; English is fluent (General American accent, with a highlight in phonetics).",
     trait0: "Proactive",
     trait1: "Self-reliant",
     trait2: "Organized",
@@ -698,7 +698,7 @@ const UI = {
     skip: "Ir para a história",
     foundationsTitle: "Formação acadêmica",
     foundationsLead:
-      "Escola técnica na ETEC Bento Quirino, depois a Unicamp. Nota A em todas as disciplinas do mestrado. Proficiência em inglês comprovada. Português nativo, inglês fluente.",
+      "Escola técnica na ETEC Bento Quirino, depois a Unicamp. Nota A em todas as disciplinas do mestrado. Proficiência em inglês comprovada. Português nativo; inglês fluente (sotaque General American, com destaque em fonética).",
     trait0: "Proativo",
     trait1: "Autônomo",
     trait2: "Organizado",

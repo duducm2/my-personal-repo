@@ -53,17 +53,23 @@ body {
 
 .hero-top {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 12px;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
   flex-wrap: wrap;
+}
+
+.hero-top > div:has(> .brand) {
+  display: none;
 }
 
 .hero-actions {
   display: flex;
   align-items: center;
-  gap: 8px;
-  flex-shrink: 0;
+  flex-wrap: wrap;
+  gap: 6px;
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 .save-btn {
@@ -116,13 +122,13 @@ body.detail-mode .detail-mode-label {
   color: #e74c3c;
 }
 
-body.is-dirty .brand::after {
-  content: " · unsaved";
+body.is-dirty .hero-actions::after {
+  content: "unsaved";
   color: #e74c3c;
-  font-size: 0.55em;
+  font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.02em;
-  vertical-align: middle;
+  margin-left: auto;
 }
 
 .section-head {
@@ -2445,12 +2451,6 @@ body.lang-en .field-row {
   overflow: hidden;
 }
 
-.panel:hover .field-value,
-.panel:focus-within .field-value {
-  -webkit-line-clamp: unset;
-  overflow: visible;
-}
-
 .field-value.empty {
   color: var(--muted);
 }
@@ -2567,6 +2567,18 @@ body.lang-en .field-row {
 .nav-btn:hover {
   border-color: var(--gold);
   color: var(--gold);
+}
+
+.nav-btn-icon {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  opacity: 0.78;
+}
+
+.nav-btn:hover .nav-btn-icon,
+.nav-btn.is-active .nav-btn-icon {
+  opacity: 1;
 }
 
 .portfolio-nav {
@@ -3168,27 +3180,26 @@ body.lang-en .field-row {
 }
 
 .company-bento {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  grid-auto-rows: 1fr;
   gap: 8px;
-  align-items: flex-start;
-  align-content: flex-start;
+  align-items: stretch;
 }
 
 .company-bento-empty {
-  flex: 1 0 100%;
+  grid-column: 1 / -1;
 }
 
 .company-tile,
 .company-tile-wide,
 .job-tile-wrap,
 .job-tile-wrap.company-tile-wide {
-  flex: 1 1 240px;
   max-width: 100%;
 }
 
 .company-tile {
-  grid-column: span 3;
+  grid-column: auto;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -3203,10 +3214,12 @@ body.lang-en .field-row {
   cursor: pointer;
   min-width: 0;
   min-height: 108px;
+  height: 100%;
+  overflow: hidden;
 }
 
 .company-tile-wide {
-  grid-column: span 4;
+  grid-column: auto;
 }
 
 .company-tile:hover {
@@ -3225,6 +3238,11 @@ body.lang-en .field-row {
   font-weight: 650;
   line-height: 1.3;
   width: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  overflow-wrap: anywhere;
 }
 
 .company-tile-meta {
@@ -3234,11 +3252,23 @@ body.lang-en .field-row {
   width: 100%;
 }
 
+.company-tile-meta:not(.job-tile-meta) {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+}
+
 .company-tile-chips {
   display: flex;
   flex-wrap: wrap;
   gap: 4px;
   align-items: center;
+}
+
+.company-tile-chips:last-child {
+  margin-top: auto;
 }
 
 .pin-btn {
@@ -4366,8 +4396,6 @@ body.lang-en .field-row {
 
 .job-tile:hover {
   border-color: color-mix(in srgb, var(--gold) 45%, var(--line));
-  overflow: visible;
-  z-index: 3;
 }
 
 .job-tile .company-tile-title {
@@ -4379,12 +4407,6 @@ body.lang-en .field-row {
   -webkit-box-orient: vertical;
   overflow: hidden;
   overflow-wrap: anywhere;
-}
-
-.job-tile:hover .company-tile-title,
-.job-tile:focus-visible .company-tile-title {
-  -webkit-line-clamp: unset;
-  overflow: visible;
 }
 
 .job-tile-top {
@@ -4607,6 +4629,7 @@ body.lang-en .field-row {
 .page-jobs .company-bento {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-auto-rows: 1fr;
   align-items: stretch;
 }
 
@@ -6381,4 +6404,80 @@ summary.freeze-diff-head::-webkit-details-marker {
   padding-left: 18px;
   font-size: 12px;
   color: var(--muted);
+}
+
+.card-hover-tooltip {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9500;
+  pointer-events: none;
+  max-width: min(440px, calc(100vw - 24px));
+  max-height: min(65vh, 420px);
+  overflow: hidden;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  border: 1px solid color-mix(in srgb, var(--gold) 55%, var(--line));
+  background: color-mix(in srgb, var(--panel) 97%, #000);
+  color: var(--text);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.card-hover-tooltip[hidden] {
+  display: none;
+}
+
+.card-hover-tooltip-kicker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 0.01em;
+}
+
+.card-hover-tooltip-title {
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.3;
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+
+.card-hover-tooltip-meta {
+  font-size: 11.5px;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+.card-hover-tooltip-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.card-hover-tooltip-chip {
+  font-size: 10.5px;
+  padding: 1px 6px;
+  border-radius: 3px;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--bg) 60%, var(--panel));
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+
+.card-hover-tooltip-body {
+  font-size: 11.5px;
+  color: color-mix(in srgb, var(--text) 86%, var(--muted));
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  border-top: 1px solid var(--line);
+  padding-top: 5px;
+  margin-top: 1px;
 }

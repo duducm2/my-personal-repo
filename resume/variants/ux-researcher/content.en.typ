@@ -38,7 +38,7 @@
   UX researcher and design technologist with ~10 years of technology experience at Bosch (intern → web developer → applied research & design analyst). Combines #strong[mixed-methods research] (Straussian Grounded Theory, qualitative coding, surveys, usability testing) with #strong[design technologist execution] (websites through vibe coding, high-fidelity code prototypes, Figma, Power BI). Master's in Technology approved Sep 2026 (Unicamp, Grade A across coursework); published peer-reviewed research on user trust in human-AI interaction (IHC 2025, ISSRE 2025). Guided Americas UX Maturity to Level 4; sustained average CSI 4.86 / NPS 9.94 across projects.
 ]
 
-#let languages = "Portuguese (Native)   English (Fluent)"
+#let languages = "Portuguese (Native)   English (Fluent · General American accent · phonetics)"
 
 #let skills = (
   ("Core", "Core:", ("Mixed-methods UX research", "Usability & heuristic evaluation", "Qualitative synthesis & Grounded Theory", "Human-AI interaction & trust measurement", "Interaction design & code prototyping", "UX metrics & governance (CSI/NPS, SUS)", "Cross-functional stakeholder alignment", "Process Mapping", "Personas Definition", "Creation of Ecosystem Maps", "Definition of the Backlog", "Prioritization matrix", "SWOT matrix", "Wireframing")),

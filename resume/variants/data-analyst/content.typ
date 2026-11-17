@@ -38,7 +38,7 @@
   Data analyst with ~10 years at Bosch and a Master's in Technology (Unicamp, Grade A across coursework, including Information Visualization; IHC/ISSRE 2025). Turns complex operational and research data into decisions using #strong[Power BI, Python, SQL Server, and descriptive/inferential statistics] (Welch, Cohen's d, FDR). Guided Americas UX Maturity to Level 4 with automated audit BI; sustained average CSI 4.86 / NPS 9.94. Currently learning Databricks, PySpark, and Apache Spark.
 ]
 
-#let languages = "Portuguese (Native)   English (Fluent)"
+#let languages = "Portuguese (Native)   English (Fluent · General American accent · phonetics)"
 
 #let skills = (
   ("Core", "Core:", ("Research reasoning for business action", "Descriptive, inferential and visual analysis", "Python / SQL / Statistics", "Visualization, BI & InfoVis", "Information Systems (MSc)", "Databricks, PySpark & Apache Spark (learning)", "Autodidact", "Vibe coding", "Experimental & survey design", "Inferential statistics (Welch, Cohen's d, FDR)", "Qualitative coding (Grounded Theory)", "KPIs, CSI/NPS & executive BI", "ETL & CSV/SQL pipelines", "Applied AI & LLM evaluation")),

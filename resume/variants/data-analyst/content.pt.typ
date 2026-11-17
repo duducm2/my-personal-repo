@@ -38,7 +38,7 @@
   Analista de dados com ~10 anos na Bosch e Mestrado em Tecnologia (Unicamp, nota A em todas as disciplinas, incluindo Visualização da Informação; IHC/ISSRE 2025). Transformo dados operacionais e de pesquisa em decisões com #strong[Power BI, Python, SQL Server e estatística descritiva/inferencial] (Welch, d de Cohen, FDR). Conduzi a maturidade de UX das Américas ao Nível 4 com BI de auditoria; média sustentada de CSI 4,86 / NPS 9,94. Atualmente aprendendo Databricks, PySpark e Apache Spark.
 ]
 
-#let languages = "Português (Nativo)   Inglês (Fluente)"
+#let languages = "Português (Nativo)   Inglês (Fluente · sotaque General American · fonética)"
 
 #let skills = (
   ("Core", "Núcleo:", ("Raciocínio de pesquisa para a ação de negócio", "Análise descritiva, inferencial e visual", "Python / SQL / Estatística", "Visualização, BI e InfoVis", "Sistemas de Informação (mestrado)", "Databricks, PySpark e Apache Spark (em aprendizado)", "Autodidata", "Vibe coding", "Desenho experimental e surveys", "Estatística inferencial (Welch, d de Cohen, FDR)", "Codificação qualitativa (Teoria Fundamentada)", "KPIs, CSI/NPS e BI executivo", "Pipelines ETL e CSV/SQL", "IA aplicada e avaliação de LLMs")),

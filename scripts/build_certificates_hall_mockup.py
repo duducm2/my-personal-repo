@@ -77,10 +77,12 @@ def build_certificates_hall():
         # (key, path, width, height, angle, pin_pos)
         ('obmep', os.path.join(docs_dir, 'certificado-obmep.png'), 610, None, -2.4, (0.5, 0.04)),
         ('etec', os.path.join(docs_dir, 'certificado-etec.png'), 610, None, +1.8, (0.5, 0.04)),
-        ('undergrad', os.path.join(docs_dir, 'diploma-graduacao-p1.png'), 630, None, -3.2, (0.5, 0.04)),
+        ('undergrad', os.path.join(docs_dir, 'diploma-graduacao-p1.png'), 630, None, -2.8, (0.5, 0.04)),
         ('master', os.path.join(docs_dir, 'diploma-mestrado-p1.png'), 640, None, +2.0, (0.5, 0.04)),
-        ('bosch', os.path.join(docs_dir, 'certificado-bosch-talentos.png'), 610, None, -1.8, (0.5, 0.04)),
-        ('hospital', os.path.join(docs_dir, 'declaracao-hospitalhacos.png'), 340, 450, +1.8, (0.5, 0.03)),
+        ('bosch', os.path.join(docs_dir, 'certificado-bosch-talentos.png'), 610, None, +1.6, (0.5, 0.04)),
+        ('issre', os.path.join(docs_dir, 'certificado-issre-2025.jpg'), 610, None, -2.1, (0.5, 0.04)),
+        ('ihc', os.path.join(docs_dir, 'certificado-ihc-2025.jpg'), 610, None, +1.9, (0.5, 0.04)),
+        ('hospital', os.path.join(docs_dir, 'declaracao-hospitalhacos.png'), 360, 470, -1.6, (0.5, 0.03)),
     ]
     
     sheets = []
@@ -88,19 +90,21 @@ def build_certificates_hall():
         sh, pad = create_paper_sheet(path, w, h, ang, pin_pos)
         sheets.append((key, sh, pad))
     
-    canvas_w = 2850
-    canvas_h = 700
+    canvas_w = 2400
+    canvas_h = 1100
     canvas = Image.new('RGBA', (canvas_w, canvas_h), (0, 0, 0, 0))
     
     sheet_dict = {key: (sh, pad) for key, sh, pad in sheets}
     
     paste_order = [
-        ('obmep', 20, 70),
-        ('etec', 440, 55),
-        ('undergrad', 890, 50),
-        ('bosch', 1810, 55),
-        ('hospital', 2340, 50),
-        ('master', 1330, 80), # Master's on top of both Undergrad and Bosch!
+        ('obmep', 30, 55),
+        ('etec', 530, 45),
+        ('undergrad', 1040, 40),
+        ('master', 1560, 55),
+        ('bosch', 70, 485),
+        ('issre', 590, 495),
+        ('ihc', 1120, 480),
+        ('hospital', 1670, 475),
     ]
     
     for key, pos_x, pos_y in paste_order:

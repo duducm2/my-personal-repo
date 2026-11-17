@@ -38,7 +38,7 @@
   Arquiteto de soluções digitais e pesquisador aplicado com ~10 anos na Bosch (estágio → desenvolvedor web → pesquisa aplicada e soluções digitais). Projeto sistemas ponta a ponta de digitalização, cloud e analytics com #strong[Azure, Python, SQL Server, React, ServiceNow e Power BI], com CI/CD e gates automatizados de qualidade. Mestrado em Tecnologia (Unicamp, nota A; IHC/ISSRE 2025). Conduzi a maturidade de UX das Américas ao Nível 4; média sustentada de CSI 4,86 / NPS 9,94 na Global Services e Power Tools.
 ]
 
-#let languages = "Português (Nativo)   Inglês (Fluente)"
+#let languages = "Português (Nativo)   Inglês (Fluente · sotaque General American · fonética)"
 
 #let skills = (
   ("Core", "Núcleo:", ("Arquitetura de soluções e cloud", "Digitalização e desenho de sistemas", "DevOps / CI-CD e automação", "Pesquisa aplicada e checagens de qualidade", "Trabalho com stakeholders globais", "Autodidata", "Estatística", "Vibe coding", "Integração de APIs e bancos de dados", "Requisitos e mapeamento de processos", "Gates automatizados de qualidade", "Alinhamento com stakeholders e fornecedores", "Fluxos com IA aplicada", "Governança e conformidade")),

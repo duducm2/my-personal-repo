@@ -38,7 +38,7 @@
   Product Owner and applied researcher with ~10 years of technology experience at Bosch (intern → web developer → applied research & product delivery). Connects #strong[discovery to delivery]: clarifying stakeholder needs, defining MVP scope and backlogs, validating PMF (AgriTech/Astra), and prioritizing with data, CIP, and customer check-ins. Master's in Technology (Unicamp, Grade A; IHC/ISSRE 2025). Guided Americas UX Maturity to Level 4; sustained average CSI 4.86 / NPS 9.94.
 ]
 
-#let languages = "Portuguese (Native)   English (Fluent)"
+#let languages = "Portuguese (Native)   English (Fluent · General American accent · phonetics)"
 
 #let skills = (
   ("Core", "Core:", ("Product discovery", "Stakeholder alignment", "Prioritization & outcomes", "Applied Research", "Agile (Scrum / Kanban) / CIP", "Autodidact", "Statistics", "Vibe coding", "Backlog definition & refinement", "User stories & acceptance criteria", "Discovery & PMF validation", "Process & ecosystem mapping", "Prioritization & SWOT matrices", "CSI, NPS & outcome tracking")),

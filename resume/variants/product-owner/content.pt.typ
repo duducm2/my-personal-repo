@@ -38,7 +38,7 @@
   Product Owner e pesquisador aplicado com ~10 anos de experiência em tecnologia na Bosch (estágio → desenvolvedor web → pesquisa aplicada e entrega de produtos). Conecto #strong[descoberta à entrega]: esclareço necessidades de stakeholders, defino escopo de MVP e backlogs, valido PMF (AgriTech/Astra) e priorizo com dados, CIP e check-ins com clientes. Mestrado em Tecnologia (Unicamp, nota A; IHC/ISSRE 2025). Conduzi a maturidade de UX das Américas ao Nível 4; média sustentada de CSI 4,86 / NPS 9,94.
 ]
 
-#let languages = "Português (Nativo)   Inglês (Fluente)"
+#let languages = "Português (Nativo)   Inglês (Fluente · sotaque General American · fonética)"
 
 #let skills = (
   ("Core", "Núcleo:", ("Descoberta de produto", "Alinhamento de stakeholders", "Priorização e resultados", "Pesquisa Aplicada", "Ágil (Scrum / Kanban) / CIP", "Autodidata", "Estatística", "Vibe coding", "Definição e refinamento de backlog", "User stories e critérios de aceite", "Discovery e validação de PMF", "Mapeamento de processos e ecossistemas", "Matriz de priorização e SWOT", "Métricas CSI, NPS e resultados")),
