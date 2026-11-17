@@ -450,13 +450,15 @@
       return hovered.closest(".company-tile");
     }
 
-    try {
-      const qHover = document.querySelector(
-        "#companies-results .company-tile:hover",
-      );
-      if (qHover) return qHover;
-    } catch {
-      /* ignore */
+    if (!window.CardNav?.isHoverCleared?.()) {
+      try {
+        const qHover = document.querySelector(
+          "#companies-results .company-tile:hover",
+        );
+        if (qHover) return qHover;
+      } catch {
+        /* ignore */
+      }
     }
 
     const last = window.CardNav?.getLastCard?.();
@@ -2135,6 +2137,15 @@
         if (hasActiveCompanyFilters()) {
           event.preventDefault();
           clearCompanyFilters();
+          return;
+        }
+        if (
+          (document.activeElement && document.activeElement !== document.body) ||
+          window.CardNav?.getLastCard?.() ||
+          window.CardNav?.getHoveredCard?.()
+        ) {
+          event.preventDefault();
+          window.CardNav?.clearFocus?.();
           return;
         }
         event.preventDefault();

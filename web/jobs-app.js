@@ -278,13 +278,15 @@
       return hovered.closest(".company-tile");
     }
 
-    try {
-      const qHover = document.querySelector(
-        "#jobs-results .company-tile:hover",
-      );
-      if (qHover) return qHover;
-    } catch {
-      /* ignore */
+    if (!window.CardNav?.isHoverCleared?.()) {
+      try {
+        const qHover = document.querySelector(
+          "#jobs-results .company-tile:hover",
+        );
+        if (qHover) return qHover;
+      } catch {
+        /* ignore */
+      }
     }
 
     const last = window.CardNav?.getLastCard?.();
@@ -5277,6 +5279,7 @@
           clearJobFilters();
           return;
         }
+        window.CardNav?.clearFocus?.();
         return;
       }
 

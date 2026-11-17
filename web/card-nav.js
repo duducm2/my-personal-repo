@@ -238,9 +238,32 @@
     }, 110);
   }
 
+  let hoverClearedUntilMove = false;
+
+  function clearFocus() {
+    lastCard = null;
+    hoveredCard = null;
+    lastFilter = null;
+    hoverClearedUntilMove = true;
+    hideCardTooltip();
+    const active = document.activeElement;
+    if (active && active !== document.body && typeof active.blur === "function") {
+      active.blur();
+    }
+  }
+
+  document.addEventListener(
+    "pointermove",
+    () => {
+      hoverClearedUntilMove = false;
+    },
+    { passive: true },
+  );
+
   document.addEventListener(
     "pointerover",
     (event) => {
+      hoverClearedUntilMove = false;
       const card = event.target?.closest?.(CARD_HOVER_SELECTOR);
       if (card) {
         const changed = hoveredCard !== card;
@@ -285,6 +308,11 @@
   document.addEventListener("mousedown", hideCardTooltip, { passive: true });
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") hideCardTooltip();
+  });
+  window.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape" || event.defaultPrevented) return;
+    if (document.querySelector("dialog[open]")) return;
+    clearFocus();
   });
 
   document.addEventListener(
@@ -716,5 +744,7 @@
       lastCard = card;
     },
     getHoveredCard: () => hoveredCard,
+    clearFocus,
+    isHoverCleared: () => hoverClearedUntilMove,
   };
 })();
