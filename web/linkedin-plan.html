@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LinkedIn Plan — Premium Business &amp; Job Search Context</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="portfolio-nav.js" defer></script>
+    <style>
+      .li-summary-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 12px;
+        margin-bottom: 14px;
+      }
+      .li-card {
+        padding: 14px 16px;
+        border: 1px solid var(--border, #2a2621);
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.02);
+      }
+      .li-card-kicker {
+        font-size: 0.74rem;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+        color: var(--muted, #b8afa3);
+        margin: 0 0 6px;
+      }
+      .li-card-title {
+        margin: 0 0 6px;
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text, #f5f0e8);
+      }
+      .li-card-text {
+        margin: 0;
+        font-size: 0.88rem;
+        line-height: 1.5;
+        color: var(--muted, #b8afa3);
+      }
+      .li-badge {
+        display: inline-block;
+        margin-left: 6px;
+        padding: 2px 7px;
+        border-radius: 999px;
+        font-size: 0.7rem;
+        font-weight: 600;
+        background: rgba(212, 163, 94, 0.16);
+        color: #e6be82;
+        border: 1px solid rgba(212, 163, 94, 0.35);
+      }
+      .li-toolbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-bottom: 14px;
+      }
+      .li-btn-row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .li-btn {
+        padding: 7px 14px;
+        border-radius: 8px;
+        border: 1px solid var(--border, #3a342c);
+        background: rgba(255, 255, 255, 0.05);
+        color: #f5f0e8;
+        font-size: 0.85rem;
+        font-weight: 500;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .li-btn:hover {
+        border-color: #d4a35e;
+      }
+      .li-btn-primary {
+        background: rgba(212, 163, 94, 0.18);
+        border-color: rgba(212, 163, 94, 0.55);
+        color: #f8e5c8;
+      }
+      .li-links-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 10px;
+      }
+      .li-perk-cb {
+        width: 16px;
+        height: 16px;
+        accent-color: #d4a35e;
+        cursor: pointer;
+      }
+      .li-row-done td {
+        opacity: 0.68;
+      }
+    </style>
+  </head>
+  <body class="page-help">
+    <div class="page">
+      <header class="hero">
+        <div class="hero-top">
+          <div>
+            <h1 class="brand">
+              <span class="section-title-en">LinkedIn Plan</span>
+            </h1>
+          </div>
+          <div class="hero-actions">
+            <a class="nav-btn" href="/portals.html">
+              <span class="section-title-en">Job portals</span>
+            </a>
+            <a class="nav-btn" href="/jobs.html">
+              <span class="section-title-en">Openings</span>
+            </a>
+            <a class="nav-btn" href="/companies.html">
+              <span class="section-title-en">Companies</span>
+            </a>
+            <a class="nav-btn" href="/profile.html">
+              <span class="section-title-en">Profile</span>
+            </a>
+            <a class="nav-btn" href="/people.html" title="People (Shift+O)">
+              <span class="section-title-en">People</span>
+            </a>
+            <a class="nav-btn" href="/hiring.html">
+              <span class="section-title-en">Hiring 2026</span>
+            </a>
+            <div class="portfolio-nav">
+              <button
+                type="button"
+                class="nav-btn"
+                id="open-portfolio-btn"
+                aria-haspopup="menu"
+                aria-expanded="false"
+                aria-controls="portfolio-menu"
+                title="Portfolio"
+              >
+                <span class="section-title-en">Portfolio</span>
+              </button>
+              <div
+                class="portfolio-menu"
+                id="portfolio-menu"
+                role="menu"
+                hidden
+              >
+                <a
+                  role="menuitem"
+                  href="/portfolio/ux-researcher/"
+                  target="_blank"
+                  rel="noopener"
+                  >UX Researcher &amp; Design Technologist</a
+                >
+                <a
+                  role="menuitem"
+                  href="/portfolio/data-analyst/"
+                  target="_blank"
+                  rel="noopener"
+                  >Data Analyst</a
+                >
+                <a
+                  role="menuitem"
+                  href="/portfolio/product-owner/"
+                  target="_blank"
+                  rel="noopener"
+                  >Product Owner</a
+                >
+                <a
+                  role="menuitem"
+                  href="/portfolio/digital-solution-architect/"
+                  target="_blank"
+                  rel="noopener"
+                  >Digital Solution Architect</a
+                >
+              </div>
+            </div>
+            <a class="nav-btn" href="/publish.html">
+              <span class="section-title-en">Publish</span>
+            </a>
+            <a class="nav-btn is-active" href="/linkedin-plan.html" aria-current="page">
+              <span class="section-title-en">LinkedIn Plan</span>
+            </a>
+            <a class="nav-btn" href="/advice.html">
+              <span class="section-title-en">Advice</span>
+            </a>
+            <a class="nav-btn" href="/help.html">
+              <span class="section-title-en">Help</span>
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <main class="help-main">
+        <section class="help-section">
+          <div class="li-toolbar">
+            <div>
+              <h2 class="section-title" style="margin: 0 0 4px;">
+                <span class="section-title-en">LinkedIn Premium Business — Structured Plan &amp; AI Context</span>
+              </h2>
+              <p class="help-lede" style="margin: 0;">
+                Structured view of your active LinkedIn Premium Business subscription, job-search &amp; AI tools, goals, and partner perks.
+                Export JSON to give any AI companion full context that LinkedIn is an active job-search platform.
+              </p>
+            </div>
+            <div class="li-btn-row">
+              <button type="button" id="li-export-json-btn" class="li-btn li-btn-primary">
+                Export JSON (AI Context)
+              </button>
+              <button type="button" id="li-copy-json-btn" class="li-btn">
+                Copy JSON
+              </button>
+            </div>
+          </div>
+
+          <div id="li-account-grid" class="li-summary-grid"></div>
+          <div id="li-mgmt-links" class="li-links-wrap"></div>
+        </section>
+
+        <section class="help-section">
+          <h2 class="section-title">
+            <span class="section-title-en">AI &amp; Job-Search Features</span>
+          </h2>
+          <table class="help-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>How it helps your job search</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="li-features-body"></tbody>
+          </table>
+        </section>
+
+        <section class="help-section">
+          <h2 class="section-title">
+            <span class="section-title-en">Additional Job-Search Playbook (Premium Business)</span>
+          </h2>
+          <div id="li-playbook-grid" class="li-summary-grid"></div>
+        </section>
+
+        <section class="help-section">
+          <h2 class="section-title">
+            <span class="section-title-en">Goals</span>
+          </h2>
+          <div id="li-goals-grid" class="li-summary-grid"></div>
+        </section>
+
+        <section class="help-section">
+          <div class="li-toolbar">
+            <h2 class="section-title" style="margin: 0;">
+              <span class="section-title-en">Partner Perks &amp; Benefits</span>
+            </h2>
+            <span id="li-perks-progress" class="li-card-text">0 / 7 claimed</span>
+          </div>
+          <table class="help-table">
+            <thead>
+              <tr>
+                <th>Claimed</th>
+                <th>Partner</th>
+                <th>Benefit</th>
+                <th>Free Period</th>
+                <th>Link</th>
+              </tr>
+            </thead>
+            <tbody id="li-perks-body"></tbody>
+          </table>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      (() => {
+        const PERKS_KEY = "linkedin-perks-v1";
+        let planData = null;
+
+        function loadClaimed() {
+          try {
+            return JSON.parse(localStorage.getItem(PERKS_KEY) || "{}");
+          } catch {
+            return {};
+          }
+        }
+
+        function saveClaimed(map) {
+          try {
+            localStorage.setItem(PERKS_KEY, JSON.stringify(map));
+          } catch {
+            // ignore storage errors
+          }
+        }
+
+        function el(tag, attrs = {}, children = []) {
+          const node = document.createElement(tag);
+          Object.entries(attrs).forEach(([k, v]) => {
+            if (k === "class") node.className = v;
+            else if (k === "text") node.textContent = v;
+            else node.setAttribute(k, v);
+          });
+          children.forEach((c) => node.append(c));
+          return node;
+        }
+
+        function buildExportPayload() {
+          return {
+            exported_at: new Date().toISOString(),
+            source_page: "/linkedin-plan.html",
+            claimed_perks: loadClaimed(),
+            ...planData,
+          };
+        }
+
+        function renderPlan(data) {
+          planData = data;
+
+          // 1. Account & Subscription cards
+          const accGrid = document.getElementById("li-account-grid");
+          accGrid.replaceChildren(
+            el("div", { class: "li-card" }, [
+              el("p", { class: "li-card-kicker", text: "Profile" }),
+              el("p", { class: "li-card-title", text: data.account.full_name }),
+              el("p", {
+                class: "li-card-text",
+                text: `${data.account.headline} · ${data.account.location} · ${data.account.current_company}`,
+              }),
+            ]),
+            el("div", { class: "li-card" }, [
+              el("p", { class: "li-card-kicker", text: "Subscription" }),
+              el("p", {
+                class: "li-card-title",
+                text: `${data.subscription.plan_name} (${data.subscription.status})`,
+              }),
+              el("p", {
+                class: "li-card-text",
+                text: `Renews ${data.subscription.renewal_date} (${data.subscription.renewal_date_display}) · Purchase #${data.subscription.purchase_id}`,
+              }),
+            ]),
+            el("div", { class: "li-card" }, [
+              el("p", { class: "li-card-kicker", text: "AI Job-Search Role" }),
+              el("p", {
+                class: "li-card-title",
+                text: "Primary Job Discovery & Outreach Channel",
+              }),
+              el("p", {
+                class: "li-card-text",
+                text: data.ai_job_search_context.purpose,
+              }),
+            ])
+          );
+
+          const mgmtWrap = document.getElementById("li-mgmt-links");
+          mgmtWrap.replaceChildren(
+            el("a", {
+              class: "li-btn",
+              href: data.account.profile_url,
+              target: "_blank",
+              rel: "noopener",
+              text: "Open Profile",
+            }),
+            ...data.subscription.management_links.map((item) =>
+              el("a", {
+                class: "li-btn",
+                href: item.url,
+                target: "_blank",
+                rel: "noopener",
+                text: item.label,
+              })
+            )
+          );
+
+          // 2. Features table (AI & new features first, then core features)
+          const featBody = document.getElementById("li-features-body");
+          const allFeatures = [
+            ...data.ai_and_new_features.map((f) => ({
+              ...f,
+              value: f.description,
+            })),
+            ...data.core_features.map((f) => ({
+              ...f,
+              value: f.job_search_value || f.description,
+            })),
+          ];
+          featBody.replaceChildren(
+            ...allFeatures.map((f) => {
+              const titleCell = el("td");
+              titleCell.append(document.createTextNode(f.name));
+              if (f.badge) {
+                titleCell.append(el("span", { class: "li-badge", text: f.badge }));
+              }
+              return el("tr", {}, [
+                titleCell,
+                el("td", { text: f.value }),
+                el("td", {}, [
+                  el("a", {
+                    class: "li-btn",
+                    href: f.url,
+                    target: "_blank",
+                    rel: "noopener",
+                    text: "Open",
+                  }),
+                ]),
+              ]);
+            })
+          );
+
+          // 3. Additional Playbook
+          const playGrid = document.getElementById("li-playbook-grid");
+          playGrid.replaceChildren(
+            ...(data.additional_job_search_capabilities || []).map((item) =>
+              el("div", { class: "li-card" }, [
+                el("p", { class: "li-card-title", text: item.capability }),
+                el("p", { class: "li-card-text", text: item.details }),
+              ])
+            )
+          );
+
+          // 4. Goals
+          const goalsGrid = document.getElementById("li-goals-grid");
+          goalsGrid.replaceChildren(
+            ...data.goals.map((g) =>
+              el("div", { class: "li-card" }, [
+                el("p", { class: "li-card-title", text: g.title }),
+                el("p", { class: "li-card-text", text: g.description }),
+              ])
+            )
+          );
+
+          // 5. Partner Perks
+          renderPerks();
+        }
+
+        function renderPerks() {
+          if (!planData) return;
+          const claimed = loadClaimed();
+          const perksBody = document.getElementById("li-perks-body");
+          const progressEl = document.getElementById("li-perks-progress");
+          let count = 0;
+
+          perksBody.replaceChildren(
+            ...planData.partner_perks.map((perk) => {
+              const isDone = Boolean(claimed[perk.id]);
+              if (isDone) count += 1;
+              const cb = el("input", {
+                type: "checkbox",
+                class: "li-perk-cb",
+                "aria-label": `Mark ${perk.provider} as claimed`,
+              });
+              cb.checked = isDone;
+              cb.addEventListener("change", () => {
+                const next = loadClaimed();
+                next[perk.id] = cb.checked;
+                saveClaimed(next);
+                renderPerks();
+              });
+              return el("tr", { class: isDone ? "li-row-done" : "" }, [
+                el("td", {}, [cb]),
+                el("td", { text: perk.provider }),
+                el("td", { text: perk.benefit }),
+                el("td", { text: perk.duration }),
+                el("td", {}, [
+                  el("a", {
+                    class: "li-btn",
+                    href: perk.url,
+                    target: "_blank",
+                    rel: "noopener",
+                    text: "Claim",
+                  }),
+                ]),
+              ]);
+            })
+          );
+
+          if (progressEl) {
+            progressEl.textContent = `${count} / ${planData.partner_perks.length} claimed`;
+          }
+        }
+
+        document.getElementById("li-export-json-btn")?.addEventListener("click", () => {
+          if (!planData) return;
+          const payload = buildExportPayload();
+          const blob = new Blob([JSON.stringify(payload, null, 2)], {
+            type: "application/json",
+          });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = "linkedin-plan-context.json";
+          document.body.append(a);
+          a.click();
+          a.remove();
+          URL.revokeObjectURL(url);
+        });
+
+        document.getElementById("li-copy-json-btn")?.addEventListener("click", async (e) => {
+          if (!planData) return;
+          const btn = e.currentTarget;
+          try {
+            await navigator.clipboard.writeText(
+              JSON.stringify(buildExportPayload(), null, 2)
+            );
+            const prev = btn.textContent;
+            btn.textContent = "Copied!";
+            setTimeout(() => {
+              btn.textContent = prev;
+            }, 1400);
+          } catch {
+            // ignore clipboard errors
+          }
+        });
+
+        fetch("/linkedin-plan.json")
+          .then((r) => {
+            if (!r.ok) throw new Error(`HTTP ${r.status}`);
+            return r.json();
+          })
+          .then(renderPlan)
+          .catch((err) => {
+            const accGrid = document.getElementById("li-account-grid");
+            if (accGrid) {
+              accGrid.textContent = `Failed to load /linkedin-plan.json: ${err.message}`;
+            }
+          });
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,237 @@
+{
+  "schema_version": "1.0",
+  "platform": "LinkedIn",
+  "account": {
+    "full_name": "Eduardo Matos de Assis Figueiredo",
+    "headline": "ANALISTA DE DADOS | PESQUISADOR | IA PARA MANIPULAÇÃO, CHECAGEM DE DADOS E INSIGHTS APLICADOS",
+    "location": "Campinas, São Paulo",
+    "current_company": "Bosch Brasil",
+    "profile_url": "https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b/"
+  },
+  "subscription": {
+    "plan_name": "Premium Business",
+    "status": "Active",
+    "renewal_date": "2026-12-15",
+    "renewal_date_display": "15 de dezembro de 2026",
+    "purchase_id": "1175210334",
+    "referral_offer": "2-month free demo of Premium Business for friends",
+    "management_links": [
+      {
+        "label": "Manage subscription",
+        "label_pt": "Gerenciar assinatura",
+        "url": "https://www.linkedin.com/manage/purchases-payments/purchases/1175210334/"
+      },
+      {
+        "label": "Edit payment method",
+        "label_pt": "Editar forma de pagamento",
+        "url": "https://www.linkedin.com/manage/purchases-payments/purchases/1175210334/"
+      },
+      {
+        "label": "Switch plan",
+        "label_pt": "Mudar de plano",
+        "url": "https://www.linkedin.com/premium/switcher/"
+      },
+      {
+        "label": "Video tips",
+        "label_pt": "Dicas de vídeo",
+        "url": "https://www.linkedin.com/learning/getting-started-with-premium-all-in-one-how-to-grow-your-business-on-linkedin/getting-started-with-linkedin-premium-all-in-one/?u=104"
+      },
+      {
+        "label": "Customer support",
+        "label_pt": "Suporte ao Cliente",
+        "url": "https://www.linkedin.com/help/linkedin/ask/PR-CGPA/"
+      },
+      {
+        "label": "Refer friends",
+        "label_pt": "Indicar amigos",
+        "url": "https://www.linkedin.com/premium/referrals/?referralType=PREMIUM&upsellOrderOrigin=premium_referrals_my_premium"
+      }
+    ]
+  },
+  "core_features": [
+    {
+      "id": "profile-views",
+      "name": "Who Viewed Your Profile",
+      "name_pt": "Saiba quem viu seu perfil",
+      "description": "See who viewed your profile over an extended window and expand your reach with recruiters and hiring managers.",
+      "job_search_value": "Identify recruiters or target-company managers checking your profile so you can follow up with a connection request or InMail.",
+      "url": "https://www.linkedin.com/analytics/profile-views/"
+    },
+    {
+      "id": "inmail",
+      "name": "InMail Direct Messaging",
+      "name_pt": "Mensagens diretas de InMail",
+      "description": "Send direct InMail messages to people outside your 1st-degree network.",
+      "job_search_value": "Reach hiring managers, talent acquisition leads, and team leads directly even without a mutual connection.",
+      "url": "https://www.linkedin.com/messaging/"
+    },
+    {
+      "id": "featured-section",
+      "name": "Featured Profile Details",
+      "name_pt": "Destaque os principais detalhes no topo do perfil",
+      "description": "Pin key work, portfolios, publications, or links at the top of your profile.",
+      "job_search_value": "Pin your GitHub Pages portfolio links (UX Researcher, Data Analyst, Product Owner, Digital Solution Architect) for instant recruiter visibility.",
+      "url": "https://www.linkedin.com/in/me/overlay/add-featured-profile-section-selection/"
+    },
+    {
+      "id": "services-page",
+      "name": "Services Page",
+      "name_pt": "Página de serviços",
+      "description": "Highlight consulting, research, or analytics services on your profile and in posts.",
+      "job_search_value": "Useful for freelance, consulting, or advisory leads alongside full-time roles.",
+      "url": "https://www.linkedin.com/services/page/edit/"
+    },
+    {
+      "id": "linkedin-learning",
+      "name": "LinkedIn Learning (22,000+ courses)",
+      "name_pt": "LinkedIn Learning",
+      "description": "Full access to 22,000+ expert-led courses with completion certificates.",
+      "job_search_value": "Close specific skill gaps mentioned in target job descriptions (e.g., Databricks, PySpark, Azure, Product Strategy) and display verified badges.",
+      "url": "https://www.linkedin.com/learning/"
+    }
+  ],
+  "ai_and_new_features": [
+    {
+      "id": "ai-coaching",
+      "name": "AI Coaching & Interview Role-Play",
+      "name_pt": "Coaching por IA",
+      "badge": "New",
+      "description": "Practice workplace conversations or prepare for upcoming job interviews with interactive AI role-play.",
+      "url": "https://www.linkedin.com/learning/role-play/scenarios/new/?u=0"
+    },
+    {
+      "id": "network-intros",
+      "name": "Network Introductions",
+      "name_pt": "Apresentações na rede",
+      "badge": "New",
+      "description": "Get personalized introduction suggestions through your strongest mutual connections.",
+      "url": "https://www.linkedin.com/mynetwork/"
+    },
+    {
+      "id": "ai-job-insights",
+      "name": "AI Job Insights",
+      "name_pt": "Estatísticas sobre vagas por IA",
+      "badge": "New",
+      "description": "Receive AI-generated tips on job postings and applicant fit to help your application stand out.",
+      "url": "https://www.linkedin.com/jobs/"
+    }
+  ],
+  "goals": [
+    {
+      "id": "network-pro",
+      "title": "Network like a pro",
+      "title_pt": "Faça networking como um profissional",
+      "description": "Tools to find, message, and connect with anyone.",
+      "url": "https://www.linkedin.com/premium/sb/explore/"
+    },
+    {
+      "id": "improve-profile",
+      "title": "Improve your profile",
+      "title_pt": "Aprimorar perfil",
+      "description": "Solutions to showcase your experience and stand out.",
+      "url": "https://www.linkedin.com/premium/sb/explore/"
+    },
+    {
+      "id": "work-smarter",
+      "title": "Work smarter",
+      "title_pt": "Trabalhe com mais inteligência",
+      "description": "Get exclusive data and AI-powered insights.",
+      "url": "https://www.linkedin.com/premium/sb/explore/"
+    },
+    {
+      "id": "grow-career",
+      "title": "Grow your career",
+      "title_pt": "Desenvolva sua carreira",
+      "description": "Access advanced tools to land your next job.",
+      "url": "https://www.linkedin.com/premium/sb/explore/"
+    }
+  ],
+  "partner_perks": [
+    {
+      "id": "youtube-premium-lite",
+      "provider": "YouTube Premium Lite",
+      "benefit": "Fewer ads, offline playback, and background features on personal account",
+      "duration": "3 months free",
+      "url": "https://www.linkedin.com/premium/premium-perks/"
+    },
+    {
+      "id": "lovable",
+      "provider": "Lovable",
+      "benefit": "Rapidly turn ideas into web apps with AI without coding boilerplate",
+      "duration": "1 year free",
+      "url": "https://www.linkedin.com/premium/premium-perks/"
+    },
+    {
+      "id": "granola-business",
+      "provider": "Granola Business",
+      "benefit": "AI notebook to organize notes before, during, and after meetings/interviews",
+      "duration": "6 months free",
+      "url": "https://www.linkedin.com/premium/premium-perks/"
+    },
+    {
+      "id": "headway-premium",
+      "provider": "Headway Premium",
+      "benefit": "15-minute daily summaries on negotiation, leadership, and personal branding",
+      "duration": "4 months free",
+      "url": "https://www.linkedin.com/premium/premium-perks/"
+    },
+    {
+      "id": "headspace",
+      "provider": "Headspace",
+      "benefit": "Mental health tools for better sleep, focus, and lower anxiety",
+      "duration": "4 months free",
+      "url": "https://www.linkedin.com/premium/premium-perks/"
+    },
+    {
+      "id": "notion-business",
+      "provider": "Notion Business",
+      "benefit": "Write, plan, and organize job search or projects with Notion AI",
+      "duration": "3 months free",
+      "url": "https://www.linkedin.com/premium/premium-perks/"
+    },
+    {
+      "id": "nordvpn-basic",
+      "provider": "NordVPN Basic",
+      "benefit": "Private and secure browsing across devices",
+      "duration": "3 months free",
+      "url": "https://www.linkedin.com/premium/premium-perks/"
+    }
+  ],
+  "additional_job_search_capabilities": [
+    {
+      "capability": "Applicant & Company Insights on Job Listings",
+      "details": "Premium reveals how your skills compare against other applicants, total applicant count trends, company headcount growth, and hiring department patterns on https://www.linkedin.com/jobs/."
+    },
+    {
+      "capability": "Recruiter Search & Open-to-Work Visibility",
+      "details": "Setting 'Open to Work (Recruiters only)' plus matching headline/skills boosts visibility in LinkedIn Recruiter queries for UX Researcher, Data Analyst, Product Owner, and Digital Solution Architect roles."
+    },
+    {
+      "capability": "Top-Choice Job / Direct Hiring-Team Outreach",
+      "details": "Combine LinkedIn Jobs discovery with People search at target companies and InMail credits to message hiring managers directly with the matching GitHub Pages portfolio link."
+    },
+    {
+      "capability": "Interview Prep & Meeting Notes Stack",
+      "details": "Use LinkedIn AI Coaching (role-play) together with Granola Business (6 months free perk) to structure interview prep and post-interview follow-ups."
+    }
+  ],
+  "ai_job_search_context": {
+    "purpose": "Context for AI companions: LinkedIn is an active primary platform for job discovery, recruiter visibility, direct hiring-manager outreach, and interview preparation, powered by an active Premium Business subscription.",
+    "how_ai_should_use_linkedin": [
+      "Treat LinkedIn (https://www.linkedin.com/jobs/) as a first-class job-search channel alongside company career portals.",
+      "Leverage Premium Business features: AI Job Insights to tailor applications, InMail to contact recruiters/hiring managers directly, Profile Views to spot warm leads, and Network Introductions for referrals.",
+      "Align the LinkedIn Featured section and outreach messages with the user's 4 public GitHub Pages portfolios (ux-researcher, data-analyst, product-owner, digital-solution-architect).",
+      "Note that the Premium Business plan renews on 2026-12-15, so time-sensitive perks (Lovable, Granola Business, Notion Business, Headway) and active job-search campaigns can be maximized before renewal."
+    ],
+    "key_urls": {
+      "profile": "https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b/",
+      "jobs": "https://www.linkedin.com/jobs/",
+      "messaging_inmail": "https://www.linkedin.com/messaging/",
+      "profile_views": "https://www.linkedin.com/analytics/profile-views/",
+      "network": "https://www.linkedin.com/mynetwork/",
+      "learning": "https://www.linkedin.com/learning/",
+      "ai_coaching": "https://www.linkedin.com/learning/role-play/scenarios/new/?u=0",
+      "perks": "https://www.linkedin.com/premium/premium-perks/"
+    }
+  }
+}

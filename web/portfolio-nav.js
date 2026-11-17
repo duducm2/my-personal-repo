@@ -75,23 +75,53 @@ window.addEventListener("resize", () => {
 });
 }
 
-// Ensure every portal page header has a Publish button linking to /publish.html
+// Ensure every portal page header has Publish and LinkedIn Plan buttons
 (() => {
   const actions = document.querySelector(".hero-actions");
   if (!actions) return;
-  if (actions.querySelector('a[href="/publish.html"]')) return;
-  const link = document.createElement("a");
-  link.className = "nav-btn";
-  link.href = "/publish.html";
-  link.title = "Step-by-step GitHub Pages publishing guide";
-  const span = document.createElement("span");
-  span.className = "section-title-en";
-  span.textContent = "Publish";
-  link.append(span);
-  const anchor = actions.querySelector(".portfolio-nav");
-  if (anchor && anchor.nextSibling) {
-    actions.insertBefore(link, anchor.nextSibling);
-  } else {
-    actions.append(link);
-  }
+
+  const ensureHeaderLink = (href, label, title, afterEl) => {
+    const existing = actions.querySelector(`a[href="${href}"]`);
+    if (existing) {
+      if (location.pathname === href) {
+        existing.classList.add("is-active");
+        existing.setAttribute("aria-current", "page");
+      }
+      return existing;
+    }
+    const link = document.createElement("a");
+    link.className = "nav-btn";
+    if (location.pathname === href) {
+      link.classList.add("is-active");
+      link.setAttribute("aria-current", "page");
+    }
+    link.href = href;
+    link.title = title;
+    const span = document.createElement("span");
+    span.className = "section-title-en";
+    span.textContent = label;
+    link.append(span);
+    if (afterEl && afterEl.nextSibling) {
+      actions.insertBefore(link, afterEl.nextSibling);
+    } else if (afterEl) {
+      actions.append(link);
+    } else {
+      actions.append(link);
+    }
+    return link;
+  };
+
+  const portfolioNav = actions.querySelector(".portfolio-nav");
+  const publishLink = ensureHeaderLink(
+    "/publish.html",
+    "Publish",
+    "Step-by-step GitHub Pages publishing guide",
+    portfolioNav
+  );
+  ensureHeaderLink(
+    "/linkedin-plan.html",
+    "LinkedIn Plan",
+    "LinkedIn Premium Business plan & AI job-search context",
+    publishLink
+  );
 })();
