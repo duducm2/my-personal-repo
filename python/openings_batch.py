@@ -201,20 +201,54 @@ def run_batch_extraction(
             str(result_path),
         ]
         log_info(f"Starting batch extraction for {len(manifest_lines)} companies", {"ids": selected_ids})
-        completed = subprocess.run(  # noqa: S603
-            command,
-            check=False,
-            capture_output=True,
-            text=True,
-            encoding="utf-8",
-            errors="replace",
-            timeout=timeout,
-        )
+        import career_ahk
+
+        use_schtasks = not career_ahk._is_default_desktop()
+        if use_schtasks:
+            bat_path = tmp_dir / "run_batch.bat"
+            bat_parts = [
+                f'"{part}"' if (" " in part or not part.startswith("--")) else part
+                for part in command
+            ]
+            bat_path.write_text(f"@echo off\n{' '.join(bat_parts)}\n", encoding="ascii", errors="ignore")
+            vbs_path = tmp_dir / "run_batch.vbs"
+            vbs_path.write_text(
+                f'Set sh = CreateObject("WScript.Shell")\nsh.Run """{bat_path}""", 0, False\n',
+                encoding="ascii",
+                errors="ignore",
+            )
+            tn = f"CareerBatch_{os.getpid()}"
+            try:
+                subprocess.run(
+                    ["schtasks", "/create", "/tn", tn, "/tr", f'wscript.exe "{vbs_path}"', "/sc", "once", "/st", "23:59", "/it", "/f"],
+                    check=False,
+                    capture_output=True,
+                )
+                subprocess.run(["schtasks", "/run", "/tn", tn], check=False, capture_output=True)
+                deadline = time.monotonic() + timeout
+                while time.monotonic() < deadline:
+                    if result_path.is_file() and result_path.stat().st_size > 0:
+                        break
+                    time.sleep(0.25)
+            finally:
+                subprocess.run(["schtasks", "/delete", "/tn", tn, "/f"], check=False, capture_output=True)
+            completed_detail = f"schtasks timeout after {int(timeout)}s"
+        else:
+            completed = subprocess.run(  # noqa: S603
+                command,
+                check=False,
+                capture_output=True,
+                text=True,
+                encoding="utf-8",
+                errors="replace",
+                timeout=timeout,
+            )
+            completed_detail = (completed.stderr or completed.stdout or f"exit {completed.returncode}").strip()
+
         if result_path.is_file():
             payload = json.loads(result_path.read_text(encoding="utf-8-sig"))
         else:
-            detail = (completed.stderr or completed.stdout or f"exit {completed.returncode}").strip()
-            raise RuntimeError(f"Batch AHK produced no result: {detail[:600]}")
+            raise RuntimeError(f"Batch AHK produced no result: {completed_detail[:600]}")
 
         payload["desktop_dir"] = str(get_desktop_dir())
         return payload

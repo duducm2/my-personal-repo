@@ -2,9 +2,8 @@
 #SingleInstance Force
 
 #Include "C:\Users\eduev\Documents\UIA-v2\Lib\UIA.ahk"
-#Include "C:\Users\eduev\Documents\UIA-v2\Lib\UIA_Browser.ahk"
 
-; Phase 2: Batch Extraction Script
+; Phase 2: Batch Extraction Script (Direct UIA, lock-safe clipboard, multi-button expansion)
 ; Usage: AutoHotkey64.exe batch_extract_openings.ahk --manifest <tsv_path> --result <json_path>
 
 manifestPath := ""
@@ -34,16 +33,6 @@ if (manifestPath = "" || !FileExist(manifestPath)) {
 rawManifest := FileRead(manifestPath, "UTF-8")
 lines := StrSplit(rawManifest, "`n", "`r")
 
-if !WinExist("ahk_exe chrome.exe") {
-    Run("chrome.exe --new-window about:blank")
-    WinWaitActive("ahk_exe chrome.exe", , 15)
-    Sleep 1200
-} else {
-    WinActivate("ahk_exe chrome.exe")
-    WinWaitActive("ahk_exe chrome.exe", , 5)
-}
-
-cUIA := UIA_Browser()
 itemsJson := ""
 processedCount := 0
 
@@ -75,49 +64,80 @@ for line in lines {
     charsWritten := 0
 
     try {
-        cUIA.Navigate(url)
-        try cUIA.WaitPageLoad(, 12000)
-        Sleep waitMs
+        LogStep("START " cid " url=" url)
+        chromeHwnd := OpenPortalUrlInChrome(url, waitMs)
+        LogStep("OPENED chromeHwnd=" chromeHwnd " title=" (chromeHwnd ? WinGetTitle("ahk_id " chromeHwnd) : ""))
+        if (!chromeHwnd)
+            throw Error("Could not find or activate Chrome window for " url)
+
+        docEl := WaitDocumentElement(chromeHwnd, 12000)
+        LogStep("DOCEL=" (IsObject(docEl) ? "OK" : "NONE"))
+        if (!docEl)
+            throw Error("Timed out waiting for browser Document element")
 
         collected := ""
         if (strategy = "load_more_button" && btnName != "") {
+            ; Tier 1: scroll to bottom so lazy-loaded groups (e.g. SmartRecruiters city sections) render
+            ScrollToBottomPasses(chromeHwnd, 4, 700)
+            LogStep("SCROLLED tier1")
+
+            ; Tier 2: click every matching Hyperlink/Button ("Mostrar mais" / "Show more") across rounds
             clicks := 0
-            while (clicks < maxClicks) {
-                ScrollDocBottom(cUIA)
-                Sleep 500
-                btn := FindActionControl(cUIA, btnType, btnName)
-                if !btn
+            roundIdx := 0
+            while (clicks < maxClicks && roundIdx < maxClicks) {
+                roundIdx += 1
+                docEl := WaitDocumentElement(chromeHwnd, 5000)
+                if (!docEl)
                     break
-                try {
-                    if !btn.IsEnabled
+
+                matches := FindAllMatchingControls(docEl, btnType, btnName)
+                LogStep("ROUND " roundIdx " matches=" matches.Length)
+                if (matches.Length = 0) {
+                    ; Scroll down once more to check if another lazy group just appeared
+                    ScrollToBottomPasses(chromeHwnd, 2, 700)
+                    docEl := WaitDocumentElement(chromeHwnd, 4000)
+                    if (docEl)
+                        matches := FindAllMatchingControls(docEl, btnType, btnName)
+                    if (matches.Length = 0)
                         break
                 }
-                try {
-                    btn.ScrollIntoView()
-                    Sleep 200
-                    btn.Click()
-                } catch {
-                    break
+
+                clickedThisRound := 0
+                for el in matches {
+                    if (clicks >= maxClicks)
+                        break
+                    try {
+                        if !el.IsEnabled
+                            continue
+                    }
+                    if ClickUiaElement(chromeHwnd, el) {
+                        clicks += 1
+                        clickedThisRound += 1
+                        pagesVisited += 1
+                        Sleep 1300
+                    }
                 }
-                clicks += 1
-                pagesVisited += 1
-                Sleep waitMs
+                if (clickedThisRound = 0)
+                    break
+                ScrollToBottomPasses(chromeHwnd, 2, 700)
             }
-            ScrollDocBottom(cUIA)
-            Sleep 400
-            collected := CopyPageText(cUIA, extractMode)
+            ScrollToBottomPasses(chromeHwnd, 2, 500)
+            collected := CopyDocumentText(chromeHwnd, extractMode)
         } else if (strategy = "numbered_pagination" && btnName != "") {
             pageNum := 1
             while (pageNum <= maxClicks) {
-                ScrollDocBottom(cUIA)
-                Sleep 350
-                pageTxt := CopyPageText(cUIA, extractMode)
+                ScrollToBottomPasses(chromeHwnd, 2, 450)
+                pageTxt := CopyDocumentText(chromeHwnd, extractMode)
                 if (pageTxt != "") {
                     collected .= "=== PAGE " pageNum " ===`r`n" pageTxt "`r`n`r`n"
                 }
-                btn := FindActionControl(cUIA, btnType, btnName)
-                if !btn
+                docEl := WaitDocumentElement(chromeHwnd, 5000)
+                if (!docEl)
                     break
+                matches := FindAllMatchingControls(docEl, btnType, btnName)
+                if (matches.Length = 0)
+                    break
+                btn := matches[1]
                 disabled := false
                 try {
                     if !btn.IsEnabled
@@ -125,27 +145,18 @@ for line in lines {
                 }
                 if (disabled)
                     break
-                try {
-                    btn.ScrollIntoView()
-                    Sleep 200
-                    btn.Click()
-                } catch {
+                if !ClickUiaElement(chromeHwnd, btn)
                     break
-                }
                 pageNum += 1
                 pagesVisited := pageNum
                 Sleep waitMs
             }
         } else if (strategy = "infinite_scroll") {
-            Loop maxClicks {
-                ScrollDocStep(cUIA, A_Index * 20)
-                Sleep 600
-            }
-            collected := CopyPageText(cUIA, extractMode)
+            ScrollToBottomPasses(chromeHwnd, maxClicks, 650)
+            collected := CopyDocumentText(chromeHwnd, extractMode)
         } else {
-            ScrollDocBottom(cUIA)
-            Sleep 400
-            collected := CopyPageText(cUIA, extractMode)
+            ScrollToBottomPasses(chromeHwnd, 3, 500)
+            collected := CopyDocumentText(chromeHwnd, extractMode)
         }
 
         header := "COMPANY_ID: " cid "`r`nCOMPANY_NAME: " cname "`r`nPORTAL_URL: " url "`r`nEXTRACTED_AT: " FormatTime(, "yyyy-MM-dd HH:mm:ss") "`r`n`r`n"
@@ -153,7 +164,11 @@ for line in lines {
         charsWritten := StrLen(finalText)
 
         try FileDelete(outPath)
-        FileAppend(finalText, outPath, "UTF-8")
+        f := FileOpen(outPath, "w", "UTF-8-RAW")
+        if (!f)
+            throw Error("Failed to open output file: " outPath)
+        f.Write(finalText)
+        f.Close()
         ok := true
     } catch as e {
         errMsg := e.Message
@@ -168,58 +183,309 @@ ToolTip
 WriteResultJson(resultPath, true, "", "[" itemsJson "]")
 ExitApp 0
 
-FindActionControl(cUIA, btnType, btnName) {
-    docEl := ""
-    try docEl := cUIA.GetCurrentDocumentElement()
-    if !docEl
+IsCareerCockpitTitle(title) {
+    text := StrLower(title)
+    return InStr(text, "job openings")
+        || InStr(text, "target companies")
+        || InStr(text, "job portals")
+        || InStr(text, "career profile")
+        || InStr(text, "people")
+        || InStr(text, "hiring 2026")
+        || InStr(text, "career advice")
+        || InStr(text, "keyboard shortcuts")
+        || InStr(text, ":8770")
+}
+
+IsCompanionTitle(title) {
+    text := StrLower(title)
+    return InStr(text, "gemini")
+        || InStr(text, "copilot")
+        || InStr(text, "chatgpt")
+        || InStr(text, "claude")
+}
+
+IsRealBrowserWindow(hwnd) {
+    t := ""
+    try t := Trim(WinGetTitle("ahk_id " hwnd))
+    catch
+        return false
+    if (t = "" || IsCareerCockpitTitle(t) || IsCompanionTitle(t))
+        return false
+    if (InStr(t, "Traduzir") || InStr(t, "Translate"))
+        return false
+    x := 0, y := 0, w := 0, h := 0
+    try WinGetPos(&x, &y, &w, &h, "ahk_id " hwnd)
+    catch
+        return false
+    return (w >= 500 && h >= 350)
+}
+
+FindNonCockpitChromeWindow() {
+    for hwnd in WinGetList("ahk_exe chrome.exe") {
+        if IsRealBrowserWindow(hwnd)
+            return hwnd
+    }
+    return 0
+}
+
+FindChromeExe() {
+    for p in [
+        EnvGet("ProgramFiles") "\Google\Chrome\Application\chrome.exe",
+        EnvGet("ProgramFiles(x86)") "\Google\Chrome\Application\chrome.exe",
+        EnvGet("LOCALAPPDATA") "\Google\Chrome\Application\chrome.exe"
+    ] {
+        if (p != "" && FileExist(p))
+            return p
+    }
+    return "chrome.exe"
+}
+
+OpenPortalUrlInChrome(url, waitMs) {
+    existing := Map()
+    for h in WinGetList("ahk_exe chrome.exe")
+        existing[h] := true
+
+    chromeExe := FindChromeExe()
+    batchProfile := EnvGet("LOCALAPPDATA") "\career-batch-chrome"
+    Run('"' chromeExe '" --user-data-dir="' batchProfile '" --no-first-run --no-default-browser-check --new-window "' url '"')
+    Sleep Max(2500, waitMs)
+    deadline := A_TickCount + 15000
+    hwnd := 0
+    while (A_TickCount < deadline) {
+        for h in WinGetList("ahk_exe chrome.exe") {
+            if (!existing.Has(h) && IsRealBrowserWindow(h)) {
+                hwnd := h
+                break
+            }
+        }
+        if (hwnd)
+            break
+        hwnd := FindNonCockpitChromeWindow()
+        if (hwnd)
+            break
+        Sleep 300
+    }
+    if (hwnd) {
+        try {
+            WinActivate("ahk_id " hwnd)
+            WinWaitActive("ahk_id " hwnd, , 4)
+        }
+        ; Wait briefly if still on blank/loading tab title
+        tDeadline := A_TickCount + 5000
+        while (A_TickCount < tDeadline) {
+            t := ""
+            try t := StrLower(Trim(WinGetTitle("ahk_id " hwnd)))
+            if (t != "" && !InStr(t, "new tab") && !InStr(t, "nova guia") && !InStr(t, "about:blank"))
+                break
+            Sleep 250
+        }
+    }
+    if (!hwnd) {
+        for h in WinGetList("ahk_exe chrome.exe") {
+            t := ""
+            try t := Trim(WinGetTitle("ahk_id " h))
+            x := 0, y := 0, w := 0, hh := 0
+            try WinGetPos(&x, &y, &w, &hh, "ahk_id " h)
+            LogStep("CANDIDATE hwnd=" h " w=" w " h=" hh " title=" t)
+        }
+    }
+    return hwnd
+}
+
+WaitDocumentElement(chromeHwnd, timeoutMs := 10000) {
+    deadline := A_TickCount + timeoutMs
+    while (A_TickCount < deadline) {
+        try {
+            root := UIA.ElementFromHandle(chromeHwnd)
+            if (IsObject(root)) {
+                doc := root.FindFirst(UIA.CreatePropertyCondition(UIA.Property.Type, UIA.Type.Document))
+                if (IsObject(doc))
+                    return doc
+            }
+        }
+        Sleep 250
+    }
+    return ""
+}
+
+FocusDocumentBody(chromeHwnd) {
+    WinActivate("ahk_id " chromeHwnd)
+    WinWaitActive("ahk_id " chromeHwnd, , 3)
+    docEl := WaitDocumentElement(chromeHwnd, 3000)
+    if (docEl) {
+        try docEl.SetFocus()
+        try {
+            pos := docEl.GetPos("screen")
+            if (pos && pos.w > 80 && pos.h > 80) {
+                CoordMode("Mouse", "Screen")
+                Click(pos.x + 24, pos.y + 24)
+                Sleep 120
+                return
+            }
+        }
+    }
+}
+
+ScrollToBottomPasses(chromeHwnd, passes := 3, delayMs := 600) {
+    FocusDocumentBody(chromeHwnd)
+    Loop passes {
+        Send("^{End}")
+        Sleep delayMs
+    }
+}
+
+FindAllMatchingControls(docEl, btnTypeSpec, btnNameSpec) {
+    results := []
+    seen := Map()
+    types := []
+    for t in StrSplit(btnTypeSpec != "" ? btnTypeSpec : "Hyperlink|Button", "|") {
+        t := Trim(t)
+        if (t != "")
+            types.Push(t)
+    }
+    if (types.Length = 0)
+        types := ["Hyperlink", "Button"]
+
+    names := []
+    for n in StrSplit(btnNameSpec, "|") {
+        n := Trim(n)
+        if (n != "")
+            names.Push(n)
+    }
+    if (names.Length = 0)
+        return results
+
+    for tName in types {
+        for pat in names {
+            els := []
+            try els := docEl.FindElements({Type: tName, Name: pat, matchmode: "Substring"})
+            for el in els {
+                nm := ""
+                try nm := Trim(el.Name)
+                key := nm
+                try {
+                    p := el.GetPos("screen")
+                    key .= "@" p.x "," p.y
+                }
+                if !seen.Has(key) {
+                    seen[key] := true
+                    results.Push(el)
+                }
+            }
+        }
+    }
+    return results
+}
+
+LogStep(msg) {
+    static logPath := A_ScriptDir "\..\..\my-data\debug\batch_ahk.log"
+    try FileAppend(FormatTime(, "HH:mm:ss") " " msg "`r`n", logPath, "UTF-8")
+}
+
+ClickUiaElement(chromeHwnd, el) {
+    try {
+        WinActivate("ahk_id " chromeHwnd)
+        el.ScrollIntoView()
+        Sleep 250
+    }
+    try {
+        el.Click()
+        return true
+    }
+    try {
+        el.Invoke()
+        return true
+    }
+    try {
+        p := el.GetPos("screen")
+        if (p && p.w > 0 && p.h > 0) {
+            CoordMode("Mouse", "Screen")
+            Click(p.x + p.w // 2, p.y + p.h // 2)
+            return true
+        }
+    }
+    return false
+}
+
+ClipboardUnicode() {
+    opened := false
+    loop 20 {
+        if DllCall("OpenClipboard", "Ptr", 0) {
+            opened := true
+            break
+        }
+        Sleep 50
+    }
+    if (!opened)
         return ""
-    t := (btnType != "" ? btnType : "Button")
+    text := ""
     try {
-        el := docEl.FindElement({Type: t, Name: btnName, matchmode: "Substring"})
-        if el
-            return el
+        handle := DllCall("GetClipboardData", "UInt", 13, "Ptr")
+        if (handle) {
+            ptr := DllCall("GlobalLock", "Ptr", handle, "Ptr")
+            if (ptr) {
+                text := StrGet(ptr, "UTF-16")
+                DllCall("GlobalUnlock", "Ptr", handle)
+            }
+        }
+    } catch {
+        text := ""
     }
-    try {
-        el := docEl.FindElement({Name: btnName, matchmode: "Substring"})
-        if el
-            return el
-    }
-    return ""
+    DllCall("CloseClipboard")
+    return text
 }
 
-ScrollDocBottom(cUIA) {
-    try {
-        docEl := cUIA.GetCurrentDocumentElement()
-        if docEl
-            docEl.VerticalScrollPercent := 100
+ClearClipboardSafe() {
+    loop 15 {
+        if DllCall("OpenClipboard", "Ptr", 0) {
+            DllCall("EmptyClipboard")
+            DllCall("CloseClipboard")
+            return true
+        }
+        Sleep 40
     }
+    return false
 }
 
-ScrollDocStep(cUIA, pct) {
-    try {
-        docEl := cUIA.GetCurrentDocumentElement()
-        if docEl
-            docEl.VerticalScrollPercent := Min(100, pct)
-    }
-}
-
-CopyPageText(cUIA, extractMode) {
+CopyDocumentText(chromeHwnd, extractMode) {
     if (extractMode = "uia_dump") {
-        try return cUIA.GetCurrentDocumentElement().DumpAll()
+        docEl := WaitDocumentElement(chromeHwnd, 3000)
+        if (docEl) {
+            try return docEl.DumpAll()
+        }
     }
-    A_Clipboard := ""
-    WinActivate("ahk_exe chrome.exe")
-    Sleep 150
+
+    FocusDocumentBody(chromeHwnd)
+    before := ClipboardUnicode()
+    ClearClipboardSafe()
+    Sleep 100
     Send("^a")
-    Sleep 150
+    Sleep 200
     Send("^c")
-    if ClipWait(2) {
-        txt := A_Clipboard
-        if (StrLen(Trim(txt)) > 0)
-            return txt
+
+    txt := ""
+    deadline := A_TickCount + 3000
+    while (A_TickCount < deadline) {
+        Sleep 150
+        candidate := ClipboardUnicode()
+        if (StrLen(Trim(candidate)) > 0 && candidate != before) {
+            txt := candidate
+            break
+        }
+        if (StrLen(Trim(candidate)) > 200) {
+            txt := candidate
+            break
+        }
     }
-    try return cUIA.GetCurrentDocumentElement().DumpAll()
-    return ""
+
+    if (StrLen(Trim(txt)) >= 100)
+        return txt
+
+    docEl := WaitDocumentElement(chromeHwnd, 3000)
+    if (docEl) {
+        try return docEl.DumpAll()
+    }
+    return txt
 }
 
 JsonEsc(s) {
@@ -236,5 +502,9 @@ WriteResultJson(path, ok, errMsg, itemsArrayJson) {
         return
     try FileDelete(path)
     json := '{"ok":' (ok ? "true" : "false") ',"error":"' JsonEsc(errMsg) '","items":' itemsArrayJson '}'
-    FileAppend(json, path, "UTF-8")
+    f := FileOpen(path, "w", "UTF-8-RAW")
+    if (f) {
+        f.Write(json)
+        f.Close()
+    }
 }

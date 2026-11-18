@@ -3,19 +3,19 @@
     "family": "SmartRecruiters",
     "strategy": "load_more_button",
     "url": "https://careers.smartrecruiters.com/BoschGroup/brazil",
-    "button_match": { "Type": "Button", "Name": "Show more", "matchmode": "Substring" },
-    "max_clicks": 15,
-    "wait_ms": 2500,
+    "button_match": { "Type": "Hyperlink|Button", "Name": "Mostrar mais|Show more", "matchmode": "Substring" },
+    "max_clicks": 25,
+    "wait_ms": 3500,
     "extract_mode": "ctrl_a_copy",
-    "notes": "SmartRecruiters Brazil board; click Show more jobs until all listings render."
+    "notes": "SmartRecruiters Brazil board; scroll to load all city groups and click every 'Mostrar mais empregos' / 'Show more jobs' link until all openings are visible."
   },
   "bosch-brasil-internal": {
     "family": "SmartRecruiters",
     "strategy": "load_more_button",
     "url": "https://www.smartrecruiters.com/app/employee-portal/58652035e4b04016904de9fe/",
-    "button_match": { "Type": "Button", "Name": "more", "matchmode": "Substring" },
-    "max_clicks": 15,
-    "wait_ms": 3000,
+    "button_match": { "Type": "Hyperlink|Button", "Name": "Mostrar mais|Show more|more", "matchmode": "Substring" },
+    "max_clicks": 25,
+    "wait_ms": 3500,
     "extract_mode": "ctrl_a_copy",
     "notes": "Bosch internal SmartRecruiters portal (requires SSO session); click load-more until exhausted."
   },
