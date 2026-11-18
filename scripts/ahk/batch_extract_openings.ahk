@@ -62,6 +62,7 @@ for line in lines {
     errMsg := ""
     pagesVisited := 1
     charsWritten := 0
+    chromeHwnd := 0
 
     try {
         LogStep("START " cid " url=" url)
@@ -172,6 +173,8 @@ for line in lines {
         ok := true
     } catch as e {
         errMsg := e.Message
+    } finally {
+        CloseBatchChromeWindow(chromeHwnd)
     }
 
     if (itemsJson != "")
@@ -270,15 +273,16 @@ OpenPortalUrlInChrome(url, waitMs) {
             WinActivate("ahk_id " hwnd)
             WinWaitActive("ahk_id " hwnd, , 4)
         }
-        ; Wait briefly if still on blank/loading tab title
-        tDeadline := A_TickCount + 5000
+        ; Wait until tab finishes initial load (leaves New Tab / Sem título / Untitled)
+        tDeadline := A_TickCount + 12000
         while (A_TickCount < tDeadline) {
             t := ""
             try t := StrLower(Trim(WinGetTitle("ahk_id " hwnd)))
-            if (t != "" && !InStr(t, "new tab") && !InStr(t, "nova guia") && !InStr(t, "about:blank"))
+            if (t != "" && !InStr(t, "new tab") && !InStr(t, "nova guia") && !InStr(t, "sem título") && !InStr(t, "untitled") && !InStr(t, "about:blank"))
                 break
-            Sleep 250
+            Sleep 300
         }
+        Sleep 1500
     }
     if (!hwnd) {
         for h in WinGetList("ahk_exe chrome.exe") {
@@ -290,6 +294,17 @@ OpenPortalUrlInChrome(url, waitMs) {
         }
     }
     return hwnd
+}
+
+CloseBatchChromeWindow(hwnd) {
+    if (!hwnd)
+        return
+    t := ""
+    try t := Trim(WinGetTitle("ahk_id " hwnd))
+    if (t != "" && (IsCareerCockpitTitle(t) || IsCompanionTitle(t)))
+        return
+    try WinClose("ahk_id " hwnd)
+    Sleep 350
 }
 
 WaitDocumentElement(chromeHwnd, timeoutMs := 10000) {

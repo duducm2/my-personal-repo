@@ -21,43 +21,43 @@
   },
   "eldorado-campinas": {
     "family": "Gupy",
-    "strategy": "numbered_pagination",
+    "strategy": "single_page_copy",
     "url": "https://institutoeldorado.gupy.io/",
-    "button_match": { "Type": "Button", "Name": "Próxima", "matchmode": "Substring" },
-    "max_clicks": 10,
-    "wait_ms": 2500,
+    "button_match": null,
+    "max_clicks": 5,
+    "wait_ms": 3000,
     "extract_mode": "ctrl_a_copy",
-    "notes": "Gupy standard job board; paginate through Próxima página if present."
+    "notes": "Gupy Next.js board renders all jobs on the initial page; scroll and copy."
   },
   "ciandt-campinas": {
-    "family": "Lever / Custom",
-    "strategy": "infinite_scroll",
-    "url": "https://ciandt.com/br/pt-br/carreiras",
-    "button_match": null,
-    "max_clicks": 10,
-    "wait_ms": 2500,
-    "extract_mode": "ctrl_a_copy",
-    "notes": "Scroll to render all listings before copying."
-  },
-  "cpqd-campinas": {
     "family": "Custom",
     "strategy": "load_more_button",
-    "url": "https://www.cpqd.com.br/trabalhe-conosco/",
-    "button_match": { "Type": "Button", "Name": "Ver mais", "matchmode": "Substring" },
-    "max_clicks": 10,
+    "url": "https://ciandt.com/br/pt-br/carreiras/oportunidades",
+    "button_match": { "Type": "Hyperlink|Button", "Name": "Carregar mais|Load more|Ver mais", "matchmode": "Substring" },
+    "max_clicks": 15,
+    "wait_ms": 3000,
+    "extract_mode": "ctrl_a_copy",
+    "notes": "CI&T Brazil opportunities board; expand any load-more button and copy."
+  },
+  "cpqd-campinas": {
+    "family": "Recruitee",
+    "strategy": "single_page_copy",
+    "url": "https://cpqd.recruitee.com/",
+    "button_match": null,
+    "max_clicks": 5,
     "wait_ms": 2500,
     "extract_mode": "ctrl_a_copy",
-    "notes": "CPqD careers page; click Ver mais if present, then copy."
+    "notes": "CPqD Recruitee board; all open roles render on the main page."
   },
   "cpfl-campinas": {
-    "family": "Custom",
-    "strategy": "numbered_pagination",
-    "url": "https://vagas.cpfl.com.br/",
-    "button_match": { "Type": "Hyperlink", "Name": "Próxima", "matchmode": "Substring" },
-    "max_clicks": 10,
-    "wait_ms": 2500,
+    "family": "SAP SuccessFactors",
+    "strategy": "single_page_copy",
+    "url": "https://vagas.cpfl.com.br/search/",
+    "button_match": null,
+    "max_clicks": 5,
+    "wait_ms": 3000,
     "extract_mode": "ctrl_a_copy",
-    "notes": "CPFL careers portal; paginate if Próxima is present."
+    "notes": "CPFL SuccessFactors search table; renders 50+ roles directly."
   },
   "agibank-campinas": {
     "family": "Custom",
@@ -70,14 +70,14 @@
     "notes": "Agibank openings list; scroll and copy all."
   },
   "samsung-srbr-campinas": {
-    "family": "Custom",
-    "strategy": "load_more_button",
-    "url": "https://research.samsung.com/careers",
-    "button_match": { "Type": "Button", "Name": "More", "matchmode": "Substring" },
+    "family": "Workday",
+    "strategy": "numbered_pagination",
+    "url": "https://sec.wd3.myworkdayjobs.com/Samsung_Careers?locations=189767dd6c9201d01d574c89a529dc7f",
+    "button_match": { "Type": "Button", "Name": "next", "matchmode": "Substring" },
     "max_clicks": 10,
-    "wait_ms": 2500,
+    "wait_ms": 3500,
     "extract_mode": "ctrl_a_copy",
-    "notes": "Samsung Research careers; click More if present, then copy."
+    "notes": "Samsung Research Brazil (Campinas) Workday tenant; iterate Next button across pages."
   },
   "indecx-campinas": {
     "family": "Custom",
@@ -87,47 +87,47 @@
     "max_clicks": 3,
     "wait_ms": 2500,
     "extract_mode": "ctrl_a_copy",
-    "notes": "IndeCX careers / main site; scroll and copy."
+    "notes": "IndeCX site; scroll and copy."
   },
   "leega-brasil": {
     "family": "Gupy",
-    "strategy": "numbered_pagination",
+    "strategy": "single_page_copy",
     "url": "https://leega.gupy.io/",
-    "button_match": { "Type": "Button", "Name": "Próxima", "matchmode": "Substring" },
-    "max_clicks": 10,
-    "wait_ms": 2500,
+    "button_match": null,
+    "max_clicks": 5,
+    "wait_ms": 3000,
     "extract_mode": "ctrl_a_copy",
-    "notes": "Gupy standard job board."
+    "notes": "Gupy Next.js board renders all jobs on the initial page; scroll and copy."
   },
   "ambev-tech-campinas": {
     "family": "Gupy",
-    "strategy": "numbered_pagination",
+    "strategy": "single_page_copy",
     "url": "https://ambevtech.gupy.io/",
-    "button_match": { "Type": "Button", "Name": "Próxima", "matchmode": "Substring" },
-    "max_clicks": 10,
-    "wait_ms": 2500,
+    "button_match": null,
+    "max_clicks": 5,
+    "wait_ms": 3000,
     "extract_mode": "ctrl_a_copy",
-    "notes": "Gupy standard job board."
+    "notes": "Gupy Next.js board renders all jobs on the initial page; scroll and copy."
   },
   "sidi-campinas": {
     "family": "Gupy",
-    "strategy": "numbered_pagination",
-    "url": "https://sidi.gupy.io/",
-    "button_match": { "Type": "Button", "Name": "Próxima", "matchmode": "Substring" },
-    "max_clicks": 10,
-    "wait_ms": 2500,
-    "extract_mode": "ctrl_a_copy",
-    "notes": "Gupy standard job board."
-  },
-  "venturus-campinas": {
-    "family": "Custom",
     "strategy": "single_page_copy",
-    "url": "https://www.venturus.org.br/en/venturus/career",
+    "url": "https://sidi.gupy.io/",
     "button_match": null,
     "max_clicks": 5,
-    "wait_ms": 2500,
+    "wait_ms": 3000,
     "extract_mode": "ctrl_a_copy",
-    "notes": "Venturus careers page; scroll and copy."
+    "notes": "Gupy Next.js board renders all jobs on the initial page; scroll and copy."
+  },
+  "venturus-campinas": {
+    "family": "InHire",
+    "strategy": "single_page_copy",
+    "url": "https://venturus.inhire.app/vagas",
+    "button_match": null,
+    "max_clicks": 5,
+    "wait_ms": 3000,
+    "extract_mode": "ctrl_a_copy",
+    "notes": "Venturus InHire SPA board; scroll and copy all."
   },
   "3m-sumare": {
     "family": "Workday",
@@ -135,7 +135,7 @@
     "url": "https://3m.wd1.myworkdayjobs.com/en-US/Search",
     "button_match": { "Type": "Button", "Name": "next", "matchmode": "Substring" },
     "max_clicks": 10,
-    "wait_ms": 3000,
+    "wait_ms": 3500,
     "extract_mode": "ctrl_a_copy",
     "notes": "Workday tenant; iterate Next button across pages."
   },
@@ -153,41 +153,41 @@
     "family": "Custom",
     "strategy": "load_more_button",
     "url": "https://careers-meli.mercadolibre.com/en/positions?country=Brazil",
-    "button_match": { "Type": "Button", "Name": "Load more", "matchmode": "Substring" },
-    "max_clicks": 12,
-    "wait_ms": 2500,
+    "button_match": { "Type": "Hyperlink|Button", "Name": "Load more|Ver mais|Show more", "matchmode": "Substring" },
+    "max_clicks": 15,
+    "wait_ms": 3000,
     "extract_mode": "ctrl_a_copy",
     "notes": "Mercado Libre careers Brazil; click Load more / Ver mais until exhausted."
   },
   "honda-sumare": {
     "family": "Gupy",
-    "strategy": "numbered_pagination",
+    "strategy": "single_page_copy",
     "url": "https://honda.gupy.io/",
-    "button_match": { "Type": "Button", "Name": "Próxima", "matchmode": "Substring" },
-    "max_clicks": 10,
-    "wait_ms": 2500,
+    "button_match": null,
+    "max_clicks": 5,
+    "wait_ms": 3000,
     "extract_mode": "ctrl_a_copy",
-    "notes": "Gupy standard job board."
+    "notes": "Gupy Next.js board renders all jobs on the initial page; scroll and copy."
   },
   "cnpem-campinas": {
     "family": "Gupy",
-    "strategy": "numbered_pagination",
+    "strategy": "single_page_copy",
     "url": "https://cnpem.gupy.io/",
-    "button_match": { "Type": "Button", "Name": "Próxima", "matchmode": "Substring" },
-    "max_clicks": 10,
-    "wait_ms": 2500,
+    "button_match": null,
+    "max_clicks": 5,
+    "wait_ms": 3000,
     "extract_mode": "ctrl_a_copy",
-    "notes": "Gupy standard job board."
+    "notes": "Gupy Next.js board renders all jobs on the initial page; scroll and copy."
   },
   "thoughtworks-global": {
     "family": "Custom",
-    "strategy": "single_page_copy",
-    "url": "https://www.thoughtworks.com/careers",
-    "button_match": null,
-    "max_clicks": 5,
-    "wait_ms": 2500,
+    "strategy": "load_more_button",
+    "url": "https://www.thoughtworks.com/pt-br/careers/jobs",
+    "button_match": { "Type": "Button", "Name": "Ver mais vagas|View more", "matchmode": "Substring" },
+    "max_clicks": 15,
+    "wait_ms": 3000,
     "extract_mode": "ctrl_a_copy",
-    "notes": "Thoughtworks careers page; scroll and copy."
+    "notes": "Thoughtworks Brazil jobs board; click Ver mais vagas until exhausted."
   },
   "goodyear-santa-barbara": {
     "family": "Custom",
@@ -203,7 +203,7 @@
     "family": "LG Lugar de Gente",
     "strategy": "load_more_button",
     "url": "https://prd-pc1.lg.com.br/Vagas/c/6D408C92-7AC1-4A34-91A5-E76D17E9DD38/p/TrabalhenaRomi/pt-BR/Busca/Vagas",
-    "button_match": { "Type": "Button", "Name": "Carregar mais", "matchmode": "Substring" },
+    "button_match": { "Type": "Hyperlink|Button", "Name": "Carregar mais|Mostrar mais|Ver mais|Próxima", "matchmode": "Substring" },
     "max_clicks": 10,
     "wait_ms": 3000,
     "extract_mode": "ctrl_a_copy",
@@ -211,29 +211,29 @@
   },
   "denso-santa-barbara": {
     "family": "Gupy",
-    "strategy": "numbered_pagination",
+    "strategy": "single_page_copy",
     "url": "https://denso-sa.gupy.io/",
-    "button_match": { "Type": "Button", "Name": "Próxima", "matchmode": "Substring" },
-    "max_clicks": 10,
-    "wait_ms": 2500,
+    "button_match": null,
+    "max_clicks": 5,
+    "wait_ms": 3000,
     "extract_mode": "ctrl_a_copy",
-    "notes": "Gupy standard job board."
+    "notes": "Gupy Next.js board renders all jobs on the initial page; scroll and copy."
   },
   "suzano-americana": {
     "family": "Gupy",
-    "strategy": "numbered_pagination",
+    "strategy": "single_page_copy",
     "url": "https://suzano.gupy.io/",
-    "button_match": { "Type": "Button", "Name": "Próxima", "matchmode": "Substring" },
-    "max_clicks": 10,
-    "wait_ms": 2500,
+    "button_match": null,
+    "max_clicks": 5,
+    "wait_ms": 3000,
     "extract_mode": "ctrl_a_copy",
-    "notes": "Gupy standard job board."
+    "notes": "Gupy Next.js board renders all jobs on the initial page; scroll and copy."
   },
   "pirelli-campinas": {
     "family": "LG Lugar de Gente",
     "strategy": "load_more_button",
     "url": "https://prl-prd-pc.lg.com.br/Vagas/c/1D46EB9C-4170-4223-93B5-6A968E76A7EA/p/trabalheconosco/pt-BR/Busca/Vagas",
-    "button_match": { "Type": "Button", "Name": "Carregar mais", "matchmode": "Substring" },
+    "button_match": { "Type": "Hyperlink|Button", "Name": "Carregar mais|Mostrar mais|Ver mais|Próxima", "matchmode": "Substring" },
     "max_clicks": 10,
     "wait_ms": 3000,
     "extract_mode": "ctrl_a_copy",
