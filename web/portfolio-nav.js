@@ -231,6 +231,16 @@ window.addEventListener("resize", () => {
         <button type="button" class="nav-btn" id="batch-fetch-none">Deselect all</button>
         <span class="batch-fetch-count" id="batch-fetch-count"></span>
       </div>
+      <div class="batch-fetch-filters">
+        <div class="batch-fetch-filter-pills" id="batch-fetch-filter-pills">
+          <button type="button" class="filter-chip is-active" data-filter="all">All</button>
+          <button type="button" class="filter-chip" data-filter="verified">Verified</button>
+          <button type="button" class="filter-chip" data-filter="untested">Untested</button>
+          <button type="button" class="filter-chip" data-filter="pinned">Pinned</button>
+          <button type="button" class="filter-chip" data-filter="ready">.txt ready</button>
+        </div>
+        <input type="search" id="batch-fetch-search" class="batch-fetch-search" placeholder="Filter companies…" autocomplete="off" />
+      </div>
       <div class="batch-fetch-list" id="batch-fetch-list"></div>
       <div class="batch-fetch-foot">
         <span class="save-status" id="batch-fetch-status"></span>
@@ -259,15 +269,30 @@ window.addEventListener("resize", () => {
     });
     dlg.querySelector("#batch-fetch-all").addEventListener("click", () => {
       for (const b of dlg.querySelectorAll('input[name="batch-company"]')) {
-        b.checked = true;
+        const row = b.closest(".batch-fetch-row");
+        if (!row || !row.hidden) b.checked = true;
       }
       updateCount();
     });
     dlg.querySelector("#batch-fetch-none").addEventListener("click", () => {
       for (const b of dlg.querySelectorAll('input[name="batch-company"]')) {
-        b.checked = false;
+        const row = b.closest(".batch-fetch-row");
+        if (!row || !row.hidden) b.checked = false;
       }
       updateCount();
+    });
+
+    dlg.querySelector("#batch-fetch-filter-pills").addEventListener("click", (e) => {
+      const chip = e.target.closest("[data-filter]");
+      if (!chip) return;
+      for (const btn of dlg.querySelectorAll("#batch-fetch-filter-pills [data-filter]")) {
+        btn.classList.toggle("is-active", btn === chip);
+      }
+      applyBatchFetchFilters(dlg);
+    });
+
+    dlg.querySelector("#batch-fetch-search").addEventListener("input", () => {
+      applyBatchFetchFilters(dlg);
     });
 
     dlg.querySelector("#batch-fetch-list").addEventListener("change", updateCount);
@@ -320,6 +345,26 @@ window.addEventListener("resize", () => {
     return dlg;
   }
 
+  function applyBatchFetchFilters(dlg) {
+    const activeChip = dlg.querySelector("#batch-fetch-filter-pills [data-filter].is-active");
+    const mode = activeChip ? activeChip.dataset.filter : "all";
+    const q = (dlg.querySelector("#batch-fetch-search")?.value || "").trim().toLowerCase();
+    for (const row of dlg.querySelectorAll("#batch-fetch-list .batch-fetch-row")) {
+      const pinned = row.dataset.pinned === "1";
+      const verified = row.dataset.verified === "1";
+      const ready = row.dataset.ready === "1";
+      let match = true;
+      if (mode === "verified") match = verified;
+      else if (mode === "untested") match = !verified;
+      else if (mode === "pinned") match = pinned;
+      else if (mode === "ready") match = ready;
+      if (match && q) {
+        match = (row.dataset.search || "").includes(q);
+      }
+      row.hidden = !match;
+    }
+  }
+
   async function populateBatchFetchModal(dlg, opts = {}) {
     const listEl = dlg.querySelector("#batch-fetch-list");
     const subEl = dlg.querySelector("#batch-fetch-desktop-path");
@@ -349,9 +394,22 @@ window.addEventListener("resize", () => {
       }
       listEl.replaceChildren();
       const companies = Array.isArray(data.companies) ? data.companies : [];
+      let verifiedCount = 0;
+      let untestedCount = 0;
+      let pinnedCount = 0;
+      let readyCount = 0;
       for (const c of companies) {
+        if (c.verified) verifiedCount += 1;
+        else untestedCount += 1;
+        if (c.pinned) pinnedCount += 1;
+        if (c.txt_exists) readyCount += 1;
+
         const row = document.createElement("label");
         row.className = "batch-fetch-row" + (c.pinned ? " is-pinned" : "");
+        row.dataset.pinned = c.pinned ? "1" : "0";
+        row.dataset.verified = c.verified ? "1" : "0";
+        row.dataset.ready = c.txt_exists ? "1" : "0";
+        row.dataset.search = `${c.name} ${c.id} ${c.family} ${c.city}`.toLowerCase();
 
         const cb = document.createElement("input");
         cb.type = "checkbox";
@@ -369,6 +427,18 @@ window.addEventListener("resize", () => {
         meta.textContent = `${c.family} · ${c.strategy}${c.city ? " · " + c.city : ""}`;
         main.append(title, meta);
 
+        const badges = document.createElement("span");
+        badges.className = "batch-fetch-badges";
+
+        const verBadge = document.createElement("span");
+        verBadge.className =
+          "batch-fetch-badge " + (c.verified ? "is-verified" : "is-untested");
+        verBadge.textContent = c.verified ? "✓ Verified" : "Untested";
+        if (c.verified && c.verified_at) {
+          verBadge.title = `Fetch openings verified working on ${c.verified_at}`;
+        }
+        badges.append(verBadge);
+
         const badge = document.createElement("span");
         badge.className =
           "batch-fetch-badge" + (c.txt_exists ? " is-ready" : "");
@@ -377,10 +447,24 @@ window.addEventListener("resize", () => {
           : c.pinned
             ? "Pinned"
             : "Unpinned";
+        badges.append(badge);
 
-        row.append(cb, main, badge);
+        row.append(cb, main, badges);
         listEl.append(row);
       }
+
+      const pillLabels = {
+        all: `All (${companies.length})`,
+        verified: `Verified (${verifiedCount})`,
+        untested: `Untested (${untestedCount})`,
+        pinned: `Pinned (${pinnedCount})`,
+        ready: `.txt ready (${readyCount})`,
+      };
+      for (const pill of dlg.querySelectorAll("#batch-fetch-filter-pills [data-filter]")) {
+        const key = pill.dataset.filter;
+        if (pillLabels[key]) pill.textContent = pillLabels[key];
+      }
+      applyBatchFetchFilters(dlg);
 
       const checkedCount = [...listEl.querySelectorAll('input[name="batch-company"]:checked')].length;
       if (countEl) countEl.textContent = `${checkedCount} of ${companies.length} selected`;

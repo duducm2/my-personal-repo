@@ -6510,6 +6510,61 @@ summary.freeze-diff-head::-webkit-details-marker {
   gap: 6px;
 }
 
+.batch-fetch-filters {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.batch-fetch-filter-pills {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.batch-fetch-search {
+  margin-left: auto;
+  min-width: 150px;
+  padding: 4px 8px;
+  font-size: 11px;
+  font-family: inherit;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.batch-fetch-search:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+.batch-fetch-row[hidden] {
+  display: none;
+}
+
+.batch-fetch-badges {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.batch-fetch-badge.is-verified {
+  border-color: #3a7a4a;
+  color: #8fd49c;
+  background: color-mix(in srgb, #2ecc71 14%, transparent);
+  font-weight: 600;
+}
+
+.batch-fetch-badge.is-untested {
+  border-color: var(--line);
+  color: var(--muted);
+  opacity: 0.78;
+}
+
 .batch-fetch-count {
   margin-left: auto;
   font-size: 11px;

@@ -96,6 +96,8 @@ def get_batch_status(store: Any) -> dict[str, Any]:
                 "family": str((mapping or {}).get("family") or row.get("ats_name") or "Custom"),
                 "strategy": str((mapping or {}).get("strategy") or "single_page_copy"),
                 "mapped": mapping is not None,
+                "verified": bool((mapping or {}).get("verified")),
+                "verified_at": str((mapping or {}).get("verified_at") or ""),
                 "txt_exists": txt_exists,
                 "txt_name": txt_file.name,
                 "txt_mtime": txt_mtime,
@@ -251,7 +253,39 @@ def run_batch_extraction(
             raise RuntimeError(f"Batch AHK produced no result: {completed_detail[:600]}")
 
         payload["desktop_dir"] = str(get_desktop_dir())
+        _mark_verified_from_results(payload.get("items") or [])
         return payload
+
+
+def _mark_verified_from_results(items: list[dict[str, Any]]) -> None:
+    if not items or not EXTRACTION_MAP_PATH.is_file():
+        return
+    succeeded = [
+        str(it.get("id") or "").strip()
+        for it in items
+        if it.get("ok") and int(it.get("chars") or 0) > 300
+    ]
+    if not succeeded:
+        return
+    try:
+        ext_map = json.loads(EXTRACTION_MAP_PATH.read_text(encoding="utf-8"))
+        if not isinstance(ext_map, dict):
+            return
+        today = datetime.now().strftime("%Y-%m-%d")
+        changed = False
+        for cid in succeeded:
+            if cid in ext_map and isinstance(ext_map[cid], dict):
+                if not ext_map[cid].get("verified"):
+                    ext_map[cid]["verified"] = True
+                    ext_map[cid]["verified_at"] = today
+                    changed = True
+        if changed:
+            EXTRACTION_MAP_PATH.write_text(
+                json.dumps(ext_map, indent=2, ensure_ascii=False) + "\n",
+                encoding="utf-8",
+            )
+    except Exception as exc:
+        log_error("Failed to update verified status in portal_extraction_map.json", exc)
 
 
 def launch_uia_inspector(url: str = "") -> dict[str, Any]:
