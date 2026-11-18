@@ -151,6 +151,13 @@ def get_ahk_script() -> Path:
 
 
 def get_uia_inspector_path() -> Path:
+    for direct in (
+        Path(r"C:\Users\eduev\Documents\UIA-v2\UIATreeInspector.ahk"),
+        Path.home() / "Documents" / "UIA-v2" / "UIATreeInspector.ahk",
+    ):
+        if direct.is_file():
+            return direct
+
     sdir = get_scripts_dir()
     candidate = sdir / "vendor" / "UIA-v2" / "UIATreeInspector.ahk"
     if candidate.is_file():
@@ -165,7 +172,43 @@ def get_uia_inspector_path() -> Path:
             if target.is_file():
                 return target
 
-    return candidate
+    return Path(r"C:\Users\eduev\Documents\UIA-v2\UIATreeInspector.ahk")
+
+
+def get_uia_lib_dir() -> Path:
+    inspector = get_uia_inspector_path()
+    lib_dir = inspector.parent / "Lib"
+    if lib_dir.is_dir():
+        return lib_dir
+    return Path(r"C:\Users\eduev\Documents\UIA-v2\Lib")
+
+
+def get_desktop_dir() -> Path:
+    override = os.environ.get("CAREER_DESKTOP_DIR", "").strip()
+    if override and Path(override).is_dir():
+        return Path(override)
+
+    if sys.platform == "win32":
+        try:
+            import ctypes
+            from ctypes import wintypes
+
+            buf = ctypes.create_unicode_buffer(260)
+            # CSIDL_DESKTOPDIRECTORY = 0x0010
+            if ctypes.windll.shell32.SHGetFolderPathW(None, 0x0010, None, 0, buf) == 0 and buf.value:
+                p = Path(buf.value)
+                if p.is_dir():
+                    return p
+        except Exception:
+            pass
+
+    for candidate in (
+        Path.home() / "OneDrive" / "Desktop",
+        Path.home() / "Desktop",
+    ):
+        if candidate.is_dir():
+            return candidate
+    return Path.home() / "Desktop"
 
 
 def get_ahk_exe() -> Path:
