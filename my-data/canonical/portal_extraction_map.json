@@ -39,7 +39,8 @@
     "wait_ms": 3000,
     "extract_mode": "ctrl_a_copy",
     "notes": "Gupy Next.js board renders all jobs on the initial page; scroll and copy.",
-    "verified": false
+    "verified": false,
+    "verified_at": ""
   },
   "ciandt-campinas": {
     "family": "Custom",

@@ -297,6 +297,47 @@ window.addEventListener("resize", () => {
 
     dlg.querySelector("#batch-fetch-list").addEventListener("change", updateCount);
 
+    dlg.querySelector("#batch-fetch-list").addEventListener("click", async (e) => {
+      const toggle = e.target.closest(".batch-fetch-toggle");
+      if (!toggle) return;
+      e.preventDefault();
+      e.stopPropagation();
+      const row = toggle.closest(".batch-fetch-row");
+      const cid = toggle.dataset.id || "";
+      const nextVerified = toggle.getAttribute("aria-pressed") !== "true";
+      toggle.disabled = true;
+      try {
+        const res = await fetch("/api/openings-batch/verified", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ company_id: cid, verified: nextVerified }),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok || data.ok === false) {
+          throw new Error(data.error || `HTTP ${res.status}`);
+        }
+        const isVer = !!data.verified;
+        toggle.setAttribute("aria-pressed", isVer ? "true" : "false");
+        toggle.classList.toggle("is-verified", isVer);
+        toggle.classList.toggle("is-untested", !isVer);
+        toggle.textContent = isVer ? "✓ Verified" : "Untested";
+        toggle.title = isVer && data.verified_at
+          ? `Tested & working (${data.verified_at}) — click to mark untested`
+          : "Click to mark as tested & working";
+        if (row) row.dataset.verified = isVer ? "1" : "0";
+        updateBatchFetchPillCounts(dlg);
+        applyBatchFetchFilters(dlg);
+      } catch (err) {
+        const statusEl = dlg.querySelector("#batch-fetch-status");
+        if (statusEl) {
+          statusEl.textContent = err.message || String(err);
+          statusEl.className = "save-status err";
+        }
+      } finally {
+        toggle.disabled = false;
+      }
+    });
+
     dlg.querySelector("#batch-fetch-run").addEventListener("click", async () => {
       const ids = [...dlg.querySelectorAll('input[name="batch-company"]:checked')].map(
         (b) => b.value
@@ -343,6 +384,25 @@ window.addEventListener("resize", () => {
     });
 
     return dlg;
+  }
+
+  function updateBatchFetchPillCounts(dlg) {
+    const rows = [...dlg.querySelectorAll("#batch-fetch-list .batch-fetch-row")];
+    const verifiedCount = rows.filter((r) => r.dataset.verified === "1").length;
+    const untestedCount = rows.length - verifiedCount;
+    const pinnedCount = rows.filter((r) => r.dataset.pinned === "1").length;
+    const readyCount = rows.filter((r) => r.dataset.ready === "1").length;
+    const pillLabels = {
+      all: `All (${rows.length})`,
+      verified: `Verified (${verifiedCount})`,
+      untested: `Untested (${untestedCount})`,
+      pinned: `Pinned (${pinnedCount})`,
+      ready: `.txt ready (${readyCount})`,
+    };
+    for (const pill of dlg.querySelectorAll("#batch-fetch-filter-pills [data-filter]")) {
+      const key = pill.dataset.filter;
+      if (pillLabels[key]) pill.textContent = pillLabels[key];
+    }
   }
 
   function applyBatchFetchFilters(dlg) {
@@ -430,13 +490,18 @@ window.addEventListener("resize", () => {
         const badges = document.createElement("span");
         badges.className = "batch-fetch-badges";
 
-        const verBadge = document.createElement("span");
+        const verBadge = document.createElement("button");
+        verBadge.type = "button";
         verBadge.className =
-          "batch-fetch-badge " + (c.verified ? "is-verified" : "is-untested");
+          "batch-fetch-badge batch-fetch-toggle " +
+          (c.verified ? "is-verified" : "is-untested");
+        verBadge.dataset.id = c.id;
+        verBadge.setAttribute("aria-pressed", c.verified ? "true" : "false");
         verBadge.textContent = c.verified ? "✓ Verified" : "Untested";
-        if (c.verified && c.verified_at) {
-          verBadge.title = `Fetch openings verified working on ${c.verified_at}`;
-        }
+        verBadge.title =
+          c.verified && c.verified_at
+            ? `Tested & working (${c.verified_at}) — click to mark untested`
+            : "Click to mark as tested & working";
         badges.append(verBadge);
 
         const badge = document.createElement("span");

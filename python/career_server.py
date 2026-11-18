@@ -1457,6 +1457,20 @@ class CareerHandler(BaseHTTPRequestHandler):
                     raise ValueError("company_ids must be an array")
                 self._json(200, run_batch_extraction(self.store, company_ids))
                 return
+            if path == "/api/openings-batch/verified":
+                body = self._read_json()
+                if not isinstance(body, dict):
+                    raise ValueError("JSON object required")
+                from openings_batch import set_company_verified
+
+                self._json(
+                    200,
+                    set_company_verified(
+                        str(body.get("company_id") or ""),
+                        bool(body.get("verified")),
+                    ),
+                )
+                return
             if path == "/api/prompt-hotkey":
                 send_prompt_hotkey()
                 self._json(200, {"ok": True})

@@ -288,6 +288,33 @@ def _mark_verified_from_results(items: list[dict[str, Any]]) -> None:
         log_error("Failed to update verified status in portal_extraction_map.json", exc)
 
 
+def set_company_verified(company_id: str, verified: bool) -> dict[str, Any]:
+    cid = sanitize_company_id(company_id)
+    ext_map = load_extraction_map()
+    entry = ext_map.get(cid)
+    if not isinstance(entry, dict):
+        entry = {
+            "family": "Custom",
+            "strategy": "single_page_copy",
+            "url": "",
+            "button_match": None,
+            "max_clicks": 5,
+            "wait_ms": 2500,
+            "extract_mode": "ctrl_a_copy",
+        }
+        ext_map[cid] = entry
+    verified_flag = bool(verified)
+    verified_at = datetime.now().strftime("%Y-%m-%d") if verified_flag else ""
+    entry["verified"] = verified_flag
+    entry["verified_at"] = verified_at
+    EXTRACTION_MAP_PATH.parent.mkdir(parents=True, exist_ok=True)
+    EXTRACTION_MAP_PATH.write_text(
+        json.dumps(ext_map, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+    return {"ok": True, "id": cid, "verified": verified_flag, "verified_at": verified_at}
+
+
 def launch_uia_inspector(url: str = "") -> dict[str, Any]:
     if not INSPECT_AHK_PATH.is_file():
         raise RuntimeError(f"UIA inspect script not found: {INSPECT_AHK_PATH}")

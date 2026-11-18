@@ -6565,6 +6565,23 @@ summary.freeze-diff-head::-webkit-details-marker {
   opacity: 0.78;
 }
 
+.batch-fetch-toggle {
+  background: transparent;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.15s ease, opacity 0.15s ease, transform 0.1s ease;
+}
+
+.batch-fetch-toggle:hover:not(:disabled) {
+  opacity: 1;
+  border-color: var(--gold);
+}
+
+.batch-fetch-toggle:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
+
 .batch-fetch-count {
   margin-left: auto;
   font-size: 11px;
