@@ -1175,6 +1175,22 @@ class CareerHandler(BaseHTTPRequestHandler):
                 result = find_payload_by_url(collections, url=url, job_id=job_id)
                 self._json(200, result)
                 return
+            if path == "/api/openings-batch/status":
+                from openings_batch import get_batch_status
+
+                self._json(200, get_batch_status(self.store))
+                return
+            if path == "/api/openings-batch/desktop-txt":
+                from urllib.parse import parse_qs
+                from openings_batch import read_desktop_txt
+
+                qs = parse_qs(urlparse(self.path).query or "")
+                company = (qs.get("company") or [""])[0].strip()
+                if not company:
+                    self._json(400, {"ok": False, "error": "company query parameter required"})
+                    return
+                self._json(200, read_desktop_txt(company))
+                return
             if path == "/api/debug/environment":
                 import environment
 
@@ -1429,6 +1445,17 @@ class CareerHandler(BaseHTTPRequestHandler):
                     str(body.get("content") or ""),
                 )
                 self._json(200, result)
+                return
+            if path == "/api/openings-batch/run":
+                body = self._read_json()
+                if not isinstance(body, dict):
+                    body = {}
+                from openings_batch import run_batch_extraction
+
+                company_ids = body.get("company_ids")
+                if company_ids is not None and not isinstance(company_ids, list):
+                    raise ValueError("company_ids must be an array")
+                self._json(200, run_batch_extraction(self.store, company_ids))
                 return
             if path == "/api/prompt-hotkey":
                 send_prompt_hotkey()

@@ -4655,6 +4655,39 @@
     dialog.setAttribute("aria-busy", on ? "true" : "false");
   }
 
+  async function tryLoadDesktopTxtForPrompt(companyId, { autoSend = true } = {}) {
+    const cid = cell(companyId);
+    if (!cid) return false;
+    try {
+      const res = await fetch(
+        `/api/openings-batch/desktop-txt?company=${encodeURIComponent(cid)}`,
+      );
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || !data.ok || !data.exists || !cell(data.content).trim()) {
+        return false;
+      }
+      const sel = document.getElementById("prompt-company");
+      if (sel && [...sel.options].some((o) => o.value === cid)) {
+        sel.value = cid;
+      }
+      selectAllPromptPaths();
+      const rawEl = document.getElementById("prompt-raw");
+      if (rawEl) rawEl.value = data.content;
+      const status = document.getElementById("prompt-status");
+      if (status) {
+        status.textContent = `Loaded ${data.file_name} (${data.mtime || "Desktop"})`;
+        status.className = "save-status ok";
+      }
+      if (autoSend) {
+        showToast(`Loaded ${data.file_name} — sending to AI companion…`, 2500);
+        await handleCopyPrompt();
+      }
+      return true;
+    } catch {
+      return false;
+    }
+  }
+
   function openPromptModal(opts = {}) {
     fillPromptCompanySelect();
     const dialog = document.getElementById("prompt-modal");
@@ -4678,6 +4711,11 @@
     }
     if (dialog && typeof dialog.showModal === "function" && !dialog.open) {
       dialog.showModal();
+    }
+    if (opts.companyId) {
+      void tryLoadDesktopTxtForPrompt(opts.companyId, {
+        autoSend: opts.autoIngest !== false,
+      });
     }
   }
 
@@ -5653,7 +5691,11 @@
     }
     history.replaceState(null, "", location.pathname);
     if (action === "prompt") {
-      openPromptModal({ companyId: company, selectAllPaths: true });
+      openPromptModal({
+        companyId: company,
+        selectAllPaths: true,
+        autoIngest: params.get("autoIngest") !== "0",
+      });
       requestAnimationFrame(() => {
         document.getElementById("prompt-raw")?.focus();
       });

@@ -149,11 +149,29 @@ window.addEventListener("resize", () => {
       '<path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.8 10.6c.7.6 1.2 1.4 1.3 2.4h5c.1-1 .6-1.8 1.3-2.4A6 6 0 0 0 12 3z"/>',
     help:
       '<circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 0 1 4.9.8c0 1.7-2.4 2.2-2.4 3.7"/><circle cx="12" cy="17.2" r="0.6" fill="currentColor" stroke="none"/>',
+    fetch:
+      '<path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/>',
   };
+
+  if (!document.getElementById("open-batch-fetch-btn")) {
+    const fetchBtn = document.createElement("button");
+    fetchBtn.type = "button";
+    fetchBtn.id = "open-batch-fetch-btn";
+    fetchBtn.className = "nav-btn";
+    fetchBtn.title = "Select companies and batch-extract openings to Desktop (.txt)";
+    const labelSpan = document.createElement("span");
+    labelSpan.className = "section-title-en";
+    labelSpan.textContent = "Fetch Openings";
+    fetchBtn.append(labelSpan);
+    const saveStatus = actions.querySelector("#save-status");
+    if (saveStatus) actions.insertBefore(fetchBtn, saveStatus);
+    else actions.append(fetchBtn);
+  }
 
   function iconKeyFor(el) {
     const id = el.id || "";
     const href = el.getAttribute("href") || "";
+    if (id === "open-batch-fetch-btn") return "fetch";
     if (id === "open-portals-btn" || href === "/portals.html") return "portals";
     if (
       id === "open-openings-btn" ||
@@ -189,5 +207,198 @@ window.addEventListener("resize", () => {
     svg.setAttribute("aria-hidden", "true");
     svg.innerHTML = ICON_PATHS[key];
     btn.prepend(svg);
+  }
+
+  // Batch Fetch Openings Modal (Phase 2)
+  function ensureBatchFetchModal() {
+    let dlg = document.getElementById("batch-fetch-modal");
+    if (dlg) return dlg;
+
+    dlg = document.createElement("dialog");
+    dlg.id = "batch-fetch-modal";
+    dlg.className = "company-modal batch-fetch-modal";
+    dlg.innerHTML = `
+      <div class="company-modal-head">
+        <div>
+          <h2 class="company-modal-title">Fetch Job Openings to Desktop</h2>
+          <p class="batch-fetch-sub" id="batch-fetch-desktop-path"></p>
+        </div>
+        <button type="button" class="company-modal-close" id="batch-fetch-close" aria-label="Close">×</button>
+      </div>
+      <div class="batch-fetch-toolbar">
+        <button type="button" class="nav-btn" id="batch-fetch-pinned">All pinned</button>
+        <button type="button" class="nav-btn" id="batch-fetch-all">Select all</button>
+        <button type="button" class="nav-btn" id="batch-fetch-none">Deselect all</button>
+        <span class="batch-fetch-count" id="batch-fetch-count"></span>
+      </div>
+      <div class="batch-fetch-list" id="batch-fetch-list"></div>
+      <div class="batch-fetch-foot">
+        <span class="save-status" id="batch-fetch-status"></span>
+        <button type="button" class="save-btn" id="batch-fetch-run">Run Batch Extraction</button>
+      </div>
+    `;
+    document.body.append(dlg);
+
+    dlg.querySelector("#batch-fetch-close").addEventListener("click", () => dlg.close());
+    dlg.addEventListener("click", (e) => {
+      if (e.target === dlg) dlg.close();
+    });
+
+    const updateCount = () => {
+      const boxes = [...dlg.querySelectorAll('input[name="batch-company"]')];
+      const checked = boxes.filter((b) => b.checked).length;
+      const countEl = dlg.querySelector("#batch-fetch-count");
+      if (countEl) countEl.textContent = `${checked} of ${boxes.length} selected`;
+    };
+
+    dlg.querySelector("#batch-fetch-pinned").addEventListener("click", () => {
+      for (const b of dlg.querySelectorAll('input[name="batch-company"]')) {
+        b.checked = b.dataset.pinned === "1";
+      }
+      updateCount();
+    });
+    dlg.querySelector("#batch-fetch-all").addEventListener("click", () => {
+      for (const b of dlg.querySelectorAll('input[name="batch-company"]')) {
+        b.checked = true;
+      }
+      updateCount();
+    });
+    dlg.querySelector("#batch-fetch-none").addEventListener("click", () => {
+      for (const b of dlg.querySelectorAll('input[name="batch-company"]')) {
+        b.checked = false;
+      }
+      updateCount();
+    });
+
+    dlg.querySelector("#batch-fetch-list").addEventListener("change", updateCount);
+
+    dlg.querySelector("#batch-fetch-run").addEventListener("click", async () => {
+      const ids = [...dlg.querySelectorAll('input[name="batch-company"]:checked')].map(
+        (b) => b.value
+      );
+      const statusEl = dlg.querySelector("#batch-fetch-status");
+      const runBtn = dlg.querySelector("#batch-fetch-run");
+      if (!ids.length) {
+        if (statusEl) {
+          statusEl.textContent = "Select at least one company.";
+          statusEl.className = "save-status err";
+        }
+        return;
+      }
+      if (runBtn) runBtn.disabled = true;
+      if (statusEl) {
+        statusEl.textContent = `Running UIA extraction for ${ids.length} companies…`;
+        statusEl.className = "save-status";
+      }
+      try {
+        const res = await fetch("/api/openings-batch/run", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ company_ids: ids }),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok || data.ok === false) {
+          throw new Error(data.error || `HTTP ${res.status}`);
+        }
+        const items = Array.isArray(data.items) ? data.items : [];
+        const okCount = items.filter((it) => it.ok).length;
+        if (statusEl) {
+          statusEl.textContent = `Done: ${okCount}/${items.length} saved to Desktop. Use Alt+R per company to ingest.`;
+          statusEl.className = "save-status ok";
+        }
+        await populateBatchFetchModal(dlg, { preserveSelection: true });
+      } catch (err) {
+        if (statusEl) {
+          statusEl.textContent = err.message || String(err);
+          statusEl.className = "save-status err";
+        }
+      } finally {
+        if (runBtn) runBtn.disabled = false;
+      }
+    });
+
+    return dlg;
+  }
+
+  async function populateBatchFetchModal(dlg, opts = {}) {
+    const listEl = dlg.querySelector("#batch-fetch-list");
+    const subEl = dlg.querySelector("#batch-fetch-desktop-path");
+    const statusEl = dlg.querySelector("#batch-fetch-status");
+    const countEl = dlg.querySelector("#batch-fetch-count");
+    const prevChecked = opts.preserveSelection
+      ? new Set(
+          [...dlg.querySelectorAll('input[name="batch-company"]:checked')].map(
+            (b) => b.value
+          )
+        )
+      : null;
+
+    if (!opts.preserveSelection && statusEl) {
+      statusEl.textContent = "Loading companies…";
+      statusEl.className = "save-status";
+    }
+
+    try {
+      const res = await fetch("/api/openings-batch/status");
+      const data = await res.json();
+      if (!res.ok || data.ok === false) {
+        throw new Error(data.error || `HTTP ${res.status}`);
+      }
+      if (subEl) {
+        subEl.textContent = `Output folder: ${data.desktop_dir} (<company_id>-openings.txt)`;
+      }
+      listEl.replaceChildren();
+      const companies = Array.isArray(data.companies) ? data.companies : [];
+      for (const c of companies) {
+        const row = document.createElement("label");
+        row.className = "batch-fetch-row" + (c.pinned ? " is-pinned" : "");
+
+        const cb = document.createElement("input");
+        cb.type = "checkbox";
+        cb.name = "batch-company";
+        cb.value = c.id;
+        cb.dataset.pinned = c.pinned ? "1" : "0";
+        cb.checked = prevChecked ? prevChecked.has(c.id) : !!c.pinned;
+
+        const main = document.createElement("span");
+        main.className = "batch-fetch-main";
+        const title = document.createElement("strong");
+        title.textContent = c.name;
+        const meta = document.createElement("span");
+        meta.className = "batch-fetch-meta";
+        meta.textContent = `${c.family} · ${c.strategy}${c.city ? " · " + c.city : ""}`;
+        main.append(title, meta);
+
+        const badge = document.createElement("span");
+        badge.className =
+          "batch-fetch-badge" + (c.txt_exists ? " is-ready" : "");
+        badge.textContent = c.txt_exists
+          ? `.txt ready (${c.txt_mtime})`
+          : c.pinned
+            ? "Pinned"
+            : "Unpinned";
+
+        row.append(cb, main, badge);
+        listEl.append(row);
+      }
+
+      const checkedCount = [...listEl.querySelectorAll('input[name="batch-company"]:checked')].length;
+      if (countEl) countEl.textContent = `${checkedCount} of ${companies.length} selected`;
+      if (!opts.preserveSelection && statusEl) statusEl.textContent = "";
+    } catch (err) {
+      if (statusEl) {
+        statusEl.textContent = err.message || String(err);
+        statusEl.className = "save-status err";
+      }
+    }
+  }
+
+  const batchBtn = document.getElementById("open-batch-fetch-btn");
+  if (batchBtn) {
+    batchBtn.addEventListener("click", async () => {
+      const dlg = ensureBatchFetchModal();
+      if (!dlg.open) dlg.showModal();
+      await populateBatchFetchModal(dlg);
+    });
   }
 })();

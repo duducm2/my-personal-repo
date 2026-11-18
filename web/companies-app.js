@@ -2057,6 +2057,7 @@
           const params = new URLSearchParams({
             action: "prompt",
             company: row.id,
+            autoIngest: "1",
           });
           location.assign(`/jobs.html?${params}`);
           return;
