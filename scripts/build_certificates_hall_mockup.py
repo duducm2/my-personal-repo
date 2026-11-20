@@ -83,6 +83,7 @@ def build_certificates_hall():
         ('issre', os.path.join(docs_dir, 'certificado-issre-2025.jpg'), 610, None, -2.1, (0.5, 0.04)),
         ('ihc', os.path.join(docs_dir, 'certificado-ihc-2025.jpg'), 610, None, +1.9, (0.5, 0.04)),
         ('hospital', os.path.join(docs_dir, 'declaracao-hospitalhacos.png'), 360, 470, -1.6, (0.5, 0.03)),
+        ('english', os.path.join(docs_dir, 'proficiencia-ingles.png'), 350, 470, +1.9, (0.5, 0.03)),
     ]
     
     sheets = []
@@ -90,7 +91,7 @@ def build_certificates_hall():
         sh, pad = create_paper_sheet(path, w, h, ang, pin_pos)
         sheets.append((key, sh, pad))
     
-    canvas_w = 2400
+    canvas_w = 2480
     canvas_h = 1100
     canvas = Image.new('RGBA', (canvas_w, canvas_h), (0, 0, 0, 0))
     
@@ -101,10 +102,11 @@ def build_certificates_hall():
         ('etec', 530, 45),
         ('undergrad', 1040, 40),
         ('master', 1560, 55),
-        ('bosch', 70, 485),
-        ('issre', 590, 495),
-        ('ihc', 1120, 480),
-        ('hospital', 1670, 475),
+        ('bosch', 50, 485),
+        ('issre', 540, 495),
+        ('ihc', 1040, 480),
+        ('hospital', 1590, 475),
+        ('english', 1930, 478),
     ]
     
     for key, pos_x, pos_y in paste_order:

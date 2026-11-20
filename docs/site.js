@@ -417,6 +417,7 @@ function applyLanguage() {
   ensureCustomizerUI();
   showStep(stepIndex);
   renderScores();
+  if (typeof renderBooksHall === "function") renderBooksHall();
   if (new URLSearchParams(location.search).has("print")) {
     prepareForPrint();
   }
@@ -1010,6 +1011,266 @@ function initSnakeTimelines() {
       }
     });
   });
+}
+
+const BOOKS_DATA = [
+  {
+    id: "laws-of-ux",
+    cover: "../media/books/laws-of-ux.jpg",
+    category: "ux",
+    title: {
+      en: "Laws of UX (Leis da Psicologia Aplicadas a UX)",
+      pt: "Leis da Psicologia Aplicadas a UX",
+    },
+    author: "Jon Yablonski",
+    takeaway: {
+      en: "Connects cognitive psychology principles (Hick's, Miller's, Jakob's laws) to practical interface and product decisions that reduce friction.",
+      pt: "Conecta princípios da psicologia cognitiva (Leis de Hick, Miller e Jakob) a decisões práticas de interface e produto que reduzem fricção.",
+    },
+  },
+  {
+    id: "rationality",
+    cover: "../media/books/rationality.jpg",
+    category: "mind",
+    title: {
+      en: "Rationality",
+      pt: "Racionalidade (Rationality)",
+    },
+    author: "Steven Pinker",
+    takeaway: {
+      en: "A sharp toolkit on probability, Bayesian reasoning, and cognitive biases—directly applicable to data-driven analysis and avoiding misleading correlations.",
+      pt: "Um guia sólido sobre probabilidade, raciocínio bayesiano e vieses cognitivos — diretamente aplicável à análise orientada a dados e leitura crítica de métricas.",
+    },
+  },
+  {
+    id: "think-again",
+    cover: "../media/books/think-again.jpg",
+    category: "mind",
+    title: {
+      en: "Think Again",
+      pt: "Pense de Novo (Think Again)",
+    },
+    author: "Adam Grant",
+    takeaway: {
+      en: "Reinforces treating hypotheses like experiments rather than identities—essential for product discovery, user research, and questioning assumptions.",
+      pt: "Reforça tratar hipóteses como experimentos e não como certezas fixas — essencial para product discovery, pesquisa com usuários e revisão de premissas.",
+    },
+  },
+  {
+    id: "memory-craft",
+    cover: "../media/books/memory-craft.jpg",
+    category: "mind",
+    title: {
+      en: "Memory Craft",
+      pt: "Memory Craft",
+    },
+    author: "Lynne Kelly",
+    takeaway: {
+      en: "Explores spatial and visual memory systems from ancient cultures to modern learning—an inspiration behind my personal mnemonics studies.",
+      pt: "Explora sistemas espaciais e visuais de memória de culturas antigas ao aprendizado moderno — uma das inspirações dos meus estudos em mnemônica.",
+    },
+  },
+  {
+    id: "pmbok-5th",
+    cover: "../media/books/pmbok-5th.jpg",
+    category: "pm",
+    title: {
+      en: "PMBOK Guide (5th Edition)",
+      pt: "Guia PMBOK (5ª Edição)",
+    },
+    author: "PMI",
+    takeaway: {
+      en: "Grounded my formal foundation in scope, risk, stakeholder, and schedule management—later blended with Agile, Scrum, and Kanban in tech delivery.",
+      pt: "Consolidou minha base formal em escopo, riscos, stakeholders e cronograma — posteriormente combinada com práticas ágeis (Scrum e Kanban).",
+    },
+  },
+  {
+    id: "faca-acontecer",
+    cover: "../media/books/faca-acontecer.jpg",
+    category: "pm",
+    title: {
+      en: "Lean In (Faça Acontecer)",
+      pt: "Faça Acontecer",
+    },
+    author: "Sheryl Sandberg",
+    takeaway: {
+      en: "Offers candid perspectives on leadership, ownership, mentorship, and building inclusive, high-trust environments in tech organizations.",
+      pt: "Traz reflexões diretas sobre liderança, protagonismo, mentoria e construção de ambientes inclusivos e de alta confiança na tecnologia.",
+    },
+  },
+  {
+    id: "design-grafico-pandemonium",
+    cover: "../media/books/design-grafico-pandemonium.jpg",
+    category: "ux",
+    title: {
+      en: "Graphic Design Creation Process: Pandemonium",
+      pt: "Processo de Criação em Design Gráfico: Pandemonium",
+    },
+    author: "Leopoldo Leal",
+    takeaway: {
+      en: "Shows how structured visual chaos, typography, and iterative sketching turn abstract ideas into expressive visual communication.",
+      pt: "Mostra como repertório visual, tipografia e exploração iterativa transformam ideias abstratas em comunicação gráfica expressiva.",
+    },
+  },
+  {
+    id: "capitaes-da-areia",
+    cover: "../media/books/capitaes-da-areia.jpg",
+    category: "lit",
+    title: {
+      en: "Captains of the Sands (Capitães da Areia)",
+      pt: "Capitães da Areia",
+    },
+    author: "Jorge Amado",
+    takeaway: {
+      en: "A timeless Brazilian classic whose empathy, social nuance, and human storytelling stay with you long after the last chapter.",
+      pt: "Um clássico atemporal da literatura brasileira cuja empatia, crítica social e força narrativa permanecem muito depois da última página.",
+    },
+  },
+];
+
+const BOOK_CATEGORIES = {
+  all: { en: "All (8)", pt: "Todos (8)" },
+  mind: { en: "Mind & Logic", pt: "Mente & Lógica" },
+  ux: { en: "UX & Design", pt: "UX & Design" },
+  pm: { en: "Product & Leadership", pt: "Produto & Liderança" },
+  lit: { en: "Literature", pt: "Literatura" },
+};
+
+let activeBookFilter = "all";
+
+function openBookModal(book) {
+  const existing = document.querySelector(".book-modal-backdrop");
+  if (existing) existing.remove();
+
+  const backdrop = document.createElement("div");
+  backdrop.className = "book-modal-backdrop";
+  backdrop.setAttribute("role", "dialog");
+  backdrop.setAttribute("aria-modal", "true");
+
+  const modal = document.createElement("div");
+  modal.className = "book-modal";
+
+  const closeBtn = document.createElement("button");
+  closeBtn.type = "button";
+  closeBtn.className = "book-modal-close";
+  closeBtn.setAttribute("aria-label", lang === "pt" ? "Fechar" : "Close");
+  closeBtn.textContent = "×";
+
+  const img = document.createElement("img");
+  img.className = "book-modal-cover";
+  img.src = book.cover;
+  img.alt = book.title[lang] || book.title.en;
+
+  const body = document.createElement("div");
+  body.className = "book-modal-body";
+
+  const cat = document.createElement("span");
+  cat.className = "book-cat";
+  cat.textContent = (BOOK_CATEGORIES[book.category] && BOOK_CATEGORIES[book.category][lang]) || "";
+
+  const h4 = document.createElement("h4");
+  h4.textContent = book.title[lang] || book.title.en;
+
+  const author = document.createElement("p");
+  author.className = "book-modal-author";
+  author.textContent = book.author;
+
+  const takeaway = document.createElement("p");
+  takeaway.className = "book-modal-takeaway";
+  takeaway.textContent = book.takeaway[lang] || book.takeaway.en;
+
+  body.append(cat, h4, author, takeaway);
+  modal.append(closeBtn, img, body);
+  backdrop.append(modal);
+  document.body.append(backdrop);
+
+  const close = () => {
+    backdrop.remove();
+    document.removeEventListener("keydown", onKey);
+  };
+  const onKey = (e) => {
+    if (e.key === "Escape") close();
+  };
+  closeBtn.addEventListener("click", close);
+  backdrop.addEventListener("click", (e) => {
+    if (e.target === backdrop) close();
+  });
+  document.addEventListener("keydown", onKey);
+}
+
+function renderBooksHall() {
+  const host = document.getElementById("books-hall");
+  if (!host) return;
+  const copy = UI[lang] || UI.en;
+
+  host.replaceChildren();
+
+  const head = document.createElement("div");
+  head.className = "books-hall-head";
+
+  const titleWrap = document.createElement("div");
+  const h3 = document.createElement("h3");
+  h3.textContent = copy.booksHallTitle || (lang === "pt" ? "Hall de Leitura" : "Reading Hall");
+  const lead = document.createElement("p");
+  lead.textContent = copy.booksHallLead || "";
+  titleWrap.append(h3, lead);
+
+  const filterBar = document.createElement("div");
+  filterBar.className = "books-filter-bar";
+  for (const [key, labels] of Object.entries(BOOK_CATEGORIES)) {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = `books-filter-btn${activeBookFilter === key ? " is-active" : ""}`;
+    btn.textContent = labels[lang] || labels.en;
+    btn.addEventListener("click", () => {
+      activeBookFilter = key;
+      renderBooksHall();
+    });
+    filterBar.append(btn);
+  }
+
+  head.append(titleWrap, filterBar);
+
+  const shelf = document.createElement("div");
+  shelf.className = "books-shelf";
+
+  const visibleBooks =
+    activeBookFilter === "all"
+      ? BOOKS_DATA
+      : BOOKS_DATA.filter((b) => b.category === activeBookFilter);
+
+  for (const book of visibleBooks) {
+    const card = document.createElement("button");
+    card.type = "button";
+    card.className = "book-card";
+
+    const coverWrap = document.createElement("div");
+    coverWrap.className = "book-cover-wrap";
+    const img = document.createElement("img");
+    img.src = book.cover;
+    img.alt = `${book.title[lang] || book.title.en} — ${book.author}`;
+    img.loading = "lazy";
+    coverWrap.append(img);
+
+    const meta = document.createElement("div");
+    meta.className = "book-meta";
+    const cat = document.createElement("span");
+    cat.className = "book-cat";
+    cat.textContent = (BOOK_CATEGORIES[book.category] && BOOK_CATEGORIES[book.category][lang]) || "";
+    const title = document.createElement("span");
+    title.className = "book-title";
+    title.textContent = book.title[lang] || book.title.en;
+    const author = document.createElement("span");
+    author.className = "book-author";
+    author.textContent = book.author;
+    meta.append(cat, title, author);
+
+    card.append(coverWrap, meta);
+    card.addEventListener("click", () => openBookModal(book));
+    shelf.append(card);
+  }
+
+  host.append(head, shelf);
 }
 
 initSnakeTimelines();

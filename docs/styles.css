@@ -2065,3 +2065,223 @@ dialog.deliverable-modal::backdrop {
   color: var(--muted);
   font-style: italic;
 }
+
+/* Reading Hall (Books) */
+.books-hall {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+}
+
+.books-hall-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 12px 20px;
+  margin-bottom: 1.25rem;
+}
+
+.books-hall-head h3 {
+  margin: 0 0 4px;
+  font-size: 1.25rem;
+}
+
+.books-hall-head p {
+  margin: 0;
+  font-size: 0.94rem;
+  color: var(--muted);
+  max-width: 58ch;
+}
+
+.books-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.books-filter-btn {
+  appearance: none;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--muted);
+  border-radius: 999px;
+  padding: 6px 13px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+
+.books-filter-btn:hover {
+  border-color: var(--accent, #2b4c7e);
+  color: var(--ink, #1c1917);
+}
+
+.books-filter-btn.is-active {
+  background: var(--ink, #1c1917);
+  color: #fff;
+  border-color: var(--ink, #1c1917);
+}
+
+.books-shelf {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px 18px;
+  margin-top: 1.25rem;
+}
+
+.book-card {
+  appearance: none;
+  border: 1px solid var(--line);
+  background: var(--card);
+  border-radius: 12px;
+  padding: 12px;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.24s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.24s ease, border-color 0.24s ease;
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.22);
+}
+
+.book-cover-wrap {
+  perspective: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(145deg, rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.07));
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.book-cover-wrap img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 3px 6px 6px 3px;
+  box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.22), inset 2px 0 4px rgba(255, 255, 255, 0.25);
+  transition: transform 0.28s cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+.book-card:hover .book-cover-wrap img {
+  transform: rotateY(-8deg) scale(1.03);
+}
+
+.book-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.book-cat {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--accent, #2b4c7e);
+}
+
+.book-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--ink, #1c1917);
+}
+
+.book-author {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.book-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  background: rgba(15, 14, 12, 0.68);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.book-modal {
+  background: var(--card, #fff);
+  color: var(--ink, #1c1917);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  max-width: 640px;
+  width: 100%;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 22px;
+  position: relative;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+}
+
+.book-modal-cover {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+}
+
+.book-modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.book-modal-body h4 {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.25;
+}
+
+.book-modal-author {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.book-modal-takeaway {
+  margin: 8px 0 0;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.book-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  appearance: none;
+  border: 1px solid var(--line);
+  background: var(--card, #fff);
+  color: var(--ink, #1c1917);
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .book-modal {
+    grid-template-columns: 1fr;
+  }
+  .book-modal-cover {
+    max-width: 150px;
+    margin: 0 auto;
+  }
+}
