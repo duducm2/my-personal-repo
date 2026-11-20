@@ -331,5 +331,17 @@
     "notes": "Izirh single-page job board; scroll and copy all.",
     "verified": false,
     "verified_at": ""
+  },
+  "bees-campinas": {
+    "family": "Greenhouse",
+    "strategy": "single_page_copy",
+    "url": "https://job-boards.greenhouse.io/bees",
+    "button_match": null,
+    "max_clicks": 5,
+    "wait_ms": 2500,
+    "extract_mode": "ctrl_a_copy",
+    "notes": "BEES (AB InBev / Ambev) Greenhouse single-page board; scroll and copy all.",
+    "verified": false,
+    "verified_at": ""
   }
 }
