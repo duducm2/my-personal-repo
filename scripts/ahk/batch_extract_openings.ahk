@@ -125,33 +125,9 @@ for line in lines {
             ScrollToBottomPasses(chromeHwnd, 2, 500)
             collected := CopyDocumentText(chromeHwnd, extractMode)
         } else if (strategy = "numbered_pagination" && btnName != "") {
-            pageNum := 1
-            while (pageNum <= maxClicks) {
-                ScrollToBottomPasses(chromeHwnd, 2, 450)
-                pageTxt := CopyDocumentText(chromeHwnd, extractMode)
-                if (pageTxt != "") {
-                    collected .= "=== PAGE " pageNum " ===`r`n" pageTxt "`r`n`r`n"
-                }
-                docEl := WaitDocumentElement(chromeHwnd, 5000)
-                if (!docEl)
-                    break
-                matches := FindAllMatchingControls(docEl, btnType, btnName)
-                if (matches.Length = 0)
-                    break
-                btn := matches[1]
-                disabled := false
-                try {
-                    if !btn.IsEnabled
-                        disabled := true
-                }
-                if (disabled)
-                    break
-                if !ClickUiaElement(chromeHwnd, btn)
-                    break
-                pageNum += 1
-                pagesVisited := pageNum
-                Sleep waitMs
-            }
+            collected := CollectPaginatedPages(chromeHwnd, btnType, btnName, maxClicks, waitMs, extractMode, &pagesVisited)
+        } else if (strategy = "workday_3m_dual") {
+            collected := ExtractWorkday3mDual(chromeHwnd, url, btnType, btnName, maxClicks, waitMs, extractMode, &pagesVisited)
         } else if (strategy = "infinite_scroll") {
             ScrollToBottomPasses(chromeHwnd, maxClicks, 650)
             collected := CopyDocumentText(chromeHwnd, extractMode)
@@ -501,6 +477,155 @@ CopyDocumentText(chromeHwnd, extractMode) {
         try return docEl.DumpAll()
     }
     return txt
+}
+
+CollectPaginatedPages(chromeHwnd, btnType, btnName, maxClicks, waitMs, extractMode, &pagesVisited, sectionPrefix := "") {
+    collected := ""
+    pageNum := 1
+    while (pageNum <= maxClicks) {
+        ScrollToBottomPasses(chromeHwnd, 2, 450)
+        pageTxt := CopyDocumentText(chromeHwnd, extractMode)
+        if (pageTxt != "") {
+            label := sectionPrefix != "" ? sectionPrefix " - PAGE " pageNum : "PAGE " pageNum
+            collected .= "=== " label " ===`r`n" pageTxt "`r`n`r`n"
+        }
+        if (btnName = "")
+            break
+        docEl := WaitDocumentElement(chromeHwnd, 5000)
+        if (!docEl)
+            break
+        matches := FindAllMatchingControls(docEl, btnType != "" ? btnType : "Button", btnName)
+        if (matches.Length = 0)
+            break
+        btn := matches[1]
+        disabled := false
+        try {
+            if !btn.IsEnabled
+                disabled := true
+        }
+        if (disabled)
+            break
+        if !ClickUiaElement(chromeHwnd, btn)
+            break
+        pageNum += 1
+        pagesVisited += 1
+        Sleep waitMs
+    }
+    return collected
+}
+
+ClickFirstControlByName(chromeHwnd, typeSpec, nameSpec, fallbackName := "") {
+    docEl := WaitDocumentElement(chromeHwnd, 5000)
+    if (!docEl)
+        return false
+    matches := FindAllMatchingControls(docEl, typeSpec, nameSpec)
+    if (matches.Length = 0 && fallbackName != "")
+        matches := FindAllMatchingControls(docEl, typeSpec, fallbackName)
+    if (matches.Length = 0)
+        return false
+    return ClickUiaElement(chromeHwnd, matches[1])
+}
+
+ToggleOrClickCheckbox(chromeHwnd, nameSpec, fallbackName := "") {
+    docEl := WaitDocumentElement(chromeHwnd, 5000)
+    if (!docEl)
+        return false
+    matches := FindAllMatchingControls(docEl, "CheckBox", nameSpec)
+    if (matches.Length = 0 && fallbackName != "")
+        matches := FindAllMatchingControls(docEl, "CheckBox", fallbackName)
+    if (matches.Length = 0)
+        matches := FindAllMatchingControls(docEl, "Text|ListItem", nameSpec)
+    LogStep("CHECKBOX [" nameSpec "] matches=" matches.Length)
+    if (matches.Length = 0)
+        return false
+    el := matches[1]
+    try {
+        WinActivate("ahk_id " chromeHwnd)
+        el.ScrollIntoView()
+        Sleep 250
+    }
+    try {
+        if (el.Type = UIA.Type.CheckBox) {
+            state := el.ToggleState
+            if (state = 0) {
+                el.Toggle()
+                Sleep 250
+                if (el.ToggleState = 1)
+                    return true
+            } else {
+                return true
+            }
+        }
+    }
+    return ClickUiaElement(chromeHwnd, el)
+}
+
+RefreshChromeUrl(chromeHwnd, url, waitMs) {
+    WinActivate("ahk_id " chromeHwnd)
+    WinWaitActive("ahk_id " chromeHwnd, , 3)
+    Send("^l")
+    Sleep 200
+    SendText(url)
+    Sleep 150
+    Send("{Enter}")
+    Sleep Max(2500, waitMs)
+    WaitDocumentElement(chromeHwnd, 12000)
+    Sleep 1000
+}
+
+ExtractWorkday3mDual(chromeHwnd, url, btnType, btnName, maxClicks, waitMs, extractMode, &pagesVisited) {
+    pagesVisited := 0
+    collected := ""
+
+    ; Method 1: Select "More" -> "Remote Work Options" -> "Remote" -> "View Jobs"
+    LogStep("3M METHOD 1: More -> Remote Work Options -> Remote")
+    moreOk := ClickFirstControlByName(chromeHwnd, "Button|MenuItem", "More")
+    LogStep("3M M1 More clicked=" moreOk)
+    if (moreOk) {
+        Sleep 1000
+        docEl := WaitDocumentElement(chromeHwnd, 4000)
+        remoteMatches := docEl ? FindAllMatchingControls(docEl, "CheckBox", "Remote") : []
+        if (remoteMatches.Length = 0) {
+            rwoOk := ClickFirstControlByName(chromeHwnd, "Button|CheckBox|Text|Group", "Remote Work Options")
+            LogStep("3M M1 RemoteWorkOptions clicked=" rwoOk)
+            Sleep 800
+        }
+        remOk := ToggleOrClickCheckbox(chromeHwnd, "Remote (", "Remote")
+        LogStep("3M M1 Remote checked=" remOk)
+        if (remOk) {
+            Sleep 400
+            vjOk := ClickFirstControlByName(chromeHwnd, "Button", "View Jobs")
+            LogStep("3M M1 ViewJobs clicked=" vjOk)
+            Sleep waitMs
+        }
+    }
+    m1Text := CollectPaginatedPages(chromeHwnd, btnType, btnName, maxClicks, waitMs, extractMode, &pagesVisited, "METHOD 1 (REMOTE)")
+    if (m1Text != "")
+        collected .= m1Text
+
+    ; Method 2: Refresh page and retrieve all job openings in Brazil regardless of work type
+    LogStep("3M METHOD 2: Refresh -> Geography/Country -> Brazil")
+    RefreshChromeUrl(chromeHwnd, url, waitMs)
+    geoOk := ClickFirstControlByName(chromeHwnd, "Button|MenuItem", "Geography/Country", "Geography")
+    LogStep("3M M2 Geography clicked=" geoOk)
+    if (geoOk) {
+        Sleep 1000
+        brOk := ToggleOrClickCheckbox(chromeHwnd, "Brazil (", "Brazil")
+        LogStep("3M M2 Brazil checked=" brOk)
+        if (brOk) {
+            Sleep 400
+            vjOk2 := ClickFirstControlByName(chromeHwnd, "Button", "View Jobs")
+            LogStep("3M M2 ViewJobs clicked=" vjOk2)
+            Sleep waitMs
+        }
+    }
+    m2Text := CollectPaginatedPages(chromeHwnd, btnType, btnName, maxClicks, waitMs, extractMode, &pagesVisited, "METHOD 2 (BRAZIL ALL)")
+    if (m2Text != "")
+        collected .= m2Text
+
+    if (pagesVisited < 1)
+        pagesVisited := 1
+    return collected
 }
 
 JsonEsc(s) {

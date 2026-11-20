@@ -166,10 +166,11 @@ def run_batch_extraction(
         m = ext_map.get(cid) or {}
         btn = m.get("button_match") or {}
         out_path = desktop_txt_path(cid)
+        target_url = m.get("url") or info["url"]
         cols = [
             _clean_tsv(cid),
             _clean_tsv(info["name"]),
-            _clean_tsv(info["url"]),
+            _clean_tsv(target_url),
             _clean_tsv(m.get("strategy") or "single_page_copy"),
             _clean_tsv(btn.get("Type") or ""),
             _clean_tsv(btn.get("Name") or ""),

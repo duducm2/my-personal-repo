@@ -13,7 +13,7 @@
     "extract_mode": "ctrl_a_copy",
     "notes": "SmartRecruiters Brazil board; scroll to load all city groups and click every 'Mostrar mais empregos' / 'Show more jobs' link until all openings are visible.",
     "verified": true,
-    "verified_at": "2026-11-18"
+    "verified_at": "2026-11-20"
   },
   "bosch-brasil-internal": {
     "family": "SmartRecruiters",
@@ -66,8 +66,8 @@
     "wait_ms": 2500,
     "extract_mode": "ctrl_a_copy",
     "notes": "CPqD Recruitee board; all open roles render on the main page.",
-    "verified": true,
-    "verified_at": "2026-11-18"
+    "verified": false,
+    "verified_at": ""
   },
   "cpfl-campinas": {
     "family": "SAP SuccessFactors",
@@ -78,8 +78,8 @@
     "wait_ms": 3000,
     "extract_mode": "ctrl_a_copy",
     "notes": "CPFL SuccessFactors search table; renders 50+ roles directly.",
-    "verified": true,
-    "verified_at": "2026-11-18"
+    "verified": false,
+    "verified_at": ""
   },
   "agibank-campinas": {
     "family": "Custom",
@@ -160,13 +160,21 @@
     "wait_ms": 3000,
     "extract_mode": "ctrl_a_copy",
     "notes": "Venturus InHire SPA board; scroll and copy all.",
-    "verified": true,
-    "verified_at": "2026-11-18"
+    "verified": false,
+    "verified_at": ""
   },
   "3m-sumare": {
     "family": "Workday",
-    "strategy": "numbered_pagination",
+    "strategy": "workday_3m_dual",
     "url": "https://3m.wd1.myworkdayjobs.com/en-US/Search",
+    "filters": {
+      "geography_country": "Brazil",
+      "remote_work_option": "Remote",
+      "methods": [
+        "more_remote_work_options_remote",
+        "refresh_geography_country_brazil"
+      ]
+    },
     "button_match": {
       "Type": "Button",
       "Name": "next",
@@ -175,8 +183,9 @@
     "max_clicks": 10,
     "wait_ms": 3500,
     "extract_mode": "ctrl_a_copy",
-    "notes": "Workday tenant; iterate Next button across pages.",
-    "verified": false
+    "notes": "Workday tenant with dual extraction: Method 1 selects More -> Remote Work Options -> Remote -> View Jobs; Method 2 refreshes the base URL and selects Geography/Country -> Brazil -> View Jobs (all work types). Paginates Next across both.",
+    "verified": true,
+    "verified_at": "2026-11-20"
   },
   "ifood-brasil": {
     "family": "Greenhouse",
@@ -187,8 +196,8 @@
     "wait_ms": 2500,
     "extract_mode": "ctrl_a_copy",
     "notes": "Greenhouse single-page board; scroll and copy all.",
-    "verified": true,
-    "verified_at": "2026-11-18"
+    "verified": false,
+    "verified_at": ""
   },
   "mercado-livre": {
     "family": "Custom",
@@ -225,8 +234,8 @@
     "wait_ms": 3000,
     "extract_mode": "ctrl_a_copy",
     "notes": "Gupy Next.js board renders all jobs on the initial page; scroll and copy.",
-    "verified": true,
-    "verified_at": "2026-11-18"
+    "verified": false,
+    "verified_at": ""
   },
   "thoughtworks-global": {
     "family": "Custom",
@@ -315,7 +324,7 @@
     "wait_ms": 2500,
     "extract_mode": "ctrl_a_copy",
     "notes": "Izirh single-page job board; scroll and copy all.",
-    "verified": true,
-    "verified_at": "2026-11-18"
+    "verified": false,
+    "verified_at": ""
   }
 }
