@@ -144,7 +144,7 @@ def run_batch_extraction(
     store: Any,
     company_ids: list[str] | None = None,
     *,
-    timeout: float = 600,
+    timeout: float = 900,
 ) -> dict[str, Any]:
     if not BATCH_AHK_PATH.is_file():
         raise RuntimeError(f"Batch AHK script not found: {BATCH_AHK_PATH}")

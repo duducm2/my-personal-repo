@@ -115,7 +115,7 @@ for line in lines {
                         clicks += 1
                         clickedThisRound += 1
                         pagesVisited += 1
-                        Sleep 1300
+                        HumanSleep(1800, 3000)
                     }
                 }
                 if (clickedThisRound = 0)
@@ -152,6 +152,7 @@ for line in lines {
     } finally {
         CloseBatchChromeWindow(chromeHwnd)
     }
+    HumanSleep(2000, 4000)
 
     if (itemsJson != "")
         itemsJson .= ","
@@ -259,6 +260,7 @@ OpenPortalUrlInChrome(url, waitMs) {
             Sleep 300
         }
         Sleep 1500
+        HumanSleep(800, 1800)
     }
     if (!hwnd) {
         for h in WinGetList("ahk_exe chrome.exe") {
@@ -321,7 +323,7 @@ ScrollToBottomPasses(chromeHwnd, passes := 3, delayMs := 600) {
     FocusDocumentBody(chromeHwnd)
     Loop passes {
         Send("^{End}")
-        Sleep delayMs
+        HumanSleep(Max(850, delayMs), Max(1450, delayMs + 600))
     }
 }
 
@@ -377,14 +379,16 @@ ClickUiaElement(chromeHwnd, el) {
     try {
         WinActivate("ahk_id " chromeHwnd)
         el.ScrollIntoView()
-        Sleep 250
+        HumanSleep(350, 700)
     }
     try {
         el.Click()
+        HumanSleep(250, 550)
         return true
     }
     try {
         el.Invoke()
+        HumanSleep(250, 550)
         return true
     }
     try {
@@ -392,6 +396,7 @@ ClickUiaElement(chromeHwnd, el) {
         if (p && p.w > 0 && p.h > 0) {
             CoordMode("Mouse", "Screen")
             Click(p.x + p.w // 2, p.y + p.h // 2)
+            HumanSleep(250, 550)
             return true
         }
     }
@@ -449,9 +454,9 @@ CopyDocumentText(chromeHwnd, extractMode) {
     FocusDocumentBody(chromeHwnd)
     before := ClipboardUnicode()
     ClearClipboardSafe()
-    Sleep 100
+    HumanSleep(150, 300)
     Send("^a")
-    Sleep 200
+    HumanSleep(220, 420)
     Send("^c")
 
     txt := ""
@@ -479,11 +484,17 @@ CopyDocumentText(chromeHwnd, extractMode) {
     return txt
 }
 
+HumanSleep(minMs, maxMs) {
+    lo := Min(minMs, maxMs)
+    hi := Max(minMs, maxMs)
+    Sleep Random(lo, hi)
+}
+
 CollectPaginatedPages(chromeHwnd, btnType, btnName, maxClicks, waitMs, extractMode, &pagesVisited, sectionPrefix := "") {
     collected := ""
     pageNum := 1
     while (pageNum <= maxClicks) {
-        ScrollToBottomPasses(chromeHwnd, 2, 450)
+        ScrollToBottomPasses(chromeHwnd, 2, 700)
         pageTxt := CopyDocumentText(chromeHwnd, extractMode)
         if (pageTxt != "") {
             label := sectionPrefix != "" ? sectionPrefix " - PAGE " pageNum : "PAGE " pageNum
@@ -509,7 +520,7 @@ CollectPaginatedPages(chromeHwnd, btnType, btnName, maxClicks, waitMs, extractMo
             break
         pageNum += 1
         pagesVisited += 1
-        Sleep waitMs
+        HumanSleep(Max(2500, waitMs), Max(4200, waitMs + 1500))
     }
     return collected
 }
@@ -542,14 +553,14 @@ ToggleOrClickCheckbox(chromeHwnd, nameSpec, fallbackName := "") {
     try {
         WinActivate("ahk_id " chromeHwnd)
         el.ScrollIntoView()
-        Sleep 250
+        HumanSleep(350, 700)
     }
     try {
         if (el.Type = UIA.Type.CheckBox) {
             state := el.ToggleState
             if (state = 0) {
                 el.Toggle()
-                Sleep 250
+                HumanSleep(350, 700)
                 if (el.ToggleState = 1)
                     return true
             } else {
@@ -564,13 +575,13 @@ RefreshChromeUrl(chromeHwnd, url, waitMs) {
     WinActivate("ahk_id " chromeHwnd)
     WinWaitActive("ahk_id " chromeHwnd, , 3)
     Send("^l")
-    Sleep 200
+    HumanSleep(250, 500)
     SendText(url)
-    Sleep 150
+    HumanSleep(200, 400)
     Send("{Enter}")
-    Sleep Max(2500, waitMs)
+    HumanSleep(Max(3000, waitMs), Max(4500, waitMs + 1500))
     WaitDocumentElement(chromeHwnd, 12000)
-    Sleep 1000
+    HumanSleep(1200, 2200)
 }
 
 ExtractWorkday3mDual(chromeHwnd, url, btnType, btnName, maxClicks, waitMs, extractMode, &pagesVisited) {
@@ -582,21 +593,21 @@ ExtractWorkday3mDual(chromeHwnd, url, btnType, btnName, maxClicks, waitMs, extra
     moreOk := ClickFirstControlByName(chromeHwnd, "Button|MenuItem", "More")
     LogStep("3M M1 More clicked=" moreOk)
     if (moreOk) {
-        Sleep 1000
+        HumanSleep(1200, 2000)
         docEl := WaitDocumentElement(chromeHwnd, 4000)
         remoteMatches := docEl ? FindAllMatchingControls(docEl, "CheckBox", "Remote") : []
         if (remoteMatches.Length = 0) {
             rwoOk := ClickFirstControlByName(chromeHwnd, "Button|CheckBox|Text|Group", "Remote Work Options")
             LogStep("3M M1 RemoteWorkOptions clicked=" rwoOk)
-            Sleep 800
+            HumanSleep(900, 1600)
         }
         remOk := ToggleOrClickCheckbox(chromeHwnd, "Remote (", "Remote")
         LogStep("3M M1 Remote checked=" remOk)
         if (remOk) {
-            Sleep 400
+            HumanSleep(700, 1300)
             vjOk := ClickFirstControlByName(chromeHwnd, "Button", "View Jobs")
             LogStep("3M M1 ViewJobs clicked=" vjOk)
-            Sleep waitMs
+            HumanSleep(Max(3500, waitMs), Max(5000, waitMs + 1500))
         }
     }
     m1Text := CollectPaginatedPages(chromeHwnd, btnType, btnName, maxClicks, waitMs, extractMode, &pagesVisited, "METHOD 1 (REMOTE)")
@@ -604,19 +615,20 @@ ExtractWorkday3mDual(chromeHwnd, url, btnType, btnName, maxClicks, waitMs, extra
         collected .= m1Text
 
     ; Method 2: Refresh page and retrieve all job openings in Brazil regardless of work type
+    HumanSleep(1500, 2800)
     LogStep("3M METHOD 2: Refresh -> Geography/Country -> Brazil")
     RefreshChromeUrl(chromeHwnd, url, waitMs)
     geoOk := ClickFirstControlByName(chromeHwnd, "Button|MenuItem", "Geography/Country", "Geography")
     LogStep("3M M2 Geography clicked=" geoOk)
     if (geoOk) {
-        Sleep 1000
+        HumanSleep(1200, 2000)
         brOk := ToggleOrClickCheckbox(chromeHwnd, "Brazil (", "Brazil")
         LogStep("3M M2 Brazil checked=" brOk)
         if (brOk) {
-            Sleep 400
+            HumanSleep(700, 1300)
             vjOk2 := ClickFirstControlByName(chromeHwnd, "Button", "View Jobs")
             LogStep("3M M2 ViewJobs clicked=" vjOk2)
-            Sleep waitMs
+            HumanSleep(Max(3500, waitMs), Max(5000, waitMs + 1500))
         }
     }
     m2Text := CollectPaginatedPages(chromeHwnd, btnType, btnName, maxClicks, waitMs, extractMode, &pagesVisited, "METHOD 2 (BRAZIL ALL)")
