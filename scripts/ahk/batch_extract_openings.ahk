@@ -128,6 +128,8 @@ for line in lines {
             collected := CollectPaginatedPages(chromeHwnd, btnType, btnName, maxClicks, waitMs, extractMode, &pagesVisited)
         } else if (strategy = "workday_3m_dual") {
             collected := ExtractWorkday3mDual(chromeHwnd, url, btnType, btnName, maxClicks, waitMs, extractMode, &pagesVisited)
+        } else if (strategy = "agibank_campinas") {
+            collected := ExtractAgibankCampinas(chromeHwnd, btnType, btnName, maxClicks, waitMs, extractMode, &pagesVisited)
         } else if (strategy = "infinite_scroll") {
             ScrollToBottomPasses(chromeHwnd, maxClicks, 650)
             collected := CopyDocumentText(chromeHwnd, extractMode)
@@ -635,6 +637,87 @@ ExtractWorkday3mDual(chromeHwnd, url, btnType, btnName, maxClicks, waitMs, extra
     if (m2Text != "")
         collected .= m2Text
 
+    if (pagesVisited < 1)
+        pagesVisited := 1
+    return collected
+}
+
+ExtractAgibankCampinas(chromeHwnd, btnType, btnName, maxClicks, waitMs, extractMode, &pagesVisited) {
+    pagesVisited := 0
+    LogStep("AGIBANK: opening Localidade dropdown")
+    HumanSleep(1000, 1800)
+    locOk := ClickFirstControlByName(chromeHwnd, "Button", "Localidade")
+    LogStep("AGIBANK Localidade clicked=" locOk)
+    if (locOk) {
+        HumanSleep(900, 1500)
+        docEl := WaitDocumentElement(chromeHwnd, 5000)
+        if (docEl) {
+            edits := []
+            try edits := docEl.FindElements({Type: "Edit"})
+            LogStep("AGIBANK Edit count=" edits.Length)
+            if (edits.Length > 0) {
+                dropdownEdit := edits[edits.Length]
+                if ClickUiaElement(chromeHwnd, dropdownEdit) {
+                    HumanSleep(250, 450)
+                    Send("^a")
+                    HumanSleep(100, 200)
+                    SendText("campinas")
+                    HumanSleep(900, 1600)
+                    docEl := WaitDocumentElement(chromeHwnd, 4000)
+                    editPos := ""
+                    try editPos := dropdownEdit.GetPos("screen")
+                    if (IsObject(editPos))
+                        LogStep("AGIBANK editPos=" editPos.x "," editPos.y "," editPos.w "x" editPos.h)
+                    exactCamp := []
+                    if (docEl) {
+                        allCamp := []
+                        try allCamp := docEl.FindElements({Name: "Campinas", matchmode: "Substring"})
+                        LogStep("AGIBANK allCamp count=" allCamp.Length)
+                        for el in allCamp {
+                            nm := ""
+                            tp := ""
+                            ep := ""
+                            try nm := Trim(el.Name)
+                            try tp := el.LocalizedType
+                            try ep := el.GetPos("screen")
+                            posStr := IsObject(ep) ? (ep.x "," ep.y "," ep.w "x" ep.h) : "none"
+                            LogStep("AGIBANK cand Type=[" tp "] Name=[" nm "] Pos=[" posStr "]")
+                            if (StrLower(nm) != "campinas")
+                                continue
+                            if (IsObject(editPos) && IsObject(ep) && ep.w > 0 && ep.h > 0) {
+                                if (ep.y > editPos.y && ep.y < editPos.y + 320 && Abs(ep.x - editPos.x) < 300)
+                                    exactCamp.Push(el)
+                            } else if (!IsObject(editPos)) {
+                                exactCamp.Push(el)
+                            }
+                        }
+                    }
+                    LogStep("AGIBANK exact Campinas dropdown matches=" exactCamp.Length)
+                    campOk := false
+                    if (exactCamp.Length > 0) {
+                        try {
+                            ep := exactCamp[1].GetPos("screen")
+                            if (ep && ep.w > 0 && ep.h > 0) {
+                                WinActivate("ahk_id " chromeHwnd)
+                                CoordMode("Mouse", "Screen")
+                                Click(ep.x + ep.w // 2, ep.y + ep.h // 2)
+                                HumanSleep(300, 600)
+                                campOk := true
+                            }
+                        }
+                        if (!campOk)
+                            campOk := ClickUiaElement(chromeHwnd, exactCamp[1])
+                    }
+                    LogStep("AGIBANK Campinas clicked=" campOk)
+                    HumanSleep(500, 900)
+                    ; Close the multi-select dropdown cleanly before paginating/copying
+                    ClickFirstControlByName(chromeHwnd, "Button", "Localidade")
+                    HumanSleep(Max(2000, waitMs), Max(3500, waitMs + 1000))
+                }
+            }
+        }
+    }
+    collected := CollectPaginatedPages(chromeHwnd, btnType, btnName, maxClicks, waitMs, extractMode, &pagesVisited, "AGIBANK (CAMPINAS)")
     if (pagesVisited < 1)
         pagesVisited := 1
     return collected
