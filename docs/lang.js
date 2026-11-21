@@ -560,16 +560,16 @@ const UI = {
       {
         id: "memorization-book",
         category: "personal",
-        title: "Memorize with AI (Book Manuscript in Progress)",
+        title: "Memorize with AI (Book in Progress)",
         short:
-          "Early-stage LaTeX book manuscript combining memory-palace techniques with AI-assisted mnemonic pipelines for exams and deep learning.",
+          "Book in progress combining memory-palace techniques with AI-assisted mnemonic workflows for exams and deep learning.",
         full:
-          "An ongoing LaTeX book project ('Memorize com IA, passe na prova, pense melhor') structured into a 4-part, 16-chapter plan with appendices. It pairs classic spatial memory methods (real-world memory palaces, bestiary, micro-loci) with an AI-assisted mnemonic generation workflow for exam preparation and long-term retention.",
+          "An ongoing book project ('Memorize com IA, passe na prova, pense melhor') structured into 4 parts. It pairs classic spatial memory methods (real-world memory palaces, bestiary, micro-loci) with an AI-assisted mnemonic generation workflow for exam preparation and long-term retention.",
         media: [
           {
             src: "../media/projects/memorization-book-cover.png",
             alt: "Hardcover concept for the book Memorize com IA, passe na prova, pense melhor by Eduardo Figueiredo",
-            caption: "Book concept & working title — 4-part, 16-chapter LaTeX manuscript",
+            caption: "Book concept & working title — structured in 4 parts",
           },
         ],
       },
@@ -1354,16 +1354,16 @@ const UI = {
       {
         id: "memorization-book",
         category: "personal",
-        title: "Memorize com IA (Manuscrito de Livro em Construção)",
+        title: "Memorize com IA (Livro em Construção)",
         short:
-          "Manuscrito inicial em LaTeX que combina técnicas clássicas de palácio da memória com pipelines de IA para gerar mnemônicos para provas e estudo.",
+          "Livro em construção que combina técnicas clássicas de palácio da memória com fluxos de IA para gerar mnemônicos para provas e estudo.",
         full:
-          "Projeto de livro em LaTeX ('Memorize com IA, passe na prova, pense melhor') estruturado em 4 partes, 16 capítulos e apêndices. O plano une métodos espaciais clássicos de memorização (ruas reais, bestiário, micro-loci) a um fluxo prático com IA para criar mnemônicos voltados a provas e retenção de longo prazo.",
+          "Projeto de livro em construção ('Memorize com IA, passe na prova, pense melhor') estruturado em 4 partes. O plano une métodos espaciais clássicos de memorização (ruas reais, bestiário, micro-loci) a um fluxo prático com IA para criar mnemônicos voltados a provas e retenção de longo prazo.",
         media: [
           {
             src: "../media/projects/memorization-book-cover.png",
             alt: "Conceito de capa dura do livro Memorize com IA, passe na prova, pense melhor de Eduardo Figueiredo",
-            caption: "Conceito e título do livro — esqueleto em LaTeX (4 partes, 16 capítulos)",
+            caption: "Conceito e título do livro — estruturado em 4 partes",
           },
         ],
       },
