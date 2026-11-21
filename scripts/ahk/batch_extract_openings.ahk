@@ -130,6 +130,8 @@ for line in lines {
             collected := ExtractWorkday3mDual(chromeHwnd, url, btnType, btnName, maxClicks, waitMs, extractMode, &pagesVisited)
         } else if (strategy = "agibank_campinas") {
             collected := ExtractAgibankCampinas(chromeHwnd, btnType, btnName, maxClicks, waitMs, extractMode, &pagesVisited)
+        } else if (strategy = "greenhouse_office") {
+            collected := ExtractGreenhouseOffice(chromeHwnd, btnName, waitMs, extractMode)
         } else if (strategy = "infinite_scroll") {
             ScrollToBottomPasses(chromeHwnd, maxClicks, 650)
             collected := CopyDocumentText(chromeHwnd, extractMode)
@@ -715,6 +717,67 @@ ExtractAgibankCampinas(chromeHwnd, btnType, btnName, maxClicks, waitMs, extractM
     if (pagesVisited < 1)
         pagesVisited := 1
     return collected
+}
+
+ExtractGreenhouseOffice(chromeHwnd, officeName, waitMs, extractMode) {
+    targetOffice := officeName != "" ? officeName : "Campinas"
+    LogStep("GREENHOUSE: filtering office=[" targetOffice "]")
+    HumanSleep(800, 1400)
+    docEl := WaitDocumentElement(chromeHwnd, 5000)
+    if (docEl) {
+        combos := []
+        edits := []
+        try combos := docEl.FindElements({Type: "ComboBox"})
+        try edits := docEl.FindElements({Type: "Edit"})
+        LogStep("GREENHOUSE combos=" combos.Length " edits=" edits.Length)
+
+        targetEl := ""
+        for el in combos {
+            nm := "", aid := ""
+            try nm := Trim(el.Name)
+            try aid := Trim(el.AutomationId)
+            if (aid = "office-filter" || InStr(StrLower(nm), "agência") || InStr(StrLower(nm), "agencia") || InStr(StrLower(nm), "office") || InStr(StrLower(nm), "location")) {
+                targetEl := el
+                break
+            }
+        }
+        if (!IsObject(targetEl) && combos.Length > 0)
+            targetEl := combos[combos.Length]
+        if (!IsObject(targetEl) && edits.Length > 0)
+            targetEl := edits[edits.Length]
+
+        if (IsObject(targetEl)) {
+            ClickUiaElement(chromeHwnd, targetEl)
+            try targetEl.SetFocus()
+            HumanSleep(300, 550)
+            SendText(targetOffice)
+            HumanSleep(900, 1400)
+            docEl := WaitDocumentElement(chromeHwnd, 4000)
+            optClicked := false
+            if (docEl) {
+                opts := FindAllMatchingControls(docEl, "ListItem|MenuItem", targetOffice)
+                LogStep("GREENHOUSE option matches=" opts.Length)
+                if (opts.Length > 0) {
+                    optNm := ""
+                    try optNm := Trim(opts[1].Name)
+                    LogStep("GREENHOUSE opt1=[" optNm "]")
+                    WinActivate("ahk_id " chromeHwnd)
+                    Send("{Enter}")
+                    HumanSleep(300, 500)
+                    optClicked := true
+                }
+            }
+            if (!optClicked) {
+                WinActivate("ahk_id " chromeHwnd)
+                Send("{Enter}")
+                HumanSleep(300, 500)
+            }
+            LogStep("GREENHOUSE office selected optClicked=" optClicked)
+            HumanSleep(Max(1800, waitMs), Max(2800, waitMs + 800))
+        }
+    }
+    ScrollToBottomPasses(chromeHwnd, 3, 500)
+    return CopyDocumentText(chromeHwnd, extractMode)
 }
 
 JsonEsc(s) {

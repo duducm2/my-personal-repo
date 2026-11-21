@@ -334,14 +334,18 @@
   },
   "bees-campinas": {
     "family": "Greenhouse",
-    "strategy": "single_page_copy",
+    "strategy": "greenhouse_office",
     "url": "https://job-boards.greenhouse.io/bees",
-    "button_match": null,
+    "button_match": {
+      "Type": "ComboBox|Edit",
+      "Name": "Campinas",
+      "matchmode": "Substring"
+    },
     "max_clicks": 5,
     "wait_ms": 2500,
     "extract_mode": "ctrl_a_copy",
-    "notes": "BEES (AB InBev / Ambev) Greenhouse single-page board; scroll and copy all.",
-    "verified": false,
-    "verified_at": ""
+    "notes": "BEES (AB InBev / Ambev) Greenhouse board; selects Agência/Office = Campinas, Brazil, then scrolls and copies all.",
+    "verified": true,
+    "verified_at": "2026-11-21"
   }
 }
