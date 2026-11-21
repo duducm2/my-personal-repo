@@ -94,8 +94,8 @@
     "wait_ms": 3000,
     "extract_mode": "ctrl_a_copy",
     "notes": "Agibank Next.js careers board; opens Localidade dropdown, types campinas, selects Campinas, and paginates Próxima página.",
-    "verified": false,
-    "verified_at": ""
+    "verified": true,
+    "verified_at": "2026-11-21"
   },
   "samsung-srbr-campinas": {
     "family": "Workday",

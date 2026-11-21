@@ -684,8 +684,10 @@ ExtractAgibankCampinas(chromeHwnd, btnType, btnName, maxClicks, waitMs, extractM
                             LogStep("AGIBANK cand Type=[" tp "] Name=[" nm "] Pos=[" posStr "]")
                             if (StrLower(nm) != "campinas")
                                 continue
+                            if (el.Type != UIA.Type.Button && el.Type != UIA.Type.ListItem && el.Type != UIA.Type.MenuItem)
+                                continue
                             if (IsObject(editPos) && IsObject(ep) && ep.w > 0 && ep.h > 0) {
-                                if (ep.y > editPos.y && ep.y < editPos.y + 320 && Abs(ep.x - editPos.x) < 300)
+                                if (ep.y > editPos.y && Abs(ep.x - editPos.x) < 300)
                                     exactCamp.Push(el)
                             } else if (!IsObject(editPos)) {
                                 exactCamp.Push(el)
@@ -695,23 +697,15 @@ ExtractAgibankCampinas(chromeHwnd, btnType, btnName, maxClicks, waitMs, extractM
                     LogStep("AGIBANK exact Campinas dropdown matches=" exactCamp.Length)
                     campOk := false
                     if (exactCamp.Length > 0) {
-                        try {
-                            ep := exactCamp[1].GetPos("screen")
-                            if (ep && ep.w > 0 && ep.h > 0) {
-                                WinActivate("ahk_id " chromeHwnd)
-                                CoordMode("Mouse", "Screen")
-                                Click(ep.x + ep.w // 2, ep.y + ep.h // 2)
-                                HumanSleep(300, 600)
-                                campOk := true
-                            }
-                        }
-                        if (!campOk)
-                            campOk := ClickUiaElement(chromeHwnd, exactCamp[1])
+                        campOk := ClickUiaElement(chromeHwnd, exactCamp[1])
                     }
                     LogStep("AGIBANK Campinas clicked=" campOk)
                     HumanSleep(500, 900)
                     ; Close the multi-select dropdown cleanly before paginating/copying
-                    ClickFirstControlByName(chromeHwnd, "Button", "Localidade")
+                    if !ClickFirstControlByName(chromeHwnd, "Button", "selecionado", "Localidade") {
+                        WinActivate("ahk_id " chromeHwnd)
+                        Send("{Escape}")
+                    }
                     HumanSleep(Max(2000, waitMs), Max(3500, waitMs + 1000))
                 }
             }
