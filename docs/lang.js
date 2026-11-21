@@ -92,27 +92,21 @@ const UI = {
       badge: "Flagship Case Study · Research × Data × Product Ownership",
       title: "Project BeaconTower — UX Practice Portal & Service Blueprint",
       lead:
-        "This project brings together everything I do best: using empirical data and user research to align global stakeholders, while acting as Product Owner to build a real platform solution.",
+        "This project brings together everything I do best: leading a team of 3 researchers across 20+ interviews, 4+ focus groups, and a global survey to align stakeholders with empirical data, while acting as Product Owner to build a real platform solution.",
       pillars: [
         {
-          label: "01 · Research & Stakeholders",
-          text: "Ran stakeholder interviews, cross-participant coding matrices, concentric stakeholder mapping, and an as-is service blueprint exposing 240-row parallel Excel workarounds.",
+          label: "01 · Research Leadership & Stakeholders",
+          text: "Acted as Research Lead guiding 3 other researchers through 20+ stakeholder interviews and 4+ focus group sessions, alongside a global survey, coding matrices, concentric stakeholder mapping, and an as-is service blueprint exposing 240-row parallel Excel workarounds.",
         },
         {
           label: "02 · Data & Quant Evidence",
-          text: "Combined a global survey with a heuristic audit of 8 core screens (33 flaws quantified) and baseline-to-target KPI tracking.",
+          text: "Combined survey data with a heuristic audit of 8 core screens (33 flaws quantified) and baseline-to-target KPI tracking.",
         },
         {
           label: "03 · Product Ownership & Solution",
-          text: "Built the PracticeHub UX portal (offerings, personas, opportunities, KPIs) and shaped unified governance saving 150k EUR/quarter and 240h/month.",
+          text: "Built the PracticeHub UX portal (offerings, personas, opportunities, KPIs) and shaped unified governance with projected savings of 150k EUR/quarter and 240h/month.",
         },
       ],
-      metrics: [
-        { value: "150k EUR", label: "Avoided rework / quarter" },
-        { value: "240h / mo", label: "Operational time saved" },
-        { value: "33 flaws", label: "Audited across 8 screens" },
-      ],
-      cta: "Explore Full Case & All Visuals →",
     },
     deliverableCategories: [
       { id: "platforms", title: "Product, Platforms & Governance" },
@@ -152,14 +146,14 @@ const UI = {
         category: "platforms",
         title: "UX Super Portal & X-Tower Service Blueprint",
         short:
-          "Custom UX practice portal (offerings, personas, KPIs) applied to X-Tower discovery: blueprint & evaluation saving 150k EUR/quarter and 240h/month.",
+          "Custom UX practice portal (offerings, personas, KPIs) applied to X-Tower discovery: blueprint & evaluation with projected savings of 150k EUR/quarter and 240h/month.",
         full:
-          "Built the UX Super practice portal to organize businesses, offerings, personas, opportunities, and baseline-to-target project KPIs, and applied it to end-to-end UX research and architecture discovery for the X-Tower platform across global PS-BDO teams. Conducted a heuristic evaluation of 8 core screens (33 flaws uncovered), stakeholder interviews, global survey, concentric stakeholder and ecosystem mapping, and an as-is service blueprint exposing 240-row parallel Excel workarounds—establishing unified governance and impact projections of 150,000 EUR/quarter in avoided rework and 240 hours/month saved.",
+          "Built the UX Super practice portal to organize businesses, offerings, personas, opportunities, and baseline-to-target project KPIs, and applied it to end-to-end UX research and architecture discovery for the X-Tower platform across global PS-BDO teams. Acting as Research Lead for a team of 3 other researchers, I guided 20+ stakeholder interviews and 4+ focus group sessions, paired with a heuristic evaluation of 8 core screens (33 flaws uncovered), a global survey, concentric stakeholder and ecosystem mapping, and an as-is service blueprint exposing 240-row parallel Excel workarounds—establishing unified governance and projected savings of 150,000 EUR/quarter in avoided rework and 240 hours/month.",
         media: [
           {
             src: "../media/x-tower-summary.png",
             alt: "X-Tower project overview and consolidated before-and-after impact results",
-            caption: "BeaconTower impact summary: 150k EUR/quarter & 240h/month saved",
+            caption: "BeaconTower projected impact: 150k EUR/quarter & 240h/month",
           },
           {
             src: "../media/x-tower-ecosystem.png",
@@ -190,11 +184,6 @@ const UI = {
             src: "../media/x-tower-interviews.png",
             alt: "Cross-participant interview matrix for X-Tower research",
             caption: "Interview coding matrix",
-          },
-          {
-            src: "../media/ux-super-businesses.jpg",
-            alt: "UX Super businesses view, with offerings, personas, and opportunities",
-            caption: "UX Practice Portal: businesses, offerings & personas",
           },
           {
             src: "../media/ux-super-kpis.jpg",
@@ -621,6 +610,22 @@ const UI = {
         ],
       },
       {
+        id: "daily-automation-suite",
+        category: "personal",
+        title: "Daily Automation & Productivity Suite (AutoHotkey v2 + UIA + Python IPC)",
+        short:
+          "Personal daily-driver automation toolkit unifying resilient UI Automation (UIA-v2), AI-to-IDE bridges, multi-monitor window management, context-aware cheat sheets across 30+ apps, and Python IPC daemons.",
+        full:
+          "Built and maintain a modular AutoHotkey v2 + Python IPC automation suite used every day to boost speed and reduce cognitive load. Key capabilities include: (1) cross-app UI Automation bridges (Gemini/AI-to-IDE handoffs, Microsoft Teams mic/camera state verification, Outlook & WhatsApp helpers); (2) instant context-aware shortcut cheat sheets across 30+ apps (Power BI, Excel, Cursor, VS Code, Chrome, Figma); (3) multi-monitor window snapping, cursor halo, and Pomodoro tracking; and (4) optional Named-Pipe/MMF Python IPC daemons with bounded timeouts and fail-safe overlays.",
+        media: [
+          {
+            src: "../media/projects/daily-automation-scripts-showcase.png",
+            alt: "Overview card of the Daily Automation & Productivity Suite covering AI bridges, context cheat sheets, window management, and Python IPC",
+            caption: "Daily Automation Suite: UIA-v2, Context Cheat Sheets, Window Flow & Python IPC",
+          },
+        ],
+      },
+      {
         id: "proj-vba-suite",
         category: "platforms",
         title: "Proj. — Excel/VBA Project Management Application (Budapest)",
@@ -917,27 +922,21 @@ const UI = {
       badge: "Caso em Destaque · Pesquisa × Dados × Product Ownership",
       title: "Projeto BeaconTower — Portal de Prática UX & Service Blueprint",
       lead:
-        "Este projeto reúne o melhor do meu trabalho: unir dados empíricos e pesquisa com usuários para alinhar stakeholders globais, atuando como Product Owner na construção de uma solução real.",
+        "Este projeto reúne o melhor do meu trabalho: liderar uma equipe de 3 pesquisadores em mais de 20 entrevistas, mais de 4 grupos focais e survey global para alinhar stakeholders com dados empíricos, atuando como Product Owner na construção de uma solução real.",
       pillars: [
         {
-          label: "01 · Pesquisa & Stakeholders",
-          text: "Conduzi entrevistas com stakeholders, matriz de codificação, mapeamento concêntrico de stakeholders e service blueprint as-is expondo planilhas paralelas de 240 linhas.",
+          label: "01 · Liderança em Pesquisa & Stakeholders",
+          text: "Atuei como Research Lead orientando outros 3 pesquisadores em mais de 20 entrevistas com stakeholders e mais de 4 sessões de grupos focais, além de survey global, matriz de codificação, mapeamento concêntrico e service blueprint as-is expondo planilhas paralelas de 240 linhas.",
         },
         {
           label: "02 · Dados & Evidência Quantitativa",
-          text: "Combinei survey global com avaliação heurística de 8 telas centrais (33 falhas quantificadas) e acompanhamento de KPIs da linha de base à meta.",
+          text: "Combinei os dados do survey com avaliação heurística de 8 telas centrais (33 falhas quantificadas) e acompanhamento de KPIs da linha de base à meta.",
         },
         {
           label: "03 · Product Ownership & Solução",
-          text: "Construí o portal PracticeHub (ofertas, personas, oportunidades e KPIs) e estruturei a governança que projeta economia de 150 mil EUR/trimestre e 240h/mês.",
+          text: "Construí o portal PracticeHub (ofertas, personas, oportunidades e KPIs) e estruturei a governança com economia projetada de 150 mil EUR/trimestre e 240h/mês.",
         },
       ],
-      metrics: [
-        { value: "150 mil EUR", label: "Retrabalho evitado / trim." },
-        { value: "240h / mês", label: "Tempo operacional salvo" },
-        { value: "33 falhas", label: "Auditadas em 8 telas" },
-      ],
-      cta: "Explorar Caso Completo & Visuais →",
     },
     deliverableCategories: [
       { id: "platforms", title: "Produtos, Plataformas e Governança" },
@@ -977,9 +976,9 @@ const UI = {
         category: "platforms",
         title: "Portal UX Super e Service Blueprint X-Tower",
         short:
-          "Portal da prática de UX (ofertas, personas, KPIs) aplicado à descoberta do X-Tower: blueprint e avaliação com economia de 150 mil EUR/trimestre e 240h/mês.",
+          "Portal da prática de UX (ofertas, personas, KPIs) aplicado à descoberta do X-Tower: blueprint e avaliação com economia projetada de 150 mil EUR/trimestre e 240h/mês.",
         full:
-          "Desenvolvi o portal UX Super para estruturar negócios, ofertas, personas, oportunidades e KPIs de projeto (linha de base à meta), aplicando-o na pesquisa de UX e descoberta de arquitetura ponta a ponta da plataforma X-Tower em times globais PS-BDO. Incluiu avaliação heurística de 8 telas principais (33 falhas mapeadas), entrevistas com stakeholders, survey global, mapeamento concêntrico de stakeholders e ecossistema, e service blueprint as-is expondo planilhas paralelas de 240 linhas—estruturando governança unificada com impacto projetado de 150.000 EUR/trimestre em retrabalho evitado e 240 horas/mês economizadas.",
+          "Desenvolvi o portal UX Super para estruturar negócios, ofertas, personas, oportunidades e KPIs de projeto (linha de base à meta), aplicando-o na pesquisa de UX e descoberta de arquitetura ponta a ponta da plataforma X-Tower em times globais PS-BDO. Atuando como Research Lead de uma equipe com outros 3 pesquisadores, conduzi mais de 20 entrevistas com stakeholders e mais de 4 sessões de grupos focais, combinadas com avaliação heurística de 8 telas principais (33 falhas mapeadas), survey global, mapeamento concêntrico de stakeholders e ecossistema, e service blueprint as-is expondo planilhas paralelas de 240 linhas—estruturando governança unificada com impacto projetado de 150.000 EUR/trimestre em retrabalho evitado e 240 horas/mês.",
         media: [
           {
             src: "../media/x-tower-summary.png",
@@ -1015,11 +1014,6 @@ const UI = {
             src: "../media/x-tower-interviews.png",
             alt: "Matriz de codificação de entrevistas entre participantes do X-Tower",
             caption: "Matriz de codificação de entrevistas",
-          },
-          {
-            src: "../media/ux-super-businesses.jpg",
-            alt: "Visão de negócios do UX Super, com ofertas, personas e oportunidades",
-            caption: "Portal de Prática UX: negócios, ofertas e personas",
           },
           {
             src: "../media/ux-super-kpis.jpg",
@@ -1442,6 +1436,22 @@ const UI = {
             src: "../media/projects/my-python-scripts-showcase.png",
             alt: "Painel resumo do toolkit My-Python-Scripts cobrindo dados, transcrição, visão computacional e geração de documentos",
             caption: "My-Python-Scripts: Toolkit de Dados, Transcrição, Visão e Relatórios",
+          },
+        ],
+      },
+      {
+        id: "daily-automation-suite",
+        category: "personal",
+        title: "Suíte de Automação Diária e Produtividade (AutoHotkey v2 + UIA + Python IPC)",
+        short:
+          "Toolkit pessoal usado diariamente que integra UI Automation resiliente (UIA-v2), pontes IA-para-IDE, gestão de janelas multimonitor, cheat sheets contextuais para 30+ apps e daemons Python IPC.",
+        full:
+          "Desenvolvi e mantenho uma suíte modular em AutoHotkey v2 + Python IPC usada diariamente para acelerar entregas e reduzir carga cognitiva. Inclui: (1) pontes entre apps via UI Automation (fluxos IA-para-IDE, verificação de microfone/câmera no Microsoft Teams, atalhos para Outlook e WhatsApp); (2) cheat sheets contextuais instantâneos com busca em mais de 30 apps (Power BI, Excel, Cursor, VS Code, Chrome, Figma); (3) organização de janelas multimonitor, cursor halo e Pomodoro; e (4) daemons Python IPC (Named Pipes/MMF) com timeouts limitados e fallbacks seguros.",
+        media: [
+          {
+            src: "../media/projects/daily-automation-scripts-showcase.png",
+            alt: "Painel resumo da Suíte de Automação Diária cobrindo fluxos de IA, cheat sheets contextuais, gestão de janelas e Python IPC",
+            caption: "Suíte de Automação Diária: UIA-v2, Cheat Sheets, Janelas e Python IPC",
           },
         ],
       },

@@ -639,7 +639,7 @@ function renderFeaturedCaseStudy() {
     return;
   }
   const xtItem = resolvedDeliverable(rawXt);
-  const mediaList = orderedDeliverableMedia(xtItem).slice(0, 4);
+  const mediaList = orderedDeliverableMedia(xtItem);
 
   host.replaceChildren();
   const card = document.createElement("article");
@@ -659,6 +659,10 @@ function renderFeaturedCaseStudy() {
   lead.className = "featured-lead";
   lead.textContent = spec.lead;
 
+  const fullText = document.createElement("p");
+  fullText.className = "featured-full";
+  fullText.textContent = xtItem.full || xtItem.short || "";
+
   const pillars = document.createElement("div");
   pillars.className = "featured-pillars";
   for (const p of spec.pillars) {
@@ -672,7 +676,7 @@ function renderFeaturedCaseStudy() {
     pillars.append(box);
   }
 
-  copyCol.append(badge, h3, lead, pillars);
+  copyCol.append(badge, h3, lead, fullText, pillars);
   card.append(copyCol);
 
   if (mediaList.length > 0) {
@@ -702,16 +706,6 @@ function renderFeaturedCaseStudy() {
     card.append(gallery);
   }
 
-  const footer = document.createElement("div");
-  footer.className = "featured-footer";
-  const cta = document.createElement("button");
-  cta.type = "button";
-  cta.className = "featured-cta";
-  cta.textContent = spec.cta;
-  cta.addEventListener("click", () => openDeliverableModal(xtItem));
-  footer.append(cta);
-  card.append(footer);
-
   host.append(card);
 }
 
@@ -721,8 +715,9 @@ function renderDeliverables() {
   if (!root) return;
   const rawItems = UI[lang]?.deliverablesItems || [];
   const removed = new Set(window.DELIVERABLE_REMOVED || []);
+  const hasFeatured = Boolean(document.getElementById("featured-deliverable"));
   const items = rawItems
-    .filter((item) => !removed.has(item.id))
+    .filter((item) => !removed.has(item.id) && !(hasFeatured && item.id === "x-tower"))
     .map(resolvedDeliverable);
   const categories = UI[lang]?.deliverableCategories || [];
   root.replaceChildren();
