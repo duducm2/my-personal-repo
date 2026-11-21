@@ -1126,14 +1126,28 @@ const BOOKS_DATA = [
       pt: "Um clássico atemporal da literatura brasileira cuja empatia, crítica social e força narrativa permanecem muito depois da última página.",
     },
   },
+  {
+    id: "renoir-biografia-intima",
+    cover: "../media/books/renoir-biografia-intima.jpg",
+    category: "lit",
+    title: {
+      en: "Renoir: An Intimate Biography",
+      pt: "Renoir: uma biografia íntima",
+    },
+    author: "Barbara Ehrlich White",
+    takeaway: {
+      en: "An intimate look at Renoir's letters, light, and brushwork—fueling my appreciation for Impressionist art and visual composition.",
+      pt: "Um olhar próximo sobre as cartas, a luz e as pinceladas de Renoir — alimentando meu interesse por arte impressionista e composição visual.",
+    },
+  },
 ];
 
 const BOOK_CATEGORIES = {
-  all: { en: "All (8)", pt: "Todos (8)" },
+  all: { en: "All (9)", pt: "Todos (9)" },
   mind: { en: "Mind & Logic", pt: "Mente & Lógica" },
   ux: { en: "UX & Design", pt: "UX & Design" },
   pm: { en: "Product & Leadership", pt: "Produto & Liderança" },
-  lit: { en: "Literature", pt: "Literatura" },
+  lit: { en: "Art & Literature", pt: "Arte & Literatura" },
 };
 
 let activeBookFilter = "all";
