@@ -44,18 +44,15 @@
   },
   "ciandt-campinas": {
     "family": "Custom",
-    "strategy": "load_more_button",
+    "strategy": "ciandt_dual",
     "url": "https://ciandt.com/br/pt-br/carreiras/oportunidades",
-    "button_match": {
-      "Type": "Hyperlink|Button",
-      "Name": "Carregar mais|Load more|Ver mais",
-      "matchmode": "Substring"
-    },
+    "button_match": null,
     "max_clicks": 15,
     "wait_ms": 3000,
     "extract_mode": "ctrl_a_copy",
-    "notes": "CI&T Brazil opportunities board; expand any load-more button and copy.",
-    "verified": false
+    "notes": "CI&T dual extraction: Run 1 checks Workplace type -> Remote; Run 2 refreshes and checks Local -> Campinas, SP.",
+    "verified": true,
+    "verified_at": "2026-11-21"
   },
   "cpqd-campinas": {
     "family": "Recruitee",

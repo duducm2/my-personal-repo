@@ -1,5 +1,6 @@
 #Requires AutoHotkey v2.0
 #SingleInstance Force
+try DllCall("SetProcessDpiAwarenessContext", "Ptr", -4, "Ptr")
 
 #Include "C:\Users\eduev\Documents\UIA-v2\Lib\UIA.ahk"
 
@@ -134,6 +135,8 @@ for line in lines {
             collected := ExtractGreenhouseOffice(chromeHwnd, btnName, waitMs, extractMode)
         } else if (strategy = "gupy_state_city") {
             collected := ExtractGupyStateCity(chromeHwnd, btnName, waitMs, extractMode)
+        } else if (strategy = "ciandt_dual") {
+            collected := ExtractCiandtDual(chromeHwnd, url, waitMs, extractMode, &pagesVisited)
         } else if (strategy = "infinite_scroll") {
             ScrollToBottomPasses(chromeHwnd, maxClicks, 650)
             collected := CopyDocumentText(chromeHwnd, extractMode)
@@ -816,6 +819,124 @@ ExtractGupyStateCity(chromeHwnd, spec, waitMs, extractMode) {
 
     ScrollToBottomPasses(chromeHwnd, 2, 500)
     return CopyDocumentText(chromeHwnd, extractMode)
+}
+
+ExtractCiandtDual(chromeHwnd, url, waitMs, extractMode, &pagesVisited) {
+    pagesVisited := 0
+    collected := ""
+
+    ; Dismiss notice banner & cookie popup if present
+    HumanSleep(1500, 2200)
+    ClickFirstControlByName(chromeHwnd, "Button", "OK")
+    HumanSleep(300, 500)
+    DismissCiandtCookiePopup(chromeHwnd)
+    HumanSleep(300, 500)
+
+    ; Method 1: Workplace type -> Remote
+    LogStep("CIANDT METHOD 1: Workplace type -> Remote")
+    remOk := ClickExactFilterLabel(chromeHwnd, "Remote")
+    LogStep("CIANDT M1 Remote checked=" remOk)
+    HumanSleep(Max(2000, waitMs), Max(3200, waitMs + 1000))
+    ScrollToBottomPasses(chromeHwnd, 3, 500)
+    m1Text := CopyDocumentText(chromeHwnd, extractMode)
+    if (m1Text != "") {
+        collected .= "=== METHOD 1 (REMOTE) ===`r`n" m1Text "`r`n`r`n"
+        pagesVisited += 1
+    }
+
+    ; Method 2: Refresh -> Local -> Campinas, SP
+    HumanSleep(1200, 2200)
+    LogStep("CIANDT METHOD 2: Refresh -> Local -> Campinas, SP")
+    RefreshChromeUrl(chromeHwnd, url, waitMs)
+    ClickFirstControlByName(chromeHwnd, "Button", "OK")
+    HumanSleep(300, 500)
+    DismissCiandtCookiePopup(chromeHwnd)
+    HumanSleep(300, 500)
+    campOk := ClickExactFilterLabel(chromeHwnd, "Campinas, SP")
+    LogStep("CIANDT M2 Campinas checked=" campOk)
+    HumanSleep(Max(2000, waitMs), Max(3200, waitMs + 1000))
+    ScrollToBottomPasses(chromeHwnd, 2, 500)
+    m2Text := CopyDocumentText(chromeHwnd, extractMode)
+    if (m2Text != "") {
+        collected .= "=== METHOD 2 (LOCAL: CAMPINAS, SP) ===`r`n" m2Text "`r`n`r`n"
+        pagesVisited += 1
+    }
+
+    if (pagesVisited < 1)
+        pagesVisited := 1
+    return collected
+}
+
+DismissCiandtCookiePopup(chromeHwnd) {
+    docEl := WaitDocumentElement(chromeHwnd, 3000)
+    if (!docEl)
+        return false
+    try {
+        popup := docEl.FindFirst({AutomationId: "sliding-popup"})
+        if (IsObject(popup)) {
+            btns := popup.FindElements({Type: "Button"})
+            LogStep("CIANDT cookie popup btns=" btns.Length)
+            if (btns.Length > 0)
+                return ClickUiaElement(chromeHwnd, btns[1])
+        }
+    }
+    return false
+}
+
+ClickExactFilterLabel(chromeHwnd, exactName) {
+    docEl := WaitDocumentElement(chromeHwnd, 5000)
+    if (!docEl)
+        return false
+    docPos := ""
+    try docPos := docEl.GetPos("screen")
+    els := []
+    try els := docEl.FindElements({Type: "Text", Name: exactName, matchmode: "Substring"})
+    for el in els {
+        nm := ""
+        try nm := Trim(el.Name)
+        if (StrLower(nm) = StrLower(exactName)) {
+            WinActivate("ahk_id " chromeHwnd)
+            try el.ScrollIntoView()
+            HumanSleep(300, 500)
+            p := ""
+            try p := el.GetPos("screen")
+            if (IsObject(docPos) && IsObject(p)) {
+                LogStep("FILTER PRE [" exactName "] doc=" docPos.x "," docPos.y "," docPos.w "x" docPos.h " el=" p.x "," p.y)
+                if (p.y < docPos.y + 240) {
+                    Send("{WheelUp 4}")
+                    HumanSleep(250, 400)
+                    try p := el.GetPos("screen")
+                } else if (p.y > docPos.y + docPos.h - 100) {
+                    Send("{WheelDown 4}")
+                    HumanSleep(250, 400)
+                    try p := el.GetPos("screen")
+                }
+            }
+            if (IsObject(p) && p.w > 0 && p.h > 0) {
+                clickX := p.x + p.w // 2
+                clickY := p.y + p.h // 2
+                WinActivate("ahk_id " chromeHwnd)
+                WinWaitActive("ahk_id " chromeHwnd, , 2)
+                DllCall("SetCursorPos", "Int", clickX, "Int", clickY)
+                Sleep 100
+                hitNm := "", hitTp := ""
+                try {
+                    hit := UIA.ElementFromPoint(clickX, clickY)
+                    hitNm := Trim(hit.Name)
+                    hitTp := hit.LocalizedType
+                }
+                mx := 0, my := 0
+                CoordMode("Mouse", "Screen")
+                MouseGetPos(&mx, &my)
+                Click()
+                HumanSleep(400, 700)
+                LogStep("FILTER SETCURSORPOS [" exactName "] target=" clickX "," clickY " actual=" mx "," my " hit=[" hitTp ":" hitNm "]")
+                return true
+            }
+            return ClickUiaElement(chromeHwnd, el)
+        }
+    }
+    return false
 }
 
 JsonEsc(s) {
