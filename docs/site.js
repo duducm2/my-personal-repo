@@ -610,7 +610,117 @@ function resolvedDeliverable(item) {
   };
 }
 
+function renderFeaturedCaseStudy() {
+  const host = document.getElementById("featured-deliverable");
+  if (!host) return;
+  const spec = UI[lang]?.featuredCaseStudy;
+  const rawItems = UI[lang]?.deliverablesItems || [];
+  const rawXt = rawItems.find((item) => item.id === "x-tower");
+  if (!spec || !rawXt) {
+    host.replaceChildren();
+    return;
+  }
+  const xtItem = resolvedDeliverable(rawXt);
+  const mediaList = orderedDeliverableMedia(xtItem).slice(0, 4);
+
+  host.replaceChildren();
+  const card = document.createElement("article");
+  card.className = "featured-case-study";
+
+  const copyCol = document.createElement("div");
+  copyCol.className = "featured-case-copy";
+
+  const badge = document.createElement("span");
+  badge.className = "featured-badge";
+  badge.textContent = spec.badge;
+
+  const h3 = document.createElement("h3");
+  h3.textContent = spec.title;
+
+  const lead = document.createElement("p");
+  lead.className = "featured-lead";
+  lead.textContent = spec.lead;
+
+  const pillars = document.createElement("div");
+  pillars.className = "featured-pillars";
+  for (const p of spec.pillars) {
+    const box = document.createElement("div");
+    box.className = "featured-pillar";
+    const strong = document.createElement("strong");
+    strong.textContent = p.label;
+    const pEl = document.createElement("p");
+    pEl.textContent = p.text;
+    box.append(strong, pEl);
+    pillars.append(box);
+  }
+
+  const footer = document.createElement("div");
+  footer.className = "featured-footer";
+
+  const metrics = document.createElement("div");
+  metrics.className = "featured-metrics";
+  for (const m of spec.metrics) {
+    const mBox = document.createElement("div");
+    mBox.className = "featured-metric";
+    const val = document.createElement("strong");
+    val.textContent = m.value;
+    const lbl = document.createElement("span");
+    lbl.textContent = m.label;
+    mBox.append(val, lbl);
+    metrics.append(mBox);
+  }
+
+  const cta = document.createElement("button");
+  cta.type = "button";
+  cta.className = "featured-cta";
+  cta.textContent = spec.cta;
+  cta.addEventListener("click", () => openDeliverableModal(xtItem));
+
+  footer.append(metrics, cta);
+  copyCol.append(badge, h3, lead, pillars, footer);
+
+  const visualCol = document.createElement("div");
+  visualCol.className = "featured-case-visual";
+
+  if (mediaList.length > 0) {
+    const previewBtn = document.createElement("button");
+    previewBtn.type = "button";
+    previewBtn.className = "featured-preview-btn";
+    const previewImg = document.createElement("img");
+    previewImg.src = mediaList[0].src;
+    previewImg.alt = mediaList[0].alt || spec.title;
+    previewBtn.append(previewImg);
+    previewBtn.addEventListener("click", () => openDeliverableModal(xtItem));
+
+    const thumbs = document.createElement("div");
+    thumbs.className = "featured-thumbs";
+    mediaList.forEach((m, idx) => {
+      const tBtn = document.createElement("button");
+      tBtn.type = "button";
+      tBtn.className = `featured-thumb-btn${idx === 0 ? " is-active" : ""}`;
+      tBtn.setAttribute("aria-label", m.caption || m.alt || spec.title);
+      const tImg = document.createElement("img");
+      tImg.src = m.src;
+      tImg.alt = m.alt || "";
+      tBtn.append(tImg);
+      tBtn.addEventListener("click", () => {
+        previewImg.src = m.src;
+        previewImg.alt = m.alt || spec.title;
+        thumbs.querySelectorAll(".featured-thumb-btn").forEach((b) => b.classList.remove("is-active"));
+        tBtn.classList.add("is-active");
+      });
+      thumbs.append(tBtn);
+    });
+
+    visualCol.append(previewBtn, thumbs);
+  }
+
+  card.append(copyCol, visualCol);
+  host.append(card);
+}
+
 function renderDeliverables() {
+  renderFeaturedCaseStudy();
   const root = document.getElementById("deliverables-grid");
   if (!root) return;
   const rawItems = UI[lang]?.deliverablesItems || [];

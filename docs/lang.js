@@ -88,6 +88,32 @@ const UI = {
     deliverablesHint: "Select any deliverable to expand details and visuals.",
     privacyDisclaimer:
       "All images are anonymized in order to respect the data privacy for the project.",
+    featuredCaseStudy: {
+      badge: "Flagship Case Study · Research × Data × Product Ownership",
+      title: "Project BeaconTower — UX Practice Portal & Service Blueprint",
+      lead:
+        "This project brings together everything I do best: using empirical data and user research to align global stakeholders, while acting as Product Owner to build a real platform solution.",
+      pillars: [
+        {
+          label: "01 · Research & Stakeholders",
+          text: "Ran stakeholder interviews, cross-participant coding matrices, concentric stakeholder mapping, and an as-is service blueprint exposing 240-row parallel Excel workarounds.",
+        },
+        {
+          label: "02 · Data & Quant Evidence",
+          text: "Combined a global survey with a heuristic audit of 8 core screens (33 flaws quantified) and baseline-to-target KPI tracking.",
+        },
+        {
+          label: "03 · Product Ownership & Solution",
+          text: "Built the PracticeHub UX portal (offerings, personas, opportunities, KPIs) and shaped unified governance saving 150k EUR/quarter and 240h/month.",
+        },
+      ],
+      metrics: [
+        { value: "150k EUR", label: "Avoided rework / quarter" },
+        { value: "240h / mo", label: "Operational time saved" },
+        { value: "33 flaws", label: "Audited across 8 screens" },
+      ],
+      cta: "Explore Full Case & All Visuals →",
+    },
     deliverableCategories: [
       { id: "platforms", title: "Product, Platforms & Governance" },
       { id: "data", title: "Data, Analytics & Models" },
@@ -507,8 +533,13 @@ const UI = {
           "Market scouting for CO₂ telemetry at GS; validated lack of market demand.",
         full:
           "Conducted marketing and demand scouting for CO₂ telemetry at GS. Finding: lack of market demand—preventing unnecessary engineering investment.",
-        icon: "radar",
-        media: [],
+        media: [
+          {
+            src: "../media/projects/co2-telemetry-scouting.png",
+            alt: "Fleet and logistics CO₂ telemetry scouting concept",
+            caption: "CO₂ fleet telemetry market scouting",
+          },
+        ],
       },
       {
         id: "workspace-efficiency",
@@ -882,6 +913,32 @@ const UI = {
     deliverablesHint: "Clique em qualquer entrega para expandir os detalhes e imagens.",
     privacyDisclaimer:
       "Todas as imagens são anonimizadas para respeitar a privacidade dos dados do projeto.",
+    featuredCaseStudy: {
+      badge: "Caso em Destaque · Pesquisa × Dados × Product Ownership",
+      title: "Projeto BeaconTower — Portal de Prática UX & Service Blueprint",
+      lead:
+        "Este projeto reúne o melhor do meu trabalho: unir dados empíricos e pesquisa com usuários para alinhar stakeholders globais, atuando como Product Owner na construção de uma solução real.",
+      pillars: [
+        {
+          label: "01 · Pesquisa & Stakeholders",
+          text: "Conduzi entrevistas com stakeholders, matriz de codificação, mapeamento concêntrico de stakeholders e service blueprint as-is expondo planilhas paralelas de 240 linhas.",
+        },
+        {
+          label: "02 · Dados & Evidência Quantitativa",
+          text: "Combinei survey global com avaliação heurística de 8 telas centrais (33 falhas quantificadas) e acompanhamento de KPIs da linha de base à meta.",
+        },
+        {
+          label: "03 · Product Ownership & Solução",
+          text: "Construí o portal PracticeHub (ofertas, personas, oportunidades e KPIs) e estruturei a governança que projeta economia de 150 mil EUR/trimestre e 240h/mês.",
+        },
+      ],
+      metrics: [
+        { value: "150 mil EUR", label: "Retrabalho evitado / trim." },
+        { value: "240h / mês", label: "Tempo operacional salvo" },
+        { value: "33 falhas", label: "Auditadas em 8 telas" },
+      ],
+      cta: "Explorar Caso Completo & Visuais →",
+    },
     deliverableCategories: [
       { id: "platforms", title: "Produtos, Plataformas e Governança" },
       { id: "data", title: "Dados, Analytics e Modelos" },
@@ -1301,8 +1358,13 @@ const UI = {
           "Prospecção de mercado para telemetria de CO₂ na GS; validada ausência de demanda.",
         full:
           "Prospecção de mercado e demanda para telemetria de CO₂ na GS. Resultado: ausência de demanda de mercado, evitando investimento desnecessário.",
-        icon: "radar",
-        media: [],
+        media: [
+          {
+            src: "../media/projects/co2-telemetry-scouting.png",
+            alt: "Conceito de telemetria de CO₂ em logística e frotas",
+            caption: "Prospecção de mercado para telemetria de CO₂ em frotas",
+          },
+        ],
       },
       {
         id: "workspace-efficiency",
