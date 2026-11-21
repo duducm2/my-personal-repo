@@ -526,6 +526,115 @@ const UI = {
           },
         ],
       },
+      {
+        id: "home-management-system",
+        category: "personal",
+        title: "Home — First Home & Renovation Management System",
+        short:
+          "Local web app managing my first home purchase and renovation: executive dashboard, 76-item multi-quote expense tracker, interactive 3D floor plan, and full Gantt schedule.",
+        full:
+          "Built a local web system to plan and manage the purchase and renovation of my first home. It brings together four integrated views: (1) an executive Dashboard combining a macro Gantt timeline, quick tasks, and budget coverage; (2) an Expenses workspace with 76 categorized items, multi-supplier price quotations, and median cost tracking; (3) an interactive 3D floor plan viewer to inspect rooms and layout; and (4) a full macro/micro Gantt schedule with task dependencies, per-activity costs, and PDF/JSON export.",
+        media: [
+          {
+            src: "../media/projects/home-dashboard.png",
+            alt: "Home management system executive dashboard with macro Gantt, quick tasks, and budget overview",
+            caption: "Executive Dashboard: macro timeline, quick tasks & budget overview",
+          },
+          {
+            src: "../media/projects/home-expenses.png",
+            alt: "Home expenses workspace with 76 categorized items and multi-supplier quotations",
+            caption: "Expenses & Quotations: 76 categorized items with supplier medians",
+          },
+          {
+            src: "../media/projects/home-gantt.png",
+            alt: "Full Gantt schedule with macro and micro activities, costs, and timeline scale",
+            caption: "Full Gantt Schedule: phased activities, costs & PDF/JSON export",
+          },
+          {
+            src: "../media/projects/home-3d-model.png",
+            alt: "Interactive 3D floor plan model of the house with room labels",
+            caption: "Interactive 3D Floor Plan: room layout & renovation visualization",
+          },
+        ],
+      },
+      {
+        id: "memorization-book",
+        category: "personal",
+        title: "Memorize with AI (Book Manuscript in Progress)",
+        short:
+          "Early-stage LaTeX book manuscript combining memory-palace techniques with AI-assisted mnemonic pipelines for exams and deep learning.",
+        full:
+          "An ongoing LaTeX book project ('Memorize com IA, passe na prova, pense melhor') structured into a 4-part, 16-chapter plan with appendices. It pairs classic spatial memory methods (real-world memory palaces, bestiary, micro-loci) with an AI-assisted mnemonic generation workflow for exam preparation and long-term retention.",
+        media: [
+          {
+            src: "../media/projects/memorization-book-cover.png",
+            alt: "Hardcover concept for the book Memorize com IA, passe na prova, pense melhor by Eduardo Figueiredo",
+            caption: "Book concept & working title — 4-part, 16-chapter LaTeX manuscript",
+          },
+        ],
+      },
+      {
+        id: "my-python-scripts",
+        category: "personal",
+        title: "My-Python-Scripts (Automation & Media Toolkit)",
+        short:
+          "Reusable Python CLI and AI-assisted scripts for CSV-to-Gantt timelines, audio transcription, RealESRGAN image upscaling/de-haloing, and PPTX/PDF generation.",
+        full:
+          "A personal collection of single-purpose Python utilities built to automate recurring data, media, and reporting tasks—including CSV-to-Gantt chart generation (timeline-gantt), batch audio transcription and processing (transcription), AI image super-resolution and de-haloing (image-upscale, image-dehalo-upscale), verbatim CSV checks (verbatting-check), and programmatic PowerPoint/PDF creation (generate-pptx, generate-image, pdf-merge).",
+        media: [
+          {
+            src: "../media/projects/my-python-scripts-showcase.png",
+            alt: "Overview card of My-Python-Scripts automation toolkit across data, audio transcription, vision, and document generation",
+            caption: "My-Python-Scripts: Data, Transcription, Vision & Reporting Toolkit",
+          },
+        ],
+      },
+      {
+        id: "proj-vba-suite",
+        category: "platforms",
+        title: "Proj. — Excel/VBA Project Management Application (Budapest)",
+        short:
+          "Built in Budapest: full Excel/VBA suite digitalizing project management with Project Model Canvas, automated WBS tree, Planned-vs-Actual Gantt schedule, A3 reports, and OTD/FPY tracking.",
+        full:
+          "Created while working in Budapest to digitalize end-to-end project management inside Excel/VBA. The application unifies Project Model Canvas (interactive sticky-note planning for justification, SMART objectives, stakeholders, risks, and costs), an automated Work Breakdown Structure (WBS) tree generator, a Planned-vs-Actual Gantt Schedule with completion tracking, A3 problem-solving reports, 5-phase PM documentation workflows (Project Request, Charter, Risk, PM-QG Checklist, Lessons Learned), baseline snapshots, and OTD & FPY metrics.",
+        media: [
+          {
+            src: "../media/projects/proj-main-menu.png",
+            alt: "Proj. v4.1 Excel/VBA main menu with Project Model Canvas, WBS, Schedule, A3 Create, Baseline, and OTD&FPY",
+            caption: "Main Hub (Proj. v4.1): Canvas, WBS, Schedule, A3 & OTD/FPY",
+          },
+          {
+            src: "../media/projects/proj-project-model-canvas.png",
+            alt: "Project Model Canvas built in Excel/VBA with sticky-note blocks for justification, objectives, risks, and costs",
+            caption: "Project Model Canvas: visual sticky-note planning in Excel",
+          },
+          {
+            src: "../media/projects/proj-wbs.png",
+            alt: "Automated Work Breakdown Structure (WBS) tree generated in Excel/VBA",
+            caption: "Automated WBS: hierarchical work breakdown tree",
+          },
+          {
+            src: "../media/projects/proj-schedule-gantt.png",
+            alt: "Automated Schedule and Gantt chart comparing Planned vs. Actual dates and completion percentage",
+            caption: "Automated Schedule & Gantt: Planned vs. Actual tracking",
+          },
+          {
+            src: "../media/projects/proj-a3-report.png",
+            alt: "Structured A3 report template linked to Project Model Canvas fields",
+            caption: "A3 Report: Problem Definition, Actual/Future State & Action Plan",
+          },
+          {
+            src: "../media/projects/proj-documentation-flow.png",
+            alt: "5-phase Project Management documentation hub covering Request, Charter, WBS, Risk, PM-QG, and Closure",
+            caption: "5-Phase PM Documentation Hub & Change Request tracking",
+          },
+          {
+            src: "../media/projects/proj-request-form.png",
+            alt: "VBA Project Request UserForm with metadata, multi-currency (BRL/EUR/USD/HUF), and scope inputs",
+            caption: "VBA Project Request Form: structured intake & multi-currency",
+          },
+        ],
+      },
     ],
     researchTitle: "Trust in AI and interfaces",
     research: [
@@ -1208,6 +1317,115 @@ const UI = {
             src: "../media/workspace-efficiency.jpg",
             alt: "Setup de ferramentas e hardware para alta eficiência no trabalho",
             caption: "Setup de trabalho e eficiência",
+          },
+        ],
+      },
+      {
+        id: "home-management-system",
+        category: "personal",
+        title: "Home — Sistema de Gestão da Primeira Casa",
+        short:
+          "App web local para gerenciar a compra e reforma da minha primeira casa: dashboard executivo, 76 despesas com cotações, modelo 3D interativo e cronograma Gantt completo.",
+        full:
+          "Construí um sistema web local para planejar e gerenciar a compra e a reforma da minha primeira casa. Ele integra quatro visões: (1) Dashboard executivo com cronograma macro, tarefas rápidas e cobertura orçamentária; (2) Workspace de Despesas com 76 itens categorizados, comparação de múltiplos fornecedores e cálculo de mediana; (3) Modelo 3D interativo da planta da casa; e (4) Cronograma Gantt completo com macro/microatividades, custos por etapa e exportação em PDF/JSON.",
+        media: [
+          {
+            src: "../media/projects/home-dashboard.png",
+            alt: "Dashboard executivo do sistema Home com Gantt macro, tarefas rápidas e visão financeira",
+            caption: "Dashboard Executivo: cronograma macro, tarefas rápidas e orçamento",
+          },
+          {
+            src: "../media/projects/home-expenses.png",
+            alt: "Workspace de despesas com 76 itens categorizados e cotações de fornecedores",
+            caption: "Despesas e Cotações: 76 itens categorizados com mediana por fornecedor",
+          },
+          {
+            src: "../media/projects/home-gantt.png",
+            alt: "Cronograma Gantt completo com atividades, custos e escala temporal",
+            caption: "Cronograma Gantt Completo: etapas, custos e exportação PDF/JSON",
+          },
+          {
+            src: "../media/projects/home-3d-model.png",
+            alt: "Modelo 3D interativo da planta da casa com rótulos dos cômodos",
+            caption: "Modelo 3D Interativo: visualização espacial dos cômodos e reforma",
+          },
+        ],
+      },
+      {
+        id: "memorization-book",
+        category: "personal",
+        title: "Memorize com IA (Manuscrito de Livro em Construção)",
+        short:
+          "Manuscrito inicial em LaTeX que combina técnicas clássicas de palácio da memória com pipelines de IA para gerar mnemônicos para provas e estudo.",
+        full:
+          "Projeto de livro em LaTeX ('Memorize com IA, passe na prova, pense melhor') estruturado em 4 partes, 16 capítulos e apêndices. O plano une métodos espaciais clássicos de memorização (ruas reais, bestiário, micro-loci) a um fluxo prático com IA para criar mnemônicos voltados a provas e retenção de longo prazo.",
+        media: [
+          {
+            src: "../media/projects/memorization-book-cover.png",
+            alt: "Conceito de capa dura do livro Memorize com IA, passe na prova, pense melhor de Eduardo Figueiredo",
+            caption: "Conceito e título do livro — esqueleto em LaTeX (4 partes, 16 capítulos)",
+          },
+        ],
+      },
+      {
+        id: "my-python-scripts",
+        category: "personal",
+        title: "My-Python-Scripts (Toolkit de Automação e Mídia)",
+        short:
+          "Coleção de scripts Python reutilizáveis para cronogramas Gantt via CSV, transcrição de áudio, upscale/de-halo de imagens com IA e geração de PPTX/PDF.",
+        full:
+          "Conjunto de utilitários Python criados para automatizar tarefas recorrentes de dados, mídia e relatórios — incluindo geração de gráficos Gantt a partir de CSV (timeline-gantt), transcrição e processamento em lote de áudios (transcription), super-resolução e remoção de halos com IA (image-upscale, image-dehalo-upscale), checagem de verbatims (verbatting-check) e criação programática de apresentações e PDFs (generate-pptx, generate-image, pdf-merge).",
+        media: [
+          {
+            src: "../media/projects/my-python-scripts-showcase.png",
+            alt: "Painel resumo do toolkit My-Python-Scripts cobrindo dados, transcrição, visão computacional e geração de documentos",
+            caption: "My-Python-Scripts: Toolkit de Dados, Transcrição, Visão e Relatórios",
+          },
+        ],
+      },
+      {
+        id: "proj-vba-suite",
+        category: "platforms",
+        title: "Proj. — Aplicação de Gestão de Projetos em Excel/VBA (Budapeste)",
+        short:
+          "Criada em Budapeste: suíte completa em Excel/VBA para digitalizar a gestão de projetos com Project Model Canvas, EAP (WBS) automática, cronograma Gantt Planejado vs. Real, A3 e OTD/FPY.",
+        full:
+          "Desenvolvida durante minha atuação em Budapeste para digitalizar a gestão de projetos ponta a ponta em Excel/VBA. A aplicação integra Project Model Canvas (planejamento visual em post-its para justificativa, objetivos SMART, stakeholders, riscos e custos), gerador automático de EAP/WBS em árvore, cronograma Gantt comparando Planejado vs. Real, relatórios A3, fluxo documental em 5 fases (Solicitação, Charter, Riscos, Checklist PM-QG, Lições Aprendidas), criação de baseline e indicadores de OTD e FPY.",
+        media: [
+          {
+            src: "../media/projects/proj-main-menu.png",
+            alt: "Menu principal do Proj. v4.1 em Excel/VBA com Project Model Canvas, WBS, Schedule, A3 Create, Baseline e OTD&FPY",
+            caption: "Menu Principal (Proj. v4.1): Canvas, WBS, Cronograma, A3 e OTD/FPY",
+          },
+          {
+            src: "../media/projects/proj-project-model-canvas.png",
+            alt: "Project Model Canvas em Excel/VBA com blocos visuais para justificativa, objetivos, riscos e custos",
+            caption: "Project Model Canvas: planejamento visual em post-its no Excel",
+          },
+          {
+            src: "../media/projects/proj-wbs.png",
+            alt: "Estrutura Analítica do Projeto (WBS) gerada automaticamente em Excel/VBA",
+            caption: "EAP / WBS Automática: árvore hierárquica de entregas",
+          },
+          {
+            src: "../media/projects/proj-schedule-gantt.png",
+            alt: "Cronograma e gráfico de Gantt automático comparando Planejado vs. Real",
+            caption: "Cronograma & Gantt Automático: acompanhamento Planejado vs. Real",
+          },
+          {
+            src: "../media/projects/proj-a3-report.png",
+            alt: "Template estruturado de relatório A3 conectado ao Project Model Canvas",
+            caption: "Relatório A3: Definição do Problema, Estado Atual/Futuro e Plano de Ação",
+          },
+          {
+            src: "../media/projects/proj-documentation-flow.png",
+            alt: "Hub documental de gestão de projetos em 5 fases cobrindo Request, Charter, WBS, Riscos, PM-QG e Encerramento",
+            caption: "Hub Documental em 5 Fases & Controle de Mudanças",
+          },
+          {
+            src: "../media/projects/proj-request-form.png",
+            alt: "Formulário VBA de Solicitação de Projeto com metadados, múltiplas moedas (BRL/EUR/USD/HUF) e escopo",
+            caption: "Formulário VBA de Solicitação: entrada estruturada e multimoda",
           },
         ],
       },
