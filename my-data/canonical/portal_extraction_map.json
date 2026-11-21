@@ -136,14 +136,19 @@
   },
   "ambev-tech-campinas": {
     "family": "Gupy",
-    "strategy": "single_page_copy",
+    "strategy": "gupy_state_city",
     "url": "https://ambevtech.gupy.io/",
-    "button_match": null,
+    "button_match": {
+      "Type": "ComboBox|Button",
+      "Name": "São Paulo|Campinas",
+      "matchmode": "Substring"
+    },
     "max_clicks": 5,
     "wait_ms": 3000,
     "extract_mode": "ctrl_a_copy",
-    "notes": "Gupy Next.js board renders all jobs on the initial page; scroll and copy.",
-    "verified": false
+    "notes": "Gupy board; selects Estado = São Paulo (SP) and Cidade = Campinas, then copies all.",
+    "verified": true,
+    "verified_at": "2026-11-21"
   },
   "sidi-campinas": {
     "family": "Gupy",

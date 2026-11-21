@@ -132,6 +132,8 @@ for line in lines {
             collected := ExtractAgibankCampinas(chromeHwnd, btnType, btnName, maxClicks, waitMs, extractMode, &pagesVisited)
         } else if (strategy = "greenhouse_office") {
             collected := ExtractGreenhouseOffice(chromeHwnd, btnName, waitMs, extractMode)
+        } else if (strategy = "gupy_state_city") {
+            collected := ExtractGupyStateCity(chromeHwnd, btnName, waitMs, extractMode)
         } else if (strategy = "infinite_scroll") {
             ScrollToBottomPasses(chromeHwnd, maxClicks, 650)
             collected := CopyDocumentText(chromeHwnd, extractMode)
@@ -777,6 +779,42 @@ ExtractGreenhouseOffice(chromeHwnd, officeName, waitMs, extractMode) {
         }
     }
     ScrollToBottomPasses(chromeHwnd, 3, 500)
+    return CopyDocumentText(chromeHwnd, extractMode)
+}
+
+ExtractGupyStateCity(chromeHwnd, spec, waitMs, extractMode) {
+    parts := StrSplit(spec != "" ? spec : "São Paulo|Campinas", "|")
+    stateName := parts.Length >= 1 && Trim(parts[1]) != "" ? Trim(parts[1]) : "São Paulo"
+    cityName := parts.Length >= 2 && Trim(parts[2]) != "" ? Trim(parts[2]) : "Campinas"
+    LogStep("GUPY: filtering state=[" stateName "] city=[" cityName "]")
+    ScrollToBottomPasses(chromeHwnd, 2, 500)
+    HumanSleep(600, 1000)
+
+    ; Select Estado
+    stBoxOk := ClickFirstControlByName(chromeHwnd, "ComboBox", "Estado")
+    LogStep("GUPY state box clicked=" stBoxOk)
+    if (stBoxOk) {
+        HumanSleep(300, 500)
+        SendText(stateName)
+        HumanSleep(700, 1100)
+        WinActivate("ahk_id " chromeHwnd)
+        Send("{Down}{Enter}")
+        HumanSleep(900, 1400)
+    }
+
+    ; Select Cidade
+    ctBoxOk := ClickFirstControlByName(chromeHwnd, "ComboBox", "Cidade")
+    LogStep("GUPY city box clicked=" ctBoxOk)
+    if (ctBoxOk) {
+        HumanSleep(300, 500)
+        SendText(cityName)
+        HumanSleep(700, 1100)
+        WinActivate("ahk_id " chromeHwnd)
+        Send("{Down}{Enter}")
+        HumanSleep(Max(1500, waitMs), Max(2500, waitMs + 700))
+    }
+
+    ScrollToBottomPasses(chromeHwnd, 2, 500)
     return CopyDocumentText(chromeHwnd, extractMode)
 }
 
