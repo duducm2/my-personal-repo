@@ -315,14 +315,24 @@ const viewer = document.getElementById("viewer");
 const viewerImg = document.getElementById("viewer-img");
 const viewerCap = document.getElementById("viewer-cap");
 
+function openImageViewer(src, alt, caption) {
+  if (!viewer || !viewerImg) return;
+  viewerImg.src = src;
+  viewerImg.alt = alt || "";
+  if (viewerCap) viewerCap.textContent = caption || alt || "";
+  if (viewer.open) viewer.close();
+  viewer.showModal();
+}
+
 document.querySelectorAll("figure.zoom").forEach((figure) => {
   const source = figure.querySelector("img:not(.sticker)");
+  if (!source) return;
   source.addEventListener("click", () => {
-    viewerImg.src = source.currentSrc || source.src;
-    viewerImg.alt = source.alt;
-    viewerCap.textContent =
-      figure.querySelector("figcaption")?.textContent || source.alt;
-    viewer.showModal();
+    openImageViewer(
+      source.currentSrc || source.src,
+      source.alt,
+      figure.querySelector("figcaption")?.textContent || source.alt,
+    );
   });
 });
 
@@ -524,9 +534,17 @@ function openDeliverableModal(item) {
         : "deliverable-modal-gallery";
     mediaList.forEach((m) => {
       const fig = document.createElement("figure");
+      fig.className = "deliverable-modal-fig";
       const img = document.createElement("img");
       img.src = resolveMedia(m.src);
       img.alt = m.alt || item.title;
+      img.addEventListener("click", () => {
+        openImageViewer(
+          img.currentSrc || img.src,
+          img.alt,
+          m.caption || img.alt,
+        );
+      });
       fig.append(img);
       if (m.caption) {
         const cap = document.createElement("figcaption");
@@ -654,68 +672,46 @@ function renderFeaturedCaseStudy() {
     pillars.append(box);
   }
 
-  const footer = document.createElement("div");
-  footer.className = "featured-footer";
+  copyCol.append(badge, h3, lead, pillars);
+  card.append(copyCol);
 
-  const metrics = document.createElement("div");
-  metrics.className = "featured-metrics";
-  for (const m of spec.metrics) {
-    const mBox = document.createElement("div");
-    mBox.className = "featured-metric";
-    const val = document.createElement("strong");
-    val.textContent = m.value;
-    const lbl = document.createElement("span");
-    lbl.textContent = m.label;
-    mBox.append(val, lbl);
-    metrics.append(mBox);
+  if (mediaList.length > 0) {
+    const gallery = document.createElement("div");
+    gallery.className = "featured-gallery";
+    mediaList.forEach((m) => {
+      const fig = document.createElement("figure");
+      fig.className = "featured-figure";
+      const img = document.createElement("img");
+      img.src = resolveMedia(m.src);
+      img.alt = m.alt || spec.title;
+      img.addEventListener("click", () => {
+        openImageViewer(
+          img.currentSrc || img.src,
+          img.alt,
+          m.caption || img.alt,
+        );
+      });
+      fig.append(img);
+      if (m.caption) {
+        const cap = document.createElement("figcaption");
+        cap.textContent = m.caption;
+        fig.append(cap);
+      }
+      gallery.append(fig);
+    });
+    card.append(gallery);
   }
 
+  const footer = document.createElement("div");
+  footer.className = "featured-footer";
   const cta = document.createElement("button");
   cta.type = "button";
   cta.className = "featured-cta";
   cta.textContent = spec.cta;
   cta.addEventListener("click", () => openDeliverableModal(xtItem));
+  footer.append(cta);
+  card.append(footer);
 
-  footer.append(metrics, cta);
-  copyCol.append(badge, h3, lead, pillars, footer);
-
-  const visualCol = document.createElement("div");
-  visualCol.className = "featured-case-visual";
-
-  if (mediaList.length > 0) {
-    const previewBtn = document.createElement("button");
-    previewBtn.type = "button";
-    previewBtn.className = "featured-preview-btn";
-    const previewImg = document.createElement("img");
-    previewImg.src = mediaList[0].src;
-    previewImg.alt = mediaList[0].alt || spec.title;
-    previewBtn.append(previewImg);
-    previewBtn.addEventListener("click", () => openDeliverableModal(xtItem));
-
-    const thumbs = document.createElement("div");
-    thumbs.className = "featured-thumbs";
-    mediaList.forEach((m, idx) => {
-      const tBtn = document.createElement("button");
-      tBtn.type = "button";
-      tBtn.className = `featured-thumb-btn${idx === 0 ? " is-active" : ""}`;
-      tBtn.setAttribute("aria-label", m.caption || m.alt || spec.title);
-      const tImg = document.createElement("img");
-      tImg.src = m.src;
-      tImg.alt = m.alt || "";
-      tBtn.append(tImg);
-      tBtn.addEventListener("click", () => {
-        previewImg.src = m.src;
-        previewImg.alt = m.alt || spec.title;
-        thumbs.querySelectorAll(".featured-thumb-btn").forEach((b) => b.classList.remove("is-active"));
-        tBtn.classList.add("is-active");
-      });
-      thumbs.append(tBtn);
-    });
-
-    visualCol.append(previewBtn, thumbs);
-  }
-
-  card.append(copyCol, visualCol);
   host.append(card);
 }
 

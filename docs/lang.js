@@ -595,7 +595,7 @@ const UI = {
         short:
           "Book in progress combining memory-palace techniques with AI-assisted mnemonic workflows for exams and deep learning.",
         full:
-          "An ongoing book project ('Memorize com IA, passe na prova, pense melhor') structured into 4 parts. It pairs classic spatial memory methods (real-world memory palaces, bestiary, micro-loci) with an AI-assisted mnemonic generation workflow for exam preparation and long-term retention.",
+          "An ongoing book project ('Memorize com IA, passe na prova, pense melhor') structured into 4 parts. It pairs classic spatial memory methods (real-world memory palaces, visual associations, micro-loci) with an AI-assisted mnemonic generation workflow for exam preparation and long-term retention.",
         media: [
           {
             src: "../media/projects/memorization-book-cover.png",
@@ -1420,7 +1420,7 @@ const UI = {
         short:
           "Livro em construção que combina técnicas clássicas de palácio da memória com fluxos de IA para gerar mnemônicos para provas e estudo.",
         full:
-          "Projeto de livro em construção ('Memorize com IA, passe na prova, pense melhor') estruturado em 4 partes. O plano une métodos espaciais clássicos de memorização (ruas reais, bestiário, micro-loci) a um fluxo prático com IA para criar mnemônicos voltados a provas e retenção de longo prazo.",
+          "Projeto de livro em construção ('Memorize com IA, passe na prova, pense melhor') estruturado em 4 partes. O plano une métodos espaciais clássicos de memorização (ruas reais, associações visuais, micro-loci) a um fluxo prático com IA para criar mnemônicos voltados a provas e retenção de longo prazo.",
         media: [
           {
             src: "../media/projects/memorization-book-cover.png",
