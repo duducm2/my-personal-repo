@@ -63,8 +63,8 @@
     "wait_ms": 2500,
     "extract_mode": "ctrl_a_copy",
     "notes": "CPqD Recruitee board; all open roles render on the main page.",
-    "verified": false,
-    "verified_at": ""
+    "verified": true,
+    "verified_at": "2026-11-22"
   },
   "cpfl-campinas": {
     "family": "SAP SuccessFactors",
@@ -264,15 +264,20 @@
     "verified": false
   },
   "goodyear-santa-barbara": {
-    "family": "Custom",
-    "strategy": "single_page_copy",
-    "url": "https://www.goodyear.com.br/trabalhe-conosco",
-    "button_match": null,
-    "max_clicks": 5,
-    "wait_ms": 2500,
+    "family": "Workday",
+    "strategy": "numbered_pagination",
+    "url": "https://goodyear.wd1.myworkdayjobs.com/pt-BR/GoodyearCareers?locationCountry=1a29bb1357b240ab99a2fa755cc87c0e",
+    "button_match": {
+      "Type": "Button",
+      "Name": "next",
+      "matchmode": "Substring"
+    },
+    "max_clicks": 10,
+    "wait_ms": 3500,
     "extract_mode": "ctrl_a_copy",
-    "notes": "Goodyear Brazil careers page; scroll and copy.",
-    "verified": false
+    "notes": "Goodyear Brazil Workday careers board (pre-filtered to Brasil via locationCountry); iterate Next button if >1 page.",
+    "verified": true,
+    "verified_at": "2026-11-22"
   },
   "romi-santa-barbara": {
     "family": "LG Lugar de Gente",
@@ -298,7 +303,8 @@
     "wait_ms": 3000,
     "extract_mode": "ctrl_a_copy",
     "notes": "Gupy Next.js board renders all jobs on the initial page; scroll and copy.",
-    "verified": false
+    "verified": true,
+    "verified_at": "2026-11-22"
   },
   "suzano-americana": {
     "family": "Gupy",
