@@ -137,6 +137,8 @@ for line in lines {
             collected := ExtractGupyStateCity(chromeHwnd, btnName, waitMs, extractMode)
         } else if (strategy = "ciandt_dual") {
             collected := ExtractCiandtDual(chromeHwnd, url, waitMs, extractMode, &pagesVisited)
+        } else if (strategy = "successfactors_location") {
+            collected := ExtractSuccessFactorsLocation(chromeHwnd, btnName, waitMs, extractMode)
         } else if (strategy = "infinite_scroll") {
             ScrollToBottomPasses(chromeHwnd, maxClicks, 650)
             collected := CopyDocumentText(chromeHwnd, extractMode)
@@ -937,6 +939,42 @@ ClickExactFilterLabel(chromeHwnd, exactName) {
         }
     }
     return false
+}
+
+ExtractSuccessFactorsLocation(chromeHwnd, locName, waitMs, extractMode) {
+    targetLoc := locName != "" ? locName : "campinas"
+    LogStep("SUCCESSFACTORS: filtering location=[" targetLoc "]")
+    HumanSleep(800, 1300)
+    docEl := WaitDocumentElement(chromeHwnd, 5000)
+    if (docEl) {
+        edits := []
+        try edits := docEl.FindElements({Type: "Edit"})
+        LogStep("SUCCESSFACTORS Edit count=" edits.Length)
+        targetEl := ""
+        for idx, el in edits {
+            nm := "", aid := ""
+            try nm := Trim(el.Name)
+            try aid := Trim(el.AutomationId)
+            LogStep("SUCCESSFACTORS Edit " idx " Name=[" nm "] Aid=[" aid "]")
+            low := StrLower(nm " " aid)
+            if (InStr(low, "localiza") || InStr(low, "location")) {
+                targetEl := el
+                break
+            }
+        }
+        if (IsObject(targetEl) && ClickUiaElement(chromeHwnd, targetEl)) {
+            HumanSleep(200, 400)
+            Send("^a")
+            HumanSleep(100, 200)
+            SendText(targetLoc)
+            HumanSleep(250, 450)
+            Send("{Enter}")
+            LogStep("SUCCESSFACTORS entered [" targetLoc "]")
+            HumanSleep(Max(2000, waitMs), Max(3200, waitMs + 800))
+        }
+    }
+    ScrollToBottomPasses(chromeHwnd, 3, 500)
+    return CopyDocumentText(chromeHwnd, extractMode)
 }
 
 JsonEsc(s) {

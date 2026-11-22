@@ -1,0 +1,1 @@
+At first glance, the website for CPFL doesn't show all job openings, so we need to click on BUSCAR V A G A S that is search for job openings in Portuguese and then all of the job openings will appear. We need to go to this text field that is called location, but in Portuguese, and write campinas, and then after hit enter, all job openings will appear

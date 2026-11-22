@@ -68,15 +68,19 @@
   },
   "cpfl-campinas": {
     "family": "SAP SuccessFactors",
-    "strategy": "single_page_copy",
+    "strategy": "successfactors_location",
     "url": "https://vagas.cpfl.com.br/search/",
-    "button_match": null,
+    "button_match": {
+      "Type": "Edit",
+      "Name": "campinas",
+      "matchmode": "Substring"
+    },
     "max_clicks": 5,
     "wait_ms": 3000,
     "extract_mode": "ctrl_a_copy",
-    "notes": "CPFL SuccessFactors search table; renders 50+ roles directly.",
-    "verified": false,
-    "verified_at": ""
+    "notes": "CPFL SuccessFactors search table; types campinas into Localização column filter and presses Enter.",
+    "verified": true,
+    "verified_at": "2026-11-22"
   },
   "agibank-campinas": {
     "family": "Custom",
