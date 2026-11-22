@@ -178,6 +178,9 @@ def write_resume_sources(variant: str, omit: set[str]) -> None:
 def compile_resume(variant: str, lang: str) -> Path:
     out = OUTPUTS[(variant, lang, "resume")]
     out.parent.mkdir(parents=True, exist_ok=True)
+    kwargs: dict[str, int] = {}
+    if sys.platform == "win32":
+        kwargs["creationflags"] = getattr(subprocess, "CREATE_NO_WINDOW", 0x08000000)
     proc = subprocess.run(
         [
             "typst",
@@ -194,6 +197,7 @@ def compile_resume(variant: str, lang: str) -> Path:
         check=False,
         capture_output=True,
         text=True,
+        **kwargs,
     )
     if proc.returncode != 0:
         detail = (proc.stderr or proc.stdout or "typst compile failed").strip()

@@ -11,6 +11,7 @@ import getpass
 import json
 import logging
 import os
+import subprocess
 import sys
 import time
 from datetime import datetime
@@ -18,6 +19,13 @@ from pathlib import Path
 from typing import Any
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
+
+
+def no_window_kwargs() -> dict[str, int]:
+    """Return subprocess kwargs that suppress console windows on Windows."""
+    if sys.platform == "win32":
+        return {"creationflags": getattr(subprocess, "CREATE_NO_WINDOW", 0x08000000)}
+    return {}
 
 # --- Environment Detection ---
 

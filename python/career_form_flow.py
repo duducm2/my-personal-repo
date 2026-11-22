@@ -18,6 +18,7 @@ from environment import (
     log_debug,
     log_error,
     log_info,
+    no_window_kwargs,
 )
 from form_fill_executor import (
     build_fill_steps,
@@ -171,13 +172,20 @@ def open_uia() -> dict[str, Any]:
             ],
             check=False,
             capture_output=True,
+            **no_window_kwargs(),
         )
         subprocess.run(
-            ["schtasks", "/run", "/tn", tn], check=False, capture_output=True
+            ["schtasks", "/run", "/tn", tn],
+            check=False,
+            capture_output=True,
+            **no_window_kwargs(),
         )
         time.sleep(0.5)
         subprocess.run(
-            ["schtasks", "/delete", "/tn", tn, "/f"], check=False, capture_output=True
+            ["schtasks", "/delete", "/tn", tn, "/f"],
+            check=False,
+            capture_output=True,
+            **no_window_kwargs(),
         )
     except Exception as e:
         log_error("open_uia: failed running schtasks", e)

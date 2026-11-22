@@ -33,6 +33,7 @@ from content_freeze import (  # noqa: E402
     freeze_current,
     get_history,
 )
+from environment import no_window_kwargs  # noqa: E402
 from anonymizer import (  # noqa: E402
     confirm_from_preview,
     detect_regions,
@@ -369,6 +370,7 @@ def regenerate_deliverable(
         capture_output=True,
         text=True,
         check=False,
+        **no_window_kwargs(),
     )
     if gen_proc.returncode != 0:
         err = (gen_proc.stderr or gen_proc.stdout or "Source generation failed").strip()
@@ -390,6 +392,7 @@ def regenerate_deliverable(
             capture_output=True,
             text=True,
             check=False,
+            **no_window_kwargs(),
         )
         if fit_proc.returncode != 0:
             err = (fit_proc.stderr or fit_proc.stdout or "Resume fit failed").strip()
@@ -413,6 +416,7 @@ def regenerate_deliverable(
             capture_output=True,
             text=True,
             check=False,
+            **no_window_kwargs(),
         )
         if build_proc.returncode != 0:
             err = (
@@ -455,6 +459,7 @@ def raise_resume_topic(variant: str, topic_id: str) -> dict[str, Any]:
         text=True,
         timeout=180,
         check=False,
+        **no_window_kwargs(),
     )
     if proc.returncode != 0:
         detail = (proc.stderr or proc.stdout or "Could not rebuild the resume").strip()
@@ -745,6 +750,7 @@ def build_cover_letter_pdf(payload: dict[str, Any]) -> dict[str, Any]:
             text=True,
             encoding="utf-8",
             errors="replace",
+            **no_window_kwargs(),
         )
     except FileNotFoundError as exc:
         raise ValueError(
@@ -844,6 +850,7 @@ def load_deliverables_catalog(repo_root: Path) -> dict[str, Any]:
         capture_output=True,
         text=True,
         timeout=10,
+        **no_window_kwargs(),
     )
     if proc.returncode == 0 and proc.stdout.strip():
         return json.loads(proc.stdout)
@@ -1121,6 +1128,7 @@ class CareerHandler(BaseHTTPRequestHandler):
                         capture_output=True,
                         text=True,
                         timeout=10,
+                        **no_window_kwargs(),
                     )
                     if proc.returncode == 0 and proc.stdout.strip():
                         deliverables = json.loads(proc.stdout)
@@ -1358,6 +1366,7 @@ class CareerHandler(BaseHTTPRequestHandler):
                     cwd=str(PICTURES_DIR.parent),
                     capture_output=True,
                     timeout=15,
+                    **no_window_kwargs(),
                 )
                 self._json(200, res)
                 return
@@ -1372,6 +1381,7 @@ class CareerHandler(BaseHTTPRequestHandler):
                     cwd=str(PICTURES_DIR.parent),
                     capture_output=True,
                     timeout=15,
+                    **no_window_kwargs(),
                 )
                 self._json(200, {"ok": True, "reverted": reverted})
                 return

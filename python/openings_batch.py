@@ -13,7 +13,7 @@ from pathlib import Path
 from typing import Any
 
 import environment
-from environment import ROOT_DIR, get_ahk_exe, get_desktop_dir, log_error, log_info
+from environment import ROOT_DIR, get_ahk_exe, get_desktop_dir, log_error, log_info, no_window_kwargs
 
 EXTRACTION_MAP_PATH = ROOT_DIR / "my-data" / "canonical" / "portal_extraction_map.json"
 BATCH_AHK_PATH = ROOT_DIR / "scripts" / "ahk" / "batch_extract_openings.ahk"
@@ -226,15 +226,26 @@ def run_batch_extraction(
                     ["schtasks", "/create", "/tn", tn, "/tr", f'wscript.exe "{vbs_path}"', "/sc", "once", "/st", "23:59", "/it", "/f"],
                     check=False,
                     capture_output=True,
+                    **no_window_kwargs(),
                 )
-                subprocess.run(["schtasks", "/run", "/tn", tn], check=False, capture_output=True)
+                subprocess.run(
+                    ["schtasks", "/run", "/tn", tn],
+                    check=False,
+                    capture_output=True,
+                    **no_window_kwargs(),
+                )
                 deadline = time.monotonic() + timeout
                 while time.monotonic() < deadline:
                     if result_path.is_file() and result_path.stat().st_size > 0:
                         break
                     time.sleep(0.25)
             finally:
-                subprocess.run(["schtasks", "/delete", "/tn", tn, "/f"], check=False, capture_output=True)
+                subprocess.run(
+                    ["schtasks", "/delete", "/tn", tn, "/f"],
+                    check=False,
+                    capture_output=True,
+                    **no_window_kwargs(),
+                )
             completed_detail = f"schtasks timeout after {int(timeout)}s"
         else:
             completed = subprocess.run(  # noqa: S603
@@ -245,6 +256,7 @@ def run_batch_extraction(
                 encoding="utf-8",
                 errors="replace",
                 timeout=timeout,
+                **no_window_kwargs(),
             )
             completed_detail = (completed.stderr or completed.stdout or f"exit {completed.returncode}").strip()
 

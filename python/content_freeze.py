@@ -7,6 +7,7 @@ import hashlib
 import json
 import shutil
 import subprocess
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -107,6 +108,9 @@ def _read_text(path: Path) -> str:
 
 
 def _git_head(root: Path) -> str:
+    kwargs: dict[str, Any] = {}
+    if sys.platform == "win32":
+        kwargs["creationflags"] = getattr(subprocess, "CREATE_NO_WINDOW", 0x08000000)
     try:
         proc = subprocess.run(
             ["git", "rev-parse", "--short", "HEAD"],
@@ -114,6 +118,7 @@ def _git_head(root: Path) -> str:
             capture_output=True,
             text=True,
             check=False,
+            **kwargs,
         )
         if proc.returncode == 0:
             return proc.stdout.strip()

@@ -144,7 +144,10 @@ def run(cmd: list[str], *, cwd: Path = ROOT) -> None:
     print("+", " ".join(cmd))
     if sys.platform == "win32" and cmd[0] == "npx":
         cmd = ["cmd", "/c", "npx", *cmd[1:]]
-    subprocess.run(cmd, cwd=cwd, check=True)
+    kwargs: dict[str, int] = {}
+    if sys.platform == "win32":
+        kwargs["creationflags"] = getattr(subprocess, "CREATE_NO_WINDOW", 0x08000000)
+    subprocess.run(cmd, cwd=cwd, check=True, **kwargs)
 
 
 def pdf_page_count(path: Path) -> int:

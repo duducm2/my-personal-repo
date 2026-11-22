@@ -16,7 +16,7 @@ from pathlib import Path
 from typing import Any
 
 import environment
-from environment import log_debug, log_info, log_error
+from environment import log_debug, log_info, log_error, no_window_kwargs
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 
@@ -264,15 +264,26 @@ def run_ahk(action: str, *, timeout: float = 60, **args: str) -> dict[str, Any]:
                     ["schtasks", "/create", "/tn", tn, "/tr", f'wscript.exe "{vbs_path}"', "/sc", "once", "/st", "23:59", "/it", "/f"],
                     check=False,
                     capture_output=True,
+                    **no_window_kwargs(),
                 )
-                subprocess.run(["schtasks", "/run", "/tn", tn], check=False, capture_output=True)
+                subprocess.run(
+                    ["schtasks", "/run", "/tn", tn],
+                    check=False,
+                    capture_output=True,
+                    **no_window_kwargs(),
+                )
                 deadline = time.monotonic() + timeout
                 while time.monotonic() < deadline:
                     if result_path.is_file() and result_path.stat().st_size > 0:
                         break
                     time.sleep(0.1)
             finally:
-                subprocess.run(["schtasks", "/delete", "/tn", tn, "/f"], check=False, capture_output=True)
+                subprocess.run(
+                    ["schtasks", "/delete", "/tn", tn, "/f"],
+                    check=False,
+                    capture_output=True,
+                    **no_window_kwargs(),
+                )
         else:
             try:
                 completed = subprocess.run(  # noqa: S603
@@ -283,6 +294,7 @@ def run_ahk(action: str, *, timeout: float = 60, **args: str) -> dict[str, Any]:
                     encoding="utf-8",
                     errors="replace",
                     timeout=timeout,
+                    **no_window_kwargs(),
                 )
                 completed_code = completed.returncode
                 stderr = (completed.stderr or "").strip()
