@@ -133,8 +133,12 @@ for line in lines {
             collected := ExtractAgibankCampinas(chromeHwnd, btnType, btnName, maxClicks, waitMs, extractMode, &pagesVisited)
         } else if (strategy = "greenhouse_office") {
             collected := ExtractGreenhouseOffice(chromeHwnd, btnName, waitMs, extractMode)
-        } else if (strategy = "gupy_state_city" || strategy = "gupy_dual") {
-            collected := ExtractGupyDual(chromeHwnd, url, btnName, maxClicks, waitMs, extractMode, &pagesVisited)
+        } else if (strategy = "gupy_state_city" || strategy = "gupy_dual" || strategy = "gupy_remote_only") {
+            collected := ExtractGupyDual(chromeHwnd, url, btnName, maxClicks, waitMs, extractMode, &pagesVisited, strategy = "gupy_remote_only")
+        } else if (strategy = "mercado_livre_remote") {
+            collected := ExtractMercadoLivreRemote(chromeHwnd, btnType, btnName, maxClicks, waitMs, extractMode, &pagesVisited)
+        } else if (strategy = "levva_dual") {
+            collected := ExtractLevvaDual(chromeHwnd, url, maxClicks, waitMs, extractMode, &pagesVisited)
         } else if (strategy = "ciandt_dual") {
             collected := ExtractCiandtDual(chromeHwnd, url, waitMs, extractMode, &pagesVisited)
         } else if (strategy = "successfactors_location") {
@@ -151,7 +155,6 @@ for line in lines {
         finalText := header . collected
         charsWritten := StrLen(finalText)
 
-        try FileDelete(outPath)
         f := FileOpen(outPath, "w", "UTF-8-RAW")
         if (!f)
             throw Error("Failed to open output file: " outPath)
@@ -202,13 +205,13 @@ IsRealBrowserWindow(hwnd) {
         return false
     if (t = "" || IsCareerCockpitTitle(t) || IsCompanionTitle(t))
         return false
-    if (InStr(t, "Traduzir") || InStr(t, "Translate"))
+    if (InStr(t, "Traduzir") || InStr(t, "Translate") || InStr(t, " quer ") || InStr(t, "wants to"))
         return false
     x := 0, y := 0, w := 0, h := 0
     try WinGetPos(&x, &y, &w, &h, "ahk_id " hwnd)
     catch
         return false
-    return (w >= 500 && h >= 350)
+    return (w >= 650 && h >= 450)
 }
 
 FindNonCockpitChromeWindow() {
@@ -238,7 +241,7 @@ OpenPortalUrlInChrome(url, waitMs) {
 
     chromeExe := FindChromeExe()
     batchProfile := EnvGet("LOCALAPPDATA") "\career-batch-chrome"
-    Run('"' chromeExe '" --user-data-dir="' batchProfile '" --no-first-run --no-default-browser-check --new-window "' url '"')
+    Run('"' chromeExe '" --user-data-dir="' batchProfile '" --no-first-run --no-default-browser-check --deny-permission-prompts --new-window "' url '"')
     Sleep Max(2500, waitMs)
     deadline := A_TickCount + 15000
     hwnd := 0
@@ -791,13 +794,13 @@ ExtractGreenhouseOffice(chromeHwnd, officeName, waitMs, extractMode) {
     return CopyDocumentText(chromeHwnd, extractMode)
 }
 
-ExtractGupyDual(chromeHwnd, url, spec, maxClicks, waitMs, extractMode, &pagesVisited) {
+ExtractGupyDual(chromeHwnd, url, spec, maxClicks, waitMs, extractMode, &pagesVisited, remoteOnly := false) {
     pagesVisited := 0
     collected := ""
     parts := StrSplit(spec, "|")
     stateName := parts.Length >= 1 ? Trim(parts[1]) : ""
     cityName := parts.Length >= 2 ? Trim(parts[2]) : ""
-    LogStep("GUPY DUAL: url=[" url "] state=[" stateName "] city=[" cityName "]")
+    LogStep("GUPY DUAL: url=[" url "] state=[" stateName "] city=[" cityName "] remoteOnly=" remoteOnly)
 
     ScrollToBottomPasses(chromeHwnd, 2, 500)
     HumanSleep(600, 1000)
@@ -828,6 +831,11 @@ ExtractGupyDual(chromeHwnd, url, spec, maxClicks, waitMs, extractMode, &pagesVis
             m1Text := CollectPaginatedPages(chromeHwnd, "Button", "Vá para próxima página", maxClicks, waitMs, extractMode, &pagesVisited, "METHOD 1 (REMOTO)")
             if (m1Text != "")
                 collected .= m1Text
+            if (remoteOnly) {
+                if (pagesVisited < 1)
+                    pagesVisited := 1
+                return collected
+            }
             HumanSleep(1000, 1800)
             RefreshChromeUrl(chromeHwnd, url, waitMs)
             ScrollToBottomPasses(chromeHwnd, 2, 500)
@@ -836,7 +844,14 @@ ExtractGupyDual(chromeHwnd, url, spec, maxClicks, waitMs, extractMode, &pagesVis
             WinActivate("ahk_id " chromeHwnd)
             Send("{Escape}")
             HumanSleep(300, 500)
+            if (remoteOnly) {
+                pagesVisited := 1
+                return "NO REMOTE OPENINGS AVAILABLE`r`n"
+            }
         }
+    } else if (remoteOnly) {
+        pagesVisited := 1
+        return "NO REMOTE OPENINGS AVAILABLE`r`n"
     }
 
     ; Method 2: Local (Estado + Cidade if configured, otherwise all jobs)
@@ -866,6 +881,158 @@ ExtractGupyDual(chromeHwnd, url, spec, maxClicks, waitMs, extractMode, &pagesVis
     }
 
     m2Text := CollectPaginatedPages(chromeHwnd, "Button", "Vá para próxima página", maxClicks, waitMs, extractMode, &pagesVisited, "METHOD 2 (LOCAL)")
+    if (m2Text != "")
+        collected .= m2Text
+
+    if (pagesVisited < 1)
+        pagesVisited := 1
+    return collected
+}
+
+ExtractMercadoLivreRemote(chromeHwnd, btnType, btnName, maxClicks, waitMs, extractMode, &pagesVisited) {
+    pagesVisited := 0
+    LogStep("MELI: opening All filters -> Workplace type -> Remote")
+    HumanSleep(1200, 1800)
+    afOk := ClickFirstControlByName(chromeHwnd, "Button", "All filters")
+    LogStep("MELI All filters clicked=" afOk)
+    HumanSleep(800, 1300)
+    docEl := WaitDocumentElement(chromeHwnd, 6000)
+    remClicked := false
+    if (docEl) {
+        cands := FindAllMatchingControls(docEl, "Button|CheckBox|Text|ListItem", "Remote")
+        LogStep("MELI Remote cands=" cands.Length)
+        for el in cands {
+            nm := ""
+            try nm := Trim(el.Name)
+            if (StrLower(nm) = "remote") {
+                remClicked := ClickUiaElement(chromeHwnd, el)
+                LogStep("MELI Remote clicked=" remClicked " Type=[" el.LocalizedType "]")
+                if (remClicked)
+                    break
+            }
+        }
+    }
+    HumanSleep(Max(1800, waitMs), Max(2800, waitMs + 800))
+
+    collected := CollectPaginatedPages(chromeHwnd, "Button", "Next", maxClicks, waitMs, extractMode, &pagesVisited)
+    if (pagesVisited < 1)
+        pagesVisited := 1
+    return collected
+}
+
+CollectIzirhPages(chromeHwnd, maxClicks, waitMs, extractMode, &pagesVisited, sectionPrefix) {
+    collected := ""
+    prevPageTxt := ""
+    pageNum := 1
+    while (pageNum <= maxClicks) {
+        ScrollToBottomPasses(chromeHwnd, 2, 500)
+        pageTxt := CopyDocumentText(chromeHwnd, extractMode)
+        if (pageTxt != "" && pageTxt = prevPageTxt)
+            break
+        if (pageTxt != "") {
+            prevPageTxt := pageTxt
+            collected .= "=== " sectionPrefix " - PAGE " pageNum " ===`r`n" pageTxt "`r`n`r`n"
+        }
+        nextLabel := String(pageNum + 1)
+        docEl := WaitDocumentElement(chromeHwnd, 4000)
+        if (!docEl)
+            break
+        cands := FindAllMatchingControls(docEl, "Button|Hyperlink", nextLabel)
+        LogStep("IZIRH next=[" nextLabel "] cands=" cands.Length)
+        nextBtn := ""
+        for el in cands {
+            nm := ""
+            try nm := Trim(el.Name)
+            LogStep("IZIRH cand Type=[" el.LocalizedType "] Name=[" nm "]")
+            if (nm = nextLabel || nm = "Ir para a página " nextLabel) {
+                nextBtn := el
+                break
+            }
+        }
+        if (!IsObject(nextBtn))
+            break
+        disabled := false
+        try {
+            if !nextBtn.IsEnabled
+                disabled := true
+        }
+        if (disabled || !ClickUiaElement(chromeHwnd, nextBtn))
+            break
+        pageNum += 1
+        pagesVisited += 1
+        HumanSleep(Max(1800, waitMs), Max(2800, waitMs + 800))
+    }
+    return collected
+}
+
+ClickLevvaFiltrar(chromeHwnd) {
+    if (ClickFirstControlByName(chromeHwnd, "Button", "Filtrar"))
+        return true
+    docEl := WaitDocumentElement(chromeHwnd, 4000)
+    if (!docEl)
+        return false
+    try {
+        el := docEl.FindFirst({AutomationId: "button-filtrar"})
+        if (IsObject(el))
+            return ClickUiaElement(chromeHwnd, el)
+    }
+    return false
+}
+
+ExtractLevvaDual(chromeHwnd, url, maxClicks, waitMs, extractMode, &pagesVisited) {
+    pagesVisited := 0
+    collected := ""
+
+    ; Method 1: Filtrar -> Tipo de trabalho -> Remoto
+    LogStep("LEVVA METHOD 1: Filtrar -> Tipo de trabalho -> Remoto")
+    HumanSleep(1200, 1800)
+    f1Ok := ClickLevvaFiltrar(chromeHwnd)
+    LogStep("LEVVA M1 button-filtrar=" f1Ok)
+    HumanSleep(500, 800)
+    if (ClickFirstControlByName(chromeHwnd, "Button", "Tipo de trabalho")) {
+        HumanSleep(500, 800)
+        remOk := ToggleOrClickCheckbox(chromeHwnd, "Remoto")
+        LogStep("LEVVA M1 Remoto checked=" remOk)
+        HumanSleep(400, 700)
+        WinActivate("ahk_id " chromeHwnd)
+        Send("{Escape}")
+        HumanSleep(Max(1800, waitMs), Max(2600, waitMs + 600))
+    }
+    m1Text := CollectIzirhPages(chromeHwnd, maxClicks, waitMs, extractMode, &pagesVisited, "METHOD 1 (REMOTO)")
+    if (m1Text != "")
+        collected .= m1Text
+
+    ; Method 2: Switch Tipo de trabalho from Remoto -> Presencial + Híbrido, and Cidade -> Campinas, Hortolândia, Indaiatuba
+    HumanSleep(1000, 1800)
+    LogStep("LEVVA METHOD 2: Tipo de trabalho (Presencial+Hibrido) + Cidade (Campinas/Hortolandia/Indaiatuba)")
+    if (ClickFirstControlByName(chromeHwnd, "Button", "Remoto", "Tipo de trabalho")) {
+        HumanSleep(500, 800)
+        ; Uncheck Remoto if still selected, then check Presencial & Híbrido
+        ToggleOrClickCheckbox(chromeHwnd, "Remoto")
+        HumanSleep(300, 500)
+        pOk := ToggleOrClickCheckbox(chromeHwnd, "Presencial")
+        HumanSleep(300, 500)
+        hOk := ToggleOrClickCheckbox(chromeHwnd, "Híbrido")
+        LogStep("LEVVA M2 Presencial=" pOk " Hibrido=" hOk)
+        HumanSleep(300, 500)
+        WinActivate("ahk_id " chromeHwnd)
+        Send("{Escape}")
+        HumanSleep(400, 700)
+    }
+    if (ClickFirstControlByName(chromeHwnd, "Button", "Cidade")) {
+        HumanSleep(500, 800)
+        c1 := ToggleOrClickCheckbox(chromeHwnd, "Campinas")
+        HumanSleep(250, 450)
+        c2 := ToggleOrClickCheckbox(chromeHwnd, "Hortolândia")
+        HumanSleep(250, 450)
+        c3 := ToggleOrClickCheckbox(chromeHwnd, "Indaiatuba")
+        LogStep("LEVVA M2 Cidades=" c1 "," c2 "," c3)
+        HumanSleep(400, 700)
+        WinActivate("ahk_id " chromeHwnd)
+        Send("{Escape}")
+        HumanSleep(Max(1800, waitMs), Max(2600, waitMs + 600))
+    }
+    m2Text := CollectIzirhPages(chromeHwnd, maxClicks, waitMs, extractMode, &pagesVisited, "METHOD 2 (LOCAL)")
     if (m2Text != "")
         collected .= m2Text
 

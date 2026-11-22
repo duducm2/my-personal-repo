@@ -1882,8 +1882,77 @@
         reqSaveBtn.disabled = false;
       }
     });
-    reqActions.append(reqSaveBtn, reqStatus);
-    reqBlock.append(reqHeader, urlRow, reqField, exField, reqActions);
+    const buildAgentPrompt = () => {
+      const cname = cell(row.name_en || row.name_pt || cid);
+      const strat = meta ? cell(meta.strategy) : "single_page_copy";
+      const reqs = reqTa.value.trim() || "(none specified yet)";
+      const ex = exTa.value.trim();
+      const lines = [
+        `Test and verify the automated job-openings fetching for **${cname}** (\`${cid}\`).`,
+        ``,
+        `- **Portal URL**: ${portalUrl || "(not set)"}`,
+        `- **Current strategy**: \`${strat}\``,
+        `- **Expected Desktop output**: \`${cid}-openings.txt\``,
+        ``,
+        `### Fetching Requirements`,
+        reqs,
+        ``,
+        `### Instructions`,
+        `1. Run \`openings_batch.run_batch_extraction(CanonicalStore(Path('my-data/canonical')), ['${cid}'])\`.`,
+        `2. Compare the generated Desktop \`.txt\` file against the fetching requirements${ex ? " and expected output example below" : ""}.`,
+        `3. If anything is missing, unfiltered, or fails, inspect \`my-data/debug/batch_ahk.log\`, fix \`scripts/ahk/batch_extract_openings.ahk\` and/or \`my-data/canonical/portal_extraction_map.json\`, and re-run to verify.`,
+      ];
+      if (ex) {
+        lines.push("", "### Expected / Correct Output Example", "```text", ex, "```");
+      }
+      return lines.join("\n");
+    };
+
+    const promptPreviewWrap = document.createElement("div");
+    promptPreviewWrap.hidden = true;
+    const promptPreviewTa = document.createElement("textarea");
+    promptPreviewTa.className = "field-input tall";
+    promptPreviewTa.rows = 6;
+    promptPreviewWrap.append(promptPreviewTa);
+
+    const copyPromptBtn = document.createElement("button");
+    copyPromptBtn.type = "button";
+    copyPromptBtn.className = "btn btn-sm";
+    copyPromptBtn.textContent = "Copy Agent Prompt";
+    copyPromptBtn.addEventListener("click", async () => {
+      const promptText = promptPreviewWrap.hidden
+        ? buildAgentPrompt()
+        : promptPreviewTa.value;
+      try {
+        await navigator.clipboard.writeText(promptText);
+        reqStatus.textContent = "Prompt copied!";
+        reqStatus.className = "save-status ok";
+      } catch {
+        promptPreviewTa.value = promptText;
+        promptPreviewWrap.hidden = false;
+        promptPreviewTa.select();
+        reqStatus.textContent = "Select & copy above";
+        reqStatus.className = "save-status";
+      }
+    });
+
+    const togglePromptBtn = document.createElement("button");
+    togglePromptBtn.type = "button";
+    togglePromptBtn.className = "btn btn-sm";
+    togglePromptBtn.textContent = "Show Prompt";
+    togglePromptBtn.addEventListener("click", () => {
+      if (promptPreviewWrap.hidden) {
+        promptPreviewTa.value = buildAgentPrompt();
+        promptPreviewWrap.hidden = false;
+        togglePromptBtn.textContent = "Hide Prompt";
+      } else {
+        promptPreviewWrap.hidden = true;
+        togglePromptBtn.textContent = "Show Prompt";
+      }
+    });
+
+    reqActions.append(reqSaveBtn, copyPromptBtn, togglePromptBtn, reqStatus);
+    reqBlock.append(reqHeader, urlRow, reqField, exField, reqActions, promptPreviewWrap);
     body.append(reqBlock);
 
     // Fit toggles for search curation
