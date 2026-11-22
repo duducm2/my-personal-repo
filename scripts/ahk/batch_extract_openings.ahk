@@ -139,6 +139,8 @@ for line in lines {
             collected := ExtractMercadoLivreRemote(chromeHwnd, btnType, btnName, maxClicks, waitMs, extractMode, &pagesVisited)
         } else if (strategy = "levva_dual") {
             collected := ExtractLevvaDual(chromeHwnd, url, maxClicks, waitMs, extractMode, &pagesVisited)
+        } else if (strategy = "lg_estado_municipio") {
+            collected := ExtractLgEstadoMunicipio(chromeHwnd, btnName, maxClicks, waitMs, extractMode, &pagesVisited)
         } else if (strategy = "ciandt_dual") {
             collected := ExtractCiandtDual(chromeHwnd, url, waitMs, extractMode, &pagesVisited)
         } else if (strategy = "successfactors_location") {
@@ -1036,6 +1038,34 @@ ExtractLevvaDual(chromeHwnd, url, maxClicks, waitMs, extractMode, &pagesVisited)
     if (m2Text != "")
         collected .= m2Text
 
+    if (pagesVisited < 1)
+        pagesVisited := 1
+    return collected
+}
+
+ExtractLgEstadoMunicipio(chromeHwnd, spec, maxClicks, waitMs, extractMode, &pagesVisited) {
+    pagesVisited := 0
+    parts := StrSplit(spec != "" ? spec : "São Paulo|CAMPINAS", "|")
+    stateName := parts.Length >= 1 && Trim(parts[1]) != "" ? Trim(parts[1]) : "São Paulo"
+    cityName := parts.Length >= 2 && Trim(parts[2]) != "" ? Trim(parts[2]) : "CAMPINAS"
+    LogStep("LG: filtering Estado=[" stateName "] Municipio=[" cityName "]")
+    HumanSleep(1000, 1500)
+
+    if (ClickFirstControlByName(chromeHwnd, "Button", "Estado")) {
+        HumanSleep(500, 800)
+        stOk := ToggleOrClickCheckbox(chromeHwnd, stateName)
+        LogStep("LG Estado [" stateName "] clicked=" stOk)
+        HumanSleep(1000, 1600)
+    }
+
+    if (ClickFirstControlByName(chromeHwnd, "Button", "Município", "Municipio")) {
+        HumanSleep(500, 800)
+        ctOk := ToggleOrClickCheckbox(chromeHwnd, cityName)
+        LogStep("LG Municipio [" cityName "] clicked=" ctOk)
+        HumanSleep(Max(1500, waitMs), Max(2500, waitMs + 700))
+    }
+
+    collected := CollectPaginatedPages(chromeHwnd, "Hyperlink|Button", "Próxima|Carregar mais|Mostrar mais|Ver mais", maxClicks, waitMs, extractMode, &pagesVisited)
     if (pagesVisited < 1)
         pagesVisited := 1
     return collected

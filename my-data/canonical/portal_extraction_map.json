@@ -372,19 +372,21 @@
   },
   "pirelli-campinas": {
     "family": "LG Lugar de Gente",
-    "strategy": "load_more_button",
+    "strategy": "lg_estado_municipio",
     "url": "https://prl-prd-pc.lg.com.br/Vagas/c/1D46EB9C-4170-4223-93B5-6A968E76A7EA/p/trabalheconosco/pt-BR/Busca/Vagas",
     "button_match": {
-      "Type": "Hyperlink|Button",
-      "Name": "Carregar mais|Mostrar mais|Ver mais|Próxima",
+      "Type": "Button",
+      "Name": "São Paulo|CAMPINAS",
       "matchmode": "Substring"
     },
     "max_clicks": 10,
     "wait_ms": 3000,
     "extract_mode": "ctrl_a_copy",
     "notes": "LG Lugar de Gente portal; click Carregar mais / Próxima if present.",
-    "verified": false,
-    "requirements": "- Open the LG Lugar de Gente portal.\n- Click 'Carregar mais' / 'Mostrar mais' / 'Ver mais' / 'Próxima' if present until all openings render.\n- Copy the full page."
+    "verified": true,
+    "requirements": "- Open the LG Lugar de Gente portal.\n- Click 'Carregar mais' / 'Mostrar mais' / 'Ver mais' / 'Próxima' if present until all openings render.\n- Copy the full page.\n- Abra a página, clique em Estado, depois selecione São Paulo e Município - Campinas.",
+    "correct_example": "Logo do portal \nBanner\nPalavra-chave (Ex.: Engenheiro)\nFiltros:   \nANALISTA PLANEJMANETO TRIBUTARIO SR\n\nA Pirelli é uma multinacional italiana, referência mundial no segmento de pneus e mobilidade, reconhecida pela inovação, tecnologia e excelência de seus produtos. Com presença global e uma trajetória marcada pela qualidade e pelo alto desempenho, a companhia investe continuamente em inovação, sustentabilidade e desenvolvimento de pessoas, oferecendo oportunidades para profissionais que desejam crescer e construir uma carreira em um ambiente dinâmico e global.\n\n\nEstamos em busca de um(a) Analista de Planejamento Tributário para integrar nosso time e contribuir estrategicamente com a gestão tributária da companhia. Procuramos um profissional com sólida experiência na área fiscal e tributária, visão analítica e domínio da legislação, que tenha interesse em atuar na identificação de oportunidades, avaliação de impactos fiscais e desenvolvimento de soluções que promovam eficiência, segurança e melhores resultados para o negócio.\n\nSe você gosta de desafios, tem olhar estratégico e deseja fazer parte de uma empresa global, essa oportunidade pode ser o próximo passo da sua carreira!\n\n SÃO PAULO  Efetivo  Presencial  19 Dias\n\nENG PLANEJAMENTO PL\n\nSobre a oportunidade\nBuscamos um(a) Engenheiro(a) de Planejamento Pleno para atuar na gestão do planejamento e da distribuição de produtos para os armazéns comerciais, garantindo o abastecimento adequado para atendimento das vendas das revendas locais, em alinhamento com a estratégia da companhia.\n\nO profissional será responsável pela gestão de estoques, acompanhamento dos indicadores de desempenho logístico, análise de disponibilidade e cobertura de produtos, além do desenvolvimento de iniciativas de melhoria contínua, otimização de processos e redução de custos, sempre com foco na excelência operacional e no atendimento ao cliente.\n\n SÃO PAULO  Efetivo  19 Dias\n\nJOVEM APRENDIZ\n\nEstamos com oportunidade aberta para Jovem Aprendiz nas áreas de Produção e Mecânica, na unidade da Pirelli em Campinas - SP!\n\nSe você tem 18 anos e 22 anos e deseja iniciar sua carreira na indústria, essa é a sua chance de aprender na prática e contar com uma formação estruturada.\n\nPara participar, é necessário ter o Ensino Médio completo ou estar cursando, com conclusão prevista até janeiro de 2027.\n\nO programa combina atividades práticas supervisionadas na operação ou manutenção industrial com formação teórica no SENAI, preparando você para desenvolver competências e atuar em processos produtivos com qualidade e segurança.\n\nAqui, você terá a oportunidade de desenvolver competências técnicas e profissionais, conhecer processos industriais e iniciar sua trajetória profissional em uma empresa global reconhecida pela inovação e excelência.\n\nTemos oportunidades para:\n\nJovem Aprendiz – Operador de Produção\n\nManhã: Pirelli | Tarde: SENAI\n\nJovem Aprendiz – Mecânica\n\nManhã: Pirelli | Tarde: SENAI\n\n\n\nSe você busca uma oportunidade para aprender, se desenvolver e dar os primeiros passos na sua carreira, venha fazer parte do nosso time!\n\n\n\n\n\n 30 Dias\n\nTECNICO MEDICOES COLLAUDO - CAMPINAS/SP\n\nA Pirelli está em busca de um(a) Técnico(a) de Medições / Inspeção em Moldes para atuar na área de controle e validação de produtos.?\n\n \n\nSobre a posição?\n\nO profissional será responsável por executar medições técnicas em moldes de pneumáticos e componentes, garantindo a precisão dos resultados e o cumprimento dos padrões de qualidade estabelecidos.?\n\nAtuará no suporte às atividades de desenvolvimento e validação, tanto dos moldes e seus componentes, como dos fornecedores, contribuindo para a confiabilidade dos dados e para o desenvolvimento e melhoria contínua dos equipamentos.\n\n 3 Dias\n\nPowered by: Logo da distribuidora.",
+    "verified_at": "2026-11-22"
   },
   "levva-campinas": {
     "family": "Izirh",
