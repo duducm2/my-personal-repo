@@ -116,7 +116,7 @@
           align: (center, center, center),
           [#link(linkedin-url)[#text(size: 9pt, fill: highlight-blue)[#linkedin]]],
           [#link(lattes-url)[#text(size: 9pt, fill: highlight-blue)[#lattes]]],
-          [#link(orcid-url)[#text(size: 9pt, fill: highlight-blue)[#orcid]]],
+          [#link(portfolio-url)[#text(size: 9pt, fill: highlight-blue)[#portfolio]]],
         )
       ]
       #block(below: 0.55em)[#text(weight: "bold", size: 9pt, fill: highlight-blue)[#ui.location:] #h(0.5em) #text(size: 9pt)[#location]]

@@ -12,8 +12,8 @@
 #let linkedin-url = "https://www.linkedin.com/in/eduardo-matos-de-assis-figueiredo-b10b408b"
 #let lattes = "Lattes"
 #let lattes-url = "https://lattes.cnpq.br/2708641049892967"
-#let orcid = "ORCID"
-#let orcid-url = "https://orcid.org/0009-0002-5178-6157"
+#let portfolio = "Portfólio"
+#let portfolio-url = "https://duducm2.github.io/my-personal-repo/"
 #let location = "Nova Odessa, SP - Brasil"
 #let compact-layout = true
 

@@ -282,6 +282,15 @@ def render_resume(
         if topic_id_extra(a) not in omit
     )
 
+    portfolio_url_col = f"site_{variant.replace('-', '_')}_url"
+    portfolio_url = profile.get(portfolio_url_col, "").strip()
+    if not portfolio_url:
+        warnings.append(
+            f"Missing {portfolio_url_col} in profile.csv for variant={variant}"
+        )
+        portfolio_url = "https://duducm2.github.io/my-personal-repo/"
+    portfolio_label = ui.get("portfolio") or ("Portfólio" if lang == "pt" else "Portfolio")
+
     ui_fields = "\n".join(
         f'  {key.replace("-", "_")}: "{val.replace(chr(92), chr(92)*2).replace(chr(34), chr(92)+chr(34))}",'
         for key, val in ui.items()
@@ -300,8 +309,8 @@ def render_resume(
 #let linkedin-url = "{profile['linkedin_url']}"
 #let lattes = "{lang_col(profile, 'lattes_label', lang)}"
 #let lattes-url = "{profile['lattes_url']}"
-#let orcid = "{lang_col(profile, 'orcid_label', lang)}"
-#let orcid-url = "{profile['orcid_url']}"
+#let portfolio = "{portfolio_label}"
+#let portfolio-url = "{portfolio_url}"
 #let location = "{lang_col(profile, 'location', lang)}"
 #let compact-layout = {str(compact_layout).lower()}
 
