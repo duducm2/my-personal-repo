@@ -141,6 +141,8 @@ for line in lines {
             collected := ExtractMercadoLivreRemote(chromeHwnd, btnType, btnName, maxClicks, waitMs, extractMode, &pagesVisited)
         } else if (strategy = "levva_dual") {
             collected := ExtractLevvaDual(chromeHwnd, url, maxClicks, waitMs, extractMode, &pagesVisited)
+        } else if (strategy = "inhire_dual") {
+            collected := ExtractInhireDual(chromeHwnd, url, waitMs, extractMode, &pagesVisited)
         } else if (strategy = "lg_estado_municipio") {
             collected := ExtractLgEstadoMunicipio(chromeHwnd, btnName, maxClicks, waitMs, extractMode, &pagesVisited)
         } else if (strategy = "ciandt_dual") {
@@ -1134,6 +1136,87 @@ ExtractWorkdayLocation(chromeHwnd, spec, maxClicks, waitMs, extractMode, &pagesV
         }
     }
     collected := CollectPaginatedPages(chromeHwnd, "Button", "next|Próxima", maxClicks, waitMs, extractMode, &pagesVisited)
+    if (pagesVisited < 1)
+        pagesVisited := 1
+    return collected
+}
+
+SelectInhireDropdown(chromeHwnd, idx, optionText) {
+    docEl := WaitDocumentElement(chromeHwnd, 4000)
+    if (!docEl)
+        return false
+    cands := FindAllMatchingControls(docEl, "ComboBox|Button|Text", "Escolha uma opção")
+    LogStep("INHIRE dropdown idx=" idx " cands=" cands.Length)
+    if (cands.Length < idx)
+        return false
+    targetBox := cands[idx]
+    boxPos := ""
+    try boxPos := targetBox.GetPos("screen")
+    if (!ClickUiaElement(chromeHwnd, targetBox))
+        return false
+    HumanSleep(600, 1000)
+    doc2 := WaitDocumentElement(chromeHwnd, 2000)
+    if (doc2) {
+        opts := []
+        try opts := doc2.FindElements({Name: optionText, matchmode: "Substring"})
+        LogStep("INHIRE opts for [" optionText "] count=" opts.Length)
+        for opt in opts {
+            nm := ""
+            ep := ""
+            tp := ""
+            try nm := Trim(opt.Name)
+            try tp := opt.LocalizedType
+            try ep := opt.GetPos("screen")
+            if (nm = "" || InStr(nm, "[") || StrLen(nm) > 35)
+                continue
+            if (IsObject(boxPos) && IsObject(ep)) {
+                if (ep.w <= 0 || ep.h <= 0 || ep.y <= boxPos.y || ep.y > boxPos.y + 400 || Abs(ep.x - boxPos.x) > 300)
+                    continue
+            }
+            LogStep("INHIRE clicking opt Type=[" tp "] Name=[" nm "]")
+            if (ClickUiaElement(chromeHwnd, opt))
+                return true
+        }
+    }
+    WinActivate("ahk_id " chromeHwnd)
+    SendText(optionText)
+    HumanSleep(600, 900)
+    Send("{Enter}")
+    LogStep("INHIRE option typed=[" optionText "]")
+    return true
+}
+
+ExtractInhireDual(chromeHwnd, url, waitMs, extractMode, &pagesVisited) {
+    pagesVisited := 0
+    collected := ""
+
+    ; Method 1: Modelo de Atuacao -> Remoto
+    LogStep("INHIRE METHOD 1: Modelo de Atuacao -> Remoto")
+    HumanSleep(1200, 1800)
+    m1Ok := SelectInhireDropdown(chromeHwnd, 1, "Remoto")
+    LogStep("INHIRE M1 Remoto ok=" m1Ok)
+    HumanSleep(Max(1800, waitMs), Max(2600, waitMs + 700))
+    ScrollToBottomPasses(chromeHwnd, 2, 500)
+    t1 := CopyDocumentText(chromeHwnd, extractMode)
+    if (t1 != "") {
+        collected .= "=== METHOD 1 (REMOTO) ===`r`n" t1 "`r`n"
+        pagesVisited += 1
+    }
+
+    ; Method 2: Refresh -> Localizacao -> Campinas
+    HumanSleep(1200, 2000)
+    LogStep("INHIRE METHOD 2: Refresh -> Localizacao -> Campinas")
+    RefreshChromeUrl(chromeHwnd, url, waitMs)
+    m2Ok := SelectInhireDropdown(chromeHwnd, 2, "Campinas")
+    LogStep("INHIRE M2 Campinas ok=" m2Ok)
+    HumanSleep(Max(1800, waitMs), Max(2600, waitMs + 700))
+    ScrollToBottomPasses(chromeHwnd, 2, 500)
+    t2 := CopyDocumentText(chromeHwnd, extractMode)
+    if (t2 != "") {
+        collected .= "=== METHOD 2 (CAMPINAS) ===`r`n" t2 "`r`n"
+        pagesVisited += 1
+    }
+
     if (pagesVisited < 1)
         pagesVisited := 1
     return collected
