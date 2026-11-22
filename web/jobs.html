@@ -146,6 +146,15 @@
                   >
                     Import openings
                   </button>
+                  <button
+                    type="button"
+                    id="job-bulk-paste-btn"
+                    class="add-btn"
+                    title="Bulk paste unstructured jobs from LinkedIn / mixed text (Alt+Shift+R)"
+                  >
+                    Bulk paste
+                    <kbd class="btn-kbd">Alt+Shift+R</kbd>
+                  </button>
                 </div>
               </div>
               <button
@@ -378,6 +387,86 @@
             aria-label="Closing modal"
           >
             <div id="prompt-close-bar-fill" class="prompt-close-bar-fill"></div>
+          </div>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog
+      id="bulk-paste-modal"
+      class="company-modal"
+      aria-labelledby="bulk-paste-modal-title"
+    >
+      <div class="company-modal-inner">
+        <header class="company-modal-head">
+          <h2 id="bulk-paste-modal-title" class="company-modal-title">
+            Bulk paste unstructured openings
+          </h2>
+          <button
+            type="button"
+            id="bulk-paste-modal-close"
+            class="company-modal-close"
+            aria-label="Close"
+          >
+            ✕
+          </button>
+        </header>
+        <div class="company-modal-body">
+          <p class="job-modal-hint">
+            Paste unstructured multi-company job text (such as LinkedIn recommended jobs). AIB will separate each opening, match existing companies or create new company records, and return JSON to import.
+          </p>
+          <fieldset class="company-edit-field prompt-path-fieldset">
+            <legend class="company-research-label">Career path context</legend>
+            <div id="bulk-paste-paths" class="prompt-path-checks">
+              <label class="prompt-path-check prompt-path-check-all">
+                <input type="checkbox" id="bulk-paste-path-all" checked />
+                <span>All</span>
+              </label>
+              <label class="prompt-path-check">
+                <input type="checkbox" name="bulk-paste-path" value="uxr" checked />
+                <span>UX Researcher</span>
+              </label>
+              <label class="prompt-path-check">
+                <input type="checkbox" name="bulk-paste-path" value="da" checked />
+                <span>Data Analyst</span>
+              </label>
+              <label class="prompt-path-check">
+                <input type="checkbox" name="bulk-paste-path" value="po" checked />
+                <span>Product Owner</span>
+              </label>
+              <label class="prompt-path-check">
+                <input type="checkbox" name="bulk-paste-path" value="dsa" checked />
+                <span>Digital Solution Architect</span>
+              </label>
+              <label class="prompt-path-check">
+                <input type="checkbox" name="bulk-paste-path" value="other" checked />
+                <span>Other</span>
+              </label>
+            </div>
+          </fieldset>
+          <label class="company-edit-field">
+            <span class="company-research-label">Unstructured job text (LinkedIn / mixed boards)</span>
+            <textarea
+              id="bulk-paste-raw"
+              class="field-input tall"
+              rows="12"
+              placeholder="Paste recommended jobs or mixed company openings here…"
+            ></textarea>
+          </label>
+          <div class="job-modal-actions">
+            <button
+              type="button"
+              id="bulk-paste-send-btn"
+              class="save-btn"
+              title="Send to AI companion (Ctrl+Enter or Shift+Enter)"
+            >
+              Send to AI companion
+            </button>
+            <span
+              id="bulk-paste-status"
+              class="save-status"
+              aria-live="polite"
+            ></span>
           </div>
         </div>
       </div>

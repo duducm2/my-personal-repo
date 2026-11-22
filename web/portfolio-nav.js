@@ -550,4 +550,32 @@ window.addEventListener("resize", () => {
       await populateBatchFetchModal(dlg);
     });
   }
+
+  document.addEventListener("keydown", (event) => {
+    if (
+      !event.altKey ||
+      !event.shiftKey ||
+      event.ctrlKey ||
+      event.metaKey ||
+      event.code !== "KeyR"
+    ) {
+      return;
+    }
+    const active = document.activeElement;
+    const tag = active?.tagName;
+    if (
+      tag === "INPUT" ||
+      tag === "TEXTAREA" ||
+      tag === "SELECT" ||
+      active?.isContentEditable ||
+      document.querySelector("dialog[open]")
+    ) {
+      return;
+    }
+    const p = location.pathname;
+    if (p === "/" || p === "/index.html" || p === "/jobs.html") return;
+    event.preventDefault();
+    event.stopPropagation();
+    location.assign("/?action=bulk-paste");
+  });
 })();

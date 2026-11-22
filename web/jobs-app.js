@@ -2396,15 +2396,169 @@
     } catch (err) {
       throw new Error("JSON parse failed: " + (err.message || String(err)));
     }
+    let newCompanies = [];
+    let rows = data;
     if (!Array.isArray(data)) {
       if (data && typeof data === "object" && Array.isArray(data.openings)) {
-        data = data.openings;
+        rows = data.openings;
+        if (Array.isArray(data.new_companies)) {
+          newCompanies = data.new_companies.filter(
+            (c) => c && typeof c === "object",
+          );
+        }
       } else {
-        throw new Error("Payload must be a JSON array of openings");
+        throw new Error(
+          "Payload must be a JSON array of openings or { new_companies, openings }",
+        );
       }
     }
-    if (!data.length) throw new Error("JSON array is empty");
-    return data;
+    if (!rows.length) throw new Error("JSON openings array is empty");
+    return { rows, newCompanies };
+  }
+
+  function slugifyCompany(name) {
+    const base = cell(name)
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-|-$/g, "")
+      .slice(0, 50);
+    return base || "company";
+  }
+
+  function buildCompanyRecord(raw, existingList) {
+    const nameEn = cell(raw.name_en || raw.name || raw.company).trim();
+    const namePt = cell(raw.name_pt || nameEn).trim();
+    const cityEn = cell(raw.city_en || raw.city).trim();
+    const cityPt = cell(raw.city_pt || cityEn).trim();
+    const taken = new Set(existingList.map((c) => cell(c.id).toLowerCase()));
+    let cid = slugifyCompany(raw.id || `${nameEn}${cityEn ? "-" + cityEn : ""}`);
+    if (taken.has(cid)) {
+      let n = 2;
+      while (taken.has(`${cid}-${n}`)) n += 1;
+      cid = `${cid}-${n}`;
+    }
+    const maxSort = existingList.reduce(
+      (acc, c) => Math.max(acc, Number(c.sort_order) || 0),
+      0,
+    );
+    const careersUrl = cell(raw.careers_url || raw.ats_url).trim();
+    const catEn = cell(raw.category_en || "Technology / Corporate").trim();
+    const catPt = cell(raw.category_pt || catEn).trim();
+    return {
+      id: cid,
+      sort_order: String(maxSort + 1),
+      pinned: "",
+      geo_track: "",
+      rec_rank: "",
+      category_en: catEn,
+      category_detail_en: catEn,
+      category_pt: catPt,
+      category_detail_pt: catPt,
+      name_en: nameEn,
+      name_detail_en: nameEn,
+      name_pt: namePt,
+      name_detail_pt: namePt,
+      city_en: cityEn,
+      city_detail_en: cityEn,
+      city_pt: cityPt,
+      city_detail_pt: cityPt,
+      region_en: cell(raw.region_en).trim(),
+      region_detail_en: cell(raw.region_en).trim(),
+      region_pt: cell(raw.region_pt || raw.region_en).trim(),
+      region_detail_pt: cell(raw.region_pt || raw.region_en).trim(),
+      priority: cell(raw.priority || "medium").trim() || "medium",
+      status: cell(raw.status || "researching").trim() || "researching",
+      home_office: cell(raw.home_office).trim(),
+      growth: "",
+      fit_data_analyst: cell(raw.fit_data_analyst).trim(),
+      fit_product_owner: cell(raw.fit_product_owner).trim(),
+      fit_digital_solution_architect: cell(raw.fit_digital_solution_architect).trim(),
+      fit_ux_researcher: cell(raw.fit_ux_researcher).trim(),
+      fit_data_scientist: cell(raw.fit_data_scientist).trim(),
+      da_openings: "",
+      website: cell(raw.website).trim(),
+      careers_url: careersUrl,
+      ats_kind: cell(raw.ats_kind).trim(),
+      ats_name: cell(raw.ats_name).trim(),
+      ats_url: careersUrl,
+      skills_match_en: cell(raw.skills_match_en).trim(),
+      skills_match_detail_en: cell(raw.skills_match_en).trim(),
+      skills_match_pt: cell(raw.skills_match_pt || raw.skills_match_en).trim(),
+      skills_match_detail_pt: cell(raw.skills_match_pt || raw.skills_match_en).trim(),
+      fit_why_en: cell(raw.fit_why_en).trim(),
+      fit_why_detail_en: cell(raw.fit_why_en).trim(),
+      fit_why_pt: cell(raw.fit_why_pt || raw.fit_why_en).trim(),
+      fit_why_detail_pt: cell(raw.fit_why_pt || raw.fit_why_en).trim(),
+      notes_en: cell(raw.notes_en || "Added via bulk job import.").trim(),
+      notes_detail_en: cell(raw.notes_en || "Added via bulk job import.").trim(),
+      notes_pt: cell(raw.notes_pt || raw.notes_en || "Adicionada via importação em massa.").trim(),
+      notes_detail_pt: cell(raw.notes_pt || raw.notes_en || "Adicionada via importação em massa.").trim(),
+    };
+  }
+
+  function reconcileImportedCompanies(newCompanies, rawOpenings) {
+    if (!Array.isArray(collections.companies)) collections.companies = [];
+    const list = collections.companies;
+    const findExisting = (idOrKey, name) => {
+      const k = cell(idOrKey).trim().toLowerCase();
+      const n = cell(name).trim().toLowerCase();
+      return (
+        list.find((c) => k && cell(c.id).trim().toLowerCase() === k) ||
+        list.find(
+          (c) =>
+            n &&
+            (cell(c.name_en).trim().toLowerCase() === n ||
+              cell(c.name_pt).trim().toLowerCase() === n),
+        ) ||
+        null
+      );
+    };
+    const idMap = new Map();
+    let createdCount = 0;
+    for (const nc of newCompanies) {
+      const existing = findExisting(nc.id, nc.name_en || nc.name_pt || nc.name);
+      if (existing) {
+        if (nc.id) idMap.set(cell(nc.id).trim().toLowerCase(), cell(existing.id));
+        continue;
+      }
+      const created = buildCompanyRecord(nc, list);
+      list.push(created);
+      createdCount += 1;
+      if (nc.id) idMap.set(cell(nc.id).trim().toLowerCase(), created.id);
+      if (created.name_en) idMap.set(created.name_en.toLowerCase(), created.id);
+    }
+    for (const r of rawOpenings) {
+      if (!r || typeof r !== "object") continue;
+      const rawKey = cell(r.company_key).trim();
+      const rawName = cell(r.company || r.company_name).trim();
+      const mappedId =
+        idMap.get(rawKey.toLowerCase()) || idMap.get(rawName.toLowerCase());
+      if (mappedId) {
+        r.company_key = mappedId;
+        const c = findExisting(mappedId, "");
+        if (c && !rawName) r.company = cell(c.name_en) || mappedId;
+        continue;
+      }
+      const existing = findExisting(rawKey, rawName);
+      if (existing) {
+        r.company_key = cell(existing.id);
+        if (!rawName) r.company = cell(existing.name_en) || r.company_key;
+        continue;
+      }
+      if (rawKey || rawName) {
+        const created = buildCompanyRecord(
+          { id: rawKey, name_en: rawName || rawKey, city_en: cell(r.location) },
+          list,
+        );
+        list.push(created);
+        createdCount += 1;
+        r.company_key = created.id;
+        r.company = created.name_en;
+      }
+    }
+    return createdCount;
   }
 
   function normalizeImportedRow(raw, index, stamp) {
@@ -2663,7 +2817,8 @@
   }
 
   async function importOpenings(text) {
-    const rows = parseImportPayload(text);
+    const { rows, newCompanies } = parseImportPayload(text);
+    const createdCompanies = reconcileImportedCompanies(newCompanies, rows);
     const stamp = Date.now();
     const priorKeys = new Set(openings.map(openingDedupeKey));
     const existingKeys = new Set(priorKeys);
@@ -2697,14 +2852,16 @@
     if (!imported.length && !already.length) {
       throw new Error("No openings to import");
     }
-    if (imported.length) {
-      openings = [...imported, ...openings];
-      collections.jobOpenings = openings;
+    if (imported.length || createdCompanies > 0) {
+      if (imported.length) {
+        openings = [...imported, ...openings];
+        collections.jobOpenings = openings;
+      }
       setDirty(true);
       setSaveStatus("");
       render();
     }
-    return { imported: imported.length, skipped, already };
+    return { imported: imported.length, skipped, already, createdCompanies };
   }
 
   async function handleImportRun() {
@@ -2721,24 +2878,28 @@
       const result = await importOpenings(raw);
       if (result.already.length) showAlreadyNotice(result.already);
       const dialog = document.getElementById("import-modal");
-      if (!result.imported) {
+      if (!result.imported && !result.createdCompanies) {
         if (dialog && dialog.open) dialog.close();
         return;
       }
+      const compNote = result.createdCompanies
+        ? ` · Created ${result.createdCompanies} ${result.createdCompanies === 1 ? "company" : "companies"}`
+        : "";
+      const summary = `Imported ${result.imported}${compNote} (skipped ${result.skipped} duplicates).`;
       if (status) {
-        status.textContent = `Imported ${result.imported} (skipped ${result.skipped} duplicates).`;
+        status.textContent = summary;
         status.className = "save-status";
       }
       const saved = await flushSave();
       if (saved) {
         if (status) {
-          status.textContent = `Imported ${result.imported} (skipped ${result.skipped} duplicates).`;
+          status.textContent = summary;
           status.className = "save-status ok";
         }
-        showToast(`Imported ${result.imported} openings`, 2500);
+        showToast(summary, 3000);
         if (dialog && dialog.open) dialog.close();
       } else if (status) {
-        status.textContent = `Imported ${result.imported}, but autosave failed.`;
+        status.textContent = `Imported ${result.imported}${compNote}, but autosave failed.`;
         status.className = "save-status err";
       }
     } catch (err) {
@@ -4711,6 +4872,123 @@
     }
   }
 
+  function openBulkPasteModal() {
+    const dlg = document.getElementById("bulk-paste-modal");
+    const status = document.getElementById("bulk-paste-status");
+    const raw = document.getElementById("bulk-paste-raw");
+    if (status) {
+      status.textContent = "";
+      status.className = "save-status";
+    }
+    if (dlg && !dlg.open) dlg.showModal();
+    requestAnimationFrame(() => raw?.focus());
+  }
+
+  function closeBulkPasteModal() {
+    const dlg = document.getElementById("bulk-paste-modal");
+    if (dlg?.open) dlg.close();
+  }
+
+  async function buildBulkMixedPrompt(careerPaths, rawText) {
+    const paths = (Array.isArray(careerPaths) ? careerPaths : [careerPaths])
+      .map((p) => cell(p).toLowerCase())
+      .filter(Boolean);
+    const effectivePaths = paths.length ? paths : ["uxr", "da", "po", "dsa"];
+    const ctx = await fetchPromptContext();
+    const companiesList = Array.isArray(collections.companies)
+      ? collections.companies
+      : [];
+    const variants = new Set(
+      effectivePaths.map((p) => PATH_TO_VARIANT[p] || "ux-researcher"),
+    );
+    const skills = (ctx.skills || []).filter((s) =>
+      variants.has(cell(s.variant) || "ux-researcher"),
+    );
+    const lines = [
+      "You extract multiple job openings and their companies from unstructured job board text (such as LinkedIn recommended jobs).",
+      "",
+      HUMAN_VOICE,
+      "",
+      "=== AIB BULK EXTRACTION INSTRUCTIONS (mandatory) ===",
+      "1. Parse EVERY distinct job opening from UNSTRUCTURED JOB DATA below, separating each job opening and its employer.",
+      "2. Skip an EXISTING OPENING only when the job_url matches, or company_key + role_title + location match.",
+      "3. Check EXISTING COMPANIES below to see if each extracted employer already exists:",
+      "   - If it exists, set opening.company_key to that exact company id and opening.company to its name.",
+      "   - If it does NOT exist in EXISTING COMPANIES, verify the company details from the paste (and your knowledge if clearly unambiguous) and add a record to `new_companies` with keys:",
+      "     id (lowercase slug e.g. company-city), name_en, name_pt, city_en, region_en, category_en, website, careers_url, fit_data_analyst (yes/no/empty), fit_product_owner, fit_digital_solution_architect, fit_ux_researcher, fit_data_scientist, notes_en.",
+      "   - Set opening.company_key to that new company's `id` and opening.company to its `name_en`.",
+      `4. Score match_score (1-10) and match_reason against PROFILE SKILLS, set career_path (${effectivePaths.join(" | ")}), recommended_resume (ux-researcher | general | data-analyst | product-owner | digital-solution-architect), is_new=\"1\", status=\"saved\", source=\"linkedin\" (or actual source), found_on=today (YYYY-MM-DD).`,
+      "5. Return ONLY a valid JSON object (no markdown fences, no prose) with exactly two keys:",
+      '   { "new_companies": [ ... ], "openings": [ ... ] }',
+      "   Every opening object MUST include:",
+      "   " + OPENING_FIELDS.join(", "),
+      "",
+      "=== PROFILE SKILLS CONTEXT ===",
+      ...skills.slice(0, 30).map((s) => `- ${cell(s.variant)} | ${cell(s.category)} | ${cell(s.items)}`),
+      "",
+      "=== EXISTING COMPANIES ===",
+      ...companiesList.map(
+        (c) => `- ${cell(c.id)} | ${cell(c.name_en) || cell(c.name_pt)} | ${cell(c.city_en)} | ${cell(c.website)}`,
+      ),
+      "",
+      "=== EXISTING OPENINGS (dedupe) ===",
+      ...openings.slice(0, 120).map(
+        (o) => `- ${cell(o.company_key)} | ${cell(o.role_title)} | ${cell(o.location)} | ${cell(o.job_url)}`,
+      ),
+      "",
+      "=== UNSTRUCTURED JOB DATA ===",
+      cell(rawText).trim() || "(empty)",
+    ];
+    return lines.join("\n");
+  }
+
+  async function handleBulkPasteSend() {
+    const raw = cell(document.getElementById("bulk-paste-raw")?.value);
+    const status = document.getElementById("bulk-paste-status");
+    const btn = document.getElementById("bulk-paste-send-btn");
+    const dlg = document.getElementById("bulk-paste-modal");
+    if (!raw.trim()) {
+      if (status) {
+        status.textContent = "Paste unstructured job text first.";
+        status.className = "save-status err";
+      }
+      return;
+    }
+    const paths = [
+      ...document.querySelectorAll('input[name="bulk-paste-path"]:checked'),
+    ].map((el) => el.value);
+    if (btn) btn.disabled = true;
+    dlg?.classList.add("is-generating");
+    dlg?.setAttribute("aria-busy", "true");
+    if (status) {
+      status.textContent = "Generating bulk prompt & sending to AI companion…";
+      status.className = "save-status";
+    }
+    try {
+      const prompt = await buildBulkMixedPrompt(paths, raw);
+      const res = await fetch("/api/prompt-send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text: prompt }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || data.ok === false) {
+        throw new Error(data.error || res.statusText || "Failed to send prompt");
+      }
+      closeBulkPasteModal();
+      openImportModal("Prompt sent to AI companion. Paste the JSON here.");
+    } catch (err) {
+      if (status) {
+        status.textContent = err.message || String(err);
+        status.className = "save-status err";
+      }
+    } finally {
+      dlg?.classList.remove("is-generating");
+      dlg?.setAttribute("aria-busy", "false");
+      if (btn) btn.disabled = false;
+    }
+  }
+
   function openPromptModal(opts = {}) {
     fillPromptCompanySelect();
     const dialog = document.getElementById("prompt-modal");
@@ -5132,6 +5410,7 @@
         event.code === "NumpadEnter";
       if (isEnter && !event.altKey && (mod || event.shiftKey)) {
         const proceed = [
+          ["bulk-paste-modal", handleBulkPasteSend],
           ["form-import-modal", handleImportFormRun],
           ["form-prompt-modal", handleBuildAndSendFormPrompt],
           ["cover-import-modal", handleCoverImportRun],
@@ -5250,6 +5529,21 @@
         }
       }
 
+      // Bulk paste unstructured openings — Alt+Shift+R
+      if (
+        event.altKey &&
+        event.shiftKey &&
+        !mod &&
+        !modalOpen &&
+        !typing &&
+        (event.code === "KeyR" || (event.key || "").toLowerCase() === "r")
+      ) {
+        event.preventDefault();
+        event.stopPropagation();
+        openBulkPasteModal();
+        return;
+      }
+
       // Toggle cards ↔ filters — Alt+Shift+F (Alt+F is form prompt on openings)
       if (
         event.altKey &&
@@ -5270,6 +5564,12 @@
         const resumeOpen = document.getElementById("resume-viewer-modal")?.open;
         if (resumeOpen) {
           closeResumeViewer();
+          return;
+        }
+        const bulkPasteOpen =
+          document.getElementById("bulk-paste-modal")?.open;
+        if (bulkPasteOpen) {
+          closeBulkPasteModal();
           return;
         }
         const formPromptOpen =
@@ -5517,6 +5817,30 @@
       .getElementById("import-run-btn")
       ?.addEventListener("click", () => handleImportRun());
 
+    document
+      .getElementById("job-bulk-paste-btn")
+      ?.addEventListener("click", () => openBulkPasteModal());
+    const bulkPasteDlg = document.getElementById("bulk-paste-modal");
+    document
+      .getElementById("bulk-paste-modal-close")
+      ?.addEventListener("click", () => closeBulkPasteModal());
+    if (bulkPasteDlg) {
+      bulkPasteDlg.addEventListener("click", (e) => {
+        if (e.target === bulkPasteDlg) closeBulkPasteModal();
+      });
+    }
+    document
+      .getElementById("bulk-paste-send-btn")
+      ?.addEventListener("click", () => void handleBulkPasteSend());
+    const bulkAllCb = document.getElementById("bulk-paste-path-all");
+    bulkAllCb?.addEventListener("change", () => {
+      document
+        .querySelectorAll('input[name="bulk-paste-path"]')
+        .forEach((el) => {
+          el.checked = bulkAllCb.checked;
+        });
+    });
+
     const formPromptDialog = document.getElementById("form-prompt-modal");
     document
       .getElementById("form-prompt-modal-close")
@@ -5708,11 +6032,15 @@
       const search = searchInputEl();
       if (search) search.value = qParam;
     }
-    if (action !== "prompt" && action !== "import") {
+    if (action !== "prompt" && action !== "import" && action !== "bulk-paste") {
       if (company || qParam) renderResults();
       return;
     }
     history.replaceState(null, "", location.pathname);
+    if (action === "bulk-paste") {
+      openBulkPasteModal();
+      return;
+    }
     if (action === "prompt") {
       openPromptModal({
         companyId: company,
