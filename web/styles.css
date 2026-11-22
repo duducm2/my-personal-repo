@@ -3829,6 +3829,29 @@ body.lang-en .field-row {
   gap: 8px;
 }
 
+.company-fetching-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(212, 168, 83, 0.35);
+  background: rgba(212, 168, 83, 0.06);
+}
+
+.company-fetching-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.company-fetching-url {
+  font-size: 12px;
+  word-break: break-all;
+}
+
 .company-modal-fits .company-result-edit {
   margin-top: 4px;
 }

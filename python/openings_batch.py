@@ -98,6 +98,9 @@ def get_batch_status(store: Any) -> dict[str, Any]:
                 "mapped": mapping is not None,
                 "verified": bool((mapping or {}).get("verified")),
                 "verified_at": str((mapping or {}).get("verified_at") or ""),
+                "notes": str((mapping or {}).get("notes") or ""),
+                "requirements": str((mapping or {}).get("requirements") or ""),
+                "correct_example": str((mapping or {}).get("correct_example") or ""),
                 "txt_exists": txt_exists,
                 "txt_name": txt_file.name,
                 "txt_mtime": txt_mtime,
@@ -326,6 +329,42 @@ def set_company_verified(company_id: str, verified: bool) -> dict[str, Any]:
         encoding="utf-8",
     )
     return {"ok": True, "id": cid, "verified": verified_flag, "verified_at": verified_at}
+
+
+def set_company_requirements(
+    company_id: str,
+    requirements: str,
+    correct_example: str | None = None,
+) -> dict[str, Any]:
+    cid = sanitize_company_id(company_id)
+    ext_map = load_extraction_map()
+    entry = ext_map.get(cid)
+    if not isinstance(entry, dict):
+        entry = {
+            "family": "Custom",
+            "strategy": "single_page_copy",
+            "url": "",
+            "button_match": None,
+            "max_clicks": 5,
+            "wait_ms": 2500,
+            "extract_mode": "ctrl_a_copy",
+        }
+        ext_map[cid] = entry
+    req_text = str(requirements or "").strip()
+    entry["requirements"] = req_text
+    if correct_example is not None:
+        entry["correct_example"] = str(correct_example).strip()
+    EXTRACTION_MAP_PATH.parent.mkdir(parents=True, exist_ok=True)
+    EXTRACTION_MAP_PATH.write_text(
+        json.dumps(ext_map, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+    return {
+        "ok": True,
+        "id": cid,
+        "requirements": req_text,
+        "correct_example": str(entry.get("correct_example") or ""),
+    }
 
 
 def launch_uia_inspector(url: str = "") -> dict[str, Any]:

@@ -1481,6 +1481,21 @@ class CareerHandler(BaseHTTPRequestHandler):
                     ),
                 )
                 return
+            if path == "/api/openings-batch/requirements":
+                body = self._read_json()
+                if not isinstance(body, dict):
+                    raise ValueError("JSON object required")
+                from openings_batch import set_company_requirements
+
+                self._json(
+                    200,
+                    set_company_requirements(
+                        str(body.get("company_id") or ""),
+                        str(body.get("requirements") or ""),
+                        body.get("correct_example") if "correct_example" in body else None,
+                    ),
+                )
+                return
             if path == "/api/prompt-hotkey":
                 send_prompt_hotkey()
                 self._json(200, {"ok": True})

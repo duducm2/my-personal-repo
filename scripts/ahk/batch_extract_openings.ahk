@@ -133,8 +133,8 @@ for line in lines {
             collected := ExtractAgibankCampinas(chromeHwnd, btnType, btnName, maxClicks, waitMs, extractMode, &pagesVisited)
         } else if (strategy = "greenhouse_office") {
             collected := ExtractGreenhouseOffice(chromeHwnd, btnName, waitMs, extractMode)
-        } else if (strategy = "gupy_state_city") {
-            collected := ExtractGupyStateCity(chromeHwnd, btnName, maxClicks, waitMs, extractMode, &pagesVisited)
+        } else if (strategy = "gupy_state_city" || strategy = "gupy_dual") {
+            collected := ExtractGupyDual(chromeHwnd, url, btnName, maxClicks, waitMs, extractMode, &pagesVisited)
         } else if (strategy = "ciandt_dual") {
             collected := ExtractCiandtDual(chromeHwnd, url, waitMs, extractMode, &pagesVisited)
         } else if (strategy = "successfactors_location") {
@@ -503,11 +503,15 @@ HumanSleep(minMs, maxMs) {
 
 CollectPaginatedPages(chromeHwnd, btnType, btnName, maxClicks, waitMs, extractMode, &pagesVisited, sectionPrefix := "") {
     collected := ""
+    prevPageTxt := ""
     pageNum := 1
     while (pageNum <= maxClicks) {
         ScrollToBottomPasses(chromeHwnd, 2, 700)
         pageTxt := CopyDocumentText(chromeHwnd, extractMode)
+        if (pageTxt != "" && pageTxt = prevPageTxt)
+            break
         if (pageTxt != "") {
+            prevPageTxt := pageTxt
             label := sectionPrefix != "" ? sectionPrefix " - PAGE " pageNum : "PAGE " pageNum
             collected .= "=== " label " ===`r`n" pageTxt "`r`n`r`n"
         }
@@ -787,40 +791,84 @@ ExtractGreenhouseOffice(chromeHwnd, officeName, waitMs, extractMode) {
     return CopyDocumentText(chromeHwnd, extractMode)
 }
 
-ExtractGupyStateCity(chromeHwnd, spec, maxClicks, waitMs, extractMode, &pagesVisited) {
+ExtractGupyDual(chromeHwnd, url, spec, maxClicks, waitMs, extractMode, &pagesVisited) {
     pagesVisited := 0
-    parts := StrSplit(spec != "" ? spec : "São Paulo|Campinas", "|")
-    stateName := parts.Length >= 1 && Trim(parts[1]) != "" ? Trim(parts[1]) : "São Paulo"
-    cityName := parts.Length >= 2 && Trim(parts[2]) != "" ? Trim(parts[2]) : "Campinas"
-    LogStep("GUPY: filtering state=[" stateName "] city=[" cityName "]")
+    collected := ""
+    parts := StrSplit(spec, "|")
+    stateName := parts.Length >= 1 ? Trim(parts[1]) : ""
+    cityName := parts.Length >= 2 ? Trim(parts[2]) : ""
+    LogStep("GUPY DUAL: url=[" url "] state=[" stateName "] city=[" cityName "]")
+
     ScrollToBottomPasses(chromeHwnd, 2, 500)
     HumanSleep(600, 1000)
 
-    ; Select Estado
-    stBoxOk := ClickFirstControlByName(chromeHwnd, "ComboBox", "Estado")
-    LogStep("GUPY state box clicked=" stBoxOk)
-    if (stBoxOk) {
-        HumanSleep(300, 500)
-        SendText(stateName)
-        HumanSleep(700, 1100)
-        WinActivate("ahk_id " chromeHwnd)
-        Send("{Down}{Enter}")
-        HumanSleep(900, 1400)
+    ; Method 1: Check Modo de trabalho -> Remoto
+    hasRemote := false
+    if (ClickFirstControlByName(chromeHwnd, "ComboBox", "Modo de trabalho")) {
+        HumanSleep(500, 800)
+        docEl := WaitDocumentElement(chromeHwnd, 3000)
+        if (docEl) {
+            remOpts := FindAllMatchingControls(docEl, "ListItem|MenuItem", "Remoto")
+            for opt in remOpts {
+                nm := ""
+                try nm := Trim(opt.Name)
+                if (StrLen(nm) > 0 && StrLen(nm) <= 25 && InStr(StrLower(nm), "remoto")) {
+                    hasRemote := true
+                    break
+                }
+            }
+        }
+        LogStep("GUPY M1 Remoto available=" hasRemote)
+        if (hasRemote) {
+            SendText("Remoto")
+            HumanSleep(500, 800)
+            WinActivate("ahk_id " chromeHwnd)
+            Send("{Down}{Enter}")
+            HumanSleep(Max(1500, waitMs), Max(2500, waitMs + 700))
+            m1Text := CollectPaginatedPages(chromeHwnd, "Button", "Vá para próxima página", maxClicks, waitMs, extractMode, &pagesVisited, "METHOD 1 (REMOTO)")
+            if (m1Text != "")
+                collected .= m1Text
+            HumanSleep(1000, 1800)
+            RefreshChromeUrl(chromeHwnd, url, waitMs)
+            ScrollToBottomPasses(chromeHwnd, 2, 500)
+            HumanSleep(500, 900)
+        } else {
+            WinActivate("ahk_id " chromeHwnd)
+            Send("{Escape}")
+            HumanSleep(300, 500)
+        }
     }
 
-    ; Select Cidade
-    ctBoxOk := ClickFirstControlByName(chromeHwnd, "ComboBox", "Cidade")
-    LogStep("GUPY city box clicked=" ctBoxOk)
-    if (ctBoxOk) {
-        HumanSleep(300, 500)
-        SendText(cityName)
-        HumanSleep(700, 1100)
-        WinActivate("ahk_id " chromeHwnd)
-        Send("{Down}{Enter}")
-        HumanSleep(Max(1500, waitMs), Max(2500, waitMs + 700))
+    ; Method 2: Local (Estado + Cidade if configured, otherwise all jobs)
+    if (stateName != "") {
+        stBoxOk := ClickFirstControlByName(chromeHwnd, "ComboBox", "Estado")
+        LogStep("GUPY M2 state box clicked=" stBoxOk)
+        if (stBoxOk) {
+            HumanSleep(300, 500)
+            SendText(stateName)
+            HumanSleep(700, 1100)
+            WinActivate("ahk_id " chromeHwnd)
+            Send("{Down}{Enter}")
+            HumanSleep(900, 1400)
+        }
+    }
+    if (cityName != "") {
+        ctBoxOk := ClickFirstControlByName(chromeHwnd, "ComboBox", "Cidade")
+        LogStep("GUPY M2 city box clicked=" ctBoxOk)
+        if (ctBoxOk) {
+            HumanSleep(300, 500)
+            SendText(cityName)
+            HumanSleep(700, 1100)
+            WinActivate("ahk_id " chromeHwnd)
+            Send("{Down}{Enter}")
+            HumanSleep(Max(1500, waitMs), Max(2500, waitMs + 700))
+        }
     }
 
-    collected := CollectPaginatedPages(chromeHwnd, "Button", "Vá para próxima página", maxClicks, waitMs, extractMode, &pagesVisited)
+    m2Text := CollectPaginatedPages(chromeHwnd, "Button", "Vá para próxima página", maxClicks, waitMs, extractMode, &pagesVisited, "METHOD 2 (LOCAL)")
+    if (m2Text != "")
+        collected .= m2Text
+
     if (pagesVisited < 1)
         pagesVisited := 1
     return collected

@@ -53,6 +53,19 @@
   let growthFilter = "";
   let daOpeningsFilter = "";
   let openCompanyId = "";
+  let batchMetaById = new Map();
+
+  async function loadBatchMeta() {
+    try {
+      const res = await fetch("/api/openings-batch/status");
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.ok && Array.isArray(data.companies)) {
+        batchMetaById = new Map(data.companies.map((c) => [cell(c.id), c]));
+      }
+    } catch {
+      // ignore if endpoint unavailable
+    }
+  }
 
   function cell(v) {
     return v == null ? "" : String(v);
@@ -1753,6 +1766,126 @@
     }
     body.append(notesBlock);
 
+    // Automated Fetching & Test Spec (persisted in portal_extraction_map.json)
+    const cid = cell(row.id);
+    const meta = batchMetaById.get(cid) || null;
+    const reqBlock = document.createElement("div");
+    reqBlock.className = "company-fetching-box";
+
+    const reqHeader = document.createElement("div");
+    reqHeader.className = "company-fetching-header";
+    const reqTitle = document.createElement("div");
+    reqTitle.className = "company-research-label";
+    reqTitle.textContent = "Automated Fetching & Test Spec";
+    reqHeader.append(reqTitle);
+    if (meta) {
+      const badge = document.createElement("span");
+      badge.className = "profile-summary-lang";
+      badge.textContent = meta.verified
+        ? `${meta.strategy} · verified${meta.verified_at ? " (" + meta.verified_at + ")" : ""}`
+        : `${meta.strategy} · unverified`;
+      reqHeader.append(badge);
+    }
+
+    const portalUrl =
+      cell(meta?.url) ||
+      cell(row.careers_url) ||
+      cell(row.ats_url) ||
+      cell(row.website);
+    const urlRow = document.createElement("div");
+    urlRow.className = "company-fetching-url";
+    const urlLabel = document.createElement("span");
+    urlLabel.className = "company-research-label";
+    urlLabel.textContent = "Openings portal URL: ";
+    urlRow.append(urlLabel);
+    if (portalUrl) {
+      const a = document.createElement("a");
+      a.href = portalUrl;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      a.className = "company-result-link";
+      a.textContent = portalUrl;
+      urlRow.append(a);
+    } else {
+      const none = document.createElement("span");
+      none.textContent = "Not set";
+      urlRow.append(none);
+    }
+
+    const reqField = document.createElement("label");
+    reqField.className = "company-edit-field";
+    const reqFieldLab = document.createElement("span");
+    reqFieldLab.className = "company-research-label";
+    reqFieldLab.textContent = "Fetching requirements (one per line)";
+    const reqTa = document.createElement("textarea");
+    reqTa.className = "field-input tall";
+    reqTa.rows = 4;
+    reqTa.placeholder = "- Filters to apply, refresh steps, pagination, or page quirks…";
+    reqTa.value = meta ? cell(meta.requirements || meta.notes) : "";
+    reqField.append(reqFieldLab, reqTa);
+
+    const exField = document.createElement("label");
+    exField.className = "company-edit-field";
+    const exFieldLab = document.createElement("span");
+    exFieldLab.className = "company-research-label";
+    exFieldLab.textContent = "Correct output example (for agent test comparison)";
+    const exTa = document.createElement("textarea");
+    exTa.className = "field-input tall";
+    exTa.rows = 4;
+    exTa.placeholder = "Paste expected job openings output here for future agent verification…";
+    exTa.value = meta ? cell(meta.correct_example) : "";
+    exField.append(exFieldLab, exTa);
+
+    const reqActions = document.createElement("div");
+    reqActions.style.display = "flex";
+    reqActions.style.alignItems = "center";
+    reqActions.style.gap = "8px";
+    const reqSaveBtn = document.createElement("button");
+    reqSaveBtn.type = "button";
+    reqSaveBtn.className = "btn btn-sm";
+    reqSaveBtn.textContent = "Save fetching spec";
+    const reqStatus = document.createElement("span");
+    reqStatus.className = "save-status";
+    reqSaveBtn.addEventListener("click", async () => {
+      reqSaveBtn.disabled = true;
+      reqStatus.textContent = "Saving…";
+      reqStatus.className = "save-status";
+      try {
+        const res = await fetch("/api/openings-batch/requirements", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            company_id: cid,
+            requirements: reqTa.value,
+            correct_example: exTa.value,
+          }),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok || !data.ok) {
+          throw new Error(data.error || `HTTP ${res.status}`);
+        }
+        const prev = batchMetaById.get(cid) || {
+          id: cid,
+          strategy: "single_page_copy",
+          verified: false,
+          url: portalUrl,
+        };
+        prev.requirements = data.requirements || "";
+        prev.correct_example = data.correct_example || "";
+        batchMetaById.set(cid, prev);
+        reqStatus.textContent = "Saved";
+        reqStatus.className = "save-status ok";
+      } catch (err) {
+        reqStatus.textContent = err.message || "Save failed";
+        reqStatus.className = "save-status err";
+      } finally {
+        reqSaveBtn.disabled = false;
+      }
+    });
+    reqActions.append(reqSaveBtn, reqStatus);
+    reqBlock.append(reqHeader, urlRow, reqField, exField, reqActions);
+    body.append(reqBlock);
+
     // Fit toggles for search curation
     const fitEdit = document.createElement("div");
     fitEdit.className = "company-modal-fits";
@@ -2335,7 +2468,7 @@
     });
 
     try {
-      await loadState();
+      await Promise.all([loadState(), loadBatchMeta()]);
       render();
       setDirty(false);
       setSaveStatus("");
