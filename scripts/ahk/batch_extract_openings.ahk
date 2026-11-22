@@ -127,6 +127,8 @@ for line in lines {
             collected := CopyDocumentText(chromeHwnd, extractMode)
         } else if (strategy = "numbered_pagination" && btnName != "") {
             collected := CollectPaginatedPages(chromeHwnd, btnType, btnName, maxClicks, waitMs, extractMode, &pagesVisited)
+        } else if (strategy = "workday_location") {
+            collected := ExtractWorkdayLocation(chromeHwnd, btnName, maxClicks, waitMs, extractMode, &pagesVisited)
         } else if (strategy = "workday_3m_dual") {
             collected := ExtractWorkday3mDual(chromeHwnd, url, btnType, btnName, maxClicks, waitMs, extractMode, &pagesVisited)
         } else if (strategy = "agibank_campinas") {
@@ -1047,7 +1049,7 @@ ExtractLgEstadoMunicipio(chromeHwnd, spec, maxClicks, waitMs, extractMode, &page
     pagesVisited := 0
     parts := StrSplit(spec != "" ? spec : "São Paulo|CAMPINAS", "|")
     stateName := parts.Length >= 1 && Trim(parts[1]) != "" ? Trim(parts[1]) : "São Paulo"
-    cityName := parts.Length >= 2 && Trim(parts[2]) != "" ? Trim(parts[2]) : "CAMPINAS"
+    cityName := parts.Length >= 2 ? Trim(parts[2]) : ""
     LogStep("LG: filtering Estado=[" stateName "] Municipio=[" cityName "]")
     HumanSleep(1000, 1500)
 
@@ -1058,7 +1060,7 @@ ExtractLgEstadoMunicipio(chromeHwnd, spec, maxClicks, waitMs, extractMode, &page
         HumanSleep(1000, 1600)
     }
 
-    if (ClickFirstControlByName(chromeHwnd, "Button", "Município", "Municipio")) {
+    if (cityName != "" && ClickFirstControlByName(chromeHwnd, "Button", "Município", "Municipio")) {
         HumanSleep(500, 800)
         ctOk := ToggleOrClickCheckbox(chromeHwnd, cityName)
         LogStep("LG Municipio [" cityName "] clicked=" ctOk)
@@ -1066,6 +1068,72 @@ ExtractLgEstadoMunicipio(chromeHwnd, spec, maxClicks, waitMs, extractMode, &page
     }
 
     collected := CollectPaginatedPages(chromeHwnd, "Hyperlink|Button", "Próxima|Carregar mais|Mostrar mais|Ver mais", maxClicks, waitMs, extractMode, &pagesVisited)
+    if (pagesVisited < 1)
+        pagesVisited := 1
+    return collected
+}
+
+ExtractWorkdayLocation(chromeHwnd, spec, maxClicks, waitMs, extractMode, &pagesVisited) {
+    pagesVisited := 0
+    locBtn := ClickFirstControlByName(chromeHwnd, "Button|MenuItem", "Local", "Location")
+    LogStep("WORKDAY_LOC Local clicked=" locBtn)
+    if (locBtn) {
+        HumanSleep(1200, 1800)
+        docEl := WaitDocumentElement(chromeHwnd, 4000)
+        matched := false
+        if (spec != "") {
+            for term in StrSplit(spec, "|") {
+                t := Trim(term)
+                if (t != "" && ToggleOrClickCheckbox(chromeHwnd, t)) {
+                    LogStep("WORKDAY_LOC checked=[" t "]")
+                    matched := true
+                    break
+                }
+            }
+        }
+        if (!matched && docEl) {
+            edits := FindAllMatchingControls(docEl, "Edit", "")
+            for ed in edits {
+                edName := ""
+                try edName := ed.Name
+                if (InStr(edName, "Pesquisar cargos") || InStr(edName, "Search for jobs"))
+                    continue
+                if (ClickUiaElement(chromeHwnd, ed)) {
+                    HumanSleep(250, 450)
+                    A_Clipboard := StrSplit(spec, "|")[1]
+                    Send("^a^v")
+                    HumanSleep(1200, 1800)
+                    for term in StrSplit(spec, "|") {
+                        t := Trim(term)
+                        if (t != "" && ToggleOrClickCheckbox(chromeHwnd, t)) {
+                            LogStep("WORKDAY_LOC searched+checked=[" t "]")
+                            matched := true
+                            break
+                        }
+                    }
+                    if (matched)
+                        break
+                }
+            }
+        }
+        if (!matched && docEl) {
+            cbs := FindAllMatchingControls(docEl, "CheckBox", "")
+            cbLog := ""
+            for cb in cbs {
+                if (A_Index > 15)
+                    break
+                try cbLog .= cb.Name " | "
+            }
+            LogStep("WORKDAY_LOC unmatched; sample CBs=" cbLog)
+        }
+        if (matched) {
+            HumanSleep(600, 1100)
+            vjOk := ClickFirstControlByName(chromeHwnd, "Button", "Visualizar|View Jobs|Exibir|Aplicar|Apply")
+            LogStep("WORKDAY_LOC ViewJobs clicked=" vjOk)
+            HumanSleep(Max(3500, waitMs), Max(5000, waitMs + 1500))
+        }
+    }
+    collected := CollectPaginatedPages(chromeHwnd, "Button", "next|Próxima", maxClicks, waitMs, extractMode, &pagesVisited)
     if (pagesVisited < 1)
         pagesVisited := 1
     return collected

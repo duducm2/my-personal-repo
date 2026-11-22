@@ -46,13 +46,39 @@ def load_extraction_map() -> dict[str, dict[str, Any]]:
 
 
 def _company_portal_url(row: dict[str, Any], mapping: dict[str, Any] | None) -> str:
+    careers = str(row.get("careers_url") or "").strip()
+    if careers:
+        return careers
     if mapping and str(mapping.get("url") or "").strip():
         return str(mapping["url"]).strip()
-    for key in ("ats_url", "careers_url", "website"):
+    for key in ("ats_url", "website"):
         val = str(row.get(key) or "").strip()
         if val:
             return val
     return ""
+
+
+def sync_portal_urls_from_companies(companies: list[dict[str, Any]]) -> None:
+    ext_map = load_extraction_map()
+    if not ext_map:
+        return
+    changed = False
+    for row in companies:
+        if not isinstance(row, dict):
+            continue
+        cid = sanitize_company_id(str(row.get("id") or ""))
+        if not cid or cid not in ext_map or not isinstance(ext_map[cid], dict):
+            continue
+        url = str(row.get("careers_url") or row.get("ats_url") or "").strip()
+        if url and str(ext_map[cid].get("url") or "").strip() != url:
+            ext_map[cid]["url"] = url
+            changed = True
+    if changed:
+        EXTRACTION_MAP_PATH.parent.mkdir(parents=True, exist_ok=True)
+        EXTRACTION_MAP_PATH.write_text(
+            json.dumps(ext_map, indent=2, ensure_ascii=False) + "\n",
+            encoding="utf-8",
+        )
 
 
 def _is_pinned(row: dict[str, Any]) -> bool:
@@ -335,6 +361,7 @@ def set_company_requirements(
     company_id: str,
     requirements: str,
     correct_example: str | None = None,
+    url: str | None = None,
 ) -> dict[str, Any]:
     cid = sanitize_company_id(company_id)
     ext_map = load_extraction_map()
@@ -354,6 +381,8 @@ def set_company_requirements(
     entry["requirements"] = req_text
     if correct_example is not None:
         entry["correct_example"] = str(correct_example).strip()
+    if url is not None and str(url).strip():
+        entry["url"] = str(url).strip()
     EXTRACTION_MAP_PATH.parent.mkdir(parents=True, exist_ok=True)
     EXTRACTION_MAP_PATH.write_text(
         json.dumps(ext_map, indent=2, ensure_ascii=False) + "\n",

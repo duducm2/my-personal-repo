@@ -383,7 +383,14 @@
     };
     syncOpen();
     input.addEventListener("input", () => {
-      row[key] = input.value.trim();
+      const val = input.value.trim();
+      row[key] = val;
+      if (key === "careers_url") {
+        row.ats_url = val;
+        const cid = cell(row.id);
+        const meta = batchMetaById.get(cid);
+        if (meta) meta.url = val;
+      }
       setDirty(true);
       setSaveStatus("");
       syncOpen();
@@ -1475,16 +1482,13 @@
     const urls = document.createElement("div");
     urls.className = "company-url-edits";
     urls.append(
-      urlEditField(row, "careers_url", "Job openings portal", {
+      urlEditField(row, "careers_url", "Openings portal URL", {
         placeholder: "https://…/careers",
-        hint: "Opened from the company card (Ctrl+click). Change this when the portal link is wrong.",
+        hint: "Single openings portal URL used by Ctrl+click and automated fetching.",
       }),
       urlEditField(row, "website", "Company website", {
         placeholder: "https://…",
-        hint: "Main company site. Used only if no job openings portal is set.",
-      }),
-      urlEditField(row, "ats_url", "ATS apply board", {
-        placeholder: "https://…",
+        hint: "Main company site. Used only if no openings portal URL is set.",
       }),
     );
     body.append(urls);
@@ -1788,8 +1792,8 @@
     }
 
     const portalUrl =
-      cell(meta?.url) ||
       cell(row.careers_url) ||
+      cell(meta?.url) ||
       cell(row.ats_url) ||
       cell(row.website);
     const urlRow = document.createElement("div");
@@ -1858,6 +1862,7 @@
             company_id: cid,
             requirements: reqTa.value,
             correct_example: exTa.value,
+            url: cell(row.careers_url) || cell(meta?.url) || "",
           }),
         });
         const data = await res.json().catch(() => ({}));
@@ -1885,12 +1890,17 @@
     const buildAgentPrompt = () => {
       const cname = cell(row.name_en || row.name_pt || cid);
       const strat = meta ? cell(meta.strategy) : "single_page_copy";
+      const currentPortalUrl =
+        cell(row.careers_url) ||
+        cell(meta?.url) ||
+        cell(row.ats_url) ||
+        cell(row.website);
       const reqs = reqTa.value.trim() || "(none specified yet)";
       const ex = exTa.value.trim();
       const lines = [
         `Test and verify the automated job-openings fetching for **${cname}** (\`${cid}\`).`,
         ``,
-        `- **Portal URL**: ${portalUrl || "(not set)"}`,
+        `- **Portal URL**: ${currentPortalUrl || "(not set)"}`,
         `- **Current strategy**: \`${strat}\``,
         `- **Expected Desktop output**: \`${cid}-openings.txt\``,
         ``,

@@ -1269,6 +1269,10 @@ class CareerHandler(BaseHTTPRequestHandler):
             body = self._read_json()
             collections = body.get("collections")
             result = self.store.save_all(collections)
+            if isinstance(collections, dict) and isinstance(collections.get("companies"), list):
+                from openings_batch import sync_portal_urls_from_companies
+
+                sync_portal_urls_from_companies(collections["companies"])
             self._json(200, result)
         except ValueError as exc:
             self._append_error_log(exc)
@@ -1493,6 +1497,7 @@ class CareerHandler(BaseHTTPRequestHandler):
                         str(body.get("company_id") or ""),
                         str(body.get("requirements") or ""),
                         body.get("correct_example") if "correct_example" in body else None,
+                        body.get("url") if "url" in body else None,
                     ),
                 )
                 return
