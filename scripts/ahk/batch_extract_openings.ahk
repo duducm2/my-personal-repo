@@ -134,7 +134,7 @@ for line in lines {
         } else if (strategy = "greenhouse_office") {
             collected := ExtractGreenhouseOffice(chromeHwnd, btnName, waitMs, extractMode)
         } else if (strategy = "gupy_state_city") {
-            collected := ExtractGupyStateCity(chromeHwnd, btnName, waitMs, extractMode)
+            collected := ExtractGupyStateCity(chromeHwnd, btnName, maxClicks, waitMs, extractMode, &pagesVisited)
         } else if (strategy = "ciandt_dual") {
             collected := ExtractCiandtDual(chromeHwnd, url, waitMs, extractMode, &pagesVisited)
         } else if (strategy = "successfactors_location") {
@@ -787,7 +787,8 @@ ExtractGreenhouseOffice(chromeHwnd, officeName, waitMs, extractMode) {
     return CopyDocumentText(chromeHwnd, extractMode)
 }
 
-ExtractGupyStateCity(chromeHwnd, spec, waitMs, extractMode) {
+ExtractGupyStateCity(chromeHwnd, spec, maxClicks, waitMs, extractMode, &pagesVisited) {
+    pagesVisited := 0
     parts := StrSplit(spec != "" ? spec : "São Paulo|Campinas", "|")
     stateName := parts.Length >= 1 && Trim(parts[1]) != "" ? Trim(parts[1]) : "São Paulo"
     cityName := parts.Length >= 2 && Trim(parts[2]) != "" ? Trim(parts[2]) : "Campinas"
@@ -819,8 +820,10 @@ ExtractGupyStateCity(chromeHwnd, spec, waitMs, extractMode) {
         HumanSleep(Max(1500, waitMs), Max(2500, waitMs + 700))
     }
 
-    ScrollToBottomPasses(chromeHwnd, 2, 500)
-    return CopyDocumentText(chromeHwnd, extractMode)
+    collected := CollectPaginatedPages(chromeHwnd, "Button", "Vá para próxima página", maxClicks, waitMs, extractMode, &pagesVisited)
+    if (pagesVisited < 1)
+        pagesVisited := 1
+    return collected
 }
 
 ExtractCiandtDual(chromeHwnd, url, waitMs, extractMode, &pagesVisited) {
