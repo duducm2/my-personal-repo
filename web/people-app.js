@@ -5,6 +5,12 @@
     { id: "replied", label: "Replied" },
     { id: "paused", label: "Paused" },
   ];
+  const CHANNELS = [
+    { id: "", label: "Channel…" },
+    { id: "email", label: "Email" },
+    { id: "linkedin", label: "LinkedIn" },
+    { id: "other", label: "Other" },
+  ];
   const KINDS = [
     { id: "hiring", label: "Hiring" },
     { id: "network", label: "Network" },
@@ -166,6 +172,7 @@
       opening_ids: "",
       location: "",
       status: "to-contact",
+      channel: "",
       notes: "",
       found_on: today(),
     };
@@ -274,6 +281,27 @@
     host.append(kindRow, companyRow, statusRow);
   }
 
+  function toggleContactStatus(id, focusTarget = "card") {
+    const row = people.find((p) => cell(p.id) === id);
+    if (!row) return false;
+    const current = cell(row.status) || "to-contact";
+    if (current === "replied" || current === "paused") return false;
+    row.status = current === "contacted" ? "to-contact" : "contacted";
+    setDirty(true);
+    render();
+    const card = document.querySelector(
+      `${CARD_SEL}[data-id="${CSS.escape(id)}"]`,
+    );
+    if (card) {
+      const target =
+        focusTarget === "button"
+          ? card.querySelector(".person-status-toggle") || card
+          : card;
+      target.focus({ preventScroll: true });
+    }
+    return true;
+  }
+
   function render() {
     renderFilters();
     const host = document.getElementById("people-results");
@@ -309,6 +337,8 @@
         if (!groups.has(label)) groups.set(label, []);
         groups.get(label).push(row);
       }
+      const groupsGrid = document.createElement("div");
+      groupsGrid.className = "people-groups-grid";
       for (const [label, group] of [...groups.entries()].sort((a, b) =>
         a[0].localeCompare(b[0]),
       )) {
@@ -321,8 +351,7 @@
         const grid = document.createElement("div");
         grid.className = "company-bento";
         for (const row of group) {
-          const card = document.createElement("button");
-          card.type = "button";
+          const card = document.createElement("article");
           card.className = "company-tile";
           card.setAttribute("tabindex", "0");
           card.dataset.id = row.id;
@@ -343,17 +372,64 @@
             cell(row.headline),
             cell(row.hiring_for) ? `Hiring: ${cell(row.hiring_for)}` : "",
             linked.length ? linked.join(" · ") : "",
-            status ? status.label : "",
           ]
             .filter(Boolean)
             .join(" · ");
-          card.append(badge, title, meta);
-          card.addEventListener("click", () => openEditor(row.id));
+
+          const controls = document.createElement("div");
+          controls.className = "person-card-controls";
+          const statusId = cell(row.status) || "to-contact";
+          const statusBtn = document.createElement("button");
+          statusBtn.type = "button";
+          statusBtn.className = `person-status-toggle is-${statusId}`;
+          statusBtn.textContent = status ? status.label : "To contact";
+          statusBtn.title =
+            statusId === "replied" || statusId === "paused"
+              ? `${statusBtn.textContent} (preserved; edit in modal)`
+              : "Toggle To contact / Contacted (Alt+T)";
+          statusBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            toggleContactStatus(row.id, "button");
+          });
+
+          const channelSelect = document.createElement("select");
+          channelSelect.className = "person-channel-select";
+          channelSelect.setAttribute("aria-label", "Contact channel");
+          for (const ch of CHANNELS) {
+            const opt = document.createElement("option");
+            opt.value = ch.id;
+            opt.textContent = ch.label;
+            channelSelect.append(opt);
+          }
+          const currentChannel = cell(row.channel).toLowerCase();
+          channelSelect.value = CHANNELS.some((c) => c.id === currentChannel)
+            ? currentChannel
+            : "";
+          channelSelect.addEventListener("click", (e) => e.stopPropagation());
+          channelSelect.addEventListener("change", (e) => {
+            e.stopPropagation();
+            row.channel = channelSelect.value;
+            setDirty(true);
+          });
+
+          controls.append(statusBtn, channelSelect);
+          card.append(badge, title, meta, controls);
+          card.addEventListener("click", (e) => {
+            if (e.target.closest(".person-card-controls")) return;
+            openEditor(row.id);
+          });
+          card.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" && e.target === card) {
+              e.preventDefault();
+              openEditor(row.id);
+            }
+          });
           grid.append(card);
         }
         section.append(grid);
-        kindSection.append(section);
+        groupsGrid.append(section);
       }
+      kindSection.append(groupsGrid);
       host.append(kindSection);
     }
   }
@@ -426,6 +502,7 @@
     row.status =
       cell(document.getElementById("people-edit-status")?.value) ||
       "to-contact";
+    row.channel = cell(document.getElementById("people-edit-channel")?.value);
     row.notes = cell(document.getElementById("people-edit-notes")?.value);
     const openingSelect = document.getElementById("people-edit-openings");
     row.opening_ids = openingSelect
@@ -457,6 +534,11 @@
       document.getElementById("people-edit-status"),
       cell(row.status),
     );
+    const channelEl = document.getElementById("people-edit-channel");
+    if (channelEl) {
+      const ch = cell(row.channel).toLowerCase();
+      channelEl.value = CHANNELS.some((c) => c.id === ch) ? ch : "";
+    }
     document.getElementById("people-edit-notes").value = cell(row.notes);
     fillOpeningSelect(
       document.getElementById("people-edit-openings"),
@@ -773,6 +855,7 @@
       "people-edit-need",
       "people-edit-location",
       "people-edit-status",
+      "people-edit-channel",
       "people-edit-notes",
     ];
     for (const fid of editFields) {
@@ -958,6 +1041,23 @@
         event.preventDefault();
         addPerson();
         return;
+      }
+
+      if (
+        event.altKey &&
+        !event.ctrlKey &&
+        !event.metaKey &&
+        !event.shiftKey &&
+        (event.code === "KeyT" || (event.key || "").toLowerCase() === "t") &&
+        !modalOpen &&
+        !typing
+      ) {
+        const card = document.activeElement?.closest(CARD_SEL);
+        if (card?.dataset.id) {
+          event.preventDefault();
+          toggleContactStatus(card.dataset.id, "card");
+          return;
+        }
       }
 
       if (!event.altKey || event.ctrlKey || event.metaKey || event.shiftKey)

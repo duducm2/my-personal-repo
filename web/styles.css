@@ -5151,12 +5151,32 @@ body.lang-en .field-row {
   color: var(--gold);
 }
 
+.page-people .people-groups-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 14px;
+  align-items: stretch;
+}
+
 .page-people .people-group {
-  margin: 0 0 14px;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--panel) 55%, transparent);
+  min-width: 0;
 }
 
 .page-people .people-group .section-title {
-  margin: 8px 0;
+  margin: 0 0 10px;
+}
+
+.page-people .people-group .company-bento {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 8px;
+  align-content: start;
 }
 
 .page-people .person-kind {
@@ -5193,8 +5213,71 @@ body.lang-en .field-row {
   text-align: left;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
   min-height: 72px;
+  cursor: pointer;
+}
+
+.page-people .person-card-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 4px;
+}
+
+.page-people .person-status-toggle {
+  appearance: none;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: var(--panel);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  cursor: pointer;
+  line-height: 1.4;
+}
+
+.page-people .person-status-toggle:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.page-people .person-status-toggle.is-to-contact {
+  border-color: #c9a227;
+  color: #ffe08a;
+}
+
+.page-people .person-status-toggle.is-contacted {
+  border-color: #3d8b5e;
+  background: rgba(61, 139, 94, 0.16);
+  color: #9ae6b4;
+}
+
+.page-people .person-status-toggle.is-replied {
+  border-color: #3d7eae;
+  background: rgba(61, 126, 174, 0.16);
+  color: #9fd6ff;
+}
+
+.page-people .person-status-toggle.is-paused {
+  opacity: 0.78;
+}
+
+.page-people .person-channel-select {
+  width: auto;
+  min-width: 102px;
+  min-height: 0;
+  padding: 2px 6px;
+  font-size: 11px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: var(--panel);
+  color: var(--text);
+  font-family: inherit;
 }
 
 .page-people .company-search-sticky {
@@ -5217,6 +5300,10 @@ body.lang-en .field-row {
   align-items: center;
   justify-content: flex-start;
   gap: 10px 16px;
+}
+
+.page-people .company-filters.is-contracted {
+  display: none;
 }
 
 .page-people .company-filters select.field-input {

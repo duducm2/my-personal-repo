@@ -400,6 +400,7 @@ _BASE: dict[str, tuple[str, list[str]]] = {
             "opening_ids",
             "location",
             "status",
+            "channel",
             "notes",
             "found_on",
         ],

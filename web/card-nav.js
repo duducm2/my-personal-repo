@@ -524,8 +524,14 @@
     let count = 0;
     root.querySelectorAll(".company-filter-row").forEach((row) => {
       const chips = row.querySelectorAll(".filter-chip");
+      const firstText = (chips[0]?.textContent || "").trim().toLowerCase();
+      const firstIsAll = firstText === "all" || firstText === "todos" || firstText === "todas";
       chips.forEach((chip, index) => {
-        if (index > 0 && chip.classList.contains("is-active")) count += 1;
+        if (index === 0 && firstIsAll) return;
+        if (chip.classList.contains("is-active")) count += 1;
+      });
+      row.querySelectorAll("select").forEach((sel) => {
+        if ((sel.value || "").trim()) count += 1;
       });
     });
     return count;
