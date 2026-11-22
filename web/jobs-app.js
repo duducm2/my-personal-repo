@@ -1218,7 +1218,30 @@
       if (icon) head.append(icon);
       head.append(title, count);
       root.append(head);
-      for (const row of group.rows) root.append(renderTile(row));
+      const companyMap = new Map();
+      for (const row of group.rows) {
+        const label =
+          cell(row.company) ||
+          (cell(row.company_key) ? companyDisplayName(cell(row.company_key)) : "") ||
+          "Other";
+        if (!companyMap.has(label)) companyMap.set(label, []);
+        companyMap.get(label).push(row);
+      }
+      const groupsGrid = document.createElement("div");
+      groupsGrid.className = "jobs-company-groups-grid";
+      for (const [companyName, companyRows] of companyMap.entries()) {
+        const section = document.createElement("section");
+        section.className = "jobs-company-group";
+        const cHead = document.createElement("h4");
+        cHead.className = "section-title";
+        cHead.textContent = `${companyName} · ${companyRows.length}`;
+        const cardsHost = document.createElement("div");
+        cardsHost.className = "jobs-company-cards";
+        for (const row of companyRows) cardsHost.append(renderTile(row));
+        section.append(cHead, cardsHost);
+        groupsGrid.append(section);
+      }
+      root.append(groupsGrid);
     }
   }
 

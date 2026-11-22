@@ -4657,8 +4657,38 @@ body.lang-en .field-row {
 }
 
 .page-jobs .job-status-group-head,
-.page-jobs .company-bento-empty {
+.page-jobs .company-bento-empty,
+.page-jobs .jobs-company-groups-grid {
   grid-column: 1 / -1;
+}
+
+.page-jobs .jobs-company-groups-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 14px;
+  align-items: stretch;
+}
+
+.page-jobs .jobs-company-group {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--panel) 55%, transparent);
+  min-width: 0;
+}
+
+.page-jobs .jobs-company-group .section-title {
+  margin: 0 0 10px;
+}
+
+.page-jobs .jobs-company-cards {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 8px;
+  align-content: start;
 }
 
 .page-jobs .job-tile-wrap,
