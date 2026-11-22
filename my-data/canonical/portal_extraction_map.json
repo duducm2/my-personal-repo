@@ -13,7 +13,8 @@
     "extract_mode": "ctrl_a_copy",
     "notes": "SmartRecruiters Brazil board; scroll to load all city groups and click every 'Mostrar mais empregos' / 'Show more jobs' link until all openings are visible.",
     "verified": true,
-    "verified_at": "2026-11-20"
+    "verified_at": "2026-11-20",
+    "requirements": "- Scroll to the bottom so all SmartRecruiters city groups render.\n- Click every 'Mostrar mais empregos' / 'Show more' link until no more load-more controls remain.\n- Scroll once more and copy the full page."
   },
   "bosch-brasil-internal": {
     "family": "SmartRecruiters",
@@ -28,7 +29,8 @@
     "wait_ms": 3500,
     "extract_mode": "ctrl_a_copy",
     "notes": "Bosch internal SmartRecruiters portal (requires SSO session); click load-more until exhausted.",
-    "verified": false
+    "verified": false,
+    "requirements": "- Requires an active Bosch SSO session in Chrome.\n- Scroll to load all groups and click every 'Mostrar mais' / 'Show more' control until exhausted.\n- Copy the full page."
   },
   "eldorado-campinas": {
     "family": "Gupy",
@@ -125,7 +127,8 @@
     "wait_ms": 3500,
     "extract_mode": "ctrl_a_copy",
     "notes": "Samsung Research Brazil (Campinas) Workday tenant; iterate Next button across pages.",
-    "verified": false
+    "verified": false,
+    "requirements": "- Use Workday URL pre-filtered to Campinas: https://sec.wd3.myworkdayjobs.com/Samsung_Careers?locations=189767dd6c9201d01d574c89a529dc7f.\n- Paginate through all pages using 'next' until exhausted."
   },
   "indecx-campinas": {
     "family": "Solides",
@@ -192,7 +195,8 @@
     "extract_mode": "ctrl_a_copy",
     "notes": "Venturus InHire SPA board; scroll and copy all.",
     "verified": false,
-    "verified_at": ""
+    "verified_at": "",
+    "requirements": "- Open the Venturus InHire SPA board.\n- Scroll to load all openings and copy the full page."
   },
   "3m-sumare": {
     "family": "Workday",
@@ -216,7 +220,8 @@
     "extract_mode": "ctrl_a_copy",
     "notes": "Workday tenant with dual extraction: Method 1 selects More -> Remote Work Options -> Remote -> View Jobs; Method 2 refreshes the base URL and selects Geography/Country -> Brazil -> View Jobs (all work types). Paginates Next across both.",
     "verified": true,
-    "verified_at": "2026-11-20"
+    "verified_at": "2026-11-20",
+    "requirements": "- Run 1 (Remote): Open 'More' -> 'Remote Work Options' -> check 'Remote' -> click 'View Jobs'.\n- Paginate all Remote pages using 'next'.\n- Run 2 (Brazil All): Refresh the base URL -> open 'Geography/Country' -> check 'Brazil' -> click 'View Jobs'.\n- Paginate all Brazil pages using 'next'."
   },
   "ifood-brasil": {
     "family": "Greenhouse",
@@ -249,7 +254,8 @@
     "wait_ms": 3000,
     "extract_mode": "ctrl_a_copy",
     "notes": "Mercado Libre careers Brazil; click Load more / Ver mais until exhausted.",
-    "verified": false
+    "verified": false,
+    "requirements": "- Open the Brazil-filtered Mercado Livre positions URL.\n- Click 'Load more' / 'Ver mais' / 'Show more' until all openings are loaded.\n- Copy the full page."
   },
   "honda-sumare": {
     "family": "Gupy",
@@ -296,7 +302,8 @@
     "wait_ms": 3000,
     "extract_mode": "ctrl_a_copy",
     "notes": "Thoughtworks Brazil jobs board; click Ver mais vagas until exhausted.",
-    "verified": false
+    "verified": false,
+    "requirements": "- Open the Thoughtworks Brazil jobs board.\n- Click 'Ver mais vagas' / 'View more' until all openings are loaded.\n- Copy the full page."
   },
   "goodyear-santa-barbara": {
     "family": "Workday",
@@ -329,7 +336,8 @@
     "wait_ms": 3000,
     "extract_mode": "ctrl_a_copy",
     "notes": "LG Lugar de Gente portal; click Carregar mais / Próxima if present.",
-    "verified": false
+    "verified": false,
+    "requirements": "- Open the LG Lugar de Gente portal.\n- Click 'Carregar mais' / 'Mostrar mais' / 'Ver mais' / 'Próxima' if present until all openings render.\n- Copy the full page."
   },
   "denso-santa-barbara": {
     "family": "Gupy",
@@ -370,7 +378,8 @@
     "wait_ms": 3000,
     "extract_mode": "ctrl_a_copy",
     "notes": "LG Lugar de Gente portal; click Carregar mais / Próxima if present.",
-    "verified": false
+    "verified": false,
+    "requirements": "- Open the LG Lugar de Gente portal.\n- Click 'Carregar mais' / 'Mostrar mais' / 'Ver mais' / 'Próxima' if present until all openings render.\n- Copy the full page."
   },
   "levva-campinas": {
     "family": "Izirh",
@@ -382,7 +391,8 @@
     "extract_mode": "ctrl_a_copy",
     "notes": "Izirh single-page job board; scroll and copy all.",
     "verified": false,
-    "verified_at": ""
+    "verified_at": "",
+    "requirements": "- Open the Levva Izirh single-page job board.\n- Scroll to load all openings and copy the full page."
   },
   "bees-campinas": {
     "family": "Greenhouse",
