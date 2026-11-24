@@ -110,7 +110,10 @@
     "short_en": "End-to-end UX research for Inbound Logistics & Accounts Payable tackling R$ 1.32M+ in delayed fiscal manifest risk via KPIs, CSD matrix, survey, top 8 findings, and ideation.",
     "short_pt": "Pesquisa de UX ponta a ponta para Compras e Recebimento atacando R$ 1,32M+ em risco de manifesto fiscal atrasado via KPIs, matriz CSD, survey, top 8 achados e ideação.",
     "full_en": "Led an end-to-end UX research project for the Accounts Payable & Inbound Logistics service line focused on the mandatory fiscal receiving manifest process. Because delayed manifest submissions by factory and office receivers caused payment blocks and over R$ 1.32M in out-of-deadline processing risk, I authored the KPI matrix, Question Zero, CSD Matrix, concentric Stakeholder Map, mixed-methods survey design, Top 8 empirical findings, and facilitated Value-vs-Complexity and Impact-vs-Feasibility prioritization workshops.",
-    "full_pt": "Conduzi pesquisa de UX ponta a ponta para Compras e Logística de Recebimento focada no processo obrigatório do Manifesto do Destinatário. Como atrasos de registro por recebedores causavam bloqueios de pagamento e mais de R$ 1,32M em risco de processamento fora do prazo, elaborei matriz de KPIs, Pergunta Zero, Matriz CSD, Mapa Concêntrico de Stakeholders, desenho de survey misto, Top 8 achados empíricos e facilitei workshops de priorização Valor vs. Complexidade e Impacto vs. Viabilidade."
+    "full_pt": "Conduzi pesquisa de UX ponta a ponta para Compras e Logística de Recebimento focada no processo obrigatório do Manifesto do Destinatário. Como atrasos de registro por recebedores causavam bloqueios de pagamento e mais de R$ 1,32M em risco de processamento fora do prazo, elaborei matriz de KPIs, Pergunta Zero, Matriz CSD, Mapa Concêntrico de Stakeholders, desenho de survey misto, Top 8 achados empíricos e facilitei workshops de priorização Valor vs. Complexidade e Impacto vs. Viabilidade.",
+    "excluded_media": [
+      "../media/projects/recipient-manifest__manifest-kpi-usability-focus.png"
+    ]
   },
   "activity-handover": {
     "fantasy_name_en": "Project SmoothRelay — Employee Activity Handover & Knowledge Transfer Research",

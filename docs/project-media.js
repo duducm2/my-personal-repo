@@ -354,11 +354,6 @@ window.PROJECT_MEDIA = {
         "caption": "UX and Project KPI matrix targeting a 15% reduction in R$ 1.32M out-of-deadline processing volume and 60%+ manual usefulness"
       },
       {
-        "src": "../media/projects/recipient-manifest__manifest-kpi-usability-focus.png",
-        "alt": "KPI baseline-to-target highlight focusing on lifting guidance comprehension from 37% baseline to >=60% target",
-        "caption": "KPI baseline-to-target highlight focusing on lifting guidance comprehension from 37% baseline to >=60% target"
-      },
-      {
         "src": "../media/projects/recipient-manifest__manifest-csd-matrix.png",
         "alt": "CSD Matrix (Certainties, Suppositions, Doubts) structured across external partners, internal requesters, fiscal specialists, and receiving desks",
         "caption": "CSD Matrix (Certainties, Suppositions, Doubts) structured across external partners, internal requesters, fiscal specialists, and receiving desks"
@@ -1017,11 +1012,6 @@ window.PROJECT_MEDIA = {
         "caption": "Matriz de KPIs de UX e de projeto visando redução de 15% em R$ 1,32M de volume fora do prazo e +60% de utilidade percebida do manual"
       },
       {
-        "src": "../media/projects/recipient-manifest__manifest-kpi-usability-focus.png",
-        "alt": "Destaque de linha de base vs. meta de KPI focando na elevação da compreensão das instruções de 37% para >=60%",
-        "caption": "Destaque de linha de base vs. meta de KPI focando na elevação da compreensão das instruções de 37% para >=60%"
-      },
-      {
         "src": "../media/projects/recipient-manifest__manifest-csd-matrix.png",
         "alt": "Matriz CSD (Certezas, Suposições e Dúvidas) estruturada entre parceiros externos, requisitantes internos, área fiscal e portarias de recebimento",
         "caption": "Matriz CSD (Certezas, Suposições e Dúvidas) estruturada entre parceiros externos, requisitantes internos, área fiscal e portarias de recebimento"
@@ -1509,6 +1499,9 @@ window.EXCLUDED_MEDIA = {
     "../media/projects/tooling-pt__1700672395122.jpg",
     "../media/projects/tooling-pt__1700672395134.jpg",
     "../media/projects/tooling-pt__1700672630418.jpg"
+  ],
+  "recipient-manifest": [
+    "../media/projects/recipient-manifest__manifest-kpi-usability-focus.png"
   ]
 };
 window.MEDIA_CAPTIONS = {
