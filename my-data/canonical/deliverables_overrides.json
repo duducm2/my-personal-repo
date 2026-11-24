@@ -86,7 +86,10 @@
     "short_en": "Two hands-on Design Thinking & UX bootcamps for Accounts Payable and Revenue Operations cohorts (CSI 4.9/5, NPS 9.6), producing formal audit evidence for UX Maturity Level 4.",
     "short_pt": "Dois bootcamps práticos de Design Thinking e UX para linhas de Compras/Contas a Pagar e Faturamento (CSI 4,9/5, NPS 9,6), gerando evidências formais para Maturidade em UX Nível 4.",
     "full_en": "Designed and facilitated two intensive Design Thinking and applied UX research bootcamps tailored for the Accounts Payable & Procurement Operations and Revenue & Billing Operations service lines (excluding Financial Reporting). I delivered UX theory uniting the Double Diamond and Continuous Improvement cycles alongside hands-on workshops where participants built their own method boards and opportunity sticky-note matrices—creating formal audit evidence that enabled the Global Business Services unit to achieve UX Maturity Level 4 out of 5 before an internal auditor (CSI 4.9/5.0, NPS 9.6).",
-    "full_pt": "Desenhei e facilitei dois bootcamps intensivos de Design Thinking e pesquisa aplicada em UX para as linhas de Operações de Compras e Contas a Pagar e Operações de Faturamento e Receita (excluindo Reporte Financeiro). Ministrei teoria de UX unindo Duplo Diamante e Melhoria Contínua com exercícios práticos onde os participantes construíram seus próprios quadros e matrizes de post-its—gerando evidência formal de auditoria para a unidade conquistar a Maturidade em UX Nível 4 de 5 perante auditor interno (CSI 4,9/5,0, NPS 9,6)."
+    "full_pt": "Desenhei e facilitei dois bootcamps intensivos de Design Thinking e pesquisa aplicada em UX para as linhas de Operações de Compras e Contas a Pagar e Operações de Faturamento e Receita (excluindo Reporte Financeiro). Ministrei teoria de UX unindo Duplo Diamante e Melhoria Contínua com exercícios práticos onde os participantes construíram seus próprios quadros e matrizes de post-its—gerando evidência formal de auditoria para a unidade conquistar a Maturidade em UX Nível 4 de 5 perante auditor interno (CSI 4,9/5,0, NPS 9,6).",
+    "excluded_media": [
+      "../media/projects/ux-bootcamp__ux-bootcamp-framework-lecture.jpg"
+    ]
   },
   "power-bi": {
     "fantasy_name_en": "Project MaturityPulse — Regional UX Project Management, Maturity Audit & Governance",

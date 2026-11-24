@@ -238,11 +238,6 @@ window.PROJECT_MEDIA = {
     ],
     "ux-bootcamp": [
       {
-        "src": "../media/projects/ux-bootcamp__ux-bootcamp-framework-lecture.jpg",
-        "alt": "Presenting the integrated Double Diamond and Continuous Improvement UX framework during the bootcamp",
-        "caption": "Presenting the integrated Double Diamond and Continuous Improvement UX framework during the bootcamp"
-      },
-      {
         "src": "../media/projects/ux-bootcamp__ux-bootcamp-theory-session.jpg",
         "alt": "Facilitating Design Thinking theory and practical UX research exercises for operations service lines",
         "caption": "Facilitating Design Thinking theory and practical UX research exercises for operations service lines"
@@ -896,11 +891,6 @@ window.PROJECT_MEDIA = {
     ],
     "ux-bootcamp": [
       {
-        "src": "../media/projects/ux-bootcamp__ux-bootcamp-framework-lecture.jpg",
-        "alt": "Apresentando o framework integrado de Duplo Diamante e Melhoria Contínua durante o bootcamp de UX",
-        "caption": "Apresentando o framework integrado de Duplo Diamante e Melhoria Contínua durante o bootcamp de UX"
-      },
-      {
         "src": "../media/projects/ux-bootcamp__ux-bootcamp-theory-session.jpg",
         "alt": "Facilitando teoria de Design Thinking e exercícios práticos de pesquisa em UX para linhas de serviço operacionais",
         "caption": "Facilitando teoria de Design Thinking e exercícios práticos de pesquisa em UX para linhas de serviço operacionais"
@@ -1499,6 +1489,9 @@ window.EXCLUDED_MEDIA = {
     "../media/projects/tooling-pt__1700672395122.jpg",
     "../media/projects/tooling-pt__1700672395134.jpg",
     "../media/projects/tooling-pt__1700672630418.jpg"
+  ],
+  "ux-bootcamp": [
+    "../media/projects/ux-bootcamp__ux-bootcamp-framework-lecture.jpg"
   ],
   "recipient-manifest": [
     "../media/projects/recipient-manifest__manifest-kpi-usability-focus.png"

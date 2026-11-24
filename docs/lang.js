@@ -601,7 +601,7 @@ const UI = {
         short:
           "End-to-end UX research, Controller & Buyer personas, As-Is/To-Be user journeys, and 5-screen interactive wireframes cutting forecast cycle time by 42% and boosting accuracy by 80%.",
         full:
-          "Executed all UX research and design deliverables for Financial Current Forecast (CF) Automation (CSI 4/5, NPS 10), replacing the manual coordination of 19 spreadsheets/systems across 11 teams and 36 file interactions. I delivered UX discovery, top findings, Controller and Buyer personas, As-Is and To-Be user journeys (specifically internal employee user journeys), and 5 interactive wireframe screens (Kanban board, milestone timeline, consolidated forecast table, macroeconomic premises, and template upload/risk warning)—reducing operational time by 42% (40h to 28h) and improving accuracy by 80%.",
+          "Executed all UX research and design deliverables for Financial Current Forecast (CF) Automation, replacing the manual coordination of 19 spreadsheets/systems across 11 teams and 36 file interactions. I delivered UX discovery, top findings, Controller and Buyer personas, As-Is and To-Be user journeys (specifically internal employee user journeys), and 5 interactive wireframe screens (Kanban board, milestone timeline, consolidated forecast table, macroeconomic premises, and template upload/risk warning)—reducing operational time by 42% (40h to 28h) and improving accuracy by 80%.",
         media: [
           {
             src: "../media/projects/cf-automation__cf-executive-impact-summary.png",
@@ -1527,7 +1527,7 @@ const UI = {
         short:
           "Pesquisa de UX ponta a ponta, personas Controller & Buyer, jornadas do usuário As-Is/To-Be e 5 telas de wireframes reduzindo o ciclo do forecast em 42% e elevando acurácia em 80%.",
         full:
-          "Executei todas as entregas de pesquisa e design de UX para Automação do Current Forecast (CF) Financeiro (CSI 4/5, NPS 10), substituindo a coordenação manual de 19 planilhas/sistemas entre 11 equipes e 36 interações. Entreguei pesquisa de descoberta, principais achados, personas Controller e Comprador, jornadas do usuário As-Is e To-Be (especificamente jornadas do usuário interno) e 5 telas de wireframes interativos—reduzindo o tempo operacional em 42% (40h para 28h) e elevando a acurácia em 80%.",
+          "Executei todas as entregas de pesquisa e design de UX para Automação do Current Forecast (CF) Financeiro, substituindo a coordenação manual de 19 planilhas/sistemas entre 11 equipes e 36 interações. Entreguei pesquisa de descoberta, principais achados, personas Controller e Comprador, jornadas do usuário As-Is e To-Be (especificamente jornadas do usuário interno) e 5 telas de wireframes interativos—reduzindo o tempo operacional em 42% (40h para 28h) e elevando a acurácia em 80%.",
         media: [
           {
             src: "../media/projects/cf-automation__cf-executive-impact-summary.png",
