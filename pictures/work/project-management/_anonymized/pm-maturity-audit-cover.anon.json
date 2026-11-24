@@ -1,0 +1,67 @@
+{
+  "method": "all_text_pixelate",
+  "regions": [
+    {
+      "id": "ocr-1",
+      "type": "rect",
+      "x": 3034,
+      "y": 309,
+      "w": 557,
+      "h": 408,
+      "text": "GS",
+      "confidence": 0.6596191724141439,
+      "source": "ocr",
+      "effect": "pixelate"
+    },
+    {
+      "id": "ocr-2",
+      "type": "rect",
+      "x": 138,
+      "y": 1187,
+      "w": 2290,
+      "h": 147,
+      "text": "UX ML4 Status - GS-LA 2025",
+      "confidence": 0.9000994474799545,
+      "source": "ocr",
+      "effect": "pixelate"
+    },
+    {
+      "id": "ocr-3",
+      "type": "rect",
+      "x": 140,
+      "y": 1447,
+      "w": 237,
+      "h": 70,
+      "text": "GS/BDU",
+      "confidence": 0.8494253839765277,
+      "source": "ocr",
+      "effect": "pixelate"
+    },
+    {
+      "id": "ocr-4",
+      "type": "rect",
+      "x": 136,
+      "y": 1869,
+      "w": 281,
+      "h": 92,
+      "text": "UXGS",
+      "confidence": 0.7982566118240356,
+      "source": "ocr",
+      "effect": "pixelate"
+    },
+    {
+      "id": "ocr-5",
+      "type": "rect",
+      "x": 3377,
+      "y": 1952,
+      "w": 191,
+      "h": 52,
+      "text": "BOSCH",
+      "confidence": 0.7631408174832662,
+      "source": "ocr",
+      "effect": "pixelate"
+    }
+  ],
+  "original_path": "pictures/work/project-management/pm-maturity-audit-cover.png",
+  "original_sha256": "e96934a89015496a80a43dcac0d7068d5de90d808131275bb96ec47cec595d9c"
+}

@@ -11,6 +11,21 @@ const SCORES_DATA = [
     "nps": null
   },
   {
+    "name": "Project DesignIgnite \u2014 Enterprise Design Thinking & UX Maturity Bootcamps",
+    "csi": 4.9,
+    "nps": 9.6
+  },
+  {
+    "name": "Project SmoothRelay \u2014 Employee Activity Handover & Knowledge Transfer Research",
+    "csi": 5.0,
+    "nps": null
+  },
+  {
+    "name": "Project ForecastFlow \u2014 Financial Current Forecast (CF) Automation & End-to-End UX",
+    "csi": 4.0,
+    "nps": 10.0
+  },
+  {
     "name": "Financial Portal (R2S)",
     "csi": 5,
     "nps": null

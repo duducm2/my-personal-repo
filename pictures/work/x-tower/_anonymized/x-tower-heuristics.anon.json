@@ -1,0 +1,151 @@
+{
+  "method": "all_text_pixelate",
+  "regions": [
+    {
+      "id": "ocr-1",
+      "type": "rect",
+      "x": 60,
+      "y": 65,
+      "w": 39,
+      "h": 18,
+      "text": "General",
+      "confidence": 0.800652876496315,
+      "source": "ocr",
+      "effect": "pixelate"
+    },
+    {
+      "id": "ocr-2",
+      "type": "rect",
+      "x": 66,
+      "y": 90,
+      "w": 64,
+      "h": 17,
+      "text": "Initiative History",
+      "confidence": 0.906989480319776,
+      "source": "ocr",
+      "effect": "pixelate"
+    },
+    {
+      "id": "ocr-3",
+      "type": "rect",
+      "x": 630,
+      "y": 90,
+      "w": 40,
+      "h": 18,
+      "text": "Analytics",
+      "confidence": 0.8585619866847992,
+      "source": "ocr",
+      "effect": "pixelate"
+    },
+    {
+      "id": "ocr-4",
+      "type": "rect",
+      "x": 350,
+      "y": 92,
+      "w": 86,
+      "h": 14,
+      "text": "Initiative Activity Review",
+      "confidence": 0.890765368938446,
+      "source": "ocr",
+      "effect": "pixelate"
+    },
+    {
+      "id": "ocr-5",
+      "type": "rect",
+      "x": 913,
+      "y": 91,
+      "w": 63,
+      "h": 17,
+      "text": "Phases Indicator",
+      "confidence": 0.9025546908378601,
+      "source": "ocr",
+      "effect": "pixelate"
+    },
+    {
+      "id": "ocr-6",
+      "type": "rect",
+      "x": 106,
+      "y": 237,
+      "w": 49,
+      "h": 14,
+      "text": "C Delate scren",
+      "confidence": 0.7037385265032451,
+      "source": "ocr",
+      "effect": "pixelate"
+    },
+    {
+      "id": "ocr-7",
+      "type": "rect",
+      "x": 61,
+      "y": 1027,
+      "w": 33,
+      "h": 15,
+      "text": "Funnel",
+      "confidence": 0.8260963559150696,
+      "source": "ocr",
+      "effect": "pixelate"
+    },
+    {
+      "id": "ocr-8",
+      "type": "rect",
+      "x": 630,
+      "y": 1050,
+      "w": 56,
+      "h": 21,
+      "text": "New lnitiative",
+      "confidence": 0.8644682923952739,
+      "source": "ocr",
+      "effect": "pixelate"
+    },
+    {
+      "id": "ocr-9",
+      "type": "rect",
+      "x": 351,
+      "y": 1054,
+      "w": 94,
+      "h": 14,
+      "text": "Funnels and Topic (bottom)",
+      "confidence": 0.9426578636522647,
+      "source": "ocr",
+      "effect": "pixelate"
+    },
+    {
+      "id": "ocr-10",
+      "type": "rect",
+      "x": 1479,
+      "y": 1053,
+      "w": 35,
+      "h": 15,
+      "text": "Idea List",
+      "confidence": 0.8900656759738922,
+      "source": "ocr",
+      "effect": "pixelate"
+    },
+    {
+      "id": "ocr-11",
+      "type": "rect",
+      "x": 634,
+      "y": 1185,
+      "w": 22,
+      "h": 11,
+      "text": "Iplead",
+      "confidence": 0.6606286806719643,
+      "source": "ocr",
+      "effect": "pixelate"
+    },
+    {
+      "id": "ocr-12",
+      "type": "rect",
+      "x": 1298,
+      "y": 1185,
+      "w": 32,
+      "h": 11,
+      "text": "t highlight",
+      "confidence": 0.843966340025266,
+      "source": "ocr",
+      "effect": "pixelate"
+    }
+  ],
+  "original_path": "pictures/work/x-tower/x-tower-heuristics.png",
+  "original_sha256": "9ed0cba4433ecbab7156888c501798c919e725a0060fb8689d086bfb24dbf3ae"
+}

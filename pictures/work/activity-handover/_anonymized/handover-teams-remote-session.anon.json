@@ -1,0 +1,31 @@
+{
+  "method": "all_text_pixelate",
+  "regions": [
+    {
+      "id": "ocr-1",
+      "type": "rect",
+      "x": 756,
+      "y": 277,
+      "w": 251,
+      "h": 26,
+      "text": "'I Bruno Barros | Livework (Unverif..",
+      "confidence": 0.8594297464740904,
+      "source": "ocr",
+      "effect": "pixelate"
+    },
+    {
+      "id": "ocr-2",
+      "type": "rect",
+      "x": 943,
+      "y": 449,
+      "w": 299,
+      "h": 24,
+      "text": "CastelhanoDaniel(GS/OSP22-LAGS/OSP13)",
+      "confidence": 0.9270198894174475,
+      "source": "ocr",
+      "effect": "pixelate"
+    }
+  ],
+  "original_path": "pictures/work/activity-handover/handover-teams-remote-session.png",
+  "original_sha256": "c7d2181ba0498114f9742c6fc559c5fd0efd8865a3200688f9a5b6eea9cd4b79"
+}

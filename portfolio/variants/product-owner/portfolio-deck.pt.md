@@ -828,6 +828,10 @@ section.diagram-slide-top-title .diagram-wrapper img {
 <p><img src="../../../pictures/work/cip-ux/_anonymized/cip-ux-7.anon.png" alt="Oportunidades Estratégicas e Conclusões" /></p>
 <p><img src="../../../pictures/work/cip-ux/_anonymized/cip-ux-8.anon.png" alt="Visuais de Pesquisa Aplicada" /></p>
 <p><img src="../../../pictures/work/cip-ux/_anonymized/ux-relevance-scoring.anon.png" alt="Algoritmo de Pontuação e Faixas Baixa/Média/Alta" /></p>
+<p><img src="../../../pictures/work/ux-and-cip/_anonymized/cip-ideation-lab-enhancement.anon.png" alt="Plano de melhoria de UX em 5 etapas para a plataforma Ideation Lab visando aprimorar sugestões de automação via IA" /></p>
+<p><img src="../../../pictures/work/ux-and-cip/_anonymized/cip-true-north-prep.anon.png" alt="Framework pré-workshop 'True North' de facilitação e documentação de processos para elevar a qualidade das entradas de automação" /></p>
+<p><img src="../../../pictures/work/ux-and-cip/_anonymized/cip-workshop-as-is-to-be.anon.png" alt="Comparação entre o workshop de automação legado de 5 etapas e o novo fluxo redesenhado de 6 etapas integrado a UX" /></p>
+<p><img src="../../../pictures/work/ux-and-cip/_anonymized/cip-swot-process-templates.anon.png" alt="Template padronizado de mapeamento de processos, matriz SWOT de priorização e gates de acompanhamento de desejabilidade, viabilidade e exequibilidade" /></p>
 </div>
 
 ---

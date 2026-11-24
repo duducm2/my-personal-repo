@@ -824,7 +824,7 @@ def load_deliverables_catalog(repo_root: Path) -> dict[str, Any]:
         "const ptItems=(c.UI&&c.UI.pt&&c.UI.pt.deliverablesItems)||[];"
         "const ptById=Object.fromEntries(ptItems.map(x=>[x.id,x]));"
         "const cats=(c.UI&&c.UI.en&&c.UI.en.deliverableCategories)||[];"
-        "const projMap={'astra':'agritech-iot-cattle','tooling-pt':'tooling-pt','data-insights':'data-insights-pt','relevance-model':'cip-research-gate','ux-maturity':'maturity-l4','personal-apps':'personal-web-apps'};"
+        "const projMap={'astra':'agritech-iot-cattle','tooling-pt':'tooling-pt','data-insights':'data-insights-pt','relevance-model':'cip-research-gate','x-tower':'x-tower','ux-bootcamp':'ux-bootcamp','power-bi':'maturity-l4','ux-maturity':'maturity-l4','pd-calculator':'pd-calculator','recipient-manifest':'recipient-manifest','activity-handover':'activity-handover','cf-automation':'cf-automation','co2-scouting':'co2-scouting','b-travel':'b-travel','personal-apps':'personal-web-apps'};"
         "const items=enItems.map(x=>{"
         "const pt=ptById[x.id]||{};"
         "const ptCapBySrc={};"

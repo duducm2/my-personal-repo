@@ -144,20 +144,20 @@ const UI = {
       {
         id: "x-tower",
         category: "platforms",
-        title: "UX Super Portal & X-Tower Service Blueprint",
+        title: "Project BeaconTower — UX Practice Portal & Service Blueprint",
         short:
-          "Custom UX practice portal (offerings, personas, KPIs) applied to X-Tower discovery: blueprint & evaluation with projected savings of 150k EUR/quarter and 240h/month.",
+          "End-to-end UX discovery & architecture: 8-tool benchmark, 11-screen heuristic audit + 103-observation doc audit, Grounded Theory coding, 5 personas, and blueprint saving 150k EUR/quarter & 240h/month.",
         full:
-          "Built the UX Super practice portal to organize businesses, offerings, personas, opportunities, and baseline-to-target project KPIs, and applied it to end-to-end UX research and architecture discovery for the X-Tower platform across global PS-BDO teams. Acting as Research Lead for a team of 3 other researchers, I guided 20+ stakeholder interviews and 4+ focus group sessions, paired with a heuristic evaluation of 8 core screens (33 flaws uncovered), a global survey, concentric stakeholder and ecosystem mapping, and an as-is service blueprint exposing 240-row parallel Excel workarounds—establishing unified governance and projected savings of 150,000 EUR/quarter in avoided rework and 240 hours/month.",
+          "Built the PracticeHub UX portal and led a team of three researchers on my behalf to execute end-to-end UX research and information architecture for the BeaconTower enterprise capacity and portfolio platform. I authored the 57.5-person-day (460h) briefing, questions-hypotheses-evidence matrix, 8-tool competitive benchmark (16 screens, 17 features), 5 empirical personas and 7 stakeholder profiles, moderated 4 cross-regional focus groups, built a Straussian Grounded Theory open/axial coding dashboard, executed an 11-screen platform heuristic evaluation plus a 103-observation wiki manual audit across 12 pages, and defined the target system architecture—projecting 150,000 EUR/quarter and 240h/month in savings.",
         media: [
           {
             src: "../media/x-tower-summary.png",
-            alt: "X-Tower project overview and consolidated before-and-after impact results",
-            caption: "BeaconTower projected impact: 150k EUR/quarter & 240h/month",
+            alt: "BeaconTower project overview and baseline-to-target KPI scorecards",
+            caption: "BeaconTower executive summary and baseline-to-target KPI scorecards",
           },
           {
             src: "../media/x-tower-ecosystem.png",
-            alt: "X-Tower platform ecosystem map across modules, leadership, and Bosch organization",
+            alt: "BeaconTower platform ecosystem map across modules, leadership, and enterprise operations",
             caption: "BeaconTower ecosystem map",
           },
           {
@@ -268,11 +268,11 @@ const UI = {
       {
         id: "relevance-model",
         category: "data",
-        title: "Relevance model",
+        title: "Project PulseGate — UX, Continuous Improvement & Automation Unification",
         short:
-          "Automated Python triage pipeline scoring CIP initiatives in ServiceNow (Low, Medium, High).",
+          "Unified UX, Continuous Improvement & Automation across 4,000+ initiatives: Ideation Lab & Digital Automation Workshop upgrades, 10-risk heatmap, and automated UX scoring (r ≈ -0.84).",
         full:
-          "I built a model to score applied-research relevance for CIP initiatives. CIM (ServiceNow) fields are set by priority and evaluated into Low, Medium, or High—a triage for when deeper research involvement is needed. Also evaluated strategic CIP dashboards with the UX team so leadership could spot main issues and efficiency gains.",
+          "I led two initiatives bridging UX and Continuous Improvement (CIP): (1) Enhancing the enterprise Ideation Lab AI/automation platform through a 5-step UX assessment and upgrading the Digital Automation Workshop with a True North prep session, standardized process mapping template, SWOT matrix, and post-workshop desirability/feasibility/viability gates; (2) Unifying UX, CIP, and Automation into a single intake workflow across 4,000+ global initiatives (2,500+ in Latin America), authoring a 10-risk probability-vs-impact heatmap, and statistically comparing CIP intake fields against UX criteria via parallel-coordinates analysis (r ≈ -0.84) to enable automatic UX relevance scoring.",
         metrics: {
           sample: "Sample of 35 projects",
           bars: [
@@ -323,11 +323,11 @@ const UI = {
       {
         id: "power-bi",
         category: "data",
-        title: "UX Maturity Audit & Governance Dashboards",
+        title: "Project MaturityPulse — Regional UX Project Management, Maturity Audit & Governance",
         short:
-          "Power BI audit dashboards (2+ years of data) tracking template adoption & PM compliance that drove UX Maturity Level 4/5.",
+          "Latin America UX Project Management, standardized templates, strategy platform workflows, and Power BI audit dashboards lifting regional UX maturity from 2.96 to 3.96/4.00 (Level 4/5).",
         full:
-          "Built automated Power BI audit and governance dashboards (connected to Microsoft Lists) to track whether teams were using standardized UX templates and completing required project-management documentation. Over two years of continuous governance data, training evolution tracking, and resource allocation oversight directly enabled the Global Services Americas unit to achieve UX Maturity Level 4 out of 5.",
+          "Acting as Project Manager supporting UX teams across Latin America, I organized standardized documentation templates, guided cross-functional teams on applying project management workflows inside the enterprise strategy execution platform, and tracked UX usage reported by regional service line units alongside automated Power BI audit dashboards (connected to Microsoft Lists). By ensuring UX researchers and designers properly documented findings, feedback hubs, and co-creation workshops across 17 audit criteria, I helped lift regional maturity from a 2.96 baseline to 3.96/4.00, formally achieving UX Maturity Level 4 out of 5.",
         media: [
           {
             src: "../media/pbi-allocation.jpg",
@@ -516,17 +516,113 @@ const UI = {
       },
       {
         id: "co2-scouting",
-        category: "data",
-        title: "CO₂ tracking scouting",
+        category: "platforms",
+        title: "Project EcoTrace — Fleet Carbon Telemetry & Willingness-to-Pay Market Research",
         short:
-          "Market scouting for CO₂ telemetry at GS; validated lack of market demand.",
+          "Led 3 researchers in mixed-methods Willingness-to-Pay (WTP) research across 10 mobility/fleet segments, validating low standalone CO2 WTP (56.25%) and pivoting to Predictive Maintenance & Fuel Quality.",
         full:
-          "Conducted marketing and demand scouting for CO₂ telemetry at GS. Finding: lack of market demand—preventing unnecessary engineering investment.",
+          "Led a team of three researchers working on my behalf to execute mixed quantitative and qualitative market research for an already-built vehicle CO2 telemetry device across 10 B2B and public-sector segments (ride-hailing platforms, car rental fleets, public universities, municipal transport authorities, automotive workshop networks, and e-commerce/FMCG fleet operators). Evaluating Willingness to Pay (56.25% WTP index) and Importance vs. Current Solution Level across 9 telemetry features, we proved companies would not pay solely for CO2 tracking and pivoted product strategy toward Predictive Failure Maintenance, Fault Diagnosis, and Fuel Quality Detection.",
         media: [
           {
             src: "../media/projects/co2-telemetry-scouting.png",
-            alt: "Fleet and logistics CO₂ telemetry scouting concept",
-            caption: "CO₂ fleet telemetry market scouting",
+            alt: "Project EcoTrace fleet carbon telemetry scouting concept",
+            caption: "Project EcoTrace fleet carbon telemetry & market validation",
+          },
+        ],
+      },
+      {
+        id: "ux-bootcamp",
+        category: "training",
+        title: "Project DesignIgnite — Enterprise Design Thinking & UX Maturity Bootcamps",
+        short:
+          "Two hands-on Design Thinking & UX bootcamps for Accounts Payable and Revenue Operations cohorts (CSI 4.9/5, NPS 9.6), producing formal audit evidence for UX Maturity Level 4.",
+        full:
+          "Designed and facilitated two intensive Design Thinking and applied UX research bootcamps tailored for the Accounts Payable & Procurement Operations and Revenue & Billing Operations service lines (excluding Financial Reporting). I delivered UX theory uniting the Double Diamond and Continuous Improvement cycles alongside hands-on workshops where participants built their own method boards and opportunity sticky-note matrices—creating formal audit evidence that enabled the Global Business Services unit to achieve UX Maturity Level 4 out of 5 before an internal auditor (CSI 4.9/5.0, NPS 9.6).",
+        media: [
+          {
+            src: "../media/projects/ux-bootcamp__ux-bootcamp-framework-lecture.jpg",
+            alt: "Presenting the integrated Double Diamond and Continuous Improvement UX framework during the bootcamp",
+            caption: "Presenting the integrated Double Diamond and Continuous Improvement UX framework during the bootcamp",
+          },
+        ],
+      },
+      {
+        id: "pd-calculator",
+        category: "platforms",
+        title: "Project EffortGauge — Automated UX Person-Day Calculator & Gantt Estimator",
+        short:
+          "Excel/VBA effort estimation tool mapping UX activities by complexity across 5 Design Thinking phases to auto-calculate Person-Days and generate Gantt charts.",
+        full:
+          "Developed an Excel/VBA project estimation tool in collaboration with UX researchers to standardize effort scoping across the practice. I mapped preparation, execution, and synthesis hours for every UX technique across 5 Design Thinking phases by complexity tier (Low, Medium, High, Exceptional), delivery mode, and quantity—automatically calculating daily capacity, total Person-Days, and generating a multi-week visual Gantt chart.",
+        media: [
+          {
+            src: "../media/projects/pd-calculator__pd-calculator-gantt-output.png",
+            alt: "Automated 6-week project Gantt chart dynamically generated from selected UX phases, techniques, and complexity levels",
+            caption: "Automated 6-week project Gantt chart dynamically generated from selected UX phases, techniques, and complexity levels",
+          },
+        ],
+      },
+      {
+        id: "recipient-manifest",
+        category: "platforms",
+        title: "Project ManifestGuard — Inbound Receiving Compliance & Fiscal Manifest UX Research",
+        short:
+          "End-to-end UX research for Inbound Logistics & Accounts Payable tackling R$ 1.32M+ in delayed fiscal manifest risk via KPIs, CSD matrix, survey, top 8 findings, and ideation.",
+        full:
+          "Led an end-to-end UX research project for the Accounts Payable & Inbound Logistics service line focused on the mandatory fiscal receiving manifest process. Because delayed manifest submissions by factory and office receivers caused payment blocks and over R$ 1.32M in out-of-deadline processing risk, I authored the KPI matrix, Question Zero, CSD Matrix, concentric Stakeholder Map, mixed-methods survey design, Top 8 empirical findings, and facilitated Value-vs-Complexity and Impact-vs-Feasibility prioritization workshops.",
+        media: [
+          {
+            src: "../media/projects/recipient-manifest__manifest-ux-project-kpis.png",
+            alt: "UX and Project KPI matrix targeting a 15% reduction in R$ 1.32M out-of-deadline processing volume",
+            caption: "UX and Project KPI matrix targeting a 15% reduction in R$ 1.32M out-of-deadline processing volume and 60%+ manual usefulness",
+          },
+        ],
+      },
+      {
+        id: "activity-handover",
+        category: "platforms",
+        title: "Project SmoothRelay — Employee Activity Handover & Knowledge Transfer Research",
+        short:
+          "Mixed-methods UX research (5/5 CSAT, 37 findings, 45 opportunities, 2 journeys) spanning academic/internal benchmarks, surveys, interviews, personas, journeys, and user testing.",
+        full:
+          "Conducted an end-to-end mixed-methods UX research investigation (5/5 CSAT, 37 top findings, 45 mapped opportunities, 2 user journeys) to make employee activity handovers seamless during departures, role transitions, and vacations. I executed an academic literature benchmark (Role Competency Matrix), external and internal benchmarks, stakeholder map and KPIs (targeting 33–50% faster handovers and 67% fewer unplanned transitions), quantitative surveys and qualitative interviews with sentiment analysis, personas (Denise & Pedro), As-Is (Maria) and To-Be storyboarded journeys, and user testing of the redesigned checklist.",
+        media: [
+          {
+            src: "../media/projects/activity-handover__handover-executive-overview.png",
+            alt: "Executive project overview one-pager highlighting 5/5 CSAT, 37 top findings, and 45 mapped opportunities",
+            caption: "Executive project overview one-pager highlighting 5/5 CSAT, 37 top findings, 45 mapped opportunities, and learning organization strategy",
+          },
+        ],
+      },
+      {
+        id: "cf-automation",
+        category: "platforms",
+        title: "Project ForecastFlow — Financial Current Forecast (CF) Automation & End-to-End UX",
+        short:
+          "End-to-end UX research, Controller & Buyer personas, As-Is/To-Be user journeys, and 5-screen interactive wireframes cutting forecast cycle time by 42% and boosting accuracy by 80%.",
+        full:
+          "Executed all UX research and design deliverables for Financial Current Forecast (CF) Automation (CSI 4/5, NPS 10), replacing the manual coordination of 19 spreadsheets/systems across 11 teams and 36 file interactions. I delivered UX discovery, top findings, Controller and Buyer personas, As-Is and To-Be user journeys (specifically internal employee user journeys), and 5 interactive wireframe screens (Kanban board, milestone timeline, consolidated forecast table, macroeconomic premises, and template upload/risk warning)—reducing operational time by 42% (40h to 28h) and improving accuracy by 80%.",
+        media: [
+          {
+            src: "../media/projects/cf-automation__cf-executive-impact-summary.png",
+            alt: "Executive impact one-pager summarizing 42% operational time reduction and 80% accuracy gain",
+            caption: "Executive impact one-pager summarizing 42% operational time reduction, 80% accuracy gain, 4/5 user satisfaction, and business drivers",
+          },
+        ],
+      },
+      {
+        id: "b-travel",
+        category: "platforms",
+        title: "Project TripFlow — Corporate Travel-to-Expense (T2E) UX Research & Journey Mapping",
+        short:
+          "Cross-country UX research across Spain and Portugal analyzing corporate Travel-to-Expense pain points across 13 subcategories, survey keyword cloud, persona, and an 8-moment User Journey with 24 opportunities.",
+        full:
+          "Conducted cross-country mixed-methods UX research across Iberian operations (Spain and Portugal) investigating friction in the corporate Travel-to-Expense (T2E) booking and reimbursement lifecycle. Combining qualitative interviews, quantitative pain-point categorization across 13 subcategories, survey keyword-convergence analysis (25% convergence on post-trip expense and receipt friction), Travel Coordinator persona definition (Ana Vitória), and an 8-moment User Journey across Pre-Trip, On-Trip, and Post-Trip, I mapped 24 digital improvement opportunities.",
+        media: [
+          {
+            src: "../media/projects/b-travel__btravel-end-to-end-journey-map.png",
+            alt: "End-to-end Travel-to-Expense User Journey Map across 8 moments",
+            caption: "End-to-end Travel-to-Expense User Journey Map across 8 moments (Pre-Trip, On-Trip, Post-Trip) charting emotional curve and 24 opportunities",
           },
         ],
       },
@@ -974,20 +1070,20 @@ const UI = {
       {
         id: "x-tower",
         category: "platforms",
-        title: "Portal UX Super e Service Blueprint X-Tower",
+        title: "Projeto BeaconTower — Portal da Prática de UX & Service Blueprint",
         short:
-          "Portal da prática de UX (ofertas, personas, KPIs) aplicado à descoberta do X-Tower: blueprint e avaliação com economia projetada de 150 mil EUR/trimestre e 240h/mês.",
+          "Descoberta de UX e arquitetura ponta a ponta: benchmark de 8 ferramentas, avaliação heurística de 11 telas + 103 observações em manuais, Grounded Theory, 5 personas e blueprint economizando 150 mil EUR/trimestre e 240h/mês.",
         full:
-          "Desenvolvi o portal UX Super para estruturar negócios, ofertas, personas, oportunidades e KPIs de projeto (linha de base à meta), aplicando-o na pesquisa de UX e descoberta de arquitetura ponta a ponta da plataforma X-Tower em times globais PS-BDO. Atuando como Research Lead de uma equipe com outros 3 pesquisadores, conduzi mais de 20 entrevistas com stakeholders e mais de 4 sessões de grupos focais, combinadas com avaliação heurística de 8 telas principais (33 falhas mapeadas), survey global, mapeamento concêntrico de stakeholders e ecossistema, e service blueprint as-is expondo planilhas paralelas de 240 linhas—estruturando governança unificada com impacto projetado de 150.000 EUR/trimestre em retrabalho evitado e 240 horas/mês.",
+          "Desenvolvi o portal PracticeHub e liderei uma equipe de três pesquisadores em meu nome na pesquisa de UX e arquitetura da informação ponta a ponta da plataforma corporativa BeaconTower. Elaborei o briefing de 57,5 pessoas-dia (460h), matriz de perguntas-hipóteses-evidências, benchmark de 8 ferramentas (16 telas, 17 critérios), 5 personas empíricas e 7 perfis de stakeholders, moderei 4 grupos focais inter-regionais, construí painel de codificação aberta e axial em Grounded Theory Straussiana, executei avaliação heurística em 11 telas e auditoria de 103 observações em 12 páginas de manuais, definindo a arquitetura alvo—projetando economia de 150 mil EUR/trimestre e 240h/mês.",
         media: [
           {
             src: "../media/x-tower-summary.png",
-            alt: "Resumo do projeto X-Tower e resultados consolidados de impacto antes e depois",
-            caption: "Resumo de impacto BeaconTower: 150 mil EUR/trimestre e 240h/mês",
+            alt: "Resumo executivo do BeaconTower e scorecards de KPIs (linha de base vs. meta)",
+            caption: "Resumo executivo do BeaconTower e scorecards de KPIs (linha de base vs. meta)",
           },
           {
             src: "../media/x-tower-ecosystem.png",
-            alt: "Mapa do ecossistema X-Tower entre módulos, liderança e organização Bosch",
+            alt: "Mapa do ecossistema BeaconTower entre módulos, liderança e operações corporativas",
             caption: "Mapa de ecossistema BeaconTower",
           },
           {
@@ -1098,11 +1194,11 @@ const UI = {
       {
         id: "relevance-model",
         category: "data",
-        title: "Modelo de relevância",
+        title: "Projeto PulseGate — Unificação de UX, Melhoria Contínua e Automação",
         short:
-          "Pipeline em Python para triagem de iniciativas CIP no ServiceNow (Baixa, Média, Alta).",
+          "Unificação de UX, Melhoria Contínua e Automação em 4.000+ iniciativas: melhorias no Ideation Lab e Workshop de Automação Digital, mapa de 10 riscos e pontuação automática (r ≈ -0,84).",
         full:
-          "Construí um modelo para avaliar a relevância de pesquisa aplicada em iniciativas CIP. Campos do CIM (ServiceNow) entram por prioridade, gerando uma triagem em Baixa, Média ou Alta. Também avaliei dashboards estratégicos de CIP com o time de UX para a liderança identificar gargalos e ganhos de eficiência.",
+          "Conduzi duas frentes integrando UX e Melhoria Contínua (CIP): (1) Aprimoramento da plataforma Ideation Lab de IA/automação em 5 etapas e evolução do Workshop de Automação Digital com sessão True North, template padronizado de mapeamento de processos, matriz SWOT e gates pós-workshop de desejabilidade, viabilidade e exequibilidade; (2) Unificação de UX, CIP e Automação em um fluxo único para 4.000+ iniciativas globais (2.500+ na América Latina), elaborando mapa de 10 riscos (probabilidade vs. impacto) e comparando estatisticamente campos da plataforma CIP com critérios de UX via coordenadas paralelas (r ≈ -0,84) para automatizar a pontuação de relevância.",
         metrics: {
           sample: "Amostra de 35 projetos",
           bars: [
@@ -1153,11 +1249,11 @@ const UI = {
       {
         id: "power-bi",
         category: "data",
-        title: "Dashboards de Auditoria e Maturidade UX",
+        title: "Projeto MaturityPulse — Gestão Regional de Projetos de UX, Auditoria de Maturidade & Governança",
         short:
-          "Dashboards de auditoria em Power BI (2+ anos de dados) rastreando uso de templates e gestão de projetos rumo à Maturidade UX Nível 4/5.",
+          "Gestão de Projetos de UX na América Latina, templates padronizados, fluxos em plataforma estratégica e dashboards Power BI elevando a maturidade regional de 2,96 para 3,96/4,00 (Nível 4/5).",
         full:
-          "Desenvolvi dashboards automatizados de auditoria e governança em Power BI (integrados ao Microsoft Lists) para monitorar se as equipes utilizavam os templates padronizados e cumpriam a documentação obrigatória de gestão de projetos. Mais de dois anos de dados contínuos de auditoria, evolução de treinamentos e gestão de alocação foram decisivos para a unidade Global Services Américas alcançar a Maturidade em UX Nível 4 de 5.",
+          "Atuando como Gerente de Projetos apoiando equipes de UX na América Latina, organizei templates padronizados de documentação, orientei times na aplicação de ferramentas de gestão na plataforma corporativa de execução estratégica e monitorei o uso de UX reportado pelas unidades regionais com dashboards automatizados de auditoria em Power BI (conectados ao Microsoft Lists). Garantindo a documentação de achados, hubs de feedback e workshops nos 17 critérios de auditoria, elevei a maturidade regional de 2,96 para 3,96/4,00, conquistando o Nível 4 de 5.",
         media: [
           {
             src: "../media/pbi-allocation.jpg",
@@ -1346,17 +1442,113 @@ const UI = {
       },
       {
         id: "co2-scouting",
-        category: "data",
-        title: "Prospecção de rastreamento de CO₂",
+        category: "platforms",
+        title: "Projeto EcoTrace — Pesquisa de Mercado e Disposição a Pagar em Telemetria de Carbono para Frotas",
         short:
-          "Prospecção de mercado para telemetria de CO₂ na GS; validada ausência de demanda.",
+          "Liderei 3 pesquisadores em pesquisa mista de Disposição a Pagar (WTP) em 10 segmentos de frotas e mobilidade, validando baixo WTP isolado por CO2 (56,25%) e pivotando para Manutenção Preditiva e Combustível.",
         full:
-          "Prospecção de mercado e demanda para telemetria de CO₂ na GS. Resultado: ausência de demanda de mercado, evitando investimento desnecessário.",
+          "Liderei uma equipe de três pesquisadores executando em meu nome pesquisa de mercado quantitativa e qualitativa para um dispositivo já construído de telemetria veicular de CO2 em 10 segmentos (plataformas de mobilidade por app, locadoras de veículos, universidades públicas, autoridades municipais de transporte, redes de oficinas e frotas de e-commerce/FMCG). Avaliando Disposição a Pagar (índice WTP de 56,25%) e Importância vs. Solução Atual em 9 funcionalidades, provamos que empresas não pagariam apenas por rastreamento de CO2 e pivotamos a estratégia para Manutenção Preditiva, Diagnóstico de Falhas e Qualidade de Combustível.",
         media: [
           {
             src: "../media/projects/co2-telemetry-scouting.png",
-            alt: "Conceito de telemetria de CO₂ em logística e frotas",
-            caption: "Prospecção de mercado para telemetria de CO₂ em frotas",
+            alt: "Conceito de telemetria de CO₂ em logística e frotas do Projeto EcoTrace",
+            caption: "Projeto EcoTrace — telemetria de carbono para frotas e validação de mercado",
+          },
+        ],
+      },
+      {
+        id: "ux-bootcamp",
+        category: "training",
+        title: "Projeto DesignIgnite — Bootcamps Corporativos de Design Thinking & Maturidade em UX",
+        short:
+          "Dois bootcamps práticos de Design Thinking e UX para linhas de Compras/Contas a Pagar e Faturamento (CSI 4,9/5, NPS 9,6), gerando evidências formais para Maturidade em UX Nível 4.",
+        full:
+          "Desenhei e facilitei dois bootcamps intensivos de Design Thinking e pesquisa aplicada em UX para as linhas de Operações de Compras e Contas a Pagar e Operações de Faturamento e Receita (excluindo Reporte Financeiro). Ministrei teoria de UX unindo Duplo Diamante e Melhoria Contínua com exercícios práticos onde os participantes construíram seus próprios quadros e matrizes de post-its—gerando evidência formal de auditoria para a unidade conquistar a Maturidade em UX Nível 4 de 5 perante auditor interno (CSI 4,9/5,0, NPS 9,6).",
+        media: [
+          {
+            src: "../media/projects/ux-bootcamp__ux-bootcamp-framework-lecture.jpg",
+            alt: "Apresentando o framework integrado de Duplo Diamante e Melhoria Contínua durante o bootcamp de UX",
+            caption: "Apresentando o framework integrado de Duplo Diamante e Melhoria Contínua durante o bootcamp de UX",
+          },
+        ],
+      },
+      {
+        id: "pd-calculator",
+        category: "platforms",
+        title: "Projeto EffortGauge — Calculadora Automatizada de Pessoas-Dia em UX & Gerador de Gantt",
+        short:
+          "Ferramenta Excel/VBA de estimativa mapeando atividades de UX por complexidade em 5 fases de Design Thinking para calcular Pessoas-Dia e gerar Gantt.",
+        full:
+          "Desenvolvi uma ferramenta de estimativa em Excel/VBA em colaboração com pesquisadores de UX para padronizar o dimensionamento de esforço da prática. Mapeei horas de preparação, execução e síntese para cada técnica de UX em 5 fases de Design Thinking por nível de complexidade (Baixa, Média, Alta, Excepcional), modalidade e quantidade—calculando automaticamente capacidade diária, Pessoas-Dia totais e gerando um gráfico de Gantt semanal.",
+        media: [
+          {
+            src: "../media/projects/pd-calculator__pd-calculator-gantt-output.png",
+            alt: "Gráfico de Gantt automatizado de 6 semanas gerado dinamicamente a partir das fases, técnicas e níveis de complexidade selecionados",
+            caption: "Gráfico de Gantt automatizado de 6 semanas gerado dinamicamente a partir das fases, técnicas e níveis de complexidade selecionados",
+          },
+        ],
+      },
+      {
+        id: "recipient-manifest",
+        category: "platforms",
+        title: "Projeto ManifestGuard — Pesquisa de UX em Conformidade de Recebimento e Manifesto Fiscal",
+        short:
+          "Pesquisa de UX ponta a ponta para Compras e Recebimento atacando R$ 1,32M+ em risco de manifesto fiscal atrasado via KPIs, matriz CSD, survey, top 8 achados e ideação.",
+        full:
+          "Conduzi pesquisa de UX ponta a ponta para Compras e Logística de Recebimento focada no processo obrigatório do Manifesto do Destinatário. Como atrasos de registro por recebedores causavam bloqueios de pagamento e mais de R$ 1,32M em risco de processamento fora do prazo, elaborei matriz de KPIs, Pergunta Zero, Matriz CSD, Mapa Concêntrico de Stakeholders, desenho de survey misto, Top 8 achados empíricos e facilitei workshops de priorização Valor vs. Complexidade e Impacto vs. Viabilidade.",
+        media: [
+          {
+            src: "../media/projects/recipient-manifest__manifest-ux-project-kpis.png",
+            alt: "Matriz de KPIs de UX e de projeto visando redução de 15% em R$ 1,32M de volume fora do prazo",
+            caption: "Matriz de KPIs de UX e de projeto visando redução de 15% em R$ 1,32M de volume fora do prazo e +60% de utilidade percebida do manual",
+          },
+        ],
+      },
+      {
+        id: "activity-handover",
+        category: "platforms",
+        title: "Projeto SmoothRelay — Pesquisa de UX para Handover de Atividades e Transferência de Conhecimento",
+        short:
+          "Pesquisa mista de UX (CSAT 5/5, 37 achados, 45 oportunidades, 2 jornadas) cobrindo benchmarks acadêmicos/internos, surveys, entrevistas, personas, jornadas e testes com usuários.",
+        full:
+          "Conduzi investigação mista aprofundada de UX (CSAT 5/5, 37 principais descobertas, 45 oportunidades mapeadas, 2 jornadas) para tornar fluido o handover de atividades em desligamentos, transições e férias. Executei benchmark acadêmico (Matriz de Competências por Função), benchmarks externos e internos, mapa de stakeholders e KPIs (visando handovers 33–50% mais rápidos e 67% menos transições não planejadas), surveys quantitativos e entrevistas qualitativas com análise de sentimento, personas (Denise e Pedro), jornadas As-Is (Maria) e To-Be em storyboard, e testes com usuários do novo checklist.",
+        media: [
+          {
+            src: "../media/projects/activity-handover__handover-executive-overview.png",
+            alt: "One-pager executivo do projeto destacando CSAT 5/5, 37 principais descobertas e 45 oportunidades mapeadas",
+            caption: "One-pager executivo do projeto destacando CSAT 5/5, 37 principais descobertas, 45 oportunidades mapeadas e estratégia de organização que aprende",
+          },
+        ],
+      },
+      {
+        id: "cf-automation",
+        category: "platforms",
+        title: "Projeto ForecastFlow — Automação do Current Forecast (CF) Financeiro & UX Ponta a Ponta",
+        short:
+          "Pesquisa de UX ponta a ponta, personas Controller & Buyer, jornadas do usuário As-Is/To-Be e 5 telas de wireframes reduzindo o ciclo do forecast em 42% e elevando acurácia em 80%.",
+        full:
+          "Executei todas as entregas de pesquisa e design de UX para Automação do Current Forecast (CF) Financeiro (CSI 4/5, NPS 10), substituindo a coordenação manual de 19 planilhas/sistemas entre 11 equipes e 36 interações. Entreguei pesquisa de descoberta, principais achados, personas Controller e Comprador, jornadas do usuário As-Is e To-Be (especificamente jornadas do usuário interno) e 5 telas de wireframes interativos—reduzindo o tempo operacional em 42% (40h para 28h) e elevando a acurácia em 80%.",
+        media: [
+          {
+            src: "../media/projects/cf-automation__cf-executive-impact-summary.png",
+            alt: "One-pager executivo de impacto resumindo 42% de redução no tempo operacional e 80% de ganho em acurácia",
+            caption: "One-pager executivo de impacto resumindo 42% de redução no tempo operacional, 80% de ganho em acurácia, satisfação 4/5 e direcionadores de negócio",
+          },
+        ],
+      },
+      {
+        id: "b-travel",
+        category: "platforms",
+        title: "Projeto TripFlow — Pesquisa de UX e Mapeamento de Jornada Travel-to-Expense (T2E)",
+        short:
+          "Pesquisa de UX na Espanha e Portugal analisando dores corporativas de Travel-to-Expense em 13 subcategorias, nuvem de survey, persona e Jornada do Usuário em 8 momentos com 24 oportunidades.",
+        full:
+          "Conduzi pesquisa mista de UX em operações ibéricas (Espanha e Portugal) investigando gargalos no ciclo corporativo de viagens e reembolso de despesas (Travel-to-Expense / T2E). Combinando entrevistas qualitativas, categorização de dores em 13 subcategorias, análise de nuvem de palavras em survey (25% de convergência em atritos de prestação de contas e recibos), definição da persona de Coordenadora de Viagens (Ana Vitória) e uma Jornada do Usuário de 8 momentos (Pré, Durante e Pós-Viagem), mapeei 24 oportunidades digitais.",
+        media: [
+          {
+            src: "../media/projects/b-travel__btravel-end-to-end-journey-map.png",
+            alt: "Mapa de Jornada do Usuário Travel-to-Expense ponta a ponta em 8 momentos",
+            caption: "Mapa de Jornada do Usuário Travel-to-Expense ponta a ponta em 8 momentos (Pré, Durante e Pós-Viagem) traçando curva emocional e 24 oportunidades",
           },
         ],
       },

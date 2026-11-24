@@ -922,6 +922,15 @@ PROJECT_TO_DELIVERABLE = {
     "tooling-pt": "tooling-pt",
     "data-insights-pt": "data-insights",
     "cip-research-gate": "relevance-model",
+    "x-tower": "x-tower",
+    "ux-bootcamp": "ux-bootcamp",
+    "maturity-l4": "power-bi",
+    "pd-calculator": "pd-calculator",
+    "recipient-manifest": "recipient-manifest",
+    "activity-handover": "activity-handover",
+    "cf-automation": "cf-automation",
+    "co2-scouting": "co2-scouting",
+    "b-travel": "b-travel",
 }
 
 KNOWN_MEDIA_ALIASES = {

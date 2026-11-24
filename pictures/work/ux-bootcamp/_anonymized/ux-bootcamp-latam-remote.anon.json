@@ -1,0 +1,19 @@
+{
+  "method": "all_text_pixelate",
+  "regions": [
+    {
+      "id": "ocr-1",
+      "type": "rect",
+      "x": 947,
+      "y": 197,
+      "w": 199,
+      "h": 24,
+      "text": "Kisser Gisela (GS/OBC-LA3) X",
+      "confidence": 0.9190638599724605,
+      "source": "ocr",
+      "effect": "pixelate"
+    }
+  ],
+  "original_path": "pictures/work/ux-bootcamp/ux-bootcamp-latam-remote.png",
+  "original_sha256": "41ea3929bead0a77304bcdb0bf78feb1cf7827ba9c213b7298c249d763279fa9"
+}

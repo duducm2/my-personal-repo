@@ -835,6 +835,10 @@ section.diagram-slide-top-title .diagram-wrapper img {
 <p><img src="../../../pictures/work/cip-ux/_anonymized/cip-ux-7.anon.png" alt="Strategic Opportunities & Conclusions" /></p>
 <p><img src="../../../pictures/work/cip-ux/_anonymized/cip-ux-8.anon.png" alt="Applied Research Visuals" /></p>
 <p><img src="../../../pictures/work/cip-ux/_anonymized/ux-relevance-scoring.anon.png" alt="UX Relevance Scoring & Low/Medium/High Decision Bands" /></p>
+<p><img src="../../../pictures/work/ux-and-cip/_anonymized/cip-ideation-lab-enhancement.anon.png" alt="Five-step UX enhancement plan for the Ideation Lab platform to improve AI-driven automation opportunity suggestions" /></p>
+<p><img src="../../../pictures/work/ux-and-cip/_anonymized/cip-true-north-prep.anon.png" alt="Pre-workshop 'True North' facilitation and process documentation framework to elevate automation intake quality" /></p>
+<p><img src="../../../pictures/work/ux-and-cip/_anonymized/cip-workshop-as-is-to-be.anon.png" alt="Comparison of the 5-step legacy automation workshop against the redesigned 6-step UX-integrated workshop flow" /></p>
+<p><img src="../../../pictures/work/ux-and-cip/_anonymized/cip-swot-process-templates.anon.png" alt="Standardized process mapping template, SWOT prioritization matrix, and desirability/feasibility/viability follow-up gates" /></p>
 </div>
 
 ---

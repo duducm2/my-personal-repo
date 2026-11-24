@@ -1,4 +1,11 @@
 {
   "x-tower": "../media/x-tower-ecosystem.png",
-  "power-bi": "../media/pbi-allocation.jpg"
+  "power-bi": "../media/pbi-allocation.jpg",
+  "ux-bootcamp": "../media/projects/ux-bootcamp__ux-bootcamp-framework-lecture.jpg",
+  "pd-calculator": "../media/projects/pd-calculator__pd-calculator-gantt-output.png",
+  "recipient-manifest": "../media/projects/recipient-manifest__manifest-ux-project-kpis.png",
+  "activity-handover": "../media/projects/activity-handover__handover-executive-overview.png",
+  "cf-automation": "../media/projects/cf-automation__cf-executive-impact-summary.png",
+  "co2-scouting": "../media/projects/co2-telemetry-scouting.png",
+  "b-travel": "../media/projects/b-travel__btravel-end-to-end-journey-map.png"
 }
