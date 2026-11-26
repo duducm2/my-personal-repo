@@ -1,8 +1,10 @@
 #Requires AutoHotkey v2.0
 #SingleInstance Force
 
-#Include "C:\Users\eduev\Documents\UIA-v2\Lib\UIA.ahk"
-#Include "C:\Users\eduev\Documents\UIA-v2\Lib\UIA_Browser.ahk"
+#Include *i "%A_MyDocuments%\UIA-v2\Lib\UIA.ahk"
+#Include *i "%A_MyDocuments%\scripts\vendor\UIA-v2\Lib\UIA.ahk"
+#Include *i "%A_MyDocuments%\UIA-v2\Lib\UIA_Browser.ahk"
+#Include *i "%A_MyDocuments%\scripts\vendor\UIA-v2\Lib\UIA_Browser.ahk"
 
 ; Phase 1: Website Mapping helper
 ; Usage: AutoHotkey64.exe inspect_portal_uia.ahk --url "https://..." --out "C:\...\uia-dump.txt"
@@ -26,7 +28,9 @@ while i <= A_Args.Length {
     i += 1
 }
 
-inspectorPath := "C:\Users\eduev\Documents\UIA-v2\UIATreeInspector.ahk"
+inspectorPath := A_MyDocuments "\UIA-v2\UIATreeInspector.ahk"
+if !FileExist(inspectorPath)
+    inspectorPath := A_MyDocuments "\scripts\vendor\UIA-v2\UIATreeInspector.ahk"
 if FileExist(inspectorPath) && !WinExist("UIATreeInspector") {
     Run('"' A_AhkPath '" "' inspectorPath '"')
 }
