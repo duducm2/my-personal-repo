@@ -8,6 +8,8 @@ try DllCall("SetProcessDpiAwarenessContext", "Ptr", -4, "Ptr")
 #Include *i "C:\Users\%A_UserName%\Documents\UIA-v2\Lib\UIA.ahk"
 #Include *i "C:\Users\%A_UserName%\Documents\scripts\vendor\UIA-v2\Lib\UIA.ahk"
 #Include *i "C:\Users\%A_UserName%\Documents\scripts\vendor\UIA-v2\UIA.ahk"
+#Include *i "C:\Users\fie7ca\Documents\scripts\vendor\UIA-v2\Lib\UIA.ahk"
+#Include *i "C:\Users\fie7ca\Documents\scripts\vendor\UIA-v2\UIA.ahk"
 
 ; Phase 2: Batch Extraction Script (Direct UIA, lock-safe clipboard, multi-button expansion)
 ; Usage: AutoHotkey64.exe batch_extract_openings.ahk --manifest <tsv_path> --result <json_path>

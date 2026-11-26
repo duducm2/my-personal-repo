@@ -7,12 +7,16 @@
 #Include *i "C:\Users\%A_UserName%\Documents\UIA-v2\Lib\UIA.ahk"
 #Include *i "C:\Users\%A_UserName%\Documents\scripts\vendor\UIA-v2\Lib\UIA.ahk"
 #Include *i "C:\Users\%A_UserName%\Documents\scripts\vendor\UIA-v2\UIA.ahk"
+#Include *i "C:\Users\fie7ca\Documents\scripts\vendor\UIA-v2\Lib\UIA.ahk"
+#Include *i "C:\Users\fie7ca\Documents\scripts\vendor\UIA-v2\UIA.ahk"
 #Include *i "%A_MyDocuments%\UIA-v2\Lib\UIA_Browser.ahk"
 #Include *i "%A_MyDocuments%\scripts\vendor\UIA-v2\Lib\UIA_Browser.ahk"
 #Include *i "%A_MyDocuments%\scripts\vendor\UIA-v2\UIA_Browser.ahk"
 #Include *i "C:\Users\%A_UserName%\Documents\UIA-v2\Lib\UIA_Browser.ahk"
 #Include *i "C:\Users\%A_UserName%\Documents\scripts\vendor\UIA-v2\Lib\UIA_Browser.ahk"
 #Include *i "C:\Users\%A_UserName%\Documents\scripts\vendor\UIA-v2\UIA_Browser.ahk"
+#Include *i "C:\Users\fie7ca\Documents\scripts\vendor\UIA-v2\Lib\UIA_Browser.ahk"
+#Include *i "C:\Users\fie7ca\Documents\scripts\vendor\UIA-v2\UIA_Browser.ahk"
 
 ; Phase 1: Website Mapping helper
 ; Usage: AutoHotkey64.exe inspect_portal_uia.ahk --url "https://..." --out "C:\...\uia-dump.txt"
@@ -41,7 +45,8 @@ for candidate in [
     A_MyDocuments "\UIA-v2\UIATreeInspector.ahk",
     A_MyDocuments "\scripts\vendor\UIA-v2\UIATreeInspector.ahk",
     "C:\Users\" A_UserName "\Documents\UIA-v2\UIATreeInspector.ahk",
-    "C:\Users\" A_UserName "\Documents\scripts\vendor\UIA-v2\UIATreeInspector.ahk"
+    "C:\Users\" A_UserName "\Documents\scripts\vendor\UIA-v2\UIATreeInspector.ahk",
+    "C:\Users\fie7ca\Documents\scripts\vendor\UIA-v2\UIATreeInspector.ahk"
 ] {
     if FileExist(candidate) {
         inspectorPath := candidate
